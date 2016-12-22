@@ -8,11 +8,10 @@
 
 import Foundation
 public class CustomCheckBox: UIButton {
-    
-    //Image
-    let imgUnchecked = UIImage(named: GlobalConst.UNCHECK_IMG_NAME)
-    let imgChecked = UIImage(named: GlobalConst.CHECKED_IMG_NAME)
-    //Bool value to show Image
+    /** Image */
+    let imgUnchecked    = UIImage(named: GlobalConst.UNCHECK_IMG_NAME)
+    let imgChecked      = UIImage(named: GlobalConst.CHECKED_IMG_NAME)
+    /** Bool value to show Image */
     var bChecked:Bool = false {
         didSet {
             if (bChecked == true) {
@@ -22,14 +21,18 @@ public class CustomCheckBox: UIButton {
             }
         }
     }
-    //Initial Value bChecked == false
+    /**
+     * Awake from nib
+     */
     override public func awakeFromNib() {
         self.addTarget(self, action: #selector(CustomCheckBox.buttonClicked(_:)), for: UIControlEvents.touchUpInside)
         self.bChecked = false
         
     }
     
-    //click event
+    /**
+     * Handle click event.
+     */
     func buttonClicked(_ sender: UIButton) {
         if (sender == self) {
             if (bChecked == false) {
