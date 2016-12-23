@@ -49,7 +49,7 @@ public class BaseModel: NSObject {
     /** Id of role */
     var role_id: String = ""
     /** List user info */
-    var user_info: UserInfoBean? = nil
+    public var user_info: UserInfoBean? = nil
     /** List check menu */
     var check_menu: [ConfigBean] = [ConfigBean]()
     /** Flag need change pass */
@@ -174,7 +174,7 @@ public class BaseModel: NSObject {
      * Get server ULR
      * - returns: Server URL
      */
-    func getServerURL() -> String {
+    public func getServerURL() -> String {
         if !checkTrainningMode() {
             return DomainConst.SERVER_URL
         }
