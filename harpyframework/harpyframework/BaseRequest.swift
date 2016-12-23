@@ -1,0 +1,181 @@
+//
+//  BaseRequest.swift
+//  project
+//
+//  Created by Nixforest on 9/23/16.
+//  Copyright © 2016 admin. All rights reserved.
+//
+
+import Foundation
+class BaseRequest {
+    /** URL */
+    var url: String = ""
+    /** Data of request */
+    var data: String = ""
+    /** Data of request (upload file) */
+    var param: [String: String] = [String: String]()
+    /** Request method: GET/POST */
+    var reqMethod: String = ""
+    /** Session */
+    var session = URLSession.shared
+    /** Current view */
+    var view: BaseViewController
+    
+    /**
+     * Initializer
+     * - parameter url: URL
+     * - parameter reqMethod: Request method Get/Post
+     * - parameter view: current view
+     */
+    init(url: String, reqMethod: String, view: BaseViewController) {
+        self.url        = url
+        self.reqMethod  = reqMethod
+        self.view       = view
+    }
+    /**
+     * Initializer
+     * - parameter url: URL
+     * - parameter reqMethod: Request method Get/Post
+     */
+    init(url: String, reqMethod: String) {
+        self.url        = url
+        self.reqMethod  = reqMethod
+        self.view       = BaseViewController()
+    }
+    
+    /**
+     * Execute task
+     */
+    func execute() {
+        let serverUrl: URL = URL(string: BaseModel.shared.getServerURL() + self.url)!
+        let request = NSMutableURLRequest(url: serverUrl)
+        request.httpMethod = self.reqMethod
+        request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringLocalCacheData
+        // Make data string
+        request.httpBody = self.data.data(using: String.Encoding.utf8)
+        let task = completetionHandler(request: request)
+        task.resume()
+    }
+    
+    /**
+     * Execute task and upload files
+     * - parameter listImages: List of images
+     */
+    func executeUploadFile(listImages: [UIImage]) {
+        let serverUrl: URL = URL(string: BaseModel.shared.getServerURL() + self.url)!
+        let request = NSMutableURLRequest(url: serverUrl)
+        request.httpMethod = self.reqMethod
+        request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringLocalCacheData
+        let boundary = generateBoundaryString()
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        
+//        let imgData = UIImageJPEGRepresentation(listImages[0], 1)
+//        if imgData == nil {
+//            return
+//        }
+//        request.httpBody = createBodyWithParameter(parameters: self.param, filePathKey: "file_name[0]",
+//                                                   imageDataKey: imgData! as NSData, boundary: boundary) as Data
+        var imgDataList: [Data] = [Data]()
+        var filePathKey: [String] = [String]()
+        for i in 0..<listImages.count {
+            let imgData = UIImageJPEGRepresentation(listImages[i], 1)
+            if imgData == nil {
+                return
+            }
+            imgDataList.append(imgData!)
+            filePathKey.append(String.init(format: "file_name[%d]", i))
+        }
+        request.httpBody = createBodyWithParameter(parameters: self.param, filePathKey: filePathKey,
+                                                   imageDataKey: imgDataList, boundary: boundary) as Data
+        
+        let task = completetionHandler(request: request)
+        task.resume()
+    }
+    
+    /// Create boundary string for multipart/form-data request
+    ///
+    /// - returns:            The boundary string that consists of "Boundary-" followed by a UUID string.
+    
+    func generateBoundaryString() -> String {
+        return "Boundary-\(NSUUID().uuidString)"
+    }
+    
+    func createBodyWithParameter(parameters: [String: String]?, filePathKey: String?,
+                                 imageDataKey: NSData, boundary: String) -> NSData {
+        let body = NSMutableData()
+        if parameters != nil {
+            for (key, value) in parameters! {
+                body.appendString(string: "--\(boundary)\r\n")
+                body.appendString(string: "Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")
+                body.appendString(string: "\(value)\r\n")
+            }
+        }
+        let filename = "abcdef.jpg"
+        let mimetype = "image/jpg"
+        
+        body.appendString(string: "--\(boundary)\r\n")
+        body.appendString(string: "Content-Disposition: form-data; name=\"\(filePathKey!)\"; filename=\"\(filename)\"\r\n")
+        body.appendString(string: "Content-Type: \(mimetype)\r\n\r\n")
+        body.append(imageDataKey as Data)
+        body.appendString(string: "\r\n")
+        body.appendString(string: "--\(boundary)--\r\n")
+        
+        return body
+    }
+    
+    func createBodyWithParameter(parameters: [String: String]?, filePathKey: [String],
+                                 imageDataKey: [Data], boundary: String) -> NSData {
+        let body = NSMutableData()
+        if parameters != nil {
+            for (key, value) in parameters! {
+                body.appendString(string: "--\(boundary)\r\n")
+                body.appendString(string: "Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")
+                body.appendString(string: "\(value)\r\n")
+            }
+        }
+        let filename = "abcdef.jpg"
+        let mimetype = "image/jpg"
+        for i in 0..<filePathKey.count {
+            body.appendString(string: "--\(boundary)\r\n")
+            body.appendString(string: "Content-Disposition: form-data; name=\"\(filePathKey[i])\"; filename=\"\(filename)\"\r\n")
+            body.appendString(string: "Content-Type: \(mimetype)\r\n\r\n")
+            body.append(imageDataKey[i])
+            body.appendString(string: "\r\n")
+            body.appendString(string: "--\(boundary)--\r\n")
+        }
+        
+        return body
+    }
+    
+    /**
+     * Handle when complete task
+     */
+    func completetionHandler(request: NSMutableURLRequest) -> URLSessionTask {
+        let task = self.session.dataTask(with: request as URLRequest, completionHandler: {
+            (
+            data, response, error) in
+            // Check error
+            guard error == nil else {
+                self.view.showAlert(message: GlobalConst.CONTENT00196)
+                return
+            }
+            guard data == nil else {
+                self.view.showAlert(message: GlobalConst.CONTENT00196)
+                return
+            }
+        })
+        return task
+    }
+    
+    /**
+     * Show alert when connection has error.
+     * - parameter message: Message string
+     */
+    func showAlert(message: String) {
+        // Hide overlay
+        LoadingView.shared.hideOverlayView()
+        DispatchQueue.main.async {
+            self.view.showAlert(message: message)
+        }
+    }
+}
