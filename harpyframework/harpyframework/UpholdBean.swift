@@ -7,63 +7,63 @@
 //
 
 import Foundation
-class UpholdBean: NSObject {
+public class UpholdBean: NSObject {
     /** Id */
-    var id: String = ""
+    public var id: String = ""
     /** Uphold type */
-    var uphold_type: String = ""
+    public var uphold_type: String = ""
     /** Code number */
-    var code_no: String = ""
+    public var code_no: String = ""
     /** Customer name */
-    var customer_name: String = ""
+    public var customer_name: String = ""
     /** Customer address */
-    var customer_address: String = ""
+    public var customer_address: String = ""
     /** Level type */
-    var level_type: String = ""
+    public var level_type: String = ""
     /** Type uphold */
-    var type_uphold: String = ""
+    public var type_uphold: String = ""
     /** Content */
-    var content: String = ""
+    public var content: String = ""
     /** Contact person */
-    var contact_person: String = ""
+    public var contact_person: String = ""
     /** Contact phone */
-    var contact_tel: String = ""
+    public var contact_tel: String = ""
     /** Status */
-    var status: String = ""
+    public var status: String = ""
     /** Created date */
-    var created_date: String = ""
+    public var created_date: String = ""
     /** Sale name */
-    var sale_name: String = ""
+    public var sale_name: String = ""
     /** Created by */
-    var created_by: String = ""
+    public var created_by: String = ""
     /** Schedule month */
-    var schedule_month: String = ""
+    public var schedule_month: String = ""
     /** List reply items */
     //var reply_item: [UpholdReplyBean]
     /** Employee name */
-    var employee_name: String = ""
+    public var employee_name: String = ""
     /** Employee phone */
-    var employee_phone: String = ""
+    public var employee_phone: String = ""
     /** Last reply message */
-    var last_reply_message: String = ""
+    public var last_reply_message: String = ""
     /** Report wrong */
-    var report_wrong: String = ""
+    public var report_wrong: String = ""
     /** Reply Id */
-    var reply_id: String = ""
+    public var reply_id: String = ""
     /** Status number */
-    var status_number: String = ""
+    public var status_number: String = ""
     /** Customer id */
-    var customer_id: String = ""
+    public var customer_id: String = ""
     /** Rating status */
-    var rating_status: String = ""
+    public var rating_status: String = ""
     /** Rating note */
-    var rating_note: String = ""
+    public var rating_note: String = ""
     /** Rating type */
-    var rating_type: [ConfigBean] = [ConfigBean]()
+    public var rating_type: [ConfigBean] = [ConfigBean]()
     /** Schedule type */
-    var schedule_type: String = ""
+    public var schedule_type: String = ""
     /** Reply items */
-    var reply_item: [UpholdReplyBean] = [UpholdReplyBean]()
+    public var reply_item: [UpholdReplyBean] = [UpholdReplyBean]()
     
     /**
      * Initializer

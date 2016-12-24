@@ -8,7 +8,7 @@
 
 import Foundation
 
-class LoginRespModel : BaseRespModel {
+public class LoginRespModel : BaseRespModel {
     /** List menu */
     var menu: [ConfigBean] = [ConfigBean]()
     /** List data uphold */

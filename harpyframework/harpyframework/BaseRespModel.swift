@@ -7,15 +7,15 @@
 //
 
 import Foundation
-class BaseRespModel : NSObject {
+public class BaseRespModel : NSObject {
     /** Status */
-    var status: String = "0"
+    public var status: String = "0"
     /** Code */
-    var code: String = ""
+    public var code: String = ""
     /** Message */
-    var message: String = ""
+    public var message: String = ""
     /** User token */
-    var token: String = ""
+    public var token: String = ""
     /**
      * Initializer
      */
@@ -26,7 +26,7 @@ class BaseRespModel : NSObject {
      * Initializer
      * - parameter jsonString: String of json
      */
-    init(jsonString: String) {
+    public init(jsonString: String) {
         super.init()
         
         if let jsonData = jsonString.data(using: String.Encoding.utf8, allowLossyConversion: false) {

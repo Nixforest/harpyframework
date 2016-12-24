@@ -7,20 +7,20 @@
 //
 
 import Foundation
-class ConfigBean: NSObject {
+public class ConfigBean: NSObject {
     /** Id of item */
-    var id: String = ""
+    public var id: String = ""
     /** Name of item */
-    var name: String = ""
+    public var name: String = ""
     /** Data of item */
-    var data = [ConfigBean]()
+    public var data = [ConfigBean]()
     
     /**
      * Initializer
      * - parameter id: Id of item
      * - parameter name: Name of item
      */
-    init(id: String, name: String) {
+    public init(id: String, name: String) {
         super.init()
         self.id = id
         self.name = name
@@ -32,7 +32,7 @@ class ConfigBean: NSObject {
      * - parameter name: Name of item
      * - parameter data: List of data
      */
-    init(id: String, name: String, data: [ConfigBean]) {
+    public init(id: String, name: String, data: [ConfigBean]) {
         super.init()
         self.id = id
         self.name = name
@@ -43,7 +43,7 @@ class ConfigBean: NSObject {
      * Initializer
      * - parameter jsonString: Json string to parse
      */
-    init(jsonString: String) {
+    public init(jsonString: String) {
         super.init()
         if let jsonData = jsonString.data(using: String.Encoding.utf8, allowLossyConversion: false) {
             do {

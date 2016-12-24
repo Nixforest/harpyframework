@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class SearchCustomerRespModel: BaseRespModel {
+public class SearchCustomerRespModel: BaseRespModel {
     /** Record */
     var record: [ConfigBean] = [ConfigBean]()
     
@@ -46,5 +46,13 @@ class SearchCustomerRespModel: BaseRespModel {
      */
     override init() {
         super.init()
+    }
+    
+    /**
+     * Get record value.
+     * - returns: Record value
+     */
+    public func getRecord() -> [ConfigBean] {
+        return self.record
     }
 }

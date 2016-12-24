@@ -159,9 +159,9 @@
 		D7B567BC1E0D89240042D5A8 /* Response */ = {
 			isa = PBXGroup;
 			children = (
+				D7B567BD1E0D89560042D5A8 /* BaseRespModel.swift */,
 				D7B567C91E0D8BA50042D5A8 /* NotificationCountRespModel.swift */,
 				D7B567C31E0D89EB0042D5A8 /* LoginRespModel.swift */,
-				D7B567BD1E0D89560042D5A8 /* BaseRespModel.swift */,
 				D7B567AD1E0D88A80042D5A8 /* SearchCustomerRespModel.swift */,
 				D7B567AE1E0D88A80042D5A8 /* UpholdDetailRespModel.swift */,
 				D7B567AF1E0D88A80042D5A8 /* UpholdListRespModel.swift */,

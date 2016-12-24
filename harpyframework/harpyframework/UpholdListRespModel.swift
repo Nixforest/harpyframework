@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class UpholdListRespModel: BaseRespModel {
+public class UpholdListRespModel: BaseRespModel {
     /** Total record */
     var total_record: Int = 0
     /** Total page */
@@ -57,5 +57,13 @@ class UpholdListRespModel: BaseRespModel {
      */
     override init() {
         super.init()
+    }
+    
+    /**
+     * Get record value.
+     * - returns: Record value
+     */
+    public func getRecord() -> [UpholdBean] {
+        return self.record
     }
 }

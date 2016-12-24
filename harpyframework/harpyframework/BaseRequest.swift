@@ -7,19 +7,19 @@
 //
 
 import Foundation
-class BaseRequest {
+open class BaseRequest {
     /** URL */
     var url: String = ""
     /** Data of request */
-    var data: String = ""
+    public var data: String = ""
     /** Data of request (upload file) */
-    var param: [String: String] = [String: String]()
+    public var param: [String: String] = [String: String]()
     /** Request method: GET/POST */
     var reqMethod: String = ""
     /** Session */
-    var session = URLSession.shared
+    public var session = URLSession.shared
     /** Current view */
-    var view: BaseViewController
+    public var view: BaseViewController
     
     /**
      * Initializer
@@ -27,7 +27,7 @@ class BaseRequest {
      * - parameter reqMethod: Request method Get/Post
      * - parameter view: current view
      */
-    init(url: String, reqMethod: String, view: BaseViewController) {
+    public init(url: String, reqMethod: String, view: BaseViewController) {
         self.url        = url
         self.reqMethod  = reqMethod
         self.view       = view
@@ -37,7 +37,7 @@ class BaseRequest {
      * - parameter url: URL
      * - parameter reqMethod: Request method Get/Post
      */
-    init(url: String, reqMethod: String) {
+    public init(url: String, reqMethod: String) {
         self.url        = url
         self.reqMethod  = reqMethod
         self.view       = BaseViewController()
@@ -46,7 +46,7 @@ class BaseRequest {
     /**
      * Execute task
      */
-    func execute() {
+    public func execute() {
         let serverUrl: URL = URL(string: BaseModel.shared.getServerURL() + self.url)!
         let request = NSMutableURLRequest(url: serverUrl)
         request.httpMethod = self.reqMethod
@@ -61,7 +61,7 @@ class BaseRequest {
      * Execute task and upload files
      * - parameter listImages: List of images
      */
-    func executeUploadFile(listImages: [UIImage]) {
+    public func executeUploadFile(listImages: [UIImage]) {
         let serverUrl: URL = URL(string: BaseModel.shared.getServerURL() + self.url)!
         let request = NSMutableURLRequest(url: serverUrl)
         request.httpMethod = self.reqMethod
@@ -69,12 +69,6 @@ class BaseRequest {
         let boundary = generateBoundaryString()
         request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
         
-//        let imgData = UIImageJPEGRepresentation(listImages[0], 1)
-//        if imgData == nil {
-//            return
-//        }
-//        request.httpBody = createBodyWithParameter(parameters: self.param, filePathKey: "file_name[0]",
-//                                                   imageDataKey: imgData! as NSData, boundary: boundary) as Data
         var imgDataList: [Data] = [Data]()
         var filePathKey: [String] = [String]()
         for i in 0..<listImages.count {
@@ -92,14 +86,22 @@ class BaseRequest {
         task.resume()
     }
     
-    /// Create boundary string for multipart/form-data request
-    ///
-    /// - returns:            The boundary string that consists of "Boundary-" followed by a UUID string.
-    
+    /**
+     * Create boundary string for multipart/form-data request
+     * - returns: The boundary string that consists of "Boundary-" followed by a UUID string.
+     */
     func generateBoundaryString() -> String {
         return "Boundary-\(NSUUID().uuidString)"
     }
     
+    /**
+     * Create body
+     * - parameter parameters:      List of parameter
+     * - parameter filePathKey:     Filepath key
+     * - parameter imageDataKey:    Image data key
+     * - parameter boundary:        Boundary data
+     * - returns: NSData
+     */
     func createBodyWithParameter(parameters: [String: String]?, filePathKey: String?,
                                  imageDataKey: NSData, boundary: String) -> NSData {
         let body = NSMutableData()
@@ -123,6 +125,14 @@ class BaseRequest {
         return body
     }
     
+    /**
+     * Create body
+     * - parameter parameters:      List of parameter
+     * - parameter filePathKey:     Filepath key
+     * - parameter imageDataKey:    List of Image data key
+     * - parameter boundary:        Boundary data
+     * - returns: NSData
+     */
     func createBodyWithParameter(parameters: [String: String]?, filePathKey: [String],
                                  imageDataKey: [Data], boundary: String) -> NSData {
         let body = NSMutableData()
@@ -150,7 +160,7 @@ class BaseRequest {
     /**
      * Handle when complete task
      */
-    func completetionHandler(request: NSMutableURLRequest) -> URLSessionTask {
+    open func completetionHandler(request: NSMutableURLRequest) -> URLSessionTask {
         let task = self.session.dataTask(with: request as URLRequest, completionHandler: {
             (
             data, response, error) in
@@ -171,7 +181,7 @@ class BaseRequest {
      * Show alert when connection has error.
      * - parameter message: Message string
      */
-    func showAlert(message: String) {
+    public func showAlert(message: String) {
         // Hide overlay
         LoadingView.shared.hideOverlayView()
         DispatchQueue.main.async {

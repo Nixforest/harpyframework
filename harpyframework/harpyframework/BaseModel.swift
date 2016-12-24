@@ -33,19 +33,19 @@ public class BaseModel: NSObject {
     /** Max upload */
     var max_upload: String = ""
     /** List uphold status */
-    var listUpholdStatus: [ConfigBean] = [ConfigBean]()
+    public var listUpholdStatus: [ConfigBean] = [ConfigBean]()
     /** List uphold type */
-    var listUpholdType: [ConfigBean] = [ConfigBean]()
+    public var listUpholdType: [ConfigBean] = [ConfigBean]()
     /** List contact type */
-    var listContactType: [ConfigBean] = [ConfigBean]()
+    public var listContactType: [ConfigBean] = [ConfigBean]()
     /** List hour handle */
-    var listHourHandle: [ConfigBean] = [ConfigBean]()
+    public var listHourHandle: [ConfigBean] = [ConfigBean]()
     /** List menu permission */
     var listMenuPermission: [ConfigBean] = [ConfigBean]()
     /** List rating status */
-    var listRatingStatus: [ConfigBean] = [ConfigBean]()
+    public var listRatingStatus: [ConfigBean] = [ConfigBean]()
     /** List rating type */
-    var listRatingType: [ConfigBean] = [ConfigBean]()
+    public var listRatingType: [ConfigBean] = [ConfigBean]()
     /** Id of role */
     var role_id: String = ""
     /** List user info */
@@ -65,21 +65,21 @@ public class BaseModel: NSObject {
     /** List family type */
     var list_hgd_type: [ConfigBean] = [ConfigBean]()
     /** Uphold list data */
-    var upholdList: UpholdListRespModel = UpholdListRespModel()
+    public var upholdList: UpholdListRespModel = UpholdListRespModel()
     /** Search customer result */
-    var searchCustomerResult: SearchCustomerRespModel = SearchCustomerRespModel()
+    public var searchCustomerResult: SearchCustomerRespModel = SearchCustomerRespModel()
     /** Shared string */
     public var sharedString = ""
     /** Shared int */
-    var sharedInt = -1
+    public var sharedInt = -1
     /** Current uphold detail */
-    var currentUpholdDetail: UpholdBean = UpholdBean()
+    public var currentUpholdDetail: UpholdBean = UpholdBean()
     /** Notification count text */
     var notifyCountText: String = ""
     /** Id of user */
-    var user_id: String = ""
+    public var user_id: String = ""
     /** Notification */
-    var notify: NotificationBean = NotificationBean()
+    public var notify: NotificationBean = NotificationBean()
     /** Last uphold id */
     public var lastUpholdId: String = ""
     /** Flag check can handle notification from server or not */
@@ -140,7 +140,7 @@ public class BaseModel: NSObject {
      * Get user token
      * - returns: User token string
      */
-    func getUserToken() -> String {
+    public func getUserToken() -> String {
         return self.userToken
     }
     
@@ -156,7 +156,7 @@ public class BaseModel: NSObject {
      * Set training mode
      * - parameter isTrainingValue: Training mode value
      */
-    func setTrainningMode(_ isTrainningValue :Bool)  {
+    public func setTrainningMode(_ isTrainningValue :Bool)  {
         self.isTrainningMode = isTrainningValue
         defaults.set(isTrainningMode, forKey: DomainConst.KEY_SETTING_TRAINING_MODE)
         defaults.synchronize()
@@ -271,7 +271,7 @@ public class BaseModel: NSObject {
      * Check if current user is a customer.
      * returns: True if user is a customer, False otherwise
      */
-    func isCustomerUser() -> Bool {
+    public func isCustomerUser() -> Bool {
         return (self.role_id == DomainConst.ROLE_CUSTOMER)
     }
     
@@ -290,7 +290,7 @@ public class BaseModel: NSObject {
     /**
      * Clear uphold list
      */
-    func clearUpholdList() {
+    public func clearUpholdList() {
         self.upholdList = UpholdListRespModel()
     }
     
@@ -338,7 +338,7 @@ public class BaseModel: NSObject {
      * Save device token
      * - parameter token: Token to saving
      */
-    func setDeviceToken(token: String) {
+    public func setDeviceToken(token: String) {
         self.deviceToken = token
     }
     
@@ -346,7 +346,7 @@ public class BaseModel: NSObject {
      * Get device token
      * - returns: Device token string
      */
-    func getDeviceToken() -> String {
+    public func getDeviceToken() -> String {
         return self.deviceToken
     }
     
@@ -367,7 +367,7 @@ public class BaseModel: NSObject {
      * - parameter reply_id:    Id of reply item
      * - parameter message:     Message
      */
-    func setNotificationData(id: String, notify_id: String,
+    public func setNotificationData(id: String, notify_id: String,
                              notify_type: String, type: String,
                              reply_id: String, message: String) {
         self.notify.id          = id
@@ -393,7 +393,7 @@ public class BaseModel: NSObject {
     /**
      * Clear notification data
      */
-    func clearNotificationData() {
+    public func clearNotificationData() {
         self.notify.id          = ""
         self.notify.notify_id   = ""
         self.notify.notify_type = ""
@@ -423,7 +423,7 @@ public class BaseModel: NSObject {
      * - parameter id: Id of uphold item
      * - returns: Index of uphold item from list uphold, if item not found, return -1
      */
-    func getUpholdIndexById(id: String) -> Int {
+    public func getUpholdIndexById(id: String) -> Int {
         for i in 0..<self.upholdList.record.count {
             if self.upholdList.record[i].id == id {
                 return i

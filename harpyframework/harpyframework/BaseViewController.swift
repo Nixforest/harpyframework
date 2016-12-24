@@ -195,7 +195,7 @@ open class BaseViewController : UIViewController {
     /**
      * Clear data on current view.
      */
-    public func clearData() {
+    open func clearData() {
         
     }
     

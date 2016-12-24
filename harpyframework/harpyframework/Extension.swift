@@ -11,13 +11,13 @@ import Foundation
 /**
  * Class get color from RGB value.
  */
-class ColorFromRGB: NSObject {
+public class ColorFromRGB: NSObject {
     /**
      * Get color value from RGB value
      * - parameter rgbValue: RGB value
      * - returns: UIColor value
      */
-    internal func getColorFromRGB(_ rgbValue: UInt) -> UIColor {
+    public func getColorFromRGB(_ rgbValue: UInt) -> UIColor {
         return UIColor(
             red:    CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
             green:  CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
@@ -30,11 +30,11 @@ class ColorFromRGB: NSObject {
 /**
  * Uphold image information item.
  */
-class UpholdImageInfoItem: NSObject {
+public class UpholdImageInfoItem: NSObject {
     /** Thumbnail */
-    var thumb = ""
+    public var thumb = ""
     /** Large image */
-    var large = ""
+    public var large = ""
     /**
      * Initializer
      * - parameter jsonData: List of data
@@ -65,4 +65,107 @@ enum MenuItemEnum {
     case DYNAMIC_MENU_LIST
     case CONFIG
     case MENUITEM_NUM
+}
+
+/**
+ * Download image async extension
+ */
+extension UIImageView {
+    /**
+     * Get image from url
+     * - parameter link: Image url
+     * - parameter mode: Image view content mode
+     */
+    public func getImgFromUrl(link: String, contentMode mode: UIViewContentMode) {
+        // Reset image
+        self.image = nil // Here you can put nil to have a blank image or a placeholder image
+        contentMode = mode
+        let serverUrl: URL  = URL(string: link)!
+        let request         = NSMutableURLRequest(url: serverUrl)
+        request.httpMethod  = GlobalConst.HTTP_POST_REQUEST
+        request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringLocalCacheData
+        // Execute task
+        URLSession.shared.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            guard
+                let httpURLResponse = response as? HTTPURLResponse , httpURLResponse.statusCode == 200,
+                let mimeType = response?.mimeType , mimeType.hasPrefix("image"),
+                let data = data , error == nil,
+                let image = UIImage(data: data)
+                else { return }
+            DispatchQueue.main.async {
+                self.image = image
+            }
+            LoadingView.shared.hideOverlayView()
+        }).resume()
+    }
+}
+/**
+ * Draw border extension for layer
+ */
+extension CALayer {
+    /**
+     * Add border
+     * - parameter egde:        Edge want to draw border
+     * - parameter color:       Color of border
+     * - parameter thickness:   Thickness of border
+     */
+    public func addBorder(edge: UIRectEdge, color: UIColor, thickness: CGFloat) {
+        let border = CALayer()
+        
+        switch edge {
+        case UIRectEdge.top:
+            border.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: thickness)
+            break
+        case UIRectEdge.bottom:
+            border.frame = CGRect(
+                x: 0,
+                y: self.frame.height - thickness,
+                width: UIScreen.main.bounds.width,
+                height: thickness)
+            break
+        case UIRectEdge.left:
+            border.frame = CGRect(x: 0, y: 0, width: thickness, height: self.frame.height)
+            break
+        case UIRectEdge.right:
+            border.frame = CGRect(
+                x: self.frame.width - thickness,
+                y: 0,
+                width: thickness,
+                height: self.frame.height)
+            break
+        default:
+            break
+        }
+        
+        border.backgroundColor = color.cgColor;
+        
+        self.addSublayer(border)
+    }
+    
+    /**
+     * Add border with gray color and thickness = 1
+     * - parameter egde:        Edge want to draw border
+     */
+    public func addBorder(edge: UIRectEdge) {
+        addBorder(edge: edge, color: GlobalConst.BACKGROUND_COLOR_GRAY, thickness: 1)
+    }
+}
+/**
+ * Protocol to define delegate with match select button event.
+ */
+public protocol ScrollButtonListDelegate {
+    /**
+     * Handle select button event.
+     * - parameter sender: Button object
+     */
+    func selectButton(_ sender: AnyObject)
+}
+/**
+ * Protocol to define delegate with match step done event.
+ */
+public protocol StepDoneDelegate {
+    /**
+     * Handle step done event.
+     */
+    func stepDone()
 }

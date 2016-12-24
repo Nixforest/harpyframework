@@ -7,29 +7,29 @@
 //
 
 import Foundation
-class UpholdReplyBean: NSObject {
+public class UpholdReplyBean: NSObject {
     /** Id */
-    var id: String = ""
+    public var id: String = ""
     /** Hours handle */
-    var hours_handle: String = ""
+    public var hours_handle: String = ""
     /** Contact phone */
-    var contact_phone: String = ""
+    public var contact_phone: String = ""
     /** Note */
-    var note: String = ""
+    public var note: String = ""
     /** UID login */
-    var uid_login: String = ""
+    public var uid_login: String = ""
     /** Status */
-    var status: String = ""
+    public var status: String = ""
     /** Created date */
-    var created_date: String = ""
+    public var created_date: String = ""
     /** Date time handle */
-    var date_time_handle: String = ""
+    public var date_time_handle: String = ""
     /** Report wrong */
-    var report_wrong: String = ""
+    public var report_wrong: String = ""
     /** Note internal */
-    var note_internal: String = ""
+    public var note_internal: String = ""
     /** List images */
-    var images: [UpholdImageInfoItem] = [UpholdImageInfoItem]()
+    public var images: [UpholdImageInfoItem] = [UpholdImageInfoItem]()
     
     /**
      * Initializer
@@ -59,7 +59,7 @@ class UpholdReplyBean: NSObject {
             }
         }
     }
-    override init() {
+    override public init() {
         
     }
 }

@@ -15,12 +15,10 @@ public class LoadingView{
     /** Overlay label */
     var lblTitle = UILabel()
     /** Instance */
-    class var shared: LoadingView {
-        struct Static {
-            static let instance: LoadingView = LoadingView()
-        }
-        return Static.instance
-    }
+    public static let shared: LoadingView = {
+        let instance = LoadingView()
+        return instance
+    }()
     
     /**
      * Show overlay view
