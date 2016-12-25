@@ -336,7 +336,7 @@ public class GlobalConst {
     /** Pop overmenu identifier */
     public static let POPOVER_MENU_IDENTIFIER = "popOverMenu"
     /** G01F02S06 table view cell */
-    public static let G01_F02_S06_CELL = "step5TableViewCell"
+    public static let G01_F02_S06_CELL = "ImageTableViewCell"
     
     // MARK: Notification name
     public static let NOTIFY_NAME_LOGIN_ITEM                   = "loginItemTapped"

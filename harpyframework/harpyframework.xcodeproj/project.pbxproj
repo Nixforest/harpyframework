@@ -42,8 +42,6 @@
 		D7BE04831E05873700D37740 /* CustomCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE04821E05873700D37740 /* CustomCheckBox.swift */; };
 		D7BE04861E0587D500D37740 /* GlobalConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE04851E0587D500D37740 /* GlobalConst.swift */; };
 		D7BE04891E05889B00D37740 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE04881E05889B00D37740 /* Extension.swift */; };
-		D7C915641E0EF0AF00B65032 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C915631E0EF0AF00B65032 /* ImageTableViewCell.swift */; };
-		D7C915661E0EF11600B65032 /* ImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7C915651E0EF11600B65032 /* ImageTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,8 +93,6 @@
 		D7BE04821E05873700D37740 /* CustomCheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCheckBox.swift; sourceTree = "<group>"; };
 		D7BE04851E0587D500D37740 /* GlobalConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConst.swift; sourceTree = "<group>"; };
 		D7BE04881E05889B00D37740 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		D7C915631E0EF0AF00B65032 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
-		D7C915651E0EF11600B65032 /* ImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,8 +226,6 @@
 			children = (
 				D7B567C51E0D8A6B0042D5A8 /* LoadingView.swift */,
 				D7BE04821E05873700D37740 /* CustomCheckBox.swift */,
-				D7C915631E0EF0AF00B65032 /* ImageTableViewCell.swift */,
-				D7C915651E0EF11600B65032 /* ImageTableViewCell.xib */,
 			);
 			name = CustomControl;
 			sourceTree = "<group>";
@@ -332,7 +326,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7C915661E0EF11600B65032 /* ImageTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,7 +346,6 @@
 				D7B567A71E0D87FF0042D5A8 /* UserProfileRequest.swift in Sources */,
 				D7B5679C1E0D87FF0042D5A8 /* BaseRequest.swift in Sources */,
 				D7B5678D1E0D868C0042D5A8 /* BaseModel.swift in Sources */,
-				D7C915641E0EF0AF00B65032 /* ImageTableViewCell.swift in Sources */,
 				D7B567A51E0D87FF0042D5A8 /* UpholdDetailRequest.swift in Sources */,
 				D7B567B71E0D88A80042D5A8 /* UserProfileRespModel.swift in Sources */,
 				D7B567C61E0D8A6B0042D5A8 /* LoadingView.swift in Sources */,
