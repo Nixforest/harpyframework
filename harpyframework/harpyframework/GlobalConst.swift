@@ -206,6 +206,8 @@ public class GlobalConst {
     public static let CONTENT00223 = "Xem"
     public static let CONTENT00224 = "Để sau"
     public static let CONTENT00225 = "Bảo trì miễn phí"
+    public static let CONTENT00226 = "Quên mật khẩu?"
+    public static let CONTENT00227 = "Tạo tài khoản mới"
     
     // ----- Size of control -----
     public static let SCREEN_WIDTH = UIScreen.main.bounds.width
@@ -237,13 +239,13 @@ public class GlobalConst {
     public static let CHECKBOX_H : CGFloat = 20
     public static let LABEL_W : CGFloat = 120
     public static let LABEL_H : CGFloat = 20
-    public static let BUTTON_W : CGFloat = SCREEN_WIDTH - 30
+    public static let BUTTON_W : CGFloat = SCREEN_WIDTH - 50
     public static let BUTTON_H : CGFloat = 40
-    public static let LOGIN_BUTTON_CORNER_RADIUS : CGFloat = 6
+    public static let LOGIN_BUTTON_CORNER_RADIUS : CGFloat = 20
     public static let MENU_BUTTON_W : CGFloat = 30
     public static let MENU_BUTTON_H : CGFloat = 25
     public static let NOTIFY_BUTTON_H : CGFloat = 30
-    public static let LOGIN_LOGO_W : CGFloat = 190
+    public static let LOGIN_LOGO_W : CGFloat = 250
     public static let LOGIN_LOGO_H : CGFloat = 140
     public static let NAVIGATION_BAR_H : CGFloat = 70
     public static let MARGIN : CGFloat = 10
@@ -261,7 +263,8 @@ public class GlobalConst {
     
     // ----- Color defines -----
     /** Application main color */
-    public static let MAIN_COLOR:                  UIColor = ColorFromRGB().getColorFromRGB(0xF00020)
+    //public static let MAIN_COLOR:                  UIColor = ColorFromRGB().getColorFromRGB(0xF00020)
+    public static let MAIN_COLOR:                  UIColor = ColorFromRGB().getColorFromRGB(0xFC4513)
     public static let TRAINING_COLOR:              UIColor = ColorFromRGB().getColorFromRGB(0x08C011)
     //public static let TRAINING_COLOR:              UIColor = ColorFromRGB().getColorFromRGB(0xF00020)
     public static var BUTTON_COLOR_RED:            UIColor = MAIN_COLOR

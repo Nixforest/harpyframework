@@ -21,6 +21,8 @@ open class BaseViewController : UIViewController {
     public var isKeyboardShow : Bool = false
     /** Main story board */
     public let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+    /** Background image path */
+    private var backgroundImg: String = ""
     
     // MARK: Methods
     /**
@@ -28,7 +30,21 @@ open class BaseViewController : UIViewController {
      */
     override open func viewDidLoad() {
         super.viewDidLoad()
-        //changeBackgroundColor(Singleton.shared.checkTrainningMode())
+        
+        // Set background image
+        if !self.backgroundImg.isEmpty {
+            let background = UIImageView(frame: UIScreen.main.bounds)
+            background.image = UIImage(named: self.backgroundImg)
+            self.view.insertSubview(background, at: 0)
+        }
+    }
+    
+    /**
+     * Set background image path
+     * - parameter bkg: Background image path
+     */
+    public func setBackground(bkg: String) {
+        self.backgroundImg = bkg
     }
     
     /**
