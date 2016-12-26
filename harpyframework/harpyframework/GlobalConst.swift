@@ -255,7 +255,7 @@ public class GlobalConst {
     public static let MARGIN_CELL_X : CGFloat = 3
     public static let ACCOUNT_AVATAR_W : CGFloat = 140
     public static let ACCOUNT_AVATAR_H : CGFloat = 140
-    public static let ACCOUNT_ICON_SIZE : CGFloat = 40
+    public static let ACCOUNT_ICON_SIZE : CGFloat = 35
     public static let SCROLL_BUTTON_LIST_HEIGHT : CGFloat = BUTTON_HEIGHT
     public static let NORMAL_FONT_SIZE: CGFloat = 15.0
     public static let TEXTFIELD_FONT_SIZE: CGFloat = 14.0
