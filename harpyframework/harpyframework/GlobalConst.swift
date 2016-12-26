@@ -206,8 +206,10 @@ public class GlobalConst {
     public static let CONTENT00223 = "Xem"
     public static let CONTENT00224 = "Để sau"
     public static let CONTENT00225 = "Bảo trì miễn phí"
-    public static let CONTENT00226 = "Quên mật khẩu?"
-    public static let CONTENT00227 = "Tạo tài khoản mới"
+    public static let CONTENT00226 = "Gas 24h"
+    public static let CONTENT00227 = "Quên mật khẩu?"
+    public static let CONTENT00228 = "Tạo tài khoản mới"
+    public static let CONTENT00229 = "Lưu thông tin"
     
     // ----- Size of control -----
     public static let SCREEN_WIDTH = UIScreen.main.bounds.width
@@ -269,6 +271,7 @@ public class GlobalConst {
     //public static let TRAINING_COLOR:              UIColor = ColorFromRGB().getColorFromRGB(0xF00020)
     public static var BUTTON_COLOR_RED:            UIColor = MAIN_COLOR
     public static let BUTTON_COLOR_GRAY:UIColor = ColorFromRGB().getColorFromRGB(0xD5D5D5)
+    public static let BUTTON_COLOR_YELLOW:UIColor = ColorFromRGB().getColorFromRGB(0xFF9E19)
     public static let BUTTON_COLOR_DISABLE:UIColor = ColorFromRGB().getColorFromRGB(0x535353)
     public static let COLOR_SELECTING_GREEN:UIColor = ColorFromRGB().getColorFromRGB(0x08C011)
     public static let PARENT_BORDER_COLOR_GRAY:UIColor = UIColor.gray
