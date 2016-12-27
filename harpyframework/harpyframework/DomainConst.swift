@@ -481,6 +481,7 @@ public class DomainConst {
     public static let MESSAGE = "message"
     public static let CUSTOMER_LIST = "customer_list"
     public static let WORKING_REPORT = "working_report_list"
+    public static let ORDER_TRANSACTION_LIST = "transaction_list"
     public static let ISSUE_VIEW = "Chi tiết phản ánh"
     public static let NEWS_VIEW = "Chi tiết tin tức"
     public static let UPHOLD_VIEW = "Chi tiết bảo trì"

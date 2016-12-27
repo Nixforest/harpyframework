@@ -222,7 +222,7 @@ public class GlobalConst {
     public static let STATUS_BAR_HEIGHT:CGFloat = 20
     public static let NAV_BAR_HEIGHT:CGFloat = 44
     public static let SEARCH_BOX_HEIGHT:CGFloat = 44
-    public static let POPOVER_WIDTH:CGFloat = 200
+    public static let POPOVER_WIDTH:CGFloat = SCREEN_WIDTH * 2 / 3
     public static let LABEL_HEIGHT:CGFloat = 34
     public static let CELL_HEIGHT_SHOW:CGFloat = 100
     public static let CELL_HEIGHT_HIDE:CGFloat = 0
@@ -267,11 +267,12 @@ public class GlobalConst {
     // ----- Color defines -----
     /** Application main color */
     //public static let MAIN_COLOR:                  UIColor = ColorFromRGB().getColorFromRGB(0xF00020)
-    public static let MAIN_COLOR:                  UIColor = ColorFromRGB().getColorFromRGB(0xFC4513)
-    public static let TRAINING_COLOR:              UIColor = ColorFromRGB().getColorFromRGB(0x08C011)
+    public static let MAIN_COLOR:                   UIColor = ColorFromRGB().getColorFromRGB(0xFC4513)
+    public static let BUTTON_COLOR_RED_TRUE:        UIColor = ColorFromRGB().getColorFromRGB(0xF00020)
+    public static let TRAINING_COLOR:               UIColor = ColorFromRGB().getColorFromRGB(0x08C011)
     //public static let TRAINING_COLOR:              UIColor = ColorFromRGB().getColorFromRGB(0xF00020)
-    public static var BUTTON_COLOR_RED:            UIColor = MAIN_COLOR
-    public static let BUTTON_COLOR_GRAY:UIColor = ColorFromRGB().getColorFromRGB(0xD5D5D5)
+    public static var BUTTON_COLOR_RED:             UIColor = MAIN_COLOR
+    public static let BUTTON_COLOR_GRAY:            UIColor = ColorFromRGB().getColorFromRGB(0xD5D5D5)
     public static let BUTTON_COLOR_YELLOW:UIColor = ColorFromRGB().getColorFromRGB(0xFF9E19)
     public static let BUTTON_COLOR_DISABLE:UIColor = ColorFromRGB().getColorFromRGB(0x535353)
     public static let COLOR_SELECTING_GREEN:UIColor = ColorFromRGB().getColorFromRGB(0x08C011)
@@ -357,6 +358,7 @@ public class GlobalConst {
     public static let NOTIFY_NAME_COFIG_ITEM_CREATE_UPHOLD     = "configItemTappedCreateUphold"
     public static let NOTIFY_NAME_COFIG_ITEM_UPHOLDDETAILVIEW    = "configItemTappedUpholdDetailView"
     public static let NOTIFY_NAME_COFIG_ITEM_CHANGEPASSVIEW    = "configItemTappedChangePassView"
+    public static let NOTIFY_NAME_COFIG_ITEM_REGISTERVIEW    = "configItemTappedRegisterView"
     public static let NOTIFY_NAME_SET_DATA_ACCOUNTVIEW         = "G00AccountVC.setData"
     public static let NOTIFY_NAME_SET_DATA_UPHOLDLIST_VIEW     = "G01F00S01VC.setData"
     public static let NOTIFY_NAME_RELOAD_DATA_UPHOLDLIST_VIEW  = "G01F00S01VC.reloadData"
@@ -391,15 +393,15 @@ public class GlobalConst {
     /** Checked image name */
     public static let CHECKED_IMG_NAME         = "checkbox-checked.png"
     /** Login image name */
-    public static let LOGIN_MENU_IMG_NAME      = "loginMenu.png"
+    public static let LOGIN_MENU_IMG_NAME      = "login.png"
     /** Logout image name */
     public static let LOGOUT_MENU_IMG_NAME     = "logout.png"
     /** Register image name */
-    public static let REGISTER_MENU_IMG_NAME   = "regMenu.png"
+    public static let REGISTER_MENU_IMG_NAME   = "register.png"
     /** Issue image name */
     public static let ISSUE_MENU_IMG_NAME      = "issueMenu.png"
     /** Config image name */
-    public static let CONFIG_MENU_IMG_NAME     = "config.png"
+    public static let CONFIG_MENU_IMG_NAME     = "configuration.png"
     /** Training mode image name */
     public static let TRAINING_MODE_IMG_NAME   = "trainingMode.png"
     /** Information image name */
