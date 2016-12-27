@@ -24,6 +24,8 @@ public class BaseModel: NSObject {
     var isTrainningMode = Bool()
     /** User token */
     var userToken: String = ""
+    /** Temp token */
+    var tempToken: String = ""
     /** Device token */
     var deviceToken: String = ""
     /** List menu */
@@ -103,7 +105,39 @@ public class BaseModel: NSObject {
         if defaults.object(forKey: DomainConst.KEY_SETTING_TRAINING_MODE) != nil {
             self.isTrainningMode = defaults.object(forKey: DomainConst.KEY_SETTING_TRAINING_MODE) as! Bool
         }
+        
+        // Get temp token value
+        self.tempToken = ""
+        if defaults.object(forKey: DomainConst.KEY_SETTING_TEMP_TOKEN) != nil {
+            self.tempToken = defaults.object(forKey: DomainConst.KEY_SETTING_TEMP_TOKEN) as! String
+        }
     }
+    
+    /**
+     * Set temp token value
+     * - parameter token: Token value
+     */
+    public func setTempToken(token: String) {
+        self.tempToken = token
+        defaults.set(self.tempToken, forKey: DomainConst.KEY_SETTING_TEMP_TOKEN)
+        defaults.synchronize()
+    }
+    
+    /**
+     * Get temp token value
+     * - returns: Temp token value
+     */
+    public func getTempToken() -> String {
+        return self.tempToken
+    }
+    
+    /**
+     * Reset value of temp token
+     */
+    public func resetTempToken() {
+        self.setTempToken(token: "")
+    }
+    
     /**
      * Call When Login Success
      * - parameter token: User token
@@ -114,6 +148,7 @@ public class BaseModel: NSObject {
         defaults.set(isLogin, forKey: DomainConst.KEY_SETTING_IS_LOGGING)
         defaults.set(userToken, forKey: DomainConst.KEY_SETTING_USER_TOKEN)
         defaults.synchronize()
+        self.setTempToken(token: "")
     }
     
     /**
@@ -124,6 +159,7 @@ public class BaseModel: NSObject {
         defaults.set(isLogin, forKey: DomainConst.KEY_SETTING_IS_LOGGING)
         defaults.set(userToken, forKey: DomainConst.KEY_SETTING_USER_TOKEN)
         defaults.synchronize()
+        self.setTempToken(token: "")
     }
     
     /**

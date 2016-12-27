@@ -161,4 +161,36 @@ public class RequestAPI {
         request.setData(notifyId: notifyId, type: type, objId: objId)
         request.execute()
     }
+    
+    /**
+     * Request create register
+     * - parameter name:    Name
+     * - parameter phone:   Phone
+     * - parameter view:    View controller
+     */
+    public static func requestRegister(name: String,
+                                phone: String,
+                                view: BaseViewController) {
+        // Show overlay
+        LoadingView.shared.showOverlay(view: view.view)
+        let request = RegisterRequest(url: DomainConst.PATH_CUSTOMER_REGISTER, reqMethod: GlobalConst.HTTP_POST_REQUEST, view: view)
+        request.setData(name: name,
+                        phone: phone)
+        request.execute()
+    }
+    
+    /**
+     * Request confirm register
+     * - parameter code:    Confirm code
+     * - parameter view:    View controller
+     */
+    public static func requestRegisterConfirm(code: String,
+                                       view: BaseViewController) {
+        // Show overlay
+        LoadingView.shared.showOverlay(view: view.view)
+        let request = RegisterConfirmRequest(url: DomainConst.PATH_CUSTOMER_REGISTER_CONFIRM, reqMethod: GlobalConst.HTTP_POST_REQUEST, view: view)
+        request.setData(code: code)
+        request.execute()
+        
+    }
 }

@@ -210,6 +210,7 @@ public class GlobalConst {
     public static let CONTENT00227 = "Quên mật khẩu?"
     public static let CONTENT00228 = "Tạo tài khoản mới"
     public static let CONTENT00229 = "Lưu thông tin"
+    public static let CONTENT00230 = "Xác thực"
     
     // ----- Size of control -----
     public static let SCREEN_WIDTH = UIScreen.main.bounds.width
@@ -289,7 +290,7 @@ public class GlobalConst {
     
     // MARK: Controller names
     /** Name of RegisterViewController */
-    public static let REGISTER_VIEW_CTRL = "RegisterViewController"
+    public static let REGISTER_VIEW_CTRL = "G00RegisterVC"
     /** Name of G00 home view controller */
     public static let G00_HOME_VIEW_CTRL = "G00HomeVC"
     /** Name of G00 login view controller */

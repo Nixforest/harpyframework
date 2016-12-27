@@ -33,23 +33,6 @@ public class BaseRespModel : NSObject {
             do {
                 let json = try JSONSerialization.jsonObject(with: jsonData, options: []) as! [String: AnyObject]
                 
-                // Loop
-//                for (key, value) in json {
-//                    let keyName = key as String
-//                    if let keyValue = value as? String {
-//                        // If property exists
-//                        if (self.responds(to: NSSelectorFromString(keyName))) {
-//                            self.setValue(keyValue, forKey: keyName)
-//                        }
-//                    } else {
-//                        if let keyValueInt = value as? Int {
-//                            // If property exists
-//                            if (self.responds(to: NSSelectorFromString(keyName))) {
-//                                self.setValue(String(keyValueInt), forKey: keyName)
-//                            }
-//                        }
-//                    }
-                //                }
                 // Status
                 let statusInt = json[DomainConst.KEY_STATUS] as? Int ?? 0
                 if statusInt != 0 {

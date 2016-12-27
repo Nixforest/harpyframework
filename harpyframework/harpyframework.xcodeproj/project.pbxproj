@@ -42,6 +42,8 @@
 		D7BE04831E05873700D37740 /* CustomCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE04821E05873700D37740 /* CustomCheckBox.swift */; };
 		D7BE04861E0587D500D37740 /* GlobalConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE04851E0587D500D37740 /* GlobalConst.swift */; };
 		D7BE04891E05889B00D37740 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE04881E05889B00D37740 /* Extension.swift */; };
+		D7EF19451E110E540054A3AF /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EF19441E110E540054A3AF /* RegisterRequest.swift */; };
+		D7EF19471E1121AB0054A3AF /* RegisterConfirmRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EF19461E1121AB0054A3AF /* RegisterConfirmRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +95,8 @@
 		D7BE04821E05873700D37740 /* CustomCheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCheckBox.swift; sourceTree = "<group>"; };
 		D7BE04851E0587D500D37740 /* GlobalConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConst.swift; sourceTree = "<group>"; };
 		D7BE04881E05889B00D37740 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		D7EF19441E110E540054A3AF /* RegisterRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
+		D7EF19461E1121AB0054A3AF /* RegisterConfirmRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterConfirmRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +133,8 @@
 				D7B567991E0D87FF0042D5A8 /* UpholdDetailRequest.swift */,
 				D7B5679A1E0D87FF0042D5A8 /* UpholdListRequest.swift */,
 				D7B5679B1E0D87FF0042D5A8 /* UserProfileRequest.swift */,
+				D7EF19441E110E540054A3AF /* RegisterRequest.swift */,
+				D7EF19461E1121AB0054A3AF /* RegisterConfirmRequest.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -366,6 +372,8 @@
 				D7BE04831E05873700D37740 /* CustomCheckBox.swift in Sources */,
 				D7B567BE1E0D89560042D5A8 /* BaseRespModel.swift in Sources */,
 				D7B567BB1E0D89010042D5A8 /* ConfigBean.swift in Sources */,
+				D7EF19471E1121AB0054A3AF /* RegisterConfirmRequest.swift in Sources */,
+				D7EF19451E110E540054A3AF /* RegisterRequest.swift in Sources */,
 				D7B5678F1E0D87650042D5A8 /* RequestAPI.swift in Sources */,
 				D7B567C21E0D89B00042D5A8 /* UserInfoBean.swift in Sources */,
 				D7B567A31E0D87FF0042D5A8 /* SearchCustomerRequest.swift in Sources */,

@@ -78,6 +78,33 @@ open class BaseViewController : UIViewController {
     }
     
     /**
+     * Process input confirm code from register request
+     * - parameter message: Message content
+     */
+    public func processInputConfirmCode(message: String) {
+        var msg = message
+        if msg.isEmpty {
+            msg = GlobalConst.CONTENT00133
+        }
+        let alert = UIAlertController(title: GlobalConst.CONTENT00162, message: msg, preferredStyle: .alert)
+        let registerAction = UIAlertAction(title: GlobalConst.CONTENT00230, style: .default, handler: {(registerCodeAlert) -> Void in()
+            RequestAPI.requestRegisterConfirm(code: (alert.textFields?[0].text)!, view: self)
+        })
+        let cancelAction = UIAlertAction(title: GlobalConst.CONTENT00202, style: .cancel, handler: {(registerCodeAlert) -> Void in()
+            BaseModel.shared.resetTempToken()
+        })
+        alert.addTextField { (textField : UITextField!) -> Void in
+            let firstTextField = alert.textFields![0] as UITextField
+            firstTextField.placeholder = GlobalConst.CONTENT00135
+            firstTextField.layer.cornerRadius = 20.0
+        }
+        
+        alert.addAction(registerAction)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    /**
      * Handle show alert message
      * - parameter message: Message content
      * - parameter okHandler: Handler when tap OK button

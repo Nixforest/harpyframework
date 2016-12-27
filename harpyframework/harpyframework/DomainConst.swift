@@ -68,6 +68,10 @@ public class DomainConst {
     public static let PATH_USER_CHANGE_PASS = "user/changePass"
     /** User profile */
     public static let PATH_USER_PROFILE = "user/profile"
+    /** Customer register */
+    public static let PATH_CUSTOMER_REGISTER = "customer/register"
+    /** Customer register confirm */
+    public static let PATH_CUSTOMER_REGISTER_CONFIRM = "customer/registerConfirm"
     
     /** -----List of keys----- */
     /** Token */
@@ -274,6 +278,9 @@ public class DomainConst {
     public static let KEY_SETTING_USER_TOKEN = "gasservice.user.token"
     /** Setting key: training mode */
     public static let KEY_SETTING_TRAINING_MODE = "gasservice.trainningMode"
+    /** Setting key: Temp token */
+    public static let KEY_SETTING_TEMP_TOKEN = "gasservice.temp.token"
+    
     /** Key total record */
     public static let KEY_TOTAL_RECORD = "total_record"
     /** Code no */
@@ -316,6 +323,8 @@ public class DomainConst {
     public static let KEY_UPHOLD_RATING = "uphold_rating"
     /** Version code */
     public static let KEY_APP_VERSION_CODE = "app_version_code"
+    /** Confirm code */
+    public static let KEY_CONFIRM_CODE = "confirm_code"
     
     /** -----Specified constant----- */
     /** File parameter: file_name[ + ] */
