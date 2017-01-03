@@ -7,7 +7,7 @@
 //
 
 import Foundation
-public class BaseRespModel : NSObject {
+open class BaseRespModel: NSObject {
     /** Status */
     public var status: String = "0"
     /** Code */
@@ -19,7 +19,7 @@ public class BaseRespModel : NSObject {
     /**
      * Initializer
      */
-    override init() {
+    override public init() {
     }
   
     /**

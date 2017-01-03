@@ -14,11 +14,11 @@ class SearchCustomerRequest: BaseRequest {
             data, response, error) in
             // Check error
             guard error == nil else {
-                self.showAlert(message: GlobalConst.CONTENT00196)
+                self.showAlert(message: DomainConst.CONTENT00196)
                 return
             }
             guard let data = data else {
-                self.showAlert(message: GlobalConst.CONTENT00196)
+                self.showAlert(message: DomainConst.CONTENT00196)
                 return
             }
             // Convert to string
@@ -30,7 +30,7 @@ class SearchCustomerRequest: BaseRequest {
                 BaseModel.shared.saveSearchCustomerResult(result: model)
                 // Notify update data on UpholdList view (cross-thread)
                 DispatchQueue.main.async {
-                    NotificationCenter.default.post(name: Notification.Name(rawValue: GlobalConst.NOTIFY_NAME_SHOW_SEARCH_BAR_UPHOLDLIST_VIEW), object: model)
+                    NotificationCenter.default.post(name: Notification.Name(rawValue: DomainConst.NOTIFY_NAME_SHOW_SEARCH_BAR_UPHOLDLIST_VIEW), object: model)
                 }
             } else {
                 self.showAlert(message: model.message)

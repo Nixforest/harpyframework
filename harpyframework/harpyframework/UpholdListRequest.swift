@@ -14,11 +14,11 @@ class UpholdListRequest: BaseRequest {
             data, response, error) in
             // Check error
             guard error == nil else {
-                self.showAlert(message: GlobalConst.CONTENT00196)
+                self.showAlert(message: DomainConst.CONTENT00196)
                 return
             }
             guard let data = data else {
-                self.showAlert(message: GlobalConst.CONTENT00196)
+                self.showAlert(message: DomainConst.CONTENT00196)
                 return
             }
             // Convert to string
@@ -27,17 +27,17 @@ class UpholdListRequest: BaseRequest {
             // Convert to object
             let model: UpholdListRespModel = UpholdListRespModel(jsonString: dataString as! String)
             if model.status == "1" {
+                // Hide overlay
+                LoadingView.shared.hideOverlayView()
                 BaseModel.shared.saveUpholdList(upholdListModel: model)
                 // Notify update data on UpholdList view (cross-thread)
                 DispatchQueue.main.async {
-                    NotificationCenter.default.post(name: Notification.Name(rawValue: GlobalConst.NOTIFY_NAME_SET_DATA_UPHOLDLIST_VIEW), object: model)
+                    NotificationCenter.default.post(name: Notification.Name(rawValue: DomainConst.NOTIFY_NAME_SET_DATA_UPHOLDLIST_VIEW), object: model)
                 }
             } else {
                 self.showAlert(message: model.message)
                 return
             }
-            // Hide overlay
-            LoadingView.shared.hideOverlayView()
         })
         return task
     }

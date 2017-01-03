@@ -82,7 +82,7 @@ extension UIImageView {
         contentMode = mode
         let serverUrl: URL  = URL(string: link)!
         let request         = NSMutableURLRequest(url: serverUrl)
-        request.httpMethod  = GlobalConst.HTTP_POST_REQUEST
+        request.httpMethod  = DomainConst.HTTP_POST_REQUEST
         request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringLocalCacheData
         // Execute task
         URLSession.shared.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in

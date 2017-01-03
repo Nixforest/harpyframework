@@ -166,11 +166,11 @@ open class BaseRequest {
             data, response, error) in
             // Check error
             guard error == nil else {
-                self.view.showAlert(message: GlobalConst.CONTENT00196)
+                self.view.showAlert(message: DomainConst.CONTENT00196)
                 return
             }
             guard data == nil else {
-                self.view.showAlert(message: GlobalConst.CONTENT00196)
+                self.view.showAlert(message: DomainConst.CONTENT00196)
                 return
             }
         })

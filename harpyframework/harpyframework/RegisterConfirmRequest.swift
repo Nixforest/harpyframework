@@ -15,11 +15,11 @@ class RegisterConfirmRequest: BaseRequest {
             data, response, error) in
             // Check error
             guard error == nil else {
-                self.showAlert(message: GlobalConst.CONTENT00196)
+                self.showAlert(message: DomainConst.CONTENT00196)
                 return
             }
             guard let data = data else {
-                self.showAlert(message: GlobalConst.CONTENT00196)
+                self.showAlert(message: DomainConst.CONTENT00196)
                 return
             }
             // Convert to string
@@ -33,7 +33,7 @@ class RegisterConfirmRequest: BaseRequest {
                 BaseModel.shared.resetTempToken()
                 // Back to home page (cross-thread)
                 DispatchQueue.main.async {
-                    let loginVC = self.view.mainStoryboard.instantiateViewController(withIdentifier: GlobalConst.G00_LOGIN_VIEW_CTRL)
+                    let loginVC = self.view.mainStoryboard.instantiateViewController(withIdentifier: DomainConst.G00_LOGIN_VIEW_CTRL)
                     self.view.navigationController?.pushViewController(loginVC, animated: true)
                 }
             } else {

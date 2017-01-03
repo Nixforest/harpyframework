@@ -7,7 +7,7 @@
 //
 
 import Foundation
-open class BaseViewController : UIViewController {
+open class BaseViewController : UIViewController, UIPopoverPresentationControllerDelegate {
     // MARK: Properties
     /** Navigation bar */
     @IBOutlet weak public var navigationBar: UINavigationItem!
@@ -59,8 +59,8 @@ open class BaseViewController : UIViewController {
      * - parameter message: Message content
      */
     public func showAlert(message: String) -> Void {
-        let alert = UIAlertController(title: GlobalConst.CONTENT00162, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: GlobalConst.CONTENT00008, style: .default, handler: nil)
+        let alert = UIAlertController(title: DomainConst.CONTENT00162, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: DomainConst.CONTENT00008, style: .default, handler: nil)
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
     }
@@ -71,8 +71,8 @@ open class BaseViewController : UIViewController {
      * - parameter okHandler: Handler when tap OK button
      */
     public func showAlert(message: String, okHandler:  @escaping (UIAlertAction) -> Swift.Void) -> Void {
-        let alert = UIAlertController(title: GlobalConst.CONTENT00162, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: GlobalConst.CONTENT00008, style: .cancel, handler: okHandler)
+        let alert = UIAlertController(title: DomainConst.CONTENT00162, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: DomainConst.CONTENT00008, style: .cancel, handler: okHandler)
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
     }
@@ -84,18 +84,18 @@ open class BaseViewController : UIViewController {
     public func processInputConfirmCode(message: String) {
         var msg = message
         if msg.isEmpty {
-            msg = GlobalConst.CONTENT00133
+            msg = DomainConst.CONTENT00133
         }
-        let alert = UIAlertController(title: GlobalConst.CONTENT00162, message: msg, preferredStyle: .alert)
-        let registerAction = UIAlertAction(title: GlobalConst.CONTENT00230, style: .default, handler: {(registerCodeAlert) -> Void in()
+        let alert = UIAlertController(title: DomainConst.CONTENT00162, message: msg, preferredStyle: .alert)
+        let registerAction = UIAlertAction(title: DomainConst.CONTENT00230, style: .default, handler: {(registerCodeAlert) -> Void in()
             RequestAPI.requestRegisterConfirm(code: (alert.textFields?[0].text)!, view: self)
         })
-        let cancelAction = UIAlertAction(title: GlobalConst.CONTENT00202, style: .cancel, handler: {(registerCodeAlert) -> Void in()
+        let cancelAction = UIAlertAction(title: DomainConst.CONTENT00202, style: .cancel, handler: {(registerCodeAlert) -> Void in()
             BaseModel.shared.resetTempToken()
         })
         alert.addTextField { (textField : UITextField!) -> Void in
             let firstTextField = alert.textFields![0] as UITextField
-            firstTextField.placeholder = GlobalConst.CONTENT00135
+            firstTextField.placeholder = DomainConst.CONTENT00135
             firstTextField.layer.cornerRadius = 20.0
         }
         
@@ -112,10 +112,10 @@ open class BaseViewController : UIViewController {
      */
     public func showAlert(message: String, okHandler: @escaping (UIAlertAction) -> Swift.Void, cancelHandler: @escaping (UIAlertAction) -> Swift.Void) -> Void {
         
-        let alert = UIAlertController(title: GlobalConst.CONTENT00162, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: GlobalConst.CONTENT00008, style: .default, handler: okHandler)
+        let alert = UIAlertController(title: DomainConst.CONTENT00162, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: DomainConst.CONTENT00008, style: .default, handler: okHandler)
         alert.addAction(okAction)
-        let cancelAction = UIAlertAction(title: GlobalConst.CONTENT00202, style: .cancel, handler: cancelHandler)
+        let cancelAction = UIAlertAction(title: DomainConst.CONTENT00202, style: .cancel, handler: cancelHandler)
         alert.addAction(cancelAction)
         self.present(alert, animated: true, completion: nil)
     }
@@ -132,7 +132,7 @@ open class BaseViewController : UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: GlobalConst.BUTTON_COLOR_RED]
         
         // Menu button
-        let menu        = UIImage(named: GlobalConst.MENU_IMG_NAME)
+        let menu        = UIImage(named: DomainConst.MENU_IMG_NAME)
         let tintedImg   = menu?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
         menuButton.setImage(tintedImg, for: UIControlState())
         menuButton.tintColor    = GlobalConst.BUTTON_COLOR_RED
@@ -166,7 +166,7 @@ open class BaseViewController : UIViewController {
         // Set on Navigation bar
         self.navigationItem.rightBarButtonItems = [menuNavBar, notifyNavBar]
         
-        let back = UIImage(named: GlobalConst.BACK_IMG_NAME)
+        let back = UIImage(named: DomainConst.BACK_IMG_NAME)
         let tintedBack = back?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
         backButton.setImage(tintedBack, for: UIControlState())
         backButton.tintColor = GlobalConst.BUTTON_COLOR_RED
@@ -210,7 +210,7 @@ open class BaseViewController : UIViewController {
      * Handle when tap on Config menu item
      */
     public func configItemTap(_ notification: Notification) {
-        let config = mainStoryboard.instantiateViewController(withIdentifier: GlobalConst.G00_CONFIGURATION_VIEW_CTRL)
+        let config = mainStoryboard.instantiateViewController(withIdentifier: DomainConst.G00_CONFIGURATION_VIEW_CTRL)
         self.navigationController?.pushViewController(config, animated: true)
     }
     
@@ -280,5 +280,22 @@ open class BaseViewController : UIViewController {
             currentView = navigationController.visibleViewController
         }
         return currentView as! BaseViewController
+    }
+    
+    /**
+     * Override: show menu controller
+     */
+    override open func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == DomainConst.POPOVER_MENU_IDENTIFIER {
+            let popoverVC = segue.destination
+            popoverVC.popoverPresentationController?.delegate = self
+        }
+    }
+    
+    /**
+     * ...
+     */
+    public func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return UIModalPresentationStyle.none
     }
 }

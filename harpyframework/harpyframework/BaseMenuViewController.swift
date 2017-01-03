@@ -138,25 +138,25 @@ open class BaseMenuViewController : UIViewController {
         
         // Configuration menu
         if listMenu[MenuItemEnum.CONFIG.hashValue] {
-            setItemContent(title: GlobalConst.CONTENT00128, iconPath: GlobalConst.CONFIG_MENU_IMG_NAME, action: #selector(configItemTapped), offset: offset)
+            setItemContent(title: DomainConst.CONTENT00128, iconPath: DomainConst.CONFIG_MENU_IMG_NAME, action: #selector(configItemTapped), offset: offset)
             offset += GlobalConst.BUTTON_HEIGHT
         }
         
         // Login menu
         if listMenu[MenuItemEnum.LOGIN.hashValue] {
-            setItemContent(title: GlobalConst.CONTENT00051, iconPath: GlobalConst.LOGIN_MENU_IMG_NAME, action: #selector(loginItemTapped), offset: offset)
+            setItemContent(title: DomainConst.CONTENT00051, iconPath: DomainConst.LOGIN_MENU_IMG_NAME, action: #selector(loginItemTapped), offset: offset)
             offset += GlobalConst.BUTTON_HEIGHT
         }
         
         // Logout menu
         if listMenu[MenuItemEnum.LOGOUT.hashValue] {
-            setItemContent(title: GlobalConst.CONTENT00132, iconPath: GlobalConst.LOGOUT_MENU_IMG_NAME, action: #selector(logoutItemTapped), offset: offset)
+            setItemContent(title: DomainConst.CONTENT00132, iconPath: DomainConst.LOGOUT_MENU_IMG_NAME, action: #selector(logoutItemTapped), offset: offset)
             offset += GlobalConst.BUTTON_HEIGHT
         }
         
         // Register menu
         if listMenu[MenuItemEnum.REGISTER.hashValue] {
-            setItemContent(title: GlobalConst.CONTENT00052, iconPath: GlobalConst.REGISTER_MENU_IMG_NAME, action: #selector(registerItemTapped), offset: offset)
+            setItemContent(title: DomainConst.CONTENT00052, iconPath: DomainConst.REGISTER_MENU_IMG_NAME, action: #selector(registerItemTapped), offset: offset)
             offset += GlobalConst.BUTTON_HEIGHT
         }
         
@@ -200,7 +200,7 @@ open class BaseMenuViewController : UIViewController {
 //        
 //        _scrollView.addSubview(button)
 //        _scrollView.addSubview(icon)
-        var item: MenuItem = MenuItem(title: title, id: id, iconPath: iconPath, action: action)
+        let item: MenuItem = MenuItem(title: title, id: id, iconPath: iconPath, action: action)
         item.frame = CGRect(x: 0, y: offset, width: GlobalConst.POPOVER_WIDTH,
                             height: GlobalConst.BUTTON_HEIGHT)
         _scrollView.addSubview(item)
@@ -213,7 +213,7 @@ open class BaseMenuViewController : UIViewController {
      */
     func loginItemTapped(_ sender: AnyObject) {
         self.dismiss(animated: false) {
-            NotificationCenter.default.post(name: Notification.Name(rawValue: GlobalConst.NOTIFY_NAME_LOGIN_ITEM), object: nil)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: DomainConst.NOTIFY_NAME_LOGIN_ITEM), object: nil)
         }
     }
     
@@ -226,7 +226,7 @@ open class BaseMenuViewController : UIViewController {
         //Singleton.shared.logoutSuccess()
         //-- BUG0025-SPJ (NguyenPT 20161221) Fix bug logout not success
         self.dismiss(animated: false) {
-            NotificationCenter.default.post(name: Notification.Name(rawValue: GlobalConst.NOTIFY_NAME_LOGOUT_ITEM), object: nil)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: DomainConst.NOTIFY_NAME_LOGOUT_ITEM), object: nil)
         }
     }
     
@@ -236,7 +236,7 @@ open class BaseMenuViewController : UIViewController {
      */
     func registerItemTapped(_ sender: AnyObject) {
         self.dismiss(animated: false) {
-            NotificationCenter.default.post(name: Notification.Name(rawValue: GlobalConst.NOTIFY_NAME_REGISTER_ITEM), object: nil)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: DomainConst.NOTIFY_NAME_REGISTER_ITEM), object: nil)
         }
     }
     
@@ -260,27 +260,28 @@ open class BaseMenuViewController : UIViewController {
                 _ = currentView.navigationController?.popToRootViewController(animated: true)
                 break
             case DomainConst.USER_PROFILE:
-                let accountVC = currentView.mainStoryboard.instantiateViewController(withIdentifier: GlobalConst.G00_ACCOUNT_VIEW_CTRL)
+                let accountVC = currentView.mainStoryboard.instantiateViewController(withIdentifier: DomainConst.G00_ACCOUNT_VIEW_CTRL)
                 currentView.navigationController?.pushViewController(accountVC, animated: true)
                 break
             case DomainConst.UPHOLD_LIST:
-                let upholdListVC = currentView.mainStoryboard.instantiateViewController(withIdentifier: GlobalConst.G01_F00_S01_VIEW_CTRL)
+                let upholdListVC = currentView.mainStoryboard.instantiateViewController(withIdentifier: DomainConst.G01_F00_S01_VIEW_CTRL)
                 currentView.navigationController?.pushViewController(upholdListVC, animated: true)
                 break
             case DomainConst.ISSUE_LIST:
-                currentView.showAlert(message: GlobalConst.CONTENT00197)
+                currentView.showAlert(message: DomainConst.CONTENT00197)
                 break
             case DomainConst.MESSAGE:
-                currentView.showAlert(message: GlobalConst.CONTENT00197)
+                currentView.showAlert(message: DomainConst.CONTENT00197)
                 break
             case DomainConst.CUSTOMER_LIST:
-                currentView.showAlert(message: GlobalConst.CONTENT00197)
+                currentView.showAlert(message: DomainConst.CONTENT00197)
                 break
             case DomainConst.WORKING_REPORT:
-                currentView.showAlert(message: GlobalConst.CONTENT00197)
+                currentView.showAlert(message: DomainConst.CONTENT00197)
                 break
             case DomainConst.ORDER_TRANSACTION_LIST:
-                currentView.showAlert(message: GlobalConst.CONTENT00197)
+                let orderList = currentView.mainStoryboard.instantiateViewController(withIdentifier: DomainConst.G04_F00_S01_VIEW_CTRL)
+                currentView.navigationController?.pushViewController(orderList, animated: true)
                 break
             default:
                 break
@@ -294,7 +295,7 @@ open class BaseMenuViewController : UIViewController {
      */
     open func configItemTapped(_ sender: AnyObject) {
         self.dismiss(animated: false) {
-            NotificationCenter.default.post(name: Notification.Name(rawValue: GlobalConst.NOTIFY_NAME_COFIG_ITEM), object: nil)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: DomainConst.NOTIFY_NAME_COFIG_ITEM), object: nil)
         }
     }
 }

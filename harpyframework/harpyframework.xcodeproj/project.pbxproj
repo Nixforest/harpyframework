@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D704308B1E13D8D0001C070D /* TableCellOrderType.xib in Resources */ = {isa = PBXBuildFile; fileRef = D704308A1E13D8D0001C070D /* TableCellOrderType.xib */; };
+		D704308D1E13D8E1001C070D /* TableCellOrderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D704308C1E13D8E1001C070D /* TableCellOrderType.swift */; };
+		D7671BF21E175FE10026DCFA /* OrderDetailBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7671BF11E175FE10026DCFA /* OrderDetailBean.swift */; };
+		D7671BF41E17673A0026DCFA /* OrderBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7671BF31E17673A0026DCFA /* OrderBean.swift */; };
+		D7A966771E12ECED00C9D601 /* OrderListBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A966761E12ECED00C9D601 /* OrderListBean.swift */; };
+		D7B2374E1E150CD9001AD517 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B2374D1E150CD9001AD517 /* CustomLabel.swift */; };
 		D7B5678A1E0D837C0042D5A8 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B567891E0D837C0042D5A8 /* BaseViewController.swift */; };
 		D7B5678D1E0D868C0042D5A8 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B5678C1E0D868C0042D5A8 /* BaseModel.swift */; };
 		D7B5678F1E0D87650042D5A8 /* RequestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B5678E1E0D87650042D5A8 /* RequestAPI.swift */; };
@@ -58,6 +64,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D704308A1E13D8D0001C070D /* TableCellOrderType.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableCellOrderType.xib; sourceTree = "<group>"; };
+		D704308C1E13D8E1001C070D /* TableCellOrderType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCellOrderType.swift; sourceTree = "<group>"; };
+		D7671BF11E175FE10026DCFA /* OrderDetailBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDetailBean.swift; sourceTree = "<group>"; };
+		D7671BF31E17673A0026DCFA /* OrderBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderBean.swift; sourceTree = "<group>"; };
+		D7A966761E12ECED00C9D601 /* OrderListBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderListBean.swift; sourceTree = "<group>"; };
+		D7B2374D1E150CD9001AD517 /* CustomLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		D7B567891E0D837C0042D5A8 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		D7B5678C1E0D868C0042D5A8 /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		D7B5678E1E0D87650042D5A8 /* RequestAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestAPI.swift; sourceTree = "<group>"; };
@@ -160,6 +172,9 @@
 				D7B567BF1E0D89800042D5A8 /* UpholdBean.swift */,
 				D7B567B01E0D88A80042D5A8 /* UpholdReplyBean.swift */,
 				D7B567C11E0D89B00042D5A8 /* UserInfoBean.swift */,
+				D7A966761E12ECED00C9D601 /* OrderListBean.swift */,
+				D7671BF11E175FE10026DCFA /* OrderDetailBean.swift */,
+				D7671BF31E17673A0026DCFA /* OrderBean.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -235,6 +250,9 @@
 				D7B567C51E0D8A6B0042D5A8 /* LoadingView.swift */,
 				D7BE04821E05873700D37740 /* CustomCheckBox.swift */,
 				D7DF191D1E122CAB00829785 /* MenuItem.swift */,
+				D704308A1E13D8D0001C070D /* TableCellOrderType.xib */,
+				D704308C1E13D8E1001C070D /* TableCellOrderType.swift */,
+				D7B2374D1E150CD9001AD517 /* CustomLabel.swift */,
 			);
 			name = CustomControl;
 			sourceTree = "<group>";
@@ -335,6 +353,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D704308B1E13D8D0001C070D /* TableCellOrderType.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,17 +379,22 @@
 				D7B567C61E0D8A6B0042D5A8 /* LoadingView.swift in Sources */,
 				D7B567CC1E0D9DE70042D5A8 /* BaseMenuViewController.swift in Sources */,
 				D7B567B61E0D88A80042D5A8 /* UpholdReplyBean.swift in Sources */,
+				D704308D1E13D8E1001C070D /* TableCellOrderType.swift in Sources */,
 				D7B567C01E0D89800042D5A8 /* UpholdBean.swift in Sources */,
 				D7B567B21E0D88A80042D5A8 /* NotificationBean.swift in Sources */,
 				D7B567AB1E0D88370042D5A8 /* LogoutRequest.swift in Sources */,
+				D7671BF41E17673A0026DCFA /* OrderBean.swift in Sources */,
+				D7671BF21E175FE10026DCFA /* OrderDetailBean.swift in Sources */,
 				D7B5679D1E0D87FF0042D5A8 /* ChangePassRequest.swift in Sources */,
 				D7B567CA1E0D8BA50042D5A8 /* NotificationCountRespModel.swift in Sources */,
 				D7B567A61E0D87FF0042D5A8 /* UpholdListRequest.swift in Sources */,
 				D7DF191E1E122CAB00829785 /* MenuItem.swift in Sources */,
 				D7B567A01E0D87FF0042D5A8 /* LoginRequest.swift in Sources */,
+				D7A966771E12ECED00C9D601 /* OrderListBean.swift in Sources */,
 				D7BE047C1E05864E00D37740 /* DomainConst.swift in Sources */,
 				D7BE04861E0587D500D37740 /* GlobalConst.swift in Sources */,
 				D7B5678A1E0D837C0042D5A8 /* BaseViewController.swift in Sources */,
+				D7B2374E1E150CD9001AD517 /* CustomLabel.swift in Sources */,
 				D7B567A11E0D87FF0042D5A8 /* NotificationCountRequest.swift in Sources */,
 				D7B567B51E0D88A80042D5A8 /* UpholdListRespModel.swift in Sources */,
 				D7BE04831E05873700D37740 /* CustomCheckBox.swift in Sources */,

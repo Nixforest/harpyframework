@@ -19,7 +19,7 @@ public class RequestAPI {
         // Show overlay
         LoadingView.shared.showOverlay(view: view.view)
         let request = LoginRequest(url: DomainConst.PATH_SITE_LOGIN,
-                                   reqMethod: GlobalConst.HTTP_POST_REQUEST, view: view)
+                                   reqMethod: DomainConst.HTTP_POST_REQUEST, view: view)
         request.setData(username: username, password: password)
         request.execute()
         //let end = DispatchTime.now()
@@ -35,7 +35,7 @@ public class RequestAPI {
     public static func requestLogout(view: BaseViewController) {
         LoadingView.shared.showOverlay(view: view.view)
         let logoutReq = LogoutRequest(url: DomainConst.PATH_SITE_LOGOUT,
-                                      reqMethod: GlobalConst.HTTP_POST_REQUEST, view: view)
+                                      reqMethod: DomainConst.HTTP_POST_REQUEST, view: view)
         logoutReq.setData()
         logoutReq.execute()
     }
@@ -47,7 +47,7 @@ public class RequestAPI {
     public static func requestLogout(view: UIView) {
         LoadingView.shared.showOverlay(view: view)
         let logoutReq = LogoutRequest(url: DomainConst.PATH_SITE_LOGOUT,
-                                      reqMethod: GlobalConst.HTTP_POST_REQUEST)
+                                      reqMethod: DomainConst.HTTP_POST_REQUEST)
         logoutReq.setData()
         logoutReq.execute()
     }
@@ -59,7 +59,7 @@ public class RequestAPI {
     public static func requestUserProfile(view: BaseViewController) {
         LoadingView.shared.showOverlay(view: view.view)
         let userProfileReq = UserProfileRequest(url: DomainConst.PATH_USER_PROFILE,
-                                                reqMethod: GlobalConst.HTTP_POST_REQUEST, view: view)
+                                                reqMethod: DomainConst.HTTP_POST_REQUEST, view: view)
         userProfileReq.setData(token: BaseModel.shared.getUserToken())
         userProfileReq.execute()
     }
@@ -74,7 +74,7 @@ public class RequestAPI {
         // Show overlay
         LoadingView.shared.showOverlay(view: view.view)
         let request = ChangePassRequest(url: DomainConst.PATH_USER_CHANGE_PASS,
-                                        reqMethod: GlobalConst.HTTP_POST_REQUEST, view: view)
+                                        reqMethod: DomainConst.HTTP_POST_REQUEST, view: view)
         request.setData(oldPass: oldPass, newPass: newPass)
         request.execute()
     }
@@ -90,7 +90,7 @@ public class RequestAPI {
     public static func requestUpholdList(page: Int, type: Int, customerId: String, status: String, view: BaseViewController) {
         // Show overlay
         LoadingView.shared.showOverlay(view: view.view)
-        let request = UpholdListRequest(url: DomainConst.PATH_SITE_UPHOLD_LIST, reqMethod: GlobalConst.HTTP_POST_REQUEST, view: view)
+        let request = UpholdListRequest(url: DomainConst.PATH_SITE_UPHOLD_LIST, reqMethod: DomainConst.HTTP_POST_REQUEST, view: view)
         
         request.setData(page: page, type: type, customerId: customerId, status: status)
         request.execute()
@@ -104,7 +104,7 @@ public class RequestAPI {
     public static func requestSearchCustomer(keyword: String, view: BaseViewController) {
         // Show overlay
         LoadingView.shared.showOverlay(view: view.view)
-        let request = SearchCustomerRequest(url: DomainConst.PATH_SITE_AUTOCOMPLETE_USER, reqMethod: GlobalConst.HTTP_POST_REQUEST, view: view)
+        let request = SearchCustomerRequest(url: DomainConst.PATH_SITE_AUTOCOMPLETE_USER, reqMethod: DomainConst.HTTP_POST_REQUEST, view: view)
         
         request.setData(keyword: keyword)
         request.execute()
@@ -120,7 +120,7 @@ public class RequestAPI {
                                     view: BaseViewController) {
         // Show overlay
         LoadingView.shared.showOverlay(view: view.view)
-        let request = UpholdDetailRequest(url: DomainConst.PATH_SITE_UPHOLD_VIEW, reqMethod: GlobalConst.HTTP_POST_REQUEST, view: view)
+        let request = UpholdDetailRequest(url: DomainConst.PATH_SITE_UPHOLD_VIEW, reqMethod: DomainConst.HTTP_POST_REQUEST, view: view)
         request.setData(upholdId: upholdId, replyId: replyId)
         request.execute()
     }
@@ -132,7 +132,7 @@ public class RequestAPI {
     public static func requestUpdateConfiguration(view: BaseViewController) {
         // Show overlay
         LoadingView.shared.showOverlay(view: view.view)
-        let request = UpdateConfigurationRequest(url: DomainConst.PATH_SITE_UPDATE_CONFIG, reqMethod: GlobalConst.HTTP_POST_REQUEST, view: view)
+        let request = UpdateConfigurationRequest(url: DomainConst.PATH_SITE_UPDATE_CONFIG, reqMethod: DomainConst.HTTP_POST_REQUEST, view: view)
         request.setData()
         request.execute()
     }
@@ -144,7 +144,7 @@ public class RequestAPI {
     public static func requestNotificationCount(view: BaseViewController) {
         // Show overlay
         LoadingView.shared.showOverlay(view: view.view)
-        let request = NotificationCountRequest(url: DomainConst.PATH_SITE_NOTIFY_COUNT, reqMethod: GlobalConst.HTTP_POST_REQUEST, view: view)
+        let request = NotificationCountRequest(url: DomainConst.PATH_SITE_NOTIFY_COUNT, reqMethod: DomainConst.HTTP_POST_REQUEST, view: view)
         request.setData()
         request.execute()
     }
@@ -157,7 +157,7 @@ public class RequestAPI {
      */
     public static func requestConfirmNotify(notifyId: String, type: String, objId: String) {
         let request = ConfirmNotifyRequest(url: DomainConst.PATH_SITE_CONFIRM_NOTIFY,
-                                           reqMethod: GlobalConst.HTTP_POST_REQUEST)
+                                           reqMethod: DomainConst.HTTP_POST_REQUEST)
         request.setData(notifyId: notifyId, type: type, objId: objId)
         request.execute()
     }
@@ -173,7 +173,7 @@ public class RequestAPI {
                                 view: BaseViewController) {
         // Show overlay
         LoadingView.shared.showOverlay(view: view.view)
-        let request = RegisterRequest(url: DomainConst.PATH_CUSTOMER_REGISTER, reqMethod: GlobalConst.HTTP_POST_REQUEST, view: view)
+        let request = RegisterRequest(url: DomainConst.PATH_CUSTOMER_REGISTER, reqMethod: DomainConst.HTTP_POST_REQUEST, view: view)
         request.setData(name: name,
                         phone: phone)
         request.execute()
@@ -188,7 +188,7 @@ public class RequestAPI {
                                        view: BaseViewController) {
         // Show overlay
         LoadingView.shared.showOverlay(view: view.view)
-        let request = RegisterConfirmRequest(url: DomainConst.PATH_CUSTOMER_REGISTER_CONFIRM, reqMethod: GlobalConst.HTTP_POST_REQUEST, view: view)
+        let request = RegisterConfirmRequest(url: DomainConst.PATH_CUSTOMER_REGISTER_CONFIRM, reqMethod: DomainConst.HTTP_POST_REQUEST, view: view)
         request.setData(code: code)
         request.execute()
         
