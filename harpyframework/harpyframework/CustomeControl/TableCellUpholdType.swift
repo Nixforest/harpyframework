@@ -43,7 +43,7 @@ open class TableCellUpholdType: UITableViewCell {
      */
     override open func awakeFromNib() {
         super.awakeFromNib()
-        var contentHeight = GlobalConst.CELL_HEIGHT_SHOW
+        let contentHeight = GlobalConst.CELL_HEIGHT_SHOW
         let contentWidthLeft = GlobalConst.SCREEN_WIDTH / 4
         let contentWidthRight = GlobalConst.SCREEN_WIDTH / 4
         let contentWidthMid = GlobalConst.SCREEN_WIDTH / 4 * 3 - GlobalConst.MARGIN_CELL_X
@@ -52,24 +52,26 @@ open class TableCellUpholdType: UITableViewCell {
         
         /** ---- Left view ------ */
         self.dateTime.setup(x: 0, y: offset, w: contentWidthLeft, h: contentHeight / 2 - GlobalConst.CELL_HEIGHT_SHOW / 5)
-        offset += self.dateTime.frame.height + GlobalConst.MARGIN_CELL_X
-        // Employee icon
-        self.employeeIcon.frame = CGRect(x: GlobalConst.MARGIN_CELL_X,
-                                     y: offset + GlobalConst.CELL_HEIGHT_SHOW / 40,
-                                     width: GlobalConst.CELL_HEIGHT_SHOW / 5,
-                                     height: GlobalConst.CELL_HEIGHT_SHOW / 5)
-        self.employeeIcon.contentMode = .scaleAspectFit
-        self.employeeIcon.image = UIImage(named: "icon23.png")
-        // Employee label
-        self.employeeLabel.frame = CGRect(x: self.employeeIcon.frame.maxX,
-                                      y: offset,
-                                      width: contentWidthLeft,
-                                      height: GlobalConst.CELL_HEIGHT_SHOW / 4)
-        self.employeeLabel.font = UIFont.systemFont(ofSize: GlobalConst.SMALL_FONT_SIZE)
-        self.employeeLabel.textColor = GlobalConst.TEXT_COLOR_GRAY
-        self.employeeLabel.text = DomainConst.BLANK
-        self.employeeLabel.updateLayout()
-        offset += self.employeeIcon.frame.height
+        offset += self.dateTime.frame.height + GlobalConst.MARGIN_CELL_X * 2
+        
+        // Status static icon
+        self.statusStaticIcon.frame = CGRect(x: GlobalConst.MARGIN_CELL_X,
+                                             y: offset + GlobalConst.CELL_HEIGHT_SHOW / 40,
+                                             width: GlobalConst.CELL_HEIGHT_SHOW / 5,
+                                             height: GlobalConst.CELL_HEIGHT_SHOW / 5)
+        self.statusStaticIcon.image = UIImage(named: "icon23.png")
+        self.statusStaticIcon.contentMode = .scaleAspectFit
+        // Status label
+        self.statusLabel.frame = CGRect(x: self.statusStaticIcon.frame.maxX,
+                                        y: offset,
+                                        width: contentWidthLeft - self.statusStaticIcon.frame.width,
+                                        height: GlobalConst.CELL_HEIGHT_SHOW / 4)
+        self.statusLabel.font = UIFont.systemFont(ofSize: GlobalConst.SMALL_FONT_SIZE)
+        self.statusLabel.textColor = GlobalConst.TEXT_COLOR_GRAY
+        self.statusLabel.text = DomainConst.BLANK
+        self.statusLabel.numberOfLines = 0
+        self.statusLabel.lineBreakMode = .byWordWrapping
+        offset += self.statusStaticIcon.frame.height
         
         TableCellOrderType.CELL_HEIGHT = contentHeight + verticalMargin
         
@@ -125,22 +127,23 @@ open class TableCellUpholdType: UITableViewCell {
         self.problemLabel.text = DomainConst.BLANK
         offset += self.problemIcon.frame.height + GlobalConst.MARGIN_CELL_Y
         
-        // Status static icon
-        self.statusStaticIcon.frame = CGRect(x: GlobalConst.MARGIN_CELL_X,
-                                        y: offset,
-                                        width: GlobalConst.CELL_HEIGHT_SHOW / 5,
-                                        height: GlobalConst.CELL_HEIGHT_SHOW / 5)
-        self.statusStaticIcon.image = UIImage(named: "icon23.png")
-        self.statusStaticIcon.contentMode = .scaleAspectFit
-        // Status label
-        self.statusLabel.frame = CGRect(x: self.statusStaticIcon.frame.maxX,
+        // Employee icon
+        self.employeeIcon.frame = CGRect(x: GlobalConst.MARGIN_CELL_X,
                                          y: offset,
-                                         width: contentWidthMid,
-                                         height: self.statusStaticIcon.frame.height)
-        self.statusLabel.font = UIFont.systemFont(ofSize: GlobalConst.SMALL_FONT_SIZE)
-        self.statusLabel.textColor = GlobalConst.TEXT_COLOR_GRAY
-        self.statusLabel.text = DomainConst.BLANK
-        offset += self.statusStaticIcon.frame.height
+                                         width: GlobalConst.CELL_HEIGHT_SHOW / 5,
+                                         height: GlobalConst.CELL_HEIGHT_SHOW / 5)
+        self.employeeIcon.contentMode = .scaleAspectFit
+        self.employeeIcon.image = UIImage(named: "icon23.png")
+        // Employee label
+        self.employeeLabel.frame = CGRect(x: self.employeeIcon.frame.maxX,
+                                          y: offset,
+                                          width: contentWidthMid,
+                                          height: GlobalConst.CELL_HEIGHT_SHOW / 5)
+        self.employeeLabel.font = UIFont.systemFont(ofSize: GlobalConst.SMALL_FONT_SIZE)
+        self.employeeLabel.textColor = GlobalConst.TEXT_COLOR_GRAY
+        self.employeeLabel.text = DomainConst.BLANK
+        self.employeeLabel.updateLayout()
+        offset += self.employeeIcon.frame.height
         
         /** ---- Right view ------ */
         var height = contentHeight
@@ -183,14 +186,18 @@ open class TableCellUpholdType: UITableViewCell {
         self.addressLabel.lineBreakMode = .byWordWrapping
         
         self.leftView.addSubview(self.dateTime)
-        self.leftView.addSubview(self.employeeIcon)
-        self.leftView.addSubview(self.employeeLabel)
+//        self.leftView.addSubview(self.employeeIcon)
+//        self.leftView.addSubview(self.employeeLabel)
+        self.leftView.addSubview(self.statusStaticIcon)
+        self.leftView.addSubview(self.statusLabel)
         
         self.centerView.addSubview(self.customerNameLabel)
         self.centerView.addSubview(self.problemIcon)
         self.centerView.addSubview(self.problemLabel)
-        self.centerView.addSubview(self.statusStaticIcon)
-        self.centerView.addSubview(self.statusLabel)
+//        self.centerView.addSubview(self.statusStaticIcon)
+//        self.centerView.addSubview(self.statusLabel)
+        self.centerView.addSubview(self.employeeIcon)
+        self.centerView.addSubview(self.employeeLabel)
         
         self.rightView.addSubview(self.statusIcon)
         self.rightView.addSubview(self.commentIcon)
@@ -237,8 +244,8 @@ open class TableCellUpholdType: UITableViewCell {
             }
             self.problemIcon.isHidden = true
             self.problemLabel.isHidden = true
-            self.statusStaticIcon.frame = self.problemIcon.frame
-            self.statusLabel.frame = self.problemLabel.frame
+            self.employeeIcon.frame = self.problemIcon.frame
+            self.employeeLabel.frame = self.problemLabel.frame
             self.addressIcon.isHidden = true
             self.addressLabel.isHidden = true
         }
