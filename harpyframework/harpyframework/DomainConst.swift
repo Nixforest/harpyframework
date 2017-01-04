@@ -495,6 +495,8 @@ public class DomainConst {
     public static let NOTIFY_UPHOLD_CREATE = "4"
     /** The other option */
     public static let OPTION_OTHER = "Khác"
+    /** Address unknown string */
+    public static let ADDRESS_UNKNOWN = "Khong ro, "
     
     /** -----Log message----- */
     /** Log tag: error. */
@@ -586,9 +588,9 @@ public class DomainConst {
     /** Home table view cell */
     public static let G00_HOME_CELL = "G00HomeCell"
     /** Period table view cell */
-    public static let G01_F00_S01_PERIOD_CELL = "G01F00S01PeriodCell"
+    public static let G01_F00_S01_PERIOD_CELL = "TableCellUpholdType"
     /** Problem table view cell */
-    public static let G01_F00_S01_PROBLEM_CELL = "G01F00S01ProblemCell"
+    public static let G01_F00_S01_PROBLEM_CELL = "TableCellUpholdType"
     /** Search bar table view cell */
     public static let SEARCH_BAR_TABLE_VIEW_CELL = "searchBarTableViewCell"
     /** Configuration table view cell */

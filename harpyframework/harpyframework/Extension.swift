@@ -194,3 +194,19 @@ extension UIButton {
                                               right:widthDelta/2.0)
     }
 }
+extension String {
+    func heightWithConstrainedWidth(width: CGFloat, font: UIFont) -> CGFloat {
+        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
+        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
+        
+        return boundingBox.height
+    }
+    
+    func normalizateString() -> String {
+        var ret: String = self
+        if self.contains(DomainConst.ADDRESS_UNKNOWN) {
+            ret = self.replacingOccurrences(of: DomainConst.ADDRESS_UNKNOWN, with: DomainConst.BLANK)
+        }
+        return ret
+    }
+}

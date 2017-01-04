@@ -57,7 +57,9 @@ public class GlobalConst {
     public static let NORMAL_FONT_SIZE: CGFloat = 15.0
     public static let NORMAL_FONT_SIZE_1: CGFloat = 13.0
     public static let SMALL_FONT_SIZE: CGFloat = 10.0
-    public static let BIG_FONT_SIZE: CGFloat = 16.0
+    public static let BIG_FONT_SIZE: CGFloat = 14.0
+    public static let NORMAL_FONT_SIZE_LIST: CGFloat = 13.0
+    public static let SMALL_FONT_SIZE_LIST: CGFloat = 11.0
     public static let TEXTFIELD_FONT_SIZE: CGFloat = 12.0
     public static let BUTTON_FONT_SIZE: CGFloat = NORMAL_FONT_SIZE
     public static let LABEL_IN_CELL_HEIGHT:CGFloat = (GlobalConst.CELL_HEIGHT_SHOW - GlobalConst.MARGIN_CELL_Y * 2) / 5
