@@ -323,6 +323,20 @@ public class DomainConst {
     public static let KEY_STATUS_CANCEL = "status_cancel"
     /** Setting key: Order detail */
     public static let KEY_ORDER_DETAIL = "order_detail"
+    /** Setting key: Customer info */
+    public static let KEY_CUSTOMER_INFO = "customer_info"
+    /** Setting key: Boss name */
+    public static let KEY_BOSS_NAME = "boss_name"
+    /** Setting key: Boss phone */
+    public static let KEY_BOSS_PHONE = "boss_phone"
+    /** Setting key: Manager name */
+    public static let KEY_MANAGER_NAME = "manage_name"
+    /** Setting key: Manager phone */
+    public static let KEY_MANAGER_PHONE = "manage_phone"
+    /** Setting key: Technical name */
+    public static let KEY_TECHNICAL_NAME = "technical_name"
+    /** Setting key: Technical phone */
+    public static let KEY_TECHNICAL_PHONE = "technical_phone"
     
     /** Key total record */
     public static let KEY_TOTAL_RECORD = "total_record"
@@ -374,6 +388,10 @@ public class DomainConst {
     public static let KEY_SHOW_HUY_GH = "show_huy_giao_hang"
     /** Transaction History Id */
     public static let KEY_TRANSACTION_HISTORY_ID = "transaction_history_id"
+    /** Call center uphold */
+    public static let KEY_CALL_CENTER_UPHOLD = "call_center_uphold"
+    /** Hotline */
+    public static let KEY_HOTLINE = "hotline"
     
     // MARK: -----Specified constant-----
     /** File parameter: file_name[ + ] */
@@ -656,7 +674,7 @@ public class DomainConst {
     /** Login image name */
     public static let LOGIN_MENU_IMG_NAME      = "login.png"
     /** Logout image name */
-    public static let LOGOUT_MENU_IMG_NAME     = "logout.png"
+    public static let LOGOUT_MENU_IMG_NAME     = "logoutitem.png"
     /** Register image name */
     public static let REGISTER_MENU_IMG_NAME   = "register.png"
     /** Issue image name */
@@ -680,9 +698,21 @@ public class DomainConst {
     /** Done image name */
     public static let DONE_IMG_NAME            = "done.png"
     /** Rating image name */
-    public static let RATING_IMG_NAME          = "rating.png"
+    public static let RATING_IMG_NAME          = "icon25.png"
     /** Rating empty image name */
-    public static let RATING_EMPTY_IMG_NAME    = "rating_empty.png"
+    public static let RATING_EMPTY_IMG_NAME    = "icon27.png"
+    /** Status icon image name */
+    public static let STATUS_ICON_IMG_NAME     = "icon48.png"
+    /** Customer icon image name */
+    public static let CUSTOMER_ICON_IMG_NAME   = "icon55.png"
+    /** Contact icon image name */
+    public static let CONTACT_ICON_IMG_NAME    = "icon58.png"
+    /** Problem type icon image name */
+    public static let PROBLEM_TYPE_IMG_NAME    = "icon59.png"
+    /** Content icon image name */
+    public static let CONTENT_ICON_IMG_NAME    = "icon60.png"
+    /** Content icon image name */
+    public static let REPORT_ICON_IMG_NAME     = "icon62.png"
     /** HTTP Post request method */
     public static let HTTP_POST_REQUEST        = "POST"
     

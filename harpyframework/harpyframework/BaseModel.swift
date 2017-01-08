@@ -86,6 +86,9 @@ public class BaseModel: NSObject {
     public var lastUpholdId: String = ""
     /** Flag check can handle notification from server or not */
     var canHandleNotificationFromServer: Bool = true
+    /** Call center */
+    private var callCenterUphold: String = DomainConst.BLANK
+    private var hotline: String = DomainConst.BLANK
     
     // MARK - Methods
     override init() {
@@ -301,6 +304,26 @@ public class BaseModel: NSObject {
         
         // Menu
         self.menu = loginModel.menu
+        
+        // Call center
+        self.callCenterUphold = loginModel.call_center_uphold
+        self.hotline = loginModel.hotline
+    }
+    
+    /**
+     * Get call center uphold phone number
+     * - returns: Call center uphold phone number
+     */
+    public func getCallCenterUpholdNumber() -> String {
+        return self.callCenterUphold
+    }
+    
+    /**
+     * Get hotline phone number
+     * - returns: Hotline phone number
+     */
+    public func getHotlineNumber() -> String {
+        return self.hotline
     }
     
     /**

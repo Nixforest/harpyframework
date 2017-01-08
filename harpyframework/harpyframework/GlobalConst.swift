@@ -53,11 +53,12 @@ public class GlobalConst {
     public static let ACCOUNT_AVATAR_W : CGFloat = 140
     public static let ACCOUNT_AVATAR_H : CGFloat = 140
     public static let ACCOUNT_ICON_SIZE : CGFloat = 35
-    public static let SCROLL_BUTTON_LIST_HEIGHT : CGFloat = BUTTON_HEIGHT
+    public static let SCROLL_BUTTON_LIST_HEIGHT : CGFloat = BUTTON_HEIGHT / 5
     public static let NORMAL_FONT_SIZE: CGFloat = 15.0
     public static let NORMAL_FONT_SIZE_1: CGFloat = 13.0
     public static let SMALL_FONT_SIZE: CGFloat = 10.0
     public static let BIG_FONT_SIZE: CGFloat = 14.0
+    public static let LARGE_FONT_SIZE: CGFloat = 18.0
     public static let NORMAL_FONT_SIZE_LIST: CGFloat = 13.0
     public static let SMALL_FONT_SIZE_LIST: CGFloat = 11.0
     public static let TEXTFIELD_FONT_SIZE: CGFloat = 12.0
@@ -82,9 +83,9 @@ public class GlobalConst {
     public static let PARENT_BORDER_COLOR_YELLOW:UIColor = UIColor.yellow
     public static let BACKGROUND_COLOR_GRAY:UIColor = ColorFromRGB().getColorFromRGB(0xECECEC)
     public static let SCROLLBUTTONLIST_BKG_COLOR:UIColor = BUTTON_COLOR_GRAY
-    public static let SCROLLBUTTONLIST_BTN_BKG_COLOR_DISABLE:UIColor = BUTTON_COLOR_DISABLE
+    public static let SCROLLBUTTONLIST_BTN_BKG_COLOR_DISABLE:UIColor = BUTTON_COLOR_GRAY
     public static let SCROLLBUTTONLIST_BTN_BKG_COLOR_SELECTING:UIColor = COLOR_SELECTING_GREEN
-    public static let SCROLLBUTTONLIST_BTN_BKG_COLOR_ENABLE:UIColor = BUTTON_COLOR_RED
+    public static let SCROLLBUTTONLIST_BTN_BKG_COLOR_ENABLE:UIColor = BUTTON_COLOR_GRAY
     public static let INFOR_TITLE_COLOR:UIColor = ColorFromRGB().getColorFromRGB(0x1899E5)
     public static let TEXT_COLOR:UIColor = ColorFromRGB().getColorFromRGB(0x333333)
     

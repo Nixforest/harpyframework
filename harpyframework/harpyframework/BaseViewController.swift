@@ -265,7 +265,7 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
      * Get height of status bar + navigation bar
      * - returns: Height of status bar + navigation bar
      */
-    public func getTopHeight() -> CGFloat {
+    open func getTopHeight() -> CGFloat {
         return (self.navigationController!.navigationBar.frame.size.height
             + UIApplication.shared.statusBarFrame.size.height)
     }

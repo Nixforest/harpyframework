@@ -59,7 +59,7 @@ open class TableCellUpholdType: UITableViewCell {
                                              y: offset + GlobalConst.CELL_HEIGHT_SHOW / 40,
                                              width: GlobalConst.CELL_HEIGHT_SHOW / 5,
                                              height: GlobalConst.CELL_HEIGHT_SHOW / 5)
-        self.statusStaticIcon.image = UIImage(named: "icon23.png")
+        self.statusStaticIcon.image = UIImage(named: DomainConst.STATUS_ICON_IMG_NAME)
         self.statusStaticIcon.contentMode = .scaleAspectFit
         // Status label
         self.statusLabel.frame = CGRect(x: self.statusStaticIcon.frame.maxX,

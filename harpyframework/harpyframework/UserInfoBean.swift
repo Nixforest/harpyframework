@@ -16,6 +16,20 @@ public class UserInfoBean: NSObject {
     var address: String = ""
     /** Avatar image */
     var image_avatar: String = ""
+    /** Addition information */
+    var customer_info: [ConfigBean] = [ConfigBean]()
+    /** Email */
+    var email: String = ""
+    /** Email */
+    var province_id: String = ""
+    /** Email */
+    var district_id: String = ""
+    /** Email */
+    var ward_id: String = ""
+    /** Email */
+    var street_id: String = ""
+    /** Email */
+    var house_numbers: String = ""
     
     /**
      * Initializer
@@ -34,6 +48,18 @@ public class UserInfoBean: NSObject {
         self.phone          = jsonString[DomainConst.KEY_PHONE] as? String ?? ""
         self.address        = jsonString[DomainConst.KEY_ADDRESS] as? String ?? ""
         self.image_avatar   = jsonString[DomainConst.KEY_IMG_AVATAR] as? String ?? ""
+        if let dataArr = jsonString[DomainConst.KEY_CUSTOMER_INFO] as? [[String: AnyObject]] {
+            for info in dataArr {
+                self.customer_info.append(ConfigBean(jsonData: info))
+            }
+        }
+        
+        self.email          = jsonString[DomainConst.KEY_EMAIL] as? String ?? ""
+        self.province_id    = jsonString[DomainConst.KEY_PROVINCE_ID] as? String ?? ""
+        self.district_id    = jsonString[DomainConst.KEY_DISTRICT_ID] as? String ?? ""
+        self.ward_id        = jsonString[DomainConst.KEY_WARD_ID] as? String ?? ""
+        self.street_id      = jsonString[DomainConst.KEY_STREET] as? String ?? ""
+        self.house_numbers  = jsonString[DomainConst.KEY_HOUSE_NUMBER] as? String ?? ""
     }
     
     /**
@@ -98,5 +124,67 @@ public class UserInfoBean: NSObject {
      */
     public func setAvatarImage(image_avatar: String) {
         self.image_avatar = image_avatar
+    }
+    
+    /**
+     * Get customer information from key value
+     * - parameter key: Key to get information
+     * - returns: Value
+     */
+    public func getCustomerInfo(key: String) -> String {
+        for item in self.customer_info {
+            if item.id == key {
+                return item.name
+            }
+        }
+        return DomainConst.BLANK
+    }
+    
+    /**
+     * Get boss name
+     * - returns: Boss name
+     */
+    public func getBossName() -> String {
+        return self.getCustomerInfo(key: DomainConst.KEY_BOSS_NAME)
+    }
+    
+    /**
+     * Get boss phone
+     * - returns: Boss phone
+     */
+    public func getBossPhone() -> String {
+        return self.getCustomerInfo(key: DomainConst.KEY_BOSS_PHONE)
+    }
+    
+    /**
+     * Get manager name
+     * - returns: manager name
+     */
+    public func getManagerName() -> String {
+        return self.getCustomerInfo(key: DomainConst.KEY_MANAGER_NAME)
+    }
+    
+    /**
+     * Get manager phone
+     * - returns: manager phone
+     */
+    public func getManagerPhone() -> String {
+        return self.getCustomerInfo(key: DomainConst.KEY_MANAGER_PHONE)
+    }
+    
+    /**
+     * Get technical name
+     * - returns: technical name
+     */
+    public func getTechnicalName() -> String {
+        return self.getCustomerInfo(key: DomainConst.KEY_TECHNICAL_NAME)
+    }
+    
+    /**
+     * Get technical phone
+     * - returns: technical phone
+     */
+    public func getTechnicalPhone() -> String {
+        return self.getCustomerInfo(key: DomainConst.KEY_TECHNICAL_PHONE)
     }
 }

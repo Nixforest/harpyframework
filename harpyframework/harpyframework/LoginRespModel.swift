@@ -39,6 +39,10 @@ public class LoginRespModel : BaseRespModel {
     var list_hgd_type: [ConfigBean] = [ConfigBean]()
     /** List family type */
     var list_hgd_invest: [ConfigBean] = [ConfigBean]()
+    /** Call center uphold */
+    var call_center_uphold: String = DomainConst.BLANK
+    /** Hotline */
+    var hotline: String = DomainConst.BLANK
     
     /**
      * Initializer
@@ -158,6 +162,9 @@ public class LoginRespModel : BaseRespModel {
                 for agent in agentFIList! {
                     self.list_hgd_invest.append(ConfigBean(jsonData: agent))
                 }
+                // Call center
+                self.call_center_uphold = json[DomainConst.KEY_CALL_CENTER_UPHOLD] as? String ?? DomainConst.BLANK
+                self.hotline = json[DomainConst.KEY_HOTLINE] as? String ?? DomainConst.BLANK
                 
             } catch let error as NSError {
                 print("Failed to load: \(error.localizedDescription)")

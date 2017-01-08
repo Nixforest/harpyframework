@@ -193,6 +193,29 @@ extension UIButton {
                                               bottom:heightDelta/2.0,
                                               right:widthDelta/2.0)
     }
+    public func setImageToRight() {
+        self.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        self.titleLabel?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        self.imageView?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+    }
+    public func setLeftImage(imageName:String, padding:CGFloat) {
+        //Set left image
+        let back = UIImage(named: imageName)
+        let tintedBack = back?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        self.setImage(tintedBack, for: UIControlState())
+        self.tintColor          = UIColor.white
+        self.imageView?.contentMode = .scaleAspectFit
+        
+        //Calculate and set image inset to keep it left aligned
+        let imageWidth = back?.size.width
+        let textWidth = self.titleLabel?.intrinsicContentSize.width
+        let buttonWidth = self.bounds.width
+        
+        let rightInset = buttonWidth - imageWidth! - textWidth! - padding 
+        
+        self.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: rightInset)
+        self.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: rightInset)
+    }
 }
 extension String {
     func heightWithConstrainedWidth(width: CGFloat, font: UIFont) -> CGFloat {
@@ -202,7 +225,7 @@ extension String {
         return boundingBox.height
     }
     
-    func normalizateString() -> String {
+    public func normalizateString() -> String {
         var ret: String = self
         if self.contains(DomainConst.ADDRESS_UNKNOWN) {
             ret = self.replacingOccurrences(of: DomainConst.ADDRESS_UNKNOWN, with: DomainConst.BLANK)

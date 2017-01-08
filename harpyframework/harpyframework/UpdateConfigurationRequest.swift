@@ -29,6 +29,9 @@ class UpdateConfigurationRequest: BaseRequest {
             if model.status == "1" {
                 BaseModel.shared.saveTempData(loginModel: model)
             } else {
+                if model.code == "1987" {
+                    BaseModel.shared.logoutSuccess()
+                }
                 self.showAlert(message: model.message)
                 return
             }
