@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D704308B1E13D8D0001C070D /* TableCellOrderType.xib in Resources */ = {isa = PBXBuildFile; fileRef = D704308A1E13D8D0001C070D /* TableCellOrderType.xib */; };
 		D704308D1E13D8E1001C070D /* TableCellOrderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D704308C1E13D8E1001C070D /* TableCellOrderType.swift */; };
+		D733730E1E22CA26004F2781 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = D733730D1E22CA26004F2781 /* Podfile */; };
 		D7671BF21E175FE10026DCFA /* OrderDetailBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7671BF11E175FE10026DCFA /* OrderDetailBean.swift */; };
 		D7671BF41E17673A0026DCFA /* OrderBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7671BF31E17673A0026DCFA /* OrderBean.swift */; };
 		D7A966771E12ECED00C9D601 /* OrderListBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A966761E12ECED00C9D601 /* OrderListBean.swift */; };
@@ -71,6 +72,7 @@
 /* Begin PBXFileReference section */
 		D704308A1E13D8D0001C070D /* TableCellOrderType.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableCellOrderType.xib; sourceTree = "<group>"; };
 		D704308C1E13D8E1001C070D /* TableCellOrderType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCellOrderType.swift; sourceTree = "<group>"; };
+		D733730D1E22CA26004F2781 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Podfile; path = Utility/Podfile; sourceTree = "<group>"; };
 		D7671BF11E175FE10026DCFA /* OrderDetailBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDetailBean.swift; sourceTree = "<group>"; };
 		D7671BF31E17673A0026DCFA /* OrderBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderBean.swift; sourceTree = "<group>"; };
 		D7A966761E12ECED00C9D601 /* OrderListBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderListBean.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 		D7B567CD1E0D9E230042D5A8 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				D733730D1E22CA26004F2781 /* Podfile */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D733730E1E22CA26004F2781 /* Podfile in Resources */,
 				D7F3D8D11E1B80D80018744F /* TableCellUpholdType.xib in Resources */,
 				D704308B1E13D8D0001C070D /* TableCellOrderType.xib in Resources */,
 				D7F3D8D41E1B8BD70018744F /* icon23.png in Resources */,
