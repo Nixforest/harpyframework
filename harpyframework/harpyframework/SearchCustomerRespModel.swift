@@ -23,21 +23,18 @@ public class SearchCustomerRespModel: BaseRespModel {
             do {
                 let json = try JSONSerialization.jsonObject(with: jsonData, options: []) as! [String: AnyObject]
                 
-                if self.status != "1" {
+                if self.status != DomainConst.RESPONSE_STATUS_SUCCESS {
                     return
                 }
                 // Menu
-                let records = json[DomainConst.KEY_RECORD] as? [[String: AnyObject]]
-                for item in records! {
-                    self.record.append(ConfigBean(jsonData: item))
-                }
+                self.record.append(contentsOf: getListConfig(json: json, key: DomainConst.KEY_RECORD))
                 
             } catch let error as NSError {
-                print("Failed to load: \(error.localizedDescription)")
+                print(DomainConst.JSON_ERR_FAILED_LOAD + "\(error.localizedDescription)")
             }
             
         } else {
-            print("json is of wrong format")
+            print(DomainConst.JSON_ERR_WRONG_FORMAT)
         }
     }
     

@@ -35,6 +35,7 @@ public class OrderListBean: NSObject {
      * - parameter jsonData: List of data
      */
     public init(jsonData: [String: AnyObject]) {
+        super.init()
         // Id
         if let idStr = jsonData[DomainConst.KEY_ID] as? String {
             self.id = idStr
@@ -43,14 +44,14 @@ public class OrderListBean: NSObject {
                 self.id = String(idInt)
             }
         }
-        self.title              = jsonData[DomainConst.KEY_TITLE] as? String ?? ""
-        self.code_no            = jsonData[DomainConst.KEY_CODE_NO] as? String ?? ""
-        self.grand_total        = jsonData[DomainConst.KEY_GRAND_TOTAL] as? String ?? ""
-        self.status             = jsonData[DomainConst.KEY_STATUS] as? String ?? ""
-        self.created_date       = jsonData[DomainConst.KEY_CREATED_DATE] as? String ?? ""
-        self.phone              = jsonData[DomainConst.KEY_PHONE] as? String ?? ""
-        self.address            = jsonData[DomainConst.KEY_ADDRESS] as? String ?? ""
-        self.show_nhan_giao_hang    = jsonData[DomainConst.KEY_SHOW_NHAN_GH] as? String ?? ""
-        self.show_huy_giao_hang      = jsonData[DomainConst.KEY_SHOW_HUY_GH] as? String ?? ""
+        self.title                  = getString(json: jsonData, key: DomainConst.KEY_TITLE)
+        self.code_no                = getString(json: jsonData, key: DomainConst.KEY_CODE_NO)
+        self.grand_total            = getString(json: jsonData, key: DomainConst.KEY_GRAND_TOTAL)
+        self.status                 = getString(json: jsonData, key: DomainConst.KEY_STATUS)
+        self.created_date           = getString(json: jsonData, key: DomainConst.KEY_CREATED_DATE)
+        self.phone                  = getString(json: jsonData, key: DomainConst.KEY_PHONE)
+        self.address                = getString(json: jsonData, key: DomainConst.KEY_ADDRESS)
+        self.show_nhan_giao_hang    = getString(json: jsonData, key: DomainConst.KEY_SHOW_NHAN_GH)
+        self.show_huy_giao_hang     = getString(json: jsonData, key: DomainConst.KEY_SHOW_HUY_GH)
     }
 }

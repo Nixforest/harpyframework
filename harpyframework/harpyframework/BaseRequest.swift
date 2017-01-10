@@ -161,9 +161,7 @@ open class BaseRequest {
      * Handle when complete task
      */
     open func completetionHandler(request: NSMutableURLRequest) -> URLSessionTask {
-        let task = self.session.dataTask(with: request as URLRequest, completionHandler: {
-            (
-            data, response, error) in
+        let task = self.session.dataTask(with: request as URLRequest, completionHandler: {(data, response, error) in
             // Check error
             guard error == nil else {
                 self.view.showAlert(message: DomainConst.CONTENT00196)

@@ -26,7 +26,7 @@ class UpholdListRequest: BaseRequest {
             print(dataString ?? "")
             // Convert to object
             let model: UpholdListRespModel = UpholdListRespModel(jsonString: dataString as! String)
-            if model.status == "1" {
+            if model.status == DomainConst.RESPONSE_STATUS_SUCCESS {
                 // Hide overlay
                 LoadingView.shared.hideOverlayView()
                 BaseModel.shared.saveUpholdList(upholdListModel: model)

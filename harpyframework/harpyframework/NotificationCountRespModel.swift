@@ -27,22 +27,20 @@ class NotificationCountRespModel: BaseRespModel {
             do {
                 let json = try JSONSerialization.jsonObject(with: jsonData, options: []) as! [String: AnyObject]
                 
-                if self.status != "1" {
+                if self.status != DomainConst.RESPONSE_STATUS_SUCCESS {
                     return
                 }
-                self.NotifyCountText = json[DomainConst.KEY_NOTIFY_COUNT_TEXT] as? String ?? ""
-                self.app_version_code = json[DomainConst.KEY_APP_VERSION_CODE] as? String ?? ""
+                self.NotifyCountText = getString(json: json, key: DomainConst.KEY_NOTIFY_COUNT_TEXT)
+                self.app_version_code = getString(json: json, key: DomainConst.KEY_APP_VERSION_CODE)
                 // Other information
-                let otherInfo = json[DomainConst.KEY_OTHER_INFO] as? [[String: AnyObject]]
-                for info in otherInfo! {
-                    self.otherInfo.append(ConfigBean(jsonData: info))
-                }
+                self.otherInfo.append(contentsOf: getListConfig(json: json, key: DomainConst.KEY_OTHER_INFO))
+                
             } catch let error as NSError {
-                print("Failed to load: \(error.localizedDescription)")
+                print(DomainConst.JSON_ERR_FAILED_LOAD + "\(error.localizedDescription)")
             }
             
         } else {
-            print("json is of wrong format")
+            print(DomainConst.JSON_ERR_WRONG_FORMAT)
         }
     }
 }

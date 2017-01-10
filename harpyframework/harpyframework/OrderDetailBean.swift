@@ -31,14 +31,14 @@ public class OrderDetailBean: NSObject {
      * - parameter jsonData: List of data
      */
     public init(jsonData: [String: AnyObject]) {
-        self.materials_type_id  = jsonData[DomainConst.KEY_MATERIALS_TYPE_ID] as? String ?? ""
-        self.material_id        = jsonData[DomainConst.KEY_MATERIALS_ID] as? String ?? ""
-        self.material_name      = jsonData[DomainConst.KEY_MATERIALS_NAME] as? String ?? ""
-        self.material_price     = jsonData[DomainConst.KEY_MATERIALS_PRICE] as? String ?? ""
-        self.price              = jsonData[DomainConst.KEY_PRICE] as? String ?? ""
-        self.qty                = jsonData[DomainConst.KEY_QUANTITY] as? String ?? ""
-        self.amount             = jsonData[DomainConst.KEY_AMOUNT] as? String ?? ""
-        self.material_image     = jsonData[DomainConst.KEY_MATERIAL_IMAGE] as? String ?? ""
+        super.init()
+        self.materials_type_id  = getString(json: jsonData, key: DomainConst.KEY_MATERIALS_TYPE_ID)
+        self.material_id        = getString(json: jsonData, key: DomainConst.KEY_MATERIALS_ID)
+        self.material_name      = getString(json: jsonData, key: DomainConst.KEY_MATERIALS_NAME)
+        self.material_price     = getString(json: jsonData, key: DomainConst.KEY_MATERIALS_PRICE)
+        self.price              = getString(json: jsonData, key: DomainConst.KEY_PRICE)
+        self.qty                = getString(json: jsonData, key: DomainConst.KEY_QUANTITY)
+        self.amount             = getString(json: jsonData, key: DomainConst.KEY_AMOUNT)
+        self.material_image     = getString(json: jsonData, key: DomainConst.KEY_MATERIAL_IMAGE)
     }
-
 }

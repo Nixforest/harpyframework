@@ -36,6 +36,7 @@ public class UpholdReplyBean: NSObject {
      * - parameter jsonData: List of data
      */
     init(jsonData: [String: AnyObject]) {
+        super.init()
         // Id
         if let idStr = jsonData[DomainConst.KEY_ID] as? String {
             self.id = idStr
@@ -44,15 +45,15 @@ public class UpholdReplyBean: NSObject {
                 self.id = String(idInt)
             }
         }
-        self.hours_handle       = jsonData[DomainConst.KEY_HOURS_HANDLE] as? String ?? ""
-        self.contact_phone      = jsonData[DomainConst.KEY_CONTACT_PHONE] as? String ?? ""
-        self.note               = jsonData[DomainConst.KEY_NOTE] as? String ?? ""
-        self.uid_login          = jsonData[DomainConst.KEY_UID_LOGIN] as? String ?? ""
-        self.status             = jsonData[DomainConst.KEY_STATUS] as? String ?? ""
-        self.created_date       = jsonData[DomainConst.KEY_CREATED_DATE] as? String ?? ""
-        self.date_time_handle   = jsonData[DomainConst.KEY_DATE_TIME_HANDLE] as? String ?? ""
-        self.report_wrong       = jsonData[DomainConst.KEY_REPORT_WRONG] as? String ?? ""
-        self.note_internal      = jsonData[DomainConst.KEY_NOTE_INTERNAL] as? String ?? ""
+        self.hours_handle       = getString(json: jsonData, key: DomainConst.KEY_HOURS_HANDLE)
+        self.contact_phone      = getString(json: jsonData, key: DomainConst.KEY_CONTACT_PHONE)
+        self.note               = getString(json: jsonData, key: DomainConst.KEY_NOTE)
+        self.uid_login          = getString(json: jsonData, key: DomainConst.KEY_UID_LOGIN)
+        self.status             = getString(json: jsonData, key: DomainConst.KEY_STATUS)
+        self.created_date       = getString(json: jsonData, key: DomainConst.KEY_CREATED_DATE)
+        self.date_time_handle   = getString(json: jsonData, key: DomainConst.KEY_DATE_TIME_HANDLE)
+        self.report_wrong       = getString(json: jsonData, key: DomainConst.KEY_REPORT_WRONG)
+        self.note_internal      = getString(json: jsonData, key: DomainConst.KEY_NOTE_INTERNAL)
         if let dataArr = jsonData[DomainConst.KEY_IMAGES] as? [[String: AnyObject]] {
             for listItem in dataArr {
                 self.images.append(UpholdImageInfoItem(jsonData: listItem))

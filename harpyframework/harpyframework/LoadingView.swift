@@ -80,6 +80,11 @@ public class LoadingView{
             activityIndicator.startAnimating()
         }
     }
+    
+    /**
+     * Show overlay
+     * - parameter view: Current view
+     */
     public func showOverlay(view: UIView = UIView()) {
         var currentView: UIViewController? = nil
         if let navigationController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
@@ -114,6 +119,5 @@ public class LoadingView{
         DispatchQueue.main.async {
             self.overlayView.removeFromSuperview()
         }
-        //overlayView.removeFromSuperview()
     }
 }

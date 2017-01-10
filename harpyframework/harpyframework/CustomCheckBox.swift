@@ -9,8 +9,8 @@
 import Foundation
 public class CustomCheckBox: UIButton {
     /** Image */
-    let imgUnchecked    = UIImage(named: DomainConst.UNCHECK_IMG_NAME)
-    let imgChecked      = UIImage(named: DomainConst.CHECKED_IMG_NAME)
+    let imgUnchecked    = ImageManager.getImage(named: DomainConst.UNCHECK_IMG_NAME)
+    let imgChecked      = ImageManager.getImage(named: DomainConst.CHECKED_IMG_NAME)
     /** Bool value to show Image */
     var bChecked:Bool = false {
         didSet {

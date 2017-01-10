@@ -27,28 +27,25 @@ public class UpholdListRespModel: BaseRespModel {
             do {
                 let json = try JSONSerialization.jsonObject(with: jsonData, options: []) as! [String: AnyObject]
                 
-                if self.status != "1" {
+                if self.status != DomainConst.RESPONSE_STATUS_SUCCESS {
                     return
                 }
                 // Total record
-                let totalRecord = json[DomainConst.KEY_TOTAL_RECORD] as? String ?? ""
-                if totalRecord != "" {
+                let totalRecord = getString(json: json, key: DomainConst.KEY_TOTAL_RECORD)
+                if totalRecord != DomainConst.BLANK {
                     self.total_record = Int(totalRecord)!
                 }
                 // Total page
-                self.total_page = json[DomainConst.KEY_TOTAL_PAGE] as? Int ?? 0
+                self.total_page = getInt(json: json, key: DomainConst.KEY_TOTAL_PAGE)
                 
                 // Record
-                let recordList = json[DomainConst.KEY_RECORD] as? [[String: AnyObject]]
-                for uphold in recordList! {
-                    self.record.append(UpholdBean(jsonData: uphold))
-                }
+                self.record.append(contentsOf: getListUphold(json: json, key: DomainConst.KEY_RECORD))
             } catch let error as NSError {
-                print("Failed to load: \(error.localizedDescription)")
+                print(DomainConst.JSON_ERR_FAILED_LOAD + "\(error.localizedDescription)")
             }
             
         } else {
-            print("json is of wrong format")
+            print(DomainConst.JSON_ERR_WRONG_FORMAT)
         }
     }
     

@@ -26,7 +26,7 @@ class NotificationCountRequest: BaseRequest {
             print(dataString ?? "")
             // Convert to object
             let model: NotificationCountRespModel = NotificationCountRespModel(jsonString: dataString as! String)
-            if model.status == "1" {
+            if model.status == DomainConst.RESPONSE_STATUS_SUCCESS {
                 BaseModel.shared.setNotificationCountText(text: model.NotifyCountText)
                 BaseModel.shared.setOtherInfo(data: model.otherInfo)
             } else {

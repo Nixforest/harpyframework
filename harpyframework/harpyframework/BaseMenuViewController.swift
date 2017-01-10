@@ -11,41 +11,16 @@ open class BaseMenuViewController : UIViewController {
     /** List menu flag */
     var listMenu: [Bool] = []
     
-//    /** Login item: button */
-//    var loginBtn = UIButton()
-//    /** Login item: icon */
-//    var iconLogin = UIImageView()
-//    
-//    /** Logout item: button */
-//    var logoutBtn = UIButton()
-//    /** Logout item: icon */
-//    var iconLogout = UIImageView()
-//    
-//    /** Register item: button */
-//    var regBtn = UIButton()
-//    /** Register item: icon */
-//    var iconReg = UIImageView()
-//
-//    /** Issue item: button */
-//    var dynamicMenu = [UIButton]()
-//    /** Issue item: icon */
-//    var iconDynamicMenu = [UIImageView]()
-//
-//    /** Config item: button */
-//    var configBtn = UIButton()
-//    /** Config item: icon */
-//    var iconConfig = UIImageView()
-    
     /** Scroll view */
     var _scrollView: UIScrollView   = UIScrollView()
     
     override open func viewDidLoad() {
         // Background
-        self.view.layer.contents = UIImage(named: "bg_sliding_menu_body.jpg")?.cgImage
+        self.view.layer.contents = ImageManager.getImage(named: DomainConst.MENU_BKG_BODY_IMG_NAME)?.cgImage
         
         // Setting top image
         let topImg: UIImageView = UIImageView()
-        topImg.image = UIImage(named: "bg_sliding_menu_top.jpg")
+        topImg.image = ImageManager.getImage(named: DomainConst.MENU_BKG_TOP_IMG_NAME)
         topImg.frame = CGRect(x: 0,
                                y: 0,
                                width: GlobalConst.POPOVER_WIDTH,
@@ -55,7 +30,7 @@ open class BaseMenuViewController : UIViewController {
         self.view.addSubview(topImg)
         // Setting logo
         let imgLogo: UIImageView = UIImageView()
-        imgLogo.image = UIImage(named: "logo-1.png")
+        imgLogo.image = ImageManager.getImage(named: DomainConst.BRAND_LOGO_IMG_NAME)
         imgLogo.frame = CGRect(x: GlobalConst.MARGIN,
                                y: GlobalConst.MARGIN,
                                width: GlobalConst.POPOVER_WIDTH - GlobalConst.MARGIN * 2,
@@ -102,31 +77,31 @@ open class BaseMenuViewController : UIViewController {
         // Dynamic menu
         if listMenu[MenuItemEnum.DYNAMIC_MENU_LIST.hashValue] {
             for item in BaseModel.shared.menu {
-                var iconPath: String = "ic_menu_home.png"
+                var iconPath: String = DomainConst.MENU_ITEM_HOME_IMG_NAME
                 switch (item.id) {
                 case DomainConst.HOME:
-                    iconPath = "ic_menu_home.png"
+                    iconPath = DomainConst.MENU_ITEM_HOME_IMG_NAME
                     break
                 case DomainConst.USER_PROFILE:
-                    iconPath = "ic_menu_profile.png"
+                    iconPath = DomainConst.MENU_ITEM_PROFILE_IMG_NAME
                     break
                 case DomainConst.UPHOLD_LIST:
-                    iconPath = "list.png"
+                    iconPath = DomainConst.MENU_ITEM_UPHOLD_LIST_IMG_NAME
                     break
                 case DomainConst.ISSUE_LIST:
-                    iconPath = "list.png"
+                    iconPath = DomainConst.MENU_ITEM_UPHOLD_LIST_IMG_NAME
                     break
                 case DomainConst.MESSAGE:
-                    iconPath = "message.png"
+                    iconPath = DomainConst.MENU_ITEM_MSG_IMG_NAME
                     break
                 case DomainConst.CUSTOMER_LIST:
-                    iconPath = "list.png"
+                    iconPath = DomainConst.MENU_ITEM_UPHOLD_LIST_IMG_NAME
                     break
                 case DomainConst.WORKING_REPORT:
-                    iconPath = "report.png"
+                    iconPath = DomainConst.MENU_ITEM_WORKING_REPORT_IMG_NAME
                     break
                 case DomainConst.ORDER_TRANSACTION_LIST:
-                    iconPath = "ic_menu_shoping_cart.png"
+                    iconPath = DomainConst.MENU_ITEM_ORDER_LIST_IMG_NAME
                     break
                 default:
                     break
@@ -177,29 +152,6 @@ open class BaseMenuViewController : UIViewController {
      */
     func setItemContent(title: String, iconPath: String, action: Selector,
                         offset: CGFloat, id: String = "") {
-        // Icon
-//        icon.image = UIImage(named: iconPath)
-//        icon.translatesAutoresizingMaskIntoConstraints = true
-//        icon.frame = CGRect(x: GlobalConst.MARGIN,
-//                            y: offset + GlobalConst.MARGIN,
-//                            width: GlobalConst.BUTTON_HEIGHT - 2 * GlobalConst.MARGIN,
-//                            height: GlobalConst.BUTTON_HEIGHT - 2 * GlobalConst.MARGIN)
-//        
-//        // Button
-//        button.translatesAutoresizingMaskIntoConstraints = true
-//        button.frame = CGRect(x: GlobalConst.MARGIN + icon.frame.maxX,
-//                              y: offset,
-//                              width: GlobalConst.POPOVER_WIDTH,
-//                              height: GlobalConst.BUTTON_HEIGHT)
-//        //button.backgroundColor = UIColor.white
-//        button.setTitle(title, for: UIControlState())
-//        button.setTitleColor(UIColor.white, for: UIControlState())
-//        button.contentHorizontalAlignment = UIControlContentHorizontalAlignment.left
-//        button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-//        button.addTarget(self, action: action, for: .touchUpInside)
-//        
-//        _scrollView.addSubview(button)
-//        _scrollView.addSubview(icon)
         let item: MenuItem = MenuItem(title: title, id: id, iconPath: iconPath, action: action)
         item.frame = CGRect(x: 0, y: offset, width: GlobalConst.POPOVER_WIDTH,
                             height: GlobalConst.BUTTON_HEIGHT)

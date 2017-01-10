@@ -19,41 +19,17 @@ class UserProfileRespModel: BaseRespModel {
             do {
                 let json = try JSONSerialization.jsonObject(with: jsonData, options: []) as! [String: AnyObject]
                 
-                // Loop
-//                for (key, value) in json {
-//                    let keyName = key as String
-//                    if let keyValue = value as? String {
-//                        // If property exists
-//                        if (self.responds(to: NSSelectorFromString(keyName))) {
-//                            self.setValue(keyValue, forKey: keyName)
-//                        }
-//                    } else {
-//                        if let keyValueInt = value as? Int {
-//                            // If property exists
-//                            if (self.responds(to: NSSelectorFromString(keyName))) {
-//                                self.setValue(String(keyValueInt), forKey: keyName)
-//                            }
-//                        } else {
-//                            if let keyValueArr = value as? [String: AnyObject] {
-//                                record.first_name = keyValueArr["first_name"] as! String as String
-//                                record.phone = keyValueArr["phone"] as! String as String
-//                                record.address = keyValueArr["address"] as! String as String
-//                                record.image_avatar = keyValueArr["image_avatar"] as! String as String
-//                            }
-//                        }
-//                    }
-                //                }
-                if self.status != "1" {
+                if self.status != DomainConst.RESPONSE_STATUS_SUCCESS {
                     return
                 }
                 let record = json[DomainConst.KEY_RECORD] as? [String: AnyObject]
                 self.record = UserInfoBean(jsonString: record!)
             } catch let error as NSError {
-                print("Failed to load: \(error.localizedDescription)")
+                print(DomainConst.JSON_ERR_FAILED_LOAD + "\(error.localizedDescription)")
             }
             
         } else {
-            print("json is of wrong format")
+            print(DomainConst.JSON_ERR_WRONG_FORMAT)
         }
     }
 }

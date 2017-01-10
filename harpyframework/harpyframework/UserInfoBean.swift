@@ -44,22 +44,18 @@ public class UserInfoBean: NSObject {
      */
     init(jsonString: [String: AnyObject]) {
         super.init()
-        self.first_name     = jsonString[DomainConst.KEY_FIRST_NAME] as? String ?? ""
-        self.phone          = jsonString[DomainConst.KEY_PHONE] as? String ?? ""
-        self.address        = jsonString[DomainConst.KEY_ADDRESS] as? String ?? ""
-        self.image_avatar   = jsonString[DomainConst.KEY_IMG_AVATAR] as? String ?? ""
-        if let dataArr = jsonString[DomainConst.KEY_CUSTOMER_INFO] as? [[String: AnyObject]] {
-            for info in dataArr {
-                self.customer_info.append(ConfigBean(jsonData: info))
-            }
-        }
+        self.first_name     = getString(json: jsonString, key: DomainConst.KEY_FIRST_NAME)
+        self.phone          = getString(json: jsonString, key: DomainConst.KEY_PHONE)
+        self.address        = getString(json: jsonString, key: DomainConst.KEY_ADDRESS)
+        self.image_avatar   = getString(json: jsonString, key: DomainConst.KEY_IMG_AVATAR)
+        self.customer_info.append(contentsOf: getListConfig(json: jsonString, key: DomainConst.KEY_CUSTOMER_INFO))
         
-        self.email          = jsonString[DomainConst.KEY_EMAIL] as? String ?? ""
-        self.province_id    = jsonString[DomainConst.KEY_PROVINCE_ID] as? String ?? ""
-        self.district_id    = jsonString[DomainConst.KEY_DISTRICT_ID] as? String ?? ""
-        self.ward_id        = jsonString[DomainConst.KEY_WARD_ID] as? String ?? ""
-        self.street_id      = jsonString[DomainConst.KEY_STREET] as? String ?? ""
-        self.house_numbers  = jsonString[DomainConst.KEY_HOUSE_NUMBER] as? String ?? ""
+        self.email          = getString(json: jsonString, key: DomainConst.KEY_EMAIL)
+        self.province_id    = getString(json: jsonString, key: DomainConst.KEY_PROVINCE_ID)
+        self.district_id    = getString(json: jsonString, key: DomainConst.KEY_DISTRICT_ID)
+        self.ward_id        = getString(json: jsonString, key: DomainConst.KEY_WARD_ID)
+        self.street_id      = getString(json: jsonString, key: DomainConst.KEY_STREET)
+        self.house_numbers  = getString(json: jsonString, key: DomainConst.KEY_HOUSE_NUMBER)
     }
     
     /**

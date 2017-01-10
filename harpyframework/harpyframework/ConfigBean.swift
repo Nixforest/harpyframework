@@ -49,16 +49,6 @@ public class ConfigBean: NSObject {
             do {
                 let json = try JSONSerialization.jsonObject(with: jsonData, options: []) as! [String: AnyObject]
                 
-                // Loop
-//                for (key, value) in json {
-//                    let keyName = key as String
-//                    if let keyValue = value as? String {
-//                        // If property exists
-//                        if (self.responds(to: NSSelectorFromString(keyName))) {
-//                            self.setValue(keyValue, forKey: keyName)
-//                        }
-//                    }
-//                }
                 // Id
                 if let idStr = json[DomainConst.KEY_ID] as? String {
                     self.id = idStr
@@ -74,17 +64,13 @@ public class ConfigBean: NSObject {
                 }
                 
                 // Data
-                if let dataArr = json[DomainConst.KEY_DATA] as? [[String: AnyObject]] {
-                    for listItem in dataArr {
-                        self.data.append(ConfigBean(jsonData: listItem))
-                    }
-                }
+                self.data.append(contentsOf: getListConfig(json: json, key: DomainConst.KEY_DATA))
             } catch let error as NSError {
-                print("Failed to load: \(error.localizedDescription)")
+                print(DomainConst.JSON_ERR_FAILED_LOAD + "\(error.localizedDescription)")
             }
             
         } else {
-            print("json is of wrong format")
+            print(DomainConst.JSON_ERR_WRONG_FORMAT)
         }
     }
     
@@ -93,6 +79,7 @@ public class ConfigBean: NSObject {
      * - parameter jsonData: List of data
      */
     init(jsonData: [String: AnyObject]) {
+        super.init()
         if let idStr = jsonData[DomainConst.KEY_ID] as? String {
             self.id = idStr
         } else {
@@ -103,10 +90,7 @@ public class ConfigBean: NSObject {
         if let nameStr = jsonData[DomainConst.KEY_NAME] as? String  {
             self.name = nameStr
         }
-        if let dataArr = jsonData[DomainConst.KEY_DATA] as? [[String: AnyObject]] {
-            for listItem in dataArr {
-                self.data.append(ConfigBean(jsonData: listItem))
-            }
-        }
+        
+        self.data.append(contentsOf: getListConfig(json: jsonData, key: DomainConst.KEY_DATA))
     }
 }

@@ -9,8 +9,11 @@
 import UIKit
 
 open class CustomeDateTimeView: UIView {
+    /** Time label */
     private var timeLabel: UILabel = UILabel()
+    /** Date icon */
     private var dateIcon: UIImageView = UIImageView()
+    /** Date label */
     private var dateLabel: UILabel = UILabel()
 
     /*
@@ -41,7 +44,7 @@ open class CustomeDateTimeView: UIView {
                                      y: self.timeLabel.frame.maxY + GlobalConst.MARGIN_CELL_Y,
                                      width: GlobalConst.CELL_HEIGHT_SHOW / 5,
                                      height: GlobalConst.CELL_HEIGHT_SHOW / 5)
-        self.dateIcon.image = UIImage(named: "icon31.png")
+        self.dateIcon.image = ImageManager.getImage(named: DomainConst.DATETIME_ICON_IMG_NAME)
         // Date label
         self.dateLabel.frame = CGRect(x: self.dateIcon.frame.maxX,
                                       y: self.timeLabel.frame.maxY,
@@ -66,7 +69,7 @@ open class CustomeDateTimeView: UIView {
             time = dateTimeArr[1]
             date = dateTimeArr[0]
         } else {
-            time = "08:00"
+            time = DomainConst.DEFAULT_TIME_VALUE
             date = dateTime
         }
         self.timeLabel.text = time

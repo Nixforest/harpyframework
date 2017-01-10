@@ -190,7 +190,6 @@ public class RequestAPI {
         LoadingView.shared.showOverlay(view: view.view)
         let request = RegisterConfirmRequest(url: DomainConst.PATH_CUSTOMER_REGISTER_CONFIRM, reqMethod: DomainConst.HTTP_POST_REQUEST, view: view)
         request.setData(code: code)
-        request.execute()
-        
+        request.execute()        
     }
 }

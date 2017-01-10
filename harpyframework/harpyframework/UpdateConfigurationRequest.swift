@@ -26,7 +26,7 @@ class UpdateConfigurationRequest: BaseRequest {
             print(dataString ?? "")
             // Convert to object
             let model: LoginRespModel = LoginRespModel(jsonString: dataString as! String)
-            if model.status == "1" {
+            if model.status == DomainConst.RESPONSE_STATUS_SUCCESS {
                 BaseModel.shared.saveTempData(loginModel: model)
             } else {
                 if model.code == "1987" {

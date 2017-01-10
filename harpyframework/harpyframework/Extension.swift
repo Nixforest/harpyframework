@@ -26,6 +26,12 @@ public class ColorFromRGB: NSObject {
         )
     }
 }
+public class ImageManager {
+    public static func getImage(named: String) -> UIImage? {
+        let frameworkBundle = Bundle(identifier: DomainConst.HARPY_FRAMEWORK_BUNDLE_NAME)
+        return UIImage(named: named, in: frameworkBundle, compatibleWith: nil)
+    }
+}
 
 /**
  * Uphold image information item.
@@ -99,6 +105,7 @@ extension UIImageView {
         }).resume()
     }
 }
+
 /**
  * Draw border extension for layer
  */
@@ -150,6 +157,7 @@ extension CALayer {
         addBorder(edge: edge, color: GlobalConst.BACKGROUND_COLOR_GRAY, thickness: 1)
     }
 }
+
 /**
  * Protocol to define delegate with match select button event.
  */
@@ -160,6 +168,7 @@ public protocol ScrollButtonListDelegate {
      */
     func selectButton(_ sender: AnyObject)
 }
+
 /**
  * Protocol to define delegate with match step done event.
  */
@@ -169,9 +178,17 @@ public protocol StepDoneDelegate {
      */
     func stepDone()
 }
+
+/**
+ * Extension of button control.
+ */
 extension UIButton {
+    /**
+     * Make label center vertically with padding
+     * - parameter spacing: Padding value
+     */
     public func centerLabelVerticallyWithPadding(spacing: CGFloat) {
-        // update positioning of image and title
+        // Update positioning of image and title
         let imageSize = self.imageView?.frame.size
         self.titleEdgeInsets = UIEdgeInsets(top:0,
                                             left:-(imageSize?.width)!,
@@ -183,7 +200,7 @@ extension UIButton {
                                             bottom: 0,
                                             right:-(titleSize?.width)!)
         
-        // reset contentInset, so intrinsicContentSize() is still accurate
+        // Reset contentInset, so intrinsicContentSize() is still accurate
         let trueContentSize = (self.titleLabel?.frame)!.union((self.imageView?.frame)!).size
         let oldContentSize = self.intrinsicContentSize
         let heightDelta = trueContentSize.height - oldContentSize.height
@@ -193,11 +210,21 @@ extension UIButton {
                                               bottom:heightDelta/2.0,
                                               right:widthDelta/2.0)
     }
+    
+    /**
+     * Set image to the right
+     */
     public func setImageToRight() {
         self.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         self.titleLabel?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         self.imageView?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
     }
+    
+    /**
+     * Set image to left with padding
+     * - parameter imageName: Name of image
+     * - parameter padding: Padding value
+     */
     public func setLeftImage(imageName:String, padding:CGFloat) {
         //Set left image
         let back = UIImage(named: imageName)
@@ -217,7 +244,17 @@ extension UIButton {
         self.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: rightInset)
     }
 }
+
+/**
+ * String extension
+ */
 extension String {
+    /**
+     * Get height of string with constant width
+     * - parameter width: Width value
+     * - parameter font: Font value
+     * - returns: Height of string
+     */
     func heightWithConstrainedWidth(width: CGFloat, font: UIFont) -> CGFloat {
         let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
         let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
@@ -225,11 +262,105 @@ extension String {
         return boundingBox.height
     }
     
+    /**
+     * Normalizate string value
+     * - returns: String after normalization
+     * - Remove "Không rõ, "
+     */
     public func normalizateString() -> String {
         var ret: String = self
         if self.contains(DomainConst.ADDRESS_UNKNOWN) {
             ret = self.replacingOccurrences(of: DomainConst.ADDRESS_UNKNOWN, with: DomainConst.BLANK)
         }
         return ret
+    }
+}
+
+public extension NSObject {    
+    /**
+     * Get string value from key in json list
+     * - parameter json: Json data
+     * - parameter key: Key value
+     * - returns: Value of string match with key value
+     */
+    public func getString(json: [String: AnyObject], key: String) -> String {
+        return json[key] as? String ?? DomainConst.BLANK
+    }
+    
+    /**
+     * Get int value from key in json list
+     * - parameter json: Json data
+     * - parameter key: Key value
+     * - returns: Value of int match with key value
+     */
+    public func getInt(json: [String: AnyObject], key: String) -> Int {
+        return json[key] as? Int ?? 0
+    }
+    
+    /**
+     * Get string value from key in json list, really value is Int
+     * - parameter json: Json data
+     * - parameter key: Key value
+     * - returns: Value of string match with key value
+     */
+    public func getStringFromInt(json: [String: AnyObject], key: String) -> String {
+        let intValue = json[key] as? Int ?? 0
+        if intValue != 0 {
+            return String(intValue)
+        } else {
+            return DomainConst.BLANK
+        }
+    }
+    
+    /**
+     * Get list config data from key in json list
+     * - parameter json: Json data
+     * - parameter key: Key value
+     * - returns: Value of list config data match with key value
+     */
+    public func getListConfig(json: [String: AnyObject], key: String) -> [ConfigBean] {
+        var retVal = [ConfigBean]()
+        let list = json[key] as? [[String: AnyObject]]
+        if list != nil {
+            for item in list! {
+                retVal.append(ConfigBean(jsonData: item))
+            }
+        }
+        
+        return retVal
+    }
+    
+    /**
+     * Get list uphold data from key in json list
+     * - parameter json: Json data
+     * - parameter key: Key value
+     * - returns: Value of list uphold data match with key value
+     */
+    public func getListUphold(json: [String: AnyObject], key: String) -> [UpholdBean] {
+        var retVal = [UpholdBean]()
+        let list = json[key] as? [[String: AnyObject]]
+        if list != nil {
+            for item in list! {
+                retVal.append(UpholdBean(jsonData: item))
+            }
+        }
+        return retVal
+    }
+    
+    /**
+     * Get list uphold reply data from key in json list
+     * - parameter json: Json data
+     * - parameter key: Key value
+     * - returns: Value of list uphold reply data match with key value
+     */
+    public func getListUpholdReply(json: [String: AnyObject], key: String) -> [UpholdReplyBean] {
+        var retVal = [UpholdReplyBean]()
+        let list = json[key] as? [[String: AnyObject]]
+        if list != nil {
+            for item in list! {
+                retVal.append(UpholdReplyBean(jsonData: item))
+            }
+        }
+        return retVal
     }
 }

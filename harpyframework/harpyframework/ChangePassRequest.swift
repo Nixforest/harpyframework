@@ -26,7 +26,7 @@ class ChangePassRequest: BaseRequest {
             print(dataString ?? "")
             // Convert to object
             let model: BaseRespModel = BaseRespModel(jsonString: dataString as! String)
-            if model.status == "1" {
+            if model.status == DomainConst.RESPONSE_STATUS_SUCCESS {
                 // Hide overlay
                 LoadingView.shared.hideOverlayView()
                 // Back to home page (cross-thread)

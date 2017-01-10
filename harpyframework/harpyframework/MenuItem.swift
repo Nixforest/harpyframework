@@ -13,10 +13,17 @@ class MenuItem: UIView {
     /** Button */
     private var button: UIButton = UIButton()
     
+    /**
+     * Initialize
+     * - parameter title:       Title string
+     * - parameter id:          Id of item
+     * - parameter iconPath:    Path of icon
+     * - parameter action:      Action
+     */
     init(title: String, id: String, iconPath: String, action: Selector) {
         super.init(frame: UIScreen.main.bounds)
         // Icon
-        icon.image = UIImage(named: iconPath)
+        icon.image = ImageManager.getImage(named: iconPath)
         icon.translatesAutoresizingMaskIntoConstraints = true
         icon.frame = CGRect(x: GlobalConst.MARGIN,
                             y: GlobalConst.MARGIN,
@@ -32,7 +39,7 @@ class MenuItem: UIView {
         button.setTitle(title, for: UIControlState())
         button.setTitleColor(UIColor.white, for: UIControlState())
         button.contentHorizontalAlignment = UIControlContentHorizontalAlignment.left
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: GlobalConst.NORMAL_FONT_SIZE)
         button.accessibilityIdentifier = id
         button.addTarget(nil, action: action, for: .touchUpInside)
         button.layer.addBorder(edge: .bottom, color: GlobalConst.BUTTON_COLOR_RED_TRUE,

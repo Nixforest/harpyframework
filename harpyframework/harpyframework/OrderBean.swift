@@ -73,6 +73,7 @@ public class OrderBean: NSObject {
      * - parameter jsonData: List of data
      */
     public init(jsonData: [String: AnyObject]) {
+        super.init()
         // Id
         if let idStr = jsonData[DomainConst.KEY_ID] as? String {
             self.id = idStr
@@ -81,31 +82,31 @@ public class OrderBean: NSObject {
                 self.id = String(idInt)
             }
         }
-        self.first_name         = jsonData[DomainConst.KEY_FIRST_NAME] as? String ?? ""
-        self.phone              = jsonData[DomainConst.KEY_PHONE] as? String ?? ""
-        self.email              = jsonData[DomainConst.KEY_EMAIL] as? String ?? ""
-        self.agent_id           = jsonData[DomainConst.KEY_AGENT_ID] as? String ?? ""
-        self.agent_name         = jsonData[DomainConst.KEY_AGENT_NAME] as? String ?? ""
-        self.note               = jsonData[DomainConst.KEY_NOTE] as? String ?? ""
-        self.address            = jsonData[DomainConst.KEY_ADDRESS] as? String ?? ""
-        self.code_no            = jsonData[DomainConst.KEY_CODE_NO] as? String ?? ""
-        self.allow_update       = jsonData[DomainConst.KEY_ALLOW_UPDATE] as? String ?? ""
-        self.province_id        = jsonData[DomainConst.KEY_PROVINCE_ID] as? String ?? ""
-        self.district_id        = jsonData[DomainConst.KEY_DISTRICT_ID] as? String ?? ""
-        self.ward_id            = jsonData[DomainConst.KEY_WARD_ID] as? String ?? ""
-        self.street_id          = jsonData[DomainConst.KEY_STREET] as? String ?? ""
-        self.house_numbers      = jsonData[DomainConst.KEY_HOUSE_NUMBER] as? String ?? ""
-        self.latitude           = jsonData[DomainConst.KEY_LATITUDE] as? String ?? ""
-        self.longitude          = jsonData[DomainConst.KEY_LONGITUDE] as? String ?? ""
-        self.employee_name      = jsonData[DomainConst.KEY_EMPLOYEE_NAME] as? String ?? ""
-        self.employee_code      = jsonData[DomainConst.KEY_EMPLOYEE_CODE] as? String ?? ""
-        self.employee_phone     = jsonData[DomainConst.KEY_EMPLOYEE_PHONE] as? String ?? ""
-        self.employee_image     = jsonData[DomainConst.KEY_EMPLOYEE_IMG] as? String ?? ""
-        self.order_type         = jsonData[DomainConst.KEY_ORDER_TYPE] as? String ?? ""
-        self.type_amount        = jsonData[DomainConst.KEY_TYPE_AMOUNT] as? String ?? ""
-        self.amount_discount    = jsonData[DomainConst.KEY_AMOUNT_DISCOUNT] as? String ?? ""
-        self.discount_type      = jsonData[DomainConst.KEY_DISCOUNT_TYPE] as? String ?? ""
-        self.status_cancel      = jsonData[DomainConst.KEY_STATUS_CANCEL] as? String ?? ""
+        self.first_name         = getString(json: jsonData, key: DomainConst.KEY_FIRST_NAME)
+        self.phone              = getString(json: jsonData, key: DomainConst.KEY_PHONE)
+        self.email              = getString(json: jsonData, key: DomainConst.KEY_EMAIL)
+        self.agent_id           = getString(json: jsonData, key: DomainConst.KEY_AGENT_ID)
+        self.agent_name         = getString(json: jsonData, key: DomainConst.KEY_AGENT_NAME)
+        self.note               = getString(json: jsonData, key: DomainConst.KEY_NOTE)
+        self.address            = getString(json: jsonData, key: DomainConst.KEY_ADDRESS)
+        self.code_no            = getString(json: jsonData, key: DomainConst.KEY_CODE_NO)
+        self.allow_update       = getString(json: jsonData, key: DomainConst.KEY_ALLOW_UPDATE)
+        self.province_id        = getString(json: jsonData, key: DomainConst.KEY_PROVINCE_ID)
+        self.district_id        = getString(json: jsonData, key: DomainConst.KEY_DISTRICT_ID)
+        self.ward_id            = getString(json: jsonData, key: DomainConst.KEY_WARD_ID)
+        self.street_id          = getString(json: jsonData, key: DomainConst.KEY_STREET)
+        self.house_numbers      = getString(json: jsonData, key: DomainConst.KEY_HOUSE_NUMBER)
+        self.latitude           = getString(json: jsonData, key: DomainConst.KEY_LATITUDE)
+        self.longitude          = getString(json: jsonData, key: DomainConst.KEY_LONGITUDE)
+        self.employee_name      = getString(json: jsonData, key: DomainConst.KEY_EMPLOYEE_NAME)
+        self.employee_code      = getString(json: jsonData, key: DomainConst.KEY_EMPLOYEE_CODE)
+        self.employee_phone     = getString(json: jsonData, key: DomainConst.KEY_EMPLOYEE_PHONE)
+        self.employee_image     = getString(json: jsonData, key: DomainConst.KEY_EMPLOYEE_IMG)
+        self.order_type         = getString(json: jsonData, key: DomainConst.KEY_ORDER_TYPE)
+        self.type_amount        = getString(json: jsonData, key: DomainConst.KEY_TYPE_AMOUNT)
+        self.amount_discount    = getString(json: jsonData, key: DomainConst.KEY_AMOUNT_DISCOUNT)
+        self.discount_type      = getString(json: jsonData, key: DomainConst.KEY_DISCOUNT_TYPE)
+        self.status_cancel      = getString(json: jsonData, key: DomainConst.KEY_STATUS_CANCEL)
         if let dataArr = jsonData[DomainConst.KEY_ORDER_DETAIL] as? [[String: AnyObject]] {
             for item in dataArr {
                 self.order_detail.append(OrderDetailBean(jsonData: item))

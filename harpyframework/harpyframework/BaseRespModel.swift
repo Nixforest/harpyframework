@@ -9,7 +9,7 @@
 import Foundation
 open class BaseRespModel: NSObject {
     /** Status */
-    public var status: String = "0"
+    public var status: String = DomainConst.RESPONSE_STATUS_FAILED
     /** Code */
     public var code: String = ""
     /** Message */
@@ -34,26 +34,21 @@ open class BaseRespModel: NSObject {
                 let json = try JSONSerialization.jsonObject(with: jsonData, options: []) as! [String: AnyObject]
                 
                 // Status
-                let statusInt = json[DomainConst.KEY_STATUS] as? Int ?? 0
-                if statusInt != 0 {
-                    self.status = String(statusInt)
-                }
+                self.status = getStringFromInt(json: json, key: DomainConst.KEY_STATUS)
                 // Code
-                let codeInt = json[DomainConst.KEY_CODE] as? Int ?? 0
-                if codeInt != 0 {
-                    self.code = String(codeInt)
-                }
+                self.code = getStringFromInt(json: json, key: DomainConst.KEY_CODE)
+                
                 // Message
-                self.message = json[DomainConst.KEY_MESSAGE] as? String ?? ""
+                self.message = getString(json: json, key: DomainConst.KEY_MESSAGE)
                 
                 // Token
-                self.token = json[DomainConst.KEY_TOKEN] as? String ?? ""
+                self.token = getString(json: json, key: DomainConst.KEY_TOKEN)
             } catch let error as NSError {
-                print("Failed to load: \(error.localizedDescription)")
+                print(DomainConst.JSON_ERR_FAILED_LOAD + "\(error.localizedDescription)")
             }
             
         } else {
-            print("json is of wrong format")
+            print(DomainConst.JSON_ERR_WRONG_FORMAT)
         }
     }
 }

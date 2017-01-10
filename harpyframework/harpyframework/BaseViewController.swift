@@ -111,9 +111,8 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
      * - parameter cancelHandler: Handler when tap Cancel button
      */
     public func showAlert(message: String, okHandler: @escaping (UIAlertAction) -> Swift.Void, cancelHandler: @escaping (UIAlertAction) -> Swift.Void) -> Void {
-        
-        let alert = UIAlertController(title: DomainConst.CONTENT00162, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: DomainConst.CONTENT00008, style: .default, handler: okHandler)
+        let alert       = UIAlertController(title: DomainConst.CONTENT00162, message: message, preferredStyle: .alert)
+        let okAction    = UIAlertAction(title: DomainConst.CONTENT00008, style: .default, handler: okHandler)
         alert.addAction(okAction)
         let cancelAction = UIAlertAction(title: DomainConst.CONTENT00202, style: .cancel, handler: cancelHandler)
         alert.addAction(cancelAction)
@@ -132,8 +131,8 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: GlobalConst.BUTTON_COLOR_RED]
         
         // Menu button
-        let menu        = UIImage(named: DomainConst.MENU_IMG_NAME)
-        let tintedImg   = menu?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        let menu                = UIImage(named: DomainConst.MENU_IMG_NAME)
+        let tintedImg           = menu?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
         menuButton.setImage(tintedImg, for: UIControlState())
         menuButton.tintColor    = GlobalConst.BUTTON_COLOR_RED
         menuButton.frame        = CGRect(x: 0, y: 0,
@@ -189,12 +188,6 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
      */
     public func notificationButtonTapped(_ sender: AnyObject) {
         showAlert(message: BaseModel.shared.notifyCountText)
-        //        showAlert(message: Singleton.shared.notify.id + " - "
-        //            + Singleton.shared.notify.notify_id + " - "
-        //            + Singleton.shared.notify.notify_type + " - "
-        //            + Singleton.shared.notify.type + " - "
-        //            + Singleton.shared.notify.reply_id + " - "
-        //            + Singleton.shared.notify.message)
     }
     
     /**

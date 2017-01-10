@@ -26,7 +26,7 @@ class SearchCustomerRequest: BaseRequest {
             print(dataString ?? "")
             // Convert to object
             let model: SearchCustomerRespModel = SearchCustomerRespModel(jsonString: dataString as! String)
-            if model.status == "1" {
+            if model.status == DomainConst.RESPONSE_STATUS_SUCCESS {
                 BaseModel.shared.saveSearchCustomerResult(result: model)
                 // Notify update data on UpholdList view (cross-thread)
                 DispatchQueue.main.async {

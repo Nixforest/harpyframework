@@ -23,21 +23,18 @@ class UpholdDetailRespModel: BaseRespModel {
             do {
                 let json = try JSONSerialization.jsonObject(with: jsonData, options: []) as! [String: AnyObject]
                 
-                if self.status != "1" {
+                if self.status != DomainConst.RESPONSE_STATUS_SUCCESS {
                     return
                 }
                 if let dataArr = json[DomainConst.KEY_MODEL_UPHOLD] as? [String: AnyObject] {
-//                    for listItem in dataArr {
-//                        self.model_uphold.append(UpholdBean(jsonData: listItem))
-//                    }
                     self.model_uphold = UpholdBean(jsonData: dataArr)
                 }
             } catch let error as NSError {
-                print("Failed to load: \(error.localizedDescription)")
+                print(DomainConst.JSON_ERR_FAILED_LOAD + "\(error.localizedDescription)")
             }
             
         } else {
-            print("json is of wrong format")
+            print(DomainConst.JSON_ERR_WRONG_FORMAT)
         }
     }
 }

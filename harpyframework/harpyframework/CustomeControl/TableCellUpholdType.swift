@@ -35,7 +35,8 @@ open class TableCellUpholdType: UITableViewCell {
     // Bottom control
     private var addressIcon: UIImageView = UIImageView()
     private var addressLabel: UILabel = UILabel()
-    var _id: String = ""
+    /** Current id */
+    private var _id: String = DomainConst.BLANK
     
     // MARK: Methods
     /**
@@ -43,12 +44,12 @@ open class TableCellUpholdType: UITableViewCell {
      */
     override open func awakeFromNib() {
         super.awakeFromNib()
-        let contentHeight = GlobalConst.CELL_HEIGHT_SHOW
-        let contentWidthLeft = GlobalConst.SCREEN_WIDTH / 4
-        let contentWidthRight = GlobalConst.SCREEN_WIDTH / 4
-        let contentWidthMid = GlobalConst.SCREEN_WIDTH / 4 * 3 - GlobalConst.MARGIN_CELL_X
-        let verticalMargin = GlobalConst.MARGIN_CELL_X
-        var offset: CGFloat = verticalMargin * 2
+        let contentHeight       = GlobalConst.CELL_HEIGHT_SHOW
+        let contentWidthLeft    = GlobalConst.SCREEN_WIDTH / 4
+        let contentWidthRight   = GlobalConst.SCREEN_WIDTH / 4
+        let contentWidthMid     = GlobalConst.SCREEN_WIDTH / 4 * 3 - GlobalConst.MARGIN_CELL_X
+        let verticalMargin      = GlobalConst.MARGIN_CELL_X
+        var offset              = verticalMargin * 2
         
         /** ---- Left view ------ */
         self.dateTime.setup(x: 0, y: offset, w: contentWidthLeft, h: contentHeight / 2 - GlobalConst.CELL_HEIGHT_SHOW / 5)
@@ -59,7 +60,7 @@ open class TableCellUpholdType: UITableViewCell {
                                              y: offset + GlobalConst.CELL_HEIGHT_SHOW / 40,
                                              width: GlobalConst.CELL_HEIGHT_SHOW / 5,
                                              height: GlobalConst.CELL_HEIGHT_SHOW / 5)
-        self.statusStaticIcon.image = UIImage(named: DomainConst.STATUS_ICON_IMG_NAME)
+        self.statusStaticIcon.image = ImageManager.getImage(named: DomainConst.STATUS_ICON_IMG_NAME)
         self.statusStaticIcon.contentMode = .scaleAspectFit
         // Status label
         self.statusLabel.frame = CGRect(x: self.statusStaticIcon.frame.maxX,
@@ -116,7 +117,7 @@ open class TableCellUpholdType: UITableViewCell {
                                          width: GlobalConst.CELL_HEIGHT_SHOW / 5,
                                          height: GlobalConst.CELL_HEIGHT_SHOW / 5)
         self.problemIcon.contentMode = .scaleAspectFit
-        self.problemIcon.image = UIImage(named: "icon23.png")
+        self.problemIcon.image = ImageManager.getImage(named: DomainConst.PROBLEM_ICON_IMG_NAME)
         // Total label
         self.problemLabel.frame = CGRect(x: self.problemIcon.frame.maxX,
                                           y: offset,
@@ -133,7 +134,7 @@ open class TableCellUpholdType: UITableViewCell {
                                          width: GlobalConst.CELL_HEIGHT_SHOW / 5,
                                          height: GlobalConst.CELL_HEIGHT_SHOW / 5)
         self.employeeIcon.contentMode = .scaleAspectFit
-        self.employeeIcon.image = UIImage(named: "icon23.png")
+        self.employeeIcon.image = ImageManager.getImage(named: DomainConst.HUMAN_ICON_IMG_NAME)
         // Employee label
         self.employeeLabel.frame = CGRect(x: self.employeeIcon.frame.maxX,
                                           y: offset,
@@ -155,7 +156,7 @@ open class TableCellUpholdType: UITableViewCell {
                                        y: (height - GlobalConst.CELL_HEIGHT_SHOW / 5) / 2,
                                        width: GlobalConst.CELL_HEIGHT_SHOW / 5,
                                        height: GlobalConst.CELL_HEIGHT_SHOW / 5)
-        self.statusIcon.image = UIImage(named: "icon29.png")
+        self.statusIcon.image = ImageManager.getImage(named: DomainConst.STATUS_ICON_IMG_NAME)
         // Comment icon
         self.commentIcon.frame = CGRect(x: (contentWidthRight - GlobalConst.CELL_HEIGHT_SHOW / 5) / 2,
                                        y: /*self.rightView.frame.maxY - GlobalConst.CELL_HEIGHT_SHOW / 5 - verticalMargin*/
@@ -172,7 +173,7 @@ open class TableCellUpholdType: UITableViewCell {
                                              y: GlobalConst.CELL_HEIGHT_SHOW / 40,
                                              width: GlobalConst.CELL_HEIGHT_SHOW / 5,
                                              height: GlobalConst.CELL_HEIGHT_SHOW / 5)
-        self.addressIcon.image = UIImage(named: "icon6.png")
+        self.addressIcon.image = ImageManager.getImage(named: DomainConst.ADDRESS_ICON_IMG_NAME)
         self.addressIcon.contentMode = .scaleAspectFit
         // Address label
         self.addressLabel.frame = CGRect(x: self.addressIcon.frame.maxX,

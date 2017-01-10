@@ -25,7 +25,7 @@ class LogoutRequest: BaseRequest {
             let dataString = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
             // Convert to object
             let model: BaseRespModel = BaseRespModel(jsonString: dataString as! String)
-            if model.status == "1" {
+            if model.status == DomainConst.RESPONSE_STATUS_SUCCESS {
                 // Handle logout is success
                 BaseModel.shared.logoutSuccess()
             } else {

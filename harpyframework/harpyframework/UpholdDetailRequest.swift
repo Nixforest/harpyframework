@@ -27,7 +27,7 @@ class UpholdDetailRequest: BaseRequest {
             print(dataString ?? "")
             // Convert to object
             let model: UpholdDetailRespModel = UpholdDetailRespModel(jsonString: dataString as! String)
-            if model.status == "1" {
+            if model.status == DomainConst.RESPONSE_STATUS_SUCCESS {
                 BaseModel.shared.saveCurrentUpholdDetail(model: model.model_uphold)
                 // Notify update data on UpholdList view (cross-thread)
                 DispatchQueue.main.async {

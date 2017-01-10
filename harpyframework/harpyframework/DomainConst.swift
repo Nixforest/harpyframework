@@ -511,10 +511,20 @@ public class DomainConst {
     public static let NOTIFY_ISSUE_TICKET = "3"
     /** Notify type: Uphold create */
     public static let NOTIFY_UPHOLD_CREATE = "4"
+    /** Response status code: Success */
+    public static let RESPONSE_STATUS_SUCCESS = "1"
+    /** Response status code: Success */
+    public static let RESPONSE_STATUS_FAILED = "0"
     /** The other option */
     public static let OPTION_OTHER = "Khác"
+    /** Default time value */
+    public static let DEFAULT_TIME_VALUE = "08:00"
     /** Address unknown string */
     public static let ADDRESS_UNKNOWN = "Khong ro, "
+    /** Json error: Failed to load */
+    public static let JSON_ERR_FAILED_LOAD = "Failed to load: "
+    /** Json error: Wrong format */
+    public static let JSON_ERR_WRONG_FORMAT = "Json is of wrong format"
     
     /** -----Log message----- */
     /** Log tag: error. */
@@ -610,7 +620,7 @@ public class DomainConst {
     /** Problem table view cell */
     public static let G01_F00_S01_PROBLEM_CELL = "TableCellUpholdType"
     /** Search bar table view cell */
-    public static let SEARCH_BAR_TABLE_VIEW_CELL = "searchBarTableViewCell"
+    public static let SEARCH_BAR_TABLE_VIEW_CELL = "SearchBarTableViewCell"
     /** Configuration table view cell */
     public static let G00_CONFIGURATION_TABLE_VIEW_CELL = "G00ConfigurationCell"
     /** Uphold detail employee history table view cell */
@@ -701,8 +711,14 @@ public class DomainConst {
     public static let RATING_IMG_NAME          = "icon25.png"
     /** Rating empty image name */
     public static let RATING_EMPTY_IMG_NAME    = "icon27.png"
+    /** Problem icon image name */
+    public static let PROBLEM_ICON_IMG_NAME    = "icon59.png"
+    /** Human icon image name */
+    public static let HUMAN_ICON_IMG_NAME      = "icon47.png"
     /** Status icon image name */
     public static let STATUS_ICON_IMG_NAME     = "icon48.png"
+    /** Address icon image name */
+    public static let ADDRESS_ICON_IMG_NAME     = "icon49.png"
     /** Customer icon image name */
     public static let CUSTOMER_ICON_IMG_NAME   = "icon55.png"
     /** Contact icon image name */
@@ -713,6 +729,28 @@ public class DomainConst {
     public static let CONTENT_ICON_IMG_NAME    = "icon60.png"
     /** Content icon image name */
     public static let REPORT_ICON_IMG_NAME     = "icon62.png"
+    /** Menu backgroud body image name */
+    public static let MENU_BKG_BODY_IMG_NAME   = "bg_sliding_menu_body.jpg"
+    /** Menu backgroud top image name */
+    public static let MENU_BKG_TOP_IMG_NAME    = "bg_sliding_menu_top.jpg"
+    /** Brand logo image name */
+    public static let BRAND_LOGO_IMG_NAME      = "logo-1.png"
+    /** Menu item Home image name */
+    public static let MENU_ITEM_HOME_IMG_NAME  = "ic_menu_home.png"
+    /** Menu item Profile image name */
+    public static let MENU_ITEM_PROFILE_IMG_NAME  = "ic_menu_profile.png"
+    /** Menu item Uphold list image name */
+    public static let MENU_ITEM_UPHOLD_LIST_IMG_NAME  = "list.png"
+    /** Menu item Message image name */
+    public static let MENU_ITEM_MSG_IMG_NAME   = "message.png"
+    /** Menu item Working report image name */
+    public static let MENU_ITEM_WORKING_REPORT_IMG_NAME  = "report.png"
+    /** Menu item Order list image name */
+    public static let MENU_ITEM_ORDER_LIST_IMG_NAME  = "ic_menu_shoping_cart.png"
+    /** Finish status image name */
+    public static let FINISH_STATUS_IMG_NAME   = "icon29.png"
+    /** Date time icon image name */
+    public static let DATETIME_ICON_IMG_NAME   = "icon31.png"
     /** HTTP Post request method */
     public static let HTTP_POST_REQUEST        = "POST"
     

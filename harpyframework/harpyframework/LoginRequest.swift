@@ -27,7 +27,7 @@ class LoginRequest: BaseRequest {
             print(dataString ?? "")
             // Convert to object
             let model: LoginRespModel = LoginRespModel(jsonString: dataString as! String)
-            if model.status == "1" {
+            if model.status == DomainConst.RESPONSE_STATUS_SUCCESS {
                 // Handle login is success
                 BaseModel.shared.loginSuccess(model.token)
                 BaseModel.shared.saveTempData(loginModel: model)
