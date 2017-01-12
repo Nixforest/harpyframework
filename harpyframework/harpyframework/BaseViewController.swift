@@ -203,8 +203,7 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
      * Handle when tap on Config menu item
      */
     public func configItemTap(_ notification: Notification) {
-        let config = mainStoryboard.instantiateViewController(withIdentifier: DomainConst.G00_CONFIGURATION_VIEW_CTRL)
-        self.navigationController?.pushViewController(config, animated: true)
+        self.pushToView(name: DomainConst.G00_CONFIGURATION_VIEW_CTRL)
     }
     
     /**
@@ -290,5 +289,14 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
      */
     public func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
         return UIModalPresentationStyle.none
+    }
+    
+    /**
+     * Push to a view controller with View controller name
+     * - parameter name: Name of view controller
+     */
+    public func pushToView(name: String) {
+        let view = mainStoryboard.instantiateViewController(withIdentifier: name)
+        self.navigationController?.pushViewController(view, animated: true)
     }
 }

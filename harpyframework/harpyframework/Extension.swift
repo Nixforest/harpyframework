@@ -274,6 +274,16 @@ extension String {
         }
         return ret
     }
+    
+    /**
+     * Normalizate phone string
+     * - returns: String after normalization
+     * - Remove " "
+     */
+    public func normalizatePhoneString() -> String {
+        let retVal = self.replacingOccurrences(of: DomainConst.SPACE_STR, with: DomainConst.BLANK)
+        return retVal
+    }
 }
 
 public extension NSObject {    

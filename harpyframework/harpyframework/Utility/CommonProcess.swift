@@ -7,7 +7,6 @@
 //
 
 import Foundation
-
 public class CommonProcess {
     /**
      * Set border for control.

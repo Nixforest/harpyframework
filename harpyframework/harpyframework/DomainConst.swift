@@ -517,6 +517,8 @@ public class DomainConst {
     public static let RESPONSE_STATUS_FAILED = "0"
     /** The other option */
     public static let OPTION_OTHER = "Khác"
+    /** Contact spliter */
+    public static let CONTACT_SPLITER = " - "
     /** Default time value */
     public static let DEFAULT_TIME_VALUE = "08:00"
     /** Address unknown string */
@@ -750,7 +752,7 @@ public class DomainConst {
     /** Finish status image name */
     public static let FINISH_STATUS_IMG_NAME   = "icon29.png"
     /** Date time icon image name */
-    public static let DATETIME_ICON_IMG_NAME   = "icon31.png"
+    public static let DATETIME_ICON_IMG_NAME   = "icon45.png"
     /** HTTP Post request method */
     public static let HTTP_POST_REQUEST        = "POST"
     

@@ -31,10 +31,9 @@ class RegisterConfirmRequest: BaseRequest {
                 // Hide overlay
                 LoadingView.shared.hideOverlayView()
                 BaseModel.shared.resetTempToken()
-                // Back to home page (cross-thread)
+                // Back to login page (cross-thread)
                 DispatchQueue.main.async {
-                    let loginVC = self.view.mainStoryboard.instantiateViewController(withIdentifier: DomainConst.G00_LOGIN_VIEW_CTRL)
-                    self.view.navigationController?.pushViewController(loginVC, animated: true)
+                    self.view.pushToView(name: DomainConst.G00_LOGIN_VIEW_CTRL)
                 }
             } else {
                 self.showAlert(message: model.message)

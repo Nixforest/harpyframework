@@ -156,7 +156,7 @@ open class TableCellUpholdType: UITableViewCell {
                                        y: (height - GlobalConst.CELL_HEIGHT_SHOW / 5) / 2,
                                        width: GlobalConst.CELL_HEIGHT_SHOW / 5,
                                        height: GlobalConst.CELL_HEIGHT_SHOW / 5)
-        self.statusIcon.image = ImageManager.getImage(named: DomainConst.STATUS_ICON_IMG_NAME)
+        self.statusIcon.image = ImageManager.getImage(named: DomainConst.FINISH_STATUS_IMG_NAME)
         // Comment icon
         self.commentIcon.frame = CGRect(x: (contentWidthRight - GlobalConst.CELL_HEIGHT_SHOW / 5) / 2,
                                        y: /*self.rightView.frame.maxY - GlobalConst.CELL_HEIGHT_SHOW / 5 - verticalMargin*/
