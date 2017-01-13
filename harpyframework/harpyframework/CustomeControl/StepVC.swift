@@ -322,4 +322,8 @@ open class StepVC: BaseViewController, UIScrollViewDelegate, ScrollButtonListDel
     public func setTitle(title: String) {
         self._title = title
     }
+    
+    public func stepDone() {
+        self.moveNext()
+    }
 }

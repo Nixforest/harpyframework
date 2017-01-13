@@ -227,7 +227,7 @@ extension UIButton {
      */
     public func setLeftImage(imageName:String, padding:CGFloat) {
         //Set left image
-        let back = UIImage(named: imageName)
+        let back = ImageManager.getImage(named: imageName)
         let tintedBack = back?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
         self.setImage(tintedBack, for: UIControlState())
         self.tintColor          = UIColor.white

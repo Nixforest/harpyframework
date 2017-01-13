@@ -500,33 +500,49 @@ public class DomainConst {
     /** Flag change pass: no need change */
     public static let NO_NEED_CHANGE_PASS = "0"
     /** Notify type: View Uphold */
-    public static let NOTIFY_VIEW_UPHOLD = "VIEW_UPHOLD"
+    public static let NOTIFY_VIEW_UPHOLD                = "VIEW_UPHOLD"
     /** Notify type: View Issue */
-    public static let NOTIFY_VIEW_ISSUE = "VIEW_ISSUE"
+    public static let NOTIFY_VIEW_ISSUE                 = "VIEW_ISSUE"
     /** Notify type: Uphold alert 10 */
-    public static let NOTIFY_UPHOLD_ALERT_10 = "1"
+    public static let NOTIFY_UPHOLD_ALERT_10            = "1"
     /** Notify type: Uphold periodically */
-    public static let NOTIFY_UPHOLD_PERIODICALLY_1_DAY = "2"
+    public static let NOTIFY_UPHOLD_PERIODICALLY_1_DAY  = "2"
     /** Notify type: Issue ticket */
-    public static let NOTIFY_ISSUE_TICKET = "3"
+    public static let NOTIFY_ISSUE_TICKET           = "3"
     /** Notify type: Uphold create */
-    public static let NOTIFY_UPHOLD_CREATE = "4"
+    public static let NOTIFY_UPHOLD_CREATE          = "4"
     /** Response status code: Success */
-    public static let RESPONSE_STATUS_SUCCESS = "1"
+    public static let RESPONSE_STATUS_SUCCESS       = "1"
     /** Response status code: Success */
-    public static let RESPONSE_STATUS_FAILED = "0"
+    public static let RESPONSE_STATUS_FAILED        = "0"
+    /** Report wrong */
+    public static let REPORT_WRONG                  = "1"
+    /** Report right */
+    public static let REPORT_RIGHT                  = "0"
+    /** Contact type: Boss */
+    public static let CONTACT_TYPE_BOSS             = "1"
+    /** Contact type: Manager */
+    public static let CONTACT_TYPE_MANAGER          = "2"
+    /** Contact type: Technical */
+    public static let CONTACT_TYPE_TECHNICAL        = "3"
+    /** Rating status: Glad */
+    public static let RATING_STATUS_GLAD            = "1"
+    /** Rating status: Normal */
+    public static let RATING_STATUS_NORMAL          = "2"
+    /** Rating status: Sad */
+    public static let RATING_STATUS_SAD             = "3"
     /** The other option */
-    public static let OPTION_OTHER = "Khác"
+    public static let OPTION_OTHER                  = "Khác"
     /** Contact spliter */
-    public static let CONTACT_SPLITER = " - "
+    public static let CONTACT_SPLITER               = "\n"
     /** Default time value */
-    public static let DEFAULT_TIME_VALUE = "08:00"
+    public static let DEFAULT_TIME_VALUE            = "08:00"
     /** Address unknown string */
-    public static let ADDRESS_UNKNOWN = "Khong ro, "
+    public static let ADDRESS_UNKNOWN               = "Khong ro, "
     /** Json error: Failed to load */
-    public static let JSON_ERR_FAILED_LOAD = "Failed to load: "
+    public static let JSON_ERR_FAILED_LOAD          = "Failed to load: "
     /** Json error: Wrong format */
-    public static let JSON_ERR_WRONG_FORMAT = "Json is of wrong format"
+    public static let JSON_ERR_WRONG_FORMAT         = "Json is of wrong format"
     
     /** -----Log message----- */
     /** Log tag: error. */
@@ -720,7 +736,13 @@ public class DomainConst {
     /** Status icon image name */
     public static let STATUS_ICON_IMG_NAME     = "icon48.png"
     /** Address icon image name */
-    public static let ADDRESS_ICON_IMG_NAME     = "icon49.png"
+    public static let ADDRESS_ICON_IMG_NAME    = "icon49.png"
+    /** Customer feeling image name: Normal */
+    public static let CUST_FEELING_NORMAL_IMG_NAME  = "icon52.png"
+    /** Customer feeling image name: Glad */
+    public static let CUST_FEELING_GLAD_IMG_NAME    = "icon53.png"
+    /** Customer feeling image name: Sad */
+    public static let CUST_FEELING_SAD_IMG_NAME     = "icon54.png"
     /** Customer icon image name */
     public static let CUSTOMER_ICON_IMG_NAME   = "icon55.png"
     /** Contact icon image name */
@@ -969,4 +991,6 @@ public class DomainConst {
     public static let CONTENT00231 = "Đơn hàng"
     public static let CONTENT00232 = "Chi tiết đơn hàng"
     public static let CONTENT00233 = "Nhân viên giao hàng"
+    public static let CONTENT00234 = "Camera"
+    public static let CONTENT00235 = "Thư viện"
 }

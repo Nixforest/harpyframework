@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		D704308B1E13D8D0001C070D /* TableCellOrderType.xib in Resources */ = {isa = PBXBuildFile; fileRef = D704308A1E13D8D0001C070D /* TableCellOrderType.xib */; };
 		D704308D1E13D8E1001C070D /* TableCellOrderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D704308C1E13D8E1001C070D /* TableCellOrderType.swift */; };
+		D75F64AD1E28657900A67B3C /* icon52.png in Resources */ = {isa = PBXBuildFile; fileRef = D75F64AA1E28657900A67B3C /* icon52.png */; };
+		D75F64AE1E28657900A67B3C /* icon53.png in Resources */ = {isa = PBXBuildFile; fileRef = D75F64AB1E28657900A67B3C /* icon53.png */; };
+		D75F64AF1E28657900A67B3C /* icon54.png in Resources */ = {isa = PBXBuildFile; fileRef = D75F64AC1E28657900A67B3C /* icon54.png */; };
 		D7671BF21E175FE10026DCFA /* OrderDetailBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7671BF11E175FE10026DCFA /* OrderDetailBean.swift */; };
 		D7671BF41E17673A0026DCFA /* OrderBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7671BF31E17673A0026DCFA /* OrderBean.swift */; };
 		D76AFDA91E26967900E73E1D /* icon45.png in Resources */ = {isa = PBXBuildFile; fileRef = D76AFDA81E26967900E73E1D /* icon45.png */; };
@@ -105,6 +108,9 @@
 /* Begin PBXFileReference section */
 		D704308A1E13D8D0001C070D /* TableCellOrderType.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableCellOrderType.xib; sourceTree = "<group>"; };
 		D704308C1E13D8E1001C070D /* TableCellOrderType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCellOrderType.swift; sourceTree = "<group>"; };
+		D75F64AA1E28657900A67B3C /* icon52.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon52.png; path = images/icon52.png; sourceTree = "<group>"; };
+		D75F64AB1E28657900A67B3C /* icon53.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon53.png; path = images/icon53.png; sourceTree = "<group>"; };
+		D75F64AC1E28657900A67B3C /* icon54.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon54.png; path = images/icon54.png; sourceTree = "<group>"; };
 		D7671BF11E175FE10026DCFA /* OrderDetailBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDetailBean.swift; sourceTree = "<group>"; };
 		D7671BF31E17673A0026DCFA /* OrderBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderBean.swift; sourceTree = "<group>"; };
 		D76AFDA81E26967900E73E1D /* icon45.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon45.png; path = images/icon45.png; sourceTree = "<group>"; };
@@ -352,6 +358,9 @@
 		D7F3D8D21E1B8BCC0018744F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D75F64AA1E28657900A67B3C /* icon52.png */,
+				D75F64AB1E28657900A67B3C /* icon53.png */,
+				D75F64AC1E28657900A67B3C /* icon54.png */,
 				D76AFDA81E26967900E73E1D /* icon45.png */,
 				D791F6A71E2378C0009CBBED /* icon49.png */,
 				D791F6A51E237658009CBBED /* icon59.png */,
@@ -485,6 +494,7 @@
 				D791F6A81E2378C0009CBBED /* icon49.png in Resources */,
 				D791F67C1E234C89009CBBED /* bg_sliding_menu_top.jpg in Resources */,
 				D791F6931E23688F009CBBED /* login.png in Resources */,
+				D75F64AF1E28657900A67B3C /* icon54.png in Resources */,
 				D76C379C1E24D24B0096F864 /* CollectionImageViewCell.xib in Resources */,
 				D7F3D8D41E1B8BD70018744F /* icon23.png in Resources */,
 				D791F6881E2367F3009CBBED /* ic_menu_gift.png in Resources */,
@@ -492,6 +502,7 @@
 				D791F6A21E23754C009CBBED /* icon47.png in Resources */,
 				D791F68A1E2367F3009CBBED /* ic_menu_profile.png in Resources */,
 				D791F67B1E234C89009CBBED /* bg_sliding_menu_body.jpg in Resources */,
+				D75F64AE1E28657900A67B3C /* icon53.png in Resources */,
 				D7AB904F1E23FBC20048AC4F /* SearchBarTableViewCell.xib in Resources */,
 				D7F3D8D61E1B90B60018744F /* icon6.png in Resources */,
 				D791F6891E2367F3009CBBED /* ic_menu_home.png in Resources */,
@@ -502,6 +513,7 @@
 				D791F6941E23688F009CBBED /* register.png in Resources */,
 				D791F69E1E2372FB009CBBED /* icon31.png in Resources */,
 				D791F6A01E23747C009CBBED /* icon48.png in Resources */,
+				D75F64AD1E28657900A67B3C /* icon52.png in Resources */,
 				D791F6961E2368BA009CBBED /* logoutitem.png in Resources */,
 				D791F6A61E237658009CBBED /* icon59.png in Resources */,
 				D791F6921E23688F009CBBED /* configuration.png in Resources */,
