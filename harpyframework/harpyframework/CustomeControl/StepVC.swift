@@ -95,7 +95,7 @@ open class StepVC: BaseViewController, UIScrollViewDelegate, ScrollButtonListDel
      */
     open func setupButtons() {
         // Set up button Back
-        let back = UIImage(named: DomainConst.BACK_IMG_NAME)
+        let back = ImageManager.getImage(named: DomainConst.BACK_IMG_NAME)
         let tintedBack = back?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
         _btnBack.translatesAutoresizingMaskIntoConstraints = true
         _btnBack.frame = CGRect(

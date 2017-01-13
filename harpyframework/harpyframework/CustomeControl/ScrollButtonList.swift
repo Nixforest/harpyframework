@@ -55,7 +55,7 @@ class ScrollButtonList: UIScrollView {
 //                } else {
 //                    button.setImage(UIImage(named: self._listIcons[i]), for: UIControlState())
 //                }
-                button.setImage(UIImage(named: self._listIcons[i]), for: UIControlState())
+                button.setImage(ImageManager.getImage(named: self._listIcons[i]), for: UIControlState())
             } else {
                 //button.setTitle(String(i + 1), for: .normal)
                 //button.setTitleColor(UIColor.white , for: .normal)

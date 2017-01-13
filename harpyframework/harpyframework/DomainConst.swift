@@ -686,9 +686,9 @@ public class DomainConst {
     /** Contact image name */
     public static let CONTACT_IMG_NAME         = "contact.png"
     /** Phone image name */
-    public static let PHONE_IMG_NAME           = "mobile.png"
+    public static let PHONE_IMG_NAME           = "phone-ios.png"
     /** Address image name */
-    public static let ADDRESS_IMG_NAME         = "address.png"
+    public static let ADDRESS_IMG_NAME         = "icon34-user-iso.png"
     /** Menu image name */
     public static let MENU_IMG_NAME            = "menu.png"
     /** Back image name */
@@ -725,8 +725,30 @@ public class DomainConst {
     public static let ACCOUNT_IMG_NAME         = "Account.jpeg"
     /** Done image name */
     public static let DONE_IMG_NAME            = "done.png"
+    /** Username image */
+    public static let USERNAME_IMG_NAME        = "icon2.png"
+    /** Password image */
+    public static let PASSWORD_IMG_NAME        = "icon3.png"
+    /** Login image */
+    public static let LOGIN_IMG_NAME           = "icon4-ios.png"
     /** Rating image name */
     public static let RATING_IMG_NAME          = "icon25.png"
+    /** User name image */
+    public static let USER_NAME_IMG_NAME       = "icon32-user-iso.png"
+    /** User phone image */
+    public static let USER_PHONE_IMG_NAME      = "icon33-user-iso.png"
+    /** Save information image */
+    public static let SAVE_INFO_IMG_NAME       = "icon35-user-ios.png"
+    /** Change password image */
+    public static let CHANGE_PASS_IMG_NAME     = "icon36-user-ios.png"
+    /** Logout image */
+    public static let LOGOUT_IMG_NAME          = "icon37-user-ios.png"
+    /** Old password image */
+    public static let OLD_PASS_IMG_NAME        = "icon38-user-ios.png"
+    /** New password image */
+    public static let NEW_PASS_IMG_NAME        = "icon39-doimatkhau-ios.png"
+    /** Order icon image */
+    public static let ORDER_ICON_IMG_NAME      = "ic_custom_order_top.png"
     /** Rating empty image name */
     public static let RATING_EMPTY_IMG_NAME    = "icon27.png"
     /** Problem icon image name */
@@ -753,6 +775,8 @@ public class DomainConst {
     public static let CONTENT_ICON_IMG_NAME    = "icon60.png"
     /** Content icon image name */
     public static let REPORT_ICON_IMG_NAME     = "icon62.png"
+    /** Type 1 backgroud image name */
+    public static let TYPE_1_BKG_IMG_NAME      = "bg1.jpg"
     /** Menu backgroud body image name */
     public static let MENU_BKG_BODY_IMG_NAME   = "bg_sliding_menu_body.jpg"
     /** Menu backgroud top image name */

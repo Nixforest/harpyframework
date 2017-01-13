@@ -163,7 +163,7 @@ open class TableCellUpholdType: UITableViewCell {
             self.bottomView.frame.minY,
                                        width: GlobalConst.CELL_HEIGHT_SHOW / 5,
                                        height: GlobalConst.CELL_HEIGHT_SHOW / 5)
-        self.commentIcon.image = UIImage(named: "icon23.png")
+        self.commentIcon.image = ImageManager.getImage(named: DomainConst.DONE_IMG_NAME)
         self.commentIcon.contentMode = .scaleAspectFit
         self.commentIcon.isHidden = true
         

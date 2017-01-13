@@ -97,7 +97,7 @@ open class TableCellOrderType: UITableViewCell {
                                      y: contentHeight / 3,
                                      width: contentHeight / 3,
                                      height: contentHeight / 3)
-        self.statusIcon.image = UIImage(named: DomainConst.BLANK)
+        self.statusIcon.image = ImageManager.getImage(named: DomainConst.BLANK)
         
         self.leftView.addSubview(dateTime)
         self.centerView.addSubview(self.codeLabel)

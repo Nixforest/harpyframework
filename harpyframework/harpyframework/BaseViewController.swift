@@ -34,7 +34,7 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
         // Set background image
         if !self.backgroundImg.isEmpty {
             let background = UIImageView(frame: UIScreen.main.bounds)
-            background.image = UIImage(named: self.backgroundImg)
+            background.image = ImageManager.getImage(named: self.backgroundImg)
             self.view.insertSubview(background, at: 0)
         }
     }
@@ -131,7 +131,7 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: GlobalConst.BUTTON_COLOR_RED]
         
         // Menu button
-        let menu                = UIImage(named: DomainConst.MENU_IMG_NAME)
+        let menu                = ImageManager.getImage(named: DomainConst.MENU_IMG_NAME)
         let tintedImg           = menu?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
         menuButton.setImage(tintedImg, for: UIControlState())
         menuButton.tintColor    = GlobalConst.BUTTON_COLOR_RED
@@ -165,7 +165,7 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
         // Set on Navigation bar
         self.navigationItem.rightBarButtonItems = [menuNavBar, notifyNavBar]
         
-        let back = UIImage(named: DomainConst.BACK_IMG_NAME)
+        let back = ImageManager.getImage(named: DomainConst.BACK_IMG_NAME)
         let tintedBack = back?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
         backButton.setImage(tintedBack, for: UIControlState())
         backButton.tintColor = GlobalConst.BUTTON_COLOR_RED
