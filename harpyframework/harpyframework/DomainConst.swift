@@ -305,10 +305,34 @@ public class DomainConst {
     public static let KEY_MATERIAL_IMAGE = "material_image"
     /** Setting key: Email */
     public static let KEY_EMAIL = "email"
+    /** Setting key: Agent */
+    public static let KEY_AGENT                 = "agent"
     /** Setting key: Agent id */
-    public static let KEY_AGENT_ID = "agent_id"
+    public static let KEY_AGENT_ID              = "agent_id"
     /** Setting key: Agent name */
-    public static let KEY_AGENT_NAME = "agent_name"
+    public static let KEY_AGENT_NAME            = "agent_name"
+    /** Setting key: Agent phone */
+    public static let KEY_AGENT_PHONE           = "agent_phone"
+    /** Setting key: Agent cell phone */
+    public static let KEY_AGENT_CELL_PHONE      = "agent_cell_phone"
+    /** Setting key: Agent phone support */
+    public static let KEY_AGENT_PHONE_SUPPORT   = "agent_phone_support"
+    /** Setting key: Agent address */
+    public static let KEY_AGENT_ADDRESS         = "agent_address"
+    /** Setting key: Agent latitude */
+    public static let KEY_AGENT_LAT             = "agent_latitude"
+    /** Setting key: Agent longitude */
+    public static let KEY_AGENT_LONG            = "agent_longitude"
+    /** Setting key: Information of agent */
+    public static let KEY_INFO_AGENT            = "info_agent"
+    /** Setting key: Information of gas */
+    public static let KEY_INFO_GAS              = "info_gas"
+    /** Setting key: Information of promotion */
+    public static let KEY_INFO_PROMOTION              = "info_promotion"
+    /** Setting key: Distance 1 */
+    public static let KEY_DISTANCE_1            = "distance_1"
+    /** Setting key: Distance 2 */
+    public static let KEY_DISTANCE_2            = "distance_2"
     /** Setting key: Allow update */
     public static let KEY_ALLOW_UPDATE = "allow_update"
     /** Setting key: Order type */
@@ -531,6 +555,12 @@ public class DomainConst {
     public static let RATING_STATUS_NORMAL          = "2"
     /** Rating status: Sad */
     public static let RATING_STATUS_SAD             = "3"
+    /** Category type: VIP */
+    public static let CATEGORY_TYPE_VIP: String             = "1"
+    /** Category type: GAS */
+    public static let CATEGORY_TYPE_GAS             = "2"
+    /** Category type: Utility */
+    public static let CATEGORY_TYPE_UTILITY         = "3"
     /** The other option */
     public static let OPTION_OTHER                  = "Khác"
     /** Contact spliter */
@@ -715,6 +745,8 @@ public class DomainConst {
     public static let INFORMATION_IMG_NAME     = "information"
     /** Order gas image name */
     public static let ORDER_GAS_IMG_NAME       = "ordergas.png"
+    /** Logo of agent image name */
+    public static let LOGO_AGENT_IMG_NAME      = "logo_agent.png"
     /** Uphold request image name */
     public static let UPHOLD_REQUEST_IMG_NAME  = "upholdRequest.png"
     /** Uphold list image name */
@@ -775,6 +807,8 @@ public class DomainConst {
     public static let CONTENT_ICON_IMG_NAME    = "icon60.png"
     /** Content icon image name */
     public static let REPORT_ICON_IMG_NAME     = "icon62.png"
+    /** Order icon image name */
+    public static let ORDER_START_ICON_IMG_NAME = "icon76.png"
     /** Type 1 backgroud image name */
     public static let TYPE_1_BKG_IMG_NAME      = "bg1.jpg"
     /** Menu backgroud body image name */
@@ -796,9 +830,23 @@ public class DomainConst {
     /** Menu item Order list image name */
     public static let MENU_ITEM_ORDER_LIST_IMG_NAME  = "ic_menu_shoping_cart.png"
     /** Finish status image name */
-    public static let FINISH_STATUS_IMG_NAME   = "icon29.png"
+    public static let FINISH_STATUS_IMG_NAME            = "icon29.png"
     /** Date time icon image name */
-    public static let DATETIME_ICON_IMG_NAME   = "icon45.png"
+    public static let DATETIME_ICON_IMG_NAME            = "icon45.png"
+    /** Category image name: VIP */
+    public static let CATEGORY_VIP_IMG_NAME             = "icon9.png"
+    /** Category image name: VIP active */
+    public static let CATEGORY_VIP_ACTIVE_IMG_NAME      = "icon9-active.png"
+    /** Category image name: GAS */
+    public static let CATEGORY_GAS_IMG_NAME             = "icon10.png"
+    /** Category image name: GAS active */
+    public static let CATEGORY_GAS_ACTIVE_IMG_NAME      = "icon10-active.png"
+    /** Category image name: Utility */
+    public static let CATEGORY_UTILITY_IMG_NAME         = "icon11.png"
+    /** Category image name: GAS active */
+    public static let CATEGORY_UTILITY_ACTIVE_IMG_NAME  = "icon11-active.png"
+    /** Center marker image name */
+    public static let CENTER_MARKER_IMG_NAME            = "ic_checkpoint.png"
     /** HTTP Post request method */
     public static let HTTP_POST_REQUEST        = "POST"
     
@@ -1017,4 +1065,5 @@ public class DomainConst {
     public static let CONTENT00233 = "Nhân viên giao hàng"
     public static let CONTENT00234 = "Camera"
     public static let CONTENT00235 = "Thư viện"
+    public static let CONTENT00236 = "Mua hàng"
 }

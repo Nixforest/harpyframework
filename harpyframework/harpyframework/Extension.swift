@@ -243,6 +243,37 @@ extension UIButton {
         self.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: rightInset)
         self.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: rightInset)
     }
+    
+    /**
+     * Make image show above title and make content center.
+     */
+    public func centerVertically() {
+        // Get original image size and title size
+        let imgSize = self.imageView?.frame.size
+        let lblSize = self.titleLabel?.frame.size
+        let btnSize: CGFloat = self.frame.width
+        // Resize image and put at specific location
+        self.imageEdgeInsets = UIEdgeInsets(top: 0.0,
+                                            left: btnSize / 4,
+                                            bottom: btnSize / 2,
+                                            right: btnSize / 4)
+        // Get natural width of title label
+        let width       = self.titleLabel?.text?.widthOfString(usingFont: (self.titleLabel?.font)!)
+        // Calculate left distance want to move
+        var deltaLeft   = (btnSize - width! - (lblSize?.width)!) / 2
+        // Calculate right distance want to move
+        var deltaRight: CGFloat = 0.0
+        if width! > btnSize {
+            deltaLeft   = (width! - btnSize + (lblSize?.width)!)
+            deltaRight  = (btnSize - width!)
+        }
+        
+        // Resize title and put at specific location
+        self.titleEdgeInsets = UIEdgeInsets(top: btnSize / 2,
+                                            left: -(imgSize!.width) - deltaLeft,
+                                            bottom: 0.0,
+                                            right: deltaRight)
+    }
 }
 
 /**
@@ -260,6 +291,17 @@ extension String {
         let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
         
         return boundingBox.height
+    }
+    func widthOfString(usingFont font: UIFont) -> CGFloat {
+        let fontAttributes = [NSFontAttributeName: font]
+        let size = self.size(attributes: fontAttributes)
+        return size.width
+    }
+    
+    func heightOfString(usingFont font: UIFont) -> CGFloat {
+        let fontAttributes = [NSFontAttributeName: font]
+        let size = self.size(attributes: fontAttributes)
+        return size.height
     }
     
     /**
