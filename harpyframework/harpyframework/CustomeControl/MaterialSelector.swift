@@ -33,6 +33,7 @@ public class MaterialSelector: UIView {
                              width: width * 2 / 5,
                              height: height)
         _icon.contentMode = .scaleAspectFit
+        _icon.backgroundColor = UIColor.blue
         self.addSubview(_icon)
         // Name label
         _lblName.frame = CGRect(x: _icon.frame.maxX + GlobalConst.MARGIN_CELL_X,
@@ -47,7 +48,7 @@ public class MaterialSelector: UIView {
         self.addSubview(_lblName)
         // Price label
         _lblPrice.frame = CGRect(x: _icon.frame.maxX + GlobalConst.MARGIN_CELL_X,
-                                y: _lblName.frame.maxY + GlobalConst.MARGIN_CELL_X,
+                                y: _lblName.frame.maxY,
                                 width: width * 3 / 5,
                                 height: height / 3)
         _lblPrice.text          = price
@@ -56,6 +57,19 @@ public class MaterialSelector: UIView {
         _lblPrice.numberOfLines = 0
         _lblPrice.lineBreakMode = .byWordWrapping
         self.addSubview(_lblPrice)
+    }
+    
+    public func setName(name: String) {
+        _lblName.text          = name
+    }
+    
+    public func setImage(img: String) {
+        //_icon.image = ImageManager.getImage(named: img)
+        _icon.getImgFromUrl(link: img, contentMode: _icon.contentMode)
+    }
+    
+    public func setPrice(price: String) {
+        _lblPrice.text          = price
     }
     
     required public init(coder aDecoder: NSCoder) {

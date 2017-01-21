@@ -565,6 +565,8 @@ public class DomainConst {
     public static let OPTION_OTHER                  = "Khác"
     /** Contact spliter */
     public static let CONTACT_SPLITER               = "\n"
+    /** Contact spliter */
+    public static let ADDRESS_SPLITER               = ","
     /** Default time value */
     public static let DEFAULT_TIME_VALUE            = "08:00"
     /** Address unknown string */
@@ -624,7 +626,7 @@ public class DomainConst {
     public static let APPNAME = "gasservice"
     public static let HARPY_FRAMEWORK_BUNDLE_NAME = "com.spj.harpyframework.harpyframework"
     /** Name of RegisterViewController */
-    public static let REGISTER_VIEW_CTRL = "G00RegisterVC"
+    public static let G00_REGISTER_VIEW_CTRL = "G00RegisterVC"
     /** Name of G00 home view controller */
     public static let G00_HOME_VIEW_CTRL = "G00HomeVC"
     /** Name of G00 login view controller */

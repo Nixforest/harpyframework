@@ -39,4 +39,7 @@ public class AgentInfoBean: NSObject {
             }
         }
     }
+    public override init() {
+        
+    }
 }

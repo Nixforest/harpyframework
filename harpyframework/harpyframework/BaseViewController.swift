@@ -228,6 +228,20 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
     }
     
     /**
+     * Handle tap on Register menu item
+     */
+    public func registerItemTapped(_ notification: Notification){
+        self.pushToView(name: DomainConst.G00_REGISTER_VIEW_CTRL)
+    }
+    
+    /**
+     * Handle tap on Login menu item
+     */
+    public func loginItemTapped(_ notification: Notification) {
+        self.pushToView(name: DomainConst.G00_LOGIN_VIEW_CTRL)
+    }
+    
+    /**
      * Clear data on current view.
      */
     open func clearData() {
