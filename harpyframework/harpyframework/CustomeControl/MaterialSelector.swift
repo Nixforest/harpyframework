@@ -23,23 +23,32 @@ public class MaterialSelector: UIView {
         // Drawing code
     }
     */
+    /**
+     * Constructor
+     * - parameter iconPath:    Path of icon image
+     * - parameter name:        Name of material
+     * - parameter price:       Price of material
+     * - parameter width:       Width of control
+     * - parameter height:      Height of control
+     */
     public init(iconPath: String, name: String, price: String,
          width: CGFloat, height: CGFloat) {
         super.init(frame: UIScreen.main.bounds)
+        let contentHeight = height - 2 * GlobalConst.MARGIN_CELL_X
         // Icon
         _icon.image = ImageManager.getImage(named: iconPath)
         _icon.frame = CGRect(x: GlobalConst.MARGIN_CELL_X,
                              y: GlobalConst.MARGIN_CELL_X,
-                             width: width * 2 / 5,
-                             height: height)
+                             width: width * 2 / 5 - GlobalConst.MARGIN_CELL_X,
+                             height: contentHeight)
         _icon.contentMode = .scaleAspectFit
-        _icon.backgroundColor = UIColor.blue
+        //_icon.backgroundColor = UIColor.blue
         self.addSubview(_icon)
         // Name label
         _lblName.frame = CGRect(x: _icon.frame.maxX + GlobalConst.MARGIN_CELL_X,
                                 y: GlobalConst.MARGIN_CELL_X,
-                                width: width * 3 / 5,
-                                height: height * 2 / 3)
+                                width: width * 3 / 5 - GlobalConst.MARGIN_CELL_X,
+                                height: contentHeight * 2 / 3)
         _lblName.text          = name
         _lblName.textColor     = GlobalConst.BUTTON_COLOR_RED
         _lblName.font          = UIFont.boldSystemFont(ofSize: GlobalConst.NORMAL_FONT_SIZE_1)
@@ -49,9 +58,13 @@ public class MaterialSelector: UIView {
         // Price label
         _lblPrice.frame = CGRect(x: _icon.frame.maxX + GlobalConst.MARGIN_CELL_X,
                                 y: _lblName.frame.maxY,
-                                width: width * 3 / 5,
-                                height: height / 3)
-        _lblPrice.text          = price
+                                width: width * 3 / 5 - GlobalConst.MARGIN_CELL_X,
+                                height: contentHeight / 3)
+        var priceText = price
+        if !priceText.isEmpty {
+            priceText = priceText + DomainConst.VIETNAMDONG
+        }
+        _lblPrice.text          = priceText
         _lblPrice.textColor     = GlobalConst.BUTTON_COLOR_RED
         _lblPrice.font          = UIFont.systemFont(ofSize: GlobalConst.SMALL_FONT_SIZE_LIST)
         _lblPrice.numberOfLines = 0
@@ -59,17 +72,56 @@ public class MaterialSelector: UIView {
         self.addSubview(_lblPrice)
     }
     
+    /**
+     * Set name of material
+     * - parameter name:        Name of material
+     */
     public func setName(name: String) {
         _lblName.text          = name
     }
     
+    /**
+     * Set icon image of material
+     * - parameter img:        Image path
+     */
     public func setImage(img: String) {
-        //_icon.image = ImageManager.getImage(named: img)
+        if img.isEmpty {
+            _icon.image = ImageManager.getImage(named: DomainConst.DEFAULT_MATERIAL_IMG_NAME)
+            return
+        }
+        // Download image from path
         _icon.getImgFromUrl(link: img, contentMode: _icon.contentMode)
     }
     
+    /**
+     * Set price of material
+     * - parameter price:        Price of material
+     */
     public func setPrice(price: String) {
-        _lblPrice.text          = price
+        var priceText = price
+        if !priceText.isEmpty {
+            priceText = priceText + DomainConst.VIETNAMDONG
+        }
+        _lblPrice.text          = priceText
+    }
+    
+    /**
+     * Update content of material
+     * - parameter iconPath:    Path of icon image
+     * - parameter name:        Name of material
+     * - parameter price:       Price of material
+     */
+    public func updateContent(iconPath: String, name: String, price: String) {
+        // In the case not found material data
+        if iconPath.isEmpty && price.isEmpty {
+            _icon.image = ImageManager.getImage(named: DomainConst.DEFAULT_MATERIAL_IMG_NAME)
+            setName(name: name)
+            setPrice(price: DomainConst.BLANK)
+            return
+        }
+        setImage(img: iconPath)
+        setName(name: name)
+        setPrice(price: price)
     }
     
     required public init(coder aDecoder: NSCoder) {

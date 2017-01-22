@@ -151,6 +151,7 @@
 		D7C30A421E306F7F00B3FDA6 /* ic_checkpoint.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C30A411E306F7F00B3FDA6 /* ic_checkpoint.png */; };
 		D7C30A441E307C1600B3FDA6 /* logo_agent.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C30A431E307C1600B3FDA6 /* logo_agent.png */; };
 		D7DF191E1E122CAB00829785 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DF191D1E122CAB00829785 /* MenuItem.swift */; };
+		D7E014A31E33DEFC001F26B6 /* icon24.png in Resources */ = {isa = PBXBuildFile; fileRef = D7E014A21E33DEFC001F26B6 /* icon24.png */; };
 		D7E9BF6B1E2C78B10068D200 /* CategoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E9BF6A1E2C78B10068D200 /* CategoryButton.swift */; };
 		D7E9BF721E2C82F20068D200 /* icon9-active.png in Resources */ = {isa = PBXBuildFile; fileRef = D7E9BF6C1E2C82F20068D200 /* icon9-active.png */; };
 		D7E9BF731E2C82F20068D200 /* icon9.png in Resources */ = {isa = PBXBuildFile; fileRef = D7E9BF6D1E2C82F20068D200 /* icon9.png */; };
@@ -327,6 +328,7 @@
 		D7C30A431E307C1600B3FDA6 /* logo_agent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo_agent.png; path = images/logo_agent.png; sourceTree = "<group>"; };
 		D7C34A451E2B2BA60041B6CA /* libPods-project.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-project.a"; path = "../../../../Library/Developer/Xcode/DerivedData/project-bvtrqvfvowkogmgvpphakijhhgei/Build/Products/Debug-iphoneos/libPods-project.a"; sourceTree = "<group>"; };
 		D7DF191D1E122CAB00829785 /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		D7E014A21E33DEFC001F26B6 /* icon24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon24.png; path = images/icon24.png; sourceTree = "<group>"; };
 		D7E9BF6A1E2C78B10068D200 /* CategoryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryButton.swift; path = CustomeControl/CategoryButton.swift; sourceTree = "<group>"; };
 		D7E9BF6C1E2C82F20068D200 /* icon9-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon9-active.png"; path = "images/icon9-active.png"; sourceTree = "<group>"; };
 		D7E9BF6D1E2C82F20068D200 /* icon9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon9.png; path = images/icon9.png; sourceTree = "<group>"; };
@@ -520,6 +522,7 @@
 		D7F3D8D21E1B8BCC0018744F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D7E014A21E33DEFC001F26B6 /* icon24.png */,
 				D7C30A431E307C1600B3FDA6 /* logo_agent.png */,
 				D7C30A411E306F7F00B3FDA6 /* ic_checkpoint.png */,
 				D7C30A3F1E30628800B3FDA6 /* icon76.png */,
@@ -798,6 +801,7 @@
 				D75F65181E28B3B100A67B3C /* informationSum.png in Resources */,
 				D75F64DC1E28B39100A67B3C /* back.png in Resources */,
 				D75F65241E28B3BC00A67B3C /* rating_empty.png in Resources */,
+				D7E014A31E33DEFC001F26B6 /* icon24.png in Resources */,
 				D75F64EA1E28B39100A67B3C /* icon21.png in Resources */,
 				D75F652C1E28B3C600A67B3C /* UpHoldList.jpeg in Resources */,
 				D791F6A61E237658009CBBED /* icon59.png in Resources */,

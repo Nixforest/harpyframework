@@ -556,11 +556,13 @@ public class DomainConst {
     /** Rating status: Sad */
     public static let RATING_STATUS_SAD             = "3"
     /** Category type: VIP */
-    public static let CATEGORY_TYPE_VIP: String             = "1"
+    public static let CATEGORY_TYPE_VIP             = "1"
     /** Category type: GAS */
     public static let CATEGORY_TYPE_GAS             = "2"
     /** Category type: Utility */
     public static let CATEGORY_TYPE_UTILITY         = "3"
+    /** Money unit: Vietnam dong */
+    public static let VIETNAMDONG                   = "đ"
     /** The other option */
     public static let OPTION_OTHER                  = "Khác"
     /** Contact spliter */
@@ -783,6 +785,8 @@ public class DomainConst {
     public static let NEW_PASS_IMG_NAME        = "icon39-doimatkhau-ios.png"
     /** Order icon image */
     public static let ORDER_ICON_IMG_NAME      = "ic_custom_order_top.png"
+    /** Default material image name */
+    public static let DEFAULT_MATERIAL_IMG_NAME = "icon24.png"
     /** Rating empty image name */
     public static let RATING_EMPTY_IMG_NAME    = "icon27.png"
     /** Problem icon image name */
@@ -1068,4 +1072,6 @@ public class DomainConst {
     public static let CONTENT00234 = "Camera"
     public static let CONTENT00235 = "Thư viện"
     public static let CONTENT00236 = "Mua hàng"
+    public static let CONTENT00237 = "Chọn loại gas"
+    public static let CONTENT00238 = "Chọn quà tặng"
 }
