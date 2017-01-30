@@ -36,7 +36,7 @@ class LogoutRequest: BaseRequest {
             LoadingView.shared.hideOverlayView()
             // Back to home page (cross-thread)
             DispatchQueue.main.async {
-                _ = self.view.navigationController?.popToRootViewController(animated: true)
+                _ = self.view.popToRootView()
                 NotificationCenter.default.post(name: Notification.Name(rawValue: DomainConst.NOTIFY_NAME_SET_DATA_HOMEVIEW), object: model)
             }
         })

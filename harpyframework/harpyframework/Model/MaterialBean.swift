@@ -38,4 +38,18 @@ open class MaterialBean: NSObject {
     public override init() {
         
     }
+    
+    /**
+     * Check if material is Gas type
+     * - returns: True if "materials_type_id" equal 4/19/11/7, False otherwise
+     */
+    public func isGas() -> Bool {
+        if self.materials_type_id == "4" ||
+            self.materials_type_id == "11" ||
+            self.materials_type_id == "19" ||
+            self.materials_type_id == "7" {
+            return true
+        }
+        return false
+    }
 }

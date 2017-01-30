@@ -9,13 +9,13 @@
 import Foundation
 open class BaseRequest {
     /** URL */
-    var url: String = ""
+    public var url: String = ""
     /** Data of request */
     public var data: String = ""
     /** Data of request (upload file) */
     public var param: [String: String] = [String: String]()
     /** Request method: GET/POST */
-    var reqMethod: String = ""
+    public var reqMethod: String = ""
     /** Session */
     public var session = URLSession.shared
     /** Current view */
@@ -46,7 +46,7 @@ open class BaseRequest {
     /**
      * Execute task
      */
-    public func execute() {
+    open func execute() {
         let serverUrl: URL = URL(string: BaseModel.shared.getServerURL() + self.url)!
         let request = NSMutableURLRequest(url: serverUrl)
         request.httpMethod = self.reqMethod

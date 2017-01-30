@@ -70,6 +70,7 @@ public class MaterialSelector: UIView {
         _lblPrice.numberOfLines = 0
         _lblPrice.lineBreakMode = .byWordWrapping
         self.addSubview(_lblPrice)
+        self.frame = CGRect(x: 0, y: 0, width: width, height: height)
     }
     
     /**
@@ -122,6 +123,11 @@ public class MaterialSelector: UIView {
         setImage(img: iconPath)
         setName(name: name)
         setPrice(price: price)
+    }
+    
+    public func updateFont() {
+        self._lblName.font = UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)
+        self._lblPrice.font = UIFont.systemFont(ofSize: UIFont.systemFontSize)
     }
     
     required public init(coder aDecoder: NSCoder) {

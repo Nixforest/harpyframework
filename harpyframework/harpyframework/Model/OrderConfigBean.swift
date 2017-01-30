@@ -28,8 +28,10 @@ public class OrderConfigBean: NSObject {
                 self.agent.append(AgentInfoBean(jsonData: item))
             }
         }
-        self.distance_1 = (getString(json: jsonData, key: DomainConst.KEY_DISTANCE_1) as NSString).doubleValue
-        self.distance_2 = (getString(json: jsonData, key: DomainConst.KEY_DISTANCE_2) as NSString).doubleValue
+//        self.distance_1 = (getString(json: jsonData, key: DomainConst.KEY_DISTANCE_1) as NSString).doubleValue
+//        self.distance_2 = (getString(json: jsonData, key: DomainConst.KEY_DISTANCE_2) as NSString).doubleValue
+        self.distance_1 = Double(getInt(json: jsonData, key: DomainConst.KEY_DISTANCE_1))
+        self.distance_2 = Double(getInt(json: jsonData, key: DomainConst.KEY_DISTANCE_2))
     }
     public override init() {
         

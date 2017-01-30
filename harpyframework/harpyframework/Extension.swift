@@ -415,4 +415,7 @@ public extension NSObject {
         }
         return retVal
     }
+    public var theClassName: String {
+        return NSStringFromClass(type(of: self))
+    }
 }

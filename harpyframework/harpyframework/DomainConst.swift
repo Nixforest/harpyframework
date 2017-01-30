@@ -523,6 +523,8 @@ public class DomainConst {
     public static let NEED_CHANGE_PASS = "1"
     /** Flag change pass: no need change */
     public static let NO_NEED_CHANGE_PASS = "0"
+    /** Maximum number of user interaction tapped */
+    public static let MAXIMUM_TAPPED                    = 7
     /** Notify type: View Uphold */
     public static let NOTIFY_VIEW_UPHOLD                = "VIEW_UPHOLD"
     /** Notify type: View Issue */
@@ -561,8 +563,24 @@ public class DomainConst {
     public static let CATEGORY_TYPE_GAS             = "2"
     /** Category type: Utility */
     public static let CATEGORY_TYPE_UTILITY         = "3"
+    /** Agent information id: Promotion */
+    public static let AGENT_PROMOTION_ID            = "1"
+    /** Agent information id: Discount */
+    public static let AGENT_DISCOUNT_ID             = "2"
+    /** Agent information id: Total money */
+    public static let AGENT_TOTAL_MONEY_ID          = "3"
+    /** Agent information id: Name */
+    public static let AGENT_NAME_ID                 = "4"
+    /** Agent information id: Phone */
+    public static let AGENT_PHONE_ID                = "5"
+    /** Agent information id: Support */
+    public static let AGENT_SUPPORT_ID              = "6"
     /** Money unit: Vietnam dong */
-    public static let VIETNAMDONG                   = "đ"
+    public static let VIETNAMDONG                   = " " + NumberFormatter().locale.currencySymbol!
+    /** Promote default value */
+    public static let PROMOTION_DEFAULT             = "50,000"
+    /** Discount default value */
+    public static let DISCOUNT_DEFAULT              = "20,000"
     /** The other option */
     public static let OPTION_OTHER                  = "Khác"
     /** Contact spliter */
@@ -663,22 +681,28 @@ public class DomainConst {
     public static let G00_CHANGE_PASS_VIEW_CTRL = "G00ChangePassVC"
     /** Name of G01F01VC */
     public static let G01_F01_VIEW_CTRL = "G01F01VC"
+    /** Name of Internal view controller */
+    public static let INTERNAL_VIEW_CTRL = "InternalViewController"
     /** Name of zoomIMGViewController */
     public static let ZOOM_IMAGE_VIEW_CTRL = "zoomIMGViewController"
     /** Home table view cell */
     public static let G00_HOME_CELL = "G00HomeCell"
     /** Period table view cell */
-    public static let G01_F00_S01_PERIOD_CELL = "TableCellUpholdType"
+    public static let G01_F00_S01_PERIOD_CELL       = "TableCellUpholdType"
     /** Problem table view cell */
-    public static let G01_F00_S01_PROBLEM_CELL = "TableCellUpholdType"
+    public static let G01_F00_S01_PROBLEM_CELL      = "TableCellUpholdType"
     /** Search bar table view cell */
-    public static let SEARCH_BAR_TABLE_VIEW_CELL = "SearchBarTableViewCell"
+    public static let SEARCH_BAR_TABLE_VIEW_CELL    = "SearchBarTableViewCell"
     /** Configuration table view cell */
-    public static let G00_CONFIGURATION_TABLE_VIEW_CELL = "G00ConfigurationCell"
+    public static let CONFIGURATION_TABLE_VIEW_CELL = "ConfigurationTableViewCell"
+    /** Material table view cell */
+    public static let MATERIAL_TABLE_VIEW_CELL      = "MaterialTableViewCell"
     /** Uphold detail employee history table view cell */
     public static let UPHOLD_DETAIL_EMPLOYEE_HISTORY_TABLE_VIEW_CELL = "G01F00S02HistoryCell"
     /** Collection Image view cell */
     public static let COLLECTION_IMAGE_VIEW_CELL = "CollectionImageViewCell"
+    /** Material selection view cell */
+    public static let MATERIAL_SELECTION_VIEW_CELL = "MaterialSelectionCell"
     /** Table view cell order type */
     public static let TABLE_VIEW_CELL_ORDER_TYPE = "TableCellOrderType"
     
@@ -767,6 +791,10 @@ public class DomainConst {
     public static let PASSWORD_IMG_NAME        = "icon3.png"
     /** Login image */
     public static let LOGIN_IMG_NAME           = "icon4-ios.png"
+    /** Confirm image name */
+    public static let CONFIRM_IMG_NAME         = "icon20.png"
+    /** Cancel image name */
+    public static let CANCEL_IMG_NAME          = "icon21.png"
     /** Rating image name */
     public static let RATING_IMG_NAME          = "icon25.png"
     /** User name image */
@@ -785,6 +813,16 @@ public class DomainConst {
     public static let NEW_PASS_IMG_NAME        = "icon39-doimatkhau-ios.png"
     /** Order icon image */
     public static let ORDER_ICON_IMG_NAME      = "ic_custom_order_top.png"
+    /** Material selection logo image name */
+    public static let MATERIAL_SELECTION_IMG_NAME = "icon12.png"
+    /** Money icon image name */
+    public static let MONEY_ICON_IMG_NAME           = "icon16.png"
+    /** Money icon image name */
+    public static let AGENT_ICON_IMG_NAME           = "icon17.png"
+    /** Money icon image name */
+    public static let PHONE_ICON_IMG_NAME           = "icon18.png"
+    /** Money icon image name */
+    public static let SUPPORT_ICON_IMG_NAME          = "icon19.png"
     /** Default material image name */
     public static let DEFAULT_MATERIAL_IMG_NAME = "icon24.png"
     /** Rating empty image name */
@@ -813,6 +851,8 @@ public class DomainConst {
     public static let CONTENT_ICON_IMG_NAME    = "icon60.png"
     /** Content icon image name */
     public static let REPORT_ICON_IMG_NAME     = "icon62.png"
+    /** Money icon image name */
+    public static let MONEY_ICON_GREY_IMG_NAME = "icon69.png"
     /** Order icon image name */
     public static let ORDER_START_ICON_IMG_NAME = "icon76.png"
     /** Type 1 backgroud image name */
@@ -1026,6 +1066,7 @@ public class DomainConst {
     public static let CONTENT00160 = "Ngày bảo trì"
     public static let CONTENT00161 = "Lịch bảo trì"
     public static let CONTENT00162 = "Thông báo"
+    public static let CONTENT00170 = "Số điện thoại người nhận"
     public static let CONTENT00177 = "Loại định kỳ"
     public static let CONTENT00178 = "Tạo mới bảo trì"
     public static let CONTENT00180 = "Gửi"
@@ -1058,6 +1099,10 @@ public class DomainConst {
     public static let CONTENT00209 = "Xin cảm ơn quý khách hàng đã đánh giá dịch vụ của chúng tôi. Xin hãy kiểm tra lại các thông tin cho thật chính xác và nhấn nút Gửi nếu quý khách hàng đồng ý."
     public static let CONTENT00210 = "Mức hài lòng"
     public static let CONTENT00212 = "Xem ảnh"
+    public static let CONTENT00217 = "Xác nhận"
+    public static let CONTENT00218 = "Tổng cộng:"
+    public static let CONTENT00219 = "Khuyến mãi:"
+    public static let CONTENT00220 = "Huỷ bỏ"
     public static let CONTENT00223 = "Xem"
     public static let CONTENT00224 = "Để sau"
     public static let CONTENT00225 = "Bảo trì miễn phí"
@@ -1074,4 +1119,9 @@ public class DomainConst {
     public static let CONTENT00236 = "Mua hàng"
     public static let CONTENT00237 = "Chọn loại gas"
     public static let CONTENT00238 = "Chọn quà tặng"
+    public static let CONTENT00239 = "Chiết khấu:"
+    public static let CONTENT00240 = "Đại lý:"
+    public static let CONTENT00241 = "Gọi GAS:"
+    public static let CONTENT00242 = "Hỗ trợ Khách hàng:"
+    public static let CONTENT00243 = "Địa chỉ người nhận"
 }

@@ -89,6 +89,8 @@ public class BaseModel: NSObject {
     /** Call center */
     private var callCenterUphold: String = DomainConst.BLANK
     private var hotline: String = DomainConst.BLANK
+    /** Order config */
+    private var _orderConfig: OrderConfigBean = OrderConfigBean()
     
     // MARK - Methods
     override init() {
@@ -505,5 +507,21 @@ public class BaseModel: NSObject {
      */
     public func enableHandleNotificationFlag(isEnabled: Bool) {
         self.canHandleNotificationFromServer = isEnabled
+    }
+    
+    /**
+     * Save order config data
+     * - parameter config: Order config data
+     */
+    public func saveOrderConfig(config: OrderConfigBean) {
+        self._orderConfig = config
+    }
+    
+    /**
+     * Get order config data
+     * - returns: Order config data
+     */
+    public func getOrderConfig() -> OrderConfigBean {
+        return self._orderConfig
     }
 }

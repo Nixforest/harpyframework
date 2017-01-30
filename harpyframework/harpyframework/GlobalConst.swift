@@ -68,6 +68,11 @@ public class GlobalConst {
     public static let CENTER_MARKER_SIZE_WIDTH          : CGFloat = 20.0
     public static let CENTER_MARKER_SIZE_HEIGHT         : CGFloat = 40.0
     
+    public static let MATERIAL_SELECTION_WIDTH          : CGFloat = GlobalConst.SCREEN_WIDTH / 4
+    public static let MATERIAL_SELECTION_HEIGHT         : CGFloat = MATERIAL_SELECTION_WIDTH * 2
+    public static let CONFIGURATION_ITEM_HEIGHT         : CGFloat = 44.0
+    public static let CONFIGURATION_ITEM_RIGHT_SIZE     : CGFloat = 15.0
+    
     
     // ----- Color defines -----
     /** Application main color */

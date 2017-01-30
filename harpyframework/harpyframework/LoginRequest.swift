@@ -39,7 +39,7 @@ class LoginRequest: BaseRequest {
             LoadingView.shared.hideOverlayView()
             // Back to home page (cross-thread)
             DispatchQueue.main.async {
-                _ = self.view.navigationController?.popToRootViewController(animated: true)
+                _ = self.view.popToRootView()
             }
         })
         return task

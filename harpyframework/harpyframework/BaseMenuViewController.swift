@@ -209,7 +209,7 @@ open class BaseMenuViewController : UIViewController {
             let currentView: BaseViewController = BaseViewController.getCurrentViewController()
             switch ((sender as! UIButton).accessibilityIdentifier)! {
             case DomainConst.HOME:
-                _ = currentView.navigationController?.popToRootViewController(animated: true)
+                _ = currentView.popToRootView()
                 break
             case DomainConst.USER_PROFILE:
                 let accountVC = currentView.mainStoryboard.instantiateViewController(withIdentifier: DomainConst.G00_ACCOUNT_VIEW_CTRL)

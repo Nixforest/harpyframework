@@ -121,8 +121,9 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
     
     /**
      * Set up for navigation bar
-     * - parameter title: Title of view
-     * - parameter isNotifyEnable: True is enable notify button, False otherwise
+     * - parameter title:           Title of view
+     * - parameter isNotifyEnable:  True is enable notify button, False otherwise
+     * - parameter isHiddenBackBtn: Flag hide back button
      */
     public func setupNavigationBar(title: String, isNotifyEnable: Bool, isHiddenBackBtn: Bool = false) {
         // Set title
@@ -183,6 +184,72 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
     }
     
     /**
+     * Set up for navigation bar
+     * - parameter title: Title of view
+     * - parameter isNotifyEnable:      True is enable notify button, False otherwise
+     * - parameter isHiddenBackBtn:     Flag hide back button
+     * - parameter isEnabledMenuBtn:    Flag enable/disable menu button
+     */
+    public func setupNavigationBar(title: String, isNotifyEnable: Bool, isHiddenBackBtn: Bool = false, isEnabledMenuBtn: Bool = false) {
+        // Set title
+        self.navigationBar.title = title
+        // Set color text
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: GlobalConst.BUTTON_COLOR_RED]
+        
+        // Menu button
+        let menu                = ImageManager.getImage(named: DomainConst.MENU_IMG_NAME)
+        let tintedImg           = menu?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        menuButton.setImage(tintedImg, for: UIControlState())
+        menuButton.tintColor    = GlobalConst.BUTTON_COLOR_RED
+        menuButton.frame        = CGRect(x: 0, y: 0,
+                                         width: GlobalConst.MENU_BUTTON_W,
+                                         height: GlobalConst.MENU_BUTTON_H)
+        menuButton.setTitle("", for: UIControlState())
+        let menuNavBar          = UIBarButtonItem()
+        menuNavBar.customView   = menuButton
+        menuNavBar.isEnabled    = true
+        
+        // Notify button
+        notificationButton.frame = CGRect(x: 0, y: 0,
+                                          width: GlobalConst.MENU_BUTTON_W,
+                                          height: GlobalConst.NOTIFY_BUTTON_H)
+        notificationButton.layer.cornerRadius = 0.5 * notificationButton.bounds.size.width
+        notificationButton.setTitle("!", for: UIControlState())
+        notificationButton.setTitleColor(UIColor.white, for: UIControlState())
+        notificationButton.addTarget(self, action: #selector(notificationButtonTapped(_:)), for: UIControlEvents.touchUpInside)
+        
+        // Set status of notify button
+        if isNotifyEnable {
+            notificationButton.backgroundColor = GlobalConst.BUTTON_COLOR_RED
+        } else {
+            notificationButton.backgroundColor = GlobalConst.BUTTON_COLOR_GRAY
+        }
+        let notifyNavBar = UIBarButtonItem()
+        notifyNavBar.customView = notificationButton
+        notifyNavBar.isEnabled = isNotifyEnable
+        
+        // Set on Navigation bar
+        self.navigationItem.rightBarButtonItems = [menuNavBar, notifyNavBar]
+        
+        let back = ImageManager.getImage(named: DomainConst.BACK_IMG_NAME)
+        let tintedBack = back?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        backButton.setImage(tintedBack, for: UIControlState())
+        backButton.tintColor = GlobalConst.BUTTON_COLOR_RED
+        backButton.frame = CGRect(x: 0, y: 0,
+                                  width: GlobalConst.MENU_BUTTON_W,
+                                  height: GlobalConst.MENU_BUTTON_W)
+        backButton.setTitle("", for: UIControlState())
+        backButton.addTarget(self, action: #selector(backButtonTapped(_:)), for: UIControlEvents.touchUpInside)
+        
+        let backNavBar = UIBarButtonItem()
+        backNavBar.customView = backButton
+        backNavBar.isEnabled = true
+        navigationBar.setLeftBarButton(backNavBar, animated: false)
+        backButton.isHidden = isHiddenBackBtn
+        menuButton.isEnabled = isEnabledMenuBtn
+    }
+    
+    /**
      * Handle tap on Notification button
      * - parameter sender: AnyObject
      */
@@ -210,7 +277,7 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
      * Handle when tap on Home menu item
      */
     public func gasServiceItemTapped(_ notification: Notification) {
-        _ = self.navigationController?.popToRootViewController(animated: true)
+        self.popToRootView()
     }
     
     /**
@@ -312,5 +379,12 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
     public func pushToView(name: String) {
         let view = mainStoryboard.instantiateViewController(withIdentifier: name)
         self.navigationController?.pushViewController(view, animated: true)
+    }
+    
+    /**
+     * Move to root view of view hierarchy
+     */
+    public func popToRootView() {
+        _ = self.navigationController?.popToRootViewController(animated: true)
     }
 }
