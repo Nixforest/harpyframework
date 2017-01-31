@@ -158,6 +158,7 @@
 		D7C30A401E30628800B3FDA6 /* icon76.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C30A3F1E30628800B3FDA6 /* icon76.png */; };
 		D7C30A421E306F7F00B3FDA6 /* ic_checkpoint.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C30A411E306F7F00B3FDA6 /* ic_checkpoint.png */; };
 		D7C30A441E307C1600B3FDA6 /* logo_agent.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C30A431E307C1600B3FDA6 /* logo_agent.png */; };
+		D7DA56AE1E40ED3C00B6F618 /* TransactionBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DA56AD1E40ED3C00B6F618 /* TransactionBean.swift */; };
 		D7DF191E1E122CAB00829785 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DF191D1E122CAB00829785 /* MenuItem.swift */; };
 		D7E014A31E33DEFC001F26B6 /* icon24.png in Resources */ = {isa = PBXBuildFile; fileRef = D7E014A21E33DEFC001F26B6 /* icon24.png */; };
 		D7E014AA1E347EA4001F26B6 /* MaterialSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E014A91E347EA4001F26B6 /* MaterialSelectViewController.swift */; };
@@ -348,6 +349,7 @@
 		D7C30A411E306F7F00B3FDA6 /* ic_checkpoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_checkpoint.png; path = images/ic_checkpoint.png; sourceTree = "<group>"; };
 		D7C30A431E307C1600B3FDA6 /* logo_agent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo_agent.png; path = images/logo_agent.png; sourceTree = "<group>"; };
 		D7C34A451E2B2BA60041B6CA /* libPods-project.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-project.a"; path = "../../../../Library/Developer/Xcode/DerivedData/project-bvtrqvfvowkogmgvpphakijhhgei/Build/Products/Debug-iphoneos/libPods-project.a"; sourceTree = "<group>"; };
+		D7DA56AD1E40ED3C00B6F618 /* TransactionBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransactionBean.swift; path = Model/TransactionBean.swift; sourceTree = "<group>"; };
 		D7DF191D1E122CAB00829785 /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		D7E014A21E33DEFC001F26B6 /* icon24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon24.png; path = images/icon24.png; sourceTree = "<group>"; };
 		D7E014A91E347EA4001F26B6 /* MaterialSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MaterialSelectViewController.swift; path = View/MaterialSelectViewController.swift; sourceTree = "<group>"; };
@@ -441,6 +443,7 @@
 				D7C30A381E3058B600B3FDA6 /* AgentInfoBean.swift */,
 				D7C30A3A1E305AB800B3FDA6 /* OrderConfigBean.swift */,
 				D70B9F8B1E3F448300EB66F5 /* ConfigurationModel.swift */,
+				D7DA56AD1E40ED3C00B6F618 /* TransactionBean.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -926,6 +929,7 @@
 				D7B2374E1E150CD9001AD517 /* CustomLabel.swift in Sources */,
 				D7B567A11E0D87FF0042D5A8 /* NotificationCountRequest.swift in Sources */,
 				D7B567B51E0D88A80042D5A8 /* UpholdListRespModel.swift in Sources */,
+				D7DA56AE1E40ED3C00B6F618 /* TransactionBean.swift in Sources */,
 				D7BE04831E05873700D37740 /* CustomCheckBox.swift in Sources */,
 				D7B567BE1E0D89560042D5A8 /* BaseRespModel.swift in Sources */,
 				D7023EE51E2CAC0A00ED6394 /* MaterialSelector.swift in Sources */,

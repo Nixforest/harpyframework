@@ -31,7 +31,8 @@ class UserProfileRequest: BaseRequest {
                 BaseModel.shared.setUserInfo(userInfo: model.record)
                 // Notify update data on Account view (cross-thread)
                 DispatchQueue.main.async {
-                    NotificationCenter.default.post(name: Notification.Name(rawValue: DomainConst.NOTIFY_NAME_SET_DATA_ACCOUNTVIEW), object: nil)
+                    //NotificationCenter.default.post(name: Notification.Name(rawValue: DomainConst.NOTIFY_NAME_SET_DATA_ACCOUNTVIEW), object: nil)
+                    NotificationCenter.default.post(name: Notification.Name(rawValue: self.theClassName), object: nil)
                 }
             } else {
                 self.showAlert(message: model.message)

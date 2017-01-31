@@ -277,24 +277,32 @@ public class DomainConst {
     public static let KEY_NAME = "name"
     /** Data */
     public static let KEY_DATA = "data"
+    /** Key transaction id */
+    public static let KEY_TRANSACTION_ID            = "transaction_id"
+    /** Key transaction key */
+    public static let KEY_TRANSACTION_KEY           = "transaction_key"
     /** Grand total */
-    public static let KEY_GRAND_TOTAL = "grand_total"
+    public static let KEY_GRAND_TOTAL               = "grand_total"
     /** Setting key: is login */
-    public static let KEY_SETTING_IS_LOGGING = "gasservice.isLogin"
+    public static let KEY_SETTING_IS_LOGGING        = "gasservice.isLogin"
     /** Setting key: user token */
-    public static let KEY_SETTING_USER_TOKEN = "gasservice.user.token"
+    public static let KEY_SETTING_USER_TOKEN        = "gasservice.user.token"
     /** Setting key: training mode */
-    public static let KEY_SETTING_TRAINING_MODE = "gasservice.trainningMode"
+    public static let KEY_SETTING_TRAINING_MODE     = "gasservice.trainningMode"
+    /** Setting key: Transaction id */
+    public static let KEY_SETTING_TRANSACTION_ID    = "gasservice.transaction.id"
+    /** Setting key: Transaction key */
+    public static let KEY_SETTING_TRANSACTION_KEY   = "gasservice.transaction.key"
     /** Setting key: Temp token */
-    public static let KEY_SETTING_TEMP_TOKEN = "gasservice.temp.token"
+    public static let KEY_SETTING_TEMP_TOKEN        = "gasservice.temp.token"
     /** Setting key: Material type id */
-    public static let KEY_MATERIALS_TYPE_ID = "materials_type_id"
+    public static let KEY_MATERIALS_TYPE_ID         = "materials_type_id"
     /** Setting key: Material id */
-    public static let KEY_MATERIALS_ID = "material_id"
+    public static let KEY_MATERIALS_ID              = "material_id"
     /** Setting key: Material name */
-    public static let KEY_MATERIALS_NAME = "material_name"
+    public static let KEY_MATERIALS_NAME            = "material_name"
     /** Setting key: Material price */
-    public static let KEY_MATERIALS_PRICE = "material_price"
+    public static let KEY_MATERIALS_PRICE           = "material_price"
     /** Setting key: Price */
     public static let KEY_PRICE = "price"
     /** Setting key: Quantity */
@@ -1067,6 +1075,7 @@ public class DomainConst {
     public static let CONTENT00161 = "Lịch bảo trì"
     public static let CONTENT00162 = "Thông báo"
     public static let CONTENT00170 = "Số điện thoại người nhận"
+    public static let CONTENT00176 = "Không tìm thấy đại lý quanh vị trí hiện tại!"
     public static let CONTENT00177 = "Loại định kỳ"
     public static let CONTENT00178 = "Tạo mới bảo trì"
     public static let CONTENT00180 = "Gửi"

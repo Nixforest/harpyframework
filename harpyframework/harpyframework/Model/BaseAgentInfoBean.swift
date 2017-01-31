@@ -44,4 +44,12 @@ public class BaseAgentInfoBean: NSObject {
     public override init() {
         
     }
+    
+    /**
+     * Check if object has data or not
+     * - returns: True if agent id is empty, False otherwise
+     */
+    public func isEmpty() -> Bool {
+        return self.agent_id == DomainConst.BLANK
+    }
 }

@@ -91,6 +91,8 @@ public class BaseModel: NSObject {
     private var hotline: String = DomainConst.BLANK
     /** Order config */
     private var _orderConfig: OrderConfigBean = OrderConfigBean()
+    // Transaction data
+    private var _transaction: TransactionBean = TransactionBean()
     
     // MARK - Methods
     override init() {
@@ -116,6 +118,36 @@ public class BaseModel: NSObject {
         if defaults.object(forKey: DomainConst.KEY_SETTING_TEMP_TOKEN) != nil {
             self.tempToken = defaults.object(forKey: DomainConst.KEY_SETTING_TEMP_TOKEN) as! String
         }
+        
+        // Get transaction data
+        if defaults.object(forKey: DomainConst.KEY_SETTING_TRANSACTION_ID) != nil {
+            self._transaction.id = defaults.object(forKey: DomainConst.KEY_SETTING_TRANSACTION_ID) as! String
+        }
+        if defaults.object(forKey: DomainConst.KEY_SETTING_TRANSACTION_KEY) != nil {
+            self._transaction.name = defaults.object(forKey: DomainConst.KEY_SETTING_TRANSACTION_KEY) as! String
+        }
+    }
+    
+    /**
+     * Set transaction data
+     * - parameter transaction: Object to set
+     */
+    public func setTransactionData(transaction: TransactionBean) {
+        self._transaction = transaction
+        defaults.set(self._transaction.id, forKey: DomainConst.KEY_SETTING_TRANSACTION_ID)
+        defaults.set(self._transaction.name, forKey: DomainConst.KEY_SETTING_TRANSACTION_KEY)
+        defaults.synchronize()
+    }
+    
+    /**
+     * Check if transaction key does exist
+     * - returns: True if transaction key is not empty, False otherwise
+     */
+    public func checkTransactionKey() -> Bool {
+        if self._transaction.name.isEmpty {
+            return false
+        }
+        return true
     }
     
     /**

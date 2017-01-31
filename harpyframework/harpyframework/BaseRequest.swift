@@ -7,7 +7,7 @@
 //
 
 import Foundation
-open class BaseRequest {
+open class BaseRequest: NSObject {
     /** URL */
     public var url: String = ""
     /** Data of request */
@@ -79,7 +79,7 @@ open class BaseRequest {
             imgDataList.append(imgData!)
             filePathKey.append(String.init(format: "file_name[%d]", i))
         }
-        request.httpBody = createBodyWithParameter(parameters: self.param, filePathKey: filePathKey,
+        request.httpBody = createBodyWithParameterList(parameters: self.param, filePathKey: filePathKey,
                                                    imageDataKey: imgDataList, boundary: boundary) as Data
         
         let task = completetionHandler(request: request)
@@ -133,7 +133,7 @@ open class BaseRequest {
      * - parameter boundary:        Boundary data
      * - returns: NSData
      */
-    func createBodyWithParameter(parameters: [String: String]?, filePathKey: [String],
+    func createBodyWithParameterList(parameters: [String: String]?, filePathKey: [String],
                                  imageDataKey: [Data], boundary: String) -> NSData {
         let body = NSMutableData()
         if parameters != nil {

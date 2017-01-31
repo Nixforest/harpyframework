@@ -26,6 +26,13 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
     
     // MARK: Methods
     /**
+     * Empty method, use for completion handler
+     * - parameter notification: Notification object
+     */
+    public func emptyMethod(_ notification: Notification) {
+        // Do nothing
+    }
+    /**
      * View did load
      */
     override open func viewDidLoad() {

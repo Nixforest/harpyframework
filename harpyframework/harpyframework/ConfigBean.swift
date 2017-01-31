@@ -73,6 +73,9 @@ public class ConfigBean: NSObject {
             print(DomainConst.JSON_ERR_WRONG_FORMAT)
         }
     }
+    override public init() {
+        super.init()
+    }
     
     /**
      * Initializer

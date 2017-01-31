@@ -54,8 +54,17 @@ public class RequestAPI {
     
     /**
      * Request user information
-     * - parameter view: View controller
+     * - parameter action:  Handler when finish execute task
+     * - parameter view:    View controller
      */
+    public static func requestUserProfile(action: Selector, view: BaseViewController) {
+        LoadingView.shared.showOverlay(view: view.view)
+        let userProfileReq = UserProfileRequest(url: DomainConst.PATH_USER_PROFILE,
+                                                reqMethod: DomainConst.HTTP_POST_REQUEST, view: view)
+        userProfileReq.setData(token: BaseModel.shared.getUserToken())
+        NotificationCenter.default.addObserver(view, selector: action, name:NSNotification.Name(rawValue: userProfileReq.theClassName), object: nil)
+        userProfileReq.execute()
+    }
     public static func requestUserProfile(view: BaseViewController) {
         LoadingView.shared.showOverlay(view: view.view)
         let userProfileReq = UserProfileRequest(url: DomainConst.PATH_USER_PROFILE,
