@@ -53,16 +53,21 @@ class InternalViewController: BaseViewController, UITableViewDelegate, UITableVi
                                                  for: indexPath) as! ConfigurationTableViewCell
         switch indexPath.row {
         case 0:
-            cell.setData(leftImg: DomainConst.INFORMATION_IMG_NAME,
-                         name: DomainConst.CONTENT00139,
-                         value: DomainConst.VERSION_CODE)
+            var str = BaseModel.shared.getTransactionData().name
+            if !str.isEmpty {
+                let index = str.index(str.startIndex, offsetBy: 8)
+                str = str.substring(to: index)
+            }
             
+            cell.setData(leftImg: DomainConst.INFORMATION_IMG_NAME,
+                         name: "Reset transaction key",
+                         value: str, isHideRightImg: true)
+            break
         case 1:
-            cell.setData(leftImg: DomainConst.TRAINING_MODE_IMG_NAME,
-                         name: DomainConst.CONTENT00138,
-                         switchValue: BaseModel.shared.checkTrainningMode(),
-                         action: #selector(updateTrainingMode(_:)),
-                         target: self)
+            cell.setData(leftImg: DomainConst.INFORMATION_IMG_NAME,
+                         name: "Test loading view",
+                         value: DomainConst.BLANK, isHideRightImg: true)
+            break
         default:
             break
         }
@@ -70,7 +75,17 @@ class InternalViewController: BaseViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        switch indexPath.row {
+        case 0:
+            BaseModel.shared.setTransactionData(transaction: TransactionBean.init())
+            break
+        case 1:
+            LoadingView.shared.showOverlay(view: self.view)
+            break
+        default:
+            break
+        }
+        self._tblView.reloadData()
     }
     /**
      * Handle tap on cell.

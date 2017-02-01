@@ -14,6 +14,8 @@ public class LoadingView{
     var activityIndicator = UIActivityIndicatorView()
     /** Overlay label */
     var lblTitle = UILabel()
+    /** Flag status */
+    var isShowing = false
     /** Instance */
     public static let shared: LoadingView = {
         let instance = LoadingView()
@@ -86,6 +88,11 @@ public class LoadingView{
      * - parameter view: Current view
      */
     public func showOverlay(view: UIView = UIView()) {
+        if self.isShowing {
+            return
+        } else {
+            self.isShowing = !self.isShowing
+        }
         var currentView: UIViewController? = nil
         if let navigationController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
             currentView = navigationController.visibleViewController
@@ -105,6 +112,10 @@ public class LoadingView{
             DispatchQueue.main.async {
                 currentView?.view.addSubview(self.overlayView)
             }
+            // If this view run about 30s, turn it off
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(30000)) {
+                self.hideOverlayView()
+            }
         }
     }
     
@@ -112,6 +123,11 @@ public class LoadingView{
      * Hide overlay view
      */
     public func hideOverlayView() {
+        if !self.isShowing {
+            return
+        } else {
+            self.isShowing = !self.isShowing
+        }
         // Stop animating
         activityIndicator.stopAnimating()
         

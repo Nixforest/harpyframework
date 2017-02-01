@@ -151,6 +151,14 @@ public class BaseModel: NSObject {
     }
     
     /**
+     * Get transaction data
+     * - returns: Transaction data
+     */
+    public func getTransactionData() -> TransactionBean {
+        return self._transaction
+    }
+    
+    /**
      * Set temp token value
      * - parameter token: Token value
      */

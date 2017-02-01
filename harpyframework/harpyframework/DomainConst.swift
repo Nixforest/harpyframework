@@ -119,6 +119,8 @@ public class DomainConst {
     public static let KEY_APNS_DEVICE_TOKEN = "apns_device_token"
     /** News Id */
     public static let KEY_NEWS_ID = "news_id"
+    /** Device phone */
+    public static let KEY_DEVICE_PHONE      = "device_phone"
     /** Id */
     public static let KEY_ID = "id"
     /** Note Customer */
@@ -143,6 +145,8 @@ public class DomainConst {
     public static let KEY_DISTRICT_ID = "district_id"
     /** Ward Id */
     public static let KEY_WARD_ID = "ward_id"
+    /** Street id */
+    public static let KEY_STREET_ID = "street_id"
     /** Street */
     public static let KEY_STREET = "street"
     /** House Number */
@@ -238,9 +242,11 @@ public class DomainConst {
     /** Model uphold */
     public static let KEY_MODEL_UPHOLD = "model_uphold"
     /** Address */
-    public static let KEY_ADDRESS = "address"
+    public static let KEY_ADDRESS           = "address"
+    /** Address */
+    public static let KEY_GOOGLE_ADDRESS    = "google_address"
     /** Image avatar */
-    public static let KEY_IMG_AVATAR = "image_avatar"
+    public static let KEY_IMG_AVATAR        = "image_avatar"
     /** Notify type */
     public static let KEY_NOTIFY_TYPE = "notify_type"
     /** Request type */
@@ -281,6 +287,8 @@ public class DomainConst {
     public static let KEY_TRANSACTION_ID            = "transaction_id"
     /** Key transaction key */
     public static let KEY_TRANSACTION_KEY           = "transaction_key"
+    /** Key transaction type */
+    public static let KEY_TRANSACTION_TYPE          = "transaction_type"
     /** Grand total */
     public static let KEY_GRAND_TOTAL               = "grand_total"
     /** Setting key: is login */
