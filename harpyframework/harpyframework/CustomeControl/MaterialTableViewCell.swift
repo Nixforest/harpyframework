@@ -31,9 +31,9 @@ public class MaterialTableViewCell: UITableViewCell {
     
     /**
      * Set data for cell
-     * - parameter data: Material bean
+     * - parameter data: OrderDetail Bean
      */
-    public func setData(data: MaterialBean) {
+    public func setData(data: OrderDetailBean) {
         self._content?.updateContent(iconPath: data.material_image,
                                      name: data.material_name,
                                      price: data.material_price)

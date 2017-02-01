@@ -52,6 +52,8 @@ public class BaseModel: NSObject {
     var role_id: String = ""
     /** List user info */
     public var user_info: UserInfoBean? = nil
+    /** User information get from login */
+    public var user_info_login: [ConfigBean] = [ConfigBean]()
     /** List check menu */
     var check_menu: [ConfigBean] = [ConfigBean]()
     /** Flag need change pass */
@@ -350,6 +352,23 @@ public class BaseModel: NSObject {
         // Call center
         self.callCenterUphold = loginModel.call_center_uphold
         self.hotline = loginModel.hotline
+        
+        // User infor
+        self.user_info_login = loginModel.user_info
+    }
+    
+    /**
+     * Get user infor by Id
+     * - parameter id: Id of info
+     * - returns: Name of info
+     */
+    public func getUserInfoLogin(id: String) -> String{
+        for info in self.user_info_login {
+            if id == info.id {
+                return info.name
+            }
+        }
+        return DomainConst.BLANK
     }
     
     /**

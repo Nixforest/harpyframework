@@ -198,15 +198,23 @@ public class DomainConst {
     /** New password confirm */
     public static let KEY_NEW_PASSWORD_CONFIRM = "new_password_confirm"
     /** Code */
-    public static let KEY_CODE = "code"
+    public static let KEY_CODE              = "code"
     /** Record */
-    public static let KEY_RECORD = "record"
+    public static let KEY_RECORD            = "record"
     /** Notify count text */
     public static let KEY_NOTIFY_COUNT_TEXT = "NotifyCountText"
     /** Issue create */
-    public static let KEY_ISSUE_CREATE = "issue_create"
+    public static let KEY_ISSUE_CREATE      = "issue_create"
     /** Total page */
-    public static let KEY_TOTAL_PAGE = "total_page"
+    public static let KEY_TOTAL_PAGE        = "total_page"
+    /** Total quantity */
+    public static let KEY_TOTAL_QTY         = "total_qty"
+    /** Promotion amount */
+    public static let KEY_PROMOTION_AMOUNT  = "promotion_amount"
+    /** Discount amount */
+    public static let KEY_DISCOUNT_AMOUNT   = "discount_amount"
+    /** Total */
+    public static let KEY_TOTAL             = "total"
     /** LIST_CHIEF_MONITOR */
     public static let KEY_LIST_CHIEF_MONITOR = "LIST_CHIEF_MONITOR"
     /** LIST_MONITOR_AGENT */
@@ -312,15 +320,15 @@ public class DomainConst {
     /** Setting key: Material price */
     public static let KEY_MATERIALS_PRICE           = "material_price"
     /** Setting key: Price */
-    public static let KEY_PRICE = "price"
+    public static let KEY_PRICE                     = "price"
     /** Setting key: Quantity */
-    public static let KEY_QUANTITY = "qty"
+    public static let KEY_QUANTITY                  = "qty"
     /** Setting key: Amount */
-    public static let KEY_AMOUNT = "amount"
+    public static let KEY_AMOUNT                    = "amount"
     /** Setting key: Material image */
-    public static let KEY_MATERIAL_IMAGE = "material_image"
+    public static let KEY_MATERIAL_IMAGE            = "material_image"
     /** Setting key: Email */
-    public static let KEY_EMAIL = "email"
+    public static let KEY_EMAIL                     = "email"
     /** Setting key: Agent */
     public static let KEY_AGENT                 = "agent"
     /** Setting key: Agent id */

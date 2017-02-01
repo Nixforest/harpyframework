@@ -27,6 +27,7 @@ class UserProfileRequest: BaseRequest {
             // Convert to object
             let model: UserProfileRespModel = UserProfileRespModel(jsonString: dataString as! String)
             if model.status == DomainConst.RESPONSE_STATUS_SUCCESS {
+                LoadingView.shared.hideOverlayView()
                 // Update user information
                 BaseModel.shared.setUserInfo(userInfo: model.record)
                 // Notify update data on Account view (cross-thread)
@@ -39,7 +40,6 @@ class UserProfileRequest: BaseRequest {
                 return
             }
             
-            LoadingView.shared.hideOverlayView()
         })
         return task
     }

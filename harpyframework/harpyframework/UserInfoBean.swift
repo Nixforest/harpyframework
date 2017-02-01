@@ -107,6 +107,54 @@ public class UserInfoBean: NSObject {
     }
     
     /**
+     * Get email of user info bean.
+     * - returns: Email of user info bean
+     */
+    public func getEmail() -> String {
+        return self.email
+    }
+    
+    /**
+     * Get Province id of user info bean.
+     * - returns: Province id of user info bean
+     */
+    public func getProvinceId() -> String {
+        return self.province_id
+    }
+    
+    /**
+     * Get District id of user info bean.
+     * - returns: District id of user info bean
+     */
+    public func getDistrictId() -> String {
+        return self.district_id
+    }
+    
+    /**
+     * Get Ward id of user info bean.
+     * - returns: Ward id of user info bean
+     */
+    public func getWardId() -> String {
+        return self.ward_id
+    }
+    
+    /**
+     * Get Street id of user info bean.
+     * - returns: Street id of user info bean
+     */
+    public func getStreetId() -> String {
+        return self.street_id
+    }
+    
+    /**
+     * Get House number of user info bean.
+     * - returns: House number of user info bean
+     */
+    public func getHouseNumber() -> String {
+        return self.house_numbers
+    }
+    
+    /**
      * Get avatar image of user info bean.
      * - returns: Avatar image of user info bean
      */

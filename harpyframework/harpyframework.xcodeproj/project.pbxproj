@@ -16,6 +16,7 @@
 		D70B9F941E3F504400EB66F5 /* icon17.png in Resources */ = {isa = PBXBuildFile; fileRef = D70B9F901E3F504400EB66F5 /* icon17.png */; };
 		D70B9F951E3F504400EB66F5 /* icon18.png in Resources */ = {isa = PBXBuildFile; fileRef = D70B9F911E3F504400EB66F5 /* icon18.png */; };
 		D70B9F961E3F504400EB66F5 /* icon19.png in Resources */ = {isa = PBXBuildFile; fileRef = D70B9F921E3F504400EB66F5 /* icon19.png */; };
+		D71C25A31E41FDC400E29C3B /* TransactionCompleteBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71C25A21E41FDC400E29C3B /* TransactionCompleteBean.swift */; };
 		D7424AAD1E3B463600E442DC /* MaterialTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7424AAC1E3B463600E442DC /* MaterialTableViewCell.swift */; };
 		D75F64AD1E28657900A67B3C /* icon52.png in Resources */ = {isa = PBXBuildFile; fileRef = D75F64AA1E28657900A67B3C /* icon52.png */; };
 		D75F64AE1E28657900A67B3C /* icon53.png in Resources */ = {isa = PBXBuildFile; fileRef = D75F64AB1E28657900A67B3C /* icon53.png */; };
@@ -203,6 +204,7 @@
 		D70B9F901E3F504400EB66F5 /* icon17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon17.png; path = images/icon17.png; sourceTree = "<group>"; };
 		D70B9F911E3F504400EB66F5 /* icon18.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon18.png; path = images/icon18.png; sourceTree = "<group>"; };
 		D70B9F921E3F504400EB66F5 /* icon19.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon19.png; path = images/icon19.png; sourceTree = "<group>"; };
+		D71C25A21E41FDC400E29C3B /* TransactionCompleteBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransactionCompleteBean.swift; path = Model/TransactionCompleteBean.swift; sourceTree = "<group>"; };
 		D7424AAC1E3B463600E442DC /* MaterialTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MaterialTableViewCell.swift; path = CustomeControl/MaterialTableViewCell.swift; sourceTree = "<group>"; };
 		D75F64AA1E28657900A67B3C /* icon52.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon52.png; path = images/icon52.png; sourceTree = "<group>"; };
 		D75F64AB1E28657900A67B3C /* icon53.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon53.png; path = images/icon53.png; sourceTree = "<group>"; };
@@ -444,6 +446,7 @@
 				D7C30A3A1E305AB800B3FDA6 /* OrderConfigBean.swift */,
 				D70B9F8B1E3F448300EB66F5 /* ConfigurationModel.swift */,
 				D7DA56AD1E40ED3C00B6F618 /* TransactionBean.swift */,
+				D71C25A21E41FDC400E29C3B /* TransactionCompleteBean.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -931,6 +934,7 @@
 				D7B567B51E0D88A80042D5A8 /* UpholdListRespModel.swift in Sources */,
 				D7DA56AE1E40ED3C00B6F618 /* TransactionBean.swift in Sources */,
 				D7BE04831E05873700D37740 /* CustomCheckBox.swift in Sources */,
+				D71C25A31E41FDC400E29C3B /* TransactionCompleteBean.swift in Sources */,
 				D7B567BE1E0D89560042D5A8 /* BaseRespModel.swift in Sources */,
 				D7023EE51E2CAC0A00ED6394 /* MaterialSelector.swift in Sources */,
 				D7B567BB1E0D89010042D5A8 /* ConfigBean.swift in Sources */,
