@@ -314,7 +314,7 @@ public class DomainConst {
     /** Setting key: Material type id */
     public static let KEY_MATERIALS_TYPE_ID         = "materials_type_id"
     /** Setting key: Material id */
-    public static let KEY_MATERIALS_ID              = "material_id"
+    public static let KEY_MATERIALS_ID              = "materials_id"
     /** Setting key: Material name */
     public static let KEY_MATERIALS_NAME            = "material_name"
     /** Setting key: Material price */
