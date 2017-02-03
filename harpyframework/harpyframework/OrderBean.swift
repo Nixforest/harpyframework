@@ -63,6 +63,16 @@ public class OrderBean: NSObject {
     public var status_cancel: String = ""
     /** show_huy_giao_hang */
     public var order_detail: [OrderDetailBean] = [OrderDetailBean]()
+    /** Total quantity */
+    public var total_qty:        String = DomainConst.BLANK
+    /** Promotion amount */
+    public var promotion_amount: String = DomainConst.BLANK
+    /** Discount amount */
+    public var discount_amount:  String = DomainConst.BLANK
+    /** Total */
+    public var total:            String = DomainConst.BLANK
+    /** Grand total */
+    public var grand_total:      String = DomainConst.BLANK
     
     public override init() {
         super.init()
@@ -112,5 +122,10 @@ public class OrderBean: NSObject {
                 self.order_detail.append(OrderDetailBean(jsonData: item))
             }
         }
+        self.total_qty          = getString(json: jsonData, key: DomainConst.KEY_TOTAL_QTY)
+        self.promotion_amount   = getString(json: jsonData, key: DomainConst.KEY_PROMOTION_AMOUNT)
+        self.discount_amount    = getString(json: jsonData, key: DomainConst.KEY_DISCOUNT_AMOUNT)
+        self.total              = getString(json: jsonData, key: DomainConst.KEY_TOTAL)
+        self.grand_total        = getString(json: jsonData, key: DomainConst.KEY_GRAND_TOTAL)
     }
 }

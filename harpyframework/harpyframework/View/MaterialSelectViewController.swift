@@ -26,6 +26,11 @@ open class MaterialSelectViewController: BaseViewController, UICollectionViewDat
         MaterialSelectViewController._data = data
     }
     
+    /**
+     * Get material object from index
+     * - parameter index: Index of object
+     * - returns: MaterialBean
+     */
     public func getData(index: Int) -> MaterialBean {
         return MaterialSelectViewController._data[index]
     }
@@ -56,10 +61,10 @@ open class MaterialSelectViewController: BaseViewController, UICollectionViewDat
                                                            height: GlobalConst.SCREEN_HEIGHT - _iconImg.frame.maxY), collectionViewLayout: layout)
         let frameworkBundle = Bundle(identifier: DomainConst.HARPY_FRAMEWORK_BUNDLE_NAME)
         self._cltMaterial.register(UINib(nibName: DomainConst.MATERIAL_SELECTION_VIEW_CELL, bundle: frameworkBundle), forCellWithReuseIdentifier: DomainConst.MATERIAL_SELECTION_VIEW_CELL)
-        self._cltMaterial.dataSource = self
-        self._cltMaterial.delegate = self
-        self._cltMaterial.alwaysBounceVertical = true
-        self._cltMaterial.bounces = true
+        self._cltMaterial.dataSource            = self
+        self._cltMaterial.delegate              = self
+        self._cltMaterial.alwaysBounceVertical  = true
+        self._cltMaterial.bounces               = true
         if let layout = self._cltMaterial.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .vertical
         }
@@ -68,6 +73,22 @@ open class MaterialSelectViewController: BaseViewController, UICollectionViewDat
             width: self.view.frame.width,
             height: GlobalConst.SCREEN_HEIGHT - _iconImg.frame.maxY)
         self.view.addSubview(self._cltMaterial)
+    }
+    
+    /**
+     * Update layout of view with a bottom height value
+     * - parameter bottomHeight: Height of bottom part
+     * - returns: Value maxY of Material collection
+     */
+    public func updateLayout(bottomHeight: CGFloat) -> CGFloat {
+        self._cltMaterial.frame = CGRect(
+            x: 0, y: self._iconImg.frame.maxY,
+            width: self.view.frame.width,
+            height: GlobalConst.SCREEN_HEIGHT - _iconImg.frame.maxY - bottomHeight)
+        self._cltMaterial.contentSize = CGSize(
+            width: self.view.frame.width,
+            height: GlobalConst.SCREEN_HEIGHT - _iconImg.frame.maxY - bottomHeight)
+        return self._cltMaterial.frame.maxY
     }
 
     override open func didReceiveMemoryWarning() {
@@ -89,12 +110,14 @@ open class MaterialSelectViewController: BaseViewController, UICollectionViewDat
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return MaterialSelectViewController._data.count
     }
+    
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DomainConst.MATERIAL_SELECTION_VIEW_CELL, for: indexPath) as! MaterialSelectionCell
         cell.setData(data: MaterialSelectViewController._data[indexPath.row], width: GlobalConst.MATERIAL_SELECTION_WIDTH, height: GlobalConst.MATERIAL_SELECTION_HEIGHT)
         //cell.sel
         return cell
     }
+    
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: GlobalConst.MATERIAL_SELECTION_WIDTH,
                       height: GlobalConst.MATERIAL_SELECTION_HEIGHT)

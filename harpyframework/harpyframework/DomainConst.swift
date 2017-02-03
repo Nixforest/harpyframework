@@ -514,23 +514,26 @@ public class DomainConst {
     /** Pattern to remove accent */
     public static let PATTERN_REMOVE_ACCENT = "\\p{InCombiningDiacriticalMarks}+"
     
+    /** Transaction type: NORMAL */
+    public static let TRANSACTION_TYPE_NORMAL   = "1"
+    
     /** Uphold type: Periodically */
-    public static let UPHOLD_TYPE_PERIODICALLY = "1"
+    public static let UPHOLD_TYPE_PERIODICALLY  = "1"
     /** Uphold type: Trouble */
-    public static let UPHOLD_TYPE_TROUBLE = "2"
+    public static let UPHOLD_TYPE_TROUBLE       = "2"
     /** Uphold type: Periodically */
-    public static let TYPE_PERIODICALLY = 1
+    public static let TYPE_PERIODICALLY         = 1
     /** Uphold type: Trouble */
-    public static let TYPE_TROUBLE = 2
+    public static let TYPE_TROUBLE              = 2
     
     /** Uphold status: Complete */
-    public static let UPHOLD_STATUS_COMPLETE = "3"
+    public static let UPHOLD_STATUS_COMPLETE    = "3"
     /** Uphold status: New */
-    public static let UPHOLD_STATUS_NEW = "1"
+    public static let UPHOLD_STATUS_NEW         = "1"
     /** Uphold status: Handling */
-    public static let UPHOLD_STATUS_HANDLE = "2"
+    public static let UPHOLD_STATUS_HANDLE      = "2"
     /** Uphold status: Other */
-    public static let UPHOLD_TYPE_OTHER = "6"
+    public static let UPHOLD_TYPE_OTHER         = "6"
     /** Uphold contact: Other */
     public static let UPHOLD_CONTACT_OTHER = "4"
     /** Role id: Customer */
@@ -587,6 +590,10 @@ public class DomainConst {
     public static let CATEGORY_TYPE_GAS             = "2"
     /** Category type: Utility */
     public static let CATEGORY_TYPE_UTILITY         = "3"
+    /** Employee information id: Phone */
+    public static let EMPLOYEE_INFO_PHONE_ID        = "1"
+    /** Employee information id: Code */
+    public static let EMPLOYEE_INFO_CODE_ID         = "2"
     /** Agent information id: Promotion */
     public static let AGENT_PROMOTION_ID            = "1"
     /** Agent information id: Discount */
@@ -846,7 +853,9 @@ public class DomainConst {
     /** Money icon image name */
     public static let PHONE_ICON_IMG_NAME           = "icon18.png"
     /** Money icon image name */
-    public static let SUPPORT_ICON_IMG_NAME          = "icon19.png"
+    public static let SUPPORT_ICON_IMG_NAME         = "icon19.png"
+    /** Employee code image name */
+    public static let EMPLOYEE_ICON_IMG_NAME    = "icon23.png"
     /** Default material image name */
     public static let DEFAULT_MATERIAL_IMG_NAME = "icon24.png"
     /** Rating empty image name */
@@ -1149,4 +1158,6 @@ public class DomainConst {
     public static let CONTENT00241 = "Gọi GAS:"
     public static let CONTENT00242 = "Hỗ trợ Khách hàng:"
     public static let CONTENT00243 = "Địa chỉ người nhận"
+    public static let CONTENT00244 = "Không lấy quà"
+    public static let CONTENT00245 = "Mã nhân viên"
 }

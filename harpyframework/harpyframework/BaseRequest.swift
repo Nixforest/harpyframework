@@ -186,4 +186,17 @@ open class BaseRequest: NSObject {
             self.view.showAlert(message: message)
         }
     }
+    
+    /**
+     * Handle when complete task
+     * - parameter model: Model return by retuest
+     */
+    public func handleCompleteTask(model: Any?) {
+        // Hide overlay
+        LoadingView.shared.hideOverlayView()
+        // Call complete handler
+        DispatchQueue.main.async {
+            NotificationCenter.default.post(name: Notification.Name(rawValue: self.theClassName), object: model)
+        }
+    }
 }
