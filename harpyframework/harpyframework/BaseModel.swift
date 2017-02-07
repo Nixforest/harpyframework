@@ -95,6 +95,8 @@ public class BaseModel: NSObject {
     private var _orderConfig: OrderConfigBean = OrderConfigBean()
     // Transaction data
     private var _transaction: TransactionBean = TransactionBean()
+    /** Flag debug mode is ON */
+    private var _debug: DebugBean = DebugBean()
     
     // MARK - Methods
     override init() {
@@ -128,6 +130,53 @@ public class BaseModel: NSObject {
         if defaults.object(forKey: DomainConst.KEY_SETTING_TRANSACTION_KEY) != nil {
             self._transaction.name = defaults.object(forKey: DomainConst.KEY_SETTING_TRANSACTION_KEY) as! String
         }
+        
+        // Debug color mode
+        self._debug._isColorOn = false
+        if defaults.object(forKey: DomainConst.KEY_SETTING_DEBUG_COLOR) != nil {
+            self._debug._isColorOn = defaults.object(forKey: DomainConst.KEY_SETTING_DEBUG_COLOR) as! Bool
+        }
+        // Debug toast mode
+        self._debug._isShowToast = false
+        if defaults.object(forKey: DomainConst.KEY_SETTING_DEBUG_TOAST) != nil {
+            self._debug._isShowToast = defaults.object(forKey: DomainConst.KEY_SETTING_DEBUG_TOAST) as! Bool
+        }
+    }
+    
+    /**
+     * Set debug color mode is On/Off
+     * - parameter isOn: True -> On, False -> Off
+     */
+    public func setDebugColor(isOn: Bool) {
+        self._debug._isColorOn = isOn
+        defaults.set(self._debug._isColorOn, forKey: DomainConst.KEY_SETTING_DEBUG_COLOR)
+        defaults.synchronize()
+    }
+    
+    /**
+     * Check if debug color mode is On
+     * - returns: True if on, False if off
+     */
+    public func getDebugColor() -> Bool {
+        return self._debug._isColorOn
+    }
+    
+    /**
+     * Set debug show toast mode is On/Off
+     * - parameter isOn: True -> On, False -> Off
+     */
+    public func setDebugToast(isOn: Bool) {
+        self._debug._isShowToast = isOn
+        defaults.set(self._debug._isShowToast, forKey: DomainConst.KEY_SETTING_DEBUG_TOAST)
+        defaults.synchronize()
+    }
+    
+    /**
+     * Check if debug show toast mode is On
+     * - returns: True if on, False if off
+     */
+    public func getDebugToast() -> Bool {
+        return self._debug._isShowToast
     }
     
     /**

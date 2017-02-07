@@ -20,6 +20,7 @@ open class ConfigurationTableViewCell: UITableViewCell {
     private var _value: UILabel          = UILabel()
     /** Right image */
     private var _rightImg: UIImageView   = UIImageView()
+    public static var PARENT_WIDTH       = GlobalConst.SCREEN_WIDTH
     
     // MARK: Methods
     override open func awakeFromNib() {
@@ -27,7 +28,7 @@ open class ConfigurationTableViewCell: UITableViewCell {
         self.backgroundColor = UIColor.white
         // Initialization code
         let contentHeight: CGFloat = self.frame.height - 2 * GlobalConst.MARGIN_CELL_X
-        let parentWidth: CGFloat = GlobalConst.SCREEN_WIDTH
+        let parentWidth: CGFloat = ConfigurationTableViewCell.PARENT_WIDTH
         // Left image
         _leftImg.translatesAutoresizingMaskIntoConstraints = true
         _leftImg.frame = CGRect(x: GlobalConst.MARGIN,
@@ -76,6 +77,10 @@ open class ConfigurationTableViewCell: UITableViewCell {
         self.addSubview(_rightImg)
         self.addSubview(_value)
         self.addSubview(_switchValue)
+        self.frame = CGRect(x: 0, y: 0,
+                            width: ConfigurationTableViewCell.PARENT_WIDTH,
+                            height: self.frame.height)
+        self.makeComponentsColor()
     }
     
     override open func setSelected(_ selected: Bool, animated: Bool) {
@@ -93,7 +98,7 @@ open class ConfigurationTableViewCell: UITableViewCell {
      * - parameter target:      Target of event handler
      */
     public func setData(leftImg: String, name: String, switchValue: Bool, action: Selector, target: Any?) {
-        self._leftImg.image         = ImageManager.getImage(named: leftImg)
+        self._leftImg.setImage(imgPath: leftImg)
         self._switchValue.isHidden  = false
         self._name.isHidden         = false
         self._name.text             = name
@@ -110,20 +115,30 @@ open class ConfigurationTableViewCell: UITableViewCell {
      * - parameter isHideRightImg:  Flag hide/show right image
      */
     public func setData(leftImg: String, name: String, value: String, isHideRightImg: Bool = false) {
-        self._leftImg.image         = ImageManager.getImage(named: leftImg)
+        self._leftImg.setImage(imgPath: leftImg)
         self._switchValue.isHidden  = true
         self._name.text             = name
+        let size = _name.text?.widthOfString(usingFont: _name.font)
+        var frame = self._name.frame
+        frame.size = CGSize(width: size!, height: frame.height)
+        self._name.frame = frame
+        
         self._value.text            = value
         if isHideRightImg {
             self._rightImg.isHidden = true
-            self._value.frame       = CGRect(x: self._rightImg.frame.width + _leftImg.frame.maxX + GlobalConst.MARGIN * 2,
+            self._value.frame       = CGRect(x: self._name.frame.maxX,
                                              y: self._value.frame.origin.y,
-                                             width: self._value.frame.width,
+                                             width: ConfigurationTableViewCell.PARENT_WIDTH - self._name.frame.maxX - GlobalConst.MARGIN,
                                              height: self._value.frame.height)
         } else {
             let back                = ImageManager.getImage(named: DomainConst.BACK_IMG_NAME)
             let tintedBack          = back?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
             self._rightImg.image    = tintedBack
+            
+            self._value.frame       = CGRect(x: self._name.frame.maxX,
+                                             y: self._value.frame.origin.y,
+                                             width: self._rightImg.frame.minX - self._name.frame.maxX,
+                                             height: self._value.frame.height)
         }
     }
     
@@ -142,9 +157,30 @@ open class ConfigurationTableViewCell: UITableViewCell {
                                 width: contentHeight / 2,
                                 height: contentHeight / 2 )
         _leftImg.contentMode = .scaleAspectFit
-        _value.frame = CGRect(x: _leftImg.frame.maxX + GlobalConst.MARGIN + contentHeight / 4,
+        let size = _name.text?.widthOfString(usingFont: _name.font)
+        _value.frame = CGRect(x: _leftImg.frame.maxX + GlobalConst.MARGIN + contentHeight / 4 + size!,
                               y: GlobalConst.MARGIN_CELL_X,
-                              width: GlobalConst.SCREEN_WIDTH - 4 * GlobalConst.MARGIN - _leftImg.frame.width - GlobalConst.CONFIGURATION_ITEM_RIGHT_SIZE,
+                              width: ConfigurationTableViewCell.PARENT_WIDTH - 4 * GlobalConst.MARGIN - _leftImg.frame.width - GlobalConst.CONFIGURATION_ITEM_RIGHT_SIZE - size!,
+                              height: contentHeight)
+    }
+    
+    /**
+     * Set data for OrderDetail object
+     * - parameter material: OrderDetailBean
+     */
+    public func setData(material: OrderDetailBean) {
+        self.setData(leftImg: material.material_image, name: material.material_name,
+                     value: material.material_price + DomainConst.VIETNAMDONG, isHideRightImg: true)
+        let contentHeight = self.frame.height - 2 * GlobalConst.MARGIN_CELL_X
+        _leftImg.frame = CGRect(x: GlobalConst.MARGIN + contentHeight / 4,
+                                y: GlobalConst.MARGIN_CELL_X + contentHeight / 4,
+                                width: contentHeight / 2,
+                                height: contentHeight / 2 )
+        _leftImg.contentMode = .scaleAspectFit
+        let size = _name.text?.widthOfString(usingFont: _name.font)
+        _value.frame = CGRect(x: _leftImg.frame.maxX + GlobalConst.MARGIN + contentHeight / 4 + size!,
+                              y: GlobalConst.MARGIN_CELL_X,
+                              width: ConfigurationTableViewCell.PARENT_WIDTH - 4 * GlobalConst.MARGIN - _leftImg.frame.width - GlobalConst.CONFIGURATION_ITEM_RIGHT_SIZE - size!,
                               height: contentHeight)
     }
     
@@ -152,7 +188,22 @@ open class ConfigurationTableViewCell: UITableViewCell {
      * Highlight value string
      */
     public func highlightValue() {
-        _value.font = UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)
-        _value.textColor = GlobalConst.MAIN_COLOR
+        highlighText(control: _value)
+    }
+    
+    /**
+     * Highlight name string
+     */
+    public func highlightName() {
+        highlighText(control: _name)
+    }
+    
+    /**
+     * Highlight control label
+     * - parameter control: Control to highlight
+     */
+    private func highlighText(control: UILabel) {
+        control.font = UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)
+        control.textColor = GlobalConst.MAIN_COLOR
     }
 }

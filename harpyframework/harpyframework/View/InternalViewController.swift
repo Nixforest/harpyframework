@@ -16,7 +16,7 @@ class InternalViewController: BaseViewController, UITableViewDelegate, UITableVi
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        setupNavigationBar(title: DomainConst.CONTENT00128, isNotifyEnable: false, isHiddenBackBtn: false, isEnabledMenuBtn: false)
+        setupNavigationBar(title: "Debug values", isNotifyEnable: false, isHiddenBackBtn: false, isEnabledMenuBtn: false)
         
         // Config view
         _tblView.translatesAutoresizingMaskIntoConstraints = true
@@ -45,10 +45,11 @@ class InternalViewController: BaseViewController, UITableViewDelegate, UITableVi
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 5
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {        
+        ConfigurationTableViewCell.PARENT_WIDTH = GlobalConst.SCREEN_WIDTH
         let cell = tableView.dequeueReusableCell(withIdentifier: DomainConst.CONFIGURATION_TABLE_VIEW_CELL,
                                                  for: indexPath) as! ConfigurationTableViewCell
         switch indexPath.row {
@@ -68,6 +69,26 @@ class InternalViewController: BaseViewController, UITableViewDelegate, UITableVi
                          name: "Test loading view",
                          value: DomainConst.BLANK, isHideRightImg: true)
             break
+        case 2:
+            var str = BaseModel.shared.getUserToken()
+            if !str.isEmpty {
+                let index = str.index(str.startIndex, offsetBy: 8)
+                str = str.substring(to: index)
+            }
+            
+            cell.setData(leftImg: DomainConst.INFORMATION_IMG_NAME,
+                         name: "User token",
+                         value: str, isHideRightImg: true)
+            break
+        case 3:
+            cell.setData(leftImg: DomainConst.INFORMATION_IMG_NAME,
+                         name: "Color", switchValue: BaseModel.shared.getDebugColor(),
+                         action: #selector(updateDebugColorMode(_:)), target: self)
+        case 4:
+            cell.setData(leftImg: DomainConst.INFORMATION_IMG_NAME,
+                         name: "Show toast message", switchValue: BaseModel.shared.getDebugToast(),
+                         action: #selector(updateDebugToastMode(_:)), target: self)
+            break
         default:
             break
         }
@@ -82,19 +103,27 @@ class InternalViewController: BaseViewController, UITableViewDelegate, UITableVi
         case 1:
             LoadingView.shared.showOverlay(view: self.view)
             break
+        case 2:
+            UIPasteboard.general.string = BaseModel.shared.getUserToken()
+            self.showAlert(message: "Đã copy giá trị User token vào clipboard. Nhấn OK để tiếp tục.")
+            break
         default:
             break
         }
         self._tblView.reloadData()
     }
+    
     /**
      * Handle tap on cell.
      */
-    public func updateTrainingMode(_ sender: UISwitch) {
-        if sender.isOn {
-            BaseModel.shared.setTrainningMode(true)
-        } else {
-            BaseModel.shared.setTrainningMode(false)
-        }
+    public func updateDebugColorMode(_ sender: UISwitch) {
+        BaseModel.shared.setDebugColor(isOn: sender.isOn)
+    }
+    
+    /**
+     * Handle tap on cell.
+     */
+    public func updateDebugToastMode(_ sender: UISwitch) {
+        BaseModel.shared.setDebugToast(isOn: sender.isOn)
     }
 }

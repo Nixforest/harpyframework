@@ -10,6 +10,8 @@
 		D7023EE51E2CAC0A00ED6394 /* MaterialSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7023EE41E2CAC0A00ED6394 /* MaterialSelector.swift */; };
 		D704308B1E13D8D0001C070D /* TableCellOrderType.xib in Resources */ = {isa = PBXBuildFile; fileRef = D704308A1E13D8D0001C070D /* TableCellOrderType.xib */; };
 		D704308D1E13D8E1001C070D /* TableCellOrderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D704308C1E13D8E1001C070D /* TableCellOrderType.swift */; };
+		D708B17A1E48315F0074C528 /* icon80.png in Resources */ = {isa = PBXBuildFile; fileRef = D708B1791E48315F0074C528 /* icon80.png */; };
+		D708B17C1E4852120074C528 /* DebugBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D708B17B1E4852120074C528 /* DebugBean.swift */; };
 		D70B9F8C1E3F448300EB66F5 /* ConfigurationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70B9F8B1E3F448300EB66F5 /* ConfigurationModel.swift */; };
 		D70B9F8E1E3F4F1F00EB66F5 /* icon69.png in Resources */ = {isa = PBXBuildFile; fileRef = D70B9F8D1E3F4F1F00EB66F5 /* icon69.png */; };
 		D70B9F931E3F504400EB66F5 /* icon16.png in Resources */ = {isa = PBXBuildFile; fileRef = D70B9F8F1E3F504400EB66F5 /* icon16.png */; };
@@ -199,6 +201,8 @@
 		D7023EE41E2CAC0A00ED6394 /* MaterialSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MaterialSelector.swift; path = CustomeControl/MaterialSelector.swift; sourceTree = "<group>"; };
 		D704308A1E13D8D0001C070D /* TableCellOrderType.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableCellOrderType.xib; sourceTree = "<group>"; };
 		D704308C1E13D8E1001C070D /* TableCellOrderType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCellOrderType.swift; sourceTree = "<group>"; };
+		D708B1791E48315F0074C528 /* icon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon80.png; path = images/icon80.png; sourceTree = "<group>"; };
+		D708B17B1E4852120074C528 /* DebugBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DebugBean.swift; path = Model/DebugBean.swift; sourceTree = "<group>"; };
 		D70B9F8B1E3F448300EB66F5 /* ConfigurationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigurationModel.swift; path = Model/ConfigurationModel.swift; sourceTree = "<group>"; };
 		D70B9F8D1E3F4F1F00EB66F5 /* icon69.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon69.png; path = images/icon69.png; sourceTree = "<group>"; };
 		D70B9F8F1E3F504400EB66F5 /* icon16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon16.png; path = images/icon16.png; sourceTree = "<group>"; };
@@ -449,6 +453,7 @@
 				D70B9F8B1E3F448300EB66F5 /* ConfigurationModel.swift */,
 				D7DA56AD1E40ED3C00B6F618 /* TransactionBean.swift */,
 				D71C25A21E41FDC400E29C3B /* TransactionCompleteBean.swift */,
+				D708B17B1E4852120074C528 /* DebugBean.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -563,6 +568,7 @@
 		D7F3D8D21E1B8BCC0018744F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D708B1791E48315F0074C528 /* icon80.png */,
 				D7CFF1F71E44F23500A37C07 /* icon23.png */,
 				D75F64B81E28B39100A67B3C /* Account.jpeg */,
 				D75F64BA1E28B39100A67B3C /* back.png */,
@@ -811,6 +817,7 @@
 				D75F650B1E28B3A500A67B3C /* regMenu.png in Resources */,
 				D7E9BF751E2C82F20068D200 /* icon10.png in Resources */,
 				D7F3D8D61E1B90B60018744F /* icon6.png in Resources */,
+				D708B17A1E48315F0074C528 /* icon80.png in Resources */,
 				D75F64F41E28B39100A67B3C /* icon36-user-ios.png in Resources */,
 				D75F64F31E28B39100A67B3C /* icon35-user.png in Resources */,
 				D75F64E01E28B39100A67B3C /* done.png in Resources */,
@@ -903,6 +910,7 @@
 				D7B567A51E0D87FF0042D5A8 /* UpholdDetailRequest.swift in Sources */,
 				D7AB90541E2402170048AC4F /* ScrollButtonList.swift in Sources */,
 				D7B567B71E0D88A80042D5A8 /* UserProfileRespModel.swift in Sources */,
+				D708B17C1E4852120074C528 /* DebugBean.swift in Sources */,
 				D7B567C61E0D8A6B0042D5A8 /* LoadingView.swift in Sources */,
 				D7B567CC1E0D9DE70042D5A8 /* BaseMenuViewController.swift in Sources */,
 				D7E014AD1E348039001F26B6 /* MaterialSelectionCell.swift in Sources */,

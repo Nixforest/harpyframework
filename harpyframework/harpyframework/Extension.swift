@@ -25,7 +25,16 @@ public class ColorFromRGB: NSObject {
             alpha:  CGFloat(1.0)
         )
     }
+    
+    /**
+     * Create random color
+     * - returns: UIColor value
+     */
+    public func getRandomColor() -> UIColor {
+        return UIColor(red: CGFloat(drand48()), green: CGFloat(drand48()), blue: CGFloat(drand48()), alpha: 1.0)
+    }
 }
+
 public class ImageManager {
     public static func getImage(named: String) -> UIImage? {
         let frameworkBundle = Bundle(identifier: DomainConst.HARPY_FRAMEWORK_BUNDLE_NAME)
@@ -77,6 +86,20 @@ enum MenuItemEnum {
  * Download image async extension
  */
 extension UIImageView {
+    /**
+     * Set image for image view, if image does exist inside framework, take it. If not, download from server
+     * - parameter imgPath: Image path
+     */
+    public func setImage(imgPath: String) {
+        // Check from framework
+        let image = ImageManager.getImage(named: imgPath)
+        if image != nil {
+            self.image     = image
+        } else if !imgPath.isEmpty {
+            // Get from server
+            self.getImgFromUrl(link: imgPath, contentMode: self.contentMode)
+        }
+    }
     /**
      * Get image from url
      * - parameter link: Image url
@@ -323,7 +346,17 @@ extension String {
      * - Remove " "
      */
     public func normalizatePhoneString() -> String {
-        let retVal = self.replacingOccurrences(of: DomainConst.SPACE_STR, with: DomainConst.BLANK)
+        var retVal = DomainConst.BLANK
+        if self.range(of: DomainConst.PHONE_SPLITER) != nil {
+            let arrString = self.components(separatedBy: DomainConst.PHONE_SPLITER)
+            if arrString.count > 0 {
+                retVal = arrString[0]
+            }
+        } else {
+            retVal = self
+        }
+        retVal = retVal.replacingOccurrences(of: DomainConst.SPACE_STR, with: DomainConst.BLANK)
+        
         return retVal
     }
 }
@@ -417,5 +450,19 @@ public extension NSObject {
     }
     public var theClassName: String {
         return NSStringFromClass(type(of: self))
+    }
+    
+}
+public extension UIView {
+    /**
+     * Set random color for all components on view
+     */
+    public func makeComponentsColor() {
+        if !BaseModel.shared.getDebugColor() {
+            return
+        }
+        for view in self.subviews {
+            view.backgroundColor = ColorFromRGB().getRandomColor()
+        }
     }
 }

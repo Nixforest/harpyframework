@@ -311,6 +311,10 @@ public class DomainConst {
     public static let KEY_SETTING_TRANSACTION_KEY   = "gasservice.transaction.key"
     /** Setting key: Temp token */
     public static let KEY_SETTING_TEMP_TOKEN        = "gasservice.temp.token"
+    /** Setting key: Debug color */
+    public static let KEY_SETTING_DEBUG_COLOR       = "gasservice.debug.color"
+    /** Setting key: Debug toast */
+    public static let KEY_SETTING_DEBUG_TOAST       = "gasservice.debug.toast"
     /** Setting key: Material type id */
     public static let KEY_MATERIALS_TYPE_ID         = "materials_type_id"
     /** Setting key: Material id */
@@ -435,11 +439,19 @@ public class DomainConst {
     /** show_huy_giao_hang */
     public static let KEY_SHOW_HUY_GH = "show_huy_giao_hang"
     /** Transaction History Id */
-    public static let KEY_TRANSACTION_HISTORY_ID = "transaction_history_id"
+    public static let KEY_TRANSACTION_HISTORY_ID    = "transaction_history_id"
     /** Call center uphold */
-    public static let KEY_CALL_CENTER_UPHOLD = "call_center_uphold"
+    public static let KEY_CALL_CENTER_UPHOLD        = "call_center_uphold"
     /** Hotline */
-    public static let KEY_HOTLINE = "hotline"
+    public static let KEY_HOTLINE                   = "hotline"
+    /** Flag gas 24h */
+    public static let KEY_FLAG_GAS_24H              = "app_type"
+    /** Key text of order type */
+    public static let KEY_ORDER_TYPE_TEXT           = "order_type_text"
+    /** Key amount of order type */
+    public static let KEY_ORDER_TYPE_AMOUNT         = "order_type_amount"
+    /** Key amount of bu vo */
+    public static let KEY_AMOUNT_BU_VO              = "amount_bu_vo"
     
     // MARK: -----Specified constant-----
     /** File parameter: file_name[ + ] */
@@ -525,7 +537,15 @@ public class DomainConst {
     public static let TYPE_PERIODICALLY         = 1
     /** Uphold type: Trouble */
     public static let TYPE_TROUBLE              = 2
+    /** App type flag: Gas 24h */
+    public static let APP_TYPE_FLAG_GAS_24H     = "1"
+    /** App type flag: Gas Service */
+    public static let APP_TYPE_FLAG_GAS_SERVICE = "0"
     
+    /** Order status: New */
+    public static let ORDER_STATUS_NEW          = "3"
+    /** Order status: Complete */
+    public static let ORDER_STATUS_COMPLETE     = "1"
     /** Uphold status: Complete */
     public static let UPHOLD_STATUS_COMPLETE    = "3"
     /** Uphold status: New */
@@ -535,21 +555,21 @@ public class DomainConst {
     /** Uphold status: Other */
     public static let UPHOLD_TYPE_OTHER         = "6"
     /** Uphold contact: Other */
-    public static let UPHOLD_CONTACT_OTHER = "4"
+    public static let UPHOLD_CONTACT_OTHER      = "4"
     /** Role id: Customer */
-    public static let ROLE_CUSTOMER = "4"
+    public static let ROLE_CUSTOMER             = "4"
     /** Role id: Coordinator */
-    public static let ROLE_COORDINATOR = "17"
+    public static let ROLE_COORDINATOR          = "17"
     /** Role id: Audit */
-    public static let ROLE_AUDIT = "54"
+    public static let ROLE_AUDIT                = "54"
     /** Role id: Chief monitor */
-    public static let ROLE_CHIEF_MONITOR = "28"
+    public static let ROLE_CHIEF_MONITOR        = "28"
     /** Role id: Director */
-    public static let ROLE_DIRECTOR = "19"
+    public static let ROLE_DIRECTOR             = "19"
     /** Flag change pass: need change */
-    public static let NEED_CHANGE_PASS = "1"
+    public static let NEED_CHANGE_PASS          = "1"
     /** Flag change pass: no need change */
-    public static let NO_NEED_CHANGE_PASS = "0"
+    public static let NO_NEED_CHANGE_PASS       = "0"
     /** Maximum number of user interaction tapped */
     public static let MAXIMUM_TAPPED                    = 7
     /** Notify type: View Uphold */
@@ -606,6 +626,8 @@ public class DomainConst {
     public static let AGENT_PHONE_ID                = "5"
     /** Agent information id: Support */
     public static let AGENT_SUPPORT_ID              = "6"
+    /** Agent information id: Bu vo */
+    public static let AGENT_BUVO_ID                 = "7"
     /** Money unit: Vietnam dong */
     public static let VIETNAMDONG                   = " " + NumberFormatter().locale.currencySymbol!
     /** Promote default value */
@@ -616,8 +638,12 @@ public class DomainConst {
     public static let OPTION_OTHER                  = "Khác"
     /** Contact spliter */
     public static let CONTACT_SPLITER               = "\n"
-    /** Contact spliter */
+    /** Address spliter */
     public static let ADDRESS_SPLITER               = ","
+    /** Phone spliter */
+    public static let PHONE_SPLITER                 = "-"
+    /** Phone spliter */
+    public static let NUMBER_ZERO_VALUE             = "0"
     /** Default time value */
     public static let DEFAULT_TIME_VALUE            = "08:00"
     /** Address unknown string */
@@ -875,19 +901,21 @@ public class DomainConst {
     /** Customer feeling image name: Sad */
     public static let CUST_FEELING_SAD_IMG_NAME     = "icon54.png"
     /** Customer icon image name */
-    public static let CUSTOMER_ICON_IMG_NAME   = "icon55.png"
+    public static let CUSTOMER_ICON_IMG_NAME            = "icon55.png"
     /** Contact icon image name */
-    public static let CONTACT_ICON_IMG_NAME    = "icon58.png"
+    public static let CONTACT_ICON_IMG_NAME             = "icon58.png"
     /** Problem type icon image name */
-    public static let PROBLEM_TYPE_IMG_NAME    = "icon59.png"
+    public static let PROBLEM_TYPE_IMG_NAME             = "icon59.png"
     /** Content icon image name */
-    public static let CONTENT_ICON_IMG_NAME    = "icon60.png"
+    public static let CONTENT_ICON_IMG_NAME             = "icon60.png"
     /** Content icon image name */
-    public static let REPORT_ICON_IMG_NAME     = "icon62.png"
+    public static let REPORT_ICON_IMG_NAME              = "icon62.png"
     /** Money icon image name */
-    public static let MONEY_ICON_GREY_IMG_NAME = "icon69.png"
+    public static let MONEY_ICON_GREY_IMG_NAME          = "icon69.png"
     /** Order icon image name */
-    public static let ORDER_START_ICON_IMG_NAME = "icon76.png"
+    public static let ORDER_START_ICON_IMG_NAME         = "icon76.png"
+    /** Order status new image name */
+    public static let ORDER_STATUS_NEW_ICON_IMG_NAME    = "icon80.png"
     /** Type 1 backgroud image name */
     public static let TYPE_1_BKG_IMG_NAME      = "bg1.jpg"
     /** Menu backgroud body image name */
@@ -1160,4 +1188,5 @@ public class DomainConst {
     public static let CONTENT00243 = "Địa chỉ người nhận"
     public static let CONTENT00244 = "Không lấy quà"
     public static let CONTENT00245 = "Mã nhân viên"
+    public static let CONTENT00246 = "Bù vỏ:"
 }

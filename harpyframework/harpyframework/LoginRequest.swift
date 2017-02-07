@@ -62,11 +62,14 @@ class LoginRequest: BaseRequest {
      */
     func setData(username: String, password: String) {
         self.data = "q=" + String.init(
-            format: "{\"username\":\"%@\",\"password\":\"%@\",\"gcm_device_token\":\"\",\"apns_device_token\":\"%@\",\"type\":\"3\"}",
-            //format: "{\"username\":\"%@\",\"password\":\"%@\",\"gcm_device_token\":\"1\",\"apns_device_token\":\"1\"}",
-                                       username, password,
-                                       BaseModel.shared.checkDeviceTokenExist() ? BaseModel.shared.getDeviceToken() : "A7CA1E1F8434EE8D5E62264B22D29D64B7A3AC04E03899E6926503643FD07EC6"
-                                        //Singleton.shared.checkDeviceTokenExist() ? Singleton.shared.getDeviceToken() : ""
+            format: "{\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\"}",
+            DomainConst.KEY_USERNAME, username,
+            DomainConst.KEY_PASSWORD, password,
+            DomainConst.KEY_GCM_DEVICE_TOKEN, DomainConst.BLANK,
+            DomainConst.KEY_APNS_DEVICE_TOKEN,
+                    BaseModel.shared.checkDeviceTokenExist() ? BaseModel.shared.getDeviceToken() : "A7CA1E1F8434EE8D5E62264B22D29D64B7A3AC04E03899E6926503643FD07EC6",
+            DomainConst.KEY_TYPE, "3",
+            DomainConst.KEY_FLAG_GAS_24H, DomainConst.APP_TYPE_FLAG_GAS_24H
         )
     }
 }

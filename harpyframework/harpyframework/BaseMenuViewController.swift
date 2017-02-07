@@ -231,7 +231,7 @@ open class BaseMenuViewController : UIViewController {
             case DomainConst.WORKING_REPORT:
                 currentView.showAlert(message: DomainConst.CONTENT00197)
                 break
-            case DomainConst.ORDER_TRANSACTION_LIST:
+            case DomainConst.ORDER_LIST:
                 let orderList = currentView.mainStoryboard.instantiateViewController(withIdentifier: DomainConst.G04_F00_S01_VIEW_CTRL)
                 currentView.navigationController?.pushViewController(orderList, animated: true)
                 break

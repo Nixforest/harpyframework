@@ -73,6 +73,63 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
     }
     
     /**
+     * Show toast message
+     * - parameter message: Message content
+     */
+    public func showToast(message: String) -> Void {
+        // Check debug toast mode
+        if !BaseModel.shared.getDebugToast() {
+            return
+        }
+        let label           = UILabel(frame: CGRect.zero)
+        label.textAlignment = .center
+        label.text          = message
+        label.font          = UIFont.systemFont(ofSize: UIFont.systemFontSize)
+        label.adjustsFontSizeToFitWidth = true
+        
+        label.backgroundColor   =  UIColor.black
+        label.textColor         = UIColor.white
+        
+        label.sizeToFit()
+        label.numberOfLines         = 4
+        label.layer.shadowColor     = UIColor.gray.cgColor
+        label.layer.shadowOffset    = CGSize(width: 4, height: 3)
+        label.layer.shadowOpacity   = 0.3
+        label.frame = CGRect(x: self.view.frame.width, y: self.view.frame.height - getTopHeight(),
+                             width: label.frame.width, height: label.frame.height)
+        label.alpha = 1
+        BaseViewController.getCurrentViewController().view.addSubview(label)
+        
+        var basketTopFrame: CGRect = label.frame;
+        basketTopFrame.origin.x = (self.view.frame.width - label.frame.width) / 2
+        
+        UIView.animate(withDuration: 2.0, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.1, options: UIViewAnimationOptions.curveEaseOut, animations: { () -> Void in
+            label.frame = basketTopFrame
+        },  completion: {
+            (value: Bool) in
+            UIView.animate(withDuration: 2.0, delay: 2.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.1, options: UIViewAnimationOptions.curveEaseIn, animations: { () -> Void in
+                label.alpha = 0
+            },  completion: {
+                (value: Bool) in
+                label.removeFromSuperview()
+            })
+        })
+    }
+    
+    /**
+     * Handle make a phone call
+     * - parameter phone: Phone string to call
+     */
+    public func makeACall(phone: String) {
+        let url = NSURL(string: "telprompt://\(phone)")
+        if UIApplication.shared.canOpenURL(url as! URL) {
+            UIApplication.shared.openURL(url as! URL)
+        } else {
+            showAlert(message: "Không gọi được vào số: \(phone)")
+        }
+    }
+    
+    /**
      * Handle show alert message
      * - parameter message: Message content
      * - parameter okHandler: Handler when tap OK button

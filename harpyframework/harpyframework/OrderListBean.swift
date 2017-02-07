@@ -10,25 +10,29 @@ import Foundation
 
 public class OrderListBean: NSObject {
     /** Id */
-    public var id: String = ""
+    public var id:              String = DomainConst.BLANK
     /** Title */
-    public var title: String = ""
+    public var title:           String = DomainConst.BLANK
     /** Code number */
-    public var code_no: String = ""
+    public var code_no:         String = DomainConst.BLANK
     /** Grand total */
-    public var grand_total: String = ""
+    public var grand_total:     String = DomainConst.BLANK
     /** Status */
-    public var status: String = ""
+    public var status:          String = DomainConst.BLANK
     /** Created date */
-    public var created_date: String = ""
+    public var created_date:    String = DomainConst.BLANK
+    /** Name */
+    public var first_name:      String = DomainConst.BLANK
+    /** Status number */
+    public var status_number:   String = DomainConst.BLANK
     /** Phone */
-    public var phone: String = ""
+    public var phone:           String = DomainConst.BLANK
     /** Address */
-    public var address: String = ""
+    public var address:         String = DomainConst.BLANK
     /** show_nhan_giao_hang */
-    public var show_nhan_giao_hang: String = ""
+    public var show_nhan_giao_hang: String = DomainConst.BLANK
     /** show_huy_giao_hang */
-    public var show_huy_giao_hang: String = ""
+    public var show_huy_giao_hang:  String = DomainConst.BLANK
     
     /**
      * Initializer
@@ -49,6 +53,8 @@ public class OrderListBean: NSObject {
         self.grand_total            = getString(json: jsonData, key: DomainConst.KEY_GRAND_TOTAL)
         self.status                 = getString(json: jsonData, key: DomainConst.KEY_STATUS)
         self.created_date           = getString(json: jsonData, key: DomainConst.KEY_CREATED_DATE)
+        self.first_name             = getString(json: jsonData, key: DomainConst.KEY_FIRST_NAME)
+        self.status_number          = getString(json: jsonData, key: DomainConst.KEY_STATUS_NUMBER)
         self.phone                  = getString(json: jsonData, key: DomainConst.KEY_PHONE)
         self.address                = getString(json: jsonData, key: DomainConst.KEY_ADDRESS)
         self.show_nhan_giao_hang    = getString(json: jsonData, key: DomainConst.KEY_SHOW_NHAN_GH)

@@ -69,5 +69,6 @@ class MaterialSelectionCell: UICollectionViewCell {
         _lblPrice.numberOfLines = 0
         _lblPrice.lineBreakMode = .byWordWrapping
         self.addSubview(_lblPrice)
+        self.makeComponentsColor()
     }
 }

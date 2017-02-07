@@ -107,6 +107,7 @@ open class TableCellOrderType: UITableViewCell {
         self._parentView.addSubview(self.leftView)
         self._parentView.addSubview(self.centerView)
         self._parentView.addSubview(self.rightView)
+        self.makeComponentsColor()
     }
     
     /**
@@ -123,11 +124,10 @@ open class TableCellOrderType: UITableViewCell {
         self.codeLabel.text = data.code_no + " -"
         self.totalLabel.text = data.grand_total
         self.materialLabel.text = data.title
-//        if data.status == "Hoàn thành" {
-//            self.statusIcon.image = UIImage(named: "icon29.png")
-//        } else if data.status == "Huỷ" {
-//            self.statusIcon.image = UIImage(named: "icon30.png")
-//        }
-        self.statusIcon.image = ImageManager.getImage(named: DomainConst.FINISH_STATUS_IMG_NAME)
+        if data.status_number == DomainConst.ORDER_STATUS_COMPLETE {
+            self.statusIcon.image = ImageManager.getImage(named: DomainConst.FINISH_STATUS_IMG_NAME)
+        } else if data.status_number == DomainConst.ORDER_STATUS_NEW {
+            self.statusIcon.image = ImageManager.getImage(named: DomainConst.ORDER_STATUS_NEW_ICON_IMG_NAME)
+        }
     }
 }

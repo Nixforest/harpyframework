@@ -21,6 +21,8 @@ public class OrderBean: NSObject {
     public var agent_id: String = ""
     /** Created date */
     public var agent_name: String = ""
+    /** Agent phone */
+    public var agent_phone: String = ""
     /** Phone */
     public var note: String = ""
     /** Address */
@@ -73,6 +75,12 @@ public class OrderBean: NSObject {
     public var total:            String = DomainConst.BLANK
     /** Grand total */
     public var grand_total:      String = DomainConst.BLANK
+    /** Grand total */
+    public var order_type_text:     String = DomainConst.BLANK
+    /** Grand total */
+    public var order_type_amount:   String = DomainConst.BLANK
+    /** Grand total */
+    public var amount_bu_vo:        String = DomainConst.BLANK
     
     public override init() {
         super.init()
@@ -97,6 +105,7 @@ public class OrderBean: NSObject {
         self.email              = getString(json: jsonData, key: DomainConst.KEY_EMAIL)
         self.agent_id           = getString(json: jsonData, key: DomainConst.KEY_AGENT_ID)
         self.agent_name         = getString(json: jsonData, key: DomainConst.KEY_AGENT_NAME)
+        self.agent_phone        = getString(json: jsonData, key: DomainConst.KEY_AGENT_PHONE)
         self.note               = getString(json: jsonData, key: DomainConst.KEY_NOTE)
         self.address            = getString(json: jsonData, key: DomainConst.KEY_ADDRESS)
         self.code_no            = getString(json: jsonData, key: DomainConst.KEY_CODE_NO)
@@ -127,5 +136,8 @@ public class OrderBean: NSObject {
         self.discount_amount    = getString(json: jsonData, key: DomainConst.KEY_DISCOUNT_AMOUNT)
         self.total              = getString(json: jsonData, key: DomainConst.KEY_TOTAL)
         self.grand_total        = getString(json: jsonData, key: DomainConst.KEY_GRAND_TOTAL)
+        self.order_type_text    = getString(json: jsonData, key: DomainConst.KEY_ORDER_TYPE_TEXT)
+        self.order_type_amount  = getString(json: jsonData, key: DomainConst.KEY_ORDER_TYPE_AMOUNT)
+        self.amount_bu_vo       = getString(json: jsonData, key: DomainConst.KEY_AMOUNT_BU_VO)
     }
 }
