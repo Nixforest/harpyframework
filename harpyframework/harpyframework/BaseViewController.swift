@@ -170,15 +170,19 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
     
     /**
      * Handle show alert message
-     * - parameter message: Message content
-     * - parameter okHandler: Handler when tap OK button
-     * - parameter cancelHandler: Handler when tap Cancel button
+     * - parameter message:         Message content
+     * - parameter okTitle:         Title of OK button
+     * - parameter cancelTitle:     Title of Cancel button
+     * - parameter okHandler:       Handler when tap OK button
+     * - parameter cancelHandler:   Handler when tap Cancel button
      */
-    public func showAlert(message: String, okHandler: @escaping (UIAlertAction) -> Swift.Void, cancelHandler: @escaping (UIAlertAction) -> Swift.Void) -> Void {
+    public func showAlert(message: String,
+                          okTitle: String = DomainConst.CONTENT00008,
+                          cancelTitle: String = DomainConst.CONTENT00202, okHandler: @escaping (UIAlertAction) -> Swift.Void, cancelHandler: @escaping (UIAlertAction) -> Swift.Void) -> Void {
         let alert       = UIAlertController(title: DomainConst.CONTENT00162, message: message, preferredStyle: .alert)
-        let okAction    = UIAlertAction(title: DomainConst.CONTENT00008, style: .default, handler: okHandler)
+        let okAction    = UIAlertAction(title: okTitle, style: .default, handler: okHandler)
         alert.addAction(okAction)
-        let cancelAction = UIAlertAction(title: DomainConst.CONTENT00202, style: .cancel, handler: cancelHandler)
+        let cancelAction = UIAlertAction(title: cancelTitle, style: .cancel, handler: cancelHandler)
         alert.addAction(cancelAction)
         self.present(alert, animated: true, completion: nil)
     }
@@ -441,6 +445,9 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
      * - parameter name: Name of view controller
      */
     public func pushToView(name: String) {
+        if self.theClassName == String.init(format: "project.\(name)") {
+            return
+        }
         let view = mainStoryboard.instantiateViewController(withIdentifier: name)
         self.navigationController?.pushViewController(view, animated: true)
     }

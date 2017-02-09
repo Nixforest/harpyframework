@@ -58,7 +58,7 @@ open class MaterialSelectViewController: BaseViewController, UICollectionViewDat
         self._cltMaterial = UICollectionView(frame: CGRect(x: 0,
                                                            y: _iconImg.frame.maxY,
                                                            width: self.view.frame.width,
-                                                           height: GlobalConst.SCREEN_HEIGHT - _iconImg.frame.maxY), collectionViewLayout: layout)
+                                                           height: GlobalConst.SCREEN_HEIGHT - _iconImg.frame.maxY - GlobalConst.MARGIN), collectionViewLayout: layout)
         let frameworkBundle = Bundle(identifier: DomainConst.HARPY_FRAMEWORK_BUNDLE_NAME)
         self._cltMaterial.register(UINib(nibName: DomainConst.MATERIAL_SELECTION_VIEW_CELL, bundle: frameworkBundle), forCellWithReuseIdentifier: DomainConst.MATERIAL_SELECTION_VIEW_CELL)
         self._cltMaterial.dataSource            = self
@@ -71,7 +71,7 @@ open class MaterialSelectViewController: BaseViewController, UICollectionViewDat
         self._cltMaterial.backgroundColor = UIColor.white
         self._cltMaterial.contentSize = CGSize(
             width: self.view.frame.width,
-            height: GlobalConst.SCREEN_HEIGHT - _iconImg.frame.maxY)
+            height: GlobalConst.SCREEN_HEIGHT - _iconImg.frame.maxY - GlobalConst.MARGIN)
         self.view.addSubview(self._cltMaterial)
     }
     

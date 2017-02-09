@@ -254,8 +254,9 @@ public class BaseModel: NSObject {
         resetData()
         defaults.set(isLogin, forKey: DomainConst.KEY_SETTING_IS_LOGGING)
         defaults.set(userToken, forKey: DomainConst.KEY_SETTING_USER_TOKEN)
+        defaults.set(self._transaction.id, forKey: DomainConst.KEY_SETTING_TRANSACTION_ID)
+        defaults.set(self._transaction.name, forKey: DomainConst.KEY_SETTING_TRANSACTION_KEY)
         defaults.synchronize()
-        self.setTempToken(token: "")
     }
     
     /**
@@ -264,8 +265,10 @@ public class BaseModel: NSObject {
     func resetData() {
         isLogin = false
         userToken = ""
+        self._transaction = TransactionBean.init()
         self.user_info = nil
         self.notifyCountText = ""
+        self.setTempToken(token: "")
     }
     
     /**

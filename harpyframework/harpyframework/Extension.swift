@@ -398,6 +398,21 @@ public extension NSObject {
     }
     
     /**
+     * Get int value from string with key in json list
+     * - parameter json: Json data
+     * - parameter key: Key value
+     * - returns: Value of int match with key value
+     */
+    public func getIntFromString(json: [String: AnyObject], key: String) -> Int {
+        var retVal = 0
+        let value = json[key] as? String ?? DomainConst.BLANK
+        if value != DomainConst.BLANK {
+            retVal = Int(value)!
+        }
+        return retVal
+    }
+    
+    /**
      * Get list config data from key in json list
      * - parameter json: Json data
      * - parameter key: Key value

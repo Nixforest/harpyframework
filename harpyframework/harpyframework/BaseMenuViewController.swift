@@ -100,8 +100,11 @@ open class BaseMenuViewController : UIViewController {
                 case DomainConst.WORKING_REPORT:
                     iconPath = DomainConst.MENU_ITEM_WORKING_REPORT_IMG_NAME
                     break
-                case DomainConst.ORDER_TRANSACTION_LIST:
+                case DomainConst.ORDER_LIST:
                     iconPath = DomainConst.MENU_ITEM_ORDER_LIST_IMG_NAME
+                    break
+                case DomainConst.KEY_MENU_PROMOTION_LIST:
+                    iconPath = DomainConst.MENU_ITEM_GIFT_IMG_NAME
                     break
                 default:
                     break
@@ -212,12 +215,14 @@ open class BaseMenuViewController : UIViewController {
                 _ = currentView.popToRootView()
                 break
             case DomainConst.USER_PROFILE:
-                let accountVC = currentView.mainStoryboard.instantiateViewController(withIdentifier: DomainConst.G00_ACCOUNT_VIEW_CTRL)
-                currentView.navigationController?.pushViewController(accountVC, animated: true)
+//                let accountVC = currentView.mainStoryboard.instantiateViewController(withIdentifier: DomainConst.G00_ACCOUNT_VIEW_CTRL)
+//                currentView.navigationController?.pushViewController(accountVC, animated: true)
+                currentView.pushToView(name: DomainConst.G00_ACCOUNT_VIEW_CTRL)
                 break
             case DomainConst.UPHOLD_LIST:
-                let upholdListVC = currentView.mainStoryboard.instantiateViewController(withIdentifier: DomainConst.G01_F00_S01_VIEW_CTRL)
-                currentView.navigationController?.pushViewController(upholdListVC, animated: true)
+//                let upholdListVC = currentView.mainStoryboard.instantiateViewController(withIdentifier: DomainConst.G01_F00_S01_VIEW_CTRL)
+//                currentView.navigationController?.pushViewController(upholdListVC, animated: true)
+                currentView.pushToView(name: DomainConst.G01_F00_S01_VIEW_CTRL)
                 break
             case DomainConst.ISSUE_LIST:
                 currentView.showAlert(message: DomainConst.CONTENT00197)
@@ -232,8 +237,12 @@ open class BaseMenuViewController : UIViewController {
                 currentView.showAlert(message: DomainConst.CONTENT00197)
                 break
             case DomainConst.ORDER_LIST:
-                let orderList = currentView.mainStoryboard.instantiateViewController(withIdentifier: DomainConst.G04_F00_S01_VIEW_CTRL)
-                currentView.navigationController?.pushViewController(orderList, animated: true)
+//                let orderList = currentView.mainStoryboard.instantiateViewController(withIdentifier: DomainConst.G04_F00_S01_VIEW_CTRL)
+//                currentView.navigationController?.pushViewController(orderList, animated: true)
+                currentView.pushToView(name: DomainConst.G04_F00_S01_VIEW_CTRL)
+                break
+            case DomainConst.KEY_MENU_PROMOTION_LIST:
+                currentView.pushToView(name: DomainConst.G04_F02_S01_VIEW_CTRL)
                 break
             default:
                 break

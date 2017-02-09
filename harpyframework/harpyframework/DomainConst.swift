@@ -452,6 +452,8 @@ public class DomainConst {
     public static let KEY_ORDER_TYPE_AMOUNT         = "order_type_amount"
     /** Key amount of bu vo */
     public static let KEY_AMOUNT_BU_VO              = "amount_bu_vo"
+    /** Key expiration date */
+    public static let KEY_EXPIRY_DATE               = "expiry_date"
     
     // MARK: -----Specified constant-----
     /** File parameter: file_name[ + ] */
@@ -628,6 +630,12 @@ public class DomainConst {
     public static let AGENT_SUPPORT_ID              = "6"
     /** Agent information id: Bu vo */
     public static let AGENT_BUVO_ID                 = "7"
+    
+    // MARK: New
+    /** Key menu item: Promotion list */
+    public static let KEY_MENU_PROMOTION_LIST       = "promotion_list"
+    
+    
     /** Money unit: Vietnam dong */
     public static let VIETNAMDONG                   = " " + NumberFormatter().locale.currencySymbol!
     /** Promote default value */
@@ -642,6 +650,8 @@ public class DomainConst {
     public static let ADDRESS_SPLITER               = ","
     /** Phone spliter */
     public static let PHONE_SPLITER                 = "-"
+    /** Text spliter */
+    public static let TEXT_SPLITER                  = ":"
     /** Phone spliter */
     public static let NUMBER_ZERO_VALUE             = "0"
     /** Default time value */
@@ -733,6 +743,8 @@ public class DomainConst {
     public static let G01_F03_VIEW_CTRL = "G01F03VC"
     /** Name of G04F00 Order list view controller */
     public static let G04_F00_S01_VIEW_CTRL = "G04F00S01VC"
+    /** Name of G04F02 Promotions list view controller */
+    public static let G04_F02_S01_VIEW_CTRL = "G04F02S01VC"
     
     /** Name of ChangePasswordViewController */
     public static let G00_CHANGE_PASS_VIEW_CTRL = "G00ChangePassVC"
@@ -762,6 +774,8 @@ public class DomainConst {
     public static let MATERIAL_SELECTION_VIEW_CELL = "MaterialSelectionCell"
     /** Table view cell order type */
     public static let TABLE_VIEW_CELL_ORDER_TYPE = "TableCellOrderType"
+    /** Table view cell Promotion */
+    public static let PROMOTION_TABLE_VIEW_CELL = "PromotionTableViewCell"
     
     /** Pop overmenu identifier */
     public static let POPOVER_MENU_IDENTIFIER = "popOverMenu"
@@ -871,7 +885,9 @@ public class DomainConst {
     /** Order icon image */
     public static let ORDER_ICON_IMG_NAME      = "ic_custom_order_top.png"
     /** Material selection logo image name */
-    public static let MATERIAL_SELECTION_IMG_NAME = "icon12.png"
+    public static let MATERIAL_SELECTION_IMG_NAME   = "icon12.png"
+    /** Promotion icon image name */
+    public static let PROMOTION_ICON_IMG_NAME       = "icon13.png"
     /** Money icon image name */
     public static let MONEY_ICON_IMG_NAME           = "icon16.png"
     /** Money icon image name */
@@ -917,25 +933,27 @@ public class DomainConst {
     /** Order status new image name */
     public static let ORDER_STATUS_NEW_ICON_IMG_NAME    = "icon80.png"
     /** Type 1 backgroud image name */
-    public static let TYPE_1_BKG_IMG_NAME      = "bg1.jpg"
+    public static let TYPE_1_BKG_IMG_NAME               = "bg1.jpg"
     /** Menu backgroud body image name */
-    public static let MENU_BKG_BODY_IMG_NAME   = "bg_sliding_menu_body.jpg"
+    public static let MENU_BKG_BODY_IMG_NAME            = "bg_sliding_menu_body.jpg"
     /** Menu backgroud top image name */
-    public static let MENU_BKG_TOP_IMG_NAME    = "bg_sliding_menu_top.jpg"
+    public static let MENU_BKG_TOP_IMG_NAME             = "bg_sliding_menu_top.jpg"
     /** Brand logo image name */
-    public static let BRAND_LOGO_IMG_NAME      = "logo-1.png"
+    public static let BRAND_LOGO_IMG_NAME               = "logo-1.png"
     /** Menu item Home image name */
-    public static let MENU_ITEM_HOME_IMG_NAME  = "ic_menu_home.png"
+    public static let MENU_ITEM_HOME_IMG_NAME           = "ic_menu_home.png"
+    /** Menu item Home image name */
+    public static let MENU_ITEM_GIFT_IMG_NAME           = "ic_menu_gift.png"
     /** Menu item Profile image name */
-    public static let MENU_ITEM_PROFILE_IMG_NAME  = "ic_menu_profile.png"
+    public static let MENU_ITEM_PROFILE_IMG_NAME        = "ic_menu_profile.png"
     /** Menu item Uphold list image name */
-    public static let MENU_ITEM_UPHOLD_LIST_IMG_NAME  = "list.png"
+    public static let MENU_ITEM_UPHOLD_LIST_IMG_NAME    = "list.png"
     /** Menu item Message image name */
-    public static let MENU_ITEM_MSG_IMG_NAME   = "message.png"
+    public static let MENU_ITEM_MSG_IMG_NAME            = "message.png"
     /** Menu item Working report image name */
-    public static let MENU_ITEM_WORKING_REPORT_IMG_NAME  = "report.png"
+    public static let MENU_ITEM_WORKING_REPORT_IMG_NAME = "report.png"
     /** Menu item Order list image name */
-    public static let MENU_ITEM_ORDER_LIST_IMG_NAME  = "ic_menu_shoping_cart.png"
+    public static let MENU_ITEM_ORDER_LIST_IMG_NAME     = "ic_menu_shoping_cart.png"
     /** Finish status image name */
     public static let FINISH_STATUS_IMG_NAME            = "icon29.png"
     /** Date time icon image name */
@@ -1162,9 +1180,10 @@ public class DomainConst {
     public static let CONTENT00210 = "Mức hài lòng"
     public static let CONTENT00212 = "Xem ảnh"
     public static let CONTENT00217 = "Xác nhận"
-    public static let CONTENT00218 = "Tổng cộng:"
-    public static let CONTENT00219 = "Khuyến mãi:"
+    public static let CONTENT00218 = "Tổng cộng"
+    public static let CONTENT00219 = "Khuyến mãi"
     public static let CONTENT00220 = "Huỷ bỏ"
+    public static let CONTENT00222 = "Thêm mã khuyến mại"
     public static let CONTENT00223 = "Xem"
     public static let CONTENT00224 = "Để sau"
     public static let CONTENT00225 = "Bảo trì miễn phí"
@@ -1181,12 +1200,17 @@ public class DomainConst {
     public static let CONTENT00236 = "Mua hàng"
     public static let CONTENT00237 = "Chọn loại gas"
     public static let CONTENT00238 = "Chọn quà tặng"
-    public static let CONTENT00239 = "Chiết khấu:"
-    public static let CONTENT00240 = "Đại lý:"
-    public static let CONTENT00241 = "Gọi GAS:"
-    public static let CONTENT00242 = "Hỗ trợ Khách hàng:"
+    public static let CONTENT00239 = "Chiết khấu"
+    public static let CONTENT00240 = "Đại lý"
+    public static let CONTENT00241 = "Gọi GAS"
+    public static let CONTENT00242 = "Hỗ trợ Khách hàng"
     public static let CONTENT00243 = "Địa chỉ người nhận"
     public static let CONTENT00244 = "Không lấy quà"
     public static let CONTENT00245 = "Mã nhân viên"
     public static let CONTENT00246 = "Bù vỏ:"
+    public static let CONTENT00247 = "Khuyến mãi"
+    public static let CONTENT00248 = "Hết hạn vào"
+    public static let CONTENT00249 = "Nhập mã khuyến mãi"
+    public static let CONTENT00250 = "Mã khuyến mãi"
+    public static let CONTENT00251 = "Thử lại"
 }
