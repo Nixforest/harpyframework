@@ -19,6 +19,8 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
     @IBOutlet weak public var backButton: UIButton!
     /** Flag check keyboard is show or hide */
     public var isKeyboardShow : Bool = false
+    /** Height of keyboard */
+    public var keyboardTopY : CGFloat = 0.0
     /** Main story board */
     public let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
     /** Background image path */
@@ -32,6 +34,15 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
     public func emptyMethod(_ notification: Notification) {
         // Do nothing
     }
+    
+    /**
+     * View did appear
+     */
+    override open func viewDidAppear(_ animated: Bool) {
+        //notification button enable/disable
+        self.updateNotificationStatus()
+    }
+    
     /**
      * View did load
      */
@@ -43,6 +54,19 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
             let background = UIImageView(frame: UIScreen.main.bounds)
             background.image = ImageManager.getImage(named: self.backgroundImg)
             self.view.insertSubview(background, at: 0)
+        }
+        // Keyboard
+        NotificationCenter.default.addObserver(self, selector: #selector(getKeyboardHeight),
+                                               name: .UIKeyboardWillShow,
+                                               object: nil)
+    }
+    
+    /**
+     * Get height of keyboard
+     */
+    open func getKeyboardHeight(_ notification: Notification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            self.keyboardTopY = GlobalConst.SCREEN_HEIGHT - keyboardSize.height + getTopHeight()
         }
     }
     

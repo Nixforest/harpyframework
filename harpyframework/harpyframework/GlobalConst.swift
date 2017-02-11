@@ -54,7 +54,7 @@ public class GlobalConst {
     public static let ACCOUNT_AVATAR_H                  : CGFloat = 140.0
     public static let ACCOUNT_ICON_SIZE                 : CGFloat = 35.0
     public static let SCROLL_BUTTON_LIST_HEIGHT         : CGFloat = BUTTON_HEIGHT / 5.0
-    public static let NORMAL_FONT_SIZE                  : CGFloat = 15.0
+    public static let NORMAL_FONT_SIZE                  : CGFloat = UIFont.systemFontSize
     public static let NORMAL_FONT_SIZE_1                : CGFloat = 13.0
     public static let SMALL_FONT_SIZE                   : CGFloat = 10.0
     public static let BIG_FONT_SIZE                     : CGFloat = 14.0

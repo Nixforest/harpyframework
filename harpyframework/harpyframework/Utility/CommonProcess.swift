@@ -152,8 +152,9 @@ public class CommonProcess {
      * - parameter y:       Y position
      * - parameter text:    Button's title
      */
-    public static func createButtonLayout(btn: UIButton, x: CGFloat, y: CGFloat,
-                             text: String) {
+    public static func createButtonLayout(btn: UIButton,
+                                          x: CGFloat, y: CGFloat,
+                                          text: String) {
         
         btn.translatesAutoresizingMaskIntoConstraints = true
         btn.frame = CGRect(x: x, y: y,
@@ -162,7 +163,51 @@ public class CommonProcess {
         btn.setTitle(text, for: .normal)
         btn.setTitleColor(UIColor.white , for: .normal)
         btn.titleLabel?.font    = UIFont.systemFont(ofSize: GlobalConst.BUTTON_FONT_SIZE)
-        btn.backgroundColor     = GlobalConst.BUTTON_COLOR_RED
+        btn.backgroundColor     = GlobalConst.MAIN_COLOR
         btn.layer.cornerRadius  = GlobalConst.LOGIN_BUTTON_CORNER_RADIUS
+    }
+    
+    /**
+     * Create layout for normal button
+     * - parameter btn:     Button to create layout
+     * - parameter x:       X position
+     * - parameter y:       Y position
+     * - parameter text:    Button's title
+     * - parameter action:  Action when tap button
+     * - parameter target:  Target of action
+     */
+    public static func createButtonLayout(btn: UIButton,
+                                          x: CGFloat, y: CGFloat,
+                                          text: String,
+                                          action: Selector, target: Any?) {
+        CommonProcess.createButtonLayout(btn: btn, x: x, y: y, text: text)
+        btn.addTarget(target, action: action, for: .touchUpInside)
+    }
+    
+    /**
+     * Create layout for normal button
+     * - parameter btn:     Button to create layout
+     * - parameter x:       X position
+     * - parameter y:       Y position
+     * - parameter text:    Button's title
+     * - parameter action:  Action when tap button
+     * - parameter target:  Target of action
+     * - parameter img:     Path of image
+     * - parameter tintedColor:  Tinted color
+     */
+    public static func createButtonLayout(btn: UIButton,
+                                          x: CGFloat, y: CGFloat,
+                                          text: String,
+                                          action: Selector, target: Any?,
+                                          img: String,
+                                          tintedColor: UIColor) {
+        CommonProcess.createButtonLayout(btn: btn, x: x, y: y,
+                                         text: text, action: action, target: target)
+        let img = ImageManager.getImage(named: img)
+        let tintedImg = img?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        
+        btn.tintColor = tintedColor
+        btn.setImage(tintedImg, for: UIControlState())
+        btn.imageView?.contentMode = .scaleAspectFit
     }
 }
