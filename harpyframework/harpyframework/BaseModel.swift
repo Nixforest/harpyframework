@@ -141,6 +141,16 @@ public class BaseModel: NSObject {
         if defaults.object(forKey: DomainConst.KEY_SETTING_DEBUG_TOAST) != nil {
             self._debug._isShowToast = defaults.object(forKey: DomainConst.KEY_SETTING_DEBUG_TOAST) as! Bool
         }
+        // Debug toast mode
+        self._debug._zoomValue = 13.0
+        if defaults.object(forKey: DomainConst.KEY_SETTING_DEBUG_ZOOM) != nil {
+            self._debug._zoomValue = defaults.object(forKey: DomainConst.KEY_SETTING_DEBUG_ZOOM) as! CGFloat
+        }
+        // Debug toast mode
+        self._debug._isGasService = false
+        if defaults.object(forKey: DomainConst.KEY_SETTING_DEBUG_IS_GAS_SERVICE) != nil {
+            self._debug._isGasService = defaults.object(forKey: DomainConst.KEY_SETTING_DEBUG_IS_GAS_SERVICE) as! Bool
+        }
     }
     
     /**
@@ -159,6 +169,42 @@ public class BaseModel: NSObject {
      */
     public func getDebugColor() -> Bool {
         return self._debug._isColorOn
+    }
+    
+    /**
+     * Set debug gas service flag
+     * - parameter isOn: True -> On, False -> Off
+     */
+    public func setDebugGasServiceFlag(isOn: Bool) {
+        self._debug._isGasService = isOn
+        defaults.set(self._debug._isGasService, forKey: DomainConst.KEY_SETTING_DEBUG_IS_GAS_SERVICE)
+        defaults.synchronize()
+    }
+    
+    /**
+     * Get gas service flag value
+     * - returns: True if on, False if off
+     */
+    public func getDebugGasServiceFlag() -> Bool {
+        return self._debug._isGasService
+    }
+    
+    /**
+     * Set debug zoom value
+     * - parameter value: Zoom value
+     */
+    public func setDebugZoom(value: CGFloat) {
+        self._debug._zoomValue = value
+        defaults.set(self._debug._zoomValue, forKey: DomainConst.KEY_SETTING_DEBUG_ZOOM)
+        defaults.synchronize()
+    }
+    
+    /**
+     * Get Zoom value
+     * - returns: Zoom value
+     */
+    public func getZoomValue() -> CGFloat {
+        return self._debug._zoomValue
     }
     
     /**
@@ -295,6 +341,13 @@ public class BaseModel: NSObject {
         self.isTrainningMode = isTrainningValue
         defaults.set(isTrainningMode, forKey: DomainConst.KEY_SETTING_TRAINING_MODE)
         defaults.synchronize()
+        
+        // Handle display color when training mode is on
+        if BaseModel.shared.checkTrainningMode() {
+            GlobalConst.BUTTON_COLOR_RED = GlobalConst.TRAINING_COLOR
+        } else {    // Training mode off
+            GlobalConst.BUTTON_COLOR_RED = GlobalConst.MAIN_COLOR
+        }
     }
     
     /**
@@ -634,5 +687,29 @@ public class BaseModel: NSObject {
      */
     public func getOrderConfig() -> OrderConfigBean {
         return self._orderConfig
+    }
+    
+    /**
+     * Get main logo string
+     * - returns: Image path of main logo
+     */
+    public func getMainLogo() -> String {
+        if self.getDebugGasServiceFlag() {
+            return DomainConst.LOGO_GAS_SERVICE_IMG_NAME
+        } else {
+            return DomainConst.LOGO_GAS_24H_IMG_NAME
+        }
+    }
+    
+    /**
+     * Get current app name
+     * - returns: Name of app
+     */
+    public func getAppName() -> String {
+        if BaseModel.shared.getDebugGasServiceFlag() {
+            return DomainConst.CONTENT00108
+        } else {
+            return DomainConst.CONTENT00226
+        }
     }
 }

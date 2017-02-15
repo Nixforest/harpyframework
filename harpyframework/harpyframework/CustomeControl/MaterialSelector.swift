@@ -100,6 +100,20 @@ public class MaterialSelector: UIView {
      */
     public func setPrice(price: String) {
         var priceText = price
+        if priceText == DomainConst.NUMBER_ZERO_VALUE ||
+            priceText.isEmpty {
+            _lblPrice.isHidden = true
+            _lblName.frame = CGRect(x: _icon.frame.maxX + GlobalConst.MARGIN_CELL_X,
+                                    y: GlobalConst.MARGIN_CELL_X + _lblPrice.frame.height / 2,
+                                    width: self.frame.width * 3 / 5 - GlobalConst.MARGIN_CELL_X,
+                                    height: (self.frame.height - 2 * GlobalConst.MARGIN_CELL_X) * 2 / 3)
+        } else {
+            _lblPrice.isHidden = false
+            _lblName.frame = CGRect(x: _icon.frame.maxX + GlobalConst.MARGIN_CELL_X,
+                                    y: GlobalConst.MARGIN_CELL_X,
+                                    width: self.frame.width * 3 / 5 - GlobalConst.MARGIN_CELL_X,
+                                    height: (self.frame.height - 2 * GlobalConst.MARGIN_CELL_X) * 2 / 3)
+        }
         if !priceText.isEmpty {
             priceText = priceText + DomainConst.VIETNAMDONG
         }

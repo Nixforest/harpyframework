@@ -35,6 +35,9 @@ public class ColorFromRGB: NSObject {
     }
 }
 
+/**
+ * Image manager
+ */
 public class ImageManager {
     public static func getImage(named: String) -> UIImage? {
         let frameworkBundle = Bundle(identifier: DomainConst.HARPY_FRAMEWORK_BUNDLE_NAME)

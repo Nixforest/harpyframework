@@ -30,8 +30,8 @@ public class OrderConfigBean: NSObject {
         }
 //        self.distance_1 = (getString(json: jsonData, key: DomainConst.KEY_DISTANCE_1) as NSString).doubleValue
 //        self.distance_2 = (getString(json: jsonData, key: DomainConst.KEY_DISTANCE_2) as NSString).doubleValue
-        self.distance_1 = Double(getInt(json: jsonData, key: DomainConst.KEY_DISTANCE_1))
-        self.distance_2 = Double(getInt(json: jsonData, key: DomainConst.KEY_DISTANCE_2))
+        self.distance_1 = Double(getString(json: jsonData, key: DomainConst.KEY_DISTANCE_1))!
+        self.distance_2 = Double(getString(json: jsonData, key: DomainConst.KEY_DISTANCE_2))!
     }
     public override init() {
         

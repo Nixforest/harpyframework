@@ -79,7 +79,7 @@ public class GlobalConst {
     //public static let MAIN_COLOR:                  = ColorFromRGB().getColorFromRGB(0xF00020)
     public static let MAIN_COLOR                    = ColorFromRGB().getColorFromRGB(0xFC4513)
     public static let BUTTON_COLOR_RED_TRUE         = ColorFromRGB().getColorFromRGB(0xF00020)
-    public static let TRAINING_COLOR                = ColorFromRGB().getColorFromRGB(0x08C011)
+    public static var TRAINING_COLOR                = ColorFromRGB().getColorFromRGB(0x08C011)
     //public static let TRAINING_COLOR              = ColorFromRGB().getColorFromRGB(0xF00020)
     public static var BUTTON_COLOR_RED              = MAIN_COLOR
     public static let BUTTON_COLOR_GRAY             = ColorFromRGB().getColorFromRGB(0xD5D5D5)

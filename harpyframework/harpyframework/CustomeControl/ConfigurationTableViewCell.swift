@@ -182,6 +182,10 @@ open class ConfigurationTableViewCell: UITableViewCell {
                               y: GlobalConst.MARGIN_CELL_X,
                               width: ConfigurationTableViewCell.PARENT_WIDTH - 4 * GlobalConst.MARGIN - _leftImg.frame.width - GlobalConst.CONFIGURATION_ITEM_RIGHT_SIZE - size!,
                               height: contentHeight)
+        if material.material_price == DomainConst.NUMBER_ZERO_VALUE ||
+            material.material_price.isEmpty {
+            _value.isHidden = true
+        }
     }
     
     /**
@@ -205,5 +209,10 @@ open class ConfigurationTableViewCell: UITableViewCell {
     private func highlighText(control: UILabel) {
         control.font = UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)
         control.textColor = GlobalConst.MAIN_COLOR
+    }
+    
+    public func setValueColor(color: UIColor) {
+        _value.textColor = color
+        //_value.backgroundColor = color
     }
 }

@@ -315,12 +315,18 @@ public class DomainConst {
     public static let KEY_SETTING_DEBUG_COLOR           = "gasservice.debug.color"
     /** Setting key: Debug toast */
     public static let KEY_SETTING_DEBUG_TOAST           = "gasservice.debug.toast"
+    /** Setting key: Debug zoom */
+    public static let KEY_SETTING_DEBUG_ZOOM            = "gasservice.debug.zoom"
+    /** Setting key: Debug Is Gas service */
+    public static let KEY_SETTING_DEBUG_IS_GAS_SERVICE  = "gasservice.debug.isGasService"
     /** Setting key: Material type id */
     public static let KEY_MATERIALS_TYPE_ID             = "materials_type_id"
     /** Setting key: Material id */
     public static let KEY_MATERIALS_ID                  = "materials_id"
     /** Setting key: Material name */
     public static let KEY_MATERIALS_NAME                = "materials_name"
+    /** Setting key: Material short name */
+    public static let KEY_MATERIALS_NAME_SHORT          = "materials_name_short"
     /** Setting key: Material price */
     public static let KEY_MATERIALS_PRICE               = "material_price"
     /** Setting key: Price */
@@ -811,7 +817,8 @@ public class DomainConst {
     
     // MARK: -----Domain constants-----
     /** Logo image name */
-    public static let LOGO_IMG_NAME                         = "gas_logo.png"
+    public static let LOGO_GAS_SERVICE_IMG_NAME             = "gasservice_logo.png"
+    public static let LOGO_GAS_24H_IMG_NAME                 = "gas24h_logo.png"
     /** Contact image name */
     public static let CONTACT_IMG_NAME                      = "contact.png"
     /** Phone image name */
@@ -866,6 +873,8 @@ public class DomainConst {
     public static let CONFIRM_IMG_NAME                      = "icon20.png"
     /** Cancel image name */
     public static let CANCEL_IMG_NAME                       = "icon21.png"
+    /** Cancel image name */
+    public static let ADD_ICON_IMG_NAME                     = "cong.png"
     /** Rating image name */
     public static let RATING_IMG_NAME                       = "icon25.png"
     /** User name image */
@@ -938,8 +947,6 @@ public class DomainConst {
     public static let MENU_BKG_BODY_IMG_NAME                = "bg_sliding_menu_body.jpg"
     /** Menu backgroud top image name */
     public static let MENU_BKG_TOP_IMG_NAME                 = "bg_sliding_menu_top.jpg"
-    /** Brand logo image name */
-    public static let BRAND_LOGO_IMG_NAME                   = "logo-1.png"
     /** Menu item Home image name */
     public static let MENU_ITEM_HOME_IMG_NAME               = "ic_menu_home.png"
     /** Menu item Home image name */

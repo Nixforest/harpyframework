@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InternalViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
+class InternalViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, HSBColorPickerDelegate {
     /** Table view */
     @IBOutlet weak var _tblView: UITableView!
 
@@ -45,7 +45,7 @@ class InternalViewController: BaseViewController, UITableViewDelegate, UITableVi
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 9
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {        
@@ -88,7 +88,28 @@ class InternalViewController: BaseViewController, UITableViewDelegate, UITableVi
             cell.setData(leftImg: DomainConst.INFORMATION_IMG_NAME,
                          name: "Show toast message", switchValue: BaseModel.shared.getDebugToast(),
                          action: #selector(updateDebugToastMode(_:)), target: self)
+        case 5:
+            cell.setData(leftImg: DomainConst.TRAINING_MODE_IMG_NAME,
+                         name: DomainConst.CONTENT00138,
+                         switchValue: BaseModel.shared.checkTrainningMode(),
+                         action: #selector(updateTrainingMode(_:)),
+                         target: self)
+        case 6:
+            cell.setData(leftImg: DomainConst.TRAINING_MODE_IMG_NAME,
+                         name: "Training mode color",
+                         value: "00000", isHideRightImg: true)
+            cell.setValueColor(color: GlobalConst.TRAINING_COLOR)
+        case 7:
+            cell.setData(leftImg: DomainConst.TRAINING_MODE_IMG_NAME,
+                         name: "Map default zoom value",
+                         value: String.init(describing: BaseModel.shared.getZoomValue()), isHideRightImg: true)
             break
+        case 8:
+            cell.setData(leftImg: DomainConst.TRAINING_MODE_IMG_NAME,
+                         name: BaseModel.shared.getAppName(),
+                         switchValue: BaseModel.shared.getDebugGasServiceFlag(),
+                         action: #selector(updateGasServiceFlag(_:)),
+                         target: self)
         default:
             break
         }
@@ -106,6 +127,17 @@ class InternalViewController: BaseViewController, UITableViewDelegate, UITableVi
         case 2:
             UIPasteboard.general.string = BaseModel.shared.getUserToken()
             self.showAlert(message: "Đã copy giá trị User token vào clipboard. Nhấn OK để tiếp tục.")
+            break
+        case 6:
+            let colorPicker = HSBColorPicker(frame: CGRect(x: 0,
+                                                           y: getTopHeight(),
+                                                           width: GlobalConst.SCREEN_WIDTH,
+                                                           height: GlobalConst.SCREEN_HEIGHT - getTopHeight()))
+            colorPicker.delegate = self
+            self.view.addSubview(colorPicker)
+            break
+        case 7:
+            inputZoomValueAlert()
             break
         default:
             break
@@ -125,5 +157,76 @@ class InternalViewController: BaseViewController, UITableViewDelegate, UITableVi
      */
     public func updateDebugToastMode(_ sender: UISwitch) {
         BaseModel.shared.setDebugToast(isOn: sender.isOn)
+    }
+    
+    /**
+     * Handle tap on cell.
+     */
+    public func updateGasServiceFlag(_ sender: UISwitch) {
+        BaseModel.shared.setDebugGasServiceFlag(isOn: sender.isOn)
+        _tblView.reloadData()
+    }
+    
+    /**
+     * Handle tap on cell.
+     */
+    public func updateTrainingMode(_ sender: UISwitch) {
+        if sender.isOn {
+            BaseModel.shared.setTrainningMode(true)
+        } else {
+            BaseModel.shared.setTrainningMode(false)
+        }
+    }
+    
+    internal func HSBColorColorPickerTouched(sender: HSBColorPicker, color: UIColor, point: CGPoint, state: UIGestureRecognizerState) {
+        GlobalConst.TRAINING_COLOR = color
+        sender.removeFromSuperview()
+        _tblView.reloadData()
+        // Handle display color when training mode is on
+        if BaseModel.shared.checkTrainningMode() {
+            GlobalConst.BUTTON_COLOR_RED = GlobalConst.TRAINING_COLOR
+        } else {    // Training mode off
+            GlobalConst.BUTTON_COLOR_RED = GlobalConst.MAIN_COLOR
+        }
+    }
+    
+    private func inputZoomValueAlert() {
+        var tbxValue: UITextField?
+        
+        // Create alert
+        let alert = UIAlertController(title: "Input zoom value",
+                                      message: DomainConst.BLANK,
+                                      preferredStyle: .alert)
+        // Add textfield
+        alert.addTextField(configurationHandler: { textField -> Void in
+            tbxValue = textField
+            tbxValue?.placeholder = "Zoom value"
+            tbxValue?.clearButtonMode = .whileEditing
+            tbxValue?.returnKeyType = .done
+        })
+        // Add cancel action
+        let cancel = UIAlertAction(title: DomainConst.CONTENT00202, style: .cancel, handler: nil)
+        
+        // Add ok action
+        let ok = UIAlertAction(title: DomainConst.CONTENT00008, style: .default) { action -> Void in
+            if let n = NumberFormatter().number(from: (tbxValue?.text)!) {
+                BaseModel.shared.setDebugZoom(value: CGFloat(n))
+                self._tblView.reloadData()
+            } else {
+                self.showAlert(message: "Re-input", okTitle: DomainConst.CONTENT00251,
+                               okHandler: {_ in
+                                self.inputZoomValueAlert()
+                },
+                               cancelHandler: {_ in
+                                
+                })
+            }
+        }
+        
+        alert.addAction(cancel)
+        alert.addAction(ok)
+        self.present(alert, animated: true, completion: { () -> Void in
+            self.view.layoutIfNeeded()
+        })
     }
 }

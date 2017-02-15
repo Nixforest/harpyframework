@@ -56,7 +56,7 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
             self.view.insertSubview(background, at: 0)
         }
         // Keyboard
-        NotificationCenter.default.addObserver(self, selector: #selector(getKeyboardHeight),
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)),
                                                name: .UIKeyboardWillShow,
                                                object: nil)
     }
@@ -64,9 +64,9 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
     /**
      * Get height of keyboard
      */
-    open func getKeyboardHeight(_ notification: Notification) {
+    open func keyboardWillShow(_ notification: Notification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            self.keyboardTopY = GlobalConst.SCREEN_HEIGHT - keyboardSize.height + getTopHeight()
+            self.keyboardTopY = GlobalConst.SCREEN_HEIGHT - keyboardSize.height
         }
     }
     
@@ -481,5 +481,12 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
      */
     public func popToRootView() {
         _ = self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    /**
+     * Destructor
+     */
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }

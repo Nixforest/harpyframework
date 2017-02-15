@@ -30,7 +30,7 @@ open class BaseMenuViewController : UIViewController {
         self.view.addSubview(topImg)
         // Setting logo
         let imgLogo: UIImageView = UIImageView()
-        imgLogo.image = ImageManager.getImage(named: DomainConst.BRAND_LOGO_IMG_NAME)
+        imgLogo.image = ImageManager.getImage(named: BaseModel.shared.getMainLogo())
         imgLogo.frame = CGRect(x: GlobalConst.MARGIN,
                                y: GlobalConst.MARGIN,
                                width: GlobalConst.POPOVER_WIDTH - GlobalConst.MARGIN * 2,
@@ -258,5 +258,11 @@ open class BaseMenuViewController : UIViewController {
         self.dismiss(animated: false) {
             NotificationCenter.default.post(name: Notification.Name(rawValue: DomainConst.NOTIFY_NAME_COFIG_ITEM), object: nil)
         }
+    }
+    /**
+     * Destructor
+     */
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }

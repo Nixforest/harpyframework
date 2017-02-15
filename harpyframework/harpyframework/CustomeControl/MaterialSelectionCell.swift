@@ -46,7 +46,7 @@ class MaterialSelectionCell: UICollectionViewCell {
         _lblName.frame = CGRect(x: 0, y: _imageView.frame.maxY,
                                 width: width,
                                 height: height * 5 / 12)
-        _lblName.text          = _data.material_name
+        _lblName.text          = _data.materials_name_short
         _lblName.textColor     = GlobalConst.BUTTON_COLOR_RED
         _lblName.font          = UIFont.boldSystemFont(ofSize: GlobalConst.NORMAL_FONT_SIZE_1)
         _lblName.textAlignment = .center
@@ -59,6 +59,13 @@ class MaterialSelectionCell: UICollectionViewCell {
                                  width: width,
                                  height: height / 12)
         var priceText = _data.material_price
+        if priceText == DomainConst.NUMBER_ZERO_VALUE ||
+            priceText.isEmpty {
+            _lblPrice.isHidden = true
+        } else {
+            _lblPrice.isHidden = false
+        }
+        
         if !priceText.isEmpty {
             priceText = priceText + DomainConst.VIETNAMDONG
         }
