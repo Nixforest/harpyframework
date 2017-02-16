@@ -147,7 +147,7 @@ public class BaseModel: NSObject {
             self._debug._zoomValue = defaults.object(forKey: DomainConst.KEY_SETTING_DEBUG_ZOOM) as! CGFloat
         }
         // Debug toast mode
-        self._debug._isGasService = false
+        self._debug._isGasService = true
         if defaults.object(forKey: DomainConst.KEY_SETTING_DEBUG_IS_GAS_SERVICE) != nil {
             self._debug._isGasService = defaults.object(forKey: DomainConst.KEY_SETTING_DEBUG_IS_GAS_SERVICE) as! Bool
         }
@@ -710,6 +710,32 @@ public class BaseModel: NSObject {
             return DomainConst.CONTENT00108
         } else {
             return DomainConst.CONTENT00226
+        }
+    }
+    
+    /**
+     * Get app type string
+     * - returns:   Gas service - 0
+     *              Gas 24h     - 1
+     */
+    public func getAppType() -> String {
+        if BaseModel.shared.getDebugGasServiceFlag() {
+            return DomainConst.APP_TYPE_FLAG_GAS_SERVICE
+        } else {
+            return DomainConst.APP_TYPE_FLAG_GAS_24H
+        }
+    }
+    
+    /**
+     * Get app type Agent icon
+     * - returns:   Gas service - 0
+     *              Gas 24h     - 1
+     */
+    public func getAppAgentIcon() -> String {
+        if BaseModel.shared.getDebugGasServiceFlag() {
+            return DomainConst.LOGO_AGENT_GAS_SERVICE_IMG_NAME
+        } else {
+            return DomainConst.LOGO_AGENT_GAS_24H_IMG_NAME
         }
     }
 }

@@ -15,7 +15,7 @@ public class DebugBean {
     /** Zoom value */
     public var _zoomValue:      CGFloat = 13.0
     /** Flag if this app is Gas Service app */
-    public var _isGasService:   Bool    = false
+    public var _isGasService:   Bool    = true
     
     /**
      * Default constructor

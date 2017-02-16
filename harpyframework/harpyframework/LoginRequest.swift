@@ -69,7 +69,7 @@ class LoginRequest: BaseRequest {
             DomainConst.KEY_APNS_DEVICE_TOKEN,
                     BaseModel.shared.checkDeviceTokenExist() ? BaseModel.shared.getDeviceToken() : "A7CA1E1F8434EE8D5E62264B22D29D64B7A3AC04E03899E6926503643FD07EC6",
             DomainConst.KEY_TYPE, "3",
-            DomainConst.KEY_FLAG_GAS_24H, DomainConst.APP_TYPE_FLAG_GAS_24H
+            DomainConst.KEY_FLAG_GAS_24H, BaseModel.shared.getAppType()
         )
     }
 }

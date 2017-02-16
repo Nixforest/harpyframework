@@ -618,6 +618,10 @@ public class DomainConst {
     public static let CATEGORY_TYPE_GAS                 = "2"
     /** Category type: Utility */
     public static let CATEGORY_TYPE_UTILITY             = "3"
+    /** Category type: Order vip */
+    public static let CATEGORY_TYPE_ORDER_VIP           = "4"
+    /** Category type: Uphold */
+    public static let CATEGORY_TYPE_UPHOLD              = "5"
     /** Employee information id: Phone */
     public static let EMPLOYEE_INFO_PHONE_ID            = "1"
     /** Employee information id: Code */
@@ -852,7 +856,9 @@ public class DomainConst {
     /** Order gas image name */
     public static let ORDER_GAS_IMG_NAME                    = "ordergas.png"
     /** Logo of agent image name */
-    public static let LOGO_AGENT_IMG_NAME                   = "logo_agent.png"
+    public static let LOGO_AGENT_GAS_24H_IMG_NAME           = "logo_agent.png"
+    /** Logo of agent image name */
+    public static let LOGO_AGENT_GAS_SERVICE_IMG_NAME       = "icon10-active.png"
     /** Uphold request image name */
     public static let UPHOLD_REQUEST_IMG_NAME               = "upholdRequest.png"
     /** Uphold list image name */
@@ -971,6 +977,8 @@ public class DomainConst {
     public static let CATEGORY_VIP_ACTIVE_IMG_NAME          = "icon9-active.png"
     /** Category image name: GAS */
     public static let CATEGORY_GAS_IMG_NAME                 = "icon10.png"
+    /** Category image name: Uphold */
+    public static let CATEGORY_UPHOLD_IMG_NAME              = "icon77.png"
     /** Category image name: GAS active */
     public static let CATEGORY_GAS_ACTIVE_IMG_NAME          = "icon10-active.png"
     /** Category image name: Utility */
@@ -1220,4 +1228,5 @@ public class DomainConst {
     public static let CONTENT00249 = "Nhập mã khuyến mãi"
     public static let CONTENT00250 = "Mã khuyến mãi"
     public static let CONTENT00251 = "Thử lại"
+    public static let CONTENT00252 = "Đặt hàng"
 }

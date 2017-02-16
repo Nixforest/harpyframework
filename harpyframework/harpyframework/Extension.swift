@@ -300,6 +300,38 @@ extension UIButton {
                                             bottom: 0.0,
                                             right: deltaRight)
     }
+    
+    /**
+     * Make image show above title and make content center.
+     */
+    public func centerVerticallyRect() {
+        // Get original image size and title size
+        let imgSize = self.imageView?.frame
+        let lblSize = self.titleLabel?.frame.size
+        let btnSize: CGFloat = self.frame.width
+        let btnHeight: CGFloat = self.frame.height
+        // Resize image and put at specific location
+        self.imageEdgeInsets = UIEdgeInsets(top: 0.0,
+                                            left: (btnSize - btnHeight / 2) / 2,
+                                            bottom: btnHeight / 2,
+                                            right: (btnSize - btnHeight / 2) / 2)
+        // Get natural width of title label
+        let width       = self.titleLabel?.text?.widthOfString(usingFont: (self.titleLabel?.font)!)
+        // Calculate left distance want to move
+        var deltaLeft   = (btnSize - width! - (lblSize?.width)!) / 2
+        // Calculate right distance want to move
+        var deltaRight: CGFloat = 0.0
+        if width! > btnSize {
+            deltaLeft   = (width! - btnSize + (lblSize?.width)!)
+            deltaRight  = (btnSize - width!)
+        }
+        
+        // Resize title and put at specific location
+        self.titleEdgeInsets = UIEdgeInsets(top: btnHeight / 2,
+                                            left: deltaLeft - (imgSize?.maxX)!,
+                                            bottom: 0.0,
+                                            right: deltaRight)
+    }
 }
 
 /**
@@ -482,5 +514,6 @@ public extension UIView {
         for view in self.subviews {
             view.backgroundColor = ColorFromRGB().getRandomColor()
         }
+        self.backgroundColor = ColorFromRGB().getRandomColor()
     }
 }

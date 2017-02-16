@@ -29,6 +29,9 @@ class LogoutRequest: BaseRequest {
                 // Handle logout is success
                 BaseModel.shared.logoutSuccess()
             } else {
+                if model.code == "1987" {
+                    BaseModel.shared.logoutSuccess()
+                }
                 self.showAlert(message: model.message)
                 return
             }
