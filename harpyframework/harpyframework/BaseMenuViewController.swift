@@ -103,6 +103,9 @@ open class BaseMenuViewController : UIViewController {
                 case DomainConst.ORDER_LIST:
                     iconPath = DomainConst.MENU_ITEM_ORDER_LIST_IMG_NAME
                     break
+                case DomainConst.ORDER_VIP_LIST:
+                    iconPath = DomainConst.MENU_ITEM_ORDER_LIST_IMG_NAME
+                    break
                 case DomainConst.KEY_MENU_PROMOTION_LIST:
                     iconPath = DomainConst.MENU_ITEM_GIFT_IMG_NAME
                     break
@@ -240,6 +243,9 @@ open class BaseMenuViewController : UIViewController {
 //                let orderList = currentView.mainStoryboard.instantiateViewController(withIdentifier: DomainConst.G04_F00_S01_VIEW_CTRL)
 //                currentView.navigationController?.pushViewController(orderList, animated: true)
                 currentView.pushToView(name: DomainConst.G04_F00_S01_VIEW_CTRL)
+                break
+            case DomainConst.ORDER_VIP_LIST:
+                currentView.pushToView(name: DomainConst.G05_F00_S01_VIEW_CTRL)
                 break
             case DomainConst.KEY_MENU_PROMOTION_LIST:
                 currentView.pushToView(name: DomainConst.G04_F02_S01_VIEW_CTRL)

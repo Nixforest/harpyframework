@@ -107,7 +107,7 @@ open class TableCellOrderType: UITableViewCell {
         self._parentView.addSubview(self.leftView)
         self._parentView.addSubview(self.centerView)
         self._parentView.addSubview(self.rightView)
-        self.makeComponentsColor()
+        self._parentView.makeComponentsColor()
     }
     
     /**
@@ -127,6 +127,29 @@ open class TableCellOrderType: UITableViewCell {
         if data.status_number == DomainConst.ORDER_STATUS_COMPLETE {
             self.statusIcon.image = ImageManager.getImage(named: DomainConst.FINISH_STATUS_IMG_NAME)
         } else if data.status_number == DomainConst.ORDER_STATUS_NEW {
+            self.statusIcon.image = ImageManager.getImage(named: DomainConst.ORDER_STATUS_NEW_ICON_IMG_NAME)
+        }
+    }
+    
+    open func setData(vipData: OrderVIPListBean) {
+        self.dateTime.setValue(dateTime: vipData.created_date)
+        self.codeLabel.text = "#" + vipData.code_no + " -"
+        let width = self.codeLabel.text?.widthOfString(usingFont: self.codeLabel.font)
+        let contentWidthMid     = GlobalConst.SCREEN_WIDTH / 3 * 2
+        let contentHeight       = GlobalConst.CELL_HEIGHT_SHOW / 3 * 2
+        // Total label
+        self.totalLabel.frame = CGRect(x: self.codeLabel.frame.minX + width! + GlobalConst.MARGIN_CELL_X,
+                                       y: self.totalLabel.frame.minY,
+                                       width: contentWidthMid / 3 + GlobalConst.MARGIN_CELL_X,
+                                       height: contentHeight / 3)
+        self.totalLabel.font = UIFont.boldSystemFont(ofSize: GlobalConst.NORMAL_FONT_SIZE_1)
+        self.totalLabel.text = DomainConst.BLANK
+        self.totalLabel.textColor = GlobalConst.BUTTON_COLOR_YELLOW
+        self.totalLabel.text = vipData.grand_total
+        self.materialLabel.text = vipData.name_gas
+        if vipData.status_number == DomainConst.ORDER_STATUS_COMPLETE {
+            self.statusIcon.image = ImageManager.getImage(named: DomainConst.FINISH_STATUS_IMG_NAME)
+        } else if vipData.status_number == DomainConst.ORDER_STATUS_NEW {
             self.statusIcon.image = ImageManager.getImage(named: DomainConst.ORDER_STATUS_NEW_ICON_IMG_NAME)
         }
     }

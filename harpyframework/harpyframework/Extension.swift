@@ -512,6 +512,9 @@ public extension UIView {
             return
         }
         for view in self.subviews {
+            for childView in view.subviews {
+                childView.backgroundColor = ColorFromRGB().getRandomColor()
+            }
             view.backgroundColor = ColorFromRGB().getRandomColor()
         }
         self.backgroundColor = ColorFromRGB().getRandomColor()

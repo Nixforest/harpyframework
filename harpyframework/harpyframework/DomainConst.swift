@@ -95,6 +95,10 @@ public class DomainConst {
     public static let KEY_CUSTOMER_NAME                 = "customer_name"
     /** Customer Address */
     public static let KEY_CUSTOMER_ADDRESS              = "customer_address"
+    /** Customer Phone */
+    public static let KEY_CUSTOMER_PHONE                = "customer_phone"
+    /** Customer contact */
+    public static let KEY_CUSTOMER_CONTACT              = "customer_contact"
     /** Title */
     public static let KEY_TITLE                         = "title"
     /** Message */
@@ -333,6 +337,14 @@ public class DomainConst {
     public static let KEY_PRICE                         = "price"
     /** Setting key: Quantity */
     public static let KEY_QUANTITY                      = "qty"
+    /** Setting key: Real quantity */
+    public static let KEY_QUANTITY_REAL                 = "qty_real"
+    /** Setting key: Serial */
+    public static let KEY_SERI                          = "seri"
+    /** Setting key: KEY_KG_EMPTY */
+    public static let KEY_KG_EMPTY                      = "kg_empty"
+    /** Setting key: KEY_KG_HAS_GAS */
+    public static let KEY_KG_HAS_GAS                    = "kg_has_gas"
     /** Setting key: Amount */
     public static let KEY_AMOUNT                        = "amount"
     /** Setting key: Material image */
@@ -460,6 +472,36 @@ public class DomainConst {
     public static let KEY_AMOUNT_BU_VO                  = "amount_bu_vo"
     /** Key expiration date */
     public static let KEY_EXPIRY_DATE                   = "expiry_date"
+    /** Key b50 kg */
+    public static let KEY_B50                           = "b50"
+    /** Key b45 kg */
+    public static let KEY_B45                           = "b45"
+    /** Key b12 kg */
+    public static let KEY_B12                           = "b12"
+    /** Key b6 kg */
+    public static let KEY_B6                            = "b6"
+    /** Key Unit */
+    public static let KEY_UNIT                          = "unit"
+    /** Key Delivery date */
+    public static let KEY_DATE_DELIVERY                 = "date_delivery"
+    /** Key Total gas */
+    public static let KEY_TOTAL_GAS                     = "total_gas"
+    /** Key Total gas du */
+    public static let KEY_TOTAL_GAS_DU                  = "total_gas_du"
+    /** Key note of employee */
+    public static let KEY_NOTE_EMPLOYEE                 = "note_employee"
+    /** Key Name of gas */
+    public static let KEY_NAME_GAS                      = "name_gas"
+    /** Key name of driver */
+    public static let KEY_NAME_DRIVER                   = "name_driver"
+    /** Key name of car */
+    public static let KEY_NAME_CAR                      = "name_car"
+    /** Key name of maintain employee */
+    public static let KEY_NAME_EMPLOYEE_MAINTAIN        = "name_employee_maintain"
+    /** Key Cylinder information */
+    public static let KEY_INFO_CYLINDER                 = "info_vo"
+    /** Key Order id */
+    public static let KEY_ORDER_ID                      = "order_id"
     
     // MARK: -----Specified constant-----
     /** File parameter: file_name[ + ] */
@@ -640,6 +682,24 @@ public class DomainConst {
     public static let AGENT_SUPPORT_ID                  = "6"
     /** Agent information id: Bu vo */
     public static let AGENT_BUVO_ID                     = "7"
+    /** Order information id: Order Id */
+    public static let ORDER_INFO_ID_ID                  = "8"
+    /** Order information id: Order status */
+    public static let ORDER_INFO_STATUS_ID              = "9"
+    /** Order information id: Order Car number */
+    public static let ORDER_INFO_CAR_NUMBER_ID          = "10"
+    /** Order information id: Order Payment method */
+    public static let ORDER_INFO_PAYMENT_METHOD_ID      = "11"
+    /** Order information id: Order Gas money */
+    public static let ORDER_INFO_GAS_MONEY_ID           = "12"
+    /** Order information id: Order Gas du */
+    public static let ORDER_INFO_GAS_DU_ID              = "13"
+    /** Order information id: Order Total money */
+    public static let ORDER_INFO_TOTAL_MONEY_ID         = "14"
+    /** Order information id: Order Address */
+    public static let ORDER_INFO_ADDRESS_ID             = "15"
+    /** Order information id: Order Phone */
+    public static let ORDER_INFO_PHONE_ID               = "16"
     
     // MARK: New
     /** Key menu item: Promotion list */
@@ -654,8 +714,9 @@ public class DomainConst {
     public static let DISCOUNT_DEFAULT                  = "20,000"
     /** The other option */
     public static let OPTION_OTHER                      = "Khác"
+    public static let LINE_FEED                         = "\n"
     /** Contact spliter */
-    public static let CONTACT_SPLITER                   = "\n"
+    public static let CONTACT_SPLITER                   = DomainConst.LINE_FEED
     /** Address spliter */
     public static let ADDRESS_SPLITER                   = ","
     /** Phone spliter */
@@ -699,6 +760,7 @@ public class DomainConst {
     // MARK -----Define id of fragment-----
     public static let LOGOUT                            = "logout"
     public static let ORDER_LIST                        = "order_list"
+    public static let ORDER_VIP_LIST                    = "bomoi_list"
     public static let ORDER_CREATE                      = "order_create"
     public static let UPHOLD_LIST                       = "uphold_list"
     public static let NEWS_LIST                         = "news_list"
@@ -755,6 +817,8 @@ public class DomainConst {
     public static let G04_F00_S01_VIEW_CTRL                         = "G04F00S01VC"
     /** Name of G04F02 Promotions list view controller */
     public static let G04_F02_S01_VIEW_CTRL                         = "G04F02S01VC"
+    /** Name of G05F00 Order list view controller */
+    public static let G05_F00_S01_VIEW_CTRL                         = "G05F00S01VC"
     
     /** Name of ChangePasswordViewController */
     public static let G00_CHANGE_PASS_VIEW_CTRL                     = "G00ChangePassVC"
@@ -774,6 +838,8 @@ public class DomainConst {
     public static let SEARCH_BAR_TABLE_VIEW_CELL                    = "SearchBarTableViewCell"
     /** Configuration table view cell */
     public static let CONFIGURATION_TABLE_VIEW_CELL                 = "ConfigurationTableViewCell"
+    /** Configuration table view cell */
+    public static let ORDER_DETAIL_TABLE_VIEW_CELL                  = "OrderDetailTableViewCell"
     /** Material table view cell */
     public static let MATERIAL_TABLE_VIEW_CELL                      = "MaterialTableViewCell"
     /** Uphold detail employee history table view cell */
@@ -941,8 +1007,18 @@ public class DomainConst {
     public static let CONTENT_ICON_IMG_NAME                 = "icon60.png"
     /** Content icon image name */
     public static let REPORT_ICON_IMG_NAME                  = "icon62.png"
+    /** Content icon image name */
+    public static let ORDER_ID_ICON_IMG_NAME                  = "icon65.png"
+    /** Content icon image name */
+    public static let ORDER_STATUS_ICON_IMG_NAME                  = "icon66.png"
+    /** Content icon image name */
+    public static let ORDER_CAR_NUMBER_ICON_IMG_NAME                  = "icon67.png"
+    /** Content icon image name */
+    public static let ORDER_PAYMENT_METHOD_ICON_IMG_NAME                  = "icon68.png"
     /** Money icon image name */
     public static let MONEY_ICON_GREY_IMG_NAME              = "icon69.png"
+    /** Money icon image name */
+    public static let MONEY_ICON_PAPER_IMG_NAME              = "icon70.png"
     /** Order icon image name */
     public static let ORDER_START_ICON_IMG_NAME             = "icon76.png"
     /** Order status new image name */
@@ -1229,4 +1305,15 @@ public class DomainConst {
     public static let CONTENT00250 = "Mã khuyến mãi"
     public static let CONTENT00251 = "Thử lại"
     public static let CONTENT00252 = "Đặt hàng"
+    public static let CONTENT00253 = "Thông tin đơn hàng"
+    public static let CONTENT00254 = "Loại bình"
+    public static let CONTENT00255 = "Số lượng"
+    public static let CONTENT00256 = "Quý khách chắc chắn muốn huỷ đơn hàng?"
+    public static let CONTENT00257 = "Mã đơn hàng"
+    public static let CONTENT00258 = "Số xe"
+    public static let CONTENT00259 = "Hình thức thanh toán"
+    public static let CONTENT00260 = "Tiền gas"
+    public static let CONTENT00261 = "Tiền gas dư"
+    public static let CONTENT00262 = "Tổng thanh toán"
+    public static let CONTENT00263 = "Thông tin vỏ"
 }

@@ -12,11 +12,11 @@ public class CustomCheckBox: UIButton {
     let imgUnchecked    = ImageManager.getImage(named: DomainConst.UNCHECK_IMG_NAME)
     let imgChecked      = ImageManager.getImage(named: DomainConst.CHECKED_IMG_NAME)
     /** Bool value to show Image */
-    var bChecked:Bool = false {
+    public var bChecked: Bool = false {
         didSet {
             if (bChecked == true) {
                 self.setImage(imgChecked, for: UIControlState())
-            }else {
+            } else {
                 self.setImage(imgUnchecked, for: UIControlState())
             }
         }
@@ -30,10 +30,20 @@ public class CustomCheckBox: UIButton {
         
     }
     
+    override public init(frame: CGRect) {
+        super.init(frame: frame)
+        self.awakeFromNib()
+        self.makeComponentsColor()
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)!
+    }
+    
     /**
      * Handle click event.
      */
-    func buttonClicked(_ sender: UIButton) {
+    public func buttonClicked(_ sender: UIButton) {
         if (sender == self) {
             if (bChecked == false) {
                 bChecked = true
@@ -43,4 +53,28 @@ public class CustomCheckBox: UIButton {
         }
     }
     
+    override public func layoutSubviews()
+    {
+        super.layoutSubviews()
+        
+        let imageFrame = self.imageView?.frame;
+        let labelFrame = self.titleLabel?.frame;
+        
+        let inset: CGFloat = 5
+        
+        if var imageFrame = imageFrame
+        {
+            if var labelFrame = labelFrame
+            {
+                //let cumulativeWidth = imageFrame.width + labelFrame.width + inset
+                //let excessiveWidth = self.bounds.width - cumulativeWidth
+                //labelFrame.origin.x = excessiveWidth / 2
+                imageFrame.origin.x = 0
+                labelFrame.origin.x = imageFrame.maxX + inset
+                
+                self.imageView?.frame = imageFrame
+                self.titleLabel?.frame = labelFrame
+            }
+        }
+    }
 }

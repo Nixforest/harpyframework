@@ -13,7 +13,7 @@ public class OrderBean: NSObject {
     public var id: String = ""
     /** Title */
     public var first_name: String = ""
-    /** Code number */
+    /** Phone number */
     public var phone: String = ""
     /** Grand total */
     public var email: String = ""
