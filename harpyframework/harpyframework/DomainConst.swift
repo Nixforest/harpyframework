@@ -1018,13 +1018,13 @@ public class DomainConst {
     /** Content icon image name */
     public static let REPORT_ICON_IMG_NAME                  = "icon62.png"
     /** Content icon image name */
-    public static let ORDER_ID_ICON_IMG_NAME                  = "icon65.png"
+    public static let ORDER_ID_ICON_IMG_NAME                = "icon65.png"
     /** Content icon image name */
-    public static let ORDER_STATUS_ICON_IMG_NAME                  = "icon66.png"
+    public static let ORDER_STATUS_ICON_IMG_NAME            = "icon66.png"
     /** Content icon image name */
-    public static let ORDER_CAR_NUMBER_ICON_IMG_NAME                  = "icon67.png"
+    public static let ORDER_CAR_NUMBER_ICON_IMG_NAME        = "icon67.png"
     /** Content icon image name */
-    public static let ORDER_PAYMENT_METHOD_ICON_IMG_NAME                  = "icon68.png"
+    public static let ORDER_PAYMENT_METHOD_ICON_IMG_NAME    = "icon68.png"
     /** Money icon image name */
     public static let MONEY_ICON_GREY_IMG_NAME              = "icon69.png"
     /** Money icon image name */
@@ -1032,7 +1032,9 @@ public class DomainConst {
     /** Order icon image name */
     public static let ORDER_START_ICON_IMG_NAME             = "icon76.png"
     /** Order status new image name */
-    public static let ORDER_STATUS_NEW_ICON_IMG_NAME        = "icon80.png"
+    public static let ORDER_STATUS_NEW_ICON_IMG_NAME        = "new-icon.png"
+    /** Order status process image name */
+    public static let ORDER_STATUS_PROCESS_ICON_IMG_NAME    = "icon80.png"
     /** Order status Cancel image name */
     public static let ORDER_STATUS_CANCEL_ICON_IMG_NAME     = "icon81.png"
     /** Type 1 backgroud image name */

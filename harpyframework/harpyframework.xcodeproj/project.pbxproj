@@ -196,6 +196,7 @@
 		D7E9BF771E2C82F20068D200 /* icon11.png in Resources */ = {isa = PBXBuildFile; fileRef = D7E9BF711E2C82F20068D200 /* icon11.png */; };
 		D7EF19451E110E540054A3AF /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EF19441E110E540054A3AF /* RegisterRequest.swift */; };
 		D7EF19471E1121AB0054A3AF /* RegisterConfirmRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EF19461E1121AB0054A3AF /* RegisterConfirmRequest.swift */; };
+		D7F17CD61E5DF14000208A73 /* new-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D7F17CD51E5DF14000208A73 /* new-icon.png */; };
 		D7F3D8CD1E1B74720018744F /* CustomeDateTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F3D8CC1E1B74720018744F /* CustomeDateTimeView.swift */; };
 		D7F3D8D01E1B80D80018744F /* TableCellUpholdType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F3D8CE1E1B80D80018744F /* TableCellUpholdType.swift */; };
 		D7F3D8D11E1B80D80018744F /* TableCellUpholdType.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7F3D8CF1E1B80D80018744F /* TableCellUpholdType.xib */; };
@@ -409,6 +410,7 @@
 		D7E9BF711E2C82F20068D200 /* icon11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon11.png; path = images/icon11.png; sourceTree = "<group>"; };
 		D7EF19441E110E540054A3AF /* RegisterRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
 		D7EF19461E1121AB0054A3AF /* RegisterConfirmRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterConfirmRequest.swift; sourceTree = "<group>"; };
+		D7F17CD51E5DF14000208A73 /* new-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "new-icon.png"; path = "images/new-icon.png"; sourceTree = "<group>"; };
 		D7F3D8CC1E1B74720018744F /* CustomeDateTimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomeDateTimeView.swift; path = CustomeControl/CustomeDateTimeView.swift; sourceTree = "<group>"; };
 		D7F3D8CE1E1B80D80018744F /* TableCellUpholdType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableCellUpholdType.swift; path = CustomeControl/TableCellUpholdType.swift; sourceTree = "<group>"; };
 		D7F3D8CF1E1B80D80018744F /* TableCellUpholdType.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TableCellUpholdType.xib; path = CustomeControl/TableCellUpholdType.xib; sourceTree = "<group>"; };
@@ -611,6 +613,7 @@
 		D7F3D8D21E1B8BCC0018744F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D7F17CD51E5DF14000208A73 /* new-icon.png */,
 				D778D6401E5D790D009FD654 /* icon81.png */,
 				D7AF28141E58BAE400AFF9D6 /* icon70.png */,
 				D7AF28121E58B9EB00AFF9D6 /* icon68.png */,
@@ -902,6 +905,7 @@
 				D70B9F961E3F504400EB66F5 /* icon19.png in Resources */,
 				D75F64FA1E28B39100A67B3C /* icon39-doimatkhau-ios.png in Resources */,
 				D70B9F931E3F504400EB66F5 /* icon16.png in Resources */,
+				D7F17CD61E5DF14000208A73 /* new-icon.png in Resources */,
 				D75F64E31E28B39100A67B3C /* ic_custom_order_top.png in Resources */,
 				D7025E261E4B21BA00045B5B /* icon13.png in Resources */,
 				D75F64F91E28B39100A67B3C /* icon38.png in Resources */,

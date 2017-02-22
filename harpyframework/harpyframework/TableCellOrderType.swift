@@ -160,7 +160,7 @@ open class TableCellOrderType: UITableViewCell {
             retVal = DomainConst.ORDER_STATUS_NEW_ICON_IMG_NAME
             break
         case DomainConst.ORDER_STATUS_PROCESSING:
-            retVal = DomainConst.ORDER_STATUS_NEW_ICON_IMG_NAME
+            retVal = DomainConst.ORDER_STATUS_PROCESS_ICON_IMG_NAME
             break
         case DomainConst.ORDER_STATUS_COMPLETE:
             retVal = DomainConst.FINISH_STATUS_IMG_NAME
