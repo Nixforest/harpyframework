@@ -170,7 +170,10 @@ open class ConfigurationTableViewCell: UITableViewCell {
      */
     public func setData(material: OrderDetailBean) {
         self.setData(leftImg: material.material_image, name: material.material_name,
-                     value: material.material_price + DomainConst.VIETNAMDONG, isHideRightImg: true)
+                     //++ BUG0037-SPJ (NguyenPT 20170222) Remove Currency symbol
+                     //value: material.material_price + DomainConst.VIETNAMDONG, isHideRightImg: true)
+                     value: material.material_price, isHideRightImg: true)
+                     //-- BUG0037-SPJ (NguyenPT 20170222) Remove Currency symbol
         let contentHeight = self.frame.height - 2 * GlobalConst.MARGIN_CELL_X
         _leftImg.frame = CGRect(x: GlobalConst.MARGIN + contentHeight / 4,
                                 y: GlobalConst.MARGIN_CELL_X + contentHeight / 4,

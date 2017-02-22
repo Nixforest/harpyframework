@@ -58,7 +58,7 @@ class MaterialSelectionCell: UICollectionViewCell {
                                  y: _lblName.frame.maxY,
                                  width: width,
                                  height: height / 12)
-        var priceText = _data.material_price
+        let priceText = _data.material_price
         if priceText == DomainConst.NUMBER_ZERO_VALUE ||
             priceText.isEmpty {
             _lblPrice.isHidden = true
@@ -66,9 +66,11 @@ class MaterialSelectionCell: UICollectionViewCell {
             _lblPrice.isHidden = false
         }
         
-        if !priceText.isEmpty {
-            priceText = priceText + DomainConst.VIETNAMDONG
-        }
+        //++ BUG0037-SPJ (NguyenPT 20170222) Remove Currency symbol
+        //if !priceText.isEmpty {
+        //    priceText = priceText + DomainConst.VIETNAMDONG
+        //}
+        //-- BUG0037-SPJ (NguyenPT 20170222) Remove Currency symbol
         _lblPrice.text          = priceText
         _lblPrice.textColor     = GlobalConst.BUTTON_COLOR_RED
         _lblPrice.font          = UIFont.systemFont(ofSize: GlobalConst.SMALL_FONT_SIZE_LIST)
