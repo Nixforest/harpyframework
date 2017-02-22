@@ -209,5 +209,11 @@ public class CommonProcess {
         btn.tintColor = tintedColor
         btn.setImage(tintedImg, for: UIControlState())
         btn.imageView?.contentMode = .scaleAspectFit
+        //++ BUG0038-SPJ (NguyenPT 20170222) Decrease size of icon on Button
+        btn.imageEdgeInsets = UIEdgeInsets(top: GlobalConst.MARGIN_CELL_X,
+                                              left: GlobalConst.MARGIN_CELL_X,
+                                              bottom: GlobalConst.MARGIN_CELL_X,
+                                              right: GlobalConst.MARGIN_CELL_X)
+        //-- BUG0038-SPJ (NguyenPT 20170222) Decrease size of icon on Button
     }
 }
