@@ -45,7 +45,7 @@ class InternalViewController: BaseViewController, UITableViewDelegate, UITableVi
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 9
+        return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {        
@@ -110,6 +110,10 @@ class InternalViewController: BaseViewController, UITableViewDelegate, UITableVi
                          switchValue: BaseModel.shared.getDebugGasServiceFlag(),
                          action: #selector(updateGasServiceFlag(_:)),
                          target: self)
+        case 9:
+            cell.setData(leftImg: DomainConst.INFORMATION_IMG_NAME,
+                         name: "Show number picker", switchValue: BaseModel.shared.getDebugShowNumPickerFlag(),
+                         action: #selector(updateDebugShowNumPickerFlag(_:)), target: self)
         default:
             break
         }
@@ -176,6 +180,13 @@ class InternalViewController: BaseViewController, UITableViewDelegate, UITableVi
         } else {
             BaseModel.shared.setTrainningMode(false)
         }
+    }
+    
+    /**
+     * Handle tap on cell.
+     */
+    public func updateDebugShowNumPickerFlag(_ sender: UISwitch) {
+        BaseModel.shared.setDebugShowNumPickerFlag(isOn: sender.isOn)
     }
     
     internal func HSBColorColorPickerTouched(sender: HSBColorPicker, color: UIColor, point: CGPoint, state: UIGestureRecognizerState) {

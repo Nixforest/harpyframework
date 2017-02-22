@@ -323,6 +323,8 @@ public class DomainConst {
     public static let KEY_SETTING_DEBUG_ZOOM            = "gasservice.debug.zoom"
     /** Setting key: Debug Is Gas service */
     public static let KEY_SETTING_DEBUG_IS_GAS_SERVICE  = "gasservice.debug.isGasService"
+    /** Setting key: Debug Is Show number picker */
+    public static let KEY_SETTING_DEBUG_IS_SHOW_NUM_PICKER  = "isShowNumPicker"
     /** Setting key: Material type id */
     public static let KEY_MATERIALS_TYPE_ID             = "materials_type_id"
     /** Setting key: Material id */
@@ -593,9 +595,13 @@ public class DomainConst {
     public static let APP_TYPE_FLAG_GAS_SERVICE         = "0"
     
     /** Order status: New */
-    public static let ORDER_STATUS_NEW                  = "3"
+    public static let ORDER_STATUS_NEW                  = "1"
+    /** Order status: New */
+    public static let ORDER_STATUS_PROCESSING           = "3"
     /** Order status: Complete */
-    public static let ORDER_STATUS_COMPLETE             = "1"
+    public static let ORDER_STATUS_COMPLETE             = "4"
+    /** Order status: Complete */
+    public static let ORDER_STATUS_CANCEL               = "5"
     /** Uphold status: Complete */
     public static let UPHOLD_STATUS_COMPLETE            = "3"
     /** Uphold status: New */
@@ -891,6 +897,10 @@ public class DomainConst {
     public static let LOGO_GAS_24H_IMG_NAME                 = "gas24h_logo.png"
     /** Contact image name */
     public static let CONTACT_IMG_NAME                      = "contact.png"
+    /** Next icon image name */
+    public static let NEXT_ICON_IMG_NAME                    = "ic_number_next.png"
+    /** Back icon image name */
+    public static let BACK_ICON_IMG_NAME                    = "ic_number_back.png"
     /** Phone image name */
     public static let PHONE_IMG_NAME                        = "phone-ios.png"
     /** Address image name */
@@ -1023,6 +1033,8 @@ public class DomainConst {
     public static let ORDER_START_ICON_IMG_NAME             = "icon76.png"
     /** Order status new image name */
     public static let ORDER_STATUS_NEW_ICON_IMG_NAME        = "icon80.png"
+    /** Order status Cancel image name */
+    public static let ORDER_STATUS_CANCEL_ICON_IMG_NAME     = "icon81.png"
     /** Type 1 backgroud image name */
     public static let TYPE_1_BKG_IMG_NAME                   = "bg1.jpg"
     /** Menu backgroud body image name */

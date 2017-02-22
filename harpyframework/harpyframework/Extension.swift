@@ -196,6 +196,17 @@ public protocol ScrollButtonListDelegate {
 }
 
 /**
+ * Protocol to define delegate with match check changed event.
+ */
+public protocol CheckBoxDelegate {
+    /**
+     * Handle check changed event.
+     * - parameter sender: Button object
+     */
+    func checkChanged(_ sender: AnyObject)
+}
+
+/**
  * Protocol to define delegate with match step done event.
  */
 public protocol StepDoneDelegate {

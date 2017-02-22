@@ -9,13 +9,15 @@
 import Foundation
 public class DebugBean {
     /** Flag set color for all components on View */
-    public var _isColorOn:      Bool    = false
+    public var _isColorOn:          Bool    = false
     /** Flag show toast message on View */
-    public var _isShowToast:    Bool    = false
+    public var _isShowToast:        Bool    = false
     /** Zoom value */
-    public var _zoomValue:      CGFloat = 13.0
+    public var _zoomValue:          CGFloat = 13.0
     /** Flag if this app is Gas Service app */
-    public var _isGasService:   Bool    = true
+    public var _isGasService:       Bool    = true
+    /** Flag show/not show number picker */
+    public var _isShowNumberPicker: Bool    = false
     
     /**
      * Default constructor

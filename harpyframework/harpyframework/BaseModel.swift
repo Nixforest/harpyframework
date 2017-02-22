@@ -141,16 +141,39 @@ public class BaseModel: NSObject {
         if defaults.object(forKey: DomainConst.KEY_SETTING_DEBUG_TOAST) != nil {
             self._debug._isShowToast = defaults.object(forKey: DomainConst.KEY_SETTING_DEBUG_TOAST) as! Bool
         }
-        // Debug toast mode
+        // Debug zoom value
         self._debug._zoomValue = 13.0
         if defaults.object(forKey: DomainConst.KEY_SETTING_DEBUG_ZOOM) != nil {
             self._debug._zoomValue = defaults.object(forKey: DomainConst.KEY_SETTING_DEBUG_ZOOM) as! CGFloat
         }
-        // Debug toast mode
+        // Debug flag gas service
         self._debug._isGasService = true
         if defaults.object(forKey: DomainConst.KEY_SETTING_DEBUG_IS_GAS_SERVICE) != nil {
             self._debug._isGasService = defaults.object(forKey: DomainConst.KEY_SETTING_DEBUG_IS_GAS_SERVICE) as! Bool
         }
+        // Debug flag show number picker
+        self._debug._isShowNumberPicker = false
+        if defaults.object(forKey: DomainConst.KEY_SETTING_DEBUG_IS_SHOW_NUM_PICKER) != nil {
+            self._debug._isShowNumberPicker = defaults.object(forKey: DomainConst.KEY_SETTING_DEBUG_IS_SHOW_NUM_PICKER) as! Bool
+        }
+    }
+    
+    /**
+     * Set flag show number picker is On/Off
+     * - parameter isOn: True -> On, False -> Off
+     */
+    public func setDebugShowNumPickerFlag(isOn: Bool) {
+        self._debug._isShowNumberPicker = isOn
+        defaults.set(self._debug._isShowNumberPicker, forKey: DomainConst.KEY_SETTING_DEBUG_IS_SHOW_NUM_PICKER)
+        defaults.synchronize()
+    }
+    
+    /**
+     * Check if debug flag show number picker is On
+     * - returns: True if on, False if off
+     */
+    public func getDebugShowNumPickerFlag() -> Bool {
+        return self._debug._isShowNumberPicker
     }
     
     /**
