@@ -731,6 +731,8 @@ public class DomainConst {
     public static let TEXT_SPLITER                      = ":"
     /** Phone spliter */
     public static let NUMBER_ZERO_VALUE                 = "0"
+    /** Phone spliter */
+    public static let NUMBER_ONE_VALUE                  = "1"
     /** Default time value */
     public static let DEFAULT_TIME_VALUE                = "08:00"
     /** Address unknown string */

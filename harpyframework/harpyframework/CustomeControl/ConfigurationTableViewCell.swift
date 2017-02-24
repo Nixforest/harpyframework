@@ -180,10 +180,19 @@ open class ConfigurationTableViewCell: UITableViewCell {
                                 width: contentHeight / 2,
                                 height: contentHeight / 2 )
         _leftImg.contentMode = .scaleAspectFit
-        let size = _name.text?.widthOfString(usingFont: _name.font)
-        _value.frame = CGRect(x: _leftImg.frame.maxX + GlobalConst.MARGIN + contentHeight / 4 + size!,
+        var size = (_name.text?.widthOfString(usingFont: _name.font))!
+        if size > ConfigurationTableViewCell.PARENT_WIDTH * 2 / 3 {
+            self._name.frame = CGRect(x: self._name.frame.minX,
+                                      y: self._name.frame.minY,
+                                      width: self._name.frame.width * 2 / 3,
+                                      height: self._name.frame.height)
+            size = self._name.frame.width
+            self._name.lineBreakMode = .byWordWrapping
+            self._name.numberOfLines = 0
+        }
+        _value.frame = CGRect(x: _leftImg.frame.maxX + GlobalConst.MARGIN + contentHeight / 4 + size,
                               y: GlobalConst.MARGIN_CELL_X,
-                              width: ConfigurationTableViewCell.PARENT_WIDTH - 4 * GlobalConst.MARGIN - _leftImg.frame.width - GlobalConst.CONFIGURATION_ITEM_RIGHT_SIZE - size!,
+                              width: ConfigurationTableViewCell.PARENT_WIDTH - 4 * GlobalConst.MARGIN - _leftImg.frame.width - GlobalConst.CONFIGURATION_ITEM_RIGHT_SIZE - size,
                               height: contentHeight)
         if material.material_price == DomainConst.NUMBER_ZERO_VALUE ||
             material.material_price.isEmpty {

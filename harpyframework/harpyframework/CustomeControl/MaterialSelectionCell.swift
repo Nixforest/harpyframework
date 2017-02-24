@@ -46,15 +46,7 @@ class MaterialSelectionCell: UICollectionViewCell {
         _lblName.frame = CGRect(x: 0, y: _imageView.frame.maxY,
                                 width: width,
                                 height: height * 5 / 12)
-        //++ BUG0039-SPJ (NguyenPT 20170222) Not show name of material
-        //_lblName.text          = _data.materials_name_short
-        if data.isGas() {
-            _lblName.text          = _data.materials_name_short
-        } else {
-            _lblName.text          = _data.material_name
-        }
-        //-- BUG0039-SPJ (NguyenPT 20170222) Not show name of material
-        
+        _lblName.text          = _data.materials_name_short
         _lblName.textColor     = GlobalConst.BUTTON_COLOR_RED
         _lblName.font          = UIFont.boldSystemFont(ofSize: GlobalConst.NORMAL_FONT_SIZE_1)
         _lblName.textAlignment = .center
