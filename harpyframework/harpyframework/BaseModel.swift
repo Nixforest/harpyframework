@@ -147,7 +147,7 @@ public class BaseModel: NSObject {
             self._debug._zoomValue = defaults.object(forKey: DomainConst.KEY_SETTING_DEBUG_ZOOM) as! CGFloat
         }
         // Debug flag gas service
-        self._debug._isGasService = true
+        self._debug._isGasService = DebugBean.DEBUG_DEFAULT_GAS_SERVICE
         if defaults.object(forKey: DomainConst.KEY_SETTING_DEBUG_IS_GAS_SERVICE) != nil {
             self._debug._isGasService = defaults.object(forKey: DomainConst.KEY_SETTING_DEBUG_IS_GAS_SERVICE) as! Bool
         }

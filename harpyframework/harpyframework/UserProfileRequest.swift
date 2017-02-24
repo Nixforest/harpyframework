@@ -39,7 +39,6 @@ class UserProfileRequest: BaseRequest {
                 self.showAlert(message: model.message)
                 return
             }
-            
         })
         return task
     }
