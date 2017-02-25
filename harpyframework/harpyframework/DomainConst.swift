@@ -324,7 +324,9 @@ public class DomainConst {
     /** Setting key: Debug Is Gas service */
     public static let KEY_SETTING_DEBUG_IS_GAS_SERVICE  = "gasservice.debug.isGasService"
     /** Setting key: Debug Is Show number picker */
-    public static let KEY_SETTING_DEBUG_IS_SHOW_NUM_PICKER  = "isShowNumPicker"
+    public static let KEY_SETTING_DEBUG_IS_SHOW_NUM_PICKER  = "gasservice.debug.isShowNumPicker"
+    /** Setting key: Debug Is Show number picker */
+    public static let KEY_SETTING_DEBUG_IS_SHOW_TOP_ICON    = "gasservice.debug.isShowTopIcon"
     /** Setting key: Material type id */
     public static let KEY_MATERIALS_TYPE_ID             = "materials_type_id"
     /** Setting key: Material id */

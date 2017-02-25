@@ -45,7 +45,7 @@ class InternalViewController: BaseViewController, UITableViewDelegate, UITableVi
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 11
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {        
@@ -114,6 +114,10 @@ class InternalViewController: BaseViewController, UITableViewDelegate, UITableVi
             cell.setData(leftImg: DomainConst.INFORMATION_IMG_NAME,
                          name: "Show number picker", switchValue: BaseModel.shared.getDebugShowNumPickerFlag(),
                          action: #selector(updateDebugShowNumPickerFlag(_:)), target: self)
+        case 10:
+            cell.setData(leftImg: DomainConst.INFORMATION_IMG_NAME,
+                         name: "Show top icon", switchValue: BaseModel.shared.getDebugShowTopIconFlag(),
+                         action: #selector(updateDebugShowTopIconFlag(_:)), target: self)
         default:
             break
         }
@@ -147,6 +151,13 @@ class InternalViewController: BaseViewController, UITableViewDelegate, UITableVi
             break
         }
         self._tblView.reloadData()
+    }
+    
+    /**
+     * Handle tap on cell.
+     */
+    public func updateDebugShowTopIconFlag(_ sender: UISwitch) {
+        BaseModel.shared.setDebugShowTopIconFlag(isOn: sender.isOn)
     }
     
     /**

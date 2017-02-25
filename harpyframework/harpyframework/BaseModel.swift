@@ -156,6 +156,29 @@ public class BaseModel: NSObject {
         if defaults.object(forKey: DomainConst.KEY_SETTING_DEBUG_IS_SHOW_NUM_PICKER) != nil {
             self._debug._isShowNumberPicker = defaults.object(forKey: DomainConst.KEY_SETTING_DEBUG_IS_SHOW_NUM_PICKER) as! Bool
         }
+        // Debug flag show number picker
+        self._debug._isShowTopIcon = DebugBean.DEBUG_DEFAULT_TOP_ICON
+        if defaults.object(forKey: DomainConst.KEY_SETTING_DEBUG_IS_SHOW_TOP_ICON) != nil {
+            self._debug._isShowTopIcon = defaults.object(forKey: DomainConst.KEY_SETTING_DEBUG_IS_SHOW_TOP_ICON) as! Bool
+        }
+    }
+    
+    /**
+     * Set flag show top icon is On/Off
+     * - parameter isOn: True -> On, False -> Off
+     */
+    public func setDebugShowTopIconFlag(isOn: Bool) {
+        self._debug._isShowTopIcon = isOn
+        defaults.set(self._debug._isShowTopIcon, forKey: DomainConst.KEY_SETTING_DEBUG_IS_SHOW_TOP_ICON)
+        defaults.synchronize()
+    }
+    
+    /**
+     * Check if debug flag show top icon is On
+     * - returns: True if on, False if off
+     */
+    public func getDebugShowTopIconFlag() -> Bool {
+        return self._debug._isShowTopIcon
     }
     
     /**
