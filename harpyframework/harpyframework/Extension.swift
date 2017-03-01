@@ -206,6 +206,19 @@ public protocol CheckBoxDelegate {
     func checkChanged(_ sender: AnyObject)
 }
 
+//++ BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
+/**
+ * Delegate of menu item
+ */
+public protocol MenuItemDelegate {
+    /**
+     * Handle tapped event
+     * - parameter sender: Button object
+     */
+    func menuItemTapped(_ sender: AnyObject)
+}
+//-- BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
+
 /**
  * Protocol to define delegate with match step done event.
  */

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-open class BaseViewController : UIViewController, UIPopoverPresentationControllerDelegate {
+open class BaseViewController : UIViewController, UIPopoverPresentationControllerDelegate, MenuItemDelegate {
     // MARK: Properties
     /** Navigation bar */
     @IBOutlet weak public var navigationBar: UINavigationItem!
@@ -358,12 +358,14 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
         _ = self.navigationController?.popViewController(animated: true)
     }
     
-    /**
-     * Handle when tap on Config menu item
-     */
-    public func configItemTap(_ notification: Notification) {
-        self.pushToView(name: DomainConst.G00_CONFIGURATION_VIEW_CTRL)
-    }
+    //++ BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
+//    /**
+//     * Handle when tap on Config menu item
+//     */
+//    public func configItemTap(_ notification: Notification) {
+//        self.pushToView(name: DomainConst.G00_CONFIGURATION_VIEW_CTRL)
+//    }
+    //-- BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
     
     /**
      * Handle when tap on Home menu item
@@ -372,33 +374,35 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
         self.popToRootView()
     }
     
-    /**
-     * Handle when tap on Home menu item
-     */
-    public func issueItemTapped(_ notification: Notification) {
-        showAlert(message: "issueItemTapped")
-    }
+    //++ BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
+//    /**
+//     * Handle when tap on Home menu item
+//     */
+//    public func issueItemTapped(_ notification: Notification) {
+//        showAlert(message: "issueItemTapped")
+//    }
     
-    /**
-     * Handle when tap on Log out menu item
-     */
-    public func logoutItemTapped(_ notification: Notification) {
-        RequestAPI.requestLogout(view: self)
-    }
+//    /**
+//     * Handle when tap on Log out menu item
+//     */
+//    public func logoutItemTapped(_ notification: Notification) {
+//        RequestAPI.requestLogout(view: self)
+//    }
     
-    /**
-     * Handle tap on Register menu item
-     */
-    public func registerItemTapped(_ notification: Notification){
-        self.pushToView(name: DomainConst.G00_REGISTER_VIEW_CTRL)
-    }
+//    /**
+//     * Handle tap on Register menu item
+//     */
+//    public func registerItemTapped(_ notification: Notification){
+//        self.pushToView(name: DomainConst.G00_REGISTER_VIEW_CTRL)
+//    }
     
-    /**
-     * Handle tap on Login menu item
-     */
-    public func loginItemTapped(_ notification: Notification) {
-        self.pushToView(name: DomainConst.G00_LOGIN_VIEW_CTRL)
-    }
+//    /**
+//     * Handle tap on Login menu item
+//     */
+//    public func loginItemTapped(_ notification: Notification) {
+//        self.pushToView(name: DomainConst.G00_LOGIN_VIEW_CTRL)
+//    }
+    //-- BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
     
     /**
      * Clear data on current view.
@@ -454,6 +458,9 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
         if segue.identifier == DomainConst.POPOVER_MENU_IDENTIFIER {
             let popoverVC = segue.destination
             popoverVC.popoverPresentationController?.delegate = self
+            //++ BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
+            (popoverVC as! BaseMenuViewController).menuItemTappedDelegate = self
+            //-- BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
         }
     }
     
@@ -482,6 +489,61 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
     public func popToRootView() {
         _ = self.navigationController?.popToRootViewController(animated: true)
     }
+    
+    //++ BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
+    /**
+     * Handle when tapped menu item
+     * - parameter sender: AnyObject
+     */
+    public func menuItemTapped(_ sender: AnyObject) {
+        switch (sender as! UIButton).accessibilityIdentifier! {
+        case DomainConst.G00_CONFIGURATION_VIEW_CTRL:       // Config menu
+            self.pushToView(name: DomainConst.G00_CONFIGURATION_VIEW_CTRL)
+            break
+        case DomainConst.G00_LOGIN_VIEW_CTRL:               // Login menu
+            self.pushToView(name: DomainConst.G00_LOGIN_VIEW_CTRL)
+            break
+        case DomainConst.NOTIFY_NAME_LOGOUT_ITEM:           // Logout menu
+            RequestAPI.requestLogout(view: self)
+            break
+        case DomainConst.G00_REGISTER_VIEW_CTRL:            // Register menu
+            self.pushToView(name: DomainConst.G00_REGISTER_VIEW_CTRL)
+            break
+        case DomainConst.HOME:                              // Home menu
+            self.popToRootView()
+            break
+        case DomainConst.USER_PROFILE:                      // User profile
+            self.pushToView(name: DomainConst.G00_ACCOUNT_VIEW_CTRL)
+            break
+        case DomainConst.UPHOLD_LIST:                       // Uphold list
+            self.pushToView(name: DomainConst.G01_F00_S01_VIEW_CTRL)
+            break
+        case DomainConst.ISSUE_LIST:                        // Issue list
+            self.showAlert(message: DomainConst.CONTENT00197)
+            break
+        case DomainConst.MESSAGE:                           // Message
+            self.showAlert(message: DomainConst.CONTENT00197)
+            break
+        case DomainConst.CUSTOMER_LIST:                     // Customer list
+            self.showAlert(message: DomainConst.CONTENT00197)
+            break
+        case DomainConst.WORKING_REPORT:                    // Working report
+            self.showAlert(message: DomainConst.CONTENT00197)
+            break
+        case DomainConst.ORDER_LIST:                        // Order list
+            self.pushToView(name: DomainConst.G04_F00_S01_VIEW_CTRL)
+            break
+        case DomainConst.ORDER_VIP_LIST:                    // VIP order list
+            self.pushToView(name: DomainConst.G05_F00_S01_VIEW_CTRL)
+            break
+        case DomainConst.KEY_MENU_PROMOTION_LIST:           // Promotion list
+            self.pushToView(name: DomainConst.G04_F02_S01_VIEW_CTRL)
+            break
+        default:
+            break
+        }
+    }
+    //-- BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
     
     /**
      * Destructor
