@@ -28,31 +28,31 @@ public class RequestAPI {
         //let timeInterval = nanoTime / 1000000
         //print("Start request -> Start excute: \(timeInterval) miliseconds")
 //    }
+    
+//    /**
+//     * Request logout
+//     * - parameter view: View controller
+//     */
+//    public static func requestLogout(view: BaseViewController) {
+//        LoadingView.shared.showOverlay(view: view.view)
+//        let logoutReq = LogoutRequest(url: DomainConst.PATH_SITE_LOGOUT,
+//                                      reqMethod: DomainConst.HTTP_POST_REQUEST, view: view)
+//        logoutReq.setData()
+//        logoutReq.execute()
+//    }
+    
+//    /**
+//     * Request logout
+//     * - parameter view: UIView
+//     */
+//    public static func requestLogout(view: UIView) {
+//        LoadingView.shared.showOverlay(view: view)
+//        let logoutReq = LogoutRequest(url: DomainConst.PATH_SITE_LOGOUT,
+//                                      reqMethod: DomainConst.HTTP_POST_REQUEST)
+//        logoutReq.setData()
+//        logoutReq.execute()
+//    }
     //-- BUG0046-SPJ (NguyenPT 20170301) Use action for Request server completion
-    
-    /**
-     * Request logout
-     * - parameter view: View controller
-     */
-    public static func requestLogout(view: BaseViewController) {
-        LoadingView.shared.showOverlay(view: view.view)
-        let logoutReq = LogoutRequest(url: DomainConst.PATH_SITE_LOGOUT,
-                                      reqMethod: DomainConst.HTTP_POST_REQUEST, view: view)
-        logoutReq.setData()
-        logoutReq.execute()
-    }
-    
-    /**
-     * Request logout
-     * - parameter view: UIView
-     */
-    public static func requestLogout(view: UIView) {
-        LoadingView.shared.showOverlay(view: view)
-        let logoutReq = LogoutRequest(url: DomainConst.PATH_SITE_LOGOUT,
-                                      reqMethod: DomainConst.HTTP_POST_REQUEST)
-        logoutReq.setData()
-        logoutReq.execute()
-    }
     
     /**
      * Request user information

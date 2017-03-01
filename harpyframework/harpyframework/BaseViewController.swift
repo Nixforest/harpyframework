@@ -504,7 +504,10 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
             self.pushToView(name: DomainConst.G00_LOGIN_VIEW_CTRL)
             break
         case DomainConst.NOTIFY_NAME_LOGOUT_ITEM:           // Logout menu
-            RequestAPI.requestLogout(view: self)
+            //++ BUG0046-SPJ (NguyenPT 20170301) Use action for Request server completion
+            //RequestAPI.requestLogout(view: self)
+            LogoutRequest.requestLogout(action: #selector(finishRequestLogout), view: self)
+            //-- BUG0046-SPJ (NguyenPT 20170301) Use action for Request server completion
             break
         case DomainConst.G00_REGISTER_VIEW_CTRL:            // Register menu
             self.pushToView(name: DomainConst.G00_REGISTER_VIEW_CTRL)
@@ -544,6 +547,14 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
         }
     }
     //-- BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
+    //++ BUG0046-SPJ (NguyenPT 20170301) Use action for Request server completion
+    /**
+     * Finish request logout handler
+     */
+    public func finishRequestLogout(_ notification: Notification) {
+        self.popToRootView()
+    }
+    //-- BUG0046-SPJ (NguyenPT 20170301) Use action for Request server completion
     
     /**
      * Destructor
