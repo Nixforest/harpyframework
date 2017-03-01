@@ -899,7 +899,9 @@ public class DomainConst {
     public static let NOTIFY_NAME_SET_DATA_G01F02                   = "G01F2VC.setData"
     public static let NOTIFY_NAME_SET_DATA_G01F03                   = "G01F3VC.setData"
     public static let NOTIFY_NAME_SET_DATA_HOMEVIEW                 = "G00HomeVC.setData"
-    public static let NOTIFY_NAME_COFIG_ITEM_HOMEVIEW               = "G00HomeVC.configItemTapped"
+    //++ BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
+//    public static let NOTIFY_NAME_COFIG_ITEM_HOMEVIEW               = "G00HomeVC.configItemTapped"
+    //-- BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
     public static let NOTIFY_NAME_UPDATE_NOTIFY_HOMEVIEW            = "G00HomeVC.updateNotify"
     public static let NOTIFY_NAME_RELOAD_DATA_UPHOLD_DETAIL_VIEW    = "G01F00S02.reloadData"
     

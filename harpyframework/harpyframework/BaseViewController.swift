@@ -353,7 +353,7 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
      * Handle tap on Back button
      * - parameter sender:AnyObject
      */
-    public func backButtonTapped(_ sender: AnyObject) {
+    open func backButtonTapped(_ sender: AnyObject) {
         self.clearData()
         _ = self.navigationController?.popViewController(animated: true)
     }
