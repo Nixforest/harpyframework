@@ -8,8 +8,8 @@
 
 import Foundation
 
-class LoginRequest: BaseRequest {
-    override func completetionHandler(request: NSMutableURLRequest) -> URLSessionTask {
+public class LoginRequest: BaseRequest {
+    override public func completetionHandler(request: NSMutableURLRequest) -> URLSessionTask {
         let task = self.session.dataTask(with: request as URLRequest, completionHandler: {
             (
             data, response, error) in
@@ -39,7 +39,10 @@ class LoginRequest: BaseRequest {
             LoadingView.shared.hideOverlayView()
             // Back to home page (cross-thread)
             DispatchQueue.main.async {
-                _ = self.view.popToRootView()
+                //++ BUG0046-SPJ (NguyenPT 20170301) Use action for Request server completion
+                //_ = self.view.popToRootView()
+                NotificationCenter.default.post(name: Notification.Name(rawValue: self.theClassName), object: model)
+                //-- BUG0046-SPJ (NguyenPT 20170301) Use action for Request server completion
             }
         })
         return task
@@ -72,4 +75,24 @@ class LoginRequest: BaseRequest {
             DomainConst.KEY_FLAG_GAS_24H, BaseModel.shared.getAppType()
         )
     }
+    
+    //++ BUG0046-SPJ (NguyenPT 20170301) Use action for Request server completion
+    /**
+     * Request login
+     * - parameter action:      Action when request complete
+     * - parameter view:        Current screen
+     * - parameter username:    Username
+     * - parameter password:    Password
+     */
+    public static func requestLogin(action: Selector, view: BaseViewController, username: String, password: String) {
+        // Show overlay
+        LoadingView.shared.showOverlay(view: view.view)
+        let request = LoginRequest(url: DomainConst.PATH_SITE_LOGIN,
+                                   reqMethod: DomainConst.HTTP_POST_REQUEST,
+                                   view: view)
+        request.setData(username: username, password: password)
+        NotificationCenter.default.addObserver(view, selector: action, name:NSNotification.Name(rawValue: request.theClassName), object: nil)
+        request.execute()
+    }
+    //-- BUG0046-SPJ (NguyenPT 20170301) Use action for Request server completion
 }

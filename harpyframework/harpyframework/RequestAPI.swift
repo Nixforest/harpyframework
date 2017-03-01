@@ -8,25 +8,27 @@
 
 import Foundation
 public class RequestAPI {
-    /**
-     * Request login.
-     * - parameter username: Username
-     * - parameter password: Password
-     * - parameter view: View controller
-     */
-    public static func requestLogin(username: String, password: String, view: BaseViewController) {
+    //++ BUG0046-SPJ (NguyenPT 20170301) Use action for Request server completion
+//    /**
+//     * Request login.
+//     * - parameter username: Username
+//     * - parameter password: Password
+//     * - parameter view: View controller
+//     */
+//    public static func requestLogin(username: String, password: String, view: BaseViewController) {
         //let start = DispatchTime.now()
-        // Show overlay
-        LoadingView.shared.showOverlay(view: view.view)
-        let request = LoginRequest(url: DomainConst.PATH_SITE_LOGIN,
-                                   reqMethod: DomainConst.HTTP_POST_REQUEST, view: view)
-        request.setData(username: username, password: password)
-        request.execute()
+//        // Show overlay
+//        LoadingView.shared.showOverlay(view: view.view)
+//        let request = LoginRequest(url: DomainConst.PATH_SITE_LOGIN,
+//                                   reqMethod: DomainConst.HTTP_POST_REQUEST, view: view)
+//        request.setData(username: username, password: password)
+//        request.execute()
         //let end = DispatchTime.now()
         //let nanoTime = end.uptimeNanoseconds - start.uptimeNanoseconds;
         //let timeInterval = nanoTime / 1000000
         //print("Start request -> Start excute: \(timeInterval) miliseconds")
-    }
+//    }
+    //-- BUG0046-SPJ (NguyenPT 20170301) Use action for Request server completion
     
     /**
      * Request logout
