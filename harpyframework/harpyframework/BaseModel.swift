@@ -97,6 +97,8 @@ public class BaseModel: NSObject {
     private var _transaction: TransactionBean = TransactionBean()
     /** Flag debug mode is ON */
     private var _debug: DebugBean = DebugBean()
+    /** Last save order vip description */
+    private var _orderVipDescription = DomainConst.BLANK
     
     // MARK - Methods
     override init() {
@@ -161,6 +163,71 @@ public class BaseModel: NSObject {
         if defaults.object(forKey: DomainConst.KEY_SETTING_DEBUG_IS_SHOW_TOP_ICON) != nil {
             self._debug._isShowTopIcon = defaults.object(forKey: DomainConst.KEY_SETTING_DEBUG_IS_SHOW_TOP_ICON) as! Bool
         }
+        // Order vip information
+        self._orderVipDescription = DomainConst.BLANK
+        if defaults.object(forKey: DomainConst.KEY_SETTING_ORDER_VIP_DESCRIPTION) != nil {
+            self._orderVipDescription = defaults.object(forKey: DomainConst.KEY_SETTING_ORDER_VIP_DESCRIPTION) as! String
+        }
+    }
+    
+    /**
+     * Set Order vip information
+     * - parameter b50:     b50 quantity
+     * - parameter b45:     b45 quantity
+     * - parameter b12:     b12 quantity
+     * - parameter b6:      b6 quantity
+     * - parameter note:    Note of customer
+     */
+    public func setOrderVipDescription(b50: String, b45: String, b12: String,
+                             b6: String,
+                             note: String) {
+        self._orderVipDescription = String.init(
+            format: "%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@",
+            DomainConst.KEY_B50, DomainConst.SPLITER_TYPE1, b50,
+            DomainConst.SPLITER_TYPE2, DomainConst.KEY_B45, DomainConst.SPLITER_TYPE1, b45,
+            DomainConst.SPLITER_TYPE2, DomainConst.KEY_B12, DomainConst.SPLITER_TYPE1, b12,
+            DomainConst.SPLITER_TYPE2, DomainConst.KEY_B6, DomainConst.SPLITER_TYPE1, b6,
+            DomainConst.SPLITER_TYPE2, DomainConst.KEY_NOTE, DomainConst.SPLITER_TYPE1, note)
+        defaults.set(self._orderVipDescription, forKey: DomainConst.KEY_SETTING_ORDER_VIP_DESCRIPTION)
+        defaults.synchronize()
+    }
+    
+    /**
+     * Get Order vip information
+     * - returns: Temp token value
+     */
+    public func getOrderVipDescription() -> (String, String, String, String, String) {
+        var retVal = (DomainConst.NUMBER_ZERO_VALUE, DomainConst.NUMBER_ZERO_VALUE,
+                      DomainConst.NUMBER_ZERO_VALUE,
+                      DomainConst.NUMBER_ZERO_VALUE, DomainConst.BLANK)
+        if self._orderVipDescription.range(of: DomainConst.SPLITER_TYPE2) != nil {
+            let arrStr = self._orderVipDescription.components(separatedBy: DomainConst.SPLITER_TYPE2)
+            for item in arrStr {
+                if item.range(of: DomainConst.SPLITER_TYPE1) != nil {
+                    let itemArrStr = item.components(separatedBy: DomainConst.SPLITER_TYPE1)
+                    switch itemArrStr[0] {
+                    case DomainConst.KEY_B50:
+                        retVal.0 = itemArrStr[1]
+                        break
+                    case DomainConst.KEY_B45:
+                        retVal.1 = itemArrStr[1]
+                        break
+                    case DomainConst.KEY_B12:
+                        retVal.2 = itemArrStr[1]
+                        break
+                    case DomainConst.KEY_B6:
+                        retVal.3 = itemArrStr[1]
+                        break
+                    case DomainConst.KEY_NOTE:
+                        retVal.4 = itemArrStr[1]
+                        break
+                    default:
+                        break
+                    }
+                }
+            }
+        }
+        return retVal
     }
     
     /**

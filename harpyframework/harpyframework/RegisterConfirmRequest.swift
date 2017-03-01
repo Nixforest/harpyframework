@@ -33,7 +33,12 @@ class RegisterConfirmRequest: BaseRequest {
                 BaseModel.shared.resetTempToken()
                 // Back to login page (cross-thread)
                 DispatchQueue.main.async {
-                    self.view.pushToView(name: DomainConst.G00_LOGIN_VIEW_CTRL)
+                    self.view.showAlert(
+                        message: model.message,
+                        okHandler: {
+                            (alert: UIAlertAction!) in
+                            self.view.pushToView(name: DomainConst.G00_LOGIN_VIEW_CTRL)
+                    })
                 }
             } else {
                 self.showAlert(message: model.message)

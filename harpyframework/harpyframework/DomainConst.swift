@@ -307,6 +307,8 @@ public class DomainConst {
     public static let KEY_SETTING_IS_LOGGING            = "gasservice.isLogin"
     /** Setting key: user token */
     public static let KEY_SETTING_USER_TOKEN            = "gasservice.user.token"
+    /** Setting key: orderVipDescription */
+    public static let KEY_SETTING_ORDER_VIP_DESCRIPTION = "gasservice.order.orderVipDescription"
     /** Setting key: training mode */
     public static let KEY_SETTING_TRAINING_MODE         = "gasservice.trainningMode"
     /** Setting key: Transaction id */
@@ -728,7 +730,11 @@ public class DomainConst {
     /** Address spliter */
     public static let ADDRESS_SPLITER                   = ","
     /** Phone spliter */
-    public static let PHONE_SPLITER                     = "-"
+    public static let PHONE_SPLITER                     = SPLITER_TYPE1
+    /** Phone spliter */
+    public static let SPLITER_TYPE1                     = "-"
+    /** Phone spliter */
+    public static let SPLITER_TYPE2                     = ","
     /** Text spliter */
     public static let TEXT_SPLITER                      = ":"
     /** Phone spliter */
