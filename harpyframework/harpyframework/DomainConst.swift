@@ -889,7 +889,9 @@ public class DomainConst {
 //    public static let NOTIFY_NAME_COFIG_ITEM_CHANGEPASSVIEW         = "configItemTappedChangePassView"
 //    public static let NOTIFY_NAME_COFIG_ITEM_REGISTERVIEW           = "configItemTappedRegisterView"
     //-- BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
-    public static let NOTIFY_NAME_SET_DATA_ACCOUNTVIEW              = "G00AccountVC.setData"
+    //++ BUG0046-SPJ (NguyenPT 20170301) Use action for Request server completion
+//    public static let NOTIFY_NAME_SET_DATA_ACCOUNTVIEW              = "G00AccountVC.setData"
+    //-- BUG0046-SPJ (NguyenPT 20170301) Use action for Request server completion
     public static let NOTIFY_NAME_SET_DATA_UPHOLDLIST_VIEW          = "G01F00S01VC.setData"
     public static let NOTIFY_NAME_RELOAD_DATA_UPHOLDLIST_VIEW       = "G01F00S01VC.reloadData"
     public static let NOTIFY_NAME_SHOW_SEARCH_BAR_UPHOLDLIST_VIEW   = "G01F00S01VC.showSearchBarTableView"
