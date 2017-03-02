@@ -8,8 +8,8 @@
 
 import Foundation
 
-class RegisterConfirmRequest: BaseRequest {
-    override func completetionHandler(request: NSMutableURLRequest) -> URLSessionTask {
+public class RegisterConfirmRequest: BaseRequest {
+    override public func completetionHandler(request: NSMutableURLRequest) -> URLSessionTask {
         let task = self.session.dataTask(with: request as URLRequest, completionHandler: {
             (
             data, response, error) in
@@ -37,7 +37,10 @@ class RegisterConfirmRequest: BaseRequest {
                         message: model.message,
                         okHandler: {
                             (alert: UIAlertAction!) in
-                            self.view.pushToView(name: DomainConst.G00_LOGIN_VIEW_CTRL)
+                            //++ BUG0046-SPJ (NguyenPT 20170302) Use action for Request server completion
+                            //self.view.pushToView(name: DomainConst.G00_LOGIN_VIEW_CTRL)
+                            NotificationCenter.default.post(name: Notification.Name(rawValue: self.theClassName), object: model)
+                            //-- BUG0046-SPJ (NguyenPT 20170302) Use action for Request server completion
                     })
                 }
             } else {
@@ -70,4 +73,21 @@ class RegisterConfirmRequest: BaseRequest {
             DomainConst.KEY_CONFIRM_CODE, code
         )
     }
+    
+    //++ BUG0046-SPJ (NguyenPT 20170302) Use action for Request server completion
+    /**
+     * Request confirm register
+     * - parameter code:    Confirm code
+     * - parameter view:    View controller
+     */
+    public static func requestRegisterConfirm(action: Selector, view: BaseViewController,
+                                              code: String) {
+        // Show overlay
+        LoadingView.shared.showOverlay(view: view.view)
+        let request = RegisterConfirmRequest(url: DomainConst.PATH_CUSTOMER_REGISTER_CONFIRM, reqMethod: DomainConst.HTTP_POST_REQUEST, view: view)
+        request.setData(code: code)
+        NotificationCenter.default.addObserver(view, selector: action, name:NSNotification.Name(rawValue: request.theClassName), object: nil)
+        request.execute()
+    }
+    //-- BUG0046-SPJ (NguyenPT 20170302) Use action for Request server completion
 }

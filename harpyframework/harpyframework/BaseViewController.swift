@@ -176,7 +176,12 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
         }
         let alert = UIAlertController(title: DomainConst.CONTENT00162, message: msg, preferredStyle: .alert)
         let registerAction = UIAlertAction(title: DomainConst.CONTENT00230, style: .default, handler: {(registerCodeAlert) -> Void in()
-            RequestAPI.requestRegisterConfirm(code: (alert.textFields?[0].text)!, view: self)
+            //++ BUG0046-SPJ (NguyenPT 20170302) Use action for Request server completion
+//            RequestAPI.requestRegisterConfirm(code: (alert.textFields?[0].text)!, view: self)
+            RegisterConfirmRequest.requestRegisterConfirm(action: #selector(self.finishRequestRegisterConfirm(_:)),
+                                                          view: self,
+                                                          code: (alert.textFields?[0].text)!)
+            //-- BUG0046-SPJ (NguyenPT 20170302) Use action for Request server completion
         })
         let cancelAction = UIAlertAction(title: DomainConst.CONTENT00202, style: .cancel, handler: {(registerCodeAlert) -> Void in()
             BaseModel.shared.resetTempToken()
@@ -191,6 +196,15 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
         alert.addAction(cancelAction)
         self.present(alert, animated: true, completion: nil)
     }
+    
+    //++ BUG0046-SPJ (NguyenPT 20170302) Use action for Request server completion
+    /**
+     * Finish request register confirm handler
+     */
+    internal func finishRequestRegisterConfirm(_ notification: Notification) {
+        self.pushToView(name: DomainConst.G00_LOGIN_VIEW_CTRL)
+    }
+    //-- BUG0046-SPJ (NguyenPT 20170302) Use action for Request server completion
     
     /**
      * Handle show alert message

@@ -7,8 +7,8 @@
 //
 
 import Foundation
-class ConfirmNotifyRequest: BaseRequest {
-    override func completetionHandler(request: NSMutableURLRequest) -> URLSessionTask {
+public class ConfirmNotifyRequest: BaseRequest {
+    override public func completetionHandler(request: NSMutableURLRequest) -> URLSessionTask {
         let task = self.session.dataTask(with: request as URLRequest, completionHandler: {
             (
             data, response, error) in
@@ -47,5 +47,17 @@ class ConfirmNotifyRequest: BaseRequest {
             DomainConst.KEY_TYPE, type,
             DomainConst.KEY_OBJECT_ID, objId
         )
+    }
+    /**
+     * Request confirm notify.
+     * - parameter notifyId : Id of notify
+     * - parameter type     : Type of notify
+     * - parameter objId    : Id of object
+     */
+    public static func requestConfirmNotify(notifyId: String, type: String, objId: String) {
+        let request = ConfirmNotifyRequest(url: DomainConst.PATH_SITE_CONFIRM_NOTIFY,
+                                           reqMethod: DomainConst.HTTP_POST_REQUEST)
+        request.setData(notifyId: notifyId, type: type, objId: objId)
+        request.execute()
     }
 }
