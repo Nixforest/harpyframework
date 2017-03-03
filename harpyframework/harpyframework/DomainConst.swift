@@ -891,20 +891,22 @@ public class DomainConst {
     //-- BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
     //++ BUG0046-SPJ (NguyenPT 20170301) Use action for Request server completion
 //    public static let NOTIFY_NAME_SET_DATA_ACCOUNTVIEW              = "G00AccountVC.setData"
-    //-- BUG0046-SPJ (NguyenPT 20170301) Use action for Request server completion
-    public static let NOTIFY_NAME_SET_DATA_UPHOLDLIST_VIEW          = "G01F00S01VC.setData"
-    public static let NOTIFY_NAME_RELOAD_DATA_UPHOLDLIST_VIEW       = "G01F00S01VC.reloadData"
-    public static let NOTIFY_NAME_SHOW_SEARCH_BAR_UPHOLDLIST_VIEW   = "G01F00S01VC.showSearchBarTableView"
-    public static let NOTIFY_NAME_SET_DATA_UPHOLD_DETAIL_VIEW       = "UpholdDetailViewController.setData"
-    public static let NOTIFY_NAME_COFIG_ITEM_G01F02                 = "G01F2VC.configItemTapped"
+//    public static let NOTIFY_NAME_SET_DATA_UPHOLDLIST_VIEW          = "G01F00S01VC.setData"
+//    public static let NOTIFY_NAME_RELOAD_DATA_UPHOLDLIST_VIEW       = "G01F00S01VC.reloadData"
+//    public static let NOTIFY_NAME_SHOW_SEARCH_BAR_UPHOLDLIST_VIEW   = "G01F00S01VC.showSearchBarTableView"
+//    public static let NOTIFY_NAME_SET_DATA_UPHOLD_DETAIL_VIEW       = "UpholdDetailViewController.setData"
+//    public static let NOTIFY_NAME_COFIG_ITEM_G01F02                 = "G01F2VC.configItemTapped"
     public static let NOTIFY_NAME_SET_DATA_G01F01                   = "G01F1VC.setData"
     public static let NOTIFY_NAME_SET_DATA_G01F02                   = "G01F2VC.setData"
     public static let NOTIFY_NAME_SET_DATA_G01F03                   = "G01F3VC.setData"
-    public static let NOTIFY_NAME_SET_DATA_HOMEVIEW                 = "G00HomeVC.setData"
+//    public static let NOTIFY_NAME_SET_DATA_HOMEVIEW                 = "G00HomeVC.setData"
+    //-- BUG0046-SPJ (NguyenPT 20170301) Use action for Request server completion
     //++ BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
 //    public static let NOTIFY_NAME_COFIG_ITEM_HOMEVIEW               = "G00HomeVC.configItemTapped"
     //-- BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
-    public static let NOTIFY_NAME_UPDATE_NOTIFY_HOMEVIEW            = "G00HomeVC.updateNotify"
+    //++ BUG0046-SPJ (NguyenPT 20170302) Use action for Request server completion
+//    public static let NOTIFY_NAME_UPDATE_NOTIFY_HOMEVIEW            = "G00HomeVC.updateNotify"
+    //-- BUG0046-SPJ (NguyenPT 20170302) Use action for Request server completion
     public static let NOTIFY_NAME_RELOAD_DATA_UPHOLD_DETAIL_VIEW    = "G01F00S02.reloadData"
     
     // MARK: -----Domain constants-----
