@@ -10,10 +10,11 @@ import Foundation
 public class DebugBean {
     public static let DEBUG_DEFAULT_GAS_SERVICE = true
     public static let DEBUG_DEFAULT_TOP_ICON    = false
+    public static let DEBUG_DEFAULT_SHOW_TOAST  = true
     /** Flag set color for all components on View */
     public var _isColorOn:          Bool    = false
     /** Flag show toast message on View */
-    public var _isShowToast:        Bool    = false
+    public var _isShowToast:        Bool    = DEBUG_DEFAULT_SHOW_TOAST
     /** Zoom value */
     public var _zoomValue:          CGFloat = 13.0
     /** Flag if this app is Gas Service app */

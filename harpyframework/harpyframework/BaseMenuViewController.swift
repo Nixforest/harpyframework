@@ -18,6 +18,15 @@ open class BaseMenuViewController : UIViewController {
     /** Scroll view */
     var _scrollView: UIScrollView   = UIScrollView()
     
+    open func updateData() {
+        if BaseModel.shared.checkIsLogin() {
+            setItem(listValues: [false, true, false, true, true])
+        } else {
+            setItem(listValues: [true, false, true, false, true])
+        }
+        setupMenuItem()
+    }
+    
     override open func viewDidLoad() {
         // Background
         self.view.layer.contents = ImageManager.getImage(named: DomainConst.MENU_BKG_BODY_IMG_NAME)?.cgImage

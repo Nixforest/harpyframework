@@ -139,7 +139,7 @@ public class BaseModel: NSObject {
             self._debug._isColorOn = defaults.object(forKey: DomainConst.KEY_SETTING_DEBUG_COLOR) as! Bool
         }
         // Debug toast mode
-        self._debug._isShowToast = false
+        self._debug._isShowToast = DebugBean.DEBUG_DEFAULT_SHOW_TOAST
         if defaults.object(forKey: DomainConst.KEY_SETTING_DEBUG_TOAST) != nil {
             self._debug._isShowToast = defaults.object(forKey: DomainConst.KEY_SETTING_DEBUG_TOAST) as! Bool
         }

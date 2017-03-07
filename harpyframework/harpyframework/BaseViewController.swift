@@ -268,7 +268,7 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
         btnNotify.layer.cornerRadius = 0.5 * btnNotify.bounds.size.width
         btnNotify.setTitle("!", for: UIControlState())
         btnNotify.setTitleColor(UIColor.white, for: UIControlState())
-        btnNotify.titleLabel?.font = UIFont.systemFont(ofSize: GlobalConst.LARGE_FONT_SIZE)
+        btnNotify.titleLabel?.font = UIFont.systemFont(ofSize: GlobalConst.NOTIFY_FONT_SIZE)
         btnNotify.addTarget(self, action: #selector(notificationButtonTapped(_:)), for: UIControlEvents.touchUpInside)
         
         // Set status of notify button
