@@ -7,7 +7,7 @@
 //
 
 import Foundation
-open class BaseViewController : UIViewController, UIPopoverPresentationControllerDelegate {
+open class BaseViewController : UIViewController, UIPopoverPresentationControllerDelegate, MenuItemDelegate {
     // MARK: Properties
     /** Navigation bar */
     @IBOutlet weak public var navigationBar: UINavigationItem!
@@ -176,7 +176,12 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
         }
         let alert = UIAlertController(title: DomainConst.CONTENT00162, message: msg, preferredStyle: .alert)
         let registerAction = UIAlertAction(title: DomainConst.CONTENT00230, style: .default, handler: {(registerCodeAlert) -> Void in()
-            RequestAPI.requestRegisterConfirm(code: (alert.textFields?[0].text)!, view: self)
+            //++ BUG0046-SPJ (NguyenPT 20170302) Use action for Request server completion
+//            RequestAPI.requestRegisterConfirm(code: (alert.textFields?[0].text)!, view: self)
+            RegisterConfirmRequest.requestRegisterConfirm(action: #selector(self.finishRequestRegisterConfirm(_:)),
+                                                          view: self,
+                                                          code: (alert.textFields?[0].text)!)
+            //-- BUG0046-SPJ (NguyenPT 20170302) Use action for Request server completion
         })
         let cancelAction = UIAlertAction(title: DomainConst.CONTENT00202, style: .cancel, handler: {(registerCodeAlert) -> Void in()
             BaseModel.shared.resetTempToken()
@@ -191,6 +196,15 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
         alert.addAction(cancelAction)
         self.present(alert, animated: true, completion: nil)
     }
+    
+    //++ BUG0046-SPJ (NguyenPT 20170302) Use action for Request server completion
+    /**
+     * Finish request register confirm handler
+     */
+    internal func finishRequestRegisterConfirm(_ notification: Notification) {
+        self.pushToView(name: DomainConst.G00_LOGIN_VIEW_CTRL)
+    }
+    //-- BUG0046-SPJ (NguyenPT 20170302) Use action for Request server completion
     
     /**
      * Handle show alert message
@@ -209,6 +223,69 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
         let cancelAction = UIAlertAction(title: cancelTitle, style: .cancel, handler: cancelHandler)
         alert.addAction(cancelAction)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    /**
+     * Build navigation bar
+     * - parameter title: Title of navigation bar
+     */
+    public func setupNavigationBar(title: String) {
+        // Set title
+        self.navigationBar.title = title
+        // Set color text
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: GlobalConst.BUTTON_COLOR_RED]
+    }
+    
+    /**
+     * Build navigation bar for parent view controller
+     * - parameter title: Title of navigation bar
+     */
+    public func setupNavigationBarParent(title: String) {
+        // Set title
+        setupNavigationBar(title: title)
+        
+        // Create menu button
+        let menu                = ImageManager.getImage(named: DomainConst.MENU_IMG_NAME)
+        let tintedImg           = menu?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        let btnMenu = UIButton()
+        btnMenu.setImage(tintedImg, for: UIControlState())
+        btnMenu.tintColor    = GlobalConst.BUTTON_COLOR_RED
+        btnMenu.frame        = CGRect(x: 0, y: 0,
+                                         width: GlobalConst.MENU_BUTTON_W,
+                                         height: GlobalConst.MENU_BUTTON_H)
+        btnMenu.setTitle("", for: UIControlState())
+        btnMenu.addTarget(self, action: #selector(btnMenuTapped(_:)), for: UIControlEvents.touchUpInside)
+        let menuNavBar          = UIBarButtonItem()
+        menuNavBar.customView   = btnMenu
+        menuNavBar.isEnabled    = true
+        navigationBar.setLeftBarButton(menuNavBar, animated: false)
+        
+        // Notify button
+        let btnNotify = UIButton()
+        btnNotify.frame = CGRect(x: 0, y: 0,
+                                          width: GlobalConst.MENU_BUTTON_W,
+                                          height: GlobalConst.NOTIFY_BUTTON_H)
+        btnNotify.layer.cornerRadius = 0.5 * btnNotify.bounds.size.width
+        btnNotify.setTitle("!", for: UIControlState())
+        btnNotify.setTitleColor(UIColor.white, for: UIControlState())
+        btnNotify.titleLabel?.font = UIFont.systemFont(ofSize: GlobalConst.LARGE_FONT_SIZE)
+        btnNotify.addTarget(self, action: #selector(notificationButtonTapped(_:)), for: UIControlEvents.touchUpInside)
+        
+        // Set status of notify button
+        if BaseModel.shared.checkIsLogin() {
+            btnNotify.backgroundColor = GlobalConst.BUTTON_COLOR_RED
+        } else {
+            btnNotify.backgroundColor = GlobalConst.BUTTON_COLOR_GRAY
+        }
+        let notifyNavBar = UIBarButtonItem()
+        notifyNavBar.customView = btnNotify
+        notifyNavBar.isEnabled = BaseModel.shared.checkIsLogin()
+        self.navigationBar.setRightBarButton(notifyNavBar, animated: true)
+    }
+    
+    open func btnMenuTapped(_ sender: AnyObject) {
+        // Do nothing
+        self.showToast(message: self.theClassName + " - btnMenuTapped")
     }
     
     /**
@@ -282,7 +359,7 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
      * - parameter isHiddenBackBtn:     Flag hide back button
      * - parameter isEnabledMenuBtn:    Flag enable/disable menu button
      */
-    public func setupNavigationBar(title: String, isNotifyEnable: Bool, isHiddenBackBtn: Bool = false, isEnabledMenuBtn: Bool = false) {
+    public func setupNavigationBar(title: String, isNotifyEnable: Bool, isHiddenBackBtn: Bool = false, isEnabledMenuBtn: Bool = false, isHiddenMenuBtn: Bool = false) {
         // Set title
         self.navigationBar.title = title
         // Set color text
@@ -321,7 +398,12 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
         notifyNavBar.isEnabled = isNotifyEnable
         
         // Set on Navigation bar
-        self.navigationItem.rightBarButtonItems = [menuNavBar, notifyNavBar]
+        //self.navigationItem.rightBarButtonItems = [menuNavBar, notifyNavBar]
+        if isHiddenMenuBtn {
+            self.navigationItem.rightBarButtonItems = [notifyNavBar]
+        } else {
+            self.navigationItem.rightBarButtonItems = [menuNavBar, notifyNavBar]
+        }
         
         let back = ImageManager.getImage(named: DomainConst.BACK_IMG_NAME)
         let tintedBack = back?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
@@ -353,17 +435,19 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
      * Handle tap on Back button
      * - parameter sender:AnyObject
      */
-    public func backButtonTapped(_ sender: AnyObject) {
+    open func backButtonTapped(_ sender: AnyObject) {
         self.clearData()
         _ = self.navigationController?.popViewController(animated: true)
     }
     
-    /**
-     * Handle when tap on Config menu item
-     */
-    public func configItemTap(_ notification: Notification) {
-        self.pushToView(name: DomainConst.G00_CONFIGURATION_VIEW_CTRL)
-    }
+    //++ BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
+//    /**
+//     * Handle when tap on Config menu item
+//     */
+//    public func configItemTap(_ notification: Notification) {
+//        self.pushToView(name: DomainConst.G00_CONFIGURATION_VIEW_CTRL)
+//    }
+    //-- BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
     
     /**
      * Handle when tap on Home menu item
@@ -372,33 +456,35 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
         self.popToRootView()
     }
     
-    /**
-     * Handle when tap on Home menu item
-     */
-    public func issueItemTapped(_ notification: Notification) {
-        showAlert(message: "issueItemTapped")
-    }
+    //++ BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
+//    /**
+//     * Handle when tap on Home menu item
+//     */
+//    public func issueItemTapped(_ notification: Notification) {
+//        showAlert(message: "issueItemTapped")
+//    }
     
-    /**
-     * Handle when tap on Log out menu item
-     */
-    public func logoutItemTapped(_ notification: Notification) {
-        RequestAPI.requestLogout(view: self)
-    }
+//    /**
+//     * Handle when tap on Log out menu item
+//     */
+//    public func logoutItemTapped(_ notification: Notification) {
+//        RequestAPI.requestLogout(view: self)
+//    }
     
-    /**
-     * Handle tap on Register menu item
-     */
-    public func registerItemTapped(_ notification: Notification){
-        self.pushToView(name: DomainConst.G00_REGISTER_VIEW_CTRL)
-    }
+//    /**
+//     * Handle tap on Register menu item
+//     */
+//    public func registerItemTapped(_ notification: Notification){
+//        self.pushToView(name: DomainConst.G00_REGISTER_VIEW_CTRL)
+//    }
     
-    /**
-     * Handle tap on Login menu item
-     */
-    public func loginItemTapped(_ notification: Notification) {
-        self.pushToView(name: DomainConst.G00_LOGIN_VIEW_CTRL)
-    }
+//    /**
+//     * Handle tap on Login menu item
+//     */
+//    public func loginItemTapped(_ notification: Notification) {
+//        self.pushToView(name: DomainConst.G00_LOGIN_VIEW_CTRL)
+//    }
+    //-- BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
     
     /**
      * Clear data on current view.
@@ -411,12 +497,12 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
      * Update notification button status
      */
     public func updateNotificationStatus() {
-        self.notificationButton.isEnabled = !BaseModel.shared.notifyCountText.isEmpty
-        if !BaseModel.shared.notifyCountText.isEmpty {
-            self.notificationButton.backgroundColor = GlobalConst.BUTTON_COLOR_RED
-        } else {
-            self.notificationButton.backgroundColor = GlobalConst.BUTTON_COLOR_GRAY
-        }
+//        self.notificationButton.isEnabled = !BaseModel.shared.notifyCountText.isEmpty
+//        if !BaseModel.shared.notifyCountText.isEmpty {
+//            self.notificationButton.backgroundColor = GlobalConst.BUTTON_COLOR_RED
+//        } else {
+//            self.notificationButton.backgroundColor = GlobalConst.BUTTON_COLOR_GRAY
+//        }
     }
     
     /**
@@ -433,6 +519,7 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
     open func getTopHeight() -> CGFloat {
         return (self.navigationController!.navigationBar.frame.size.height
             + UIApplication.shared.statusBarFrame.size.height)
+//        return 0
     }
     
     /**
@@ -444,6 +531,9 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
         if let navigationController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
             currentView = navigationController.visibleViewController
         }
+        if currentView == nil {
+            return BaseViewController()
+        }
         return currentView as! BaseViewController
     }
     
@@ -454,6 +544,9 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
         if segue.identifier == DomainConst.POPOVER_MENU_IDENTIFIER {
             let popoverVC = segue.destination
             popoverVC.popoverPresentationController?.delegate = self
+            //++ BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
+            (popoverVC as! BaseMenuViewController).menuItemTappedDelegate = self
+            //-- BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
         }
     }
     
@@ -482,6 +575,72 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
     public func popToRootView() {
         _ = self.navigationController?.popToRootViewController(animated: true)
     }
+    
+    //++ BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
+    /**
+     * Handle when tapped menu item
+     * - parameter sender: AnyObject
+     */
+    public func menuItemTapped(_ sender: AnyObject) {
+        switch (sender as! UIButton).accessibilityIdentifier! {
+        case DomainConst.G00_CONFIGURATION_VIEW_CTRL:       // Config menu
+            self.pushToView(name: DomainConst.G00_CONFIGURATION_VIEW_CTRL)
+            break
+        case DomainConst.G00_LOGIN_VIEW_CTRL:               // Login menu
+            self.pushToView(name: DomainConst.G00_LOGIN_VIEW_CTRL)
+            break
+        case DomainConst.NOTIFY_NAME_LOGOUT_ITEM:           // Logout menu
+            //++ BUG0046-SPJ (NguyenPT 20170301) Use action for Request server completion
+            //RequestAPI.requestLogout(view: self)
+            LogoutRequest.requestLogout(action: #selector(finishRequestLogout), view: self)
+            //-- BUG0046-SPJ (NguyenPT 20170301) Use action for Request server completion
+            break
+        case DomainConst.G00_REGISTER_VIEW_CTRL:            // Register menu
+            self.pushToView(name: DomainConst.G00_REGISTER_VIEW_CTRL)
+            break
+        case DomainConst.HOME:                              // Home menu
+            self.popToRootView()
+            break
+        case DomainConst.USER_PROFILE:                      // User profile
+            self.pushToView(name: DomainConst.G00_ACCOUNT_VIEW_CTRL)
+            break
+        case DomainConst.UPHOLD_LIST:                       // Uphold list
+            self.pushToView(name: DomainConst.G01_F00_S01_VIEW_CTRL)
+            break
+        case DomainConst.ISSUE_LIST:                        // Issue list
+            self.showAlert(message: DomainConst.CONTENT00197)
+            break
+        case DomainConst.MESSAGE:                           // Message
+            self.showAlert(message: DomainConst.CONTENT00197)
+            break
+        case DomainConst.CUSTOMER_LIST:                     // Customer list
+            self.showAlert(message: DomainConst.CONTENT00197)
+            break
+        case DomainConst.WORKING_REPORT:                    // Working report
+            self.showAlert(message: DomainConst.CONTENT00197)
+            break
+        case DomainConst.ORDER_LIST:                        // Order list
+            self.pushToView(name: DomainConst.G04_F00_S01_VIEW_CTRL)
+            break
+        case DomainConst.ORDER_VIP_LIST:                    // VIP order list
+            self.pushToView(name: DomainConst.G05_F00_S01_VIEW_CTRL)
+            break
+        case DomainConst.KEY_MENU_PROMOTION_LIST:           // Promotion list
+            self.pushToView(name: DomainConst.G04_F02_S01_VIEW_CTRL)
+            break
+        default:
+            break
+        }
+    }
+    //-- BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
+    //++ BUG0046-SPJ (NguyenPT 20170301) Use action for Request server completion
+    /**
+     * Finish request logout handler
+     */
+    public func finishRequestLogout(_ notification: Notification) {
+        self.popToRootView()
+    }
+    //-- BUG0046-SPJ (NguyenPT 20170301) Use action for Request server completion
     
     /**
      * Destructor

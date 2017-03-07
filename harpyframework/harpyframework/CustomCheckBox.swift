@@ -8,6 +8,8 @@
 
 import Foundation
 public class CustomCheckBox: UIButton {
+    /** Check changed delegate */
+    public var checkChangedDelegate: CheckBoxDelegate?
     /** Image */
     let imgUnchecked    = ImageManager.getImage(named: DomainConst.UNCHECK_IMG_NAME)
     let imgChecked      = ImageManager.getImage(named: DomainConst.CHECKED_IMG_NAME)
@@ -51,6 +53,7 @@ public class CustomCheckBox: UIButton {
                 bChecked = false
             }
         }
+        checkChangedDelegate?.checkChanged(sender)
     }
     
     override public func layoutSubviews()

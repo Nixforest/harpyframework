@@ -8,6 +8,10 @@
 
 import Foundation
 open class BaseMenuViewController : UIViewController {
+    //++ BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
+    /** Menu item tapped delegate */
+    public var menuItemTappedDelegate: MenuItemDelegate?
+    //-- BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
     /** List menu flag */
     var listMenu: [Bool] = []
     
@@ -66,7 +70,6 @@ open class BaseMenuViewController : UIViewController {
         // Offset
         var offset: CGFloat = 0.0
         
-        
         _scrollView.translatesAutoresizingMaskIntoConstraints = true
         _scrollView.frame = CGRect(
             x: 0,
@@ -112,32 +115,65 @@ open class BaseMenuViewController : UIViewController {
                 default:
                     break
                 }
-                setItemContent(title: item.name, iconPath: iconPath, action: #selector(issueItemTapped), offset: offset, id: item.id)
+                setItemContent(title: item.name, iconPath: iconPath,
+                               //++ BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
+                               //action: #selector(issueItemTapped),
+                               action: #selector(menuItemTapped),
+                               //-- BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
+                               offset: offset, id: item.id)
                 offset += GlobalConst.BUTTON_HEIGHT
             }
         }
         
         // Configuration menu
         if listMenu[MenuItemEnum.CONFIG.hashValue] {
-            setItemContent(title: DomainConst.CONTENT00128, iconPath: DomainConst.CONFIG_MENU_IMG_NAME, action: #selector(configItemTapped), offset: offset)
+            setItemContent(title: DomainConst.CONTENT00128,
+                           iconPath: DomainConst.CONFIG_MENU_IMG_NAME,
+                           //++ BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
+                           //action: #selector(configItemTapped),
+                           action: #selector(menuItemTapped(_:)),
+                           offset: offset,
+                           id: DomainConst.G00_CONFIGURATION_VIEW_CTRL)
+                           //-- BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
             offset += GlobalConst.BUTTON_HEIGHT
         }
         
         // Login menu
         if listMenu[MenuItemEnum.LOGIN.hashValue] {
-            setItemContent(title: DomainConst.CONTENT00051, iconPath: DomainConst.LOGIN_MENU_IMG_NAME, action: #selector(loginItemTapped), offset: offset)
+            setItemContent(title: DomainConst.CONTENT00051,
+                           iconPath: DomainConst.LOGIN_MENU_IMG_NAME,
+                           //++ BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
+                           //action: #selector(loginItemTapped), offset: offset)
+                           action: #selector(menuItemTapped),
+                           offset: offset,
+                           id: DomainConst.G00_LOGIN_VIEW_CTRL)
+                           //-- BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
             offset += GlobalConst.BUTTON_HEIGHT
         }
         
         // Logout menu
         if listMenu[MenuItemEnum.LOGOUT.hashValue] {
-            setItemContent(title: DomainConst.CONTENT00132, iconPath: DomainConst.LOGOUT_MENU_IMG_NAME, action: #selector(logoutItemTapped), offset: offset)
+            setItemContent(title: DomainConst.CONTENT00132,
+                           iconPath: DomainConst.LOGOUT_MENU_IMG_NAME,
+                           //++ BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
+                           //action: #selector(logoutItemTapped), offset: offset)
+                           action: #selector(menuItemTapped),
+                           offset: offset,
+                           id: DomainConst.NOTIFY_NAME_LOGOUT_ITEM)
+                           //-- BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
             offset += GlobalConst.BUTTON_HEIGHT
         }
         
         // Register menu
         if listMenu[MenuItemEnum.REGISTER.hashValue] {
-            setItemContent(title: DomainConst.CONTENT00052, iconPath: DomainConst.REGISTER_MENU_IMG_NAME, action: #selector(registerItemTapped), offset: offset)
+            setItemContent(title: DomainConst.CONTENT00052,
+                           iconPath: DomainConst.REGISTER_MENU_IMG_NAME,
+                           //++ BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
+                           //action: #selector(registerItemTapped), offset: offset)
+                           action: #selector(menuItemTapped),
+                           offset: offset,
+                           id: DomainConst.G00_REGISTER_VIEW_CTRL)
+                           //-- BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
             offset += GlobalConst.BUTTON_HEIGHT
         }
         
@@ -165,106 +201,105 @@ open class BaseMenuViewController : UIViewController {
     }
     
     // MARK: Actions
+    //++ BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
     /**
-     * Handle tap on login item.
+     * Handle tap on menu item.
      * - parameter sender: AnyObject
      */
-    func loginItemTapped(_ sender: AnyObject) {
-        self.dismiss(animated: false) {
-            NotificationCenter.default.post(name: Notification.Name(rawValue: DomainConst.NOTIFY_NAME_LOGIN_ITEM), object: nil)
-        }
+    func menuItemTapped(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: {
+            self.menuItemTappedDelegate?.menuItemTapped(sender)
+        })
     }
     
-    /**
-     * Handle tap on logout item.
-     * - parameter sender: AnyObject
-     */
-    func logoutItemTapped(_ sender: AnyObject) {
-        //++ BUG0025-SPJ (NguyenPT 20161221) Fix bug logout not success
-        //Singleton.shared.logoutSuccess()
-        //-- BUG0025-SPJ (NguyenPT 20161221) Fix bug logout not success
-        self.dismiss(animated: false) {
-            NotificationCenter.default.post(name: Notification.Name(rawValue: DomainConst.NOTIFY_NAME_LOGOUT_ITEM), object: nil)
-        }
-    }
+//    /**
+//     * Handle tap on login item.
+//     * - parameter sender: AnyObject
+//     */
+//    func loginItemTapped(_ sender: AnyObject) {
+//        self.dismiss(animated: false) {
+//            NotificationCenter.default.post(name: Notification.Name(rawValue: DomainConst.NOTIFY_NAME_LOGIN_ITEM), object: nil)
+//        }
+//    }
     
-    /**
-     * Handle tap on register item.
-     * - parameter sender: AnyObject
-     */
-    func registerItemTapped(_ sender: AnyObject) {
-        self.dismiss(animated: false) {
-            NotificationCenter.default.post(name: Notification.Name(rawValue: DomainConst.NOTIFY_NAME_REGISTER_ITEM), object: nil)
-        }
-    }
+//    /**
+//     * Handle tap on logout item.
+//     * - parameter sender: AnyObject
+//     */
+//    func logoutItemTapped(_ sender: AnyObject) {
+//        //++ BUG0025-SPJ (NguyenPT 20161221) Fix bug logout not success
+//        //Singleton.shared.logoutSuccess()
+//        //-- BUG0025-SPJ (NguyenPT 20161221) Fix bug logout not success
+//        self.dismiss(animated: false) {
+//            NotificationCenter.default.post(name: Notification.Name(rawValue: DomainConst.NOTIFY_NAME_LOGOUT_ITEM), object: nil)
+//        }
+//    }
     
-    /**
-     * Handle tap on issue item.
-     * - parameter sender: AnyObject
-     */
-    func issueItemTapped(_ sender: AnyObject) {
-        self.dismiss(animated: false) {
-            //            NotificationCenter.default.post(name: Notification.Name(rawValue: GlobalConst.NOTIFY_NAME_ISSUE_ITEM), object: nil)
-            //            switch ((sender as! UIButton).accessibilityIdentifier) {
-            //            case DomainConst.?HOME:
-            //                self.win
-            //                break
-            //            default:
-            //                break
-            //            }
-            let currentView: BaseViewController = BaseViewController.getCurrentViewController()
-            switch ((sender as! UIButton).accessibilityIdentifier)! {
-            case DomainConst.HOME:
-                _ = currentView.popToRootView()
-                break
-            case DomainConst.USER_PROFILE:
-//                let accountVC = currentView.mainStoryboard.instantiateViewController(withIdentifier: DomainConst.G00_ACCOUNT_VIEW_CTRL)
-//                currentView.navigationController?.pushViewController(accountVC, animated: true)
-                currentView.pushToView(name: DomainConst.G00_ACCOUNT_VIEW_CTRL)
-                break
-            case DomainConst.UPHOLD_LIST:
-//                let upholdListVC = currentView.mainStoryboard.instantiateViewController(withIdentifier: DomainConst.G01_F00_S01_VIEW_CTRL)
-//                currentView.navigationController?.pushViewController(upholdListVC, animated: true)
-                currentView.pushToView(name: DomainConst.G01_F00_S01_VIEW_CTRL)
-                break
-            case DomainConst.ISSUE_LIST:
-                currentView.showAlert(message: DomainConst.CONTENT00197)
-                break
-            case DomainConst.MESSAGE:
-                currentView.showAlert(message: DomainConst.CONTENT00197)
-                break
-            case DomainConst.CUSTOMER_LIST:
-                currentView.showAlert(message: DomainConst.CONTENT00197)
-                break
-            case DomainConst.WORKING_REPORT:
-                currentView.showAlert(message: DomainConst.CONTENT00197)
-                break
-            case DomainConst.ORDER_LIST:
-//                let orderList = currentView.mainStoryboard.instantiateViewController(withIdentifier: DomainConst.G04_F00_S01_VIEW_CTRL)
-//                currentView.navigationController?.pushViewController(orderList, animated: true)
-                currentView.pushToView(name: DomainConst.G04_F00_S01_VIEW_CTRL)
-                break
-            case DomainConst.ORDER_VIP_LIST:
-                currentView.pushToView(name: DomainConst.G05_F00_S01_VIEW_CTRL)
-                break
-            case DomainConst.KEY_MENU_PROMOTION_LIST:
-                currentView.pushToView(name: DomainConst.G04_F02_S01_VIEW_CTRL)
-                break
-            default:
-                break
-            }
-        }
-    }
+//    /**
+//     * Handle tap on register item.
+//     * - parameter sender: AnyObject
+//     */
+//    func registerItemTapped(_ sender: AnyObject) {
+//        self.dismiss(animated: false) {
+//            NotificationCenter.default.post(name: Notification.Name(rawValue: DomainConst.NOTIFY_NAME_REGISTER_ITEM), object: nil)
+//        }
+//    }
     
-    /**
-     * Handle tap on configuration item.
-     * - parameter sender: AnyObject
-     */
-    open func configItemTapped(_ sender: AnyObject) {
-        self.dismiss(animated: false) {
-            NotificationCenter.default.post(name: Notification.Name(rawValue: DomainConst.NOTIFY_NAME_COFIG_ITEM), object: nil)
-        }
-    }
+//    /**
+//     * Handle tap on issue item.
+//     * - parameter sender: AnyObject
+//     */
+//    func issueItemTapped(_ sender: AnyObject) {
+//        self.dismiss(animated: false) {
+//            let currentView: BaseViewController = BaseViewController.getCurrentViewController()
+//            switch ((sender as! UIButton).accessibilityIdentifier)! {
+//            case DomainConst.HOME:
+//                _ = currentView.popToRootView()
+//                break
+//            case DomainConst.USER_PROFILE:
+//                currentView.pushToView(name: DomainConst.G00_ACCOUNT_VIEW_CTRL)
+//                break
+//            case DomainConst.UPHOLD_LIST:
+//                currentView.pushToView(name: DomainConst.G01_F00_S01_VIEW_CTRL)
+//                break
+//            case DomainConst.ISSUE_LIST:
+//                currentView.showAlert(message: DomainConst.CONTENT00197)
+//                break
+//            case DomainConst.MESSAGE:
+//                currentView.showAlert(message: DomainConst.CONTENT00197)
+//                break
+//            case DomainConst.CUSTOMER_LIST:
+//                currentView.showAlert(message: DomainConst.CONTENT00197)
+//                break
+//            case DomainConst.WORKING_REPORT:
+//                currentView.showAlert(message: DomainConst.CONTENT00197)
+//                break
+//            case DomainConst.ORDER_LIST:
+//                currentView.pushToView(name: DomainConst.G04_F00_S01_VIEW_CTRL)
+//                break
+//            case DomainConst.ORDER_VIP_LIST:
+//                currentView.pushToView(name: DomainConst.G05_F00_S01_VIEW_CTRL)
+//                break
+//            case DomainConst.KEY_MENU_PROMOTION_LIST:
+//                currentView.pushToView(name: DomainConst.G04_F02_S01_VIEW_CTRL)
+//                break
+//            default:
+//                break
+//            }
+//        }
+//    }
+    
+//    /**
+//     * Handle tap on configuration item.
+//     * - parameter sender: AnyObject
+//     */
+//    open func configItemTapped(_ sender: AnyObject) {
+//        self.dismiss(animated: false) {
+//            NotificationCenter.default.post(name: Notification.Name(rawValue: DomainConst.NOTIFY_NAME_COFIG_ITEM), object: nil)
+//        }
+//    }
+    //-- BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
+    
     /**
      * Destructor
      */

@@ -307,6 +307,8 @@ public class DomainConst {
     public static let KEY_SETTING_IS_LOGGING            = "gasservice.isLogin"
     /** Setting key: user token */
     public static let KEY_SETTING_USER_TOKEN            = "gasservice.user.token"
+    /** Setting key: orderVipDescription */
+    public static let KEY_SETTING_ORDER_VIP_DESCRIPTION = "gasservice.order.orderVipDescription"
     /** Setting key: training mode */
     public static let KEY_SETTING_TRAINING_MODE         = "gasservice.trainningMode"
     /** Setting key: Transaction id */
@@ -323,6 +325,10 @@ public class DomainConst {
     public static let KEY_SETTING_DEBUG_ZOOM            = "gasservice.debug.zoom"
     /** Setting key: Debug Is Gas service */
     public static let KEY_SETTING_DEBUG_IS_GAS_SERVICE  = "gasservice.debug.isGasService"
+    /** Setting key: Debug Is Show number picker */
+    public static let KEY_SETTING_DEBUG_IS_SHOW_NUM_PICKER  = "gasservice.debug.isShowNumPicker"
+    /** Setting key: Debug Is Show number picker */
+    public static let KEY_SETTING_DEBUG_IS_SHOW_TOP_ICON    = "gasservice.debug.isShowTopIcon"
     /** Setting key: Material type id */
     public static let KEY_MATERIALS_TYPE_ID             = "materials_type_id"
     /** Setting key: Material id */
@@ -593,9 +599,13 @@ public class DomainConst {
     public static let APP_TYPE_FLAG_GAS_SERVICE         = "0"
     
     /** Order status: New */
-    public static let ORDER_STATUS_NEW                  = "3"
+    public static let ORDER_STATUS_NEW                  = "1"
+    /** Order status: New */
+    public static let ORDER_STATUS_PROCESSING           = "3"
     /** Order status: Complete */
-    public static let ORDER_STATUS_COMPLETE             = "1"
+    public static let ORDER_STATUS_COMPLETE             = "4"
+    /** Order status: Complete */
+    public static let ORDER_STATUS_CANCEL               = "5"
     /** Uphold status: Complete */
     public static let UPHOLD_STATUS_COMPLETE            = "3"
     /** Uphold status: New */
@@ -720,11 +730,17 @@ public class DomainConst {
     /** Address spliter */
     public static let ADDRESS_SPLITER                   = ","
     /** Phone spliter */
-    public static let PHONE_SPLITER                     = "-"
+    public static let PHONE_SPLITER                     = SPLITER_TYPE1
+    /** Phone spliter */
+    public static let SPLITER_TYPE1                     = "-"
+    /** Phone spliter */
+    public static let SPLITER_TYPE2                     = ","
     /** Text spliter */
     public static let TEXT_SPLITER                      = ":"
     /** Phone spliter */
     public static let NUMBER_ZERO_VALUE                 = "0"
+    /** Phone spliter */
+    public static let NUMBER_ONE_VALUE                  = "1"
     /** Default time value */
     public static let DEFAULT_TIME_VALUE                = "08:00"
     /** Address unknown string */
@@ -859,30 +875,38 @@ public class DomainConst {
     public static let G01_F02_S06_CELL                              = "ImageTableViewCell"
     
     // MARK: -----Notification name-----
-    public static let NOTIFY_NAME_LOGIN_ITEM                        = "loginItemTapped"
+    //++ BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
+//    public static let NOTIFY_NAME_LOGIN_ITEM                        = "loginItemTapped"
     public static let NOTIFY_NAME_LOGOUT_ITEM                       = "logoutItemTapped"
-    public static let NOTIFY_NAME_REGISTER_ITEM                     = "registerItemTapped"
-    public static let NOTIFY_NAME_GAS_SERVICE_ITEM                  = "gasServiceItemTapped"
-    public static let NOTIFY_NAME_ISSUE_ITEM                        = "issueItemTapped"
-    public static let NOTIFY_NAME_COFIG_ITEM                        = "configItemTapped"
-    public static let NOTIFY_NAME_COFIG_ITEM_ACCOUNTVIEW            = "configItemTappedAccountView"
-    public static let NOTIFY_NAME_COFIG_ITEM_UPHOLDLISTVIEW         = "configItemTappedUpholdListView"
-    public static let NOTIFY_NAME_COFIG_ITEM_CREATE_UPHOLD          = "configItemTappedCreateUphold"
-    public static let NOTIFY_NAME_COFIG_ITEM_UPHOLDDETAILVIEW       = "configItemTappedUpholdDetailView"
-    public static let NOTIFY_NAME_COFIG_ITEM_CHANGEPASSVIEW         = "configItemTappedChangePassView"
-    public static let NOTIFY_NAME_COFIG_ITEM_REGISTERVIEW           = "configItemTappedRegisterView"
-    public static let NOTIFY_NAME_SET_DATA_ACCOUNTVIEW              = "G00AccountVC.setData"
-    public static let NOTIFY_NAME_SET_DATA_UPHOLDLIST_VIEW          = "G01F00S01VC.setData"
-    public static let NOTIFY_NAME_RELOAD_DATA_UPHOLDLIST_VIEW       = "G01F00S01VC.reloadData"
-    public static let NOTIFY_NAME_SHOW_SEARCH_BAR_UPHOLDLIST_VIEW   = "G01F00S01VC.showSearchBarTableView"
-    public static let NOTIFY_NAME_SET_DATA_UPHOLD_DETAIL_VIEW       = "UpholdDetailViewController.setData"
-    public static let NOTIFY_NAME_COFIG_ITEM_G01F02                 = "G01F2VC.configItemTapped"
+//    public static let NOTIFY_NAME_REGISTER_ITEM                     = "registerItemTapped"
+//    public static let NOTIFY_NAME_GAS_SERVICE_ITEM                  = "gasServiceItemTapped"
+//    public static let NOTIFY_NAME_ISSUE_ITEM                        = "issueItemTapped"
+//    public static let NOTIFY_NAME_COFIG_ITEM                        = "configItemTapped"
+//    public static let NOTIFY_NAME_COFIG_ITEM_ACCOUNTVIEW            = "configItemTappedAccountView"
+//    public static let NOTIFY_NAME_COFIG_ITEM_UPHOLDLISTVIEW         = "configItemTappedUpholdListView"
+//    public static let NOTIFY_NAME_COFIG_ITEM_CREATE_UPHOLD          = "configItemTappedCreateUphold"
+//    public static let NOTIFY_NAME_COFIG_ITEM_UPHOLDDETAILVIEW       = "configItemTappedUpholdDetailView"
+//    public static let NOTIFY_NAME_COFIG_ITEM_CHANGEPASSVIEW         = "configItemTappedChangePassView"
+//    public static let NOTIFY_NAME_COFIG_ITEM_REGISTERVIEW           = "configItemTappedRegisterView"
+    //-- BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
+    //++ BUG0046-SPJ (NguyenPT 20170301) Use action for Request server completion
+//    public static let NOTIFY_NAME_SET_DATA_ACCOUNTVIEW              = "G00AccountVC.setData"
+//    public static let NOTIFY_NAME_SET_DATA_UPHOLDLIST_VIEW          = "G01F00S01VC.setData"
+//    public static let NOTIFY_NAME_RELOAD_DATA_UPHOLDLIST_VIEW       = "G01F00S01VC.reloadData"
+//    public static let NOTIFY_NAME_SHOW_SEARCH_BAR_UPHOLDLIST_VIEW   = "G01F00S01VC.showSearchBarTableView"
+//    public static let NOTIFY_NAME_SET_DATA_UPHOLD_DETAIL_VIEW       = "UpholdDetailViewController.setData"
+//    public static let NOTIFY_NAME_COFIG_ITEM_G01F02                 = "G01F2VC.configItemTapped"
     public static let NOTIFY_NAME_SET_DATA_G01F01                   = "G01F1VC.setData"
     public static let NOTIFY_NAME_SET_DATA_G01F02                   = "G01F2VC.setData"
     public static let NOTIFY_NAME_SET_DATA_G01F03                   = "G01F3VC.setData"
-    public static let NOTIFY_NAME_SET_DATA_HOMEVIEW                 = "G00HomeVC.setData"
-    public static let NOTIFY_NAME_COFIG_ITEM_HOMEVIEW               = "G00HomeVC.configItemTapped"
-    public static let NOTIFY_NAME_UPDATE_NOTIFY_HOMEVIEW            = "G00HomeVC.updateNotify"
+//    public static let NOTIFY_NAME_SET_DATA_HOMEVIEW                 = "G00HomeVC.setData"
+    //-- BUG0046-SPJ (NguyenPT 20170301) Use action for Request server completion
+    //++ BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
+//    public static let NOTIFY_NAME_COFIG_ITEM_HOMEVIEW               = "G00HomeVC.configItemTapped"
+    //-- BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
+    //++ BUG0046-SPJ (NguyenPT 20170302) Use action for Request server completion
+//    public static let NOTIFY_NAME_UPDATE_NOTIFY_HOMEVIEW            = "G00HomeVC.updateNotify"
+    //-- BUG0046-SPJ (NguyenPT 20170302) Use action for Request server completion
     public static let NOTIFY_NAME_RELOAD_DATA_UPHOLD_DETAIL_VIEW    = "G01F00S02.reloadData"
     
     // MARK: -----Domain constants-----
@@ -891,6 +915,10 @@ public class DomainConst {
     public static let LOGO_GAS_24H_IMG_NAME                 = "gas24h_logo.png"
     /** Contact image name */
     public static let CONTACT_IMG_NAME                      = "contact.png"
+    /** Next icon image name */
+    public static let NEXT_ICON_IMG_NAME                    = "ic_number_next.png"
+    /** Back icon image name */
+    public static let BACK_ICON_IMG_NAME                    = "ic_number_back.png"
     /** Phone image name */
     public static let PHONE_IMG_NAME                        = "phone-ios.png"
     /** Address image name */
@@ -1008,13 +1036,13 @@ public class DomainConst {
     /** Content icon image name */
     public static let REPORT_ICON_IMG_NAME                  = "icon62.png"
     /** Content icon image name */
-    public static let ORDER_ID_ICON_IMG_NAME                  = "icon65.png"
+    public static let ORDER_ID_ICON_IMG_NAME                = "icon65.png"
     /** Content icon image name */
-    public static let ORDER_STATUS_ICON_IMG_NAME                  = "icon66.png"
+    public static let ORDER_STATUS_ICON_IMG_NAME            = "icon66.png"
     /** Content icon image name */
-    public static let ORDER_CAR_NUMBER_ICON_IMG_NAME                  = "icon67.png"
+    public static let ORDER_CAR_NUMBER_ICON_IMG_NAME        = "icon67.png"
     /** Content icon image name */
-    public static let ORDER_PAYMENT_METHOD_ICON_IMG_NAME                  = "icon68.png"
+    public static let ORDER_PAYMENT_METHOD_ICON_IMG_NAME    = "icon68.png"
     /** Money icon image name */
     public static let MONEY_ICON_GREY_IMG_NAME              = "icon69.png"
     /** Money icon image name */
@@ -1022,7 +1050,11 @@ public class DomainConst {
     /** Order icon image name */
     public static let ORDER_START_ICON_IMG_NAME             = "icon76.png"
     /** Order status new image name */
-    public static let ORDER_STATUS_NEW_ICON_IMG_NAME        = "icon80.png"
+    public static let ORDER_STATUS_NEW_ICON_IMG_NAME        = "new-icon.png"
+    /** Order status process image name */
+    public static let ORDER_STATUS_PROCESS_ICON_IMG_NAME    = "icon80.png"
+    /** Order status Cancel image name */
+    public static let ORDER_STATUS_CANCEL_ICON_IMG_NAME     = "icon81.png"
     /** Type 1 backgroud image name */
     public static let TYPE_1_BKG_IMG_NAME                   = "bg1.jpg"
     /** Menu backgroud body image name */

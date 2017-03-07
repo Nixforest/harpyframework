@@ -7,8 +7,8 @@
 //
 
 import Foundation
-class ChangePassRequest: BaseRequest {
-    override func completetionHandler(request: NSMutableURLRequest) -> URLSessionTask {
+public class ChangePassRequest: BaseRequest {
+    override public func completetionHandler(request: NSMutableURLRequest) -> URLSessionTask {
         let task = self.session.dataTask(with: request as URLRequest, completionHandler: {
             (
             data, response, error) in
@@ -35,7 +35,10 @@ class ChangePassRequest: BaseRequest {
                         message: model.message,
                         okHandler: {
                             (alert: UIAlertAction!) in
-                            _ = self.view.navigationController?.popViewController(animated: true)
+                            //++ BUG0046-SPJ (NguyenPT 20170301) Use action for Request server completion
+//                            _ = self.view.navigationController?.popViewController(animated: true)
+                            NotificationCenter.default.post(name: Notification.Name(rawValue: self.theClassName), object: model)
+                            //-- BUG0046-SPJ (NguyenPT 20170301) Use action for Request server completion
                     })
                 }
             } else {
@@ -67,4 +70,24 @@ class ChangePassRequest: BaseRequest {
             DomainConst.KEY_NEW_PASSWORD, newPass,
             DomainConst.KEY_NEW_PASSWORD_CONFIRM, newPass)
     }
+    
+    //++ BUG0046-SPJ (NguyenPT 20170301) Use action for Request server completion
+    /**
+     * Request change password.
+     * - parameter action:      Action when request complete
+     * - parameter view:        View controller
+     * - parameter oldPass:     Old password
+     * - parameter newPass:     New password
+     */
+    public static func requestChangePassword(action: Selector, view: BaseViewController,
+                                             oldPass: String, newPass: String) {
+        // Show overlay
+        LoadingView.shared.showOverlay(view: view.view)
+        let request = ChangePassRequest(url: DomainConst.PATH_USER_CHANGE_PASS,
+                                        reqMethod: DomainConst.HTTP_POST_REQUEST, view: view)
+        request.setData(oldPass: oldPass, newPass: newPass)
+        NotificationCenter.default.addObserver(view, selector: action, name:NSNotification.Name(rawValue: request.theClassName), object: nil)
+        request.execute()
+    }
+    //-- BUG0046-SPJ (NguyenPT 20170301) Use action for Request server completion
 }

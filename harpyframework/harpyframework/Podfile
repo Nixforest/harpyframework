@@ -1,0 +1,8 @@
+project '../harpyframework.xcodeproj'
+source 'https://github.com/CocoaPods/Specs.git'
+target 'harpyframework' do
+    pod 'GoogleMaps'
+    pod 'GooglePlaces'
+    pod 'SlideMenuControllerSwift'
+use_frameworks!
+end

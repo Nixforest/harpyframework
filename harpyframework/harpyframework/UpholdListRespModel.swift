@@ -63,4 +63,20 @@ public class UpholdListRespModel: BaseRespModel {
     public func getRecord() -> [UpholdBean] {
         return self.record
     }
+    
+    /**
+     * Get total page.
+     * - returns: Total page value
+     */
+    public func getTotalPage() -> Int {
+        return self.total_page
+    }
+    
+    /**
+     * Get total record.
+     * - returns: Total record value
+     */
+    public func getTotalRecord() -> Int {
+        return self.total_record
+    }
 }

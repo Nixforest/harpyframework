@@ -7,8 +7,8 @@
 //
 
 import Foundation
-class UpholdListRequest: BaseRequest {
-    override func completetionHandler(request: NSMutableURLRequest) -> URLSessionTask {
+public class UpholdListRequest: BaseRequest {
+    override public func completetionHandler(request: NSMutableURLRequest) -> URLSessionTask {
         let task = self.session.dataTask(with: request as URLRequest, completionHandler: {
             (
             data, response, error) in
@@ -32,7 +32,10 @@ class UpholdListRequest: BaseRequest {
                 BaseModel.shared.saveUpholdList(upholdListModel: model)
                 // Notify update data on UpholdList view (cross-thread)
                 DispatchQueue.main.async {
-                    NotificationCenter.default.post(name: Notification.Name(rawValue: DomainConst.NOTIFY_NAME_SET_DATA_UPHOLDLIST_VIEW), object: model)
+                    //++ BUG0046-SPJ (NguyenPT 20170302) Use action for Request server completion
+//                    NotificationCenter.default.post(name: Notification.Name(rawValue: DomainConst.NOTIFY_NAME_SET_DATA_UPHOLDLIST_VIEW), object: model)
+                    NotificationCenter.default.post(name: Notification.Name(rawValue: self.theClassName), object: model)
+                    //-- BUG0046-SPJ (NguyenPT 20170302) Use action for Request server completion
                 }
             } else {
                 self.showAlert(message: model.message)
@@ -69,4 +72,27 @@ class UpholdListRequest: BaseRequest {
                 DomainConst.KEY_STATUS, status
         )
     }
+    
+    //++ BUG0046-SPJ (NguyenPT 20170302) Use action for Request server completion
+    /**
+     * Request uphold list
+     * - parameter page:        Page index
+     * - parameter type:        Type uphold (Problem/Periodically)
+     * - parameter customerId:  Id of customer
+     * - parameter status:      Status of item
+     * - parameter view:        View controller
+     */
+    public static func requestUpholdList(action: Selector, view: BaseViewController,
+                                         page: Int, type: Int,
+                                         customerId: String, status: String) {
+        // Show overlay
+        LoadingView.shared.showOverlay(view: view.view)
+        let request = UpholdListRequest(url: DomainConst.PATH_SITE_UPHOLD_LIST,
+                                        reqMethod: DomainConst.HTTP_POST_REQUEST,
+                                        view: view)
+        request.setData(page: page, type: type, customerId: customerId, status: status)
+        NotificationCenter.default.addObserver(view, selector: action, name:NSNotification.Name(rawValue: request.theClassName), object: nil)
+        request.execute()
+    }
+    //-- BUG0046-SPJ (NguyenPT 20170302) Use action for Request server completion
 }

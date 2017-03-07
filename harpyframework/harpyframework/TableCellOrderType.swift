@@ -124,11 +124,13 @@ open class TableCellOrderType: UITableViewCell {
         self.codeLabel.text = data.code_no + " -"
         self.totalLabel.text = data.grand_total
         self.materialLabel.text = data.title
-        if data.status_number == DomainConst.ORDER_STATUS_COMPLETE {
-            self.statusIcon.image = ImageManager.getImage(named: DomainConst.FINISH_STATUS_IMG_NAME)
-        } else if data.status_number == DomainConst.ORDER_STATUS_NEW {
-            self.statusIcon.image = ImageManager.getImage(named: DomainConst.ORDER_STATUS_NEW_ICON_IMG_NAME)
-        }
+//        if data.status_number == DomainConst.ORDER_STATUS_COMPLETE {
+//            self.statusIcon.image = ImageManager.getImage(named: DomainConst.FINISH_STATUS_IMG_NAME)
+//        } else if data.status_number == DomainConst.ORDER_STATUS_NEW {
+//            self.statusIcon.image = ImageManager.getImage(named: DomainConst.ORDER_STATUS_NEW_ICON_IMG_NAME)
+//        }
+        
+        self.statusIcon.image = ImageManager.getImage(named: getStatusIcon(status: data.status_number))
     }
     
     open func setData(vipData: OrderVIPListBean) {
@@ -147,10 +149,28 @@ open class TableCellOrderType: UITableViewCell {
         self.totalLabel.textColor = GlobalConst.BUTTON_COLOR_YELLOW
         self.totalLabel.text = vipData.grand_total
         self.materialLabel.text = vipData.name_gas
-        if vipData.status_number == DomainConst.ORDER_STATUS_COMPLETE {
-            self.statusIcon.image = ImageManager.getImage(named: DomainConst.FINISH_STATUS_IMG_NAME)
-        } else if vipData.status_number == DomainConst.ORDER_STATUS_NEW {
-            self.statusIcon.image = ImageManager.getImage(named: DomainConst.ORDER_STATUS_NEW_ICON_IMG_NAME)
+        
+        self.statusIcon.image = ImageManager.getImage(named: getStatusIcon(status: vipData.status_number))
+    }
+    
+    private func getStatusIcon(status: String) -> String {
+        var retVal = DomainConst.BLANK
+        switch status {
+        case DomainConst.ORDER_STATUS_NEW:
+            retVal = DomainConst.ORDER_STATUS_NEW_ICON_IMG_NAME
+            break
+        case DomainConst.ORDER_STATUS_PROCESSING:
+            retVal = DomainConst.ORDER_STATUS_PROCESS_ICON_IMG_NAME
+            break
+        case DomainConst.ORDER_STATUS_COMPLETE:
+            retVal = DomainConst.FINISH_STATUS_IMG_NAME
+            break
+        case DomainConst.ORDER_STATUS_CANCEL:
+            retVal = DomainConst.ORDER_STATUS_CANCEL_ICON_IMG_NAME
+            break
+        default:
+            break
         }
+        return retVal
     }
 }
