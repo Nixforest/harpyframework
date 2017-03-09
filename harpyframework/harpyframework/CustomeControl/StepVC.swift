@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class StepVC: BaseViewController, UIScrollViewDelegate, ScrollButtonListDelegate {
+open class StepVC: ChildViewController, UIScrollViewDelegate, ScrollButtonListDelegate {
     // MARK: Properties
     /** Step number */
     var _numberStep: Int                = 0
@@ -47,7 +47,8 @@ open class StepVC: BaseViewController, UIScrollViewDelegate, ScrollButtonListDel
         self.view.backgroundColor = GlobalConst.BACKGROUND_COLOR_GRAY
         
         // Setup navigation bar
-        setupNavigationBar(title: _title, isNotifyEnable: BaseModel.shared.checkIsLogin())
+        //setupNavigationBar(title: _title, isNotifyEnable: BaseModel.shared.checkIsLogin())
+        createNavigationBar(title: _title)
     }
     
     override open func viewDidLayoutSubviews() {

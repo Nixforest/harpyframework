@@ -14,17 +14,29 @@ open class BaseMenuViewController : UIViewController {
     //-- BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
     /** List menu flag */
     var listMenu: [Bool] = []
-    
     /** Scroll view */
     var _scrollView: UIScrollView   = UIScrollView()
     
     open func updateData() {
+        listMenu.removeAll()
         if BaseModel.shared.checkIsLogin() {
             setItem(listValues: [false, true, false, true, true])
         } else {
             setItem(listValues: [true, false, true, false, true])
         }
         setupMenuItem()
+        self.view.setNeedsDisplay()
+    }
+    
+//    override open func viewDidAppear(_ animated: Bool) {
+//        for view in self.view.subviews {
+//            view.removeFromSuperview()
+//        }
+//        updateData()
+//        self.viewWillLayoutSubviews()
+//    }
+    override open func viewWillAppear(_ animated: Bool) {
+        updateData()
     }
     
     override open func viewDidLoad() {
@@ -78,7 +90,9 @@ open class BaseMenuViewController : UIViewController {
         }
         // Offset
         var offset: CGFloat = 0.0
-        
+        for view in _scrollView.subviews {
+            view.removeFromSuperview()
+        }
         _scrollView.translatesAutoresizingMaskIntoConstraints = true
         _scrollView.frame = CGRect(
             x: 0,
@@ -216,10 +230,76 @@ open class BaseMenuViewController : UIViewController {
      * - parameter sender: AnyObject
      */
     func menuItemTapped(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: {
+        //self.dismiss(animated: true, completion: {
+//        if let top = UIApplication.topViewController() {
+//            if top.theClassName == NSStringFromClass(BaseSlideMenuViewController.self) {
+//                (top as! BaseSlideMenuViewController).closeLeft()
+//            }
+//        }
+        
+                    let currentView = BaseViewController.getCurrentViewController()
+                currentView.getSlideController().closeLeft()
             self.menuItemTappedDelegate?.menuItemTapped(sender)
-        })
+//            let currentView = BaseViewController.getCurrentViewController()
+//        currentView.getSlideController().closeLeft()
+//            switch (sender as! UIButton).accessibilityIdentifier! {
+//            case DomainConst.G00_CONFIGURATION_VIEW_CTRL:       // Config menu
+//                currentView.pushToView(name: DomainConst.G00_CONFIGURATION_VIEW_CTRL)
+//                break
+//            case DomainConst.G00_LOGIN_VIEW_CTRL:               // Login menu
+//                currentView.pushToView(name: DomainConst.G00_LOGIN_VIEW_CTRL)
+//                break
+//            case DomainConst.NOTIFY_NAME_LOGOUT_ITEM:           // Logout menu
+//                //++ BUG0046-SPJ (NguyenPT 20170301) Use action for Request server completion
+//                //RequestAPI.requestLogout(view: self)
+//                LogoutRequest.requestLogout(action: #selector(currentView.finishRequestLogout), view: currentView)
+//                //-- BUG0046-SPJ (NguyenPT 20170301) Use action for Request server completion
+//                break
+//            case DomainConst.G00_REGISTER_VIEW_CTRL:            // Register menu
+//                currentView.pushToView(name: DomainConst.G00_REGISTER_VIEW_CTRL)
+//                break
+//            case DomainConst.HOME:                              // Home menu
+//                currentView.popToRootView()
+//                break
+//            case DomainConst.USER_PROFILE:                      // User profile
+//                currentView.pushToView(name: DomainConst.G00_ACCOUNT_VIEW_CTRL)
+//                break
+//            case DomainConst.UPHOLD_LIST:                       // Uphold list
+//                currentView.pushToView(name: DomainConst.G01_F00_S01_VIEW_CTRL)
+//                break
+//            case DomainConst.ISSUE_LIST:                        // Issue list
+//                currentView.showAlert(message: DomainConst.CONTENT00197)
+//                break
+//            case DomainConst.MESSAGE:                           // Message
+//                currentView.showAlert(message: DomainConst.CONTENT00197)
+//                break
+//            case DomainConst.CUSTOMER_LIST:                     // Customer list
+//                currentView.showAlert(message: DomainConst.CONTENT00197)
+//                break
+//            case DomainConst.WORKING_REPORT:                    // Working report
+//                currentView.showAlert(message: DomainConst.CONTENT00197)
+//                break
+//            case DomainConst.ORDER_LIST:                        // Order list
+//                currentView.pushToView(name: DomainConst.G04_F00_S01_VIEW_CTRL)
+//                break
+//            case DomainConst.ORDER_VIP_LIST:                    // VIP order list
+//                currentView.pushToView(name: DomainConst.G05_F00_S01_VIEW_CTRL)
+//                break
+//            case DomainConst.KEY_MENU_PROMOTION_LIST:           // Promotion list
+//                currentView.pushToView(name: DomainConst.G04_F02_S01_VIEW_CTRL)
+//                break
+//            default:
+//                break
+//            }
+//        })
     }
+//    /**
+//     * Finish request logout handler
+//     */
+//    public func finishRequestLogout(_ notification: Notification) {
+//        let currentView = BaseViewController.getCurrentViewController()
+//        currentView.popToRootView()
+//    }
     
 //    /**
 //     * Handle tap on login item.

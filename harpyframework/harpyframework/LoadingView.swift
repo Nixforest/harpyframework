@@ -93,29 +93,51 @@ public class LoadingView{
         } else {
             self.isShowing = !self.isShowing
         }
-        var currentView: UIViewController? = nil
-        if let navigationController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
-            currentView = navigationController.visibleViewController
-            lblTitle = UILabel(frame: CGRect(x: 50, y: 0, width: 200, height: 50))
-            lblTitle.text = "Đang tải"
-            lblTitle.textColor = UIColor.white
-            overlayView = UIView(frame: CGRect(x: 0, y: 0, width: GlobalConst.SCREEN_WIDTH, height: GlobalConst.SCREEN_HEIGHT))
-            overlayView.layer.cornerRadius = 15
-            overlayView.backgroundColor = UIColor(white: 0, alpha: 0.7)
-            activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.white)
-            activityIndicator.frame = CGRect(x: (overlayView.bounds.width - 50) / 2,
-                                             y: (overlayView.bounds.height - 50) / 2, width: 50, height: 50)
-            activityIndicator.startAnimating()
-            overlayView.addSubview(activityIndicator)
-            overlayView.addSubview(lblTitle)
-            // Add overlay view to main view (cross-thread)
-            DispatchQueue.main.async {
-                currentView?.view.addSubview(self.overlayView)
-            }
-            // If this view run about 30s, turn it off
-            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(30000)) {
-                self.hideOverlayView()
-            }
+//        var currentView: UIViewController? = nil
+//        if let navigationController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
+//            currentView = navigationController.visibleViewController
+//            lblTitle = UILabel(frame: CGRect(x: 50, y: 0, width: 200, height: 50))
+//            lblTitle.text = "Đang tải"
+//            lblTitle.textColor = UIColor.white
+//            overlayView = UIView(frame: CGRect(x: 0, y: 0, width: GlobalConst.SCREEN_WIDTH, height: GlobalConst.SCREEN_HEIGHT))
+//            overlayView.layer.cornerRadius = 15
+//            overlayView.backgroundColor = UIColor(white: 0, alpha: 0.7)
+//            activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.white)
+//            activityIndicator.frame = CGRect(x: (overlayView.bounds.width - 50) / 2,
+//                                             y: (overlayView.bounds.height - 50) / 2, width: 50, height: 50)
+//            activityIndicator.startAnimating()
+//            overlayView.addSubview(activityIndicator)
+//            overlayView.addSubview(lblTitle)
+//            // Add overlay view to main view (cross-thread)
+//            DispatchQueue.main.async {
+//                currentView?.view.addSubview(self.overlayView)
+//            }
+//            // If this view run about 30s, turn it off
+//            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(30000)) {
+//                self.hideOverlayView()
+//            }
+//        }
+        let currentView = BaseViewController.getCurrentViewController()
+        
+        lblTitle = UILabel(frame: CGRect(x: 50, y: 0, width: 200, height: 50))
+        lblTitle.text = "Đang tải"
+        lblTitle.textColor = UIColor.white
+        overlayView = UIView(frame: CGRect(x: 0, y: 0, width: GlobalConst.SCREEN_WIDTH, height: GlobalConst.SCREEN_HEIGHT))
+        overlayView.layer.cornerRadius = 15
+        overlayView.backgroundColor = UIColor(white: 0, alpha: 0.7)
+        activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.white)
+        activityIndicator.frame = CGRect(x: (overlayView.bounds.width - 50) / 2,
+                                         y: (overlayView.bounds.height - 50) / 2, width: 50, height: 50)
+        activityIndicator.startAnimating()
+        overlayView.addSubview(activityIndicator)
+        overlayView.addSubview(lblTitle)
+        // Add overlay view to main view (cross-thread)
+        DispatchQueue.main.async {
+            currentView.view.addSubview(self.overlayView)
+        }
+        // If this view run about 30s, turn it off
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(30000)) {
+            self.hideOverlayView()
         }
     }
     

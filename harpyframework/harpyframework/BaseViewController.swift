@@ -61,6 +61,15 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
                                                object: nil)
     }
     
+    open func getSlideController() -> BaseSlideMenuViewController {
+        if let top = UIApplication.topViewController() {
+            if top.theClassName == NSStringFromClass(BaseSlideMenuViewController.self) {
+                return (top as! BaseSlideMenuViewController)
+            }
+        }
+        return BaseSlideMenuViewController()
+    }
+    
     /**
      * Get height of keyboard
      */
@@ -229,7 +238,7 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
      * Build navigation bar
      * - parameter title: Title of navigation bar
      */
-    public func setupNavigationBar(title: String) {
+    public func setNavigationBarTitle(title: String) {
         // Set title
         self.navigationBar.title = title
         // Set color text
@@ -237,13 +246,9 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
     }
     
     /**
-     * Build navigation bar for parent view controller
-     * - parameter title: Title of navigation bar
+     * Build items on navigation bar for parent view
      */
-    public func setupNavigationBarParent(title: String) {
-        // Set title
-        setupNavigationBar(title: title)
-        
+    public func setupNavigationBarParentItems() {
         // Create menu button
         let menu                = ImageManager.getImage(named: DomainConst.MENU_IMG_NAME)
         let tintedImg           = menu?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
@@ -251,8 +256,8 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
         btnMenu.setImage(tintedImg, for: UIControlState())
         btnMenu.tintColor    = GlobalConst.BUTTON_COLOR_RED
         btnMenu.frame        = CGRect(x: 0, y: 0,
-                                         width: GlobalConst.MENU_BUTTON_W,
-                                         height: GlobalConst.MENU_BUTTON_H)
+                                      width: GlobalConst.MENU_BUTTON_W,
+                                      height: GlobalConst.MENU_BUTTON_H)
         btnMenu.setTitle("", for: UIControlState())
         btnMenu.addTarget(self, action: #selector(btnMenuTapped(_:)), for: UIControlEvents.touchUpInside)
         let menuNavBar          = UIBarButtonItem()
@@ -263,8 +268,8 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
         // Notify button
         let btnNotify = UIButton()
         btnNotify.frame = CGRect(x: 0, y: 0,
-                                          width: GlobalConst.MENU_BUTTON_W,
-                                          height: GlobalConst.NOTIFY_BUTTON_H)
+                                 width: GlobalConst.MENU_BUTTON_W,
+                                 height: GlobalConst.NOTIFY_BUTTON_H)
         btnNotify.layer.cornerRadius = 0.5 * btnNotify.bounds.size.width
         btnNotify.setTitle("!", for: UIControlState())
         btnNotify.setTitleColor(UIColor.white, for: UIControlState())
@@ -283,9 +288,59 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
         self.navigationBar.setRightBarButton(notifyNavBar, animated: true)
     }
     
+    /**
+     * Handle tap menu button event
+     */
     open func btnMenuTapped(_ sender: AnyObject) {
-        // Do nothing
-        self.showToast(message: self.theClassName + " - btnMenuTapped")
+        if let topView = UIApplication.topViewController() {
+            if NSStringFromClass(BaseSlideMenuViewController.self) == topView.theClassName {
+                (topView as! BaseSlideMenuViewController).openLeft()
+            }
+        }
+    }
+    
+    /**
+     * Build items on navigation bar for children view
+     */
+    public func setupNavigationBarChildItems() {
+        // Create back button
+        let back = ImageManager.getImage(named: DomainConst.BACK_IMG_NAME)
+        let tintedBack = back?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        let btnBack = UIButton()
+        btnBack.setImage(tintedBack, for: UIControlState())
+        btnBack.tintColor = GlobalConst.BUTTON_COLOR_RED
+        btnBack.frame = CGRect(x: 0, y: 0,
+                                  width: GlobalConst.MENU_BUTTON_W,
+                                  height: GlobalConst.MENU_BUTTON_W)
+        btnBack.setTitle("", for: UIControlState())
+        btnBack.addTarget(self, action: #selector(backButtonTapped(_:)), for: UIControlEvents.touchUpInside)
+        
+        let backNavBar = UIBarButtonItem()
+        backNavBar.customView = btnBack
+        backNavBar.isEnabled = true
+        navigationBar.setLeftBarButton(backNavBar, animated: false)
+        
+        // Notify button
+        let btnNotify = UIButton()
+        btnNotify.frame = CGRect(x: 0, y: 0,
+                                 width: GlobalConst.MENU_BUTTON_W,
+                                 height: GlobalConst.NOTIFY_BUTTON_H)
+        btnNotify.layer.cornerRadius = 0.5 * btnNotify.bounds.size.width
+        btnNotify.setTitle("!", for: UIControlState())
+        btnNotify.setTitleColor(UIColor.white, for: UIControlState())
+        btnNotify.titleLabel?.font = UIFont.systemFont(ofSize: GlobalConst.NOTIFY_FONT_SIZE)
+        btnNotify.addTarget(self, action: #selector(notificationButtonTapped(_:)), for: UIControlEvents.touchUpInside)
+        
+        // Set status of notify button
+        if BaseModel.shared.checkIsLogin() {
+            btnNotify.backgroundColor = GlobalConst.BUTTON_COLOR_RED
+        } else {
+            btnNotify.backgroundColor = GlobalConst.BUTTON_COLOR_GRAY
+        }
+        let notifyNavBar = UIBarButtonItem()
+        notifyNavBar.customView = btnNotify
+        notifyNavBar.isEnabled = BaseModel.shared.checkIsLogin()
+        self.navigationBar.setRightBarButton(notifyNavBar, animated: true)
     }
     
     /**
@@ -437,7 +492,8 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
      */
     open func backButtonTapped(_ sender: AnyObject) {
         self.clearData()
-        _ = self.navigationController?.popViewController(animated: true)
+        let poper = self.navigationController?.popViewController(animated: true)
+        print(poper?.theClassName)
     }
     
     //++ BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
@@ -528,9 +584,18 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
      */
     static func getCurrentViewController() -> BaseViewController {
         var currentView: UIViewController? = nil
-        if let navigationController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
-            currentView = navigationController.visibleViewController
+        if let top = UIApplication.topViewController() {
+            if top.theClassName == NSStringFromClass(BaseSlideMenuViewController.self) {
+                if let current = (top as! BaseSlideMenuViewController).mainViewController {
+                    if current.theClassName == NSStringFromClass(UINavigationController.self) {
+                        currentView = (current as! UINavigationController).visibleViewController
+                    }
+                }
+            }
         }
+//        if let navigationController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
+//            currentView = navigationController.visibleViewController
+//        }
         if currentView == nil {
             return BaseViewController()
         }
@@ -545,7 +610,7 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
             let popoverVC = segue.destination
             popoverVC.popoverPresentationController?.delegate = self
             //++ BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
-            (popoverVC as! BaseMenuViewController).menuItemTappedDelegate = self
+            //(popoverVC as! BaseMenuViewController).menuItemTappedDelegate = self
             //-- BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
         }
     }
@@ -567,6 +632,7 @@ open class BaseViewController : UIViewController, UIPopoverPresentationControlle
         }
         let view = mainStoryboard.instantiateViewController(withIdentifier: name)
         self.navigationController?.pushViewController(view, animated: true)
+        //self.getSlideController().changeMainViewController(self.navigationController!, close: true)
     }
     
     /**

@@ -14,6 +14,8 @@
 		D704308D1E13D8E1001C070D /* TableCellOrderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D704308C1E13D8E1001C070D /* TableCellOrderType.swift */; };
 		D706C2241E53F13700F89B8A /* gas24h_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D706C2221E53F13700F89B8A /* gas24h_logo.png */; };
 		D706C2251E53F13700F89B8A /* gasservice_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D706C2231E53F13700F89B8A /* gasservice_logo.png */; };
+		D7085E231E6FB40E0087ED3B /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7085E221E6FB40E0087ED3B /* ParentViewController.swift */; };
+		D7085E251E6FC54D0087ED3B /* ChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7085E241E6FC54D0087ED3B /* ChildViewController.swift */; };
 		D708B17A1E48315F0074C528 /* icon80.png in Resources */ = {isa = PBXBuildFile; fileRef = D708B1791E48315F0074C528 /* icon80.png */; };
 		D708B17C1E4852120074C528 /* DebugBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D708B17B1E4852120074C528 /* DebugBean.swift */; };
 		D70B9F8C1E3F448300EB66F5 /* ConfigurationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70B9F8B1E3F448300EB66F5 /* ConfigurationModel.swift */; };
@@ -227,6 +229,8 @@
 		D704308C1E13D8E1001C070D /* TableCellOrderType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCellOrderType.swift; sourceTree = "<group>"; };
 		D706C2221E53F13700F89B8A /* gas24h_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gas24h_logo.png; path = images/gas24h_logo.png; sourceTree = "<group>"; };
 		D706C2231E53F13700F89B8A /* gasservice_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gasservice_logo.png; path = images/gasservice_logo.png; sourceTree = "<group>"; };
+		D7085E221E6FB40E0087ED3B /* ParentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParentViewController.swift; path = View/ParentViewController.swift; sourceTree = "<group>"; };
+		D7085E241E6FC54D0087ED3B /* ChildViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChildViewController.swift; path = View/ChildViewController.swift; sourceTree = "<group>"; };
 		D708B1791E48315F0074C528 /* icon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon80.png; path = images/icon80.png; sourceTree = "<group>"; };
 		D708B17B1E4852120074C528 /* DebugBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DebugBean.swift; path = Model/DebugBean.swift; sourceTree = "<group>"; };
 		D70B9F8B1E3F448300EB66F5 /* ConfigurationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigurationModel.swift; path = Model/ConfigurationModel.swift; sourceTree = "<group>"; };
@@ -475,6 +479,8 @@
 				D7B567CB1E0D9DE70042D5A8 /* BaseMenuViewController.swift */,
 				D7E014A91E347EA4001F26B6 /* MaterialSelectViewController.swift */,
 				D7A013091E37BAE6002EF5B3 /* InternalViewController.swift */,
+				D7085E221E6FB40E0087ED3B /* ParentViewController.swift */,
+				D7085E241E6FC54D0087ED3B /* ChildViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1005,6 +1011,7 @@
 				D7B567AB1E0D88370042D5A8 /* LogoutRequest.swift in Sources */,
 				D7E014AA1E347EA4001F26B6 /* MaterialSelectViewController.swift in Sources */,
 				D70B9F8C1E3F448300EB66F5 /* ConfigurationModel.swift in Sources */,
+				D7085E231E6FB40E0087ED3B /* ParentViewController.swift in Sources */,
 				D7671BF41E17673A0026DCFA /* OrderBean.swift in Sources */,
 				D7671BF21E175FE10026DCFA /* OrderDetailBean.swift in Sources */,
 				D7B5679D1E0D87FF0042D5A8 /* ChangePassRequest.swift in Sources */,
@@ -1037,6 +1044,7 @@
 				D7023EE51E2CAC0A00ED6394 /* MaterialSelector.swift in Sources */,
 				D7B567BB1E0D89010042D5A8 /* ConfigBean.swift in Sources */,
 				D7EF19471E1121AB0054A3AF /* RegisterConfirmRequest.swift in Sources */,
+				D7085E251E6FC54D0087ED3B /* ChildViewController.swift in Sources */,
 				D7F958111E3DD36B00C76F2F /* ConfigurationTableViewCell.swift in Sources */,
 				D7EF19451E110E540054A3AF /* RegisterRequest.swift in Sources */,
 				D7B5678F1E0D87650042D5A8 /* RequestAPI.swift in Sources */,
