@@ -154,7 +154,7 @@ public class BaseModel: NSObject {
             self._debug._isGasService = defaults.object(forKey: DomainConst.KEY_SETTING_DEBUG_IS_GAS_SERVICE) as! Bool
         }
         // Debug flag show number picker
-        self._debug._isShowNumberPicker = false
+        self._debug._isShowNumberPicker = DebugBean.DEBUG_DEFAULT_SHOW_NUMBER_PICKER
         if defaults.object(forKey: DomainConst.KEY_SETTING_DEBUG_IS_SHOW_NUM_PICKER) != nil {
             self._debug._isShowNumberPicker = defaults.object(forKey: DomainConst.KEY_SETTING_DEBUG_IS_SHOW_NUM_PICKER) as! Bool
         }

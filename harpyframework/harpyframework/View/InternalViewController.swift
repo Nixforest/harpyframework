@@ -8,7 +8,10 @@
 
 import UIKit
 
-class InternalViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, HSBColorPickerDelegate {
+//++ BUG0048-SPJ (NguyenPT 20170309) Create slide menu view controller
+//class InternalViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, HSBColorPickerDelegate {
+class InternalViewController: ChildViewController, UITableViewDelegate, UITableViewDataSource, HSBColorPickerDelegate {
+//-- BUG0048-SPJ (NguyenPT 20170309) Create slide menu view controller
     /** Table view */
     @IBOutlet weak var _tblView: UITableView!
 
@@ -16,7 +19,10 @@ class InternalViewController: BaseViewController, UITableViewDelegate, UITableVi
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        setupNavigationBar(title: "Debug values", isNotifyEnable: false, isHiddenBackBtn: false, isEnabledMenuBtn: false)
+        //++ BUG0048-SPJ (NguyenPT 20170309) Create slide menu view controller
+        //setupNavigationBar(title: "Debug values", isNotifyEnable: false, isHiddenBackBtn: false, isEnabledMenuBtn: false)
+        createNavigationBar(title: "Debug values")
+        //-- BUG0048-SPJ (NguyenPT 20170309) Create slide menu view controller
         
         // Config view
         _tblView.translatesAutoresizingMaskIntoConstraints = true

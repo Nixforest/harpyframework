@@ -37,7 +37,8 @@ class MenuItem: UIView {
                               width: GlobalConst.POPOVER_WIDTH,
                               height: GlobalConst.BUTTON_HEIGHT)
         button.setTitle(title, for: UIControlState())
-        button.setTitleColor(UIColor.white, for: UIControlState())
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.setTitleColor(UIColor.gray, for: .highlighted)
         button.contentHorizontalAlignment = UIControlContentHorizontalAlignment.left
         button.titleLabel?.font = UIFont.systemFont(ofSize: GlobalConst.NORMAL_FONT_SIZE)
         button.accessibilityIdentifier = id

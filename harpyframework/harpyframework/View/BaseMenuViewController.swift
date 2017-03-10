@@ -8,6 +8,7 @@
 
 import Foundation
 open class BaseMenuViewController : UIViewController {
+    // MARK: Properties
     //++ BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
     /** Menu item tapped delegate */
     public var menuItemTappedDelegate: MenuItemDelegate?
@@ -18,6 +19,38 @@ open class BaseMenuViewController : UIViewController {
     /** Scroll view */
     var _scrollView: UIScrollView   = UIScrollView()
     
+    // MARK: Methods
+    //++ BUG0048-SPJ (NguyenPT 20170309) Create slide menu
+    /**
+     * Update layout of menu
+     */
+    private func update() {
+        // Remove all current menu items
+        self.listMenu.removeAll()
+        
+        // Re-create menu items
+        if BaseModel.shared.checkIsLogin() {
+            setItem(listValues: [false, true, false, true, true])
+        } else {
+            setItem(listValues: [true, false, true, false, true])
+        }
+        setupMenuItem()
+        
+        // Update layout
+        self.view.setNeedsDisplay()
+    }
+    
+    /**
+     * View will appear
+     */
+    override open func viewWillAppear(_ animated: Bool) {
+        self.update()
+    }
+    //-- BUG0048-SPJ (NguyenPT 20170309) Create slide menu
+    
+    /**
+     * View did load
+     */
     override open func viewDidLoad() {
         // Background
         self.view.layer.contents = ImageManager.getImage(named: DomainConst.MENU_BKG_BODY_IMG_NAME)?.cgImage
@@ -70,6 +103,11 @@ open class BaseMenuViewController : UIViewController {
         // Offset
         var offset: CGFloat = 0.0
         
+        //++ BUG0048-SPJ (NguyenPT 20170309) Remove all sub views inside scroll view
+        for view in _scrollView.subviews {
+            view.removeFromSuperview()
+        }
+        //-- BUG0048-SPJ (NguyenPT 20170309) Remove all sub views inside scroll view
         _scrollView.translatesAutoresizingMaskIntoConstraints = true
         _scrollView.frame = CGRect(
             x: 0,
@@ -179,7 +217,8 @@ open class BaseMenuViewController : UIViewController {
         
         _scrollView.contentSize = CGSize(
             width: GlobalConst.POPOVER_WIDTH,
-            height: offset + GlobalConst.BUTTON_HEIGHT)
+            //height: offset + GlobalConst.BUTTON_HEIGHT)
+            height: offset)
         self.view.addSubview(_scrollView)
     }
     
@@ -207,9 +246,60 @@ open class BaseMenuViewController : UIViewController {
      * - parameter sender: AnyObject
      */
     func menuItemTapped(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: {
-            self.menuItemTappedDelegate?.menuItemTapped(sender)
-        })
+        //++ BUG0048-SPJ (NguyenPT 20170309) Remove popover menu
+//        self.dismiss(animated: true, completion: {
+//            self.menuItemTappedDelegate?.menuItemTapped(sender)
+//        })
+        let currentView = BaseViewController.getCurrentViewController()
+        // Close slide menu
+        BaseViewController.getRootController()?.closeLeft()
+        switch (sender as! UIButton).accessibilityIdentifier! {
+        case DomainConst.G00_CONFIGURATION_VIEW_CTRL:       // Config menu
+            currentView.pushToView(name: DomainConst.G00_CONFIGURATION_VIEW_CTRL)
+            break
+        case DomainConst.G00_LOGIN_VIEW_CTRL:               // Login menu
+            currentView.pushToView(name: DomainConst.G00_LOGIN_VIEW_CTRL)
+            break
+        case DomainConst.NOTIFY_NAME_LOGOUT_ITEM:           // Logout menu
+            LogoutRequest.requestLogout(action: #selector(currentView.finishRequestLogout), view: currentView)
+            break
+        case DomainConst.G00_REGISTER_VIEW_CTRL:            // Register menu
+            currentView.pushToView(name: DomainConst.G00_REGISTER_VIEW_CTRL)
+            break
+        case DomainConst.HOME:                              // Home menu
+            currentView.popToRootView()
+            break
+        case DomainConst.USER_PROFILE:                      // User profile
+            currentView.pushToView(name: DomainConst.G00_ACCOUNT_VIEW_CTRL)
+            break
+        case DomainConst.UPHOLD_LIST:                       // Uphold list
+            currentView.pushToView(name: DomainConst.G01_F00_S01_VIEW_CTRL)
+            break
+        case DomainConst.ISSUE_LIST:                        // Issue list
+            currentView.showAlert(message: DomainConst.CONTENT00197)
+            break
+        case DomainConst.MESSAGE:                           // Message
+            currentView.showAlert(message: DomainConst.CONTENT00197)
+            break
+        case DomainConst.CUSTOMER_LIST:                     // Customer list
+            currentView.showAlert(message: DomainConst.CONTENT00197)
+            break
+        case DomainConst.WORKING_REPORT:                    // Working report
+            currentView.showAlert(message: DomainConst.CONTENT00197)
+            break
+        case DomainConst.ORDER_LIST:                        // Order list
+            currentView.pushToView(name: DomainConst.G04_F00_S01_VIEW_CTRL)
+            break
+        case DomainConst.ORDER_VIP_LIST:                    // VIP order list
+            currentView.pushToView(name: DomainConst.G05_F00_S01_VIEW_CTRL)
+            break
+        case DomainConst.KEY_MENU_PROMOTION_LIST:           // Promotion list
+            currentView.pushToView(name: DomainConst.G04_F02_S01_VIEW_CTRL)
+            break
+        default:
+            break
+        }
+        //-- BUG0048-SPJ (NguyenPT 20170309) Remove popover menu
     }
     
 //    /**

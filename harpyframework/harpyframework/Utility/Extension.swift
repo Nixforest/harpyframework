@@ -544,3 +544,44 @@ public extension UIView {
         self.backgroundColor = ColorFromRGB().getRandomColor()
     }
 }
+
+//++ BUG0048-SPJ (NguyenPT 20170309) Get root view controller
+public extension UIApplication {
+    /**
+     * Get current root view controller
+     * - parameter controller: Current controller
+     * - returns: Root view controller
+     */
+    class func getRootVC(controller: UIViewController?
+        = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+        // If controller is navigation controller
+        if let navigationController = controller as? UINavigationController {
+            return getRootVC(controller: navigationController.visibleViewController)
+        }
+        
+        // If controller is tab bar controller
+        if let tabController = controller as? UITabBarController {
+            if let selected = tabController.selectedViewController {
+                return getRootVC(controller: selected)
+            }
+        }
+        
+        // If controller is presented controller
+        if let presented = controller?.presentedViewController {
+            return getRootVC(controller: presented)
+        }
+        return controller
+    }
+}
+//-- BUG0048-SPJ (NguyenPT 20170309) Get root view controller
+
+public extension Bundle {
+    /** Release version number */
+    var releaseVersionNumber: String? {
+        return infoDictionary?["CFBundleShortVersionString"] as? String
+    }
+    /** Build version number */
+    var buildVersionNumber: String? {
+        return infoDictionary?["CFBundleVersion"] as? String
+    }
+}

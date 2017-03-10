@@ -8,7 +8,10 @@
 
 import UIKit
 
-open class StepVC: BaseViewController, UIScrollViewDelegate, ScrollButtonListDelegate {
+//++ BUG0048-SPJ (NguyenPT 20170309) Remove popover menu
+//open class StepVC: BaseViewController, UIScrollViewDelegate, ScrollButtonListDelegate {
+open class StepVC: ChildViewController, UIScrollViewDelegate, ScrollButtonListDelegate {
+//-- BUG0048-SPJ (NguyenPT 20170309) Remove popover menu
     // MARK: Properties
     /** Step number */
     var _numberStep: Int                = 0
@@ -47,7 +50,10 @@ open class StepVC: BaseViewController, UIScrollViewDelegate, ScrollButtonListDel
         self.view.backgroundColor = GlobalConst.BACKGROUND_COLOR_GRAY
         
         // Setup navigation bar
-        setupNavigationBar(title: _title, isNotifyEnable: BaseModel.shared.checkIsLogin())
+        //++ BUG0048-SPJ (NguyenPT 20170309) Change navigation bar
+        //setupNavigationBar(title: _title, isNotifyEnable: BaseModel.shared.checkIsLogin())
+        createNavigationBar(title: _title)
+        //-- BUG0048-SPJ (NguyenPT 20170309) Change navigation bar
     }
     
     override open func viewDidLayoutSubviews() {

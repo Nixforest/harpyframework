@@ -1099,8 +1099,16 @@ public class DomainConst {
     public static let HTTP_POST_REQUEST                     = "POST"
     
     // MARK: -----Version code-----
-    public static let VERSION_CODE                          = "111"
-    public static let VERSION_CODE_NAME                     = "Gas Service 1.1.1 @2016 Southern Petroleum"
+    public static let VERSION_CODE                          = Bundle.main.releaseVersionNumber!
+    public static let VERSION_BUILD_NUMBER                  = Bundle.main.buildVersionNumber!
+    public static let VERSION_CODE_WITH_NAME                = String.init(format: "%@ %@.%@",
+                                                                          BaseModel.shared.getAppName(),
+                                                                          VERSION_CODE,
+                                                                          VERSION_BUILD_NUMBER)
+    public static let COMPANY_NAME                          = "@2016 Southern Petroleum"
+    public static let VERSION_CODE_FULL_NAME                = String.init(format: "%@ %@",
+                                                                          VERSION_CODE_WITH_NAME,
+                                                                          COMPANY_NAME)
     public static let EMAIL                                 = "it@spj.vn"
     public static let WEBSITE                               = "http://daukhimiennam.com"
     

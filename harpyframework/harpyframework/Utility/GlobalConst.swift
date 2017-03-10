@@ -59,6 +59,9 @@ public class GlobalConst {
     public static let SMALL_FONT_SIZE                   : CGFloat = 10.0
     public static let BIG_FONT_SIZE                     : CGFloat = 14.0
     public static let LARGE_FONT_SIZE                   : CGFloat = 18.0
+    //++ BUG0048-SPJ (NguyenPT 20170309) Create navigation bar
+    public static let NOTIFY_FONT_SIZE                  : CGFloat = 25.0
+    //-- BUG0048-SPJ (NguyenPT 20170309) Create navigation bar
     public static let NORMAL_FONT_SIZE_LIST             : CGFloat = 13.0
     public static let SMALL_FONT_SIZE_LIST              : CGFloat = 11.0
     public static let TEXTFIELD_FONT_SIZE               : CGFloat = 12.0

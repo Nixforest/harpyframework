@@ -88,6 +88,8 @@
 		D76C379B1E24D24B0096F864 /* CollectionImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76C37991E24D24B0096F864 /* CollectionImageViewCell.swift */; };
 		D76C379C1E24D24B0096F864 /* CollectionImageViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D76C379A1E24D24B0096F864 /* CollectionImageViewCell.xib */; };
 		D778D6411E5D790D009FD654 /* icon81.png in Resources */ = {isa = PBXBuildFile; fileRef = D778D6401E5D790D009FD654 /* icon81.png */; };
+		D77D2B581E72596A000D38DE /* ChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77D2B571E72596A000D38DE /* ChildViewController.swift */; };
+		D77D2B5A1E725A4D000D38DE /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77D2B591E725A4D000D38DE /* ParentViewController.swift */; };
 		D77F05B61E71703E00797A6B /* DomainConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F05B31E71703E00797A6B /* DomainConst.swift */; };
 		D77F05B71E71703E00797A6B /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F05B41E71703E00797A6B /* Extension.swift */; };
 		D77F05B81E71703E00797A6B /* GlobalConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F05B51E71703E00797A6B /* GlobalConst.swift */; };
@@ -129,6 +131,8 @@
 		D77F06021E71738100797A6B /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F05FC1E71738100797A6B /* MenuItem.swift */; };
 		D77F06031E71738100797A6B /* TableCellOrderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F05FD1E71738100797A6B /* TableCellOrderType.swift */; };
 		D77F06041E71738100797A6B /* TableCellOrderType.xib in Resources */ = {isa = PBXBuildFile; fileRef = D77F05FE1E71738100797A6B /* TableCellOrderType.xib */; };
+		D77F068E1E719B1D00797A6B /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F068D1E719B1D00797A6B /* SlideMenuController.swift */; };
+		D77F06901E719B5300797A6B /* BaseSlideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F068F1E719B5300797A6B /* BaseSlideMenuViewController.swift */; };
 		D78E32631E5693000035C40D /* OrderVIPBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78E32621E5693000035C40D /* OrderVIPBean.swift */; };
 		D78E326F1E571C980035C40D /* ic_number_back.png in Resources */ = {isa = PBXBuildFile; fileRef = D78E326D1E571C980035C40D /* ic_number_back.png */; };
 		D78E32701E571C980035C40D /* ic_number_next.png in Resources */ = {isa = PBXBuildFile; fileRef = D78E326E1E571C980035C40D /* ic_number_next.png */; };
@@ -298,6 +302,8 @@
 		D76C37991E24D24B0096F864 /* CollectionImageViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionImageViewCell.swift; path = CustomeControl/CollectionImageViewCell.swift; sourceTree = "<group>"; };
 		D76C379A1E24D24B0096F864 /* CollectionImageViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CollectionImageViewCell.xib; path = CustomeControl/CollectionImageViewCell.xib; sourceTree = "<group>"; };
 		D778D6401E5D790D009FD654 /* icon81.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon81.png; path = images/icon81.png; sourceTree = "<group>"; };
+		D77D2B571E72596A000D38DE /* ChildViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChildViewController.swift; path = View/ChildViewController.swift; sourceTree = "<group>"; };
+		D77D2B591E725A4D000D38DE /* ParentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParentViewController.swift; path = View/ParentViewController.swift; sourceTree = "<group>"; };
 		D77F05B31E71703E00797A6B /* DomainConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DomainConst.swift; path = Utility/DomainConst.swift; sourceTree = "<group>"; };
 		D77F05B41E71703E00797A6B /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extension.swift; path = Utility/Extension.swift; sourceTree = "<group>"; };
 		D77F05B51E71703E00797A6B /* GlobalConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GlobalConst.swift; path = Utility/GlobalConst.swift; sourceTree = "<group>"; };
@@ -339,6 +345,8 @@
 		D77F05FC1E71738100797A6B /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuItem.swift; path = CustomeControl/MenuItem.swift; sourceTree = "<group>"; };
 		D77F05FD1E71738100797A6B /* TableCellOrderType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableCellOrderType.swift; path = CustomeControl/TableCellOrderType.swift; sourceTree = "<group>"; };
 		D77F05FE1E71738100797A6B /* TableCellOrderType.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TableCellOrderType.xib; path = CustomeControl/TableCellOrderType.xib; sourceTree = "<group>"; };
+		D77F068D1E719B1D00797A6B /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideMenuController.swift; path = View/SlideMenuController.swift; sourceTree = "<group>"; };
+		D77F068F1E719B5300797A6B /* BaseSlideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseSlideMenuViewController.swift; path = View/BaseSlideMenuViewController.swift; sourceTree = "<group>"; };
 		D78E32621E5693000035C40D /* OrderVIPBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderVIPBean.swift; path = Model/OrderVIPBean.swift; sourceTree = "<group>"; };
 		D78E326D1E571C980035C40D /* ic_number_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_number_back.png; path = images/ic_number_back.png; sourceTree = "<group>"; };
 		D78E326E1E571C980035C40D /* ic_number_next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_number_next.png; path = images/ic_number_next.png; sourceTree = "<group>"; };
@@ -463,10 +471,14 @@
 		D73B64541E0B79BC0032D582 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D77D2B591E725A4D000D38DE /* ParentViewController.swift */,
+				D77D2B571E72596A000D38DE /* ChildViewController.swift */,
+				D77F068D1E719B1D00797A6B /* SlideMenuController.swift */,
 				D77F05D91E7172BD00797A6B /* BaseMenuViewController.swift */,
 				D77F05DA1E7172BD00797A6B /* BaseViewController.swift */,
 				D7E014A91E347EA4001F26B6 /* MaterialSelectViewController.swift */,
 				D7A013091E37BAE6002EF5B3 /* InternalViewController.swift */,
+				D77F068F1E719B5300797A6B /* BaseSlideMenuViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -474,6 +486,7 @@
 		D7B5678B1E0D86820042D5A8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D7B567BC1E0D89240042D5A8 /* Response */,
 				D77F05C71E7172AD00797A6B /* BaseModel.swift */,
 				D77F05C81E7172AD00797A6B /* ConfigBean.swift */,
 				D77F05C91E7172AD00797A6B /* NotificationBean.swift */,
@@ -483,7 +496,6 @@
 				D77F05CD1E7172AD00797A6B /* UpholdBean.swift */,
 				D77F05CE1E7172AD00797A6B /* UpholdReplyBean.swift */,
 				D77F05CF1E7172AD00797A6B /* UserInfoBean.swift */,
-				D7B567BC1E0D89240042D5A8 /* Response */,
 				D7F684491E2F5F4E00D3D6F4 /* MaterialBean.swift */,
 				D7F6844B1E2F620400D3D6F4 /* BaseAgentInfoBean.swift */,
 				D7C30A381E3058B600B3FDA6 /* AgentInfoBean.swift */,
@@ -981,6 +993,7 @@
 				D7F3D8CD1E1B74720018744F /* CustomeDateTimeView.swift in Sources */,
 				D77F05F61E71737200797A6B /* UpholdDetailRequest.swift in Sources */,
 				D77F05C41E71729400797A6B /* UpholdDetailRespModel.swift in Sources */,
+				D77F068E1E719B1D00797A6B /* SlideMenuController.swift in Sources */,
 				D7D04E431E557FBF00B3F8CF /* OrderVIPDetailBean.swift in Sources */,
 				D7AB90541E2402170048AC4F /* ScrollButtonList.swift in Sources */,
 				D77F05B61E71703E00797A6B /* DomainConst.swift in Sources */,
@@ -990,6 +1003,8 @@
 				D708B17C1E4852120074C528 /* DebugBean.swift in Sources */,
 				D7AF28001E58785500AFF9D6 /* OrderVIPListBean.swift in Sources */,
 				D77F05F01E71737200797A6B /* NotificationCountRequest.swift in Sources */,
+				D77D2B5A1E725A4D000D38DE /* ParentViewController.swift in Sources */,
+				D77F06901E719B5300797A6B /* BaseSlideMenuViewController.swift in Sources */,
 				D77F05F31E71737200797A6B /* RequestAPI.swift in Sources */,
 				D77F05C31E71729400797A6B /* SearchCustomerRespModel.swift in Sources */,
 				D77F05D11E7172AD00797A6B /* ConfigBean.swift in Sources */,
@@ -1008,6 +1023,7 @@
 				D79C1BBD1E4ACEC700E6E121 /* PromotionBean.swift in Sources */,
 				D791F6B01E238135009CBBED /* CommonProcess.swift in Sources */,
 				D7AB90561E2402170048AC4F /* StepSummary.swift in Sources */,
+				D77D2B581E72596A000D38DE /* ChildViewController.swift in Sources */,
 				D77F05FF1E71738100797A6B /* CustomCheckBox.swift in Sources */,
 				D7AB904E1E23FBC20048AC4F /* SearchBarTableViewCell.swift in Sources */,
 				D77F05F11E71737200797A6B /* RegisterConfirmRequest.swift in Sources */,
