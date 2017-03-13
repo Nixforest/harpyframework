@@ -8,7 +8,7 @@
 
 import Foundation
 public class DebugBean {
-    public static let DEBUG_DEFAULT_GAS_SERVICE         = true
+    public static let DEBUG_DEFAULT_GAS_SERVICE         = false
     public static let DEBUG_DEFAULT_TOP_ICON            = false
     public static let DEBUG_DEFAULT_SHOW_NUMBER_PICKER  = true
     /** Flag set color for all components on View */

@@ -8,7 +8,10 @@
 
 import UIKit
 
-open class MaterialSelectViewController: BaseViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+//++ BUG0048-SPJ (NguyenPT 20170313) Create slide menu view controller
+//open class MaterialSelectViewController: BaseViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+open class MaterialSelectViewController: ChildViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+//-- BUG0048-SPJ (NguyenPT 20170313) Create slide menu view controller
     // MARK: Properties
     private static var _data: [MaterialBean]    = [MaterialBean]()
     // MARK: Properties
