@@ -74,6 +74,8 @@ public class BaseModel: NSObject {
     public var searchCustomerResult: SearchCustomerRespModel = SearchCustomerRespModel()
     /** Shared string */
     public var sharedString = ""
+    /** Shared 2 string */
+    public var sharedDoubleStr = (DomainConst.BLANK, DomainConst.BLANK)
     /** Shared int */
     public var sharedInt = -1
     /** Current uphold detail */

@@ -79,4 +79,17 @@ public class UpholdListRespModel: BaseRespModel {
     public func getTotalRecord() -> Int {
         return self.total_record
     }
+    
+    /**
+     * Update status by id
+     * - parameter id: Id of uphold item
+     * - parameter status: Status of uphold item
+     */
+    public func updateStatus(id: String, status: String) {
+        for item in self.record {
+            if item.id == id {
+                item.status = status
+            }
+        }
+    }
 }

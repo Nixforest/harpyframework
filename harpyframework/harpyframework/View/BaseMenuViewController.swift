@@ -250,7 +250,7 @@ open class BaseMenuViewController : UIViewController {
 //        self.dismiss(animated: true, completion: {
 //            self.menuItemTappedDelegate?.menuItemTapped(sender)
 //        })
-        let currentView = BaseViewController.getCurrentViewController()
+        if let currentView = BaseViewController.getCurrentViewController() {
         // Close slide menu
         BaseViewController.getRootController()?.closeLeft()
         switch (sender as! UIButton).accessibilityIdentifier! {
@@ -298,6 +298,7 @@ open class BaseMenuViewController : UIViewController {
             break
         default:
             break
+        }
         }
         //-- BUG0048-SPJ (NguyenPT 20170309) Remove popover menu
     }

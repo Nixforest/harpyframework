@@ -617,15 +617,15 @@ public class DomainConst {
     /** Uphold contact: Other */
     public static let UPHOLD_CONTACT_OTHER              = "4"
     /** Role id: Customer */
-    public static let ROLE_CUSTOMER                     = "4"
+    public static let ROLE_CUSTOMER                     = String(RoleType.ROLE_CUSTOMER.rawValue)
     /** Role id: Coordinator */
-    public static let ROLE_COORDINATOR                  = "17"
+    public static let ROLE_COORDINATOR                  = String(RoleType.ROLE_DIEU_PHOI.rawValue)
     /** Role id: Audit */
-    public static let ROLE_AUDIT                        = "54"
+    public static let ROLE_AUDIT                        = String(RoleType.ROLE_AUDIT.rawValue)
     /** Role id: Chief monitor */
-    public static let ROLE_CHIEF_MONITOR                = "28"
+    public static let ROLE_CHIEF_MONITOR                = String(RoleType.ROLE_CHIEF_MONITOR.rawValue)
     /** Role id: Director */
-    public static let ROLE_DIRECTOR                     = "19"
+    public static let ROLE_DIRECTOR                     = String(RoleType.ROLE_DIRECTOR.rawValue)
     /** Flag change pass: need change */
     public static let NEED_CHANGE_PASS                  = "1"
     /** Flag change pass: no need change */
@@ -1356,4 +1356,6 @@ public class DomainConst {
     public static let CONTENT00261 = "Tiền gas dư"
     public static let CONTENT00262 = "Tổng thanh toán"
     public static let CONTENT00263 = "Thông tin vỏ"
+    public static let CONTENT00279 = "Bạn không có quyền sử dụng chức năng này"
+    public static let CONTENT00280 = "Đăng xuất thành công"
 }

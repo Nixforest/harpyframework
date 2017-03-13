@@ -28,6 +28,20 @@ public class NotificationBean {
     }
     
     /**
+     * Constructor wit parameter
+     */
+    public init(id: String, notify_id: String,
+                notify_type: String, type: String,
+                reply_id: String, message: String) {
+        self.id          = id
+        self.notify_id   = notify_id
+        self.notify_type = notify_type
+        self.type        = type
+        self.reply_id    = reply_id
+        self.message     = message
+    }
+    
+    /**
      * Get id value
      * - returns: Id value
      */
@@ -105,5 +119,29 @@ public class NotificationBean {
      */
     public func setReplyId(reply_id: String) {
         self.reply_id = reply_id
+    }
+    
+    /**
+     * Get message value
+     * - returns: Message value
+     */
+    public func getMessage() -> String {
+        return self.message
+    }
+    
+    /**
+     * Check if notification is exist
+     * - returns: True if id of notification is not empty, False otherwise
+     */
+    public func checkNotificationExist() -> Bool {
+        return !(self.id.isEmpty)
+    }
+    
+    /**
+     * Check if notification from uphold
+     * - returns: True if type is VIEW_UPHOLD, False otherwise
+     */
+    public func isUpholdNotification() -> Bool {
+        return (self.type == DomainConst.NOTIFY_VIEW_UPHOLD)
     }
 }

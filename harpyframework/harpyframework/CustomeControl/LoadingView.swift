@@ -99,7 +99,7 @@ public class LoadingView{
 //        var currentView: UIViewController? = nil
 //        if let navigationController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
 //            currentView = navigationController.visibleViewController
-        let currentView = BaseViewController.getCurrentViewController()
+        if let currentView = BaseViewController.getCurrentViewController() {
         //-- BUG0048-SPJ (NguyenPT 20170309) Create slide menu view controller
             lblTitle = UILabel(frame: CGRect(x: 50, y: 0, width: 200, height: 50))
             lblTitle.text = "Đang tải"
@@ -124,9 +124,7 @@ public class LoadingView{
             DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(30000)) {
                 self.hideOverlayView()
             }
-        //++ BUG0048-SPJ (NguyenPT 20170309) Create slide menu view controller
-//        }
-        //-- BUG0048-SPJ (NguyenPT 20170309) Create slide menu view controller
+        }
     }
     
     /**

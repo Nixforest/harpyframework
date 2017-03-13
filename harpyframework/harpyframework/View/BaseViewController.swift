@@ -14,12 +14,19 @@ open class BaseViewController : UIViewController {
     // MARK: Properties
     /** Navigation bar */
     @IBOutlet weak public var navigationBar: UINavigationItem!
-    /** Menu button */
-    @IBOutlet weak public var menuButton: UIButton!
+    //++ BUG0048-SPJ (NguyenPT 20170313) Remove
+//    /** Menu button */
+//    @IBOutlet weak public var menuButton: UIButton!
+    //-- BUG0048-SPJ (NguyenPT 20170313) Remove
+    //++ BUG0049-SPJ (NguyenPT 20170313) Handle notification received
     /** Notification button */
-    @IBOutlet weak public var notificationButton: UIButton!
-    /** Back button */
-    @IBOutlet weak public var backButton: UIButton!
+//    @IBOutlet weak public var notificationButton: UIButton!
+    private var btnNotify: UIButton = UIButton()
+    //-- BUG0049-SPJ (NguyenPT 20170313) Handle notification received
+    //++ BUG0048-SPJ (NguyenPT 20170313) Remove 0129 2589 769
+//    /** Back button */
+//    @IBOutlet weak public var backButton: UIButton!
+    //-- BUG0048-SPJ (NguyenPT 20170313) Remove
     /** Flag check keyboard is show or hide */
     public var isKeyboardShow : Bool = false
     /** Height of keyboard */
@@ -141,7 +148,10 @@ open class BaseViewController : UIViewController {
         label.frame = CGRect(x: self.view.frame.width, y: self.view.frame.height - getTopHeight(),
                              width: label.frame.width, height: label.frame.height)
         label.alpha = 1
-        BaseViewController.getCurrentViewController().view.addSubview(label)
+        if let currentView = BaseViewController.getCurrentViewController() {
+            currentView.view.addSubview(label)
+        }
+//        BaseViewController.getCurrentViewController().view.addSubview(label)
         
         var basketTopFrame: CGRect = label.frame;
         basketTopFrame.origin.x = (self.view.frame.width - label.frame.width) / 2
@@ -286,7 +296,9 @@ open class BaseViewController : UIViewController {
         navigationBar.setLeftBarButton(menuNavBar, animated: false)
         
         // Notify button
-        let btnNotify = UIButton()
+        //++ BUG0049-SPJ (NguyenPT 20170313) Handle notification received
+//        let btnNotify = UIButton()
+        //-- BUG0049-SPJ (NguyenPT 20170313) Handle notification received
         btnNotify.frame = CGRect(x: 0, y: 0,
                                  width: GlobalConst.MENU_BUTTON_W,
                                  height: GlobalConst.NOTIFY_BUTTON_H)
@@ -341,7 +353,9 @@ open class BaseViewController : UIViewController {
         navigationBar.setLeftBarButton(backNavBar, animated: false)
         
         // Notify button
-        let btnNotify = UIButton()
+        //++ BUG0049-SPJ (NguyenPT 20170313) Handle notification received
+//        let btnNotify = UIButton()
+        //-- BUG0049-SPJ (NguyenPT 20170313) Handle notification received
         btnNotify.frame = CGRect(x: 0, y: 0,
                                  width: GlobalConst.MENU_BUTTON_W,
                                  height: GlobalConst.NOTIFY_BUTTON_H)
@@ -568,12 +582,20 @@ open class BaseViewController : UIViewController {
      * Update notification button status
      */
     public func updateNotificationStatus() {
+        //++ BUG0049-SPJ (NguyenPT 20170313) Handle notification received
 //        self.notificationButton.isEnabled = !BaseModel.shared.notifyCountText.isEmpty
 //        if !BaseModel.shared.notifyCountText.isEmpty {
 //            self.notificationButton.backgroundColor = GlobalConst.BUTTON_COLOR_RED
 //        } else {
 //            self.notificationButton.backgroundColor = GlobalConst.BUTTON_COLOR_GRAY
 //        }
+        self.btnNotify.isEnabled = !BaseModel.shared.notifyCountText.isEmpty
+        if !BaseModel.shared.notifyCountText.isEmpty {
+            self.btnNotify.backgroundColor = GlobalConst.BUTTON_COLOR_RED
+        } else {
+            self.btnNotify.backgroundColor = GlobalConst.BUTTON_COLOR_GRAY
+        }
+        //-- BUG0049-SPJ (NguyenPT 20170313) Handle notification received
     }
     
     /**
@@ -596,7 +618,7 @@ open class BaseViewController : UIViewController {
      * Get current view controller
      * - returns: Current view controller
      */
-    public static func getCurrentViewController() -> BaseViewController {
+    public static func getCurrentViewController() -> BaseViewController? {
         var currentView: UIViewController? = nil
         if let navigationController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
             currentView = navigationController.visibleViewController
@@ -609,7 +631,7 @@ open class BaseViewController : UIViewController {
         }
         //-- BUG0048-SPJ (NguyenPT 20170309) Create slide menu view controller
 
-        return currentView as! BaseViewController
+        return currentView as? BaseViewController
     }
     
     //++ BUG0048-SPJ (NguyenPT 20170309) Remove popover menu
@@ -717,9 +739,62 @@ open class BaseViewController : UIViewController {
      * Finish request logout handler
      */
     public func finishRequestLogout(_ notification: Notification) {
-        self.popToRootView()
+        self.showAlert(message: DomainConst.CONTENT00280, okHandler: {
+            (alert: UIAlertAction!) in
+            self.popToRootView()
+        })
     }
     //-- BUG0046-SPJ (NguyenPT 20170301) Use action for Request server completion
+    //++ BUG0049-SPJ (NguyenPT 20170313) Handle notification received
+    /**
+     * Handle notification received from server
+     * - paramter notify:   Notification data
+     * - paramter isManual:
+     */
+    public func handleNotification(notify: NotificationBean, isManual: Bool = false) {
+        if isManual && BaseModel.shared.canHandleNotification() {
+            // Create alert
+            let alert = UIAlertController(title: DomainConst.CONTENT00044, message: notify.getMessage(), preferredStyle: .alert)
+            // OK handler
+            let okAction = UIAlertAction(title: DomainConst.CONTENT00223, style: .default, handler: {
+                (alert: UIAlertAction!) in
+                // Confirm notify request
+                ConfirmNotifyRequest.requestConfirmNotify(notifyId: notify.getNotifyId(), type: notify.getType(), objId: notify.getId())
+                // Check if notification data is valid
+                if notify.checkNotificationExist() {
+                    // User logined
+                    if BaseModel.shared.checkIsLogin() {
+                        // Switch by type
+                        switch notify.getType() {
+                        case DomainConst.NOTIFY_VIEW_UPHOLD:
+                            BaseModel.shared.sharedDoubleStr.0 = notify.getId()
+                            BaseModel.shared.sharedDoubleStr.1 = notify.getReplyId()
+                            if BaseModel.shared.isCustomerUser() {
+                                self.pushToView(name: DomainConst.G01_F00_S03_VIEW_CTRL)
+                            } else {
+                                self.pushToView(name: DomainConst.G01_F00_S02_VIEW_CTRL)
+                            }
+                            break
+                        default: break
+                        }
+                    } else {
+                        self.pushToView(name: DomainConst.G00_LOGIN_VIEW_CTRL)
+                    }
+                }
+            })
+            alert.addAction(okAction)
+            let cancelAction = UIAlertAction(title: DomainConst.CONTENT00224, style: .cancel, handler: {
+                (alert: UIAlertAction!) in
+                BaseModel.shared.clearNotificationData()
+            })
+            alert.addAction(cancelAction)
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            // Reply confirm notify to server
+            ConfirmNotifyRequest.requestConfirmNotify(notifyId: notify.getNotifyId(), type: notify.getType(), objId: notify.getId())
+        }
+    }
+    //-- BUG0049-SPJ (NguyenPT 20170313) Handle notification received
     
     /**
      * Destructor

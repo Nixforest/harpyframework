@@ -22,6 +22,9 @@ open class ParentViewController: BaseViewController, SlideMenuControllerDelegate
      * View did appear
      */
     override open func viewDidAppear(_ animated: Bool) {
+        //++ BUG0049-SPJ (NguyenPT 20170313) Handle notification received
+        super.viewDidAppear(animated)
+        //-- BUG0049-SPJ (NguyenPT 20170313) Handle notification received
         if let slideMenuController = BaseViewController.getRootController() {
             slideMenuController.addLeftGestures()
         }
