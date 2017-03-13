@@ -717,7 +717,10 @@ public class DomainConst {
     
     
     /** Money unit: Vietnam dong */
-    public static let VIETNAMDONG                       = " " + NumberFormatter().locale.currencySymbol!
+    //++ BUG0037-SPJ (NguyenPT 20170222) Remove Currency symbol
+    //public static let VIETNAMDONG                       = " " + NumberFormatter().locale.currencySymbol!
+    public static let VIETNAMDONG                       = DomainConst.BLANK
+    //-- BUG0037-SPJ (NguyenPT 20170222) Remove Currency symbol
     /** Promote default value */
     public static let PROMOTION_DEFAULT                 = "50,000"
     /** Discount default value */
