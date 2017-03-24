@@ -51,7 +51,7 @@ class InternalViewController: ChildViewController, UITableViewDelegate, UITableV
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 11
+        return 12
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {        
@@ -124,6 +124,10 @@ class InternalViewController: ChildViewController, UITableViewDelegate, UITableV
             cell.setData(leftImg: DomainConst.INFORMATION_IMG_NAME,
                          name: "Show top icon", switchValue: BaseModel.shared.getDebugShowTopIconFlag(),
                          action: #selector(updateDebugShowTopIconFlag(_:)), target: self)
+        case 11:
+            cell.setData(leftImg: DomainConst.INFORMATION_IMG_NAME,
+                         name: "G06: API Tester",
+                         value: DomainConst.BLANK, isHideRightImg: false)
         default:
             break
         }
@@ -152,6 +156,9 @@ class InternalViewController: ChildViewController, UITableViewDelegate, UITableV
             break
         case 7:
             inputZoomValueAlert()
+            break
+        case 11:
+            self.pushToView(name: DomainConst.G06_API_TEST_VIEW_CTRL)
             break
         default:
             break

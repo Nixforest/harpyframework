@@ -167,10 +167,18 @@ open class BaseRequest: NSObject {
                 self.view.showAlert(message: DomainConst.CONTENT00196)
                 return
             }
-            guard data == nil else {
+            //++ BUG0050-SPJ (NguyenPT 20170323) Handle result string
+            //guard data == nil else {
+            guard let data = data else {
+            //-- BUG0050-SPJ (NguyenPT 20170323) Handle result string
                 self.view.showAlert(message: DomainConst.CONTENT00196)
                 return
             }
+            //++ BUG0050-SPJ (NguyenPT 20170323) Handle result string
+            // Convert to string
+            let dataString = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
+            self.handleCompleteTask(model: dataString)
+            //-- BUG0050-SPJ (NguyenPT 20170323) Handle result string
         })
         return task
     }

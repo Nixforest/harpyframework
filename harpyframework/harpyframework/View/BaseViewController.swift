@@ -66,7 +66,10 @@ open class BaseViewController : UIViewController {
      */
     override open func viewDidAppear(_ animated: Bool) {
         //notification button enable/disable
-        self.updateNotificationStatus()
+        //self.updateNotificationStatus()
+        if BaseModel.shared.checkIsLogin() {
+            NotificationCountRequest.requestNotificationCount(action: #selector(updateNotificationStatus(_:)), view: self)
+        }
     }
     
     /**

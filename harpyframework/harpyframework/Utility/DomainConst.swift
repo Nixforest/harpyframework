@@ -508,6 +508,16 @@ public class DomainConst {
     public static let KEY_INFO_CYLINDER                 = "info_vo"
     /** Key Order id */
     public static let KEY_ORDER_ID                      = "order_id"
+    //++ BUG0050-SPJ (NguyenPT 20170323) Add new key for new function G06
+    /** Key Buying */
+    public static let KEY_BUYING                        = "buying"
+    /** Key Platform */
+    public static let KEY_PLATFORM                      = "platform"
+    /** Key Date from */
+    public static let KEY_DATE_FROM                     = "date_from"
+    /** Key Date to */
+    public static let KEY_DATE_TO                       = "date_to"
+    //-- BUG0050-SPJ (NguyenPT 20170323) Add new key for new function G06
     
     // MARK: -----Specified constant-----
     /** File parameter: file_name[ + ] */
@@ -838,6 +848,10 @@ public class DomainConst {
     public static let G04_F02_S01_VIEW_CTRL                         = "G04F02S01VC"
     /** Name of G05F00 Order list view controller */
     public static let G05_F00_S01_VIEW_CTRL                         = "G05F00S01VC"
+    //++ BUG0050-SPJ (NguyenPT 20170323) Add new view controller
+    /** Name of G06APITest view controller */
+    public static let G06_API_TEST_VIEW_CTRL                        = "G06APITestVC"
+    //++ BUG0050-SPJ (NguyenPT 20170323) Add new view controller
     
     /** Name of ChangePasswordViewController */
     public static let G00_CHANGE_PASS_VIEW_CTRL                     = "G00ChangePassVC"
