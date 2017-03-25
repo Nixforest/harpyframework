@@ -347,6 +347,8 @@ public class DomainConst {
     public static let KEY_QUANTITY_REAL                 = "qty_real"
     /** Setting key: Serial */
     public static let KEY_SERI                          = "seri"
+    /** Setting key: Serial */
+    public static let KEY_SERIAL                        = "serial"
     /** Setting key: KEY_KG_EMPTY */
     public static let KEY_KG_EMPTY                      = "kg_empty"
     /** Setting key: KEY_KG_HAS_GAS */
@@ -517,6 +519,14 @@ public class DomainConst {
     public static let KEY_DATE_FROM                     = "date_from"
     /** Key Date to */
     public static let KEY_DATE_TO                       = "date_to"
+    /** Key Customer Family Brand*/
+    public static let KEY_CUSTOMER_FAMILY_BRAND         = "hgd_thuong_hieu"
+    /** List Customer family type */
+    public static let KEY_HGD_TYPE                      = "hgd_type"
+    /** List Customer family type */
+    public static let KEY_HGD_TIME_USE                  = "hgd_time_use"
+    /** List Customer family type */
+    public static let KEY_HGD_DOI_THU                  = "hgd_doi_thu"
     //-- BUG0050-SPJ (NguyenPT 20170323) Add new key for new function G06
     
     // MARK: -----Specified constant-----
@@ -724,6 +734,12 @@ public class DomainConst {
     // MARK: New
     /** Key menu item: Promotion list */
     public static let KEY_MENU_PROMOTION_LIST           = "promotion_list"
+    //++ BUG0050-SPJ (NguyenPT 20170325) Add new function G06
+    /** Platform value: Android */
+    public static let PLATFORM_ANDROID                  = 1
+    /** Platform value: iOS */
+    public static let PLATFORM_IOS                      = 2
+    //++ BUG0050-SPJ (NguyenPT 20170325) Add new function G06
     
     
     /** Money unit: Vietnam dong */

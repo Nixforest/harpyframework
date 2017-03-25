@@ -14,11 +14,11 @@ public class NotificationCountRequest: BaseRequest {
             data, response, error) in
             // Check error
             guard error == nil else {
-                self.showAlert(message: DomainConst.CONTENT00196)
+                //self.showAlert(message: DomainConst.CONTENT00196)
                 return
             }
             guard let data = data else {
-                self.showAlert(message: DomainConst.CONTENT00196)
+                //self.showAlert(message: DomainConst.CONTENT00196)
                 return
             }
             // Convert to string
@@ -33,8 +33,10 @@ public class NotificationCountRequest: BaseRequest {
                 self.showAlert(message: model.message)
                 return
             }
-            // Hide overlay
-            LoadingView.shared.hideOverlayView()
+            //++ BUG0049-SPJ (NguyenPT 20170325) Remove loading view
+//            // Hide overlay
+//            LoadingView.shared.hideOverlayView()
+            //-- BUG0049-SPJ (NguyenPT 20170325) Remove loading view
             DispatchQueue.main.async {
                 //++ BUG0046-SPJ (NguyenPT 20170302) Use action for Request server completion
 //                NotificationCenter.default.post(name: Notification.Name(rawValue: DomainConst.NOTIFY_NAME_UPDATE_NOTIFY_HOMEVIEW), object: model)
@@ -46,15 +48,15 @@ public class NotificationCountRequest: BaseRequest {
         return task
     }
     
-    /**
-     * Initializer
-     * - parameter url: URL
-     * - parameter reqMethod: Request method
-     * - parameter view: Root view
-     */
-    override init(url: String, reqMethod: String, view: BaseViewController) {
-        super.init(url: url, reqMethod: reqMethod, view: view)
-    }
+//    /**
+//     * Initializer
+//     * - parameter url: URL
+//     * - parameter reqMethod: Request method
+//     * - parameter view: Root view
+//     */
+//    override init(url: String, reqMethod: String, view: BaseViewController) {
+//        super.init(url: url, reqMethod: reqMethod, view: view)
+//    }
     
     /**
      * Set data content
@@ -72,8 +74,10 @@ public class NotificationCountRequest: BaseRequest {
      * - parameter view: View controller
      */
     public static func requestNotificationCount(action: Selector, view: BaseViewController) {
-        // Show overlay
-        LoadingView.shared.showOverlay(view: view.view)
+        //++ BUG0049-SPJ (NguyenPT 20170325) Remove loading view
+//        // Show overlay
+//        LoadingView.shared.showOverlay(view: view.view)
+        //-- BUG0049-SPJ (NguyenPT 20170325) Remove loading view
         let request = NotificationCountRequest(url: DomainConst.PATH_SITE_NOTIFY_COUNT, reqMethod: DomainConst.HTTP_POST_REQUEST, view: view)
         request.setData()
         NotificationCenter.default.addObserver(view, selector: action, name:NSNotification.Name(rawValue: request.theClassName), object: nil)
