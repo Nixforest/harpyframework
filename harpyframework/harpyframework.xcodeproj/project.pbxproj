@@ -186,6 +186,8 @@
 		D7C30A401E30628800B3FDA6 /* icon76.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C30A3F1E30628800B3FDA6 /* icon76.png */; };
 		D7C30A421E306F7F00B3FDA6 /* ic_checkpoint.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C30A411E306F7F00B3FDA6 /* ic_checkpoint.png */; };
 		D7C30A441E307C1600B3FDA6 /* logo_agent.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C30A431E307C1600B3FDA6 /* logo_agent.png */; };
+		D7CDBE261E877F0F00B73877 /* CustomerFamilyBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CDBE251E877F0F00B73877 /* CustomerFamilyBean.swift */; };
+		D7CDBE2D1E880A7800B73877 /* WorkingReportBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CDBE2C1E880A7800B73877 /* WorkingReportBean.swift */; };
 		D7CFF1F81E44F23500A37C07 /* icon23.png in Resources */ = {isa = PBXBuildFile; fileRef = D7CFF1F71E44F23500A37C07 /* icon23.png */; };
 		D7D04E371E55544900B3F8CF /* icon77.png in Resources */ = {isa = PBXBuildFile; fileRef = D7D04E361E55544900B3F8CF /* icon77.png */; };
 		D7D04E431E557FBF00B3F8CF /* OrderVIPDetailBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D04E421E557FBF00B3F8CF /* OrderVIPDetailBean.swift */; };
@@ -406,6 +408,8 @@
 		D7C30A411E306F7F00B3FDA6 /* ic_checkpoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_checkpoint.png; path = images/ic_checkpoint.png; sourceTree = "<group>"; };
 		D7C30A431E307C1600B3FDA6 /* logo_agent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo_agent.png; path = images/logo_agent.png; sourceTree = "<group>"; };
 		D7C34A451E2B2BA60041B6CA /* libPods-project.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-project.a"; path = "../../../../Library/Developer/Xcode/DerivedData/project-bvtrqvfvowkogmgvpphakijhhgei/Build/Products/Debug-iphoneos/libPods-project.a"; sourceTree = "<group>"; };
+		D7CDBE251E877F0F00B73877 /* CustomerFamilyBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomerFamilyBean.swift; path = Model/CustomerFamilyBean.swift; sourceTree = "<group>"; };
+		D7CDBE2C1E880A7800B73877 /* WorkingReportBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkingReportBean.swift; path = Model/WorkingReportBean.swift; sourceTree = "<group>"; };
 		D7CFF1F71E44F23500A37C07 /* icon23.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon23.png; path = images/icon23.png; sourceTree = "<group>"; };
 		D7D04E361E55544900B3F8CF /* icon77.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon77.png; path = images/icon77.png; sourceTree = "<group>"; };
 		D7D04E421E557FBF00B3F8CF /* OrderVIPDetailBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderVIPDetailBean.swift; path = Model/OrderVIPDetailBean.swift; sourceTree = "<group>"; };
@@ -514,6 +518,8 @@
 				D78E32621E5693000035C40D /* OrderVIPBean.swift */,
 				D7AF27FF1E58785500AFF9D6 /* OrderVIPListBean.swift */,
 				D709FE9C1E86F86900F32A7E /* CustomerFamilyListBean.swift */,
+				D7CDBE251E877F0F00B73877 /* CustomerFamilyBean.swift */,
+				D7CDBE2C1E880A7800B73877 /* WorkingReportBean.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1037,6 +1043,7 @@
 				D7AB90551E2402170048AC4F /* StepContent.swift in Sources */,
 				D7E9BF6B1E2C78B10068D200 /* CategoryButton.swift in Sources */,
 				D76C37981E24CF220096F864 /* RatingBar.swift in Sources */,
+				D7CDBE261E877F0F00B73877 /* CustomerFamilyBean.swift in Sources */,
 				D7A0130A1E37BAE6002EF5B3 /* InternalViewController.swift in Sources */,
 				D77F05ED1E71737200797A6B /* ConfirmNotifyRequest.swift in Sources */,
 				D77F05D71E7172AD00797A6B /* UpholdReplyBean.swift in Sources */,
@@ -1055,6 +1062,7 @@
 				D77F05F21E71737200797A6B /* RegisterRequest.swift in Sources */,
 				D77F05D51E7172AD00797A6B /* OrderListBean.swift in Sources */,
 				D7F3D8D01E1B80D80018744F /* TableCellUpholdType.swift in Sources */,
+				D7CDBE2D1E880A7800B73877 /* WorkingReportBean.swift in Sources */,
 				D77F05C01E71729400797A6B /* BaseRespModel.swift in Sources */,
 				D7AB90571E2402170048AC4F /* StepVC.swift in Sources */,
 				D77F05EB1E71737200797A6B /* BaseRequest.swift in Sources */,

@@ -588,10 +588,28 @@ public extension NSObject {
         }
         return retVal
     }
+    //++ BUG0050-SPJ (NguyenPT 20170326) Add new function G06
+    /**
+     * Get list string data from key in json list
+     * - parameter json: Json data
+     * - parameter key: Key value
+     * - returns: Value of list string data data match with key value
+     */
+    public func getListString(json: [String: AnyObject], key: String) -> [String] {
+        var retVal = [String]()
+        let str = json[key] as? [String]
+        if str != nil {
+            for item in str! {
+                retVal.append(item)
+            }
+        }
+        return retVal
+    }
+    //-- BUG0050-SPJ (NguyenPT 20170326) Add new function G06
+    /** The class name */
     public var theClassName: String {
         return NSStringFromClass(type(of: self))
     }
-    
 }
 public extension UIView {
     /**

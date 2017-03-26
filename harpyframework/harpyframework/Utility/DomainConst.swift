@@ -524,9 +524,23 @@ public class DomainConst {
     /** List Customer family type */
     public static let KEY_HGD_TYPE                      = "hgd_type"
     /** List Customer family type */
+    public static let KEY_HGD_TYPE_ID                   = "hgd_type_id"
+    /** List Customer family type */
     public static let KEY_HGD_TIME_USE                  = "hgd_time_use"
     /** List Customer family type */
-    public static let KEY_HGD_DOI_THU                  = "hgd_doi_thu"
+    public static let KEY_HGD_DOI_THU                   = "hgd_doi_thu"
+    /** Key customer type */
+    public static let KEY_CUSTOMER_TYPE                 = "customer_type"
+    /** Key latitude longitude */
+    public static let KEY_LONG_LAT                      = "latitude_longitude"
+    /** Key list_hgd_invest_text */
+    public static let KEY_HGD_INVEST_TEXT               = "list_hgd_invest_text"
+    /** Key Can update flag */
+    public static let KEY_CAN_UPDATE_FLAG               = "can_update"
+    /** Key full name */
+    public static let KEY_FULL_NAME                     = "full_name"
+    /** Key Model record */
+    public static let KEY_MODEL_RECORD                  = "model_record"
     //-- BUG0050-SPJ (NguyenPT 20170323) Add new key for new function G06
     
     // MARK: -----Specified constant-----
