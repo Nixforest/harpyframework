@@ -541,6 +541,8 @@ public class DomainConst {
     public static let KEY_FULL_NAME                     = "full_name"
     /** Key Model record */
     public static let KEY_MODEL_RECORD                  = "model_record"
+    /** Key Report */
+    public static let KEY_HGD_REPORT                    = "hgd_short_report"
     //-- BUG0050-SPJ (NguyenPT 20170323) Add new key for new function G06
     
     // MARK: -----Specified constant-----
@@ -753,7 +755,13 @@ public class DomainConst {
     public static let PLATFORM_ANDROID                  = 1
     /** Platform value: iOS */
     public static let PLATFORM_IOS                      = 2
-    //++ BUG0050-SPJ (NguyenPT 20170325) Add new function G06
+    /** Customer Family Buying value: All */
+    public static let CUSTOMER_FAMILY_BUYING_ALL        = "0"
+    /** Customer Family Buying value: Bought */
+    public static let CUSTOMER_FAMILY_BUYING_BOUGHT     = "1"
+    /** Customer Family Buying value: Not yet */
+    public static let CUSTOMER_FAMILY_BUYING_NOTYET     = "2"
+    //-- BUG0050-SPJ (NguyenPT 20170325) Add new function G06
     
     
     /** Money unit: Vietnam dong */
@@ -915,6 +923,11 @@ public class DomainConst {
     public static let TABLE_VIEW_CELL_ORDER_TYPE                    = "TableCellOrderType"
     /** Table view cell Promotion */
     public static let PROMOTION_TABLE_VIEW_CELL                     = "PromotionTableViewCell"
+    //++ BUG0050-SPJ (NguyenPT 20170323) Add new key for new function G06
+    /** Table view cell Customer Family List */
+    public static let CUSTOMER_FAMILY_LIST_TABLE_VIEW_CELL          = "CustomerFamilyListCell"
+    public static let G06_F00_S01_VC                                = "G06F00S01VC"
+    //++ BUG0050-SPJ (NguyenPT 20170323) Add new key for new function G06
     
     /** Pop overmenu identifier */
     public static let POPOVER_MENU_IDENTIFIER                       = "popOverMenu"
@@ -1405,4 +1418,5 @@ public class DomainConst {
     public static let CONTENT00263 = "Thông tin vỏ"
     public static let CONTENT00279 = "Bạn không có quyền sử dụng chức năng này"
     public static let CONTENT00280 = "Đăng xuất thành công"
+    public static let CONTENT00281 = "KH Hộ gia đình"
 }

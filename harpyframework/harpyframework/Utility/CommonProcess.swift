@@ -216,4 +216,33 @@ public class CommonProcess {
                                               right: GlobalConst.MARGIN_CELL_X)
         //-- BUG0038-SPJ (NguyenPT 20170222) Decrease size of icon on Button
     }
+    //++ BUG0050-SPJ (NguyenPT 20170325) Add new function G06
+    /**
+     * Get current date value
+     * - returns: Date value as string with format: dd-mm-yyyy
+     */
+    public static func getCurrentDate() -> String {
+        var retVal = DomainConst.BLANK
+        // Get current date and time
+        let currentDate = Date()
+        // Get user calendar
+        let userCalendar = Calendar.current
+        // Choose which date and time component are needed
+        let requestedComponents: Set<Calendar.Component> = [
+            .year,
+            .month,
+            .day
+        ]
+        
+        // Get the components
+        //let dateComp = userCalendar.dateComponents(requestedComponents, from: currentDate)
+        
+        retVal = String.init(format: "%d-%d-%d",
+                             userCalendar.component(.day, from: currentDate),
+                             userCalendar.component(.month, from: currentDate),
+                             userCalendar.component(.year, from: currentDate))
+        
+        return retVal
+    }
+    //-- BUG0050-SPJ (NguyenPT 20170325) Add new function G06
 }

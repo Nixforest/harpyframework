@@ -158,7 +158,9 @@ class InternalViewController: ChildViewController, UITableViewDelegate, UITableV
             inputZoomValueAlert()
             break
         case 11:
-            self.pushToView(name: DomainConst.G06_API_TEST_VIEW_CTRL)
+            if BaseModel.shared.getDebugGasServiceFlag() {
+                self.pushToView(name: DomainConst.G06_API_TEST_VIEW_CTRL)
+            }            
             break
         default:
             break

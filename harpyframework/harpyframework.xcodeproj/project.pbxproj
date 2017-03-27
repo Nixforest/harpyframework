@@ -134,6 +134,7 @@
 		D77F06041E71738100797A6B /* TableCellOrderType.xib in Resources */ = {isa = PBXBuildFile; fileRef = D77F05FE1E71738100797A6B /* TableCellOrderType.xib */; };
 		D77F068E1E719B1D00797A6B /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F068D1E719B1D00797A6B /* SlideMenuController.swift */; };
 		D77F06901E719B5300797A6B /* BaseSlideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F068F1E719B5300797A6B /* BaseSlideMenuViewController.swift */; };
+		D7885B481E88C20A00F8F87A /* CustomerFamilyListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7885B471E88C20A00F8F87A /* CustomerFamilyListCell.swift */; };
 		D78E32631E5693000035C40D /* OrderVIPBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78E32621E5693000035C40D /* OrderVIPBean.swift */; };
 		D78E326F1E571C980035C40D /* ic_number_back.png in Resources */ = {isa = PBXBuildFile; fileRef = D78E326D1E571C980035C40D /* ic_number_back.png */; };
 		D78E32701E571C980035C40D /* ic_number_next.png in Resources */ = {isa = PBXBuildFile; fileRef = D78E326E1E571C980035C40D /* ic_number_next.png */; };
@@ -352,6 +353,7 @@
 		D77F05FE1E71738100797A6B /* TableCellOrderType.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TableCellOrderType.xib; path = CustomeControl/TableCellOrderType.xib; sourceTree = "<group>"; };
 		D77F068D1E719B1D00797A6B /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideMenuController.swift; path = View/SlideMenuController.swift; sourceTree = "<group>"; };
 		D77F068F1E719B5300797A6B /* BaseSlideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseSlideMenuViewController.swift; path = View/BaseSlideMenuViewController.swift; sourceTree = "<group>"; };
+		D7885B471E88C20A00F8F87A /* CustomerFamilyListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomerFamilyListCell.swift; path = CustomeControl/CustomerFamilyListCell.swift; sourceTree = "<group>"; };
 		D78E32621E5693000035C40D /* OrderVIPBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderVIPBean.swift; path = Model/OrderVIPBean.swift; sourceTree = "<group>"; };
 		D78E326D1E571C980035C40D /* ic_number_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_number_back.png; path = images/ic_number_back.png; sourceTree = "<group>"; };
 		D78E326E1E571C980035C40D /* ic_number_next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_number_next.png; path = images/ic_number_next.png; sourceTree = "<group>"; };
@@ -622,6 +624,7 @@
 				D7025E231E4B06C700045B5B /* PromotionTableViewCell.swift */,
 				D78FB84D1E52EFA200993A32 /* ColorPicker.swift */,
 				D7AF28161E58C91300AFF9D6 /* OrderDetailTableViewCell.swift */,
+				D7885B471E88C20A00F8F87A /* CustomerFamilyListCell.swift */,
 			);
 			name = CustomControl;
 			sourceTree = "<group>";
@@ -1064,6 +1067,7 @@
 				D7F3D8D01E1B80D80018744F /* TableCellUpholdType.swift in Sources */,
 				D7CDBE2D1E880A7800B73877 /* WorkingReportBean.swift in Sources */,
 				D77F05C01E71729400797A6B /* BaseRespModel.swift in Sources */,
+				D7885B481E88C20A00F8F87A /* CustomerFamilyListCell.swift in Sources */,
 				D7AB90571E2402170048AC4F /* StepVC.swift in Sources */,
 				D77F05EB1E71737200797A6B /* BaseRequest.swift in Sources */,
 				D7C30A391E3058B600B3FDA6 /* AgentInfoBean.swift in Sources */,
