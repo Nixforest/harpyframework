@@ -51,4 +51,12 @@ open class BaseRespModel: NSObject {
             print(DomainConst.JSON_ERR_WRONG_FORMAT)
         }
     }
+    
+    /**
+     * Check if response is success
+     * - returns: True if status is "1", False otherwise
+     */
+    public func isSuccess() -> Bool {
+        return self.status == DomainConst.RESPONSE_STATUS_SUCCESS
+    }
 }

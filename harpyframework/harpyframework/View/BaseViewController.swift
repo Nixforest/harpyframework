@@ -380,6 +380,34 @@ open class BaseViewController : UIViewController {
         self.navigationBar.setRightBarButton(notifyNavBar, animated: true)
     }
     
+    //++ BUG0050-SPJ (NguyenPT 20170323) Add new key for new function G06
+    /**
+     * Create right navigation item
+     * - parameter icon:        Icon path
+     * - parameter action:      Handle when tapped on item
+     * - parameter target:      Target of action
+     */
+    public func createRightNavigationItem(icon: String, action: Selector, target: Any?) {
+        let img = ImageManager.getImage(named: icon)
+        let tinted = img?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        let btn = UIButton()
+        btn.setImage(tinted, for: UIControlState())
+        btn.tintColor = UIColor.white
+        btn.frame = CGRect(x: 0, y: 0,
+                               width: GlobalConst.MENU_BUTTON_W,
+                               height: GlobalConst.MENU_BUTTON_W)
+        btn.setTitle(DomainConst.BLANK, for: UIControlState())
+        btn.backgroundColor = GlobalConst.BUTTON_COLOR_RED
+        btn.layer.cornerRadius = 0.5 * btn.bounds.size.width
+        btn.addTarget(target, action: action, for: UIControlEvents.touchUpInside)
+        
+        let navItem = UIBarButtonItem()
+        navItem.customView = btn
+        navItem.isEnabled = true
+        self.navigationItem.rightBarButtonItems?.append(navItem)
+    }
+    //-- BUG0050-SPJ (NguyenPT 20170323) Add new key for new function G06
+    
 //    /**
 //     * Set up for navigation bar
 //     * - parameter title:           Title of view

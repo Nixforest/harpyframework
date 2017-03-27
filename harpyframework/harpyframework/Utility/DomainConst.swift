@@ -1155,6 +1155,10 @@ public class DomainConst {
     public static let CATEGORY_UTILITY_ACTIVE_IMG_NAME      = "icon11-active.png"
     /** Center marker image name */
     public static let CENTER_MARKER_IMG_NAME                = "ic_checkpoint.png"
+    //++ BUG0050-SPJ (NguyenPT 20170323) Add new key for new function G06
+    /** Search image name */
+    public static let SEARCH_ICON_IMG_NAME                  = "search.png"
+    //-- BUG0050-SPJ (NguyenPT 20170323) Add new key for new function G06
     /** HTTP Post request method */
     public static let HTTP_POST_REQUEST                     = "POST"
     

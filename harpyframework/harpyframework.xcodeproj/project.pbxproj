@@ -88,6 +88,7 @@
 		D76C37981E24CF220096F864 /* RatingBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76C37971E24CF220096F864 /* RatingBar.swift */; };
 		D76C379B1E24D24B0096F864 /* CollectionImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76C37991E24D24B0096F864 /* CollectionImageViewCell.swift */; };
 		D76C379C1E24D24B0096F864 /* CollectionImageViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D76C379A1E24D24B0096F864 /* CollectionImageViewCell.xib */; };
+		D7724F9A1E8935FF006ECEFA /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = D7724F991E8935FF006ECEFA /* search.png */; };
 		D778D6411E5D790D009FD654 /* icon81.png in Resources */ = {isa = PBXBuildFile; fileRef = D778D6401E5D790D009FD654 /* icon81.png */; };
 		D77D2B581E72596A000D38DE /* ChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77D2B571E72596A000D38DE /* ChildViewController.swift */; };
 		D77D2B5A1E725A4D000D38DE /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77D2B591E725A4D000D38DE /* ParentViewController.swift */; };
@@ -307,6 +308,7 @@
 		D76C37971E24CF220096F864 /* RatingBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RatingBar.swift; path = CustomeControl/RatingBar.swift; sourceTree = "<group>"; };
 		D76C37991E24D24B0096F864 /* CollectionImageViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionImageViewCell.swift; path = CustomeControl/CollectionImageViewCell.swift; sourceTree = "<group>"; };
 		D76C379A1E24D24B0096F864 /* CollectionImageViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CollectionImageViewCell.xib; path = CustomeControl/CollectionImageViewCell.xib; sourceTree = "<group>"; };
+		D7724F991E8935FF006ECEFA /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = search.png; path = images/search.png; sourceTree = "<group>"; };
 		D778D6401E5D790D009FD654 /* icon81.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon81.png; path = images/icon81.png; sourceTree = "<group>"; };
 		D77D2B571E72596A000D38DE /* ChildViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChildViewController.swift; path = View/ChildViewController.swift; sourceTree = "<group>"; };
 		D77D2B591E725A4D000D38DE /* ParentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParentViewController.swift; path = View/ParentViewController.swift; sourceTree = "<group>"; };
@@ -640,6 +642,7 @@
 		D7F3D8D21E1B8BCC0018744F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D7724F991E8935FF006ECEFA /* search.png */,
 				D7F17CD51E5DF14000208A73 /* new-icon.png */,
 				D778D6401E5D790D009FD654 /* icon81.png */,
 				D7AF28141E58BAE400AFF9D6 /* icon70.png */,
@@ -972,6 +975,7 @@
 				D791F69A1E236BAA009CBBED /* checkbox-unchecked.png in Resources */,
 				D7E9BF761E2C82F20068D200 /* icon11-active.png in Resources */,
 				D75F65131E28B3B100A67B3C /* icon60.png in Resources */,
+				D7724F9A1E8935FF006ECEFA /* search.png in Resources */,
 				D7E014B01E348CCE001F26B6 /* icon12.png in Resources */,
 				D75F64EB1E28B39100A67B3C /* icon30.png in Resources */,
 				D791F6A41E237595009CBBED /* icon46.png in Resources */,

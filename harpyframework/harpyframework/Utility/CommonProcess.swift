@@ -235,12 +235,12 @@ public class CommonProcess {
         ]
         
         // Get the components
-        //let dateComp = userCalendar.dateComponents(requestedComponents, from: currentDate)
+        let dateComp = userCalendar.dateComponents(requestedComponents, from: currentDate)
         
         retVal = String.init(format: "%d-%d-%d",
-                             userCalendar.component(.day, from: currentDate),
-                             userCalendar.component(.month, from: currentDate),
-                             userCalendar.component(.year, from: currentDate))
+                             dateComp.day!,
+                             dateComp.month!,
+                             dateComp.year!)
         
         return retVal
     }
