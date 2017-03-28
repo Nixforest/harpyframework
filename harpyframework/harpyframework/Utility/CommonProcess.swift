@@ -225,6 +225,18 @@ public class CommonProcess {
         var retVal = DomainConst.BLANK
         // Get current date and time
         let currentDate = Date()
+        retVal = getDateString(date: currentDate)
+        
+        return retVal
+    }
+    
+    /**
+     * Get date string
+     * - parameter date: Date value
+     * - returns: Date value as string with format: dd-mm-yyyy
+     */
+    public static func getDateString(date: Date) -> String {
+        var retVal = DomainConst.BLANK
         // Get user calendar
         let userCalendar = Calendar.current
         // Choose which date and time component are needed
@@ -235,9 +247,9 @@ public class CommonProcess {
         ]
         
         // Get the components
-        let dateComp = userCalendar.dateComponents(requestedComponents, from: currentDate)
+        let dateComp = userCalendar.dateComponents(requestedComponents, from: date)
         
-        retVal = String.init(format: "%d-%d-%d",
+        retVal = String.init(format: "%02d-%02d-%04d",
                              dateComp.day!,
                              dateComp.month!,
                              dateComp.year!)
