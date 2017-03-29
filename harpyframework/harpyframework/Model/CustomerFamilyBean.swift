@@ -10,47 +10,47 @@ import UIKit
 
 public class CustomerFamilyBean: ConfigBean {
     /** Id of Customer Family type */
-    var hgd_type_id:            String = DomainConst.BLANK
+    public var hgd_type_id:            String = DomainConst.BLANK
     /** Serial of material */
-    var serial:                 String = DomainConst.BLANK
+    public var serial:                 String = DomainConst.BLANK
     /** Id of province */
-    var province_id:            String = DomainConst.BLANK
+    public var province_id:            String = DomainConst.BLANK
     /** Id of District */
-    var district_id:            String = DomainConst.BLANK
+    public var district_id:            String = DomainConst.BLANK
     /** Id of Ward */
-    var ward_id:                String = DomainConst.BLANK
+    public var ward_id:                String = DomainConst.BLANK
     /** Id of Street */
-    var street_id:              String = DomainConst.BLANK
+    public var street_id:              String = DomainConst.BLANK
     /** House numbers */
-    var house_numbers:          String = DomainConst.BLANK
+    public var house_numbers:          String = DomainConst.BLANK
     /** Address */
-    var address:                String = DomainConst.BLANK
+    public var address:                String = DomainConst.BLANK
     /** Type of Customer Family */
-    var customer_type:          String = DomainConst.BLANK
+    public var customer_type:          String = DomainConst.BLANK
     /** Brand of Opposite */
-    var hgd_doi_thu:            String = DomainConst.BLANK
+    public var hgd_doi_thu:            String = DomainConst.BLANK
     /** Created date */
-    var created_date:           String = DomainConst.BLANK
+    public var created_date:           String = DomainConst.BLANK
     /** Created by */
-    var created_by:             String = DomainConst.BLANK
+    public var created_by:             String = DomainConst.BLANK
     /** Brand of material */
-    var hgd_thuong_hieu:        String = DomainConst.BLANK
+    public var hgd_thuong_hieu:        String = DomainConst.BLANK
     /** Type of working report */
-    var hgd_type:               String = DomainConst.BLANK
+    public var hgd_type:               String = DomainConst.BLANK
     /** Phone */
-    var phone:                  String = DomainConst.BLANK
+    public var phone:                  String = DomainConst.BLANK
     /** Long-Lat */
-    var latitude_longitude:     String = DomainConst.BLANK
+    public var latitude_longitude:     String = DomainConst.BLANK
     /** List material */
-    var list_hgd_invest:        [String] = [String]()
+    public var list_hgd_invest:        [String] = [String]()
     /** Id of agent */
-    var agent_id:               String = DomainConst.BLANK
+    public var agent_id:               String = DomainConst.BLANK
     /** List material text */
-    var list_hgd_invest_text:   String = DomainConst.BLANK
+    public var list_hgd_invest_text:   String = DomainConst.BLANK
     /** Time use */
-    var hgd_time_use:           String = DomainConst.BLANK
+    public var hgd_time_use:           String = DomainConst.BLANK
     /** Flag is can update info */
-    var can_update:             String = DomainConst.BLANK
+    public var can_update:             String = DomainConst.BLANK
     
     /**
      * Initializer

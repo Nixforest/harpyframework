@@ -926,7 +926,9 @@ public class DomainConst {
     //++ BUG0050-SPJ (NguyenPT 20170323) Add new key for new function G06
     /** Table view cell Customer Family List */
     public static let CUSTOMER_FAMILY_LIST_TABLE_VIEW_CELL          = "CustomerFamilyListCell"
+    public static let WORKING_REPORT_LIST_TABLE_VIEW_CELL          = "WorkingReportListCell"
     public static let G06_F00_S01_VC                                = "G06F00S01VC"
+    public static let G06_F00_S04_VC                                = "G06F00S04VC"
     //++ BUG0050-SPJ (NguyenPT 20170323) Add new key for new function G06
     
     /** Pop overmenu identifier */
@@ -1340,6 +1342,8 @@ public class DomainConst {
     public static let CONTENT00160 = "Ngày bảo trì"
     public static let CONTENT00161 = "Lịch bảo trì"
     public static let CONTENT00162 = "Thông báo"
+    public static let CONTENT00163 = "Đầu tư"
+    public static let CONTENT00168 = "Gửi báo cáo công việc"
     public static let CONTENT00170 = "Số điện thoại người nhận"
     public static let CONTENT00176 = "Không tìm thấy đại lý quanh vị trí hiện tại!"
     public static let CONTENT00177 = "Loại định kỳ"
@@ -1429,4 +1433,13 @@ public class DomainConst {
     public static let CONTENT00285 = "Đã mua"
     public static let CONTENT00286 = "Chưa mua"
     public static let CONTENT00287 = "Tìm kiếm"
+    public static let CONTENT00288 = "Thông tin khách hàng"
+    public static let CONTENT00289 = "Loại khách hàng"
+    public static let CONTENT00290 = "Vị trí"
+    public static let CONTENT00291 = "Loại điểm"
+    public static let CONTENT00292 = "Thời gian dự kiến hết gas"
+    public static let CONTENT00293 = "Thương hiệu đối thủ"
+    public static let CONTENT00294 = "Tên đối thủ"
+    public static let CONTENT00295 = "Báo cáo công việc"
+    public static let CONTENT00296 = "Chi tiết báo cáo"
 }

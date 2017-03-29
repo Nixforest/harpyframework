@@ -20,6 +20,18 @@ public class CommonProcess {
     }
     
     /**
+     * Set border for control.
+     * - parameter view: Control to set border
+     * - parameter radius: Corner radius of border
+     */
+    public static func setBorder(view: UIView, radius: CGFloat) {
+        view.layer.borderWidth  = GlobalConst.BUTTON_BORDER_WIDTH
+        view.layer.borderColor  = GlobalConst.BUTTON_COLOR_RED.cgColor
+        view.clipsToBounds      = true
+        view.layer.cornerRadius = radius
+    }
+    
+    /**
      * Alignment text vertical center on TextView.
      * - parameter textView: TextView to set
      */
@@ -251,6 +263,32 @@ public class CommonProcess {
         
         retVal = String.init(format: "%02d-%02d-%04d",
                              dateComp.day!,
+                             dateComp.month!,
+                             dateComp.year!)
+        
+        return retVal
+    }
+    
+    /**
+     * Get first date of the month string
+     * - parameter date: Date value
+     * - returns: Date value as string with format: 01-mm-yyyy
+     */
+    public static func getFirstDateOfMonth(date: Date) -> String {
+        var retVal = DomainConst.BLANK
+        // Get user calendar
+        let userCalendar = Calendar.current
+        // Choose which date and time component are needed
+        let requestedComponents: Set<Calendar.Component> = [
+            .year,
+            .month,
+            .day
+        ]
+        
+        // Get the components
+        let dateComp = userCalendar.dateComponents(requestedComponents, from: date)
+        
+        retVal = String.init(format: "01-%02d-%04d",
                              dateComp.month!,
                              dateComp.year!)
         

@@ -49,4 +49,27 @@ public class WorkingReportBean: ConfigBean {
     override public init() {
         super.init()
     }
+    /**
+     * Get created date
+     * - returns: Created date
+     */
+    public func getCreatedDate() -> String {
+        return self.created_date
+    }
+    
+    /**
+     * Get report content
+     * - returns: Report content
+     */
+    public func getReportContent() -> String {
+        return self.content
+    }
+    
+    /**
+     * Get code no
+     * - returns: Code no
+     */
+    public func getCode() -> String {
+        return self.code_no
+    }
 }

@@ -286,7 +286,8 @@ open class BaseMenuViewController : UIViewController {
             currentView.pushToView(name: DomainConst.G06_F00_S01_VC)
             break
         case DomainConst.WORKING_REPORT:                    // Working report
-            currentView.showAlert(message: DomainConst.CONTENT00197)
+            //currentView.showAlert(message: DomainConst.CONTENT00197)
+            currentView.pushToView(name: DomainConst.G06_F00_S04_VC)
             break
         case DomainConst.ORDER_LIST:                        // Order list
             currentView.pushToView(name: DomainConst.G04_F00_S01_VIEW_CTRL)
