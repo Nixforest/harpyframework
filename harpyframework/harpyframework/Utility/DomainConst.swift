@@ -1423,4 +1423,10 @@ public class DomainConst {
     public static let CONTENT00279 = "Bạn không có quyền sử dụng chức năng này"
     public static let CONTENT00280 = "Đăng xuất thành công"
     public static let CONTENT00281 = "KH Hộ gia đình"
+    public static let CONTENT00282 = "Từ ngày"
+    public static let CONTENT00283 = "Đến ngày"
+    public static let CONTENT00284 = "Tất cả"
+    public static let CONTENT00285 = "Đã mua"
+    public static let CONTENT00286 = "Chưa mua"
+    public static let CONTENT00287 = "Tìm kiếm"
 }
