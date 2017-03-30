@@ -186,26 +186,72 @@ open class StepVC: ChildViewController, UIScrollViewDelegate, ScrollButtonListDe
     open func btnSendTapped() {
         
     }
+    //++ BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
+    /**
+     * Move view right with animation
+     * - parameter view: View to move
+     */
+    open func animateRight(view: UIView) {
+        UIView.animate(withDuration: GlobalConst.STEP_MOVE_TIME_INTERVAL,
+                       animations: {
+                        var frame = view.frame
+                        frame.origin = CGPoint(x: frame.origin.x + GlobalConst.SCREEN_WIDTH,
+                                               y: frame.origin.y)
+                        view.frame = frame
+        })
+    }
+    /**
+     * Move view left with animation
+     * - parameter view: View to move
+     */
+    open func animateLeft(view: UIView) {
+        UIView.animate(withDuration: GlobalConst.STEP_MOVE_TIME_INTERVAL,
+                       animations: {
+                        var frame = view.frame
+                        frame.origin = CGPoint(x: frame.origin.x - GlobalConst.SCREEN_WIDTH,
+                                               y: frame.origin.y)
+                        view.frame = frame
+        })
+    }
+    //-- BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
     
     /**
      * Move next screen
      */
     open func moveNext() {
+        // First step
         if _currentStep == -1 {
             _currentStep += 1
             if _numberStep > 0 {
-                _arrayContent[_currentStep].isHidden = false
+                //++ BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
+                //_arrayContent[_currentStep].isHidden = false
+                animateLeft(view: _arrayContent[_currentStep])
+                //-- BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
             }
         } else if (_currentStep < (_numberStep - 2)) {
-            _arrayContent[_currentStep].isHidden = true
+            // Middle steps
+            //++ BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
+            //_arrayContent[_currentStep].isHidden = true
+            animateLeft(view: _arrayContent[_currentStep])
+            //-- BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
             _currentStep += 1
             _listButton.moveNext()
-            _arrayContent[_currentStep].isHidden = false
+            //++ BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
+            //_arrayContent[_currentStep].isHidden = false
+            animateLeft(view: _arrayContent[_currentStep])
+            //-- BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
+            
         } else if _currentStep == (_numberStep - 2) {
-            _arrayContent[_currentStep].isHidden = true
+            //++ BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
+            //_arrayContent[_currentStep].isHidden = true
+            animateLeft(view: _arrayContent[_currentStep])
+            //-- BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
             _currentStep += 1
             _listButton.moveNext()
-            _summary.isHidden = false
+            //++ BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
+            //_summary.isHidden = false
+            animateLeft(view: _summary)
+            //-- BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
         }
         updateButton()
     }
@@ -216,14 +262,26 @@ open class StepVC: ChildViewController, UIScrollViewDelegate, ScrollButtonListDe
     open func moveBack() {
         if _currentStep > 0 {
             if _currentStep == (_numberStep - 1) {
-                _summary.isHidden = true
+                //++ BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
+                //_summary.isHidden = true
+                animateRight(view: _summary)
+                //-- BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
                 _currentStep -= 1
-                _arrayContent[_currentStep].isHidden = false
+                //++ BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
+                //_arrayContent[_currentStep].isHidden = false
+                animateRight(view: _arrayContent[_currentStep])
+                //-- BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
                 _listButton.moveBack()
             } else {
-                _arrayContent[_currentStep].isHidden = true
+                //++ BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
+                //_arrayContent[_currentStep].isHidden = true
+                animateRight(view: _arrayContent[_currentStep])
+                //-- BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
                 _currentStep -= 1
-                _arrayContent[_currentStep].isHidden = false
+                //++ BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
+                //_arrayContent[_currentStep].isHidden = false
+                animateRight(view: _arrayContent[_currentStep])
+                //-- BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
                 _listButton.moveBack()
             }
         }
@@ -238,17 +296,62 @@ open class StepVC: ChildViewController, UIScrollViewDelegate, ScrollButtonListDe
         if ((current < _numberStep) && (current >= 0) && (current != _currentStep)) {
             // Current screen is summary screen
             if _currentStep == (_numberStep - 1) {
-                _summary.isHidden = true
+                //++ BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
+                //_summary.isHidden = true
+                animateRight(view: _summary)
+                for i in (current + 1)..<_currentStep {
+                    animateRight(view: _arrayContent[i])
+                }
+                for i in (current + 1)..<_currentStep {
+                    animateRight(view: _arrayContent[i])
+                }
                 _currentStep = current
-                _arrayContent[_currentStep].isHidden = false
-            } else if current == (_numberStep - 1) {
-                _arrayContent[_currentStep].isHidden = true
+                //_arrayContent[_currentStep].isHidden = false
+                animateRight(view: _arrayContent[_currentStep])
+                //-- BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
+            } else if current == (_numberStep - 1) {            // Move to summary
+                //++ BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
+                //_arrayContent[_currentStep].isHidden = true
+                animateLeft(view: _arrayContent[_currentStep])
+                for i in (_currentStep + 1)..<current {
+                    animateLeft(view: _arrayContent[i])
+                }
+                for i in (_currentStep + 1)..<current {
+                    animateLeft(view: _arrayContent[i])
+                }
                 _currentStep = current
-                _summary.isHidden = false
+                //_summary.isHidden = false
+                animateLeft(view: _summary)
+                //-- BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
             } else {
-                _arrayContent[_currentStep].isHidden = true
-                _currentStep = current
-                _arrayContent[_currentStep].isHidden = false
+                //++ BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
+                //_arrayContent[_currentStep].isHidden = true
+                //_currentStep = current
+                //_arrayContent[_currentStep].isHidden = false
+                if _currentStep > current {
+                    // Move right current view
+                    animateRight(view: _arrayContent[_currentStep])
+                    for i in (current + 1)..<_currentStep {
+                        animateRight(view: _arrayContent[i])
+                    }
+                    for i in (current + 1)..<_currentStep {
+                        animateRight(view: _arrayContent[i])
+                    }
+                    _currentStep = current
+                    // Move right current will be view
+                    animateRight(view: _arrayContent[_currentStep])
+                } else {
+                    animateLeft(view: _arrayContent[_currentStep])
+                    for i in (_currentStep + 1)..<current {
+                        animateLeft(view: _arrayContent[i])
+                    }
+                    for i in (_currentStep + 1)..<current {
+                        animateLeft(view: _arrayContent[i])
+                    }
+                    _currentStep = current                    
+                    animateLeft(view: _arrayContent[_currentStep])
+                }
+                //-- BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
             }
             _listButton.moveTo(current: current)
         }
@@ -283,11 +386,16 @@ open class StepVC: ChildViewController, UIScrollViewDelegate, ScrollButtonListDe
         let height = self.getTopHeight()
         stepContent.translatesAutoresizingMaskIntoConstraints = true
         stepContent.frame = CGRect(
-            x: 0,
+            //++ BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
+            //x: 0,
+            x: GlobalConst.SCREEN_WIDTH,
+            //-- BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
             y: height,
             width: GlobalConst.SCREEN_WIDTH,
             height: GlobalConst.SCREEN_HEIGHT - (height + GlobalConst.BUTTON_H + GlobalConst.SCROLL_BUTTON_LIST_HEIGHT))
-        stepContent.isHidden = true
+        //++ BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
+        //stepContent.isHidden = true
+        //-- BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
         self._arrayContent.append(stepContent)
         self.view.addSubview(stepContent)
         self._numberStep += 1
@@ -302,11 +410,16 @@ open class StepVC: ChildViewController, UIScrollViewDelegate, ScrollButtonListDe
         let height = self.getTopHeight()
         summary.translatesAutoresizingMaskIntoConstraints = true
         summary.frame = CGRect(
-            x: 0,
+            //++ BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
+            //x: 0,
+            x: GlobalConst.SCREEN_WIDTH,
+            //-- BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
             y: height,
             width: GlobalConst.SCREEN_WIDTH,
             height: GlobalConst.SCREEN_HEIGHT - (height + GlobalConst.BUTTON_H + GlobalConst.SCROLL_BUTTON_LIST_HEIGHT))
-        summary.isHidden = true
+        //++ BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
+        //summary.isHidden = true
+        //-- BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
         self._summary = summary
         self.view.addSubview(summary)
         self._numberStep += 1

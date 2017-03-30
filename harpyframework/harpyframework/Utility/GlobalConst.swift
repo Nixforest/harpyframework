@@ -100,4 +100,8 @@ public class GlobalConst {
     public static let SCROLLBUTTONLIST_BTN_BKG_COLOR_DISABLE    = BUTTON_COLOR_GRAY
     public static let SCROLLBUTTONLIST_BTN_BKG_COLOR_SELECTING  = COLOR_SELECTING_GREEN
     public static let SCROLLBUTTONLIST_BTN_BKG_COLOR_ENABLE     = BUTTON_COLOR_GRAY
+    //++ BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
+    /** Time interval for animation in Step view controller */
+    public static let STEP_MOVE_TIME_INTERVAL       = 0.3
+    //-- BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
 }
