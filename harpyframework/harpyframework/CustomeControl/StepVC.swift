@@ -30,7 +30,13 @@ open class StepVC: ChildViewController, UIScrollViewDelegate, ScrollButtonListDe
     /** Scrollbutton list */
     var _listButton: ScrollButtonList   = ScrollButtonList()
     /** Screen title */
-    var _title: String                  = ""
+    var _title: String                  = DomainConst.BLANK
+    //++ BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Handle slide gesture
+    // Right slide gesture
+    var _swipeGestRight:    UISwipeGestureRecognizer!
+    // Left slide gesture
+    var _swipeGestLeft:     UISwipeGestureRecognizer!
+    //-- BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Handle slide gesture
     
     // MARK: Methods
     override open func viewDidLoad() {
@@ -54,7 +60,35 @@ open class StepVC: ChildViewController, UIScrollViewDelegate, ScrollButtonListDe
         //setupNavigationBar(title: _title, isNotifyEnable: BaseModel.shared.checkIsLogin())
         createNavigationBar(title: _title)
         //-- BUG0048-SPJ (NguyenPT 20170309) Change navigation bar
+        //++ BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Handle slide gesture
+        _swipeGestRight = UISwipeGestureRecognizer(target: self,
+                                                   action: #selector(swipeHandler(_:)))
+        _swipeGestRight.direction = .right
+        self.view.addGestureRecognizer(_swipeGestRight)
+        _swipeGestLeft = UISwipeGestureRecognizer(target: self,
+                                                   action: #selector(swipeHandler(_:)))
+        _swipeGestLeft.direction = .left
+        self.view.addGestureRecognizer(_swipeGestLeft)
+        //-- BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Handle slide gesture
     }
+    
+    //++ BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Handle slide gesture
+    /**
+     * Handle swipe gesture
+     */
+    func swipeHandler(_ sender: UIGestureRecognizer) {
+        if let swipeGesture = sender as? UISwipeGestureRecognizer {
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizerDirection.right:
+                btnBackTapper()
+            case UISwipeGestureRecognizerDirection.left:
+                btnNextTapper()
+            default:
+                break
+            }
+        }
+    }
+    //-- BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Handle slide gesture
     
     override open func viewDidLayoutSubviews() {
         // Set up buttons
