@@ -1442,4 +1442,5 @@ public class DomainConst {
     public static let CONTENT00294 = "Tên đối thủ"
     public static let CONTENT00295 = "Báo cáo công việc"
     public static let CONTENT00296 = "Chi tiết báo cáo"
+    public static let CONTENT00297 = "Bạn đang gửi thông tin Khách hàng như bên dưới. Xin hãy kiểm tra lại các thông tin cho thật chính xác và nhấn nút Gửi nếu bạn đồng ý."
 }

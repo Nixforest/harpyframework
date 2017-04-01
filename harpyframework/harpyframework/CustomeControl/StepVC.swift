@@ -226,25 +226,52 @@ open class StepVC: ChildViewController, UIScrollViewDelegate, ScrollButtonListDe
      * - parameter view: View to move
      */
     open func animateRight(view: UIView) {
+        // Visible view if needed
+        if view.frame.minX < 0 {
+            view.isHidden = false
+        }
         UIView.animate(withDuration: GlobalConst.STEP_MOVE_TIME_INTERVAL,
                        animations: {
                         var frame = view.frame
                         frame.origin = CGPoint(x: frame.origin.x + GlobalConst.SCREEN_WIDTH,
                                                y: frame.origin.y)
                         view.frame = frame
+        },
+                       completion: { (finished: Bool) in
+                        self.updateViewHidden(view: view)
         })
     }
+    
+    /**
+     * Update view hidden
+     * - parameter view: View to update
+     */
+    private func updateViewHidden(view: UIView) {
+        if (view.frame.minX < 0) || (view.frame.minX >= GlobalConst.SCREEN_WIDTH) {
+            view.isHidden = true
+        } else {
+            view.isHidden = false
+        }
+    }
+    
     /**
      * Move view left with animation
      * - parameter view: View to move
      */
     open func animateLeft(view: UIView) {
+        // Visible view if needed
+        if view.frame.minX >= GlobalConst.SCREEN_WIDTH {
+            view.isHidden = false
+        }
         UIView.animate(withDuration: GlobalConst.STEP_MOVE_TIME_INTERVAL,
                        animations: {
                         var frame = view.frame
                         frame.origin = CGPoint(x: frame.origin.x - GlobalConst.SCREEN_WIDTH,
                                                y: frame.origin.y)
                         view.frame = frame
+        },
+                       completion: { (finished: Bool) in
+                        self.updateViewHidden(view: view)
         })
     }
     //-- BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
@@ -274,7 +301,6 @@ open class StepVC: ChildViewController, UIScrollViewDelegate, ScrollButtonListDe
             //_arrayContent[_currentStep].isHidden = false
             animateLeft(view: _arrayContent[_currentStep])
             //-- BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
-            
         } else if _currentStep == (_numberStep - 2) {
             //++ BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
             //_arrayContent[_currentStep].isHidden = true
@@ -285,6 +311,7 @@ open class StepVC: ChildViewController, UIScrollViewDelegate, ScrollButtonListDe
             //++ BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
             //_summary.isHidden = false
             animateLeft(view: _summary)
+            _ = _summary.updateContentLayout()
             //-- BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
         }
         updateButton()
@@ -356,6 +383,7 @@ open class StepVC: ChildViewController, UIScrollViewDelegate, ScrollButtonListDe
                 _currentStep = current
                 //_summary.isHidden = false
                 animateLeft(view: _summary)
+                _ = _summary.updateContentLayout()
                 //-- BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
             } else {
                 //++ BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
@@ -466,7 +494,6 @@ open class StepVC: ChildViewController, UIScrollViewDelegate, ScrollButtonListDe
     open func setListIcon(listIcon: [String]) {
         self._listButton._listIcons = listIcon
     }
-    
     
     /**
      * Set view title

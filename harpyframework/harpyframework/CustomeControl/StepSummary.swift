@@ -59,11 +59,9 @@ open class StepSummary: UIView {
         //_tbxTitle.textAlignment      = NSTextAlignment.center
         //_tbxTitle.font               = UIFont.boldSystemFont(ofSize: 15.0)
         _tbxTitle.font               = UIFont.systemFont(ofSize: GlobalConst.NORMAL_FONT_SIZE)
-        _tbxTitle.frame = CGRect(
-            x: 0,
-            y: 0,
-            width: self.frame.width,
-            height: GlobalConst.LABEL_HEIGHT)
+        _tbxTitle.frame = CGRect(x: 0, y: 0,
+                                 width: self.frame.width,
+                                 height: GlobalConst.LABEL_HEIGHT)
         _tbxTitle.isUserInteractionEnabled = false
         let contentSize             = _tbxTitle.sizeThatFits(_tbxTitle.bounds.size)
         var frame                   = _tbxTitle.frame
@@ -81,21 +79,18 @@ open class StepSummary: UIView {
         }
         _mainView = mainView
         _mainView?.translatesAutoresizingMaskIntoConstraints = true
-        _mainView?.frame = CGRect(
-            x: 0, y: 0,
-            width: self.frame.width - GlobalConst.MARGIN_CELL_X * 2,
-            height: mainViewHeight)
+        _mainView?.frame = CGRect(x: 0, y: 0,
+                                  width: self.frame.width - GlobalConst.MARGIN_CELL_X * 2,
+                                  height: mainViewHeight)
         
         // Scrollview
         _scrollView.translatesAutoresizingMaskIntoConstraints = true
-        _scrollView.frame = CGRect(
-            x: GlobalConst.MARGIN_CELL_X,
-            y: _tbxTitle.frame.maxY,
-            width: self.frame.width - GlobalConst.MARGIN_CELL_X * 2,
-            height: self.frame.height - _tbxTitle.frame.height)
-        _scrollView.contentSize = CGSize(
-            width: (_mainView?.frame.width)!,
-            height: (_mainView?.frame.height)!)
+        _scrollView.frame = CGRect(x: GlobalConst.MARGIN_CELL_X,
+                                   y: _tbxTitle.frame.maxY,
+                                    width: self.frame.width - GlobalConst.MARGIN_CELL_X * 2,
+                                    height: self.frame.height - _tbxTitle.frame.height)
+        _scrollView.contentSize = CGSize(width: (_mainView?.frame.width)!,
+                                         height: (_mainView?.frame.height)!)
         CommonProcess.setBorder(view: _scrollView)
         _scrollView.backgroundColor = UIColor.white
         _scrollView.addSubview(_mainView!)
@@ -113,13 +108,11 @@ open class StepSummary: UIView {
         } else {
             mainViewHeight = contentHeight
         }
-        _mainView?.frame = CGRect(
-            x: 0, y: 0,
-            width: (_mainView?.frame.width)!,
-            height: mainViewHeight)
-        _scrollView.contentSize = CGSize(
-            width: (_mainView?.frame.width)!,
-            height: (_mainView?.frame.height)!)
+        _mainView?.frame = CGRect(x: 0, y: 0,
+                                  width: (_mainView?.frame.width)!,
+                                  height: mainViewHeight)
+        _scrollView.contentSize = CGSize(width: (_mainView?.frame.width)!,
+                                         height: (_mainView?.frame.height)!)
     }
     
     /**
@@ -137,4 +130,15 @@ open class StepSummary: UIView {
     public func getParentView() -> BaseViewController {
         return self._parent!
     }
+    
+    //++ BUG0050-SPJ (NguyenPT 20170331) Update Step Summary: Update content when show Summary
+    /**
+     * Update content layout
+     * Must override in sub classes
+     * - returns: Return offset (Height of content)
+     */
+    open func updateContentLayout() -> CGFloat {
+        return 0.0
+    }
+    //-- BUG0050-SPJ (NguyenPT 20170331) Update Step Summary: Update content when show Summary
 }

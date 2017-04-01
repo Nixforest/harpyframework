@@ -32,8 +32,9 @@ public class DetailInformationColumnView: UIView {
     /**
      * Set data for this view
      * - parameter listValues: List of data values
+     * - returns: Y Offset
      */
-    public func setData(listValues: [(String, String)]) {
+    public func setData(listValues: [(String, String)]) -> CGFloat {
         parentWidth = self.frame.width
         leftWidth   = (parentWidth - (GlobalConst.MARGIN_CELL_X * 2)) / 3
         rightWidth  = (parentWidth - (GlobalConst.MARGIN_CELL_X * 2)) * 2 / 3
@@ -48,6 +49,19 @@ public class DetailInformationColumnView: UIView {
         self._scrollView.contentSize = CGSize(width: parentWidth,
                                               height: offset)
         self.addSubview(_scrollView)
+        return offset
+    }
+    
+    /**
+     * Update data
+     * - parameter listValues: List of data values
+     * - returns: Y Offset
+     */
+    public func updateData(listValues: [(String, String)]) -> CGFloat {
+        for view in _scrollView.subviews {
+            view.removeFromSuperview()
+        }
+        return setData(listValues: listValues)
     }
     
     /**
