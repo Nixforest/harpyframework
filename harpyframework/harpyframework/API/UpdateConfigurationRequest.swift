@@ -14,11 +14,19 @@ public class UpdateConfigurationRequest: BaseRequest {
             data, response, error) in
             // Check error
             guard error == nil else {
-                self.showAlert(message: DomainConst.CONTENT00196)
+                //self.showAlert(message: DomainConst.CONTENT00196)
+                self.view.showAlert(message: DomainConst.CONTENT00196,
+                                    okHandler: { (alert: UIAlertAction!) in
+                                        self.execute()
+                })
                 return
             }
             guard let data = data else {
-                self.showAlert(message: DomainConst.CONTENT00196)
+                //self.showAlert(message: DomainConst.CONTENT00196)
+                self.view.showAlert(message: DomainConst.CONTENT00196,
+                                    okHandler: { (alert: UIAlertAction!) in
+                                        self.execute()
+                })
                 return
             }
             // Convert to string

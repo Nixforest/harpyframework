@@ -575,6 +575,17 @@ public class BaseModel: NSObject {
         
         // User infor
         self.user_info_login = loginModel.user_info
+        
+        // Agent info
+        self.list_agent = loginModel.list_agent
+    }
+    
+    /**
+     * Get list of all agents
+     * - returns: List of all agents
+     */
+    public func getListAgent() -> [ConfigBean] {
+        return self.list_agent
     }
     
     /**

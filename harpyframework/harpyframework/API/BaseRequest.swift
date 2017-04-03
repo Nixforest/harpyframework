@@ -164,12 +164,16 @@ open class BaseRequest: NSObject {
         let task = self.session.dataTask(with: request as URLRequest, completionHandler: {(data, response, error) in
             // Check error
             guard error == nil else {
+                //++ BUG0050-SPJ (NguyenPT 20170403) Handle Error
+                LoadingView.shared.hideOverlayView()
+                //-- BUG0050-SPJ (NguyenPT 20170403) Handle Error
                 self.view.showAlert(message: DomainConst.CONTENT00196)
                 return
             }
             //++ BUG0050-SPJ (NguyenPT 20170323) Handle result string
             //guard data == nil else {
             guard let data = data else {
+                LoadingView.shared.hideOverlayView()
             //-- BUG0050-SPJ (NguyenPT 20170323) Handle result string
                 self.view.showAlert(message: DomainConst.CONTENT00196)
                 return

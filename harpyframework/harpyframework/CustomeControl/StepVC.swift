@@ -207,15 +207,18 @@ open class StepVC: ChildViewController, UIScrollViewDelegate, ScrollButtonListDe
      * Handle back tap button
      */
     open func btnBackTapper() {
-        // Current is summary
-        if self._currentStep == (self._numberStep - 1) {
-            moveBack()
-        } else if (self._currentStep > 0) {
-            if self._arrayContent[self._currentStep].checkDone() {
-                moveBack()
-            }
-        }
-    }
+        //++ BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Not check valid data when move back
+//        // Current is summary
+//        if self._currentStep == (self._numberStep - 1) {
+//            moveBack()
+//        } else if (self._currentStep > 0) {
+//            if self._arrayContent[self._currentStep].checkDone() {
+//                moveBack()
+//            }
+//        }
+        moveBack()
+        //-- BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Not check valid data when move back
+	    }
     
     open func btnSendTapped() {
         

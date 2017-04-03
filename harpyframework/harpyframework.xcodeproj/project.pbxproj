@@ -195,6 +195,7 @@
 		D7CFF1F81E44F23500A37C07 /* icon23.png in Resources */ = {isa = PBXBuildFile; fileRef = D7CFF1F71E44F23500A37C07 /* icon23.png */; };
 		D7D04E371E55544900B3F8CF /* icon77.png in Resources */ = {isa = PBXBuildFile; fileRef = D7D04E361E55544900B3F8CF /* icon77.png */; };
 		D7D04E431E557FBF00B3F8CF /* OrderVIPDetailBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D04E421E557FBF00B3F8CF /* OrderVIPDetailBean.swift */; };
+		D7D850EF1E91E20A003FCFBF /* DataLabelRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D850EE1E91E20A003FCFBF /* DataLabelRequest.swift */; };
 		D7DA56AE1E40ED3C00B6F618 /* TransactionBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DA56AD1E40ED3C00B6F618 /* TransactionBean.swift */; };
 		D7E014A31E33DEFC001F26B6 /* icon24.png in Resources */ = {isa = PBXBuildFile; fileRef = D7E014A21E33DEFC001F26B6 /* icon24.png */; };
 		D7E014AA1E347EA4001F26B6 /* MaterialSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E014A91E347EA4001F26B6 /* MaterialSelectViewController.swift */; };
@@ -421,6 +422,7 @@
 		D7CFF1F71E44F23500A37C07 /* icon23.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon23.png; path = images/icon23.png; sourceTree = "<group>"; };
 		D7D04E361E55544900B3F8CF /* icon77.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon77.png; path = images/icon77.png; sourceTree = "<group>"; };
 		D7D04E421E557FBF00B3F8CF /* OrderVIPDetailBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderVIPDetailBean.swift; path = Model/OrderVIPDetailBean.swift; sourceTree = "<group>"; };
+		D7D850EE1E91E20A003FCFBF /* DataLabelRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataLabelRequest.swift; path = API/DataLabelRequest.swift; sourceTree = "<group>"; };
 		D7DA56AD1E40ED3C00B6F618 /* TransactionBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransactionBean.swift; path = Model/TransactionBean.swift; sourceTree = "<group>"; };
 		D7E014A21E33DEFC001F26B6 /* icon24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon24.png; path = images/icon24.png; sourceTree = "<group>"; };
 		D7E014A91E347EA4001F26B6 /* MaterialSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MaterialSelectViewController.swift; path = View/MaterialSelectViewController.swift; sourceTree = "<group>"; };
@@ -480,6 +482,7 @@
 				D77F05E81E71737200797A6B /* UpholdDetailRequest.swift */,
 				D77F05E91E71737200797A6B /* UpholdListRequest.swift */,
 				D77F05EA1E71737200797A6B /* UserProfileRequest.swift */,
+				D7D850EE1E91E20A003FCFBF /* DataLabelRequest.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -1078,6 +1081,7 @@
 				D7CDBE2D1E880A7800B73877 /* WorkingReportBean.swift in Sources */,
 				D77F05C01E71729400797A6B /* BaseRespModel.swift in Sources */,
 				D7885B481E88C20A00F8F87A /* CustomerFamilyListCell.swift in Sources */,
+				D7D850EF1E91E20A003FCFBF /* DataLabelRequest.swift in Sources */,
 				D7AB90571E2402170048AC4F /* StepVC.swift in Sources */,
 				D77F05EB1E71737200797A6B /* BaseRequest.swift in Sources */,
 				D7C30A391E3058B600B3FDA6 /* AgentInfoBean.swift in Sources */,
