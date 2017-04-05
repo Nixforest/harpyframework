@@ -111,7 +111,9 @@ public class AddressPickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSo
     public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self._tbx.resignFirstResponder()
         self._tbx.text = getSelectedValue()
-        delegate?.valueChanged(self)
+        if _bIsPicker {
+            delegate?.valueChanged(self)
+        }
     }
     
     /**
@@ -129,6 +131,12 @@ public class AddressPickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSo
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    public func textFieldDidEndEditing(_ textField: UITextField) {
+        if !_bIsPicker {
+            delegate?.valueChanged(self)
+        }
     }
     
     /**
@@ -198,6 +206,7 @@ public class AddressPickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSo
         } else {
             // Input view is keyboard
             _tbx.text = value
+            return true
         }
         return false
     }

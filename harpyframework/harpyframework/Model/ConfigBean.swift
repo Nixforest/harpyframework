@@ -96,4 +96,14 @@ public class ConfigBean: NSObject {
         
         self.data.append(contentsOf: getListConfig(json: jsonData, key: DomainConst.KEY_DATA))
     }
+    
+    //++ BUG0050-SPJ (NguyenPT 20170405) Add new function G06
+    /**
+     * Check if id of config bean is empty
+     * - returns: Return true if id is empty, false otherwise
+     */
+    public func isEmpty() -> Bool {
+        return self.id.isEmpty
+    }
+    //-- BUG0050-SPJ (NguyenPT 20170405) Add new function G06
 }

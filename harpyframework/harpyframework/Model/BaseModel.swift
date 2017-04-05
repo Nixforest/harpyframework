@@ -72,7 +72,9 @@ public class BaseModel: NSObject {
     private var _listWards:         [String: [ConfigBean]] = [String: [ConfigBean]]()
     //-- BUG0050-SPJ (NguyenPT 20170403) Handle Address information
     /** List family type */
-    var list_hgd_type: [ConfigBean] = [ConfigBean]()
+    private var list_hgd_type: [ConfigBean] = [ConfigBean]()
+    /** List Family invest */
+    private var list_hgd_invest: [ConfigBean] = [ConfigBean]()
     /** Uphold list data */
     public var upholdList: UpholdListRespModel = UpholdListRespModel()
     /** Search customer result */
@@ -586,6 +588,10 @@ public class BaseModel: NSObject {
         
         // List street
         self.list_street = loginModel.list_street
+        
+        // List Family type
+        self.list_hgd_type = loginModel.list_hgd_type
+        self.list_hgd_invest = loginModel.list_hgd_invest
     }
     
     /**
@@ -929,6 +935,20 @@ public class BaseModel: NSObject {
      */
     public func getListStreets() -> [ConfigBean] {
         return self.list_street
+    }
+    /**
+     * Get list of Family types
+     * - returns: List of Family types
+     */
+    public func getListFamilyTypes() -> [ConfigBean] {
+        return self.list_hgd_type
+    }
+    /**
+     * Get list of Family investments
+     * - returns: List of Family investments
+     */
+    public func getListFamilyInvestments() -> [ConfigBean] {
+        return self.list_hgd_invest
     }
     //-- BUG0050-SPJ (NguyenPT 20170403) Handle Address information
 }

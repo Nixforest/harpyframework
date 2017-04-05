@@ -509,4 +509,15 @@ open class StepVC: ChildViewController, UIScrollViewDelegate, ScrollButtonListDe
     public func stepDone() {
         self.moveNext()
     }
+    
+    /**
+     * Update data in step content
+     * - parameter name: Name of notification
+     */
+    public func updateData(name: String) {
+        NotificationCenter.default.post(name: Notification.Name(rawValue: name), object: nil)
+    }
+    public func updateData(name: String, model: AnyObject) {
+        NotificationCenter.default.post(name: Notification.Name(rawValue: name), object: model)
+    }
 }

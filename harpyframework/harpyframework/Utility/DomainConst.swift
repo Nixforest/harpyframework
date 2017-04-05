@@ -790,6 +790,8 @@ public class DomainConst {
     public static let CONTACT_SPLITER                   = DomainConst.LINE_FEED
     /** Address spliter */
     public static let ADDRESS_SPLITER                   = ","
+    /** Address spliter with space */
+    public static let ADDRESS_SPLITER_WITH_SPACE        = ", "
     /** Phone spliter */
     public static let PHONE_SPLITER                     = SPLITER_TYPE1
     /** Phone spliter */
@@ -1206,6 +1208,7 @@ public class DomainConst {
                                                                           COMPANY_NAME)
     public static let EMAIL                                 = "it@spj.vn"
     public static let WEBSITE                               = "http://daukhimiennam.com"
+    public static let VERSION_CODE_STR                      = "110"
     
     
     // MARK: -----Public static strings-----
@@ -1476,4 +1479,9 @@ public class DomainConst {
     public static let CONTENT00299 = "Quận/Huyện"
     public static let CONTENT00300 = "Phường/Xã"
     public static let CONTENT00301 = "Xin vui lòng nhập Địa chỉ của Khách hàng"
+    public static let CONTENT00302 = "Xin vui lòng nhập Thông tin thêm"
+    public static let CONTENT00303 = "Thương hiệu"
+    public static let CONTENT00304 = "T.gian sử dụng"
+    public static let CONTENT00305 = "Xin vui lòng chọn Loại khách hàng"
+    public static let CONTENT00306 = "Xin vui lòng chọn Vật tư đầu tư"
 }

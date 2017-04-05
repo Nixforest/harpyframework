@@ -97,11 +97,12 @@ public class GlobalConst {
     public static let SCROLLBUTTONLIST_BKG_COLOR    = BUTTON_COLOR_GRAY
     public static let INFOR_TITLE_COLOR             = ColorFromRGB().getColorFromRGB(0x1899E5)
     public static let TEXT_COLOR                    = ColorFromRGB().getColorFromRGB(0x333333)
+    public static let BORDER_TEXTFIELD_COLOR        = ColorFromRGB().getColorFromRGB(0xC7C7C7)
     public static let SCROLLBUTTONLIST_BTN_BKG_COLOR_DISABLE    = BUTTON_COLOR_GRAY
     public static let SCROLLBUTTONLIST_BTN_BKG_COLOR_SELECTING  = COLOR_SELECTING_GREEN
     public static let SCROLLBUTTONLIST_BTN_BKG_COLOR_ENABLE     = BUTTON_COLOR_GRAY
     //++ BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
     /** Time interval for animation in Step view controller */
-    public static let STEP_MOVE_TIME_INTERVAL       = 0.3
+    public static let STEP_MOVE_TIME_INTERVAL       = 0.1
     //-- BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
 }
