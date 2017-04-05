@@ -73,16 +73,20 @@ public class AddressPickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSo
         _tbx.textColor = UIColor.black
         _bIsPicker = isPicker
         if isPicker {
+            // Set input view is picker view
             _tbx.inputView = _pickerView
+        } else {
+            // Normal input view is keyboar, return type is Done
+            _tbx.returnKeyType = .done
         }
         _tbx.delegate = self
         self.addSubview(_tbx)
         
         // Picker
-        self._pickerView.frame = CGRect(x: 0,
-                                        y: GlobalConst.SCREEN_HEIGHT / 2,
-                                        width: GlobalConst.SCREEN_WIDTH,
-                                        height: GlobalConst.SCREEN_HEIGHT / 3)
+//        self._pickerView.frame = CGRect(x: 0,
+//                                        y: GlobalConst.SCREEN_HEIGHT / 2,
+//                                        width: GlobalConst.SCREEN_WIDTH,
+//                                        height: GlobalConst.SCREEN_HEIGHT / 3)
         self._pickerView.backgroundColor = UIColor.white
         self._pickerView.delegate = self
         self._pickerView.dataSource = self
@@ -164,16 +168,36 @@ public class AddressPickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSo
         return _tbx.text!
     }
     
-    public func setValue(value: String) -> Bool {
-        _tbx.text = value
+    /**
+     * Set value for address
+     * - parameter value:        Value string
+     * - parameter isRemoveSign: Flag check if need remove sign in result
+     * - parameter value: Value string
+     */
+    public func setValue(value: String, isRemoveSign: Bool = false) -> Bool {
         if _bIsPicker {
+            // Reset text
+            _tbx.text = DomainConst.BLANK
+            // Search value in data
             for i in 0..<self._data.count {
-                if self._data[i].name.removeSign().lowercased().range(of: value) != nil {
-                    self._pickerView.selectRow(i, inComponent: 0, animated: true)
-                    _tbx.text = self._data[i].name
-                    return true
+                // Need remove sign
+                if isRemoveSign {
+                    if self._data[i].name.removeSign().lowercased().range(of: value) != nil {
+                        self._pickerView.selectRow(i, inComponent: 0, animated: true)
+                        _tbx.text = self._data[i].name
+                        return true
+                    }
+                } else {    // No need remove sign
+                    if self._data[i].name.lowercased().range(of: value) != nil {
+                        self._pickerView.selectRow(i, inComponent: 0, animated: true)
+                        _tbx.text = self._data[i].name
+                        return true
+                    }
                 }
             }
+        } else {
+            // Input view is keyboard
+            _tbx.text = value
         }
         return false
     }

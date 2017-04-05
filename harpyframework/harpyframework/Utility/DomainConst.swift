@@ -767,6 +767,10 @@ public class DomainConst {
     public static let CUSTOMER_FAMILY_BUYING_BOUGHT     = "1"
     /** Customer Family Buying value: Not yet */
     public static let CUSTOMER_FAMILY_BUYING_NOTYET     = "2"
+    /** City keyword */
+    public static let CITY                              = "city"
+    /** Street keyword */
+    public static let STREET                            = "duong"
     //-- BUG0050-SPJ (NguyenPT 20170325) Add new function G06
     
     

@@ -498,52 +498,59 @@ extension String {
         return retVal
     }
     
+    //++ BUG0050-SPJ (NguyenPT 20170405) Add new function G06
+    /**
+     * Normalize province/city name
+     * - returns: Name of province/city after normalized
+     */
     public func normalizeProvinceStr() -> String {
+        // Make lower case
         var retVal = self.lowercased()
-        if retVal.range(of: "city") != nil {
-            retVal = retVal.replacingOccurrences(of: "city", with: DomainConst.BLANK)
+        // Remove city string
+        if retVal.range(of: DomainConst.CITY) != nil {
+            retVal = retVal.replacingOccurrences(of: DomainConst.CITY, with: DomainConst.BLANK)
         }
         retVal = retVal.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-        //self = retVal
         return retVal
     }
     
+    /**
+     * Normalize District name
+     * - returns: Name of District after normalized
+     */
     public func normalizeDistrictStr() -> String {
         var retVal = self.lowercased()
-        if retVal.range(of: "Quận") != nil {
-            retVal = retVal.replacingOccurrences(of: "Quận", with: DomainConst.BLANK)
-        }
-        if retVal.range(of: "Huyện") != nil {
-            retVal = retVal.replacingOccurrences(of: "Huyện", with: DomainConst.BLANK)
-        }
         retVal = retVal.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-        //self = retVal
         return retVal
     }
     
+    /**
+     * Normalize Ward name
+     * - returns: Name of Ward after normalized
+     */
     public func normalizeWardStr() -> String {
         var retVal = self.lowercased()
-        if retVal.range(of: "Phường") != nil {
-            retVal = retVal.replacingOccurrences(of: "Phường", with: DomainConst.BLANK)
-        }
-        if retVal.range(of: "Xã") != nil {
-            retVal = retVal.replacingOccurrences(of: "Xã", with: DomainConst.BLANK)
-        }
         retVal = retVal.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-        //self = retVal
         return retVal
     }
     
+    /**
+     * Normalize Street name
+     * - returns: Name of Street after normalized
+     */
     public func normalizeStreetStr() -> String {
-        var retVal = self.lowercased()
-        if retVal.range(of: "Đường") != nil {
-            retVal = retVal.replacingOccurrences(of: "Đường", with: DomainConst.BLANK)
+        var retVal = self.removeSign().lowercased()
+        if retVal.range(of: DomainConst.STREET) != nil {
+            retVal = retVal.replacingOccurrences(of: DomainConst.STREET, with: DomainConst.BLANK)
         }
         retVal = retVal.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-        //self = retVal
         return retVal
     }
     
+    /**
+     * Remove sign
+     * - returns: Sttring after remove sign
+     */
     public func removeSign() -> String {
         var retVal = self
         for i in 1..<DomainConst.UNICODE_SIGNS.count {
@@ -554,25 +561,48 @@ extension String {
         return retVal
     }
     
+    /**
+     * Get index object
+     * - returns: Index object
+     */
     func index(from: Int) -> Index {
         return self.index(startIndex, offsetBy: from)
     }
     
+    /**
+     * Returns a new string containing the characters of the String from
+     * the one at a given index to the end.
+     * - parameter from: From index
+     * - returns: New string
+     */
     func substring(from: Int) -> String {
         let fromIndex = index(from: from)
         return substring(from: fromIndex)
     }
     
+    /**
+     * Returns a new string containing the characters of the String up to,
+     * but not including, the one at a given index.
+     * - parameter to: To index
+     * - returns: New string
+     */
     func substring(to: Int) -> String {
         let toIndex = index(from: to)
         return substring(to: toIndex)
     }
     
+    /**
+     * Returns a string object containing the characters of the String
+     * that lie within a given range.
+     * - parameter r: Range
+     * - returns: New string
+     */
     func substring(with r: Range<Int>) -> String {
         let startIndex = index(from: r.lowerBound)
         let endIndex = index(from: r.upperBound)
         return substring(with: startIndex..<endIndex)
     }
+    //-- BUG0050-SPJ (NguyenPT 20170405) Add new function G06
 }
 
 public extension NSObject {    

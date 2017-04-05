@@ -28,7 +28,7 @@ public class ProvincesListRequest: BaseRequest {
     public static func request(action: Selector,
                                view: BaseViewController) {
         // Show overlay
-        LoadingView.shared.showOverlay(view: view.view)
+        //LoadingView.shared.showOverlay(view: view.view)
         let request = ProvincesListRequest(url: DomainConst.PATH_SITE_PROVINCES_LIST,
                                                 reqMethod: DomainConst.HTTP_POST_REQUEST,
                                                 view: view)

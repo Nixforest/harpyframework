@@ -31,7 +31,7 @@ public class DistrictsListRequest: BaseRequest {
                                view: BaseViewController,
                                provinceId: String) {
         // Show overlay
-        LoadingView.shared.showOverlay(view: view.view)
+        //LoadingView.shared.showOverlay(view: view.view)
         let request = DistrictsListRequest(url: DomainConst.PATH_SITE_DISRICTS_LIST,
                                            reqMethod: DomainConst.HTTP_POST_REQUEST,
                                            view: view)
