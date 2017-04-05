@@ -261,6 +261,19 @@ public protocol ScrollButtonListDelegate {
     func selectButton(_ sender: AnyObject)
 }
 
+
+
+/**
+ * Protocol to define delegate with match select button event.
+ */
+public protocol AddressPickerViewDelegate {
+    /**
+     * Handle valued changed event.
+     * - parameter sender: Object
+     */
+    func valueChanged(_ sender: AnyObject)
+}
+
 /**
  * Protocol to define delegate with match check changed event.
  */
@@ -484,6 +497,82 @@ extension String {
         
         return retVal
     }
+    
+    public func normalizeProvinceStr() -> String {
+        var retVal = self.lowercased()
+        if retVal.range(of: "city") != nil {
+            retVal = retVal.replacingOccurrences(of: "city", with: DomainConst.BLANK)
+        }
+        retVal = retVal.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        //self = retVal
+        return retVal
+    }
+    
+    public func normalizeDistrictStr() -> String {
+        var retVal = self.lowercased()
+        if retVal.range(of: "Quận") != nil {
+            retVal = retVal.replacingOccurrences(of: "Quận", with: DomainConst.BLANK)
+        }
+        if retVal.range(of: "Huyện") != nil {
+            retVal = retVal.replacingOccurrences(of: "Huyện", with: DomainConst.BLANK)
+        }
+        retVal = retVal.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        //self = retVal
+        return retVal
+    }
+    
+    public func normalizeWardStr() -> String {
+        var retVal = self.lowercased()
+        if retVal.range(of: "Phường") != nil {
+            retVal = retVal.replacingOccurrences(of: "Phường", with: DomainConst.BLANK)
+        }
+        if retVal.range(of: "Xã") != nil {
+            retVal = retVal.replacingOccurrences(of: "Xã", with: DomainConst.BLANK)
+        }
+        retVal = retVal.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        //self = retVal
+        return retVal
+    }
+    
+    public func normalizeStreetStr() -> String {
+        var retVal = self.lowercased()
+        if retVal.range(of: "Đường") != nil {
+            retVal = retVal.replacingOccurrences(of: "Đường", with: DomainConst.BLANK)
+        }
+        retVal = retVal.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        //self = retVal
+        return retVal
+    }
+    
+    public func removeSign() -> String {
+        var retVal = self
+        for i in 1..<DomainConst.UNICODE_SIGNS.count {
+            for j in 0..<DomainConst.UNICODE_SIGNS[i].characters.count {
+                retVal = retVal.replacingOccurrences(of: DomainConst.UNICODE_SIGNS[i].substring(with: j..<(j+1)), with: DomainConst.UNICODE_SIGNS[0].substring(with: (i-1)..<i))
+            }
+        }
+        return retVal
+    }
+    
+    func index(from: Int) -> Index {
+        return self.index(startIndex, offsetBy: from)
+    }
+    
+    func substring(from: Int) -> String {
+        let fromIndex = index(from: from)
+        return substring(from: fromIndex)
+    }
+    
+    func substring(to: Int) -> String {
+        let toIndex = index(from: to)
+        return substring(to: toIndex)
+    }
+    
+    func substring(with r: Range<Int>) -> String {
+        let startIndex = index(from: r.lowerBound)
+        let endIndex = index(from: r.upperBound)
+        return substring(with: startIndex..<endIndex)
+    }
 }
 
 public extension NSObject {    
@@ -608,8 +697,18 @@ public extension NSObject {
     //-- BUG0050-SPJ (NguyenPT 20170326) Add new function G06
     /** The class name */
     public var theClassName: String {
-        return NSStringFromClass(type(of: self))
+        //++ BUG0050-SPJ (NguyenPT 20170403) Add new function G06
+        //return NSStringFromClass(type(of: self))
+        return String(describing: type(of: self))
+        //-- BUG0050-SPJ (NguyenPT 20170403) Add new function G06
     }
+    
+    //++ BUG0050-SPJ (NguyenPT 20170403) Add new function G06
+    /** The class name */
+    class var theClassName: String {
+        return String(describing: self)
+    }
+    //-- BUG0050-SPJ (NguyenPT 20170403) Add new function G06
 }
 public extension UIView {
     /**

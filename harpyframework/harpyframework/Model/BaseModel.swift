@@ -63,9 +63,14 @@ public class BaseModel: NSObject {
     /** Name of role */
     var role_name: String = ""
     /** List streets */
-    var list_street: [ConfigBean] = [ConfigBean]()
+    private var list_street: [ConfigBean] = [ConfigBean]()
     /** List agents */
     var list_agent: [ConfigBean] = [ConfigBean]()
+    //++ BUG0050-SPJ (NguyenPT 20170403) Handle Address information
+    private var _listProvinces:     [ConfigBean] = [ConfigBean]()
+    private var _listDistricts:     [String: [ConfigBean]] = [String: [ConfigBean]]()
+    private var _listWards:         [String: [ConfigBean]] = [String: [ConfigBean]]()
+    //-- BUG0050-SPJ (NguyenPT 20170403) Handle Address information
     /** List family type */
     var list_hgd_type: [ConfigBean] = [ConfigBean]()
     /** Uphold list data */
@@ -578,6 +583,9 @@ public class BaseModel: NSObject {
         
         // Agent info
         self.list_agent = loginModel.list_agent
+        
+        // List street
+        self.list_street = loginModel.list_street
     }
     
     /**
@@ -864,4 +872,63 @@ public class BaseModel: NSObject {
             return DomainConst.LOGO_AGENT_GAS_24H_IMG_NAME
         }
     }
+    //++ BUG0050-SPJ (NguyenPT 20170403) Handle Address information
+    /**
+     * Get list of provinces
+     * - returns: List of provinces
+     */
+    public func getListProvinces() -> [ConfigBean] {
+        return self._listProvinces
+    }
+    
+    /**
+     * Set list of provinces
+     * - parameter data: List of provinces to save
+     */
+    public func setListProvinces(data: [ConfigBean]) {
+        self._listProvinces.removeAll()
+        self._listProvinces.append(contentsOf: data)
+    }
+    /**
+     * Get list of wards
+     * - parameter districtId: Id of district
+     * - returns: List of wards
+     */
+    public func getListWards(districtId: String) -> [ConfigBean]? {
+        return self._listWards[districtId]
+    }
+    
+    /**
+     * Set list of wards
+     * - parameter districtId: Id of district
+     * - parameter data: List of wards to save
+     */
+    public func setListWards(districtId: String, data: [ConfigBean]) {
+        self._listWards.updateValue(data, forKey: districtId)
+    }
+    /**
+     * Get list of districts
+     * - parameter provinceId: Id of province
+     * - returns: List of districts
+     */
+    public func getListDistricts(provinceId: String) -> [ConfigBean]? {
+        return self._listDistricts[provinceId]
+    }
+    
+    /**
+     * Set list of districts
+     * - parameter provinceId: Id of province
+     * - parameter data: List of districts to save
+     */
+    public func setListDistricts(provinceId: String, data: [ConfigBean]) {
+        self._listDistricts.updateValue(data, forKey: provinceId)
+    }
+    /**
+     * Get list of streets
+     * - returns: List of streets
+     */
+    public func getListStreets() -> [ConfigBean] {
+        return self.list_street
+    }
+    //-- BUG0050-SPJ (NguyenPT 20170403) Handle Address information
 }

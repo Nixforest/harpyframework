@@ -21,6 +21,12 @@
 		D70B9F941E3F504400EB66F5 /* icon17.png in Resources */ = {isa = PBXBuildFile; fileRef = D70B9F901E3F504400EB66F5 /* icon17.png */; };
 		D70B9F951E3F504400EB66F5 /* icon18.png in Resources */ = {isa = PBXBuildFile; fileRef = D70B9F911E3F504400EB66F5 /* icon18.png */; };
 		D70B9F961E3F504400EB66F5 /* icon19.png in Resources */ = {isa = PBXBuildFile; fileRef = D70B9F921E3F504400EB66F5 /* icon19.png */; };
+		D716C18E1E923C17007CC50C /* DistrictsListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D716C18D1E923C17007CC50C /* DistrictsListRequest.swift */; };
+		D716C1901E924F16007CC50C /* WardsListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D716C18F1E924F16007CC50C /* WardsListRequest.swift */; };
+		D716C1921E92893B007CC50C /* ProvincesListRespModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D716C1911E92893B007CC50C /* ProvincesListRespModel.swift */; };
+		D716C1941E9293A4007CC50C /* DistrictsListRespModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D716C1931E9293A4007CC50C /* DistrictsListRespModel.swift */; };
+		D716C1961E929422007CC50C /* WardsListRespModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D716C1951E929422007CC50C /* WardsListRespModel.swift */; };
+		D716C1981E92A9E9007CC50C /* AddressPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D716C1971E92A9E9007CC50C /* AddressPickerView.swift */; };
 		D71C25A31E41FDC400E29C3B /* TransactionCompleteBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71C25A21E41FDC400E29C3B /* TransactionCompleteBean.swift */; };
 		D7424AAD1E3B463600E442DC /* MaterialTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7424AAC1E3B463600E442DC /* MaterialTableViewCell.swift */; };
 		D75F64AD1E28657900A67B3C /* icon52.png in Resources */ = {isa = PBXBuildFile; fileRef = D75F64AA1E28657900A67B3C /* icon52.png */; };
@@ -195,7 +201,7 @@
 		D7CFF1F81E44F23500A37C07 /* icon23.png in Resources */ = {isa = PBXBuildFile; fileRef = D7CFF1F71E44F23500A37C07 /* icon23.png */; };
 		D7D04E371E55544900B3F8CF /* icon77.png in Resources */ = {isa = PBXBuildFile; fileRef = D7D04E361E55544900B3F8CF /* icon77.png */; };
 		D7D04E431E557FBF00B3F8CF /* OrderVIPDetailBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D04E421E557FBF00B3F8CF /* OrderVIPDetailBean.swift */; };
-		D7D850EF1E91E20A003FCFBF /* DataLabelRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D850EE1E91E20A003FCFBF /* DataLabelRequest.swift */; };
+		D7D850EF1E91E20A003FCFBF /* ProvincesListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D850EE1E91E20A003FCFBF /* ProvincesListRequest.swift */; };
 		D7DA56AE1E40ED3C00B6F618 /* TransactionBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DA56AD1E40ED3C00B6F618 /* TransactionBean.swift */; };
 		D7E014A31E33DEFC001F26B6 /* icon24.png in Resources */ = {isa = PBXBuildFile; fileRef = D7E014A21E33DEFC001F26B6 /* icon24.png */; };
 		D7E014AA1E347EA4001F26B6 /* MaterialSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E014A91E347EA4001F26B6 /* MaterialSelectViewController.swift */; };
@@ -244,6 +250,12 @@
 		D70B9F901E3F504400EB66F5 /* icon17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon17.png; path = images/icon17.png; sourceTree = "<group>"; };
 		D70B9F911E3F504400EB66F5 /* icon18.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon18.png; path = images/icon18.png; sourceTree = "<group>"; };
 		D70B9F921E3F504400EB66F5 /* icon19.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon19.png; path = images/icon19.png; sourceTree = "<group>"; };
+		D716C18D1E923C17007CC50C /* DistrictsListRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DistrictsListRequest.swift; path = API/DistrictsListRequest.swift; sourceTree = "<group>"; };
+		D716C18F1E924F16007CC50C /* WardsListRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WardsListRequest.swift; path = API/WardsListRequest.swift; sourceTree = "<group>"; };
+		D716C1911E92893B007CC50C /* ProvincesListRespModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProvincesListRespModel.swift; path = Model/ProvincesListRespModel.swift; sourceTree = "<group>"; };
+		D716C1931E9293A4007CC50C /* DistrictsListRespModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DistrictsListRespModel.swift; path = Model/DistrictsListRespModel.swift; sourceTree = "<group>"; };
+		D716C1951E929422007CC50C /* WardsListRespModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WardsListRespModel.swift; path = Model/WardsListRespModel.swift; sourceTree = "<group>"; };
+		D716C1971E92A9E9007CC50C /* AddressPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddressPickerView.swift; path = CustomeControl/AddressPickerView.swift; sourceTree = "<group>"; };
 		D71C25A21E41FDC400E29C3B /* TransactionCompleteBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransactionCompleteBean.swift; path = Model/TransactionCompleteBean.swift; sourceTree = "<group>"; };
 		D7424AAC1E3B463600E442DC /* MaterialTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MaterialTableViewCell.swift; path = CustomeControl/MaterialTableViewCell.swift; sourceTree = "<group>"; };
 		D75F64AA1E28657900A67B3C /* icon52.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon52.png; path = images/icon52.png; sourceTree = "<group>"; };
@@ -422,7 +434,7 @@
 		D7CFF1F71E44F23500A37C07 /* icon23.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon23.png; path = images/icon23.png; sourceTree = "<group>"; };
 		D7D04E361E55544900B3F8CF /* icon77.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon77.png; path = images/icon77.png; sourceTree = "<group>"; };
 		D7D04E421E557FBF00B3F8CF /* OrderVIPDetailBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderVIPDetailBean.swift; path = Model/OrderVIPDetailBean.swift; sourceTree = "<group>"; };
-		D7D850EE1E91E20A003FCFBF /* DataLabelRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataLabelRequest.swift; path = API/DataLabelRequest.swift; sourceTree = "<group>"; };
+		D7D850EE1E91E20A003FCFBF /* ProvincesListRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProvincesListRequest.swift; path = API/ProvincesListRequest.swift; sourceTree = "<group>"; };
 		D7DA56AD1E40ED3C00B6F618 /* TransactionBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransactionBean.swift; path = Model/TransactionBean.swift; sourceTree = "<group>"; };
 		D7E014A21E33DEFC001F26B6 /* icon24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon24.png; path = images/icon24.png; sourceTree = "<group>"; };
 		D7E014A91E347EA4001F26B6 /* MaterialSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MaterialSelectViewController.swift; path = View/MaterialSelectViewController.swift; sourceTree = "<group>"; };
@@ -482,7 +494,9 @@
 				D77F05E81E71737200797A6B /* UpholdDetailRequest.swift */,
 				D77F05E91E71737200797A6B /* UpholdListRequest.swift */,
 				D77F05EA1E71737200797A6B /* UserProfileRequest.swift */,
-				D7D850EE1E91E20A003FCFBF /* DataLabelRequest.swift */,
+				D7D850EE1E91E20A003FCFBF /* ProvincesListRequest.swift */,
+				D716C18D1E923C17007CC50C /* DistrictsListRequest.swift */,
+				D716C18F1E924F16007CC50C /* WardsListRequest.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -545,6 +559,9 @@
 				D77F05BD1E71729400797A6B /* UpholdDetailRespModel.swift */,
 				D77F05BE1E71729400797A6B /* UpholdListRespModel.swift */,
 				D77F05BF1E71729400797A6B /* UserProfileRespModel.swift */,
+				D716C1911E92893B007CC50C /* ProvincesListRespModel.swift */,
+				D716C1931E9293A4007CC50C /* DistrictsListRespModel.swift */,
+				D716C1951E929422007CC50C /* WardsListRespModel.swift */,
 			);
 			name = Response;
 			sourceTree = "<group>";
@@ -636,6 +653,7 @@
 				D7885B471E88C20A00F8F87A /* CustomerFamilyListCell.swift */,
 				D7C255251E8B66E300941E31 /* DetailInformationColumnView.swift */,
 				D7C255291E8B93D500941E31 /* WorkingReportListCell.swift */,
+				D716C1971E92A9E9007CC50C /* AddressPickerView.swift */,
 			);
 			name = CustomControl;
 			sourceTree = "<group>";
@@ -1016,6 +1034,7 @@
 				D77F05D31E7172AD00797A6B /* OrderBean.swift in Sources */,
 				D77F05DC1E7172BD00797A6B /* BaseViewController.swift in Sources */,
 				D7424AAD1E3B463600E442DC /* MaterialTableViewCell.swift in Sources */,
+				D716C1941E9293A4007CC50C /* DistrictsListRespModel.swift in Sources */,
 				D77F05D81E7172AD00797A6B /* UserInfoBean.swift in Sources */,
 				D76C379B1E24D24B0096F864 /* CollectionImageViewCell.swift in Sources */,
 				D7F3D8CD1E1B74720018744F /* CustomeDateTimeView.swift in Sources */,
@@ -1030,6 +1049,7 @@
 				D77F05D41E7172AD00797A6B /* OrderDetailBean.swift in Sources */,
 				D708B17C1E4852120074C528 /* DebugBean.swift in Sources */,
 				D7AF28001E58785500AFF9D6 /* OrderVIPListBean.swift in Sources */,
+				D716C18E1E923C17007CC50C /* DistrictsListRequest.swift in Sources */,
 				D77F05F01E71737200797A6B /* NotificationCountRequest.swift in Sources */,
 				D77D2B5A1E725A4D000D38DE /* ParentViewController.swift in Sources */,
 				D77F06901E719B5300797A6B /* BaseSlideMenuViewController.swift in Sources */,
@@ -1048,13 +1068,16 @@
 				D77F06011E71738100797A6B /* LoadingView.swift in Sources */,
 				D7F6844C1E2F620400D3D6F4 /* BaseAgentInfoBean.swift in Sources */,
 				D7BA68851E83AC4D001C675D /* BaseAPITestViewController.swift in Sources */,
+				D716C1961E929422007CC50C /* WardsListRespModel.swift in Sources */,
 				D77F05B71E71703E00797A6B /* Extension.swift in Sources */,
+				D716C1921E92893B007CC50C /* ProvincesListRespModel.swift in Sources */,
 				D79C1BBD1E4ACEC700E6E121 /* PromotionBean.swift in Sources */,
 				D791F6B01E238135009CBBED /* CommonProcess.swift in Sources */,
 				D7AB90561E2402170048AC4F /* StepSummary.swift in Sources */,
 				D77D2B581E72596A000D38DE /* ChildViewController.swift in Sources */,
 				D77F05FF1E71738100797A6B /* CustomCheckBox.swift in Sources */,
 				D7AB904E1E23FBC20048AC4F /* SearchBarTableViewCell.swift in Sources */,
+				D716C1901E924F16007CC50C /* WardsListRequest.swift in Sources */,
 				D77F05F11E71737200797A6B /* RegisterConfirmRequest.swift in Sources */,
 				D7AB90551E2402170048AC4F /* StepContent.swift in Sources */,
 				D7E9BF6B1E2C78B10068D200 /* CategoryButton.swift in Sources */,
@@ -1071,6 +1094,7 @@
 				D78E32631E5693000035C40D /* OrderVIPBean.swift in Sources */,
 				D7023EE51E2CAC0A00ED6394 /* MaterialSelector.swift in Sources */,
 				D7F958111E3DD36B00C76F2F /* ConfigurationTableViewCell.swift in Sources */,
+				D716C1981E92A9E9007CC50C /* AddressPickerView.swift in Sources */,
 				D77F05C21E71729400797A6B /* NotificationCountRespModel.swift in Sources */,
 				D77F06031E71738100797A6B /* TableCellOrderType.swift in Sources */,
 				D7AF28171E58C91300AFF9D6 /* OrderDetailTableViewCell.swift in Sources */,
@@ -1081,7 +1105,7 @@
 				D7CDBE2D1E880A7800B73877 /* WorkingReportBean.swift in Sources */,
 				D77F05C01E71729400797A6B /* BaseRespModel.swift in Sources */,
 				D7885B481E88C20A00F8F87A /* CustomerFamilyListCell.swift in Sources */,
-				D7D850EF1E91E20A003FCFBF /* DataLabelRequest.swift in Sources */,
+				D7D850EF1E91E20A003FCFBF /* ProvincesListRequest.swift in Sources */,
 				D7AB90571E2402170048AC4F /* StepVC.swift in Sources */,
 				D77F05EB1E71737200797A6B /* BaseRequest.swift in Sources */,
 				D7C30A391E3058B600B3FDA6 /* AgentInfoBean.swift in Sources */,

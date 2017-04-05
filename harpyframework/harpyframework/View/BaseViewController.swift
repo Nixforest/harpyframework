@@ -692,7 +692,10 @@ open class BaseViewController : UIViewController {
      * - parameter name: Name of view controller
      */
     public func pushToView(name: String) {
-        if self.theClassName == String.init(format: "project.\(name)") {
+        //++ BUG0050-SPJ (NguyenPT 20170403) Add new function G06
+        //if self.theClassName == String.init(format: "project.\(name)") {
+        if self.theClassName == name {
+        //-- BUG0050-SPJ (NguyenPT 20170403) Add new function G06
             return
         }
         let view = mainStoryboard.instantiateViewController(withIdentifier: name)

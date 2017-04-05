@@ -73,6 +73,12 @@ public class DomainConst {
     public static let PATH_CUSTOMER_REGISTER            = "customer/register"
     /** Customer register confirm */
     public static let PATH_CUSTOMER_REGISTER_CONFIRM    = "customer/registerConfirm"
+    /** Get provinces list */
+    public static let PATH_SITE_PROVINCES_LIST          = "site/signupDataLabel"
+    /** Get districts list */
+    public static let PATH_SITE_DISRICTS_LIST           = "site/signupGetDistrict"
+    /** Get wards list */
+    public static let PATH_SITE_WARDS_LIST              = "site/signupGetWard"
     
     // MARK: -----List of keys-----
     /** Token */
@@ -800,7 +806,24 @@ public class DomainConst {
     public static let JSON_ERR_FAILED_LOAD              = "Failed to load: "
     /** Json error: Wrong format */
     public static let JSON_ERR_WRONG_FORMAT             = "Json is of wrong format"
-    
+    public static let UNICODE_SIGNS: [String]           = [
+        "aAeEoOuUiIdDyY",
+        "áàạảãâấầậẩẫăắằặẳẵ",
+        "ÁÀẠẢÃÂẤẦẬẨẪĂẮẰẶẲẴ",
+        "éèẹẻẽêếềệểễ",
+        "ÉÈẸẺẼÊẾỀỆỂỄ",
+        "óòọỏõôốồộổỗơớờợởỡ",
+        "ÓÒỌỎÕÔỐỒỘỔỖƠỚỜỢỞỠ",
+        "úùụủũưứừựửữ",
+        "ÚÙỤỦŨƯỨỪỰỬỮ",
+        "íìịỉĩ",
+        "ÍÌỊỈĨ",
+        "đ",
+        "Đ",
+        "ýỳỵỷỹ",
+        "ÝỲỴỶỸ"
+    ]
+
     /** -----Log message----- */
     /** Log tag: error. */
     public static let LOG_TAG_ERROR                     = "harpy.error"
@@ -889,6 +912,8 @@ public class DomainConst {
     //++ BUG0050-SPJ (NguyenPT 20170323) Add new view controller
     /** Name of G06APITest view controller */
     public static let G06_API_TEST_VIEW_CTRL                        = "G06APITestVC"
+    /** Name of BaseAPITest view controller */
+    public static let BASE_API_TEST_VIEW_CTRL                        = "BaseAPITestViewController"
     //++ BUG0050-SPJ (NguyenPT 20170323) Add new view controller
     
     /** Name of ChangePasswordViewController */
@@ -1443,4 +1468,8 @@ public class DomainConst {
     public static let CONTENT00295 = "Báo cáo công việc"
     public static let CONTENT00296 = "Chi tiết báo cáo"
     public static let CONTENT00297 = "Bạn đang gửi thông tin Khách hàng như bên dưới. Xin hãy kiểm tra lại các thông tin cho thật chính xác và nhấn nút Gửi nếu bạn đồng ý."
+    public static let CONTENT00298 = "Tỉnh/Thành Phố"
+    public static let CONTENT00299 = "Quận/Huyện"
+    public static let CONTENT00300 = "Phường/Xã"
+    public static let CONTENT00301 = "Xin vui lòng nhập Địa chỉ của Khách hàng"
 }

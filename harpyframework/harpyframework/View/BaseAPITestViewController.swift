@@ -40,6 +40,9 @@ open class BaseAPITestViewController: ChildViewController, UIPickerViewDelegate,
         // Do any additional setup after loading the view.
         self.createNavigationBar(title: "Test API")
         
+        // Create data
+        createData()
+        
         var offset: CGFloat = 0.0
         _scrollView.frame = CGRect(
             x: 0,
@@ -132,6 +135,18 @@ open class BaseAPITestViewController: ChildViewController, UIPickerViewDelegate,
             height: offset)
         self.view.addSubview(_scrollView)
     }
+    
+    /**
+     * Create data
+     */
+    open func createData() {
+        var listAPI: [ConfigBean] = [ConfigBean]()
+        listAPI.append(ConfigBean(id: "ProvincesListRequest", name: "Province List API"))
+        listAPI.append(ConfigBean(id: "DistrictsListRequest", name: "District List API"))
+        listAPI.append(ConfigBean(id: "WardsListRequest", name: "Ward List API"))
+        setData(listAPI: listAPI)
+    }
+    
     /**
      * Handle when tap Add parameter button
      */
@@ -178,6 +193,29 @@ open class BaseAPITestViewController: ChildViewController, UIPickerViewDelegate,
     
     open func execute() {
         // Must override in Child class
+        
+        switch getCurrentAPIId() {
+        case "ProvincesListRequest":
+            ProvincesListRequest.request(
+                //action: #selector(finishHandler(_:)),
+                action: #selector(finishHandlerProvinceList(_:)),
+                view: self)
+            break
+        case "DistrictsListRequest":
+            DistrictsListRequest.request(
+                action: #selector(finishHandler(_:)),
+                view: self,
+                provinceId: getParam(idx: 0))
+            break
+        case "WardsListRequest":
+            WardsListRequest.request(
+                action: #selector(finishHandler(_:)),
+                view: self,
+                provinceId: getParam(idx: 0),
+                districtId: getParam(idx: 1))
+            break
+        default: break
+        }
     }
     
     /**
@@ -303,6 +341,12 @@ open class BaseAPITestViewController: ChildViewController, UIPickerViewDelegate,
         }
         
         //_resultTextView.text = dataStr
+    }
+    
+    public func finishHandlerProvinceList(_ notification: Notification) {
+        let dataStr = (notification.object as! String)
+        let model = ProvincesListRespModel(jsonString: dataStr)
+        print(model)
     }
     
     /**

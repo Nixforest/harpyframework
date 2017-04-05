@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 class UserProfileRespModel: BaseRespModel {
     var record: UserInfoBean = UserInfoBean()
     /**
