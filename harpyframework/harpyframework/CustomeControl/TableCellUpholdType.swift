@@ -74,12 +74,12 @@ open class TableCellUpholdType: UITableViewCell {
         self.statusLabel.lineBreakMode = .byWordWrapping
         offset += self.statusStaticIcon.frame.height
         
-        TableCellOrderType.CELL_HEIGHT = contentHeight + verticalMargin
+        TableCellUpholdType.CELL_HEIGHT = contentHeight + verticalMargin
         
         self._parentView.frame = CGRect(x: 0,
                                         y: 0,
                                         width: GlobalConst.SCREEN_WIDTH,
-                                        height: TableCellOrderType.CELL_HEIGHT)
+                                        height: TableCellUpholdType.CELL_HEIGHT)
         self.leftView.frame = CGRect(x: 0,
                                      y: 0,
                                      width: GlobalConst.SCREEN_WIDTH / 4,
@@ -87,11 +87,11 @@ open class TableCellUpholdType: UITableViewCell {
         self.centerView.frame = CGRect(x: self.leftView.frame.maxX,
                                        y: 0,
                                        width: GlobalConst.SCREEN_WIDTH / 2,
-                                       height: TableCellOrderType.CELL_HEIGHT - GlobalConst.CELL_HEIGHT_SHOW / 5)
+                                       height: TableCellUpholdType.CELL_HEIGHT - GlobalConst.CELL_HEIGHT_SHOW / 5)
         self.rightView.frame = CGRect(x: self.centerView.frame.maxX,
                                       y: 0,
                                       width: GlobalConst.SCREEN_WIDTH / 4,
-                                      height: TableCellOrderType.CELL_HEIGHT)
+                                      height: TableCellUpholdType.CELL_HEIGHT)
         self.bottomView.frame = CGRect(x: 0,
                                       y: self.leftView.frame.maxY + GlobalConst.MARGIN_CELL_Y,
                                       width: GlobalConst.SCREEN_WIDTH / 4 * 3,

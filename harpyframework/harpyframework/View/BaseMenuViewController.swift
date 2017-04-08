@@ -150,6 +150,10 @@ open class BaseMenuViewController : UIViewController {
                 case DomainConst.KEY_MENU_PROMOTION_LIST:
                     iconPath = DomainConst.MENU_ITEM_GIFT_IMG_NAME
                     break
+                //++ BUG0054-SPJ (NguyenPT 20170407) Add new key for new function G07
+                case DomainConst.ORDER_TRANSACTION_LIST:
+                    iconPath = DomainConst.MENU_ITEM_ORDER_LIST_IMG_NAME
+                //-- BUG0054-SPJ (NguyenPT 20170407) Add new key for new function G07
                 default:
                     break
                 }
@@ -298,6 +302,10 @@ open class BaseMenuViewController : UIViewController {
         case DomainConst.KEY_MENU_PROMOTION_LIST:           // Promotion list
             currentView.pushToView(name: DomainConst.G04_F02_S01_VIEW_CTRL)
             break
+        //++ BUG0054-SPJ (NguyenPT 20170407) Add new key for new function G07
+        case DomainConst.ORDER_TRANSACTION_LIST:
+            currentView.pushToView(name: DomainConst.G07_F00_S01_VC)
+        //-- BUG0054-SPJ (NguyenPT 20170407) Add new key for new function G07
         default:
             break
         }

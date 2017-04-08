@@ -198,6 +198,8 @@
 		D7C30A441E307C1600B3FDA6 /* logo_agent.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C30A431E307C1600B3FDA6 /* logo_agent.png */; };
 		D7CDBE261E877F0F00B73877 /* CustomerFamilyBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CDBE251E877F0F00B73877 /* CustomerFamilyBean.swift */; };
 		D7CDBE2D1E880A7800B73877 /* WorkingReportBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CDBE2C1E880A7800B73877 /* WorkingReportBean.swift */; };
+		D7CED6D11E98CB2E00C2B568 /* OrderEmployeeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CED6CF1E98CB2E00C2B568 /* OrderEmployeeTableViewCell.swift */; };
+		D7CED6D21E98CB2E00C2B568 /* OrderEmployeeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7CED6D01E98CB2E00C2B568 /* OrderEmployeeTableViewCell.xib */; };
 		D7CFF1F81E44F23500A37C07 /* icon23.png in Resources */ = {isa = PBXBuildFile; fileRef = D7CFF1F71E44F23500A37C07 /* icon23.png */; };
 		D7D04E371E55544900B3F8CF /* icon77.png in Resources */ = {isa = PBXBuildFile; fileRef = D7D04E361E55544900B3F8CF /* icon77.png */; };
 		D7D04E431E557FBF00B3F8CF /* OrderVIPDetailBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D04E421E557FBF00B3F8CF /* OrderVIPDetailBean.swift */; };
@@ -223,6 +225,8 @@
 		D7F6844A1E2F5F4F00D3D6F4 /* MaterialBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F684491E2F5F4E00D3D6F4 /* MaterialBean.swift */; };
 		D7F6844C1E2F620400D3D6F4 /* BaseAgentInfoBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F6844B1E2F620400D3D6F4 /* BaseAgentInfoBean.swift */; };
 		D7F958111E3DD36B00C76F2F /* ConfigurationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F958101E3DD36B00C76F2F /* ConfigurationTableViewCell.swift */; };
+		D7FB47401E974EB70082FA5E /* OrderFamilyListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FB473F1E974EB70082FA5E /* OrderFamilyListRequest.swift */; };
+		D7FB47421E9750B80082FA5E /* OrderListRespModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FB47411E9750B80082FA5E /* OrderListRespModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -431,6 +435,8 @@
 		D7C34A451E2B2BA60041B6CA /* libPods-project.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-project.a"; path = "../../../../Library/Developer/Xcode/DerivedData/project-bvtrqvfvowkogmgvpphakijhhgei/Build/Products/Debug-iphoneos/libPods-project.a"; sourceTree = "<group>"; };
 		D7CDBE251E877F0F00B73877 /* CustomerFamilyBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomerFamilyBean.swift; path = Model/CustomerFamilyBean.swift; sourceTree = "<group>"; };
 		D7CDBE2C1E880A7800B73877 /* WorkingReportBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkingReportBean.swift; path = Model/WorkingReportBean.swift; sourceTree = "<group>"; };
+		D7CED6CF1E98CB2E00C2B568 /* OrderEmployeeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderEmployeeTableViewCell.swift; path = CustomeControl/OrderEmployeeTableViewCell.swift; sourceTree = "<group>"; };
+		D7CED6D01E98CB2E00C2B568 /* OrderEmployeeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OrderEmployeeTableViewCell.xib; path = CustomeControl/OrderEmployeeTableViewCell.xib; sourceTree = "<group>"; };
 		D7CFF1F71E44F23500A37C07 /* icon23.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon23.png; path = images/icon23.png; sourceTree = "<group>"; };
 		D7D04E361E55544900B3F8CF /* icon77.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon77.png; path = images/icon77.png; sourceTree = "<group>"; };
 		D7D04E421E557FBF00B3F8CF /* OrderVIPDetailBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderVIPDetailBean.swift; path = Model/OrderVIPDetailBean.swift; sourceTree = "<group>"; };
@@ -456,6 +462,8 @@
 		D7F684491E2F5F4E00D3D6F4 /* MaterialBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MaterialBean.swift; path = Model/MaterialBean.swift; sourceTree = "<group>"; };
 		D7F6844B1E2F620400D3D6F4 /* BaseAgentInfoBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseAgentInfoBean.swift; path = Model/BaseAgentInfoBean.swift; sourceTree = "<group>"; };
 		D7F958101E3DD36B00C76F2F /* ConfigurationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigurationTableViewCell.swift; path = CustomeControl/ConfigurationTableViewCell.swift; sourceTree = "<group>"; };
+		D7FB473F1E974EB70082FA5E /* OrderFamilyListRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderFamilyListRequest.swift; path = API/OrderFamilyListRequest.swift; sourceTree = "<group>"; };
+		D7FB47411E9750B80082FA5E /* OrderListRespModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderListRespModel.swift; path = Model/OrderListRespModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -497,6 +505,7 @@
 				D7D850EE1E91E20A003FCFBF /* ProvincesListRequest.swift */,
 				D716C18D1E923C17007CC50C /* DistrictsListRequest.swift */,
 				D716C18F1E924F16007CC50C /* WardsListRequest.swift */,
+				D7FB473F1E974EB70082FA5E /* OrderFamilyListRequest.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -562,6 +571,7 @@
 				D716C1911E92893B007CC50C /* ProvincesListRespModel.swift */,
 				D716C1931E9293A4007CC50C /* DistrictsListRespModel.swift */,
 				D716C1951E929422007CC50C /* WardsListRespModel.swift */,
+				D7FB47411E9750B80082FA5E /* OrderListRespModel.swift */,
 			);
 			name = Response;
 			sourceTree = "<group>";
@@ -654,6 +664,8 @@
 				D7C255251E8B66E300941E31 /* DetailInformationColumnView.swift */,
 				D7C255291E8B93D500941E31 /* WorkingReportListCell.swift */,
 				D716C1971E92A9E9007CC50C /* AddressPickerView.swift */,
+				D7CED6CF1E98CB2E00C2B568 /* OrderEmployeeTableViewCell.swift */,
+				D7CED6D01E98CB2E00C2B568 /* OrderEmployeeTableViewCell.xib */,
 			);
 			name = CustomControl;
 			sourceTree = "<group>";
@@ -905,6 +917,7 @@
 				D7E9BF721E2C82F20068D200 /* icon9-active.png in Resources */,
 				D791F67C1E234C89009CBBED /* bg_sliding_menu_top.jpg in Resources */,
 				D75F65061E28B3A500A67B3C /* icon58.png in Resources */,
+				D7CED6D21E98CB2E00C2B568 /* OrderEmployeeTableViewCell.xib in Resources */,
 				D75F64E51E28B39100A67B3C /* icon3.png in Resources */,
 				D75F64B71E28B2A900A67B3C /* icon27.png in Resources */,
 				D75F65141E28B3B100A67B3C /* icon62.png in Resources */,
@@ -1029,6 +1042,7 @@
 			files = (
 				D77F05C61E71729400797A6B /* UserProfileRespModel.swift in Sources */,
 				D7C30A3B1E305AB800B3FDA6 /* OrderConfigBean.swift in Sources */,
+				D7FB47421E9750B80082FA5E /* OrderListRespModel.swift in Sources */,
 				D77F05DB1E7172BD00797A6B /* BaseMenuViewController.swift in Sources */,
 				D77F05F41E71737200797A6B /* SearchCustomerRequest.swift in Sources */,
 				D77F05D31E7172AD00797A6B /* OrderBean.swift in Sources */,
@@ -1043,10 +1057,12 @@
 				D77F068E1E719B1D00797A6B /* SlideMenuController.swift in Sources */,
 				D7D04E431E557FBF00B3F8CF /* OrderVIPDetailBean.swift in Sources */,
 				D7AB90541E2402170048AC4F /* ScrollButtonList.swift in Sources */,
+				D7CED6D11E98CB2E00C2B568 /* OrderEmployeeTableViewCell.swift in Sources */,
 				D77F05B61E71703E00797A6B /* DomainConst.swift in Sources */,
 				D77F05D61E7172AD00797A6B /* UpholdBean.swift in Sources */,
 				D77F06001E71738100797A6B /* CustomLabel.swift in Sources */,
 				D77F05D41E7172AD00797A6B /* OrderDetailBean.swift in Sources */,
+				D7FB47401E974EB70082FA5E /* OrderFamilyListRequest.swift in Sources */,
 				D708B17C1E4852120074C528 /* DebugBean.swift in Sources */,
 				D7AF28001E58785500AFF9D6 /* OrderVIPListBean.swift in Sources */,
 				D716C18E1E923C17007CC50C /* DistrictsListRequest.swift in Sources */,

@@ -79,6 +79,8 @@ public class DomainConst {
     public static let PATH_SITE_DISRICTS_LIST           = "site/signupGetDistrict"
     /** Get wards list */
     public static let PATH_SITE_WARDS_LIST              = "site/signupGetWard"
+    /** Get order family list */
+    public static let PATH_ORDER_TRANSACTION_LIST       = "order/transactionList"
     
     // MARK: -----List of keys-----
     /** Token */
@@ -961,6 +963,9 @@ public class DomainConst {
     public static let G06_F00_S01_VC                                = "G06F00S01VC"
     public static let G06_F00_S04_VC                                = "G06F00S04VC"
     //++ BUG0050-SPJ (NguyenPT 20170323) Add new key for new function G06
+    //++ BUG0054-SPJ (NguyenPT 20170407) Add new key for new function G07
+    public static let G07_F00_S01_VC                                = "G07F00S01VC"
+    //-- BUG0054-SPJ (NguyenPT 20170407) Add new key for new function G07
     
     /** Pop overmenu identifier */
     public static let POPOVER_MENU_IDENTIFIER                       = "popOverMenu"
@@ -1487,4 +1492,6 @@ public class DomainConst {
     public static let CONTENT00307 = "Tạo Báo cáo công việc"
     public static let CONTENT00308 = "Xin vui lòng nhập Nội dung báo cáo"
     public static let CONTENT00309 = "Bạn đang gửi thông tin Báo cáo như bên dưới. Xin hãy kiểm tra lại các thông tin cho thật chính xác và nhấn nút Gửi nếu bạn đồng ý."
+    public static let CONTENT00310 = "Đơn hàng Hộ gia đình"
+    public static let CONTENT00311 = "Hoàn thành"
 }
