@@ -703,6 +703,16 @@ open class BaseViewController : UIViewController {
     }
     
     /**
+     * Push to a view controller with View controller name
+     * Clear data before push
+     * - parameter name: Name of view controller
+     */
+    public func pushToViewAndClearData(name: String) {
+        self.clearData()
+        pushToView(name: name)
+    }
+    
+    /**
      * Move to root view of view hierarchy
      */
     public func popToRootView() {

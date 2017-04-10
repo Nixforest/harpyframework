@@ -259,7 +259,8 @@ open class BaseMenuViewController : UIViewController {
         BaseViewController.getRootController()?.closeLeft()
         switch (sender as! UIButton).accessibilityIdentifier! {
         case DomainConst.G00_CONFIGURATION_VIEW_CTRL:       // Config menu
-            currentView.pushToView(name: DomainConst.G00_CONFIGURATION_VIEW_CTRL)
+            //currentView.pushToView(name: DomainConst.G00_CONFIGURATION_VIEW_CTRL)
+            currentView.pushToViewAndClearData(name: DomainConst.G00_CONFIGURATION_VIEW_CTRL)
             break
         case DomainConst.G00_LOGIN_VIEW_CTRL:               // Login menu
             currentView.pushToView(name: DomainConst.G00_LOGIN_VIEW_CTRL)
@@ -271,13 +272,16 @@ open class BaseMenuViewController : UIViewController {
             currentView.pushToView(name: DomainConst.G00_REGISTER_VIEW_CTRL)
             break
         case DomainConst.HOME:                              // Home menu
+            currentView.clearData()
             currentView.popToRootView()
             break
         case DomainConst.USER_PROFILE:                      // User profile
-            currentView.pushToView(name: DomainConst.G00_ACCOUNT_VIEW_CTRL)
+            //currentView.pushToView(name: DomainConst.G00_ACCOUNT_VIEW_CTRL)
+            currentView.pushToViewAndClearData(name: DomainConst.G00_ACCOUNT_VIEW_CTRL)
             break
         case DomainConst.UPHOLD_LIST:                       // Uphold list
-            currentView.pushToView(name: DomainConst.G01_F00_S01_VIEW_CTRL)
+            //currentView.pushToView(name: DomainConst.G01_F00_S01_VIEW_CTRL)
+            currentView.pushToViewAndClearData(name: DomainConst.G01_F00_S01_VIEW_CTRL)
             break
         case DomainConst.ISSUE_LIST:                        // Issue list
             currentView.showAlert(message: DomainConst.CONTENT00197)
@@ -287,24 +291,29 @@ open class BaseMenuViewController : UIViewController {
             break
         case DomainConst.CUSTOMER_LIST:                     // Customer list
             //currentView.showAlert(message: DomainConst.CONTENT00197)
-            currentView.pushToView(name: DomainConst.G06_F00_S01_VC)
+            //currentView.pushToView(name: DomainConst.G06_F00_S01_VC)
+            currentView.pushToViewAndClearData(name: DomainConst.G06_F00_S01_VC)
             break
         case DomainConst.WORKING_REPORT:                    // Working report
             //currentView.showAlert(message: DomainConst.CONTENT00197)
-            currentView.pushToView(name: DomainConst.G06_F00_S04_VC)
+            //currentView.pushToView(name: DomainConst.G06_F00_S04_VC)
+            currentView.pushToViewAndClearData(name: DomainConst.G06_F00_S04_VC)
             break
         case DomainConst.ORDER_LIST:                        // Order list
-            currentView.pushToView(name: DomainConst.G04_F00_S01_VIEW_CTRL)
+            //currentView.pushToView(name: DomainConst.G04_F00_S01_VIEW_CTRL)
+            currentView.pushToViewAndClearData(name: DomainConst.G04_F00_S01_VIEW_CTRL)
             break
         case DomainConst.ORDER_VIP_LIST:                    // VIP order list
-            currentView.pushToView(name: DomainConst.G05_F00_S01_VIEW_CTRL)
+            //currentView.pushToView(name: DomainConst.G05_F00_S01_VIEW_CTRL)
+            currentView.pushToViewAndClearData(name: DomainConst.G05_F00_S01_VIEW_CTRL)
             break
         case DomainConst.KEY_MENU_PROMOTION_LIST:           // Promotion list
-            currentView.pushToView(name: DomainConst.G04_F02_S01_VIEW_CTRL)
+            //currentView.pushToView(name: DomainConst.G04_F02_S01_VIEW_CTRL)
+            currentView.pushToViewAndClearData(name: DomainConst.G04_F02_S01_VIEW_CTRL)
             break
         //++ BUG0054-SPJ (NguyenPT 20170407) Add new key for new function G07
         case DomainConst.ORDER_TRANSACTION_LIST:
-            currentView.pushToView(name: DomainConst.G07_F00_S01_VC)
+            currentView.pushToViewAndClearData(name: DomainConst.G07_F00_S01_VC)
         //-- BUG0054-SPJ (NguyenPT 20170407) Add new key for new function G07
         default:
             break
