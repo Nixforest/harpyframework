@@ -26,6 +26,8 @@ public class OrderFamilyListRequest: BaseRequest {
     
     /**
      * Request order list function
+     * - parameter action:      Action execute when finish this task
+     * - parameter view:        Current view
      * - parameter page:    Page index
      * - parameter status:      Status of request
      */

@@ -171,6 +171,8 @@
 		D791F6A81E2378C0009CBBED /* icon49.png in Resources */ = {isa = PBXBuildFile; fileRef = D791F6A71E2378C0009CBBED /* icon49.png */; };
 		D791F6B01E238135009CBBED /* CommonProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = D791F6AF1E238135009CBBED /* CommonProcess.swift */; };
 		D79C1BBD1E4ACEC700E6E121 /* PromotionBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79C1BBC1E4ACEC700E6E121 /* PromotionBean.swift */; };
+		D79C317A1E9B8625006F3683 /* OrderFamilyViewRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79C31791E9B8625006F3683 /* OrderFamilyViewRequest.swift */; };
+		D79C317C1E9B8C8B006F3683 /* OrderFamilyViewRespModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79C317B1E9B8C8B006F3683 /* OrderFamilyViewRespModel.swift */; };
 		D7A0130A1E37BAE6002EF5B3 /* InternalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A013091E37BAE6002EF5B3 /* InternalViewController.swift */; };
 		D7AB904E1E23FBC20048AC4F /* SearchBarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AB904C1E23FBC20048AC4F /* SearchBarTableViewCell.swift */; };
 		D7AB904F1E23FBC20048AC4F /* SearchBarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7AB904D1E23FBC20048AC4F /* SearchBarTableViewCell.xib */; };
@@ -226,7 +228,7 @@
 		D7F6844C1E2F620400D3D6F4 /* BaseAgentInfoBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F6844B1E2F620400D3D6F4 /* BaseAgentInfoBean.swift */; };
 		D7F958111E3DD36B00C76F2F /* ConfigurationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F958101E3DD36B00C76F2F /* ConfigurationTableViewCell.swift */; };
 		D7FB47401E974EB70082FA5E /* OrderFamilyListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FB473F1E974EB70082FA5E /* OrderFamilyListRequest.swift */; };
-		D7FB47421E9750B80082FA5E /* OrderListRespModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FB47411E9750B80082FA5E /* OrderListRespModel.swift */; };
+		D7FB47421E9750B80082FA5E /* OrderFamilyListRespModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FB47411E9750B80082FA5E /* OrderFamilyListRespModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -404,6 +406,8 @@
 		D791F6A71E2378C0009CBBED /* icon49.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon49.png; path = images/icon49.png; sourceTree = "<group>"; };
 		D791F6AF1E238135009CBBED /* CommonProcess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommonProcess.swift; path = Utility/CommonProcess.swift; sourceTree = "<group>"; };
 		D79C1BBC1E4ACEC700E6E121 /* PromotionBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PromotionBean.swift; path = Model/PromotionBean.swift; sourceTree = "<group>"; };
+		D79C31791E9B8625006F3683 /* OrderFamilyViewRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderFamilyViewRequest.swift; path = API/OrderFamilyViewRequest.swift; sourceTree = "<group>"; };
+		D79C317B1E9B8C8B006F3683 /* OrderFamilyViewRespModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderFamilyViewRespModel.swift; path = Model/OrderFamilyViewRespModel.swift; sourceTree = "<group>"; };
 		D7A013091E37BAE6002EF5B3 /* InternalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InternalViewController.swift; path = View/InternalViewController.swift; sourceTree = "<group>"; };
 		D7AB904C1E23FBC20048AC4F /* SearchBarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchBarTableViewCell.swift; path = CustomeControl/SearchBarTableViewCell.swift; sourceTree = "<group>"; };
 		D7AB904D1E23FBC20048AC4F /* SearchBarTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SearchBarTableViewCell.xib; path = CustomeControl/SearchBarTableViewCell.xib; sourceTree = "<group>"; };
@@ -463,7 +467,7 @@
 		D7F6844B1E2F620400D3D6F4 /* BaseAgentInfoBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseAgentInfoBean.swift; path = Model/BaseAgentInfoBean.swift; sourceTree = "<group>"; };
 		D7F958101E3DD36B00C76F2F /* ConfigurationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigurationTableViewCell.swift; path = CustomeControl/ConfigurationTableViewCell.swift; sourceTree = "<group>"; };
 		D7FB473F1E974EB70082FA5E /* OrderFamilyListRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderFamilyListRequest.swift; path = API/OrderFamilyListRequest.swift; sourceTree = "<group>"; };
-		D7FB47411E9750B80082FA5E /* OrderListRespModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderListRespModel.swift; path = Model/OrderListRespModel.swift; sourceTree = "<group>"; };
+		D7FB47411E9750B80082FA5E /* OrderFamilyListRespModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderFamilyListRespModel.swift; path = Model/OrderFamilyListRespModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -506,6 +510,7 @@
 				D716C18D1E923C17007CC50C /* DistrictsListRequest.swift */,
 				D716C18F1E924F16007CC50C /* WardsListRequest.swift */,
 				D7FB473F1E974EB70082FA5E /* OrderFamilyListRequest.swift */,
+				D79C31791E9B8625006F3683 /* OrderFamilyViewRequest.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -571,7 +576,8 @@
 				D716C1911E92893B007CC50C /* ProvincesListRespModel.swift */,
 				D716C1931E9293A4007CC50C /* DistrictsListRespModel.swift */,
 				D716C1951E929422007CC50C /* WardsListRespModel.swift */,
-				D7FB47411E9750B80082FA5E /* OrderListRespModel.swift */,
+				D7FB47411E9750B80082FA5E /* OrderFamilyListRespModel.swift */,
+				D79C317B1E9B8C8B006F3683 /* OrderFamilyViewRespModel.swift */,
 			);
 			name = Response;
 			sourceTree = "<group>";
@@ -681,17 +687,6 @@
 		D7F3D8D21E1B8BCC0018744F /* images */ = {
 			isa = PBXGroup;
 			children = (
-				D7724F991E8935FF006ECEFA /* search.png */,
-				D7F17CD51E5DF14000208A73 /* new-icon.png */,
-				D778D6401E5D790D009FD654 /* icon81.png */,
-				D7AF28141E58BAE400AFF9D6 /* icon70.png */,
-				D7AF28121E58B9EB00AFF9D6 /* icon68.png */,
-				D7AF280E1E58B8D600AFF9D6 /* icon66.png */,
-				D7AF280F1E58B8D600AFF9D6 /* icon67.png */,
-				D7AF280A1E58AF6000AFF9D6 /* icon65.png */,
-				D78E326D1E571C980035C40D /* ic_number_back.png */,
-				D78E326E1E571C980035C40D /* ic_number_next.png */,
-				D7D04E361E55544900B3F8CF /* icon77.png */,
 				D75F64B81E28B39100A67B3C /* Account.jpeg */,
 				D75F64BA1E28B39100A67B3C /* back.png */,
 				D791F6791E234C89009CBBED /* bg_sliding_menu_body.jpg */,
@@ -714,6 +709,8 @@
 				D791F6821E2367F3009CBBED /* ic_menu_home.png */,
 				D791F6831E2367F3009CBBED /* ic_menu_profile.png */,
 				D791F6841E2367F3009CBBED /* ic_menu_shoping_cart.png */,
+				D78E326D1E571C980035C40D /* ic_number_back.png */,
+				D78E326E1E571C980035C40D /* ic_number_next.png */,
 				D75F64C21E28B39100A67B3C /* icon2.png */,
 				D75F64C31E28B39100A67B3C /* icon3.png */,
 				D75F64C51E28B39100A67B3C /* icon4-ios.png */,
@@ -771,9 +768,16 @@
 				D75F650D1E28B3B100A67B3C /* icon62.png */,
 				D75F650E1E28B3B100A67B3C /* icon63.png */,
 				D75F650F1E28B3B100A67B3C /* icon64.png */,
+				D7AF280A1E58AF6000AFF9D6 /* icon65.png */,
+				D7AF280E1E58B8D600AFF9D6 /* icon66.png */,
+				D7AF280F1E58B8D600AFF9D6 /* icon67.png */,
+				D7AF28121E58B9EB00AFF9D6 /* icon68.png */,
 				D70B9F8D1E3F4F1F00EB66F5 /* icon69.png */,
+				D7AF28141E58BAE400AFF9D6 /* icon70.png */,
 				D7C30A3F1E30628800B3FDA6 /* icon76.png */,
+				D7D04E361E55544900B3F8CF /* icon77.png */,
 				D708B1791E48315F0074C528 /* icon80.png */,
+				D778D6401E5D790D009FD654 /* icon81.png */,
 				D75F65101E28B3B100A67B3C /* information.png */,
 				D75F65111E28B3B100A67B3C /* informationSum.png */,
 				D75F65121E28B3B100A67B3C /* issueMenu.png */,
@@ -787,6 +791,7 @@
 				D75F65021E28B3A500A67B3C /* menu.png */,
 				D791F6861E2367F3009CBBED /* message.png */,
 				D75F651A1E28B3BC00A67B3C /* mobile.png */,
+				D7F17CD51E5DF14000208A73 /* new-icon.png */,
 				D75F651B1E28B3BC00A67B3C /* ordergas.png */,
 				D75F651C1E28B3BC00A67B3C /* phone-ios.png */,
 				D75F651D1E28B3BC00A67B3C /* problemType.png */,
@@ -795,6 +800,7 @@
 				D791F6911E23688F009CBBED /* register.png */,
 				D75F65031E28B3A500A67B3C /* regMenu.png */,
 				D791F6871E2367F3009CBBED /* report.png */,
+				D7724F991E8935FF006ECEFA /* search.png */,
 				D75F65261E28B3C600A67B3C /* ServiceRating.jpeg */,
 				D75F65271E28B3C600A67B3C /* trainingMode.png */,
 				D75F65281E28B3C600A67B3C /* UpHoldList.jpeg */,
@@ -1042,7 +1048,7 @@
 			files = (
 				D77F05C61E71729400797A6B /* UserProfileRespModel.swift in Sources */,
 				D7C30A3B1E305AB800B3FDA6 /* OrderConfigBean.swift in Sources */,
-				D7FB47421E9750B80082FA5E /* OrderListRespModel.swift in Sources */,
+				D7FB47421E9750B80082FA5E /* OrderFamilyListRespModel.swift in Sources */,
 				D77F05DB1E7172BD00797A6B /* BaseMenuViewController.swift in Sources */,
 				D77F05F41E71737200797A6B /* SearchCustomerRequest.swift in Sources */,
 				D77F05D31E7172AD00797A6B /* OrderBean.swift in Sources */,
@@ -1061,6 +1067,7 @@
 				D77F05B61E71703E00797A6B /* DomainConst.swift in Sources */,
 				D77F05D61E7172AD00797A6B /* UpholdBean.swift in Sources */,
 				D77F06001E71738100797A6B /* CustomLabel.swift in Sources */,
+				D79C317A1E9B8625006F3683 /* OrderFamilyViewRequest.swift in Sources */,
 				D77F05D41E7172AD00797A6B /* OrderDetailBean.swift in Sources */,
 				D7FB47401E974EB70082FA5E /* OrderFamilyListRequest.swift in Sources */,
 				D708B17C1E4852120074C528 /* DebugBean.swift in Sources */,
@@ -1086,6 +1093,7 @@
 				D7BA68851E83AC4D001C675D /* BaseAPITestViewController.swift in Sources */,
 				D716C1961E929422007CC50C /* WardsListRespModel.swift in Sources */,
 				D77F05B71E71703E00797A6B /* Extension.swift in Sources */,
+				D79C317C1E9B8C8B006F3683 /* OrderFamilyViewRespModel.swift in Sources */,
 				D716C1921E92893B007CC50C /* ProvincesListRespModel.swift in Sources */,
 				D79C1BBD1E4ACEC700E6E121 /* PromotionBean.swift in Sources */,
 				D791F6B01E238135009CBBED /* CommonProcess.swift in Sources */,

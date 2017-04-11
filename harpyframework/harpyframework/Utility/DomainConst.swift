@@ -81,6 +81,8 @@ public class DomainConst {
     public static let PATH_SITE_WARDS_LIST              = "site/signupGetWard"
     /** Get order family list */
     public static let PATH_ORDER_TRANSACTION_LIST       = "order/transactionList"
+    /** Get order family view */
+    public static let PATH_ORDER_TRANSACTION_VIEW       = "order/transactionView"
     
     // MARK: -----List of keys-----
     /** Token */
@@ -754,6 +756,8 @@ public class DomainConst {
     public static let ORDER_INFO_ADDRESS_ID             = "15"
     /** Order information id: Order Phone */
     public static let ORDER_INFO_PHONE_ID               = "16"
+    /** Order information id: Order Material */
+    public static let ORDER_INFO_MATERIAL_ID            = "99"
     
     // MARK: New
     /** Key menu item: Promotion list */

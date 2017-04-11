@@ -1,5 +1,5 @@
 //
-//  OrderListRespModel.swift
+//  OrderFamilyListRespModel.swift
 //  project
 //
 //  Created by SPJ on 12/28/16.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class OrderListRespModel: BaseRespModel {
+public class OrderFamilyListRespModel: BaseRespModel {
     /** Total record */
     public var total_record: Int = 0
     /** Total page */

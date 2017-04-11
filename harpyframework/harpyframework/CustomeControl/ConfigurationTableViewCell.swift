@@ -118,10 +118,19 @@ open class ConfigurationTableViewCell: UITableViewCell {
         self._leftImg.setImage(imgPath: leftImg)
         self._switchValue.isHidden  = true
         self._name.text             = name
-        let size = _name.text?.widthOfString(usingFont: _name.font)
+        //++ BUG0055-SPJ (NguyenPT 20170411) Handle view full name field
+//        let size = _name.text?.widthOfString(usingFont: _name.font)
+        // Get size of value
+        let size = value.widthOfString(usingFont: _value.font)
         var frame = self._name.frame
-        frame.size = CGSize(width: size!, height: frame.height)
+//        frame.size = CGSize(width: size!, height: frame.height)
+        // Re-calculate size of name field
+        frame.size = CGSize(
+            width: self.frame.width - _leftImg.frame.maxX - size - GlobalConst.MARGIN,
+            height: frame.height)
+        //-- BUG0055-SPJ (NguyenPT 20170411) Handle view full name field
         self._name.frame = frame
+        
         
         self._value.text            = value
         if isHideRightImg {
@@ -154,14 +163,28 @@ open class ConfigurationTableViewCell: UITableViewCell {
         let contentHeight = self.frame.height - 2 * GlobalConst.MARGIN_CELL_X
         _leftImg.frame = CGRect(x: GlobalConst.MARGIN + contentHeight / 4,
                                 y: GlobalConst.MARGIN_CELL_X + contentHeight / 4,
-                                width: contentHeight / 2,
-                                height: contentHeight / 2 )
+                                //++ BUG0056-SPJ (NguyenPT 20170411) Increase size of icon
+                                //width: contentHeight / 2,
+                                //height: contentHeight / 2)
+                                width: contentHeight / 3 * 2,
+                                height: contentHeight / 3 * 2)
+                                //-- BUG0056-SPJ (NguyenPT 20170411) Increase size of icon
         _leftImg.contentMode = .scaleAspectFit
         let size = _name.text?.widthOfString(usingFont: _name.font)
         _value.frame = CGRect(x: _leftImg.frame.maxX + GlobalConst.MARGIN + contentHeight / 4 + size!,
                               y: GlobalConst.MARGIN_CELL_X,
                               width: ConfigurationTableViewCell.PARENT_WIDTH - 4 * GlobalConst.MARGIN - _leftImg.frame.width - GlobalConst.CONFIGURATION_ITEM_RIGHT_SIZE - size!,
                               height: contentHeight)
+        //++ BUG0054-SPJ (NguyenPT 20170411) Add new function G07
+        if data.getValue().isEmpty {
+            // If value is empty -> Set Name field is word wrap
+            _name.lineBreakMode = .byWordWrapping
+            _name.numberOfLines = 0
+        } else {
+            // Set Name field is truncate tail
+            _name.lineBreakMode = .byTruncatingTail
+        }
+        //-- BUG0054-SPJ (NguyenPT 20170411) Add new function G07
     }
     
     /**
