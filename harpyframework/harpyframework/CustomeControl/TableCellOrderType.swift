@@ -10,10 +10,13 @@ import Foundation
 open class TableCellOrderType: UITableViewCell {
     // MARK: Properties
     @IBOutlet weak var _parentView: UIView!
+    private var topView:    UIView = UIView()
     private var leftView:   UIView = UIView()
     private var centerView: UIView = UIView()
     private var rightView:  UIView = UIView()
     private var bottomView: UIView = UIView()
+    // Top control
+    private var customerLabel: UILabel = UILabel()
     // Left controls
     private var dateTime: CustomeDateTimeView = CustomeDateTimeView()
     
@@ -29,6 +32,7 @@ open class TableCellOrderType: UITableViewCell {
     // Bottom control
     private var addressIcon: UIImageView = UIImageView()
     private var addressLabel: UILabel = UILabel()
+    private let topHeight: CGFloat = GlobalConst.CONFIGURATION_ITEM_HEIGHT - GlobalConst.MARGIN_CELL_X * 3
     
     // MARK: Methods
     /**
@@ -46,19 +50,23 @@ open class TableCellOrderType: UITableViewCell {
         /** ---- Left view ------ */
         self.dateTime.setup(x: 0, y: 0, w: contentWidthLeft, h: contentHeight)
         offset += self.dateTime.frame.height
-        TableCellOrderType.CELL_HEIGHT = contentHeight + verticalMargin + GlobalConst.CELL_HEIGHT_SHOW / 4
+        TableCellOrderType.CELL_HEIGHT = topHeight + contentHeight + verticalMargin + GlobalConst.CELL_HEIGHT_SHOW / 4
         
         self._parentView.frame = CGRect(x: 0,
                                         y: 0,
                                         width: GlobalConst.SCREEN_WIDTH,
                                         height: TableCellOrderType.CELL_HEIGHT)
+        self.topView.frame = CGRect(x: 0,
+                                    y: 0,
+                                    width: GlobalConst.SCREEN_WIDTH,
+                                    height: topHeight)
         self.leftView.frame = CGRect(x: 0,
-                                     y: 0,
+                                     y: topView.frame.maxY,
                                      width: GlobalConst.SCREEN_WIDTH / 4,
                                      //height: TableCellOr derType.CELL_HEIGHT)
                                      height: offset)
         self.centerView.frame = CGRect(x: self.leftView.frame.maxX,
-                                       y: 0,
+                                       y: topView.frame.maxY,
                                        width: GlobalConst.SCREEN_WIDTH / 2,
                                        //height: TableCellOrderType.CELL_HEIGHT)
                                        height: offset)
@@ -67,11 +75,20 @@ open class TableCellOrderType: UITableViewCell {
                                       width: GlobalConst.SCREEN_WIDTH / 4,
                                       height: TableCellOrderType.CELL_HEIGHT)
         self.bottomView.frame = CGRect(x: 0,
-                                       y: self.leftView.frame.maxY - verticalMargin,
+                                       y: self.leftView.frame.maxY - verticalMargin * 2,
                                        width: GlobalConst.SCREEN_WIDTH - GlobalConst.CELL_HEIGHT_SHOW / 5,
                                        height: GlobalConst.CELL_HEIGHT_SHOW / 4)
-
         
+        /** ----- Top view ----- */
+        // Customer label
+        self.customerLabel.frame = CGRect(x: GlobalConst.MARGIN_CELL_X, y: 0,
+                                         width: GlobalConst.SCREEN_WIDTH - 2 * GlobalConst.MARGIN_CELL_X,
+                                         height: topHeight)
+        self.customerLabel.font = UIFont.systemFont(ofSize: GlobalConst.NORMAL_FONT_SIZE)
+        self.customerLabel.textColor = GlobalConst.BUTTON_COLOR_YELLOW
+        self.customerLabel.text = DomainConst.BLANK
+        self.customerLabel.numberOfLines = 0
+        self.customerLabel.lineBreakMode = .byWordWrapping
         
         /** ---- Center view ------ */
         offset = verticalMargin
@@ -105,9 +122,9 @@ open class TableCellOrderType: UITableViewCell {
         /** ---- Right view ------ */
         // Status icon
         self.statusIcon.frame = CGRect(x: (contentWidthRight - contentHeight / 3) / 2,
-                                     y: contentHeight / 3,
-                                     width: contentHeight / 3,
-                                     height: contentHeight / 3)
+                                     y: (rightView.frame.height - GlobalConst.ICON_SIZE) / 2,
+                                     width: GlobalConst.ICON_SIZE,
+                                     height: GlobalConst.ICON_SIZE)
         self.statusIcon.image = ImageManager.getImage(named: DomainConst.BLANK)
         /** ---- Bottom view ------ */
         // Address icon
@@ -121,9 +138,9 @@ open class TableCellOrderType: UITableViewCell {
         self.addressLabel.frame = CGRect(x: self.addressIcon.frame.maxX,
                                          y: 0,
                                          width: GlobalConst.SCREEN_WIDTH - GlobalConst.MARGIN_CELL_X - self.addressIcon.frame.width,
-                                         height: self.bottomView.frame.height)
-        self.addressLabel.font = UIFont.systemFont(ofSize: GlobalConst.NORMAL_FONT_SIZE_LIST)
-        self.addressLabel.textColor = GlobalConst.BUTTON_COLOR_YELLOW
+                                         height: self.bottomView.frame.height + verticalMargin)
+        self.addressLabel.font = UIFont.systemFont(ofSize: GlobalConst.SMALL_FONT_SIZE_LIST)
+        self.addressLabel.textColor = GlobalConst.TEXT_COLOR_GRAY
         self.addressLabel.text = DomainConst.BLANK
         self.addressLabel.numberOfLines = 0
         self.addressLabel.lineBreakMode = .byWordWrapping
@@ -136,7 +153,9 @@ open class TableCellOrderType: UITableViewCell {
         
         self.bottomView.addSubview(self.addressIcon)
         self.bottomView.addSubview(self.addressLabel)
+        self.topView.addSubview(self.customerLabel)
         
+        self._parentView.addSubview(self.topView)
         self._parentView.addSubview(self.leftView)
         self._parentView.addSubview(self.centerView)
         self._parentView.addSubview(self.rightView)
@@ -189,11 +208,57 @@ open class TableCellOrderType: UITableViewCell {
         if BaseModel.shared.isCustomerUser() {
             TableCellOrderType.CELL_HEIGHT = contentHeight + verticalMargin
         } else {
-            TableCellOrderType.CELL_HEIGHT = contentHeight + verticalMargin + GlobalConst.CELL_HEIGHT_SHOW / 4
+            TableCellOrderType.CELL_HEIGHT = topHeight + contentHeight + verticalMargin + GlobalConst.CELL_HEIGHT_SHOW / 4
         }
-        self.addressLabel.text = vipData.customer_name
-        self.addressIcon.isHidden = BaseModel.shared.isCustomerUser()
-        self.addressLabel.isHidden = BaseModel.shared.isCustomerUser()
+        // Update layout
+        self.updateLayout(isCustomer: BaseModel.shared.isCustomerUser())
+        self.addressLabel.text = vipData.customer_address.normalizateString()
+        self.customerLabel.text = vipData.customer_name
+        self.bottomView.isHidden = BaseModel.shared.isCustomerUser()
+        self.topView.isHidden = BaseModel.shared.isCustomerUser()
+    }
+    
+    private func updateLayout(isCustomer: Bool) {
+        let verticalMargin      = GlobalConst.MARGIN_CELL_X * 2
+        let offset = self.dateTime.frame.height
+        if isCustomer {
+            self.leftView.frame = CGRect(x: 0, y: 0,
+                                         width: GlobalConst.SCREEN_WIDTH / 4,
+                                         height: offset)
+            self.centerView.frame = CGRect(x: self.leftView.frame.maxX,
+                                           y: 0,
+                                           width: GlobalConst.SCREEN_WIDTH / 2,
+                                           height: offset)
+            self.rightView.frame = CGRect(x: self.centerView.frame.maxX,
+                                          y: 0,
+                                          width: GlobalConst.SCREEN_WIDTH / 4,
+                                          height: TableCellOrderType.CELL_HEIGHT)
+            self.bottomView.frame = CGRect(x: 0,
+                                           y: self.leftView.frame.maxY - verticalMargin * 2,
+                                           width: GlobalConst.SCREEN_WIDTH - GlobalConst.CELL_HEIGHT_SHOW / 5,
+                                           height: GlobalConst.CELL_HEIGHT_SHOW / 4)
+        } else {
+            self.topView.frame = CGRect(x: 0,
+                                            y: 0,
+                                            width: GlobalConst.SCREEN_WIDTH,
+                                            height: topHeight)
+            self.leftView.frame = CGRect(x: 0,
+                                         y: topView.frame.maxY,
+                                         width: GlobalConst.SCREEN_WIDTH / 4,
+                                         height: offset)
+            self.centerView.frame = CGRect(x: self.leftView.frame.maxX,
+                                           y: topView.frame.maxY,
+                                           width: GlobalConst.SCREEN_WIDTH / 2,
+                                           height: offset)
+            self.rightView.frame = CGRect(x: self.centerView.frame.maxX,
+                                          y: 0,
+                                          width: GlobalConst.SCREEN_WIDTH / 4,
+                                          height: TableCellOrderType.CELL_HEIGHT)
+            self.bottomView.frame = CGRect(x: 0,
+                                           y: self.leftView.frame.maxY - verticalMargin * 2,
+                                           width: GlobalConst.SCREEN_WIDTH - GlobalConst.CELL_HEIGHT_SHOW / 5,
+                                           height: GlobalConst.CELL_HEIGHT_SHOW / 4)
+        }
     }
     
     private func getStatusIcon(status: String) -> String {

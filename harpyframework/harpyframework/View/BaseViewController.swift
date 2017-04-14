@@ -821,7 +821,12 @@ open class BaseViewController : UIViewController {
     public func finishRequestLogout(_ notification: Notification) {
         self.showAlert(message: DomainConst.CONTENT00280, okHandler: {
             (alert: UIAlertAction!) in
-            self.popToRootView()
+            //self.popToRootView()
+            if self != self.navigationController?.viewControllers[0] {
+                self.popToRootView()
+            } else {
+                self.pushToView(name: DomainConst.G00_LOGIN_VIEW_CTRL)
+            }
         })
     }
     //-- BUG0046-SPJ (NguyenPT 20170301) Use action for Request server completion
