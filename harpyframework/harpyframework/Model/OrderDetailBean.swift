@@ -50,7 +50,15 @@ public class OrderDetailBean: MaterialBean {
         self.material_price     = data.material_price
         self.price              = data.price
         self.material_image     = data.material_image
-        self.qty                = "0"
-        self.amount             = "0"
+        //++ BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Get new data
+        self.qty                = DomainConst.NUMBER_ONE_VALUE
+        self.amount             = data.price
+        //-- BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Get new data
     }
+    //++ BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Get new data
+    public override init() {
+        super.init()
+        
+    }
+    //-- BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Get new data
 }

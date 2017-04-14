@@ -84,7 +84,7 @@ open class ConfigurationTableViewCell: UITableViewCell {
     }
     
     override open func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+        //super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
     }
@@ -118,16 +118,15 @@ open class ConfigurationTableViewCell: UITableViewCell {
         self._leftImg.setImage(imgPath: leftImg)
         self._switchValue.isHidden  = true
         self._name.text             = name
-        //++ BUG0055-SPJ (NguyenPT 20170411) Handle view full name field
-//        let size = _name.text?.widthOfString(usingFont: _name.font)
-        // Get size of value
-        let size = value.widthOfString(usingFont: _value.font)
+        let size = _name.text?.widthOfString(usingFont: _name.font)
         var frame = self._name.frame
+        //++ BUG0055-SPJ (NguyenPT 20170411) Handle view full name field
+        var width = size!
+        if frame.minX + width >= ConfigurationTableViewCell.PARENT_WIDTH {
+            width = ConfigurationTableViewCell.PARENT_WIDTH - frame.minX
+        }
 //        frame.size = CGSize(width: size!, height: frame.height)
-        // Re-calculate size of name field
-        frame.size = CGSize(
-            width: self.frame.width - _leftImg.frame.maxX - size - GlobalConst.MARGIN,
-            height: frame.height)
+        frame.size = CGSize(width: width, height: frame.height)
         //-- BUG0055-SPJ (NguyenPT 20170411) Handle view full name field
         self._name.frame = frame
         
@@ -237,6 +236,18 @@ open class ConfigurationTableViewCell: UITableViewCell {
         highlighText(control: _name)
     }
     
+    //++ BUG0054-SPJ (NguyenPT 20170414) Add new function G07
+    /**
+     * Un-Highlight cell
+     */
+    public func resetHighligh() {
+        _name.font = UIFont.systemFont(ofSize: GlobalConst.NORMAL_FONT_SIZE)
+        _name.textColor = UIColor.black
+        _value.font = UIFont.systemFont(ofSize: GlobalConst.NORMAL_FONT_SIZE)
+        _value.textColor = UIColor.gray
+    }
+    //-- BUG0054-SPJ (NguyenPT 20170414) Add new function G07
+    
     /**
      * Highlight control label
      * - parameter control: Control to highlight
@@ -246,8 +257,11 @@ open class ConfigurationTableViewCell: UITableViewCell {
         control.textColor = GlobalConst.MAIN_COLOR
     }
     
+    /**
+     * Set color for value field
+     * - parameter color: Color to set
+     */
     public func setValueColor(color: UIColor) {
         _value.textColor = color
-        //_value.backgroundColor = color
     }
 }

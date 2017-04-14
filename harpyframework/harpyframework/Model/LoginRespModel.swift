@@ -10,39 +10,54 @@ import Foundation
 
 public class LoginRespModel : BaseRespModel {
     /** List menu */
-    var menu: [ConfigBean] = [ConfigBean]()
+    var menu:                               [ConfigBean]        = [ConfigBean]()
     /** List data uphold */
-    var data_uphold: [ConfigBean] = [ConfigBean]()
+    var data_uphold:                        [ConfigBean]        = [ConfigBean]()
     /** Max upload */
-    var max_upload: String = ""
+    var max_upload:                         String              = DomainConst.BLANK
     /** List data issue */
-    var data_issue: [ConfigBean] = [ConfigBean]()
+    var data_issue:                         [ConfigBean]        = [ConfigBean]()
     /** Id of role */
-    var role_id: String = ""
+    var role_id:                            String              = DomainConst.BLANK
     /** Id of user */
-    var user_id: String = ""
+    var user_id:                            String              = DomainConst.BLANK
     /** List user info */
-    var user_info: [ConfigBean] = [ConfigBean]()
+    var user_info:                          [ConfigBean]        = [ConfigBean]()
     /** List check menu */
-    var check_menu: [ConfigBean] = [ConfigBean]()
+    var check_menu:                         [ConfigBean]        = [ConfigBean]()
     /** Flag need change pass */
-    var need_change_pass: String = ""
+    var need_change_pass:                   String              = DomainConst.BLANK
     /** Flag need update app */
-    var need_update_app: String = ""
+    var need_update_app:                    String              = DomainConst.BLANK
     /** Name of role */
-    var role_name: String = ""
+    var role_name:                          String              = DomainConst.BLANK
     /** List streets */
-    var list_street: [ConfigBean] = [ConfigBean]()
+    var list_street:                        [ConfigBean]        = [ConfigBean]()
     /** List agents */
-    var list_agent: [ConfigBean] = [ConfigBean]()
+    var list_agent:                         [ConfigBean]        = [ConfigBean]()
     /** List family type */
-    var list_hgd_type: [ConfigBean] = [ConfigBean]()
+    var list_hgd_type:                      [ConfigBean]        = [ConfigBean]()
     /** List family type */
-    var list_hgd_invest: [ConfigBean] = [ConfigBean]()
+    var list_hgd_invest:                    [ConfigBean]        = [ConfigBean]()
     /** Call center uphold */
-    var call_center_uphold: String = DomainConst.BLANK
+    var call_center_uphold:                 String              = DomainConst.BLANK
     /** Hotline */
-    var hotline: String = DomainConst.BLANK
+    var hotline:                            String              = DomainConst.BLANK
+    //++ BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Get new data
+    /** Cylinder info */
+    public var info_cylinder:               [MaterialBean]      = [MaterialBean]()
+    /** Other material info */
+    public var info_otherMaterial:          [MaterialBean]      = [MaterialBean]()
+    /** List Cancel order reasons */
+    var list_cancelOrderReasons:            [ConfigBean]        = [ConfigBean]()
+    /** List types of order */
+    var list_OrderTypes:                    [ConfigBean]        = [ConfigBean]()
+    /** List types of order discount */
+    var list_OrderDiscountTypes:            [ConfigBean]        = [ConfigBean]()
+    /** List Cancel order reasons (VIP customer) */
+    var list_cancelVIPOrderReasons:         [ConfigBean]        = [ConfigBean]()
+    //-- BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Get new data
+    
     
     /**
      * Initializer
@@ -107,6 +122,28 @@ public class LoginRespModel : BaseRespModel {
                 // Call center
                 self.call_center_uphold = getString(json: json, key: DomainConst.KEY_CALL_CENTER_UPHOLD)
                 self.hotline = getString(json: json, key: DomainConst.KEY_HOTLINE)
+                //++ BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Get new data
+                // List cylinder
+                if let data = json[DomainConst.KEY_MATERIAL_VO] as? [[String: AnyObject]] {
+                    for item in data {
+                        self.info_cylinder.append(MaterialBean(jsonData: item))
+                    }
+                }
+                // List other material
+                if let data = json[DomainConst.KEY_MATERIAL_HGD] as? [[String: AnyObject]] {
+                    for item in data {
+                        self.info_cylinder.append(MaterialBean(jsonData: item))
+                    }
+                }
+                // List cancel order reasons
+                self.list_cancelOrderReasons.append(contentsOf: getListConfig(json: json, key: DomainConst.KEY_ORDER_STATUS_CANCEL))
+                // List types of order
+                self.list_OrderTypes.append(contentsOf: getListConfig(json: json, key: DomainConst.KEY_ORDER_LIST_TYPE))
+                // List types of order discount
+                self.list_OrderDiscountTypes.append(contentsOf: getListConfig(json: json, key: DomainConst.KEY_ORDER_LIST_DISCOUNT_TYPE))
+                // List Cancel order reasons (VIP customer)
+                self.list_cancelVIPOrderReasons.append(contentsOf: getListConfig(json: json, key: DomainConst.KEY_STORECARD_STATUS_CANCEL))
+                //-- BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Get new data
                 
             } catch let error as NSError {
                 print(DomainConst.JSON_ERR_FAILED_LOAD + "\(error.localizedDescription)")

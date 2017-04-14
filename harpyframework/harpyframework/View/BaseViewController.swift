@@ -382,7 +382,7 @@ open class BaseViewController : UIViewController {
     
     //++ BUG0050-SPJ (NguyenPT 20170323) Add new key for new function G06
     /**
-     * Create right navigation item
+     * Create right navigation item with icon
      * - parameter icon:        Icon path
      * - parameter action:      Handle when tapped on item
      * - parameter target:      Target of action
@@ -397,6 +397,30 @@ open class BaseViewController : UIViewController {
                                width: GlobalConst.MENU_BUTTON_W,
                                height: GlobalConst.MENU_BUTTON_W)
         btn.setTitle(DomainConst.BLANK, for: UIControlState())
+        btn.backgroundColor = GlobalConst.BUTTON_COLOR_RED
+        btn.layer.cornerRadius = 0.5 * btn.bounds.size.width
+        btn.addTarget(target, action: action, for: UIControlEvents.touchUpInside)
+        
+        let navItem = UIBarButtonItem()
+        navItem.customView = btn
+        navItem.isEnabled = true
+        self.navigationItem.rightBarButtonItems?.append(navItem)
+    }
+    
+    /**
+     * Create right navigation item with string
+     * - parameter title:       String title
+     * - parameter action:      Handle when tapped on item
+     * - parameter target:      Target of action
+     */
+    public func createRightNavigationItem(title: String, action: Selector, target: Any?) {
+        let btn = UIButton()
+        btn.setTitle(title, for: UIControlState())
+        btn.setTitleColor(UIColor.white, for: UIControlState())
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 35.0)
+        btn.frame = CGRect(x: 0, y: 0,
+                           width: GlobalConst.MENU_BUTTON_W,
+                           height: GlobalConst.MENU_BUTTON_W)
         btn.backgroundColor = GlobalConst.BUTTON_COLOR_RED
         btn.layer.cornerRadius = 0.5 * btn.bounds.size.width
         btn.addTarget(target, action: action, for: UIControlEvents.touchUpInside)
@@ -712,6 +736,18 @@ open class BaseViewController : UIViewController {
         pushToView(name: name)
     }
     
+    //++ BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Present a VC
+    /**
+     * Present a view controller with View controller name
+     * - parameter name: Name of view controller
+     * - parameter action: Name of view controller
+     */
+    public func presentVC(name: String, action: (() -> Void)?) {
+        let view = mainStoryboard.instantiateViewController(withIdentifier: name)
+        self.present(view, animated: true, completion: action)
+    }
+    //-- BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Present a VC
+    
     /**
      * Move to root view of view hierarchy
      */
@@ -802,29 +838,38 @@ open class BaseViewController : UIViewController {
             // OK handler
             let okAction = UIAlertAction(title: DomainConst.CONTENT00223, style: .default, handler: {
                 (alert: UIAlertAction!) in
-                // Confirm notify request
-                ConfirmNotifyRequest.requestConfirmNotify(notifyId: notify.getNotifyId(), type: notify.getType(), objId: notify.getId())
-                // Check if notification data is valid
-                if notify.checkNotificationExist() {
-                    // User logined
-                    if BaseModel.shared.checkIsLogin() {
-                        // Switch by type
-                        switch notify.getType() {
-                        case DomainConst.NOTIFY_VIEW_UPHOLD:
-                            BaseModel.shared.sharedDoubleStr.0 = notify.getId()
-                            BaseModel.shared.sharedDoubleStr.1 = notify.getReplyId()
-                            if BaseModel.shared.isCustomerUser() {
-                                self.pushToView(name: DomainConst.G01_F00_S03_VIEW_CTRL)
-                            } else {
-                                self.pushToView(name: DomainConst.G01_F00_S02_VIEW_CTRL)
-                            }
-                            break
-                        default: break
-                        }
-                    } else {
-                        self.pushToView(name: DomainConst.G00_LOGIN_VIEW_CTRL)
-                    }
-                }
+                //++ BUG0057-SPJ (NguyenPT 20170414) Handle notification VIP customer order
+//                // Confirm notify request
+//                ConfirmNotifyRequest.requestConfirmNotify(notifyId: notify.getNotifyId(), type: notify.getType(), objId: notify.getId())
+//                // Check if notification data is valid
+//                if notify.checkNotificationExist() {
+//                    // User logined
+//                    if BaseModel.shared.checkIsLogin() {
+//                        // Switch by type
+//                        switch notify.getType() {
+//                        case DomainConst.NOTIFY_VIEW_UPHOLD:
+//                            BaseModel.shared.sharedDoubleStr.0 = notify.getId()
+//                            BaseModel.shared.sharedDoubleStr.1 = notify.getReplyId()
+//                            if BaseModel.shared.isCustomerUser() {
+//                                self.pushToView(name: DomainConst.G01_F00_S03_VIEW_CTRL)
+//                            } else {
+//                                self.pushToView(name: DomainConst.G01_F00_S02_VIEW_CTRL)
+//                            }
+//                            break
+//                        //++ BUG0057-SPJ (NguyenPT 20170414) Handle notification VIP customer order
+//                        case DomainConst.NOTIFY_VIEW_VIP_CUSTOMER_ORDER:
+//                            BaseModel.shared.sharedString = notify.getId()
+//                            self.pushToView(name: "G05F00S02VC")
+//                            break
+//                        //-- BUG0057-SPJ (NguyenPT 20170414) Handle notification VIP customer order
+//                        default: break
+//                        }
+//                    } else {
+//                        self.pushToView(name: DomainConst.G00_LOGIN_VIEW_CTRL)
+//                    }
+//                }
+                self.handleViewNotify(notify: notify)
+                //-- BUG0057-SPJ (NguyenPT 20170414) Handle notification VIP customer order
             })
             alert.addAction(okAction)
             let cancelAction = UIAlertAction(title: DomainConst.CONTENT00224, style: .cancel, handler: {
@@ -833,12 +878,52 @@ open class BaseViewController : UIViewController {
             })
             alert.addAction(cancelAction)
             self.present(alert, animated: true, completion: nil)
-        } else {
-            // Reply confirm notify to server
-            ConfirmNotifyRequest.requestConfirmNotify(notifyId: notify.getNotifyId(), type: notify.getType(), objId: notify.getId())
+        //++ BUG0057-SPJ (NguyenPT 20170414) Handle notification VIP customer order
+//        } else {
+//            // Reply confirm notify to server
+//            ConfirmNotifyRequest.requestConfirmNotify(notifyId: notify.getNotifyId(), type: notify.getType(), objId: notify.getId())
+        } else if !isManual && BaseModel.shared.canHandleNotification() {
+            self.handleViewNotify(notify: notify)
         }
+        // Reply confirm notify to server
+        ConfirmNotifyRequest.requestConfirmNotify(notifyId: notify.getNotifyId(), type: notify.getType(), objId: notify.getId())
+        //-- BUG0057-SPJ (NguyenPT 20170414) Handle notification VIP customer order
     }
     //-- BUG0049-SPJ (NguyenPT 20170313) Handle notification received
+    
+    //++ BUG0057-SPJ (NguyenPT 20170414) Handle notification VIP customer order
+    /**
+     * Handle view notification detail
+     * - paramter notify:   Notification data
+     */
+    private func handleViewNotify(notify: NotificationBean) {
+        // Check if notification data is valid
+        if notify.checkNotificationExist() {
+            // User logined
+            if BaseModel.shared.checkIsLogin() {
+                // Switch by type
+                switch notify.getType() {
+                case DomainConst.NOTIFY_VIEW_UPHOLD:
+                    BaseModel.shared.sharedDoubleStr.0 = notify.getId()
+                    BaseModel.shared.sharedDoubleStr.1 = notify.getReplyId()
+                    if BaseModel.shared.isCustomerUser() {
+                        self.pushToView(name: DomainConst.G01_F00_S03_VIEW_CTRL)
+                    } else {
+                        self.pushToView(name: DomainConst.G01_F00_S02_VIEW_CTRL)
+                    }
+                    break
+                case DomainConst.NOTIFY_VIEW_VIP_CUSTOMER_ORDER:
+                    BaseModel.shared.sharedString = notify.getId()
+                    self.pushToView(name: "G05F00S02VC")
+                    break
+                default: break
+                }
+            } else {
+                self.pushToView(name: DomainConst.G00_LOGIN_VIEW_CTRL)
+            }
+        }
+    }
+    //-- BUG0057-SPJ (NguyenPT 20170414) Handle notification VIP customer order
     
     /**
      * Destructor

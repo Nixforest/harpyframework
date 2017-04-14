@@ -554,6 +554,21 @@ public class DomainConst {
     /** Key Report */
     public static let KEY_HGD_REPORT                    = "hgd_short_report"
     //-- BUG0050-SPJ (NguyenPT 20170323) Add new key for new function G06
+    //++ BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Get new data
+    /** Key Material cylinder */
+    public static let KEY_MATERIAL_VO                   = "material_vo"
+    /** Key the other material */
+    public static let KEY_MATERIAL_HGD                  = "material_hgd"
+    /** Key Cancel order reasons */
+    public static let KEY_ORDER_STATUS_CANCEL           = "order_status_cancel"
+    /** Key List order type */
+    public static let KEY_ORDER_LIST_TYPE               = "order_list_type"
+    /** Key List order discount type */
+    public static let KEY_ORDER_LIST_DISCOUNT_TYPE      = "order_list_discount_type"
+    /** Key List order discount type */
+    public static let KEY_STORECARD_STATUS_CANCEL       = "storecard_status_cancel"
+    //-- BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Get new data
+    
     
     // MARK: -----Specified constant-----
     /** File parameter: file_name[ + ] */
@@ -682,6 +697,10 @@ public class DomainConst {
     public static let NOTIFY_VIEW_UPHOLD                = "VIEW_UPHOLD"
     /** Notify type: View Issue */
     public static let NOTIFY_VIEW_ISSUE                 = "VIEW_ISSUE"
+    /** Notify type: View Issue */
+    public static let NOTIFY_VIEW_VIP_CUSTOMER_ORDER    = "TYPE_ORDER_BO_MOI"
+    /** Notify type: View Issue */
+    public static let NOTIFY_VIEW_FAMILY_CUSTOMER_ORDER = "VIEW_TRANSACTION"
     /** Notify type: Uphold alert 10 */
     public static let NOTIFY_UPHOLD_ALERT_10            = "1"
     /** Notify type: Uphold periodically */
@@ -724,40 +743,43 @@ public class DomainConst {
     public static let EMPLOYEE_INFO_PHONE_ID            = "1"
     /** Employee information id: Code */
     public static let EMPLOYEE_INFO_CODE_ID             = "2"
+    
     /** Agent information id: Promotion */
-    public static let AGENT_PROMOTION_ID                = "1"
+    public static let AGENT_PROMOTION_ID                = "###99901"
     /** Agent information id: Discount */
-    public static let AGENT_DISCOUNT_ID                 = "2"
+    public static let AGENT_DISCOUNT_ID                 = "###99902"
     /** Agent information id: Total money */
-    public static let AGENT_TOTAL_MONEY_ID              = "3"
+    public static let AGENT_TOTAL_MONEY_ID              = "###99903"
     /** Agent information id: Name */
-    public static let AGENT_NAME_ID                     = "4"
+    public static let AGENT_NAME_ID                     = "###99904"
     /** Agent information id: Phone */
-    public static let AGENT_PHONE_ID                    = "5"
+    public static let AGENT_PHONE_ID                    = "###99905"
     /** Agent information id: Support */
-    public static let AGENT_SUPPORT_ID                  = "6"
+    public static let AGENT_SUPPORT_ID                  = "###99906"
     /** Agent information id: Bu vo */
-    public static let AGENT_BUVO_ID                     = "7"
+    public static let AGENT_BUVO_ID                     = "###99907"
     /** Order information id: Order Id */
-    public static let ORDER_INFO_ID_ID                  = "8"
+    public static let ORDER_INFO_ID_ID                  = "###99908"
     /** Order information id: Order status */
-    public static let ORDER_INFO_STATUS_ID              = "9"
+    public static let ORDER_INFO_STATUS_ID              = "###99909"
     /** Order information id: Order Car number */
-    public static let ORDER_INFO_CAR_NUMBER_ID          = "10"
+    public static let ORDER_INFO_CAR_NUMBER_ID          = "###99910"
     /** Order information id: Order Payment method */
-    public static let ORDER_INFO_PAYMENT_METHOD_ID      = "11"
+    public static let ORDER_INFO_PAYMENT_METHOD_ID      = "###99911"
     /** Order information id: Order Gas money */
-    public static let ORDER_INFO_GAS_MONEY_ID           = "12"
+    public static let ORDER_INFO_GAS_MONEY_ID           = "###99912"
     /** Order information id: Order Gas du */
-    public static let ORDER_INFO_GAS_DU_ID              = "13"
+    public static let ORDER_INFO_GAS_DU_ID              = "###99913"
     /** Order information id: Order Total money */
-    public static let ORDER_INFO_TOTAL_MONEY_ID         = "14"
+    public static let ORDER_INFO_TOTAL_MONEY_ID         = "###99914"
     /** Order information id: Order Address */
-    public static let ORDER_INFO_ADDRESS_ID             = "15"
+    public static let ORDER_INFO_ADDRESS_ID             = "###99915"
     /** Order information id: Order Phone */
-    public static let ORDER_INFO_PHONE_ID               = "16"
+    public static let ORDER_INFO_PHONE_ID               = "###99916"
+    /** Order information id: Order Add new material */
+    public static let ORDER_INFO_MATERIAL_ADD_NEW       = "###99917"
     /** Order information id: Order Material */
-    public static let ORDER_INFO_MATERIAL_ID            = "99"
+    public static let ORDER_INFO_MATERIAL_ID            = "###999"
     
     // MARK: New
     /** Key menu item: Promotion list */
@@ -1498,4 +1520,13 @@ public class DomainConst {
     public static let CONTENT00309 = "Bạn đang gửi thông tin Báo cáo như bên dưới. Xin hãy kiểm tra lại các thông tin cho thật chính xác và nhấn nút Gửi nếu bạn đồng ý."
     public static let CONTENT00310 = "Đơn hàng Hộ gia đình"
     public static let CONTENT00311 = "Hoàn thành"
+    public static let CONTENT00312 = "Thêm sản phẩm"
+    public static let CONTENT00313 = "Quà khuyến mãi"
+    public static let CONTENT00314 = "Chọn loại sản phẩm"
+    public static let CONTENT00315 = "Vật tư Vỏ"
+    public static let CONTENT00316 = "Vật tư Khác"
+    public static let CONTENT00317 = "Bạn muốn xoá vật tư này?"
+    public static let CONTENT00318 = "Thu tiền"
+    public static let CONTENT00319 = "Chọn lý do huỷ đơn hàng"
+    public static let CONTENT00320 = "Huỷ đơn hàng"
 }

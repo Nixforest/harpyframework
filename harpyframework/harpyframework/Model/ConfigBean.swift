@@ -106,4 +106,17 @@ public class ConfigBean: NSObject {
         return self.id.isEmpty
     }
     //-- BUG0050-SPJ (NguyenPT 20170405) Add new function G06
+    //++ BUG0054-SPJ (NguyenPT 20170411) Add new function G07
+    /**
+     * Check if object is not Material type
+     * - returns: True if id containt DomainConst.ORDER_INFO_MATERIAL_ID, false otherwise
+     */
+    public func isNotMaterial() -> Bool {
+        let prefix = self.id.substring(to: DomainConst.ORDER_INFO_MATERIAL_ID.characters.count)
+        if prefix == DomainConst.ORDER_INFO_MATERIAL_ID {
+            return true
+        }
+        return false
+    }
+    //-- BUG0054-SPJ (NguyenPT 20170411) Add new function G07
 }

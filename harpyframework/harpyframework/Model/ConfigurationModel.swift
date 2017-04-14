@@ -42,4 +42,45 @@ public class ConfigurationModel: ConfigBean {
     public func getValue() -> String {
         return self._value
     }
+    
+    //++ BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Get new data
+    /**
+     * Initialize from material bean
+     * - parameter material: Material bean
+     */
+    public init(material: MaterialBean) {
+        var price = material.material_price
+        if price == DomainConst.NUMBER_ZERO_VALUE {
+            // Make price is blank if price = "0"
+            price = DomainConst.BLANK
+        }
+        super.init(id: material.material_id, name: material.material_name)
+        self._iconPath  = material.material_image
+        self._value     = price
+    }
+    
+    /**
+     * Initialize from Order detail
+     * - parameter orderDetail: Order detail
+     */
+    public init(orderDetail: OrderDetailBean) {
+        let qty = orderDetail.qty
+        var value = orderDetail.material_price
+        if value == DomainConst.NUMBER_ZERO_VALUE {
+            // Make price is blank if price = "0"
+            value = DomainConst.BLANK
+            if !qty.isEmpty && qty != DomainConst.NUMBER_ONE_VALUE {
+                value = "x " + qty
+            }
+        } else {
+            if !qty.isEmpty && qty != DomainConst.NUMBER_ONE_VALUE {
+                value = qty + " x " + value
+            }
+        }
+        super.init(id: orderDetail.material_id, name: orderDetail.material_name)
+        self._iconPath  = orderDetail.material_image
+        self._value     = value
+        
+    }
+    //-- BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Get new data
 }

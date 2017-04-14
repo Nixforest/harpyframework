@@ -67,14 +67,17 @@ public class BaseModel: NSObject {
     /** List agents */
     var list_agent: [ConfigBean] = [ConfigBean]()
     //++ BUG0050-SPJ (NguyenPT 20170403) Handle Address information
-    private var _listProvinces:     [ConfigBean] = [ConfigBean]()
-    private var _listDistricts:     [String: [ConfigBean]] = [String: [ConfigBean]]()
-    private var _listWards:         [String: [ConfigBean]] = [String: [ConfigBean]]()
+    private var _listProvinces:                 [ConfigBean]                    = [ConfigBean]()
+    private var _listDistricts:                 [String: [ConfigBean]]          = [String: [ConfigBean]]()
+    private var _listWards:                     [String: [ConfigBean]]          = [String: [ConfigBean]]()
     //-- BUG0050-SPJ (NguyenPT 20170403) Handle Address information
     /** List family type */
-    private var list_hgd_type: [ConfigBean] = [ConfigBean]()
+    private var list_hgd_type:                  [ConfigBean]                    = [ConfigBean]()
     /** List Family invest */
-    private var list_hgd_invest: [ConfigBean] = [ConfigBean]()
+    private var list_hgd_invest:                [ConfigBean]                    = [ConfigBean]()
+    //++ BUG0054-SPJ (NguyenPT 20170414) Add new function G07
+    private var list_cancelOrderReasons:        [ConfigBean]                    = [ConfigBean]()
+    //-- BUG0054-SPJ (NguyenPT 20170414) Add new function G07
     /** Uphold list data */
     public var upholdList: UpholdListRespModel = UpholdListRespModel()
     /** Search customer result */
@@ -592,6 +595,10 @@ public class BaseModel: NSObject {
         // List Family type
         self.list_hgd_type = loginModel.list_hgd_type
         self.list_hgd_invest = loginModel.list_hgd_invest
+        //++ BUG0054-SPJ (NguyenPT 20170414) Add new function G07
+        // List cancel order reasons
+        self.list_cancelOrderReasons = loginModel.list_cancelOrderReasons
+        //-- BUG0054-SPJ (NguyenPT 20170414) Add new function G07
     }
     
     /**
@@ -829,6 +836,22 @@ public class BaseModel: NSObject {
         return self._orderConfig
     }
     
+    //++ BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Get new data
+    /**
+     * Get List promotion by agent id
+     * - parameter agentId: Id of agent
+     * - returns: List promotion match with agent id in order config data
+     */
+    public func getAgentMaterialPromotion(agentId: String) -> [MaterialBean] {
+        for item in self._orderConfig.agent {
+            if item.info_agent.agent_id == agentId {
+                return item.info_promotion
+            }
+        }
+        return [MaterialBean]()
+    }
+    //-- BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Get new data
+    
     /**
      * Get main logo string
      * - returns: Image path of main logo
@@ -951,4 +974,21 @@ public class BaseModel: NSObject {
         return self.list_hgd_invest
     }
     //-- BUG0050-SPJ (NguyenPT 20170403) Handle Address information
+    //++ BUG0054-SPJ (NguyenPT 20170414) Add new function G07
+    /**
+     * Get list of cancel order reasons
+     * - returns: List of cancel order reasons
+     */
+    public func getListCancelOrderReasons() -> [ConfigBean] {
+        return self.list_cancelOrderReasons
+    }
+    
+    /**
+     * Get list of main menu
+     * - returns: List of menu
+     */
+    public func getListOfMenus() -> [ConfigBean] {
+        return self.menu
+    }
+    //-- BUG0054-SPJ (NguyenPT 20170414) Add new function G07
 }

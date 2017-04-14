@@ -55,4 +55,24 @@ open class MaterialBean: NSObject {
         }
         return false
     }
+    //++ BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Get new data
+    /**
+     * Check if material is Promotion type
+     * - returns: True if "materials_type_id" equal 6, False otherwise
+     */
+    public func isPromotion() -> Bool {
+        if self.materials_type_id == "6" {
+            return true
+        }
+        return false
+    }
+    
+    /**
+     * Check if object is empty
+     * - returns: self.material_id.isEmpty
+     */
+    public func isEmpty() -> Bool {
+        return self.material_id.isEmpty
+    }
+    //-- BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Get new data
 }

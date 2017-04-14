@@ -566,6 +566,7 @@ extension String {
      * - returns: Index object
      */
     func index(from: Int) -> Index {
+        guard from < self.characters.count else { return self.startIndex }
         return self.index(startIndex, offsetBy: from)
     }
     
@@ -575,7 +576,7 @@ extension String {
      * - parameter from: From index
      * - returns: New string
      */
-    func substring(from: Int) -> String {
+    public func substring(from: Int) -> String {
         let fromIndex = index(from: from)
         return substring(from: fromIndex)
     }
@@ -586,7 +587,7 @@ extension String {
      * - parameter to: To index
      * - returns: New string
      */
-    func substring(to: Int) -> String {
+    public func substring(to: Int) -> String {
         let toIndex = index(from: to)
         return substring(to: toIndex)
     }
@@ -597,7 +598,7 @@ extension String {
      * - parameter r: Range
      * - returns: New string
      */
-    func substring(with r: Range<Int>) -> String {
+    public func substring(with r: Range<Int>) -> String {
         let startIndex = index(from: r.lowerBound)
         let endIndex = index(from: r.upperBound)
         return substring(with: startIndex..<endIndex)

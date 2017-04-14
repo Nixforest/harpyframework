@@ -145,6 +145,7 @@ open class BaseAPITestViewController: ChildViewController, UIPickerViewDelegate,
         listAPI.append(ConfigBean(id: "DistrictsListRequest", name: "District List API"))
         listAPI.append(ConfigBean(id: "WardsListRequest", name: "Ward List API"))
         listAPI.append(ConfigBean(id: OrderFamilyListRequest.theClassName, name: OrderFamilyListRequest.theClassName))
+        listAPI.append(ConfigBean(id: OrderFamilyViewRequest.theClassName, name: OrderFamilyViewRequest.theClassName))
         setData(listAPI: listAPI)
     }
     
@@ -221,6 +222,11 @@ open class BaseAPITestViewController: ChildViewController, UIPickerViewDelegate,
                 view: self,
                 page: getParam(idx: 0),
                 status: getParam(idx: 1))
+        case OrderFamilyViewRequest.theClassName:
+            OrderFamilyViewRequest.request(
+                action: #selector(finishHandler(_:)),
+                view: self,
+                id: getParam(idx: 0))
         default: break
         }
     }

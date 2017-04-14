@@ -13,7 +13,10 @@ import UIKit
 open class MaterialSelectViewController: ChildViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 //-- BUG0048-SPJ (NguyenPT 20170313) Create slide menu view controller
     // MARK: Properties
-    private static var _data: [MaterialBean]    = [MaterialBean]()
+    //++ BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Change type of data
+    //private static var _data: [MaterialBean]    = [MaterialBean]()
+    private static var _data: [OrderDetailBean]    = [OrderDetailBean]()
+    //-- BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Change type of data
     // MARK: Properties
     /** Icon image view */
     private var _iconImg: UIImageView           = UIImageView()
@@ -26,8 +29,24 @@ open class MaterialSelectViewController: ChildViewController, UICollectionViewDa
      * - parameter data: List MaterialBean
      */
     public static func setMaterialData(data: [MaterialBean]) {
-        MaterialSelectViewController._data = data
+        //++ BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Change type of data
+        //MaterialSelectViewController._data = data
+        MaterialSelectViewController._data.removeAll()
+        for item in data {
+            MaterialSelectViewController._data.append(OrderDetailBean(data: item))
+        }
+        //-- BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Change type of data
     }
+    
+    //++ BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Change type of data
+    /**
+     * Set data for controller
+     * - parameter orderDetails: List OrderDetailBean
+     */
+    public static func setMaterialData(orderDetails: [OrderDetailBean]) {
+        MaterialSelectViewController._data = orderDetails
+    }
+    //-- BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Change type of data
     
     /**
      * Get material object from index
