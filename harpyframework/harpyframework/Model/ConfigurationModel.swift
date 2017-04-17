@@ -66,7 +66,8 @@ public class ConfigurationModel: ConfigBean {
     public init(orderDetail: OrderDetailBean) {
         let qty = orderDetail.qty
         var value = orderDetail.material_price
-        if value == DomainConst.NUMBER_ZERO_VALUE {
+        if (value == DomainConst.NUMBER_ZERO_VALUE)
+                || value.isEmpty {
             // Make price is blank if price = "0"
             value = DomainConst.BLANK
             if !qty.isEmpty && qty != DomainConst.NUMBER_ONE_VALUE {

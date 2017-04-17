@@ -35,6 +35,8 @@ class MaterialSelectionCell: UICollectionViewCell {
         // Image
         if !_data.material_image.isEmpty {
             _imageView.getImgFromUrl(link: _data.material_image, contentMode: _imageView.contentMode)
+        } else {
+            _imageView.setImage(imgPath: DomainConst.DEFAULT_IMG_NAME)
         }
         
         _imageView.frame = CGRect(x: 0, y: 0,
@@ -46,7 +48,12 @@ class MaterialSelectionCell: UICollectionViewCell {
         _lblName.frame = CGRect(x: 0, y: _imageView.frame.maxY,
                                 width: width,
                                 height: height * 5 / 12)
-        _lblName.text          = _data.materials_name_short
+        //_lblName.text          = _data.materials_name_short
+        if BaseModel.shared.getDebugUseMaterialNameShort() {
+            _lblName.text          = _data.materials_name_short
+        } else {
+            _lblName.text          = _data.material_name
+        }
         _lblName.textColor     = GlobalConst.BUTTON_COLOR_RED
         _lblName.font          = UIFont.boldSystemFont(ofSize: GlobalConst.NORMAL_FONT_SIZE_1)
         _lblName.textAlignment = .center

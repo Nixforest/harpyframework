@@ -167,6 +167,9 @@ extension UIImageView {
         } else if !imgPath.isEmpty {
             // Get from server
             self.getImgFromUrl(link: imgPath, contentMode: self.contentMode)
+        } else {
+            //self.setImage(imgPath: DomainConst.DEFAULT_IMG_NAME)
+            self.image = nil
         }
     }
     /**
@@ -185,12 +188,19 @@ extension UIImageView {
         request.cachePolicy = NSURLRequest.CachePolicy.returnCacheDataElseLoad
         // Execute task
         URLSession.shared.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            let phImage = UIImage(named: "default-thumbnail.jpg")
             guard
                 let httpURLResponse = response as? HTTPURLResponse , httpURLResponse.statusCode == 200,
                 let mimeType = response?.mimeType , mimeType.hasPrefix("image"),
                 let data = data , error == nil,
                 let image = UIImage(data: data)
-                else { return }
+                //else { return }
+                else {
+                    DispatchQueue.main.async {
+                        self.image = phImage
+                    }
+                    return
+                }
             DispatchQueue.main.async {
                 self.image = image
             }
@@ -555,10 +565,14 @@ extension String {
     public func removeSign() -> String {
         var retVal = self
         for i in 1..<DomainConst.UNICODE_SIGNS.count {
-            for j in 0..<DomainConst.UNICODE_SIGNS[i].characters.count {
-                retVal = retVal.replacingOccurrences(of: DomainConst.UNICODE_SIGNS[i].substring(with: j..<(j+1)), with: DomainConst.UNICODE_SIGNS[0].substring(with: (i-1)..<i))
+            for j in 0..<(DomainConst.UNICODE_SIGNS[i].characters.count - 1) {
+                retVal = retVal.replacingOccurrences(
+                    of:     DomainConst.UNICODE_SIGNS[i].substring(with: j..<(j + 1)),
+                    with:   DomainConst.UNICODE_SIGNS[0].substring(with: (i - 1)..<i))
             }
         }
+        retVal = retVal.replacingOccurrences(of: "đ", with: "d")
+        retVal = retVal.replacingOccurrences(of: "Đ", with: "D")
         return retVal
     }
     
@@ -601,7 +615,10 @@ extension String {
      */
     public func substring(with r: Range<Int>) -> String {
         let startIndex = index(from: r.lowerBound)
-        let endIndex = index(from: r.upperBound)
+        var endIndex = index(from: r.upperBound)
+        if r.upperBound >= self.characters.count {
+            endIndex = self.endIndex
+        }
         return substring(with: startIndex..<endIndex)
     }
     //-- BUG0050-SPJ (NguyenPT 20170405) Add new function G06

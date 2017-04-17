@@ -77,6 +77,8 @@ public class BaseModel: NSObject {
     private var list_hgd_invest:                [ConfigBean]                    = [ConfigBean]()
     //++ BUG0054-SPJ (NguyenPT 20170414) Add new function G07
     private var list_cancelOrderReasons:        [ConfigBean]                    = [ConfigBean]()
+    private var list_infoCylinder:              [MaterialBean]                  = [MaterialBean]()
+    private var list_infoOtherMaterial:         [MaterialBean]                  = [MaterialBean]()
     //-- BUG0054-SPJ (NguyenPT 20170414) Add new function G07
     /** Uphold list data */
     public var upholdList: UpholdListRespModel = UpholdListRespModel()
@@ -175,6 +177,11 @@ public class BaseModel: NSObject {
         if defaults.object(forKey: DomainConst.KEY_SETTING_DEBUG_IS_SHOW_TOP_ICON) != nil {
             self._debug._isShowTopIcon = defaults.object(forKey: DomainConst.KEY_SETTING_DEBUG_IS_SHOW_TOP_ICON) as! Bool
         }
+        // Debug Flag use material_name or material_name_short
+        self._debug._isMaterialNameShort = DebugBean.DEBUG_DEFAULT_USE_MATERIAL_NAME_SHORT
+        if defaults.object(forKey: DomainConst.KEY_SETTING_DEBUG_IS_USE_MATERIAL_NAME_SHORT) != nil {
+            self._debug._isMaterialNameShort = defaults.object(forKey: DomainConst.KEY_SETTING_DEBUG_IS_USE_MATERIAL_NAME_SHORT) as! Bool
+        }
         // Order vip information
         self._orderVipDescription = DomainConst.BLANK
         if defaults.object(forKey: DomainConst.KEY_SETTING_ORDER_VIP_DESCRIPTION) != nil {
@@ -258,6 +265,24 @@ public class BaseModel: NSObject {
      */
     public func getDebugShowTopIconFlag() -> Bool {
         return self._debug._isShowTopIcon
+    }
+    
+    /**
+     * Set Flag use material_name or material_name_short is On/Off
+     * - parameter isOn: True -> On, False -> Off
+     */
+    public func setDebugUseMaterialNameShort(isOn: Bool) {
+        self._debug._isMaterialNameShort = isOn
+        defaults.set(self._debug._isMaterialNameShort, forKey: DomainConst.KEY_SETTING_DEBUG_IS_USE_MATERIAL_NAME_SHORT)
+        defaults.synchronize()
+    }
+    
+    /**
+     * Check if debug flag use material_name or material_name_short is On
+     * - returns: True if on, False if off
+     */
+    public func getDebugUseMaterialNameShort() -> Bool {
+        return self._debug._isMaterialNameShort
     }
     
     /**
@@ -598,6 +623,8 @@ public class BaseModel: NSObject {
         //++ BUG0054-SPJ (NguyenPT 20170414) Add new function G07
         // List cancel order reasons
         self.list_cancelOrderReasons = loginModel.list_cancelOrderReasons
+        self.list_infoCylinder       = loginModel.info_cylinder
+        self.list_infoOtherMaterial  = loginModel.info_otherMaterial
         //-- BUG0054-SPJ (NguyenPT 20170414) Add new function G07
     }
     
@@ -997,6 +1024,22 @@ public class BaseModel: NSObject {
      */
     public func getListOfMenus() -> [ConfigBean] {
         return self.menu
+    }
+    
+    /**
+     * Get list of cylinders information
+     * - returns: List of cylinders information
+     */
+    public func getListCylinderInfo() -> [MaterialBean] {
+        return self.list_infoCylinder
+    }
+    
+    /**
+     * Get list of the other material
+     * - returns: List of the other material
+     */
+    public func getListOtherMaterialInfo() -> [MaterialBean] {
+        return self.list_infoOtherMaterial
     }
     //-- BUG0054-SPJ (NguyenPT 20170414) Add new function G07
 }

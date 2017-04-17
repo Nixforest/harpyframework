@@ -51,7 +51,7 @@ class InternalViewController: ChildViewController, UITableViewDelegate, UITableV
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 13
+        return 14
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {        
@@ -132,6 +132,10 @@ class InternalViewController: ChildViewController, UITableViewDelegate, UITableV
             cell.setData(leftImg: DomainConst.INFORMATION_IMG_NAME,
                          name: "G06: API Tester",
                          value: DomainConst.BLANK, isHideRightImg: false)
+        case 13:
+            cell.setData(leftImg: DomainConst.INFORMATION_IMG_NAME,
+                         name: "Use [materials_name_short]", switchValue: BaseModel.shared.getDebugUseMaterialNameShort(),
+                         action: #selector(updateDebugUseMaterialNameShort(_:)), target: self)
         default:
             break
         }
@@ -220,6 +224,13 @@ class InternalViewController: ChildViewController, UITableViewDelegate, UITableV
      */
     public func updateDebugShowNumPickerFlag(_ sender: UISwitch) {
         BaseModel.shared.setDebugShowNumPickerFlag(isOn: sender.isOn)
+    }
+    
+    /**
+     * Handle tap on cell.
+     */
+    public func updateDebugUseMaterialNameShort(_ sender: UISwitch) {
+        BaseModel.shared.setDebugUseMaterialNameShort(isOn: sender.isOn)
     }
     
     internal func HSBColorColorPickerTouched(sender: HSBColorPicker, color: UIColor, point: CGPoint, state: UIGestureRecognizerState) {

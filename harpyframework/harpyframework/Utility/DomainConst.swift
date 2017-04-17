@@ -83,6 +83,8 @@ public class DomainConst {
     public static let PATH_ORDER_TRANSACTION_LIST       = "order/transactionList"
     /** Get order family view */
     public static let PATH_ORDER_TRANSACTION_VIEW       = "order/transactionView"
+    /** Get order family view */
+    public static let PATH_ORDER_TRANSACTION_SET_EVENT  = "order/transactionSetEvent"
     
     // MARK: -----List of keys-----
     /** Token */
@@ -339,6 +341,8 @@ public class DomainConst {
     public static let KEY_SETTING_DEBUG_IS_SHOW_NUM_PICKER  = "gasservice.debug.isShowNumPicker"
     /** Setting key: Debug Is Show number picker */
     public static let KEY_SETTING_DEBUG_IS_SHOW_TOP_ICON    = "gasservice.debug.isShowTopIcon"
+    /** Setting key: Debug Flag use material_name or material_name_short */
+    public static let KEY_SETTING_DEBUG_IS_USE_MATERIAL_NAME_SHORT    = "gasservice.debug.isUseMaterialNameShort"
     /** Setting key: Material type id */
     public static let KEY_MATERIALS_TYPE_ID             = "materials_type_id"
     /** Setting key: Material id */
@@ -567,6 +571,10 @@ public class DomainConst {
     public static let KEY_ORDER_LIST_DISCOUNT_TYPE      = "order_list_discount_type"
     /** Key List order discount type */
     public static let KEY_STORECARD_STATUS_CANCEL       = "storecard_status_cancel"
+    /** Key Action type */
+    public static let KEY_ACTION_TYPE                   = "action_type"
+    /** Key Change type */
+    public static let KEY_CHANGE_TYPE                   = "change_type"
     //-- BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Get new data
     
     
@@ -640,6 +648,9 @@ public class DomainConst {
     public static let SEARCH_INTERVAL                   = 1000
     /** Minimum number of characters begin search */
     public static let SEARCH_MIN_LENGTH                 = 5
+    /** Minimum number of characters begin search material */
+    public static let SEARCH_MATERIAL_MIN_LENGTH        = 2
+    
     /** Pattern to remove accent */
     public static let PATTERN_REMOVE_ACCENT             = "\\p{InCombiningDiacriticalMarks}+"
     
@@ -828,6 +839,8 @@ public class DomainConst {
     public static let SPLITER_TYPE2                     = ","
     /** Text spliter */
     public static let TEXT_SPLITER                      = ":"
+    /** Plus spliter: + */
+    public static let PLUS_SPLITER                      = "+"
     /** Phone spliter */
     public static let NUMBER_ZERO_VALUE                 = "0"
     /** Phone spliter */
@@ -1223,6 +1236,10 @@ public class DomainConst {
     /** Search image name */
     public static let SEARCH_ICON_IMG_NAME                  = "search.png"
     //-- BUG0050-SPJ (NguyenPT 20170323) Add new key for new function G06
+    /** Reload image */
+    public static let RELOAD_IMG_NAME                       = "reload-1.png"
+    /** Default image */
+    public static let DEFAULT_IMG_NAME                      = "default-thumbnail.jpg"
     /** HTTP Post request method */
     public static let HTTP_POST_REQUEST                     = "POST"
     
@@ -1529,4 +1546,5 @@ public class DomainConst {
     public static let CONTENT00318 = "Thu tiền"
     public static let CONTENT00319 = "Chọn lý do huỷ đơn hàng"
     public static let CONTENT00320 = "Huỷ đơn hàng"
+    public static let CONTENT00321 = "Chọn vật tư"
 }

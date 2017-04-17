@@ -132,7 +132,7 @@ public class LoginRespModel : BaseRespModel {
                 // List other material
                 if let data = json[DomainConst.KEY_MATERIAL_HGD] as? [[String: AnyObject]] {
                     for item in data {
-                        self.info_cylinder.append(MaterialBean(jsonData: item))
+                        self.info_otherMaterial.append(MaterialBean(jsonData: item))
                     }
                 }
                 // List cancel order reasons

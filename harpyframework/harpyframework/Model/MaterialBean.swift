@@ -68,6 +68,20 @@ open class MaterialBean: NSObject {
     }
     
     /**
+     * Check if material is Cylinder type
+     * - returns: True if "materials_type_id" equal 1/12/10/14, False otherwise
+     */
+    public func isCylinder() -> Bool {
+        if self.materials_type_id == "1" ||
+            self.materials_type_id == "12" ||
+            self.materials_type_id == "10" ||
+            self.materials_type_id == "14" {
+            return true
+        }
+        return false
+    }
+    
+    /**
      * Check if object is empty
      * - returns: self.material_id.isEmpty
      */
