@@ -839,7 +839,9 @@ open class BaseViewController : UIViewController {
     public func handleNotification(notify: NotificationBean, isManual: Bool = false) {
         if isManual && BaseModel.shared.canHandleNotification() {
             // Create alert
-            let alert = UIAlertController(title: DomainConst.CONTENT00044, message: notify.getMessage(), preferredStyle: .alert)
+            let alert = UIAlertController(title: DomainConst.CONTENT00044,
+                                          message: notify.getMessage(),
+                                          preferredStyle: .alert)
             // OK handler
             let okAction = UIAlertAction(title: DomainConst.CONTENT00223, style: .default, handler: {
                 (alert: UIAlertAction!) in
@@ -918,8 +920,13 @@ open class BaseViewController : UIViewController {
                     }
                     break
                 case DomainConst.NOTIFY_VIEW_VIP_CUSTOMER_ORDER:
-                    BaseModel.shared.sharedString = notify.getId()
-                    self.pushToView(name: "G05F00S02VC")
+                    if BaseModel.shared.isCustomerUser() {
+                        BaseModel.shared.sharedString = notify.getId()
+                        self.pushToView(name: "G05F00S02VC")
+                    } else if BaseModel.shared.isNVGNUser() {
+                        self.pushToView(name: "G05F00S01VC")
+                    }
+                    
                     break
                 default: break
                 }

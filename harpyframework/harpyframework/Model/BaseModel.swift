@@ -648,6 +648,14 @@ public class BaseModel: NSObject {
     }
     
     /**
+     * Check if current user if a NVGN
+     * returns: True if user is a NVGN, False otherwise
+     */
+    public func isNVGNUser() -> Bool {
+        return (self.role_id == String(RoleType.ROLE_EMPLOYEE_MAINTAIN.rawValue))
+    }
+    
+    /**
      * Save uphold list.
      * - parameter upholdListModel: Sata to save
      */
