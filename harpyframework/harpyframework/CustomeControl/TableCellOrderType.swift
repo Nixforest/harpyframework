@@ -259,6 +259,11 @@ open class TableCellOrderType: UITableViewCell {
                                            width: GlobalConst.SCREEN_WIDTH - GlobalConst.CELL_HEIGHT_SHOW / 5,
                                            height: GlobalConst.CELL_HEIGHT_SHOW / 4)
         }
+        
+        self.statusIcon.frame = CGRect(x: self.statusIcon.frame.origin.x,
+                                       y: (rightView.frame.height - GlobalConst.ICON_SIZE) / 2,
+                                       width: GlobalConst.ICON_SIZE,
+                                       height: GlobalConst.ICON_SIZE)
     }
     
     private func getStatusIcon(status: String) -> String {
