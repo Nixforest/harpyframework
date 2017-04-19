@@ -1547,4 +1547,6 @@ public class DomainConst {
     public static let CONTENT00319 = "Chọn lý do huỷ đơn hàng"
     public static let CONTENT00320 = "Huỷ đơn hàng"
     public static let CONTENT00321 = "Chọn vật tư"
+    public static let CONTENT00322 = "Xác nhận đơn hàng thành công. Bạn có muốn xem chi tiết đơn hàng hay không?"
+    public static let CONTENT00323 = "Huỷ xác nhận đơn hàng thành công."
 }

@@ -73,6 +73,7 @@ extension NSMutableData {
     }
 }
 
+// MARK: Enum
 /**
  * Menu item enum
  */
@@ -150,7 +151,21 @@ enum RoleType: Int {
     ROLE_MANAGER_DRIVER,				// Quản Lý Đội Xe May 17, 2016,
     ROLETYPE_NUM
 }
+//++ BUG0054-SPJ (NguyenPT 20170418) Add new function G07
+/** Action type */
+public enum ActionTypeEnum: Int {
+    case EMPLOYEE_CONFIRM = -1,
+    EMPLOYEE_FREE,
+    EMPLOYEE_NHAN_GIAO_HANG,
+    EMPLOYEE_HUY_GIAO_HANG,
+    EMPLOYEE_DROP,
+    EMPLOYEE_CHANGE,
+    EMPLOYEE_COMPLETE,
+    EMPLOYEE_CHANGE_NOT_PAID
+}
+//-- BUG0054-SPJ (NguyenPT 20170418) Add new function G07
 
+// MARK: View extension
 /**
  * Download image async extension
  */
@@ -261,6 +276,7 @@ extension CALayer {
     }
 }
 
+// MARK: Protocols
 /**
  * Protocol to define delegate with match select button event.
  */
@@ -318,6 +334,21 @@ public protocol StepDoneDelegate {
      */
     func stepDone()
 }
+//++ BUG0054-SPJ (NguyenPT 20170418) Add new function G07
+/**
+ * Protocol to define delegate with match order confirm event.
+ */
+public protocol OrderConfirmDelegate {
+    /**
+     * Handle tapped event on action button
+     */
+    func btnActionTapped(_ sender: AnyObject)
+    /**
+     * Handle tapped event on cancel button
+     */
+    func btnCancelTapped(_ sender: AnyObject)
+}
+//-- BUG0054-SPJ (NguyenPT 20170418) Add new function G07
 
 /**
  * Extension of button control.

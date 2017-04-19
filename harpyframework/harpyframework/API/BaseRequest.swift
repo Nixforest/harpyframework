@@ -181,6 +181,7 @@ open class BaseRequest: NSObject {
             //++ BUG0050-SPJ (NguyenPT 20170323) Handle result string
             // Convert to string
             let dataString = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
+            print(dataString ?? DomainConst.BLANK)
             self.handleCompleteTask(model: dataString)
             //-- BUG0050-SPJ (NguyenPT 20170323) Handle result string
         })
@@ -209,6 +210,8 @@ open class BaseRequest: NSObject {
         // Call complete handler
         DispatchQueue.main.async {
             NotificationCenter.default.post(name: Notification.Name(rawValue: self.theClassName), object: model)
+            // Remove observer
+            NotificationCenter.default.removeObserver(self.view, name: Notification.Name(rawValue: self.theClassName), object: nil)
         }
     }
 }

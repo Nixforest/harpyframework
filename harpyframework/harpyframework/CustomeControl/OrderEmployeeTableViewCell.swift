@@ -36,7 +36,13 @@ public class OrderEmployeeTableViewCell: UITableViewCell {
     /** Current id */
     private var _id:            String              = DomainConst.BLANK
     public static var CELL_HEIGHT: CGFloat = 0.0
+    /** Delegate */
+    public var delegate: OrderConfirmDelegate?
 
+    /**
+     * Prepares the receiver for service after it has been loaded from
+     * an Interface Builder archive, or nib file.
+     */
     override public func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -189,6 +195,7 @@ public class OrderEmployeeTableViewCell: UITableViewCell {
         self.addSubview(self.bottomView)
         self.makeComponentsColor()
     }
+    
     /**
      * Setup button for this view
      * - parameter button:  Button to setup
@@ -220,11 +227,15 @@ public class OrderEmployeeTableViewCell: UITableViewCell {
     }
 
     override public func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+        //super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
     
+    /**
+     * Set data for cell
+     * - parameter data: Data to set
+     */
     public func setData(data: OrderListBean) {
         self.dateTime.setValue(dateTime: data.created_date)
         self.addressLabel.text = data.address.normalizateString()
@@ -234,6 +245,8 @@ public class OrderEmployeeTableViewCell: UITableViewCell {
         self.totalLabel.text = data.grand_total
         self.materialLabel.text = data.title
         handleActionButton(data: data)
+        self.btnAction.accessibilityIdentifier = data.id
+        self.btnCancel.accessibilityIdentifier = data.id
     }
     
     /**
@@ -262,6 +275,10 @@ public class OrderEmployeeTableViewCell: UITableViewCell {
         return retVal
     }
     
+    /**
+     * Handle show/hide button
+     * - parameter data: Data of cell
+     */
     private func handleActionButton(data: OrderListBean) {
         if (data.show_nhan_giao_hang == DomainConst.NUMBER_ZERO_VALUE)
             && (data.show_huy_giao_hang == DomainConst.NUMBER_ZERO_VALUE) {
@@ -306,10 +323,18 @@ public class OrderEmployeeTableViewCell: UITableViewCell {
         self.btnAction.isHidden = (data.show_nhan_giao_hang == DomainConst.NUMBER_ZERO_VALUE)
         self.btnCancel.isHidden = (data.show_huy_giao_hang == DomainConst.NUMBER_ZERO_VALUE)
     }
+    
+    /**
+     * Handle when tap action button
+     */
     internal func btnActionHandler(_ sender: AnyObject) {
-        
+        delegate?.btnActionTapped(sender)
     }
+    
+    /**
+     * Handle when tap action button
+     */
     internal func btnCancelHandler(_ sender: AnyObject) {
-        
+        delegate?.btnCancelTapped(sender)
     }
 }

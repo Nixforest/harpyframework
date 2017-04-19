@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class TransactionSetEventRequest: BaseRequest {
+open class TransactionSetEventRequest: BaseRequest {
     /**
      * Set data content
      * - parameter actionType:      Buying type
@@ -23,13 +23,13 @@ public class TransactionSetEventRequest: BaseRequest {
      * - parameter typeAmount:      From date value
      * - parameter orderDetail:     To date value
      */
-    func setData(actionType: String, lat: String, long: String,
+    func setData(actionType: Int, lat: String, long: String,
                  changeType: String, statusCancel: String,
                  id: String, orderType: String, discountType: String,
                  amountDiscount: String, typeAmount: String,
                  orderDetail: String) {
         self.data = "q=" + String.init(
-            format: "{\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":[%@],\"%@\":\"%d\"}",
+            format: "{\"%@\":\"%@\",\"%@\":\"%d\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":[%@],\"%@\":\"%d\"}",
             DomainConst.KEY_TOKEN, BaseModel.shared.getUserToken(),
             DomainConst.KEY_ACTION_TYPE,            actionType,
             DomainConst.KEY_LATITUDE,               lat,
@@ -42,7 +42,7 @@ public class TransactionSetEventRequest: BaseRequest {
             DomainConst.KEY_AMOUNT_DISCOUNT,        amountDiscount,
             DomainConst.KEY_TYPE_AMOUNT,            typeAmount,
             DomainConst.KEY_ORDER_DETAIL,           orderDetail,
-            DomainConst.KEY_PLATFORM, DomainConst.PLATFORM_IOS
+            DomainConst.KEY_PLATFORM,               DomainConst.PLATFORM_IOS
         )
     }
     
@@ -64,7 +64,7 @@ public class TransactionSetEventRequest: BaseRequest {
      */
     public static func request(action: Selector,
                                view: BaseViewController,
-                               actionType: String, lat: String, long: String,
+                               actionType: Int, lat: String, long: String,
                                changeType: String, statusCancel: String,
                                id: String, orderType: String, discountType: String,
                                amountDiscount: String, typeAmount: String,
