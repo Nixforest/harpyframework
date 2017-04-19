@@ -1041,5 +1041,19 @@ public class BaseModel: NSObject {
     public func getListOtherMaterialInfo() -> [MaterialBean] {
         return self.list_infoOtherMaterial
     }
+    
+    /**
+     * Get Name of order cancel reason by id
+     * - parameter id: Id of order cancel reason
+     * - returns: Name of order cancel reason
+     */
+    public func getOrderCancelReasonById(id: String) -> String {
+        for item in self.list_cancelOrderReasons {
+            if item.id == id {
+                return item.name
+            }
+        }
+        return DomainConst.BLANK
+    }
     //-- BUG0054-SPJ (NguyenPT 20170414) Add new function G07
 }

@@ -81,6 +81,8 @@ public class OrderBean: NSObject {
     public var order_type_amount:   String = DomainConst.BLANK
     /** Grand total */
     public var amount_bu_vo:        String = DomainConst.BLANK
+    /** Number of status */
+    public var status_number:       String = DomainConst.BLANK
     
     public override init() {
         super.init()
@@ -139,5 +141,6 @@ public class OrderBean: NSObject {
         self.order_type_text    = getString(json: jsonData, key: DomainConst.KEY_ORDER_TYPE_TEXT)
         self.order_type_amount  = getString(json: jsonData, key: DomainConst.KEY_ORDER_TYPE_AMOUNT)
         self.amount_bu_vo       = getString(json: jsonData, key: DomainConst.KEY_AMOUNT_BU_VO)
+        self.status_number          = getString(json: jsonData, key: DomainConst.KEY_STATUS_NUMBER)
     }
 }

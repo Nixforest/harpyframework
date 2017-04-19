@@ -29,7 +29,7 @@ open class TransactionSetEventRequest: BaseRequest {
                  amountDiscount: String, typeAmount: String,
                  orderDetail: String) {
         self.data = "q=" + String.init(
-            format: "{\"%@\":\"%@\",\"%@\":\"%d\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":[%@],\"%@\":\"%d\"}",
+            format: "{\"%@\":\"%@\",\"%@\":%d,\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":[%@],\"%@\":%d}",
             DomainConst.KEY_TOKEN, BaseModel.shared.getUserToken(),
             DomainConst.KEY_ACTION_TYPE,            actionType,
             DomainConst.KEY_LATITUDE,               lat,
