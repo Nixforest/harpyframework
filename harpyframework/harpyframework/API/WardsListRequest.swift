@@ -34,6 +34,12 @@ public class WardsListRequest: BaseRequest {
                                view: BaseViewController,
                                provinceId: String,
                                districtId: String) {
+        //++ BUG0059-SPJ (NguyenPT 20170420) Check list district is existed
+        if BaseModel.shared.getListWards(districtId: districtId) != nil
+            && BaseModel.shared.getListWards(districtId: districtId)?.count != 0 {
+            return
+        }
+        //-- BUG0059-SPJ (NguyenPT 20170420) Check list district is existed
         // Show overlay
         //LoadingView.shared.showOverlay(view: view.view)
         let request = WardsListRequest(url: DomainConst.PATH_SITE_WARDS_LIST,
