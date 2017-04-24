@@ -9,14 +9,15 @@
 import Foundation
 open class TableCellOrderType: UITableViewCell {
     // MARK: Properties
-    @IBOutlet weak var _parentView: UIView!
     private var topView:    UIView = UIView()
     private var leftView:   UIView = UIView()
     private var centerView: UIView = UIView()
     private var rightView:  UIView = UIView()
     private var bottomView: UIView = UIView()
+    
     // Top control
     private var customerLabel: UILabel = UILabel()
+    
     // Left controls
     private var dateTime: CustomeDateTimeView = CustomeDateTimeView()
     
@@ -32,6 +33,13 @@ open class TableCellOrderType: UITableViewCell {
     // Bottom control
     private var addressIcon: UIImageView = UIImageView()
     private var addressLabel: UILabel = UILabel()
+    
+    //++ BUG0060-SPJ (NguyenPT 20170421) Add 2 button for confirm and cancel confirm
+    private var btnAction:      UIButton            = UIButton()
+    private var btnCancel:      UIButton            = UIButton()
+    /** Delegate */
+    public var delegate: OrderConfirmDelegate?
+    //-- BUG0060-SPJ (NguyenPT 20170421) Add 2 button for confirm and cancel confirm
     private let topHeight: CGFloat = GlobalConst.CONFIGURATION_ITEM_HEIGHT - GlobalConst.MARGIN_CELL_X * 3
     
     // MARK: Methods
@@ -50,12 +58,15 @@ open class TableCellOrderType: UITableViewCell {
         /** ---- Left view ------ */
         self.dateTime.setup(x: 0, y: 0, w: contentWidthLeft, h: contentHeight)
         offset += self.dateTime.frame.height
-        TableCellOrderType.CELL_HEIGHT = topHeight + contentHeight + verticalMargin + GlobalConst.CELL_HEIGHT_SHOW / 4
+        //++ BUG0060-SPJ (NguyenPT 20170421) Add 2 button for confirm and cancel confirm
+        //TableCellOrderType.CELL_HEIGHT = topHeight + contentHeight + verticalMargin + GlobalConst.CELL_HEIGHT_SHOW / 4
+        TableCellOrderType.CELL_HEIGHT = topHeight + contentHeight + verticalMargin + GlobalConst.CELL_HEIGHT_SHOW / 4 + GlobalConst.BUTTON_H
+        //-- BUG0060-SPJ (NguyenPT 20170421) Add 2 button for confirm and cancel confirm
         
-        self._parentView.frame = CGRect(x: 0,
-                                        y: 0,
-                                        width: GlobalConst.SCREEN_WIDTH,
-                                        height: TableCellOrderType.CELL_HEIGHT)
+//        self._parentView.frame = CGRect(x: 0,
+//                                        y: 0,
+//                                        width: GlobalConst.SCREEN_WIDTH,
+//                                        height: TableCellOrderType.CELL_HEIGHT)
         self.topView.frame = CGRect(x: 0,
                                     y: 0,
                                     width: GlobalConst.SCREEN_WIDTH,
@@ -63,12 +74,10 @@ open class TableCellOrderType: UITableViewCell {
         self.leftView.frame = CGRect(x: 0,
                                      y: topView.frame.maxY,
                                      width: GlobalConst.SCREEN_WIDTH / 4,
-                                     //height: TableCellOr derType.CELL_HEIGHT)
                                      height: offset)
         self.centerView.frame = CGRect(x: self.leftView.frame.maxX,
                                        y: topView.frame.maxY,
                                        width: GlobalConst.SCREEN_WIDTH / 2,
-                                       //height: TableCellOrderType.CELL_HEIGHT)
                                        height: offset)
         self.rightView.frame = CGRect(x: self.centerView.frame.maxX,
                                       y: 0,
@@ -127,6 +136,9 @@ open class TableCellOrderType: UITableViewCell {
                                      height: GlobalConst.ICON_SIZE)
         self.statusIcon.image = ImageManager.getImage(named: DomainConst.BLANK)
         /** ---- Bottom view ------ */
+        //++ BUG0060-SPJ (NguyenPT 20170421) Add 2 button for confirm and cancel confirm
+        var botOffset: CGFloat = 0
+        //-- BUG0060-SPJ (NguyenPT 20170421) Add 2 button for confirm and cancel confirm
         // Address icon
         self.addressIcon.frame = CGRect(x: GlobalConst.MARGIN_CELL_X,
                                         y: GlobalConst.CELL_HEIGHT_SHOW / 40,
@@ -145,6 +157,24 @@ open class TableCellOrderType: UITableViewCell {
         self.addressLabel.numberOfLines = 0
         self.addressLabel.lineBreakMode = .byWordWrapping
         
+        //++ BUG0060-SPJ (NguyenPT 20170421) Add 2 button for confirm and cancel confirm
+        botOffset += addressLabel.frame.height + verticalMargin
+        // Button action
+        setupButton(button: btnAction,
+                    x: (GlobalConst.SCREEN_WIDTH - GlobalConst.BUTTON_W) / 2,
+                    y: botOffset, title: DomainConst.CONTENT00217,
+                    icon: DomainConst.CONFIRM_IMG_NAME,
+                    color: GlobalConst.BUTTON_COLOR_RED,
+                    action: #selector(btnActionHandler(_:)))
+        setupButton(button: btnCancel,
+                    x: GlobalConst.SCREEN_WIDTH / 2,
+                    y: botOffset, title: DomainConst.CONTENT00220,
+                    icon: DomainConst.CANCEL_IMG_NAME,
+                    color: GlobalConst.BUTTON_COLOR_YELLOW,
+                    action: #selector(btnCancelHandler(_:)))
+        botOffset += btnCancel.frame.height + GlobalConst.MARGIN
+        //-- BUG0060-SPJ (NguyenPT 20170421) Add 2 button for confirm and cancel confirm
+        
         self.leftView.addSubview(dateTime)
         self.centerView.addSubview(self.codeLabel)
         self.centerView.addSubview(self.totalLabel)
@@ -153,39 +183,82 @@ open class TableCellOrderType: UITableViewCell {
         
         self.bottomView.addSubview(self.addressIcon)
         self.bottomView.addSubview(self.addressLabel)
+        self.bottomView.addSubview(self.btnAction)
+        self.bottomView.addSubview(self.btnCancel)
         self.topView.addSubview(self.customerLabel)
         
-        self._parentView.addSubview(self.topView)
-        self._parentView.addSubview(self.leftView)
-        self._parentView.addSubview(self.centerView)
-        self._parentView.addSubview(self.rightView)
-        self._parentView.addSubview(self.bottomView)
-        self._parentView.makeComponentsColor()
+//        self._parentView.addSubview(self.topView)
+//        self._parentView.addSubview(self.leftView)
+//        self._parentView.addSubview(self.centerView)
+//        self._parentView.addSubview(self.rightView)
+//        self._parentView.addSubview(self.bottomView)
+//        self._parentView.makeComponentsColor()
+        self.addSubview(self.topView)
+        self.addSubview(self.leftView)
+        self.addSubview(self.centerView)
+        self.addSubview(self.rightView)
+        self.addSubview(self.bottomView)
+        self.makeComponentsColor()
     }
+    
+    //++ BUG0060-SPJ (NguyenPT 20170421) Add 2 button for confirm and cancel confirm
+    /**
+     * Setup button for this view
+     * - parameter button:  Button to setup
+     * - parameter x:       X position of button
+     * - parameter y:       Y position of button
+     * - parameter title:   Title of button
+     * - parameter icon:    Icon of button
+     * - parameter color:   Color of button
+     * - parameter action:  Action of button
+     */
+    private func setupButton(button: UIButton, x: CGFloat, y: CGFloat, title: String,
+                             icon: String, color: UIColor, action: Selector) {
+        button.frame = CGRect(x: x,
+                              y: y,
+                              width: GlobalConst.BUTTON_W / 2,
+                              height: GlobalConst.BUTTON_H)
+        button.setTitle(title.uppercased(), for: UIControlState())
+        button.setTitleColor(UIColor.white, for: UIControlState())
+        button.backgroundColor          = color
+        button.titleLabel?.font         = UIFont.systemFont(ofSize: UIFont.systemFontSize)
+        button.layer.cornerRadius       = GlobalConst.LOGIN_BUTTON_CORNER_RADIUS
+        button.imageView?.contentMode   = .scaleAspectFit
+        button.setImage(ImageManager.getImage(named: icon), for: UIControlState())
+        button.addTarget(self, action: action, for: .touchUpInside)
+        button.imageEdgeInsets = UIEdgeInsets(top: GlobalConst.MARGIN,
+                                              left: GlobalConst.MARGIN,
+                                              bottom: GlobalConst.MARGIN,
+                                              right: GlobalConst.MARGIN)
+        button.isExclusiveTouch = true
+    }
+    //-- BUG0060-SPJ (NguyenPT 20170421) Add 2 button for confirm and cancel confirm
     
     /**
      * Set selected
      */
     override open func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+        //super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
     }
     
+    /**
+     * Set data for Order List
+     * - parameter data: OrderListBean
+     */
     open func setData(data: OrderListBean) {
         self.dateTime.setValue(dateTime: data.created_date)
         self.codeLabel.text = data.code_no + " -"
         self.totalLabel.text = data.grand_total
         self.materialLabel.text = data.title
-//        if data.status_number == DomainConst.ORDER_STATUS_COMPLETE {
-//            self.statusIcon.image = ImageManager.getImage(named: DomainConst.FINISH_STATUS_IMG_NAME)
-//        } else if data.status_number == DomainConst.ORDER_STATUS_NEW {
-//            self.statusIcon.image = ImageManager.getImage(named: DomainConst.ORDER_STATUS_NEW_ICON_IMG_NAME)
-//        }
-        
         self.statusIcon.image = ImageManager.getImage(named: getStatusIcon(status: data.status_number))
     }
     
+    /**
+     * Set data for Order VIP List
+     * - parameter vipData: OrderVIPListBean
+     */
     open func setData(vipData: OrderVIPListBean) {
         self.dateTime.setValue(dateTime: vipData.created_date)
         self.codeLabel.text = "#" + vipData.code_no + " -"
@@ -208,16 +281,26 @@ open class TableCellOrderType: UITableViewCell {
         if BaseModel.shared.isCustomerUser() {
             TableCellOrderType.CELL_HEIGHT = contentHeight + verticalMargin
         } else {
-            TableCellOrderType.CELL_HEIGHT = topHeight + contentHeight + verticalMargin + GlobalConst.CELL_HEIGHT_SHOW / 4
+            //++ BUG0060-SPJ (NguyenPT 20170421) Add 2 button for confirm and cancel confirm
+            //TableCellOrderType.CELL_HEIGHT = topHeight + contentHeight + verticalMargin + GlobalConst.CELL_HEIGHT_SHOW / 4
+            TableCellOrderType.CELL_HEIGHT = topHeight + contentHeight + verticalMargin + GlobalConst.CELL_HEIGHT_SHOW / 4 + GlobalConst.BUTTON_H
+            //-- BUG0060-SPJ (NguyenPT 20170421) Add 2 button for confirm and cancel confirm
         }
         // Update layout
+        handleActionButton(data: vipData)
         self.updateLayout(isCustomer: BaseModel.shared.isCustomerUser())
         self.addressLabel.text = vipData.customer_address.normalizateString()
         self.customerLabel.text = vipData.customer_name
         self.bottomView.isHidden = BaseModel.shared.isCustomerUser()
         self.topView.isHidden = BaseModel.shared.isCustomerUser()
+        self.btnAction.accessibilityIdentifier = vipData.id
+        self.btnCancel.accessibilityIdentifier = vipData.id
     }
     
+    /**
+     * Update layout 
+     * - parameter isCustomer: Flag check if current user is customer
+     */
     private func updateLayout(isCustomer: Bool) {
         let verticalMargin      = GlobalConst.MARGIN_CELL_X * 2
         let offset = self.dateTime.frame.height
@@ -261,11 +344,16 @@ open class TableCellOrderType: UITableViewCell {
         }
         
         self.statusIcon.frame = CGRect(x: self.statusIcon.frame.origin.x,
-                                       y: (rightView.frame.height - GlobalConst.ICON_SIZE) / 2,
+                                       y: (rightView.frame.height - GlobalConst.ICON_SIZE - GlobalConst.BUTTON_H) / 2,
                                        width: GlobalConst.ICON_SIZE,
                                        height: GlobalConst.ICON_SIZE)
     }
     
+    /**
+     * Get status icon from status string
+     * - parameter status: Status string
+     * - returns: Status icon path
+     */
     private func getStatusIcon(status: String) -> String {
         var retVal = DomainConst.BLANK
         switch status {
@@ -286,4 +374,77 @@ open class TableCellOrderType: UITableViewCell {
         }
         return retVal
     }
+    
+    //++ BUG0060-SPJ (NguyenPT 20170421) Add 2 button for confirm and cancel confirm
+    /**
+     * Handle show/hide button
+     * - parameter data: Data of cell
+     */
+    private func handleActionButton(data: OrderVIPListBean) {
+        let contentHeight       = GlobalConst.CELL_HEIGHT_SHOW / 3 * 2
+        let verticalMargin      = GlobalConst.MARGIN_CELL_X * 2
+        if (data.show_nhan_giao_hang == DomainConst.NUMBER_ZERO_VALUE)
+            && (data.show_huy_giao_hang == DomainConst.NUMBER_ZERO_VALUE) {
+            // 0-0 => Decrease height
+            if !BaseModel.shared.isCustomerUser() {
+                TableCellOrderType.CELL_HEIGHT = topHeight + contentHeight + verticalMargin + GlobalConst.CELL_HEIGHT_SHOW / 4
+            }
+            if data.status_number == DomainConst.ORDER_STATUS_NEW {
+                data.show_nhan_giao_hang = DomainConst.NUMBER_ONE_VALUE
+                btnAction.frame = CGRect(
+                    x: (GlobalConst.SCREEN_WIDTH - GlobalConst.BUTTON_W) / 2,
+                    y: btnAction.frame.origin.y,
+                    width: GlobalConst.BUTTON_W,
+                    height: GlobalConst.BUTTON_H)
+                if !BaseModel.shared.isCustomerUser() {
+                    OrderEmployeeTableViewCell.CELL_HEIGHT = GlobalConst.LABEL_H * 4 + 4 * GlobalConst.MARGIN_CELL_X + GlobalConst.BUTTON_H
+                }
+            }
+        } else if (data.show_nhan_giao_hang == DomainConst.NUMBER_ONE_VALUE)
+            && (data.show_huy_giao_hang == DomainConst.NUMBER_ONE_VALUE) {
+            // 1-1 => Do nothing
+            btnAction.frame = CGRect(
+                x: (GlobalConst.SCREEN_WIDTH - GlobalConst.BUTTON_W) / 2,
+                y: btnAction.frame.origin.y,
+                width: GlobalConst.BUTTON_W / 2,
+                height: GlobalConst.BUTTON_H)
+            btnCancel.frame = CGRect(
+                x: GlobalConst.SCREEN_WIDTH / 2,
+                y: btnCancel.frame.origin.y,
+                width: GlobalConst.BUTTON_W / 2,
+                height: GlobalConst.BUTTON_H)
+        } else {
+            // 0-1 or 1-0 => Move button to center
+            btnAction.frame = CGRect(
+                x: (GlobalConst.SCREEN_WIDTH - GlobalConst.BUTTON_W) / 2,
+                y: btnAction.frame.origin.y,
+                width: GlobalConst.BUTTON_W,
+                height: GlobalConst.BUTTON_H)
+            btnCancel.frame = CGRect(
+                x: (GlobalConst.SCREEN_WIDTH - GlobalConst.BUTTON_W) / 2,
+                y: btnCancel.frame.origin.y,
+                width: GlobalConst.BUTTON_W,
+                height: GlobalConst.BUTTON_H)
+            if !BaseModel.shared.isCustomerUser() {
+                TableCellOrderType.CELL_HEIGHT = topHeight + contentHeight + verticalMargin + GlobalConst.CELL_HEIGHT_SHOW / 4 + GlobalConst.BUTTON_H
+            }
+        }
+        self.btnAction.isHidden = (data.show_nhan_giao_hang == DomainConst.NUMBER_ZERO_VALUE)
+        self.btnCancel.isHidden = (data.show_huy_giao_hang == DomainConst.NUMBER_ZERO_VALUE)
+    }
+    
+    /**
+     * Handle when tap action button
+     */
+    internal func btnActionHandler(_ sender: AnyObject) {
+        delegate?.btnActionTapped(sender)
+    }
+    
+    /**
+     * Handle when tap action button
+     */
+    internal func btnCancelHandler(_ sender: AnyObject) {
+        delegate?.btnCancelTapped(sender)
+    }
+    //-- BUG0060-SPJ (NguyenPT 20170421) Add 2 button for confirm and cancel confirm
 }

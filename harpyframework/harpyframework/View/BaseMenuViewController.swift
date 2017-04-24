@@ -305,7 +305,14 @@ open class BaseMenuViewController : UIViewController {
             break
         case DomainConst.ORDER_VIP_LIST:                    // VIP order list
             //currentView.pushToView(name: DomainConst.G05_F00_S01_VIEW_CTRL)
-            currentView.pushToViewAndClearData(name: DomainConst.G05_F00_S01_VIEW_CTRL)
+            //++ BUG0060-SPJ (NguyenPT 20170421) Add new constant for G05F00S03VC
+            //currentView.pushToViewAndClearData(name: DomainConst.G05_F00_S01_VIEW_CTRL)
+            if BaseModel.shared.isCustomerUser() {
+                currentView.pushToViewAndClearData(name: DomainConst.G05_F00_S01_VIEW_CTRL)
+            } else {
+                currentView.pushToViewAndClearData(name: DomainConst.G05_F00_S03_VIEW_CTRL)
+            }
+            //-- BUG0060-SPJ (NguyenPT 20170421) Add new constant for G05F00S03VC
             break
         case DomainConst.KEY_MENU_PROMOTION_LIST:           // Promotion list
             //currentView.pushToView(name: DomainConst.G04_F02_S01_VIEW_CTRL)

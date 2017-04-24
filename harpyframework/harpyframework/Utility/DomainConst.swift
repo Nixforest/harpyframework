@@ -83,8 +83,10 @@ public class DomainConst {
     public static let PATH_ORDER_TRANSACTION_LIST       = "order/transactionList"
     /** Get order family view */
     public static let PATH_ORDER_TRANSACTION_VIEW       = "order/transactionView"
-    /** Get order family view */
+    /** Get order family set event */
     public static let PATH_ORDER_TRANSACTION_SET_EVENT  = "order/transactionSetEvent"
+    /** Get order VIP set event */
+    public static let PATH_ORDER_VIP_SET_EVENT          = "boMoi/boMoiSetEvent"
     
     // MARK: -----List of keys-----
     /** Token */
@@ -576,6 +578,10 @@ public class DomainConst {
     /** Key Change type */
     public static let KEY_CHANGE_TYPE                   = "change_type"
     //-- BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Get new data
+    //++ BUG0060-SPJ (NguyenPT 20170421) Add new constant for Order vip set event
+    /** Key App order id */
+    public static let KEY_APP_ORDER_ID                  = "app_order_id"
+    //-- BUG0060-SPJ (NguyenPT 20170421) Add new constant for Order vip set event
     
     
     // MARK: -----Specified constant-----
@@ -841,10 +847,12 @@ public class DomainConst {
     public static let TEXT_SPLITER                      = ":"
     /** Plus spliter: + */
     public static let PLUS_SPLITER                      = "+"
-    /** Phone spliter */
+    /** Number string: 0 */
     public static let NUMBER_ZERO_VALUE                 = "0"
-    /** Phone spliter */
+    /** Number string: 1 */
     public static let NUMBER_ONE_VALUE                  = "1"
+    /** Number string: 2 */
+    public static let NUMBER_TWO_VALUE                  = "2"
     /** Default time value */
     public static let DEFAULT_TIME_VALUE                = "08:00"
     /** Address unknown string */
@@ -870,6 +878,14 @@ public class DomainConst {
         "ýỳỵỷỹ",
         "ÝỲỴỶỸ"
     ]
+    //++ BUG0060-SPJ (NguyenPT 20170421) Add new constant for Order status
+    /** Order status: New */
+    public static let ORDER_STATUS_TYPE_NEW             = DomainConst.NUMBER_ONE_VALUE
+    /** Order status: Complete */
+    public static let ORDER_STATUS_TYPE_COMPLETE        = DomainConst.NUMBER_TWO_VALUE
+    /** Order status: All */
+    public static let ORDER_STATUS_TYPE_ALL             = DomainConst.NUMBER_ZERO_VALUE
+    //-- BUG0060-SPJ (NguyenPT 20170421) Add new constant for Order status
 
     /** -----Log message----- */
     /** Log tag: error. */
@@ -956,6 +972,10 @@ public class DomainConst {
     public static let G04_F02_S01_VIEW_CTRL                         = "G04F02S01VC"
     /** Name of G05F00 Order list view controller */
     public static let G05_F00_S01_VIEW_CTRL                         = "G05F00S01VC"
+    //++ BUG0060-SPJ (NguyenPT 20170421) Add new constant for G05F00S03VC
+    /** Name of G05F00 Order list view controller */
+    public static let G05_F00_S03_VIEW_CTRL                         = "G05F00S03VC"
+    //-- BUG0060-SPJ (NguyenPT 20170421) Add new constant for G05F00S03VC
     //++ BUG0050-SPJ (NguyenPT 20170323) Add new view controller
     /** Name of G06APITest view controller */
     public static let G06_API_TEST_VIEW_CTRL                        = "G06APITestVC"
@@ -1557,4 +1577,5 @@ public class DomainConst {
     public static let CONTENT00329 = "Đang xử lý đơn hàng"
     public static let CONTENT00330 = "Đã giao"
     public static let CONTENT00331 = "Đã huỷ"
+    public static let CONTENT00332 = "Đơn hàng Bò Mối"
 }

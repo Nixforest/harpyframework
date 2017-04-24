@@ -224,6 +224,7 @@
 		D7E9BF751E2C82F20068D200 /* icon10.png in Resources */ = {isa = PBXBuildFile; fileRef = D7E9BF6F1E2C82F20068D200 /* icon10.png */; };
 		D7E9BF761E2C82F20068D200 /* icon11-active.png in Resources */ = {isa = PBXBuildFile; fileRef = D7E9BF701E2C82F20068D200 /* icon11-active.png */; };
 		D7E9BF771E2C82F20068D200 /* icon11.png in Resources */ = {isa = PBXBuildFile; fileRef = D7E9BF711E2C82F20068D200 /* icon11.png */; };
+		D7EBB7EB1EA9CC5700BE6612 /* OrderVipSetEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EBB7EA1EA9CC5700BE6612 /* OrderVipSetEventRequest.swift */; };
 		D7F17CD61E5DF14000208A73 /* new-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D7F17CD51E5DF14000208A73 /* new-icon.png */; };
 		D7F3D8CD1E1B74720018744F /* CustomeDateTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F3D8CC1E1B74720018744F /* CustomeDateTimeView.swift */; };
 		D7F3D8D01E1B80D80018744F /* TableCellUpholdType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F3D8CE1E1B80D80018744F /* TableCellUpholdType.swift */; };
@@ -469,6 +470,7 @@
 		D7E9BF6F1E2C82F20068D200 /* icon10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon10.png; path = images/icon10.png; sourceTree = "<group>"; };
 		D7E9BF701E2C82F20068D200 /* icon11-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon11-active.png"; path = "images/icon11-active.png"; sourceTree = "<group>"; };
 		D7E9BF711E2C82F20068D200 /* icon11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon11.png; path = images/icon11.png; sourceTree = "<group>"; };
+		D7EBB7EA1EA9CC5700BE6612 /* OrderVipSetEventRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderVipSetEventRequest.swift; path = API/OrderVipSetEventRequest.swift; sourceTree = "<group>"; };
 		D7F17CD51E5DF14000208A73 /* new-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "new-icon.png"; path = "images/new-icon.png"; sourceTree = "<group>"; };
 		D7F3D8CC1E1B74720018744F /* CustomeDateTimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomeDateTimeView.swift; path = CustomeControl/CustomeDateTimeView.swift; sourceTree = "<group>"; };
 		D7F3D8CE1E1B80D80018744F /* TableCellUpholdType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableCellUpholdType.swift; path = CustomeControl/TableCellUpholdType.swift; sourceTree = "<group>"; };
@@ -525,6 +527,7 @@
 				D79C31791E9B8625006F3683 /* OrderFamilyViewRequest.swift */,
 				D7F82AB41EA53A1100116B74 /* TransactionSetEventRequest.swift */,
 				D790BF881EA709CC00841CC5 /* OrderFamilyHandleRequest.swift */,
+				D7EBB7EA1EA9CC5700BE6612 /* OrderVipSetEventRequest.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -1128,6 +1131,7 @@
 				D716C1901E924F16007CC50C /* WardsListRequest.swift in Sources */,
 				D77F05F11E71737200797A6B /* RegisterConfirmRequest.swift in Sources */,
 				D7AB90551E2402170048AC4F /* StepContent.swift in Sources */,
+				D7EBB7EB1EA9CC5700BE6612 /* OrderVipSetEventRequest.swift in Sources */,
 				D7E9BF6B1E2C78B10068D200 /* CategoryButton.swift in Sources */,
 				D76C37981E24CF220096F864 /* RatingBar.swift in Sources */,
 				D7CDBE261E877F0F00B73877 /* CustomerFamilyBean.swift in Sources */,

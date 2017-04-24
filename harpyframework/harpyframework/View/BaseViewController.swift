@@ -920,7 +920,7 @@ open class BaseViewController : UIViewController {
                         BaseModel.shared.sharedString = notify.getId()
                         self.pushToView(name: "G05F00S02VC")
                     } else if BaseModel.shared.isNVGNUser() {
-                        self.pushToView(name: "G05F00S01VC")
+                        self.pushToView(name: "G05F00S03VC")
                     }
                     
                     break
