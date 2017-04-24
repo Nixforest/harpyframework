@@ -95,9 +95,8 @@
 		D76C37981E24CF220096F864 /* RatingBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76C37971E24CF220096F864 /* RatingBar.swift */; };
 		D76C379B1E24D24B0096F864 /* CollectionImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76C37991E24D24B0096F864 /* CollectionImageViewCell.swift */; };
 		D76C379C1E24D24B0096F864 /* CollectionImageViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D76C379A1E24D24B0096F864 /* CollectionImageViewCell.xib */; };
-		D77008C31EA4B53700A8E454 /* default.gif in Resources */ = {isa = PBXBuildFile; fileRef = D77008C21EA4B53700A8E454 /* default.gif */; };
-		D77008C51EA4BA0C00A8E454 /* default-thumbnail.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D77008C41EA4BA0C00A8E454 /* default-thumbnail.jpg */; };
 		D7724F9A1E8935FF006ECEFA /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = D7724F991E8935FF006ECEFA /* search.png */; };
+		D7767C621EADAF4900D8FDA9 /* default-thumbnail.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D7767C611EADAF4900D8FDA9 /* default-thumbnail.jpg */; };
 		D778D6411E5D790D009FD654 /* icon81.png in Resources */ = {isa = PBXBuildFile; fileRef = D778D6401E5D790D009FD654 /* icon81.png */; };
 		D77D2B581E72596A000D38DE /* ChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77D2B571E72596A000D38DE /* ChildViewController.swift */; };
 		D77D2B5A1E725A4D000D38DE /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77D2B591E725A4D000D38DE /* ParentViewController.swift */; };
@@ -211,7 +210,6 @@
 		D7D04E431E557FBF00B3F8CF /* OrderVIPDetailBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D04E421E557FBF00B3F8CF /* OrderVIPDetailBean.swift */; };
 		D7D850EF1E91E20A003FCFBF /* ProvincesListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D850EE1E91E20A003FCFBF /* ProvincesListRequest.swift */; };
 		D7DA56AE1E40ED3C00B6F618 /* TransactionBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DA56AD1E40ED3C00B6F618 /* TransactionBean.swift */; };
-		D7DCB9661E9C93DB0033313B /* addIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D7DCB9651E9C93DB0033313B /* addIcon.png */; };
 		D7E014A31E33DEFC001F26B6 /* icon24.png in Resources */ = {isa = PBXBuildFile; fileRef = D7E014A21E33DEFC001F26B6 /* icon24.png */; };
 		D7E014AA1E347EA4001F26B6 /* MaterialSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E014A91E347EA4001F26B6 /* MaterialSelectViewController.swift */; };
 		D7E014AD1E348039001F26B6 /* MaterialSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E014AB1E348039001F26B6 /* MaterialSelectionCell.swift */; };
@@ -337,9 +335,8 @@
 		D76C37971E24CF220096F864 /* RatingBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RatingBar.swift; path = CustomeControl/RatingBar.swift; sourceTree = "<group>"; };
 		D76C37991E24D24B0096F864 /* CollectionImageViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionImageViewCell.swift; path = CustomeControl/CollectionImageViewCell.swift; sourceTree = "<group>"; };
 		D76C379A1E24D24B0096F864 /* CollectionImageViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CollectionImageViewCell.xib; path = CustomeControl/CollectionImageViewCell.xib; sourceTree = "<group>"; };
-		D77008C21EA4B53700A8E454 /* default.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = default.gif; path = images/default.gif; sourceTree = "<group>"; };
-		D77008C41EA4BA0C00A8E454 /* default-thumbnail.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "default-thumbnail.jpg"; path = "images/default-thumbnail.jpg"; sourceTree = "<group>"; };
 		D7724F991E8935FF006ECEFA /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = search.png; path = images/search.png; sourceTree = "<group>"; };
+		D7767C611EADAF4900D8FDA9 /* default-thumbnail.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "default-thumbnail.jpg"; path = "images/default-thumbnail.jpg"; sourceTree = "<group>"; };
 		D778D6401E5D790D009FD654 /* icon81.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon81.png; path = images/icon81.png; sourceTree = "<group>"; };
 		D77D2B571E72596A000D38DE /* ChildViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChildViewController.swift; path = View/ChildViewController.swift; sourceTree = "<group>"; };
 		D77D2B591E725A4D000D38DE /* ParentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParentViewController.swift; path = View/ParentViewController.swift; sourceTree = "<group>"; };
@@ -457,7 +454,6 @@
 		D7D04E421E557FBF00B3F8CF /* OrderVIPDetailBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderVIPDetailBean.swift; path = Model/OrderVIPDetailBean.swift; sourceTree = "<group>"; };
 		D7D850EE1E91E20A003FCFBF /* ProvincesListRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProvincesListRequest.swift; path = API/ProvincesListRequest.swift; sourceTree = "<group>"; };
 		D7DA56AD1E40ED3C00B6F618 /* TransactionBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransactionBean.swift; path = Model/TransactionBean.swift; sourceTree = "<group>"; };
-		D7DCB9651E9C93DB0033313B /* addIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = addIcon.png; path = images/addIcon.png; sourceTree = "<group>"; };
 		D7E014A21E33DEFC001F26B6 /* icon24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon24.png; path = images/icon24.png; sourceTree = "<group>"; };
 		D7E014A91E347EA4001F26B6 /* MaterialSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MaterialSelectViewController.swift; path = View/MaterialSelectViewController.swift; sourceTree = "<group>"; };
 		D7E014AB1E348039001F26B6 /* MaterialSelectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MaterialSelectionCell.swift; path = CustomeControl/MaterialSelectionCell.swift; sourceTree = "<group>"; };
@@ -704,10 +700,8 @@
 		D7F3D8D21E1B8BCC0018744F /* images */ = {
 			isa = PBXGroup;
 			children = (
-				D77008C41EA4BA0C00A8E454 /* default-thumbnail.jpg */,
-				D77008C21EA4B53700A8E454 /* default.gif */,
+				D7767C611EADAF4900D8FDA9 /* default-thumbnail.jpg */,
 				D74591321EA08F3C002C3AB3 /* reload-1.png */,
-				D7DCB9651E9C93DB0033313B /* addIcon.png */,
 				D75F64B81E28B39100A67B3C /* Account.jpeg */,
 				D75F64BA1E28B39100A67B3C /* back.png */,
 				D791F6791E234C89009CBBED /* bg_sliding_menu_body.jpg */,
@@ -932,11 +926,9 @@
 				D7E9BF771E2C82F20068D200 /* icon11.png in Resources */,
 				D7F3D8D11E1B80D80018744F /* TableCellUpholdType.xib in Resources */,
 				D778D6411E5D790D009FD654 /* icon81.png in Resources */,
-				D77008C31EA4B53700A8E454 /* default.gif in Resources */,
 				D75F65211E28B3BC00A67B3C /* ordergas.png in Resources */,
 				D791F68D1E2367F3009CBBED /* message.png in Resources */,
 				D70B9F941E3F504400EB66F5 /* icon17.png in Resources */,
-				D7DCB9661E9C93DB0033313B /* addIcon.png in Resources */,
 				D7AF28111E58B8D600AFF9D6 /* icon67.png in Resources */,
 				D75F65071E28B3A500A67B3C /* loginMenu.png in Resources */,
 				D75F652A1E28B3C600A67B3C /* ServiceRating.jpeg in Resources */,
@@ -967,6 +959,7 @@
 				D75F64AE1E28657900A67B3C /* icon53.png in Resources */,
 				D75F64E71E28B39100A67B3C /* icon4-ios.png in Resources */,
 				D75F64DD1E28B39100A67B3C /* config.png in Resources */,
+				D7767C621EADAF4900D8FDA9 /* default-thumbnail.jpg in Resources */,
 				D7AB904F1E23FBC20048AC4F /* SearchBarTableViewCell.xib in Resources */,
 				D75F65151E28B3B100A67B3C /* icon63.png in Resources */,
 				D75F65161E28B3B100A67B3C /* icon64.png in Resources */,
@@ -1016,7 +1009,6 @@
 				D791F6A01E23747C009CBBED /* icon48.png in Resources */,
 				D75F65191E28B3B100A67B3C /* issueMenu.png in Resources */,
 				D7C30A401E30628800B3FDA6 /* icon76.png in Resources */,
-				D77008C51EA4BA0C00A8E454 /* default-thumbnail.jpg in Resources */,
 				D7AF28101E58B8D600AFF9D6 /* icon66.png in Resources */,
 				D75F64F81E28B39100A67B3C /* icon38-user-ios.png in Resources */,
 				D7E9BF731E2C82F20068D200 /* icon9.png in Resources */,
