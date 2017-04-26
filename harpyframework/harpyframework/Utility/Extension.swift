@@ -700,9 +700,14 @@ public extension NSObject {
     public func getIntFromString(json: [String: AnyObject], key: String) -> Int {
         var retVal = 0
         let value = json[key] as? String ?? DomainConst.BLANK
-        if value != DomainConst.BLANK {
-            retVal = Int(value)!
+        //++ BUG0070-SPJ (NguyenPT 20170426) Handle convert String -> Int
+//        if value != DomainConst.BLANK {
+//            retVal = Int(value)!
+//        }
+        if let number = Int(value) {
+            retVal = number
         }
+        //-- BUG0070-SPJ (NguyenPT 20170426) Handle convert String -> Int
         return retVal
     }
     

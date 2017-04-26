@@ -36,12 +36,16 @@ public class OrderFamilyListRespModel: BaseRespModel {
                     return
                 }
                 // Total record
-                let totalRecord = json[DomainConst.KEY_TOTAL_RECORD] as? String ?? ""
-                if totalRecord != "" {
-                    self.total_record = Int(totalRecord)!
-                }
+                //++ BUG0070-SPJ (NguyenPT 20170426) Handle convert String -> Int
+//                let totalRecord = json[DomainConst.KEY_TOTAL_RECORD] as? String ?? ""
+//                if totalRecord != "" {
+//                    self.total_record = Int(totalRecord)!
+//                }
+                self.total_record = getIntFromString(json: json, key: DomainConst.KEY_TOTAL_RECORD)
                 // Total page
-                self.total_page = json[DomainConst.KEY_TOTAL_PAGE] as? Int ?? 0
+//                self.total_page = json[DomainConst.KEY_TOTAL_PAGE] as? Int ?? 0
+                self.total_page = getInt(json: json, key: DomainConst.KEY_TOTAL_PAGE)
+                //-- BUG0070-SPJ (NguyenPT 20170426) Handle convert String -> Int
                 
                 // Record
                 let recordList = json[DomainConst.KEY_RECORD] as? [[String: AnyObject]]

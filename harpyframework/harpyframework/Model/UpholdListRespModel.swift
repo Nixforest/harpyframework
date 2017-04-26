@@ -31,12 +31,16 @@ public class UpholdListRespModel: BaseRespModel {
                     return
                 }
                 // Total record
-                let totalRecord = getString(json: json, key: DomainConst.KEY_TOTAL_RECORD)
-                if totalRecord != DomainConst.BLANK {
-                    self.total_record = Int(totalRecord)!
-                }
+                //++ BUG0070-SPJ (NguyenPT 20170426) Handle convert String -> Int
+//                let totalRecord = getString(json: json, key: DomainConst.KEY_TOTAL_RECORD)
+//                if totalRecord != DomainConst.BLANK {
+//                    self.total_record = Int(totalRecord)!
+//                }                
+                self.total_record = getIntFromString(json: json, key: DomainConst.KEY_TOTAL_RECORD)
                 // Total page
+//                self.total_page = getInt(json: json, key: DomainConst.KEY_TOTAL_PAGE)
                 self.total_page = getInt(json: json, key: DomainConst.KEY_TOTAL_PAGE)
+                //-- BUG0070-SPJ (NguyenPT 20170426) Handle convert String -> Int
                 
                 // Record
                 self.record.append(contentsOf: getListUphold(json: json, key: DomainConst.KEY_RECORD))
