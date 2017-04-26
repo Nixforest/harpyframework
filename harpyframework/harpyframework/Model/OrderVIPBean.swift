@@ -13,6 +13,8 @@ public class OrderVIPBean: ConfigBean {
     public var code_no:                 String = DomainConst.BLANK
     /** Delivery date */
     public var date_delivery:           String = DomainConst.BLANK
+    /** Id of customer */
+    public var customer_id:             String = DomainConst.BLANK
     /** Name of customer */
     public var customer_name:           String = DomainConst.BLANK
     /** Address of customer */
@@ -43,6 +45,12 @@ public class OrderVIPBean: ConfigBean {
     public var info_vo:                 [OrderVIPDetailBean] = [OrderVIPDetailBean]()
     /** Flag allow update or not */
     public var allow_update:            String = DomainConst.BLANK
+    /** Agent name */
+    public var agent_name:              String = DomainConst.BLANK
+    /** Number of status */
+    public var status_number:           String = DomainConst.BLANK
+    /** Price information */
+    public var info_price:              String = DomainConst.BLANK
     
     /**
      * Initializer
@@ -52,6 +60,7 @@ public class OrderVIPBean: ConfigBean {
         super.init(jsonData: jsonData)
         self.code_no            = getString(json: jsonData, key: DomainConst.KEY_CODE_NO)
         self.date_delivery      = getString(json: jsonData, key: DomainConst.KEY_DATE_DELIVERY)
+        self.customer_id        = getString(json: jsonData, key: DomainConst.KEY_CUSTOMER_ID)
         self.customer_name      = getString(json: jsonData, key: DomainConst.KEY_CUSTOMER_NAME)
         self.customer_address   = getString(json: jsonData, key: DomainConst.KEY_CUSTOMER_ADDRESS)
         self.customer_contact   = getString(json: jsonData, key: DomainConst.KEY_CUSTOMER_CONTACT)
@@ -76,7 +85,10 @@ public class OrderVIPBean: ConfigBean {
                 self.info_vo.append(OrderVIPDetailBean(jsonData: item))
             }
         }
-        self.allow_update      = getString(json: jsonData, key: DomainConst.KEY_ALLOW_UPDATE)
+        self.allow_update       = getString(json: jsonData, key: DomainConst.KEY_ALLOW_UPDATE)
+        self.agent_name         = getString(json: jsonData, key: DomainConst.KEY_AGENT_NAME)
+        self.status_number      = getString(json: jsonData, key: DomainConst.KEY_STATUS_NUMBER)
+        self.info_price         = getString(json: jsonData, key: DomainConst.KEY_INFO_PRICE)
     }
     
     /**

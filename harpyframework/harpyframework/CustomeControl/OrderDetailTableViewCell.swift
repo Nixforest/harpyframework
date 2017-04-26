@@ -20,7 +20,18 @@ public class OrderDetailTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    public func setup(data: [(String, Int)], color: UIColor = UIColor.white) {
+    
+    /**
+     * Setup layout for cell
+     * - parameter data:            Data and weight of width in cell
+     * - parameter color:           Background color
+     * - parameter highlighColumn:  Data and weight of width in cell
+     */
+    public func setup(data: [(String, Int)], color: UIColor = UIColor.white
+        //++ BUG0060-SPJ (NguyenPT 20170426) Update function G05 for Employee
+        , highlighColumn: [Int] = [Int]())
+        //-- BUG0060-SPJ (NguyenPT 20170426) Update function G05 for Employee
+    {
         var totalWeight = 0
         // Calculate total of weight
         for item in data {
@@ -45,11 +56,54 @@ public class OrderDetailTableViewCell: UITableViewCell {
             }
             label.lineBreakMode = .byWordWrapping
             label.numberOfLines = 0
-            label.font = UIFont.systemFont(ofSize: UIFont.systemFontSize)
+            label.font = UIFont.systemFont(ofSize: GlobalConst.BASE_FONT_SIZE)
             label.backgroundColor = color
+            //++ BUG0060-SPJ (NguyenPT 20170426) Handle highligh column
+            if highlighColumn.contains(i) {
+                label.font = UIFont.boldSystemFont(ofSize: GlobalConst.BASE_FONT_SIZE)
+                label.textColor = GlobalConst.MAIN_COLOR
+            }
+            //-- BUG0060-SPJ (NguyenPT 20170426) Handle highligh column
             offset = offset + label.frame.width + GlobalConst.MARGIN_CELL_X
             self.addSubview(label)
             i += 1
         }
     }
+    
+    //++ BUG0060-SPJ (NguyenPT 20170426) Add configuration model to cell
+    /**
+     * Setup layout for cell
+     * - parameter config:            Configuration model
+     */
+    public func setup(config: ConfigurationModel) {
+        /** Left image */
+        let _leftImg: UIImageView    = UIImageView()
+        /** Name of config item */
+        let _name: UILabel           = UILabel()
+        // Initialization code
+        let contentHeight: CGFloat = self.frame.height - 2 * GlobalConst.MARGIN_CELL_X
+        let parentWidth: CGFloat = ConfigurationTableViewCell.PARENT_WIDTH
+        // Left image
+        _leftImg.translatesAutoresizingMaskIntoConstraints = true
+        _leftImg.frame = CGRect(x: GlobalConst.MARGIN + contentHeight / 4,
+                                y: GlobalConst.MARGIN_CELL_X + contentHeight / 4,
+                                width: contentHeight / 3 * 2,
+                                height: contentHeight / 3 * 2)
+        _leftImg.contentMode = .scaleAspectFit
+        _leftImg.setImage(imgPath: config.getIconPath())
+        // Name label
+        _name.translatesAutoresizingMaskIntoConstraints = true
+        _name.frame = CGRect(x: _leftImg.frame.maxX + GlobalConst.MARGIN,
+                             y: GlobalConst.MARGIN_CELL_X,
+                             width: parentWidth,
+                             height: contentHeight)
+        _name.textAlignment = .left
+        _name.text          = config.name
+        _name.font          = UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)
+        _name.textColor     = GlobalConst.MAIN_COLOR
+        // Add to cell
+        self.addSubview(_leftImg)
+        self.addSubview(_name)
+    }
+    //-- BUG0060-SPJ (NguyenPT 20170426) Add configuration model to cell
 }

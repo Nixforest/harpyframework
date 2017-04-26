@@ -63,10 +63,6 @@ open class TableCellOrderType: UITableViewCell {
         TableCellOrderType.CELL_HEIGHT = topHeight + contentHeight + verticalMargin + GlobalConst.CELL_HEIGHT_SHOW / 4 + GlobalConst.BUTTON_H
         //-- BUG0060-SPJ (NguyenPT 20170421) Add 2 button for confirm and cancel confirm
         
-//        self._parentView.frame = CGRect(x: 0,
-//                                        y: 0,
-//                                        width: GlobalConst.SCREEN_WIDTH,
-//                                        height: TableCellOrderType.CELL_HEIGHT)
         self.topView.frame = CGRect(x: 0,
                                     y: 0,
                                     width: GlobalConst.SCREEN_WIDTH,
@@ -86,7 +82,7 @@ open class TableCellOrderType: UITableViewCell {
         self.bottomView.frame = CGRect(x: 0,
                                        y: self.leftView.frame.maxY - verticalMargin * 2,
                                        width: GlobalConst.SCREEN_WIDTH - GlobalConst.CELL_HEIGHT_SHOW / 5,
-                                       height: GlobalConst.CELL_HEIGHT_SHOW / 4)
+                                       height: GlobalConst.LABEL_H + GlobalConst.BUTTON_H + verticalMargin)
         
         /** ----- Top view ----- */
         // Customer label
@@ -150,7 +146,7 @@ open class TableCellOrderType: UITableViewCell {
         self.addressLabel.frame = CGRect(x: self.addressIcon.frame.maxX,
                                          y: 0,
                                          width: GlobalConst.SCREEN_WIDTH - GlobalConst.MARGIN_CELL_X - self.addressIcon.frame.width,
-                                         height: self.bottomView.frame.height + verticalMargin)
+                                         height: GlobalConst.LABEL_H)
         self.addressLabel.font = UIFont.systemFont(ofSize: GlobalConst.SMALL_FONT_SIZE_LIST)
         self.addressLabel.textColor = GlobalConst.TEXT_COLOR_GRAY
         self.addressLabel.text = DomainConst.BLANK
@@ -175,6 +171,7 @@ open class TableCellOrderType: UITableViewCell {
         botOffset += btnCancel.frame.height + GlobalConst.MARGIN
         //-- BUG0060-SPJ (NguyenPT 20170421) Add 2 button for confirm and cancel confirm
         
+        self.topView.addSubview(self.customerLabel)
         self.leftView.addSubview(dateTime)
         self.centerView.addSubview(self.codeLabel)
         self.centerView.addSubview(self.totalLabel)
@@ -185,14 +182,6 @@ open class TableCellOrderType: UITableViewCell {
         self.bottomView.addSubview(self.addressLabel)
         self.bottomView.addSubview(self.btnAction)
         self.bottomView.addSubview(self.btnCancel)
-        self.topView.addSubview(self.customerLabel)
-        
-//        self._parentView.addSubview(self.topView)
-//        self._parentView.addSubview(self.leftView)
-//        self._parentView.addSubview(self.centerView)
-//        self._parentView.addSubview(self.rightView)
-//        self._parentView.addSubview(self.bottomView)
-//        self._parentView.makeComponentsColor()
         self.addSubview(self.topView)
         self.addSubview(self.leftView)
         self.addSubview(self.centerView)
@@ -230,7 +219,6 @@ open class TableCellOrderType: UITableViewCell {
                                               left: GlobalConst.MARGIN,
                                               bottom: GlobalConst.MARGIN,
                                               right: GlobalConst.MARGIN)
-        button.isExclusiveTouch = true
     }
     //-- BUG0060-SPJ (NguyenPT 20170421) Add 2 button for confirm and cancel confirm
     
@@ -261,7 +249,7 @@ open class TableCellOrderType: UITableViewCell {
      */
     open func setData(vipData: OrderVIPListBean) {
         self.dateTime.setValue(dateTime: vipData.created_date)
-        self.codeLabel.text = "#" + vipData.code_no + " -"
+        self.codeLabel.text = DomainConst.ORDER_CODE_PREFIX + vipData.code_no + " -"
         let width = self.codeLabel.text?.widthOfString(usingFont: self.codeLabel.font)
         let contentWidthMid     = GlobalConst.SCREEN_WIDTH / 3 * 2
         let contentHeight       = GlobalConst.CELL_HEIGHT_SHOW / 3 * 2
@@ -286,13 +274,15 @@ open class TableCellOrderType: UITableViewCell {
             TableCellOrderType.CELL_HEIGHT = topHeight + contentHeight + verticalMargin + GlobalConst.CELL_HEIGHT_SHOW / 4 + GlobalConst.BUTTON_H
             //-- BUG0060-SPJ (NguyenPT 20170421) Add 2 button for confirm and cancel confirm
         }
-        // Update layout
-        handleActionButton(data: vipData)
-        self.updateLayout(isCustomer: BaseModel.shared.isCustomerUser())
         self.addressLabel.text = vipData.customer_address.normalizateString()
         self.customerLabel.text = vipData.customer_name
         self.bottomView.isHidden = BaseModel.shared.isCustomerUser()
         self.topView.isHidden = BaseModel.shared.isCustomerUser()
+        //++ BUG0060-SPJ (NguyenPT 20170426)Handle action buttons
+        // Update layout
+        handleActionButton(data: vipData)
+        self.updateLayout(isCustomer: BaseModel.shared.isCustomerUser())
+        //-- BUG0060-SPJ (NguyenPT 20170426)Handle action buttons
         self.btnAction.accessibilityIdentifier = vipData.id
         self.btnCancel.accessibilityIdentifier = vipData.id
     }
@@ -319,7 +309,7 @@ open class TableCellOrderType: UITableViewCell {
             self.bottomView.frame = CGRect(x: 0,
                                            y: self.leftView.frame.maxY - verticalMargin * 2,
                                            width: GlobalConst.SCREEN_WIDTH - GlobalConst.CELL_HEIGHT_SHOW / 5,
-                                           height: GlobalConst.CELL_HEIGHT_SHOW / 4)
+                                           height: GlobalConst.LABEL_H + GlobalConst.BUTTON_H + verticalMargin)
         } else {
             self.topView.frame = CGRect(x: 0,
                                             y: 0,
@@ -340,7 +330,7 @@ open class TableCellOrderType: UITableViewCell {
             self.bottomView.frame = CGRect(x: 0,
                                            y: self.leftView.frame.maxY - verticalMargin * 2,
                                            width: GlobalConst.SCREEN_WIDTH - GlobalConst.CELL_HEIGHT_SHOW / 5,
-                                           height: GlobalConst.CELL_HEIGHT_SHOW / 4)
+                                           height: GlobalConst.LABEL_H + GlobalConst.BUTTON_H + verticalMargin)
         }
         
         self.statusIcon.frame = CGRect(x: self.statusIcon.frame.origin.x,

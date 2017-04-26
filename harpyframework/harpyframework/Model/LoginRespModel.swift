@@ -57,6 +57,9 @@ public class LoginRespModel : BaseRespModel {
     /** List Cancel order reasons (VIP customer) */
     var list_cancelVIPOrderReasons:         [ConfigBean]        = [ConfigBean]()
     //-- BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Get new data
+    //++ BUG0060-SPJ (NguyenPT 20170426) Handle save list gas information to local
+    var info_materialGas:                   [MaterialBean]      = [MaterialBean]()
+    //-- BUG0060-SPJ (NguyenPT 20170426) Handle save list gas information to local
     
     
     /**
@@ -144,6 +147,14 @@ public class LoginRespModel : BaseRespModel {
                 // List Cancel order reasons (VIP customer)
                 self.list_cancelVIPOrderReasons.append(contentsOf: getListConfig(json: json, key: DomainConst.KEY_STORECARD_STATUS_CANCEL))
                 //-- BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Get new data
+                //++ BUG0060-SPJ (NguyenPT 20170426) Handle save list gas information to local
+                // List material gas
+                if let data = json[DomainConst.KEY_MATERIAL_GAS] as? [[String: AnyObject]] {
+                    for item in data {
+                        self.info_materialGas.append(MaterialBean(jsonData: item))
+                    }
+                }
+                //-- BUG0060-SPJ (NguyenPT 20170426) Handle save list gas information to local
                 
             } catch let error as NSError {
                 print(DomainConst.JSON_ERR_FAILED_LOAD + "\(error.localizedDescription)")

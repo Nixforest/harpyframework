@@ -80,6 +80,9 @@ public class BaseModel: NSObject {
     private var list_infoCylinder:              [MaterialBean]                  = [MaterialBean]()
     private var list_infoOtherMaterial:         [MaterialBean]                  = [MaterialBean]()
     //-- BUG0054-SPJ (NguyenPT 20170414) Add new function G07
+    //++ BUG0060-SPJ (NguyenPT 20170426) Handle save list gas information to local
+    private var list_infoGas:                   [MaterialBean]                  = [MaterialBean]()
+    //-- BUG0060-SPJ (NguyenPT 20170426) Handle save list gas information to local
     /** Uphold list data */
     public var upholdList: UpholdListRespModel = UpholdListRespModel()
     /** Search customer result */
@@ -187,6 +190,12 @@ public class BaseModel: NSObject {
         if defaults.object(forKey: DomainConst.KEY_SETTING_ORDER_VIP_DESCRIPTION) != nil {
             self._orderVipDescription = defaults.object(forKey: DomainConst.KEY_SETTING_ORDER_VIP_DESCRIPTION) as! String
         }
+        //++ BUG0060-SPJ (NguyenPT 20170426) Handle save list gas information to local
+        self.list_infoGas = [MaterialBean]()
+        if defaults.object(forKey: DomainConst.KEY_LIST_GAS_INFORMATION) != nil {
+            self.list_infoGas = defaults.object(forKey: DomainConst.KEY_LIST_GAS_INFORMATION) as! [MaterialBean]
+        }
+        //-- BUG0060-SPJ (NguyenPT 20170426) Handle save list gas information to local
     }
     
     /**
@@ -626,6 +635,13 @@ public class BaseModel: NSObject {
         self.list_infoCylinder       = loginModel.info_cylinder
         self.list_infoOtherMaterial  = loginModel.info_otherMaterial
         //-- BUG0054-SPJ (NguyenPT 20170414) Add new function G07
+        //++ BUG0060-SPJ (NguyenPT 20170426) Handle save list gas information to local
+        if loginModel.info_materialGas.count != 0 {
+            self.list_infoGas            = loginModel.info_materialGas
+            defaults.set(self.list_infoGas, forKey: DomainConst.KEY_LIST_GAS_INFORMATION)
+            defaults.synchronize()
+        }
+        //-- BUG0060-SPJ (NguyenPT 20170426) Handle save list gas information to local
     }
     
     /**
@@ -1041,6 +1057,16 @@ public class BaseModel: NSObject {
     public func getListOtherMaterialInfo() -> [MaterialBean] {
         return self.list_infoOtherMaterial
     }
+    
+    //++ BUG0060-SPJ (NguyenPT 20170426) Handle save list gas information to local
+    /**
+     * Get list of gas material
+     * - returns: List of gas material
+     */
+    public func getListGasMaterialInfo() -> [MaterialBean] {
+        return self.list_infoGas
+    }
+    //-- BUG0060-SPJ (NguyenPT 20170426) Handle save list gas information to local
     
     /**
      * Get Name of order cancel reason by id

@@ -345,6 +345,10 @@ public class DomainConst {
     public static let KEY_SETTING_DEBUG_IS_SHOW_TOP_ICON    = "gasservice.debug.isShowTopIcon"
     /** Setting key: Debug Flag use material_name or material_name_short */
     public static let KEY_SETTING_DEBUG_IS_USE_MATERIAL_NAME_SHORT    = "gasservice.debug.isUseMaterialNameShort"
+    //++ BUG0060-SPJ (NguyenPT 20170426) Save list of gas to local
+    /** Setting key: List gas information */
+    public static let KEY_LIST_GAS_INFORMATION          = "gasservice.listGasInfo"
+    //++ BUG0060-SPJ (NguyenPT 20170426) Save list of gas to local
     /** Setting key: Material type id */
     public static let KEY_MATERIALS_TYPE_ID             = "materials_type_id"
     /** Setting key: Material id */
@@ -397,6 +401,8 @@ public class DomainConst {
     public static let KEY_INFO_AGENT                    = "info_agent"
     /** Setting key: Information of gas */
     public static let KEY_INFO_GAS                      = "info_gas"
+    /** Setting key: Information of price */
+    public static let KEY_INFO_PRICE                    = "info_price"
     /** Setting key: Information of promotion */
     public static let KEY_INFO_PROMOTION                = "info_promotion"
     /** Setting key: Distance 1 */
@@ -563,6 +569,8 @@ public class DomainConst {
     //++ BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Get new data
     /** Key Material cylinder */
     public static let KEY_MATERIAL_VO                   = "material_vo"
+    /** Key Material gas */
+    public static let KEY_MATERIAL_GAS                  = "material_gas"
     /** Key the other material */
     public static let KEY_MATERIAL_HGD                  = "material_hgd"
     /** Key Cancel order reasons */
@@ -795,6 +803,14 @@ public class DomainConst {
     public static let ORDER_INFO_PHONE_ID               = "###99916"
     /** Order information id: Order Add new material */
     public static let ORDER_INFO_MATERIAL_ADD_NEW       = "###99917"
+    /** Order information id: Order created date */
+    public static let ORDER_INFO_CREATED_DATE_ID        = "###99918"
+    /** Order information id: Order delivery date */
+    public static let ORDER_INFO_DELIVERY_DATE_ID       = "###99919"
+    /** Order information id: Order contact */
+    public static let ORDER_INFO_CONTACT_ID             = "###99920"
+    /** Order information id: Order employee deliver */
+    public static let ORDER_INFO_EMPLOYEE_DELIVER_ID    = "###99921"
     /** Order information id: Order Material */
     public static let ORDER_INFO_MATERIAL_ID            = "###999"
     
@@ -885,6 +901,8 @@ public class DomainConst {
     public static let ORDER_STATUS_TYPE_COMPLETE        = DomainConst.NUMBER_TWO_VALUE
     /** Order status: All */
     public static let ORDER_STATUS_TYPE_ALL             = DomainConst.NUMBER_ZERO_VALUE
+    /** Order Code prefix */
+    public static let ORDER_CODE_PREFIX                 = "#"
     //-- BUG0060-SPJ (NguyenPT 20170421) Add new constant for Order status
 
     /** -----Log message----- */
@@ -979,6 +997,8 @@ public class DomainConst {
     //++ BUG0050-SPJ (NguyenPT 20170323) Add new view controller
     /** Name of G06APITest view controller */
     public static let G06_API_TEST_VIEW_CTRL                        = "G06APITestVC"
+    /** Name of G05APITest view controller */
+    public static let G05_API_TEST_VIEW_CTRL                        = "G05APITestVC"
     /** Name of BaseAPITest view controller */
     public static let BASE_API_TEST_VIEW_CTRL                        = "BaseAPITestViewController"
     //++ BUG0050-SPJ (NguyenPT 20170323) Add new view controller
@@ -1585,4 +1605,10 @@ public class DomainConst {
     public static let CONTENT00337 = "Vỏ"
     public static let CONTENT00338 = "Cân"
     public static let CONTENT00339 = "Dư"
+    public static let CONTENT00340 = "Ngày giao hàng"
+    public static let CONTENT00341 = "Thêm vật tư"
+    public static let CONTENT00342 = "Tiền mặt"
+    public static let CONTENT00343 = "Xoá vật tư"
+    public static let CONTENT00344 = "Cập nhật số lượng giao"
+    public static let CONTENT00345 = ""
 }

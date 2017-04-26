@@ -51,7 +51,7 @@ class InternalViewController: ChildViewController, UITableViewDelegate, UITableV
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 14
+        return 15
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {        
@@ -136,6 +136,10 @@ class InternalViewController: ChildViewController, UITableViewDelegate, UITableV
             cell.setData(leftImg: DomainConst.INFORMATION_IMG_NAME,
                          name: "Use [materials_name_short]", switchValue: BaseModel.shared.getDebugUseMaterialNameShort(),
                          action: #selector(updateDebugUseMaterialNameShort(_:)), target: self)
+        case 14:
+            cell.setData(leftImg: DomainConst.INFORMATION_IMG_NAME,
+                         name: "G05: API Tester",
+                         value: DomainConst.BLANK, isHideRightImg: false)
         default:
             break
         }
@@ -171,7 +175,12 @@ class InternalViewController: ChildViewController, UITableViewDelegate, UITableV
         case 12:
             if BaseModel.shared.getDebugGasServiceFlag() {
                 self.pushToView(name: DomainConst.G06_API_TEST_VIEW_CTRL)
-            }            
+            }
+            break
+        case 14:
+            if BaseModel.shared.getDebugGasServiceFlag() {
+                self.pushToView(name: DomainConst.G05_API_TEST_VIEW_CTRL)
+            }
             break
         default:
             break
@@ -258,6 +267,7 @@ class InternalViewController: ChildViewController, UITableViewDelegate, UITableV
             tbxValue?.placeholder = "Zoom value"
             tbxValue?.clearButtonMode = .whileEditing
             tbxValue?.returnKeyType = .done
+            tbxValue?.keyboardType = .numberPad
         })
         // Add cancel action
         let cancel = UIAlertAction(title: DomainConst.CONTENT00202, style: .cancel, handler: nil)
