@@ -77,4 +77,10 @@ public class OrderDetailBean: MaterialBean {
         
     }
     //-- BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Get new data
+    
+    //++ BUG0071-SPJ (NguyenPT 20170426) Handle save data to UserDefault
+    required public init(coder decoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    //-- BUG0071-SPJ (NguyenPT 20170426) Handle save data to UserDefault
 }

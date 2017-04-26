@@ -32,4 +32,10 @@ public class OrderVIPDetailBean: OrderDetailBean {
         self.kg_has_gas = getString(json: jsonData, key: DomainConst.KEY_KG_HAS_GAS)
         self.unit       = getString(json: jsonData, key: DomainConst.KEY_UNIT)
     }
+    
+    //++ BUG0071-SPJ (NguyenPT 20170426) Handle save data to UserDefault
+    required public init(coder decoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    //-- BUG0071-SPJ (NguyenPT 20170426) Handle save data to UserDefault
 }

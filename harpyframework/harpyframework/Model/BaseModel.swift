@@ -190,12 +190,12 @@ public class BaseModel: NSObject {
         if defaults.object(forKey: DomainConst.KEY_SETTING_ORDER_VIP_DESCRIPTION) != nil {
             self._orderVipDescription = defaults.object(forKey: DomainConst.KEY_SETTING_ORDER_VIP_DESCRIPTION) as! String
         }
-        //++ BUG0060-SPJ (NguyenPT 20170426) Handle save list gas information to local
+        //++ BUG0071-SPJ (NguyenPT 20170426) Handle save data to UserDefault
         self.list_infoGas = [MaterialBean]()
-        if defaults.object(forKey: DomainConst.KEY_LIST_GAS_INFORMATION) != nil {
-            self.list_infoGas = defaults.object(forKey: DomainConst.KEY_LIST_GAS_INFORMATION) as! [MaterialBean]
+        if let data = defaults.object(forKey: DomainConst.KEY_LIST_GAS_INFORMATION) {
+            self.list_infoGas = NSKeyedUnarchiver.unarchiveObject(with: data as! Data) as! [MaterialBean]
         }
-        //-- BUG0060-SPJ (NguyenPT 20170426) Handle save list gas information to local
+        //-- BUG0071-SPJ (NguyenPT 20170426) Handle save data to UserDefault
     }
     
     /**
@@ -635,13 +635,14 @@ public class BaseModel: NSObject {
         self.list_infoCylinder       = loginModel.info_cylinder
         self.list_infoOtherMaterial  = loginModel.info_otherMaterial
         //-- BUG0054-SPJ (NguyenPT 20170414) Add new function G07
-        //++ BUG0060-SPJ (NguyenPT 20170426) Handle save list gas information to local
+        //++ BUG0071-SPJ (NguyenPT 20170426) Handle save data to UserDefault
         if loginModel.info_materialGas.count != 0 {
             self.list_infoGas            = loginModel.info_materialGas
-            defaults.set(self.list_infoGas, forKey: DomainConst.KEY_LIST_GAS_INFORMATION)
+            let encodedData = NSKeyedArchiver.archivedData(withRootObject: self.list_infoGas)
+            defaults.set(encodedData, forKey: DomainConst.KEY_LIST_GAS_INFORMATION)
             defaults.synchronize()
         }
-        //-- BUG0060-SPJ (NguyenPT 20170426) Handle save list gas information to local
+        //-- BUG0071-SPJ (NguyenPT 20170426) Handle save data to UserDefault
     }
     
     /**

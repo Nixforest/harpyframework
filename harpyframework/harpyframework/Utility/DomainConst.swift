@@ -1610,5 +1610,7 @@ public class DomainConst {
     public static let CONTENT00342 = "Tiền mặt"
     public static let CONTENT00343 = "Xoá vật tư"
     public static let CONTENT00344 = "Cập nhật số lượng giao"
-    public static let CONTENT00345 = ""
+    public static let CONTENT00345 = "Cập nhật thông tin vỏ"
+    public static let CONTENT00346 = "Khối lượng vỏ bình"
+    public static let CONTENT00347 = "Khối lượng vỏ bình + gas dư"
 }
