@@ -164,6 +164,16 @@ public enum ActionTypeEnum: Int {
     EMPLOYEE_CHANGE_NOT_PAID
 }
 //-- BUG0054-SPJ (NguyenPT 20170418) Add new function G07
+//++ BUG0060-SPJ (NguyenPT 20170426) Update function G05 for Employee
+/** Action type of VIP customer */
+public enum ActionTypeVIPCustomerEnum: Int {
+    case EMPLOYEE_NHAN_GIAO_HANG = 1,
+    EMPLOYEE_HUY_GIAO_HANG,
+    EMPLOYEE_CHANGE,
+    EMPLOYEE_COMPLETE,
+    EMPLOYEE_DROP
+}
+//-- BUG0060-SPJ (NguyenPT 20170426) Update function G05 for Employee
 
 // MARK: View extension
 /**

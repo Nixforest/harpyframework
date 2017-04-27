@@ -83,6 +83,9 @@ public class BaseModel: NSObject {
     //++ BUG0060-SPJ (NguyenPT 20170426) Handle save list gas information to local
     private var list_infoGas:                   [MaterialBean]                  = [MaterialBean]()
     //-- BUG0060-SPJ (NguyenPT 20170426) Handle save list gas information to local
+    //++ BUG0060-SPJ (NguyenPT 20170426) Handle update Order VIP customer
+    private var list_cancelOrderVIPReasons:     [ConfigBean]                    = [ConfigBean]()
+    //++ BUG0060-SPJ (NguyenPT 20170426) Handle update Order VIP customer
     /** Uphold list data */
     public var upholdList: UpholdListRespModel = UpholdListRespModel()
     /** Search customer result */
@@ -643,6 +646,9 @@ public class BaseModel: NSObject {
             defaults.synchronize()
         }
         //-- BUG0071-SPJ (NguyenPT 20170426) Handle save data to UserDefault
+        //++ BUG0060-SPJ (NguyenPT 20170426) Handle update Order VIP customer
+        self.list_cancelOrderVIPReasons = loginModel.list_cancelVIPOrderReasons
+        //-- BUG0060-SPJ (NguyenPT 20170426) Handle update Order VIP customer
     }
     
     /**
@@ -1083,4 +1089,27 @@ public class BaseModel: NSObject {
         return DomainConst.BLANK
     }
     //-- BUG0054-SPJ (NguyenPT 20170414) Add new function G07
+    //++ BUG0060-SPJ (NguyenPT 20170426) Handle update Order VIP customer
+    /**
+     * Get list of cancel order (VIP customer) reasons
+     * - returns: List of cancel order reasons
+     */
+    public func getListCancelOrderVIPReasons() -> [ConfigBean] {
+        return self.list_cancelOrderVIPReasons
+    }
+    
+    /**
+     * Get Name of order (VIP customer) cancel reason by id
+     * - parameter id: Id of order cancel reason
+     * - returns: Name of order cancel reason
+     */
+    public func getOrderVIPCancelReasonById(id: String) -> String {
+        for item in self.list_cancelOrderVIPReasons {
+            if item.id == id {
+                return item.name
+            }
+        }
+        return DomainConst.BLANK
+    }
+    //++ BUG0060-SPJ (NguyenPT 20170426) Handle update Order VIP customer
 }

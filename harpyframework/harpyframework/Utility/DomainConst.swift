@@ -87,6 +87,8 @@ public class DomainConst {
     public static let PATH_ORDER_TRANSACTION_SET_EVENT  = "order/transactionSetEvent"
     /** Get order VIP set event */
     public static let PATH_ORDER_VIP_SET_EVENT          = "boMoi/boMoiSetEvent"
+    /** Get order VIP update */
+    public static let PATH_ORDER_VIP_UPDATE             = "boMoi/boMoiDriverUpdate"
     
     // MARK: -----List of keys-----
     /** Token */
@@ -1613,4 +1615,6 @@ public class DomainConst {
     public static let CONTENT00345 = "Cập nhật thông tin vỏ"
     public static let CONTENT00346 = "Khối lượng vỏ bình"
     public static let CONTENT00347 = "Khối lượng vỏ bình + gas dư"
+    public static let CONTENT00348 = "Xác nhận hoàn thành đơn hàng?"
+    public static let CONTENT00349 = "Xác nhận hủy đơn hàng với lý do: %@?"
 }

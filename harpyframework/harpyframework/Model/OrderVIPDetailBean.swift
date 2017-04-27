@@ -38,4 +38,42 @@ public class OrderVIPDetailBean: OrderDetailBean {
         fatalError("init(coder:) has not been implemented")
     }
     //-- BUG0071-SPJ (NguyenPT 20170426) Handle save data to UserDefault
+    
+    //++ BUG0060-SPJ (NguyenPT 20170426) Handle OrderVIPDetailBean initialize from OrderDetailBean
+    /**
+     * Constructor
+     * - parameter orderDetail: OrderDetail bean
+     */
+    public init(orderDetail: OrderDetailBean) {
+        super.init()
+        self.material_id        = orderDetail.material_id
+        self.materials_type_id  = orderDetail.materials_type_id
+        self.material_name      = orderDetail.material_name
+        self.material_price     = orderDetail.material_price
+        self.price              = orderDetail.price
+        self.material_image     = orderDetail.material_image
+        self.qty                = DomainConst.NUMBER_ONE_VALUE
+        self.amount             = orderDetail.price
+        self.qty_real           = DomainConst.NUMBER_ONE_VALUE
+    }
+    
+    /**
+     * Create json data from object
+     * - returns: Json string from object data
+     */
+    public override func createJsonDataForUpdateOrder() -> String {
+        var retVal = DomainConst.BLANK
+        retVal = String.init(format: "{\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\"}",
+                             DomainConst.KEY_MATERIALS_ID,      self.material_id,
+                             DomainConst.KEY_MATERIALS_TYPE_ID, self.materials_type_id,
+                             DomainConst.KEY_QUANTITY,          self.qty,
+                             DomainConst.KEY_PRICE,             self.price,
+                             DomainConst.KEY_AMOUNT,            self.amount,
+                             DomainConst.KEY_QUANTITY_REAL,     self.qty_real,
+                             DomainConst.KEY_SERI,              self.seri,
+                             DomainConst.KEY_KG_EMPTY,          self.kg_empty,
+                             DomainConst.KEY_KG_HAS_GAS,        self.kg_has_gas)
+        return retVal
+    }
+    //-- BUG0060-SPJ (NguyenPT 20170426) Handle OrderVIPDetailBean initialize from OrderDetailBean
 }

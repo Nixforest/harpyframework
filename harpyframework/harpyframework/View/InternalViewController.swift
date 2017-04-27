@@ -51,7 +51,7 @@ class InternalViewController: ChildViewController, UITableViewDelegate, UITableV
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 15
+        return 16
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {        
@@ -140,6 +140,17 @@ class InternalViewController: ChildViewController, UITableViewDelegate, UITableV
             cell.setData(leftImg: DomainConst.INFORMATION_IMG_NAME,
                          name: "G05: API Tester",
                          value: DomainConst.BLANK, isHideRightImg: false)
+        case 15:
+            var str = BaseModel.shared.getDeviceToken()
+            if !str.isEmpty {
+                let index = str.index(str.startIndex, offsetBy: 8)
+                str = str.substring(to: index)
+            }
+            
+            cell.setData(leftImg: DomainConst.INFORMATION_IMG_NAME,
+                         name: "APNS Device token",
+                         value: str, isHideRightImg: true)
+            break
         default:
             break
         }
