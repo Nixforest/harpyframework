@@ -813,6 +813,8 @@ public class DomainConst {
     public static let ORDER_INFO_CONTACT_ID             = "###99920"
     /** Order information id: Order employee deliver */
     public static let ORDER_INFO_EMPLOYEE_DELIVER_ID    = "###99921"
+    /** Order information id: Order Gas Price */
+    public static let ORDER_INFO_GAS_PRICE_ID           = "###99922"
     /** Order information id: Order Material */
     public static let ORDER_INFO_MATERIAL_ID            = "###999"
     
@@ -1617,4 +1619,5 @@ public class DomainConst {
     public static let CONTENT00347 = "Khối lượng vỏ bình + gas dư"
     public static let CONTENT00348 = "Xác nhận hoàn thành đơn hàng?"
     public static let CONTENT00349 = "Xác nhận hủy đơn hàng với lý do: %@?"
+    public static let CONTENT00350 = "Giá gas"
 }
