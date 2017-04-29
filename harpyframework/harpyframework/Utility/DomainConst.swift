@@ -1620,4 +1620,5 @@ public class DomainConst {
     public static let CONTENT00348 = "Xác nhận hoàn thành đơn hàng?"
     public static let CONTENT00349 = "Xác nhận hủy đơn hàng với lý do: %@?"
     public static let CONTENT00350 = "Giá gas"
+    public static let CONTENT00351 = "Cập nhật số lượng đặt hàng"
 }

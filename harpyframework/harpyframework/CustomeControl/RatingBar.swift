@@ -11,13 +11,13 @@ import UIKit
 open class RatingBar: UIView {
     // MARK: Properties
     /** Spacing */
-    let _spacing: CGFloat = 5
+    public let _spacing: CGFloat = 5
     /** Number of stars */
-    var _starCount: Int = 5
+    public var _starCount: Int = 5
     /** Width */
-    var _width: CGFloat = 0
+    public var _width: CGFloat = 0
     /** Rating value */
-    var _rating = 0 {
+    public var _rating = 0 {
         didSet {
             setNeedsLayout()
         }
