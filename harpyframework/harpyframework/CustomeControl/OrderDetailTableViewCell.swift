@@ -29,16 +29,29 @@ public class OrderDetailTableViewCell: UITableViewCell {
      */
     public func setup(data: [(String, Int)], color: UIColor = UIColor.white
         //++ BUG0060-SPJ (NguyenPT 20170426) Update function G05 for Employee
-        , highlighColumn: [Int] = [Int]())
+        , highlighColumn: [Int] = [Int]()
         //-- BUG0060-SPJ (NguyenPT 20170426) Update function G05 for Employee
+        //++ BUG0073-SPJ (NguyenPT 20170504) Add alignment setting array
+        , alignment: [NSTextAlignment] = [NSTextAlignment]()
+        //-- BUG0073-SPJ (NguyenPT 20170504) Add alignment setting array
+)
     {
+        //++ BUG0073-SPJ (NguyenPT 20170504) Check if alignment array not equal element with data
+        if (alignment.count != 0)
+            && (alignment.count != data.count) {
+            return
+        }
+        //-- BUG0073-SPJ (NguyenPT 20170504) Check if alignment array not equal element with data
         var totalWeight = 0
         // Calculate total of weight
         for item in data {
             totalWeight = totalWeight + item.1
         }
         // Get width of 1 weight
-        let width: CGFloat = (GlobalConst.SCREEN_WIDTH - GlobalConst.MARGIN_CELL_X * (CGFloat(totalWeight) + 1)) / CGFloat(totalWeight)
+        //++ BUG0073-SPJ (NguyenPT 20170504) Re-calculate width of 1 weight
+        //let width: CGFloat = (GlobalConst.SCREEN_WIDTH - GlobalConst.MARGIN_CELL_X * (CGFloat(totalWeight) + 1)) / CGFloat(totalWeight)
+        let width: CGFloat = (GlobalConst.SCREEN_WIDTH - GlobalConst.MARGIN_CELL_X * CGFloat(data.count)) / CGFloat(totalWeight)
+        //-- BUG0073-SPJ (NguyenPT 20170504) Re-calculate width of 1 weight
         
         // Create labels
         var offset = GlobalConst.MARGIN_CELL_X
@@ -49,11 +62,22 @@ public class OrderDetailTableViewCell: UITableViewCell {
                                  width: CGFloat(item.1) * width,
                                  height: GlobalConst.CONFIGURATION_ITEM_HEIGHT)
             label.text = item.0
-            if i == 0 {
-                label.textAlignment = .left
+            //++ BUG0073-SPJ (NguyenPT 20170504) Set alignment by alignment array
+//            if i == 0 {
+//                label.textAlignment = .left
+//            } else {
+//                label.textAlignment = .center
+//            }
+            if alignment.count == 0 {
+                if i == 0 {
+                    label.textAlignment = .left
+                } else {
+                    label.textAlignment = .center
+                }
             } else {
-                label.textAlignment = .center
+                label.textAlignment = alignment[i]
             }
+            //-- BUG0073-SPJ (NguyenPT 20170504) Set alignment by alignment array
             label.lineBreakMode = .byWordWrapping
             label.numberOfLines = 0
             label.font = UIFont.systemFont(ofSize: GlobalConst.BASE_FONT_SIZE)

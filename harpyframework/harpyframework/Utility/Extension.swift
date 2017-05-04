@@ -234,6 +234,30 @@ extension UIImageView {
     }
 }
 
+//++ BUG0073-SPJ (NguyenPT 20170504) Init image by solid color
+/**
+ * Init image by solid color
+ */
+public extension UIImage {
+    /**
+     * Init image by solid color
+     * - parameter color: Solid color
+     * - parameter size: Size of image
+     */
+    public convenience init?(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) {
+        let rect = CGRect(origin: .zero, size: size)
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
+        color.setFill()
+        UIRectFill(rect)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        guard let cgImage = image?.cgImage else { return nil }
+        self.init(cgImage: cgImage)
+    }
+}
+//-- BUG0073-SPJ (NguyenPT 20170504) Init image by solid color
+
 /**
  * Draw border extension for layer
  */
@@ -505,13 +529,13 @@ extension String {
         
         return boundingBox.height
     }
-    func widthOfString(usingFont font: UIFont) -> CGFloat {
+    public func widthOfString(usingFont font: UIFont) -> CGFloat {
         let fontAttributes = [NSFontAttributeName: font]
         let size = self.size(attributes: fontAttributes)
         return size.width
     }
     
-    func heightOfString(usingFont font: UIFont) -> CGFloat {
+    public func heightOfString(usingFont font: UIFont) -> CGFloat {
         let fontAttributes = [NSFontAttributeName: font]
         let size = self.size(attributes: fontAttributes)
         return size.height
@@ -527,6 +551,11 @@ extension String {
         if self.contains(DomainConst.ADDRESS_UNKNOWN) {
             ret = self.replacingOccurrences(of: DomainConst.ADDRESS_UNKNOWN, with: DomainConst.BLANK)
         }
+        //++ BUG0073-SPJ (NguyenPT 20170504) Handle remove Không rõ,
+        if self.contains(DomainConst.ADDRESS_UNKNOWN1) {
+            ret = self.replacingOccurrences(of: DomainConst.ADDRESS_UNKNOWN1, with: DomainConst.BLANK)
+        }
+        //-- BUG0073-SPJ (NguyenPT 20170504) Handle remove Không rõ,
         return ret
     }
     

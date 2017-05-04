@@ -26,6 +26,10 @@ open class MaterialBean: NSObject, NSCoding {
     public var price            :       String = DomainConst.BLANK
     /** Material image */
     public var material_image   :       String = DomainConst.BLANK
+    //++ BUG0073-SPJ (NguyenPT 20170504) Add new property
+    /** Material no */
+    public var materials_no     :       String = DomainConst.BLANK
+    //-- BUG0073-SPJ (NguyenPT 20170504) Add new property
     
     /**
      * Initializer
@@ -40,6 +44,9 @@ open class MaterialBean: NSObject, NSCoding {
         self.material_price     = getString(json: jsonData, key: DomainConst.KEY_MATERIALS_PRICE)
         self.price              = getString(json: jsonData, key: DomainConst.KEY_PRICE)
         self.material_image     = getString(json: jsonData, key: DomainConst.KEY_MATERIAL_IMAGE)
+        //++ BUG0073-SPJ (NguyenPT 20170504) Add new property
+        self.materials_no     = getString(json: jsonData, key: DomainConst.KEY_MATERIALS_NO)
+        //-- BUG0073-SPJ (NguyenPT 20170504) Add new property
     }
     public override init() {
         

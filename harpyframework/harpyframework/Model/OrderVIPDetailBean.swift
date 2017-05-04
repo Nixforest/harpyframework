@@ -17,8 +17,10 @@ public class OrderVIPDetailBean: OrderDetailBean {
     public var kg_empty:    String = DomainConst.BLANK
     /** Quantity */
     public var kg_has_gas:  String = DomainConst.BLANK
-    /** Unit */
-    public var unit:        String = DomainConst.BLANK
+    //++ BUG0073-SPJ (NguyenPT 20170504) Move to OrderDetailBean class
+//    /** Unit */
+//    public var unit:        String = DomainConst.BLANK
+    //-- BUG0073-SPJ (NguyenPT 20170504) Move to OrderDetailBean class
     
     /**
      * Initializer
@@ -30,7 +32,9 @@ public class OrderVIPDetailBean: OrderDetailBean {
         self.seri       = getString(json: jsonData, key: DomainConst.KEY_SERI)
         self.kg_empty   = getString(json: jsonData, key: DomainConst.KEY_KG_EMPTY)
         self.kg_has_gas = getString(json: jsonData, key: DomainConst.KEY_KG_HAS_GAS)
-        self.unit       = getString(json: jsonData, key: DomainConst.KEY_UNIT)
+        //++ BUG0073-SPJ (NguyenPT 20170504) Move to OrderDetailBean class
+//        self.unit       = getString(json: jsonData, key: DomainConst.KEY_UNIT)
+        //-- BUG0073-SPJ (NguyenPT 20170504) Move to OrderDetailBean class
     }
     
     //++ BUG0071-SPJ (NguyenPT 20170426) Handle save data to UserDefault

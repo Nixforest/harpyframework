@@ -127,7 +127,10 @@ open class BaseMenuViewController : UIViewController {
                     iconPath = DomainConst.MENU_ITEM_PROFILE_IMG_NAME
                     break
                 case DomainConst.UPHOLD_LIST:
-                    iconPath = DomainConst.MENU_ITEM_UPHOLD_LIST_IMG_NAME
+                    //++ BUG0073-SPJ (NguyenPT 20170503) Change uphold list menu icon
+                    //iconPath = DomainConst.MENU_ITEM_UPHOLD_LIST_IMG_NAME
+                    iconPath = DomainConst.MENU_ITEM_SUPPORT_IMG_NAME
+                    //-- BUG0073-SPJ (NguyenPT 20170503) Add new function G08
                     break
                 case DomainConst.ISSUE_LIST:
                     iconPath = DomainConst.MENU_ITEM_UPHOLD_LIST_IMG_NAME
@@ -154,6 +157,23 @@ open class BaseMenuViewController : UIViewController {
                 case DomainConst.ORDER_TRANSACTION_LIST:
                     iconPath = DomainConst.MENU_ITEM_ORDER_LIST_IMG_NAME
                 //-- BUG0054-SPJ (NguyenPT 20170407) Add new key for new function G07
+                //++ BUG0073-SPJ (NguyenPT 20170503) Add new function G08
+                case DomainConst.KEY_MENU_STORE_CARD_LIST:
+                    iconPath = DomainConst.MENU_ITEM_UPHOLD_LIST_IMG_NAME
+                    break
+                case DomainConst.KEY_MENU_CASH_BOOK_LIST:
+                    iconPath = DomainConst.MENU_ITEM_CASH_BOOK_IMG_NAME
+                    break
+                case DomainConst.KEY_MENU_CASH_BOOK_SCHEDULE:
+                    iconPath = DomainConst.MENU_ITEM_CASH_BOOK_IMG_NAME
+                    break
+                case DomainConst.KEY_MENU_FAMILY_UPHOLD_LIST:
+                    iconPath = DomainConst.MENU_ITEM_SUPPORT_IMG_NAME
+                    break
+                case DomainConst.KEY_MENU_REPORT_LIST:
+                    iconPath = DomainConst.MENU_ITEM_REPORT_IMG_NAME
+                    break
+                //-- BUG0073-SPJ (NguyenPT 20170503) Add new function G08
                 default:
                     break
                 }
@@ -322,6 +342,19 @@ open class BaseMenuViewController : UIViewController {
         case DomainConst.ORDER_TRANSACTION_LIST:
             currentView.pushToViewAndClearData(name: DomainConst.G07_F00_S01_VC)
         //-- BUG0054-SPJ (NguyenPT 20170407) Add new key for new function G07
+        //++ BUG0073-SPJ (NguyenPT 20170503) Add new function G08
+        case DomainConst.KEY_MENU_STORE_CARD_LIST:
+            currentView.pushToViewAndClearData(name: DomainConst.G08_F00_S01_VC)
+            break
+        case DomainConst.KEY_MENU_CASH_BOOK_LIST:
+            break
+        case DomainConst.KEY_MENU_CASH_BOOK_SCHEDULE:
+            break
+        case DomainConst.KEY_MENU_FAMILY_UPHOLD_LIST:
+            break
+        case DomainConst.KEY_MENU_REPORT_LIST:
+            break
+        //-- BUG0073-SPJ (NguyenPT 20170503) Add new function G08
         default:
             break
         }

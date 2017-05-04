@@ -10,9 +10,13 @@ import UIKit
 
 public class OrderDetailBean: MaterialBean {
     /** Quantity */
-    public var qty: String = ""
+    public var qty      : String = DomainConst.BLANK
     /** Amount */
-    public var amount: String = ""
+    public var amount   : String = DomainConst.BLANK
+    //++ BUG0073-SPJ (NguyenPT 20170504) Add new property
+    /** Unit */
+    public var unit     : String = DomainConst.BLANK
+    //-- BUG0073-SPJ (NguyenPT 20170504) Add new property
     
     /**
      * Initializer
@@ -22,6 +26,9 @@ public class OrderDetailBean: MaterialBean {
         super.init(jsonData: jsonData)
         self.qty                = getString(json: jsonData, key: DomainConst.KEY_QUANTITY)
         self.amount             = getString(json: jsonData, key: DomainConst.KEY_AMOUNT)
+        //++ BUG0073-SPJ (NguyenPT 20170504) Add new property
+        self.unit             = getString(json: jsonData, key: DomainConst.KEY_UNIT)
+        //-- BUG0073-SPJ (NguyenPT 20170504) Add new property
     }
     
     /**

@@ -357,6 +357,10 @@ public class DomainConst {
     public static let KEY_MATERIALS_ID                  = "materials_id"
     /** Setting key: Material name */
     public static let KEY_MATERIALS_NAME                = "materials_name"
+    //++ BUG0073-SPJ (NguyenPT 20170504) Add new key setting
+    /** Setting key: Material no */
+    public static let KEY_MATERIALS_NO                  = "materials_no"
+    //-- BUG0073-SPJ (NguyenPT 20170504) Add new key setting
     /** Setting key: Material short name */
     public static let KEY_MATERIALS_NAME_SHORT          = "materials_name_short"
     /** Setting key: Material price */
@@ -592,6 +596,10 @@ public class DomainConst {
     /** Key App order id */
     public static let KEY_APP_ORDER_ID                  = "app_order_id"
     //-- BUG0060-SPJ (NguyenPT 20170421) Add new constant for Order vip set event
+    //++ BUG0073-SPJ (NguyenPT 20170503) Add new function G08
+    /** Key Type of store card */
+    public static let KEY_TYPE_IN_OUT                   = "type_in_out"
+    //-- BUG0073-SPJ (NguyenPT 20170503) Add new function G08
     
     
     // MARK: -----Specified constant-----
@@ -821,6 +829,18 @@ public class DomainConst {
     // MARK: New
     /** Key menu item: Promotion list */
     public static let KEY_MENU_PROMOTION_LIST           = "promotion_list"
+    //++ BUG0073-SPJ (NguyenPT 20170504) Add new key setting
+    /** Key menu item: Store card list */
+    public static let KEY_MENU_STORE_CARD_LIST          = "store_card_list"
+    /** Key menu item: Cash boook list */
+    public static let KEY_MENU_CASH_BOOK_LIST           = "cashbook_list"
+    /** Key menu item: Cash book schedule */
+    public static let KEY_MENU_CASH_BOOK_SCHEDULE       = "cashbook_schedule"
+    /** Key menu item: Family uphold list */
+    public static let KEY_MENU_FAMILY_UPHOLD_LIST       = "uphold_hgd_list"
+    /** Key menu item: Report list */
+    public static let KEY_MENU_REPORT_LIST              = "report"
+    //-- BUG0073-SPJ (NguyenPT 20170504) Add new key setting
     //++ BUG0050-SPJ (NguyenPT 20170325) Add new function G06
     /** Platform value: Android */
     public static let PLATFORM_ANDROID                  = 1
@@ -877,6 +897,10 @@ public class DomainConst {
     public static let DEFAULT_TIME_VALUE                = "08:00"
     /** Address unknown string */
     public static let ADDRESS_UNKNOWN                   = "Khong ro, "
+    //++ BUG0073-SPJ (NguyenPT 20170504) Add new key setting
+    /** Address unknown string */
+    public static let ADDRESS_UNKNOWN1                  = "Không rõ, "
+    //-- BUG0073-SPJ (NguyenPT 20170504) Add new key setting
     /** Json error: Failed to load */
     public static let JSON_ERR_FAILED_LOAD              = "Failed to load: "
     /** Json error: Wrong format */
@@ -1049,6 +1073,9 @@ public class DomainConst {
     //++ BUG0054-SPJ (NguyenPT 20170407) Add new key for new function G07
     public static let G07_F00_S01_VC                                = "G07F00S01VC"
     //-- BUG0054-SPJ (NguyenPT 20170407) Add new key for new function G07
+    //++ BUG0073-SPJ (NguyenPT 20170503) Add new function G08
+    public static let G08_F00_S01_VC                                = "G08F00S01VC"
+    //-- BUG0073-SPJ (NguyenPT 20170503) Add new function G08
     
     /** Pop overmenu identifier */
     public static let POPOVER_MENU_IDENTIFIER                       = "popOverMenu"
@@ -1256,6 +1283,16 @@ public class DomainConst {
     public static let MENU_ITEM_WORKING_REPORT_IMG_NAME     = "report.png"
     /** Menu item Order list image name */
     public static let MENU_ITEM_ORDER_LIST_IMG_NAME         = "ic_menu_shoping_cart.png"
+    //++ BUG0073-SPJ (NguyenPT 20170503) Add new function G08
+    /** Menu item Family image name */
+    public static let MENU_ITEM_FAMILY_IMG_NAME             = "ic_menu_family.png"
+    /** Menu item Report image name */
+    public static let MENU_ITEM_REPORT_IMG_NAME             = "ic_menu_report.png"
+    /** Menu item Support image name */
+    public static let MENU_ITEM_SUPPORT_IMG_NAME            = "ic_menu_support.png"
+    /** Menu item Cash book image name */
+    public static let MENU_ITEM_CASH_BOOK_IMG_NAME          = "ic_menu_cash_book.png"
+    //-- BUG0073-SPJ (NguyenPT 20170503) Add new function G08
     /** Finish status image name */
     public static let FINISH_STATUS_IMG_NAME                = "icon29.png"
     /** Date time icon image name */
@@ -1621,4 +1658,11 @@ public class DomainConst {
     public static let CONTENT00349 = "Xác nhận hủy đơn hàng với lý do: %@?"
     public static let CONTENT00350 = "Giá gas"
     public static let CONTENT00351 = "Cập nhật số lượng đặt hàng"
+    public static let CONTENT00352 = "Danh sách Thẻ kho"
+    public static let CONTENT00353 = "Tạo Thẻ kho"
+    public static let CONTENT00354 = "Chi tiết Thẻ kho"
+    public static let CONTENT00355 = "Ngày nhập xuất"
+    public static let CONTENT00356 = "Mã Thẻ kho"
+    public static let CONTENT00357 = "Loại Thẻ kho"
+    public static let CONTENT00358 = "Tổng số"
 }

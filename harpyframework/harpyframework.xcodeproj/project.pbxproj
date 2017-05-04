@@ -208,6 +208,10 @@
 		D7CFF1F81E44F23500A37C07 /* icon23.png in Resources */ = {isa = PBXBuildFile; fileRef = D7CFF1F71E44F23500A37C07 /* icon23.png */; };
 		D7D04E371E55544900B3F8CF /* icon77.png in Resources */ = {isa = PBXBuildFile; fileRef = D7D04E361E55544900B3F8CF /* icon77.png */; };
 		D7D04E431E557FBF00B3F8CF /* OrderVIPDetailBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D04E421E557FBF00B3F8CF /* OrderVIPDetailBean.swift */; };
+		D7D28B741EB9B800006DDF83 /* ic_menu_family.png in Resources */ = {isa = PBXBuildFile; fileRef = D7D28B711EB9B800006DDF83 /* ic_menu_family.png */; };
+		D7D28B751EB9B800006DDF83 /* ic_menu_report.png in Resources */ = {isa = PBXBuildFile; fileRef = D7D28B721EB9B800006DDF83 /* ic_menu_report.png */; };
+		D7D28B761EB9B800006DDF83 /* ic_menu_support.png in Resources */ = {isa = PBXBuildFile; fileRef = D7D28B731EB9B800006DDF83 /* ic_menu_support.png */; };
+		D7D28B781EB9B8DD006DDF83 /* ic_menu_cash_book.png in Resources */ = {isa = PBXBuildFile; fileRef = D7D28B771EB9B8DD006DDF83 /* ic_menu_cash_book.png */; };
 		D7D850EF1E91E20A003FCFBF /* ProvincesListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D850EE1E91E20A003FCFBF /* ProvincesListRequest.swift */; };
 		D7DA56AE1E40ED3C00B6F618 /* TransactionBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DA56AD1E40ED3C00B6F618 /* TransactionBean.swift */; };
 		D7E014A31E33DEFC001F26B6 /* icon24.png in Resources */ = {isa = PBXBuildFile; fileRef = D7E014A21E33DEFC001F26B6 /* icon24.png */; };
@@ -452,6 +456,10 @@
 		D7CFF1F71E44F23500A37C07 /* icon23.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon23.png; path = images/icon23.png; sourceTree = "<group>"; };
 		D7D04E361E55544900B3F8CF /* icon77.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon77.png; path = images/icon77.png; sourceTree = "<group>"; };
 		D7D04E421E557FBF00B3F8CF /* OrderVIPDetailBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderVIPDetailBean.swift; path = Model/OrderVIPDetailBean.swift; sourceTree = "<group>"; };
+		D7D28B711EB9B800006DDF83 /* ic_menu_family.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_menu_family.png; path = images/ic_menu_family.png; sourceTree = "<group>"; };
+		D7D28B721EB9B800006DDF83 /* ic_menu_report.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_menu_report.png; path = images/ic_menu_report.png; sourceTree = "<group>"; };
+		D7D28B731EB9B800006DDF83 /* ic_menu_support.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_menu_support.png; path = images/ic_menu_support.png; sourceTree = "<group>"; };
+		D7D28B771EB9B8DD006DDF83 /* ic_menu_cash_book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_menu_cash_book.png; path = images/ic_menu_cash_book.png; sourceTree = "<group>"; };
 		D7D850EE1E91E20A003FCFBF /* ProvincesListRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProvincesListRequest.swift; path = API/ProvincesListRequest.swift; sourceTree = "<group>"; };
 		D7DA56AD1E40ED3C00B6F618 /* TransactionBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransactionBean.swift; path = Model/TransactionBean.swift; sourceTree = "<group>"; };
 		D7E014A21E33DEFC001F26B6 /* icon24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon24.png; path = images/icon24.png; sourceTree = "<group>"; };
@@ -700,6 +708,10 @@
 		D7F3D8D21E1B8BCC0018744F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D7D28B771EB9B8DD006DDF83 /* ic_menu_cash_book.png */,
+				D7D28B711EB9B800006DDF83 /* ic_menu_family.png */,
+				D7D28B721EB9B800006DDF83 /* ic_menu_report.png */,
+				D7D28B731EB9B800006DDF83 /* ic_menu_support.png */,
 				D7767C611EADAF4900D8FDA9 /* default-thumbnail.jpg */,
 				D74591321EA08F3C002C3AB3 /* reload-1.png */,
 				D75F64B81E28B39100A67B3C /* Account.jpeg */,
@@ -934,6 +946,7 @@
 				D75F652A1E28B3C600A67B3C /* ServiceRating.jpeg in Resources */,
 				D75F64B61E28B2A900A67B3C /* icon25.png in Resources */,
 				D791F6A81E2378C0009CBBED /* icon49.png in Resources */,
+				D7D28B781EB9B8DD006DDF83 /* ic_menu_cash_book.png in Resources */,
 				D78E326F1E571C980035C40D /* ic_number_back.png in Resources */,
 				D7E9BF721E2C82F20068D200 /* icon9-active.png in Resources */,
 				D791F67C1E234C89009CBBED /* bg_sliding_menu_top.jpg in Resources */,
@@ -993,6 +1006,7 @@
 				D75F64ED1E28B39100A67B3C /* icon32-user.png in Resources */,
 				D75F65171E28B3B100A67B3C /* information.png in Resources */,
 				D75F64FB1E28B39100A67B3C /* icon39.png in Resources */,
+				D7D28B741EB9B800006DDF83 /* ic_menu_family.png in Resources */,
 				D75F652D1E28B3C600A67B3C /* upholdRequest.png in Resources */,
 				D70B9F961E3F504400EB66F5 /* icon19.png in Resources */,
 				D75F64FA1E28B39100A67B3C /* icon39-doimatkhau-ios.png in Resources */,
@@ -1015,6 +1029,7 @@
 				D75F64F61E28B39100A67B3C /* icon37-user-ios.png in Resources */,
 				D75F65251E28B3BC00A67B3C /* rating.png in Resources */,
 				D75F64AD1E28657900A67B3C /* icon52.png in Resources */,
+				D7D28B751EB9B800006DDF83 /* ic_menu_report.png in Resources */,
 				D791F6961E2368BA009CBBED /* logoutitem.png in Resources */,
 				D75F65181E28B3B100A67B3C /* informationSum.png in Resources */,
 				D75F64DC1E28B39100A67B3C /* back.png in Resources */,
@@ -1031,6 +1046,7 @@
 				D7D04E371E55544900B3F8CF /* icon77.png in Resources */,
 				D70B9F951E3F504400EB66F5 /* icon18.png in Resources */,
 				D75F64B31E28B10300A67B3C /* bg1.jpg in Resources */,
+				D7D28B761EB9B800006DDF83 /* ic_menu_support.png in Resources */,
 				D75F64E91E28B39100A67B3C /* icon20.png in Resources */,
 				D706C2251E53F13700F89B8A /* gasservice_logo.png in Resources */,
 				D7AF28151E58BAE400AFF9D6 /* icon70.png in Resources */,

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-public class ConfigBean: NSObject {
+open class ConfigBean: NSObject {
     /** Id of item */
     public var id: String = ""
     /** Name of item */
@@ -81,7 +81,7 @@ public class ConfigBean: NSObject {
      * Initializer
      * - parameter jsonData: List of data
      */
-    init(jsonData: [String: AnyObject]) {
+    public init(jsonData: [String: AnyObject]) {
         super.init()
         if let idStr = jsonData[DomainConst.KEY_ID] as? String {
             self.id = idStr
