@@ -85,7 +85,7 @@ public class BaseModel: NSObject {
     //-- BUG0060-SPJ (NguyenPT 20170426) Handle save list gas information to local
     //++ BUG0060-SPJ (NguyenPT 20170426) Handle update Order VIP customer
     private var list_cancelOrderVIPReasons:     [ConfigBean]                    = [ConfigBean]()
-    //++ BUG0060-SPJ (NguyenPT 20170426) Handle update Order VIP customer
+    //-- BUG0060-SPJ (NguyenPT 20170426) Handle update Order VIP customer
     /** Uphold list data */
     public var upholdList: UpholdListRespModel = UpholdListRespModel()
     /** Search customer result */
@@ -119,6 +119,9 @@ public class BaseModel: NSObject {
     private var _debug: DebugBean = DebugBean()
     /** Last save order vip description */
     private var _orderVipDescription = DomainConst.BLANK
+    //++ BUG0077-SPJ (NguyenPT 20170508) Handle Flag need change pass
+    private var _isNeedChangePass:                  Bool = false
+    //-- BUG0077-SPJ (NguyenPT 20170508) Handle Flag need change pass
     
     // MARK - Methods
     override init() {
@@ -649,6 +652,9 @@ public class BaseModel: NSObject {
         //++ BUG0060-SPJ (NguyenPT 20170426) Handle update Order VIP customer
         self.list_cancelOrderVIPReasons = loginModel.list_cancelVIPOrderReasons
         //-- BUG0060-SPJ (NguyenPT 20170426) Handle update Order VIP customer
+        //++ BUG0077-SPJ (NguyenPT 20170508) Handle Flag need change pass
+        self._isNeedChangePass = (loginModel.need_change_pass == DomainConst.NUMBER_ONE_VALUE)
+        //-- BUG0077-SPJ (NguyenPT 20170508) Handle Flag need change pass
     }
     
     /**
@@ -1112,4 +1118,13 @@ public class BaseModel: NSObject {
         return DomainConst.BLANK
     }
     //++ BUG0060-SPJ (NguyenPT 20170426) Handle update Order VIP customer
+    //++ BUG0077-SPJ (NguyenPT 20170508) Handle Flag need change pass
+    /**
+     * Get value of Need change pass flag
+     * - returns: Need change pass flag value
+     */
+    public func getNeedChangePassFlag() -> Bool {
+        return self._isNeedChangePass
+    }
+    //-- BUG0077-SPJ (NguyenPT 20170508) Handle Flag need change pass
 }
