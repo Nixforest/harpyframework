@@ -284,15 +284,17 @@ public class OrderEmployeeTableViewCell: UITableViewCell {
             && (data.show_huy_giao_hang == DomainConst.NUMBER_ZERO_VALUE) {
             // 0-0 => Decrease height
             OrderEmployeeTableViewCell.CELL_HEIGHT = GlobalConst.LABEL_H * 4 + 2 * GlobalConst.MARGIN_CELL_X
-            if data.status_number == DomainConst.ORDER_STATUS_NEW {
-                data.show_nhan_giao_hang = DomainConst.NUMBER_ONE_VALUE
-                btnAction.frame = CGRect(
-                    x: (GlobalConst.SCREEN_WIDTH - GlobalConst.BUTTON_W) / 2,
-                    y: btnAction.frame.origin.y,
-                    width: GlobalConst.BUTTON_W,
-                    height: GlobalConst.BUTTON_H)
-                OrderEmployeeTableViewCell.CELL_HEIGHT = GlobalConst.LABEL_H * 4 + 4 * GlobalConst.MARGIN_CELL_X + GlobalConst.BUTTON_H
-            }
+            //++ BUG0075-SPJ (NguyenPT 20170506) Fix bug Show button Action when flag is "0"
+//            if data.status_number == DomainConst.ORDER_STATUS_NEW {
+//                data.show_nhan_giao_hang = DomainConst.NUMBER_ONE_VALUE
+//                btnAction.frame = CGRect(
+//                    x: (GlobalConst.SCREEN_WIDTH - GlobalConst.BUTTON_W) / 2,
+//                    y: btnAction.frame.origin.y,
+//                    width: GlobalConst.BUTTON_W,
+//                    height: GlobalConst.BUTTON_H)
+//                OrderEmployeeTableViewCell.CELL_HEIGHT = GlobalConst.LABEL_H * 4 + 4 * GlobalConst.MARGIN_CELL_X + GlobalConst.BUTTON_H
+//            }
+            //-- BUG0075-SPJ (NguyenPT 20170506) Fix bug Show button Action when flag is "0"
         } else if (data.show_nhan_giao_hang == DomainConst.NUMBER_ONE_VALUE)
             && (data.show_huy_giao_hang == DomainConst.NUMBER_ONE_VALUE) {
             // 1-1 => Do nothing

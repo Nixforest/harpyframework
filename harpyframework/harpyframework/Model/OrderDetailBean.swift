@@ -62,6 +62,18 @@ public class OrderDetailBean: MaterialBean {
     }
     
     /**
+     * Create json data from object
+     * - returns: Json string from object data
+     */
+    public func createJsonDataForStoreCard() -> String {
+        var retVal = DomainConst.BLANK
+        retVal = String.init(format: "{\"%@\":\"%@\",\"%@\":\"%@\"}",
+                             DomainConst.KEY_MATERIALS_ID,      self.material_id,
+                             DomainConst.KEY_QUANTITY,          self.qty)
+        return retVal
+    }
+    
+    /**
      * Constructor
      * - parameter data: Material bean
      */

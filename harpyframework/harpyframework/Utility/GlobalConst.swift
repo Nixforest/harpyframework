@@ -82,6 +82,7 @@ public class GlobalConst {
     public static let CONFIGURATION_ITEM_HEIGHT         : CGFloat = 44.0
     public static let CONFIGURATION_ITEM_RIGHT_SIZE     : CGFloat = 15.0
     public static let BASE_FONT_SIZE                    : CGFloat = UIFont.systemFontSize
+    public static let BASE_FONT                         : UIFont = UIFont.systemFont(ofSize: GlobalConst.BASE_FONT_SIZE)
     
     
     // ----- Color defines -----

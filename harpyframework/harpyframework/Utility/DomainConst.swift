@@ -89,6 +89,8 @@ public class DomainConst {
     public static let PATH_ORDER_VIP_SET_EVENT          = "boMoi/boMoiSetEvent"
     /** Get order VIP update */
     public static let PATH_ORDER_VIP_UPDATE             = "boMoi/boMoiDriverUpdate"
+    /** Get order VIP update */
+    public static let PATH_SITE_CACHE_DATA              = "site/getDataCache"
     
     // MARK: -----List of keys-----
     /** Token */
@@ -599,6 +601,12 @@ public class DomainConst {
     //++ BUG0073-SPJ (NguyenPT 20170503) Add new function G08
     /** Key Type of store card */
     public static let KEY_TYPE_IN_OUT                   = "type_in_out"
+    /** Key List Types of store card */
+    public static let KEY_LIST_TYPE_IN_OUT              = "list_type_in_out"
+    /** Key List all materials */
+    public static let KEY_LIST_ALL_MATERIAl             = "list_all_material"
+    /** Key List all materials */
+    public static let KEY_LIST_CASHBOOK_MATER_LOOKUP    = "list_cashbook_master_lookup"
     //-- BUG0073-SPJ (NguyenPT 20170503) Add new function G08
     
     
@@ -674,6 +682,8 @@ public class DomainConst {
     public static let SEARCH_MIN_LENGTH                 = 5
     /** Minimum number of characters begin search material */
     public static let SEARCH_MATERIAL_MIN_LENGTH        = 2
+    /** Minimum number of characters begin search target store card */
+    public static let SEARCH_TARGET_MIN_LENGTH          = 3
     
     /** Pattern to remove accent */
     public static let PATTERN_REMOVE_ACCENT             = "\\p{InCombiningDiacriticalMarks}+"
@@ -857,6 +867,12 @@ public class DomainConst {
     /** Street keyword */
     public static let STREET                            = "duong"
     //-- BUG0050-SPJ (NguyenPT 20170325) Add new function G06
+    //++ BUG0073-SPJ (NguyenPT 20170504) Add new key setting
+    /** Search target type: Search Agent */
+    public static let SEARCH_TARGET_TYPE_AGENT          = "1"
+    /** Search target type: Search Customer */
+    public static let SEARCH_TARGET_TYPE_CUSTOMER       = "2"
+    //-- BUG0073-SPJ (NguyenPT 20170504) Add new key setting
     
     
     /** Money unit: Vietnam dong */
@@ -883,6 +899,8 @@ public class DomainConst {
     public static let SPLITER_TYPE1                     = "-"
     /** Phone spliter */
     public static let SPLITER_TYPE2                     = ","
+    /** Phone spliter */
+    public static let SPLITER_TYPE3                     = "/"
     /** Text spliter */
     public static let TEXT_SPLITER                      = ":"
     /** Plus spliter: + */
@@ -1665,4 +1683,14 @@ public class DomainConst {
     public static let CONTENT00356 = "Mã Thẻ kho"
     public static let CONTENT00357 = "Loại Thẻ kho"
     public static let CONTENT00358 = "Tổng số"
+    public static let CONTENT00359 = "Xin vui lòng chọn đối tượng để tạo Thẻ kho"
+    public static let CONTENT00360 = "Khách hàng"
+    public static let CONTENT00361 = "Xoá thông tin"
+    public static let CONTENT00362 = "Chức năng hiện đang hoàn thiện. Xin vui lòng thử lại sau"
+    public static let CONTENT00363 = "Xin vui lòng chọn Ngày nhập xuất"
+    public static let CONTENT00364 = "Ngày nhập xuất"
+    public static let CONTENT00365 = "Hôm nay"
+    public static let CONTENT00366 = "Bạn đang gửi thông tin Thẻ kho như bên dưới. Xin hãy kiểm tra lại các thông tin cho thật chính xác và nhấn nút Gửi nếu bạn đồng ý."
+    public static let CONTENT00367 = "Xin vui lòng chọn Vật tư"
+    public static let CONTENT00368 = "Xin nhập thông tin Ghi chú"
 }

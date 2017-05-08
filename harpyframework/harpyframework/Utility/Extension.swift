@@ -368,6 +368,7 @@ public protocol StepDoneDelegate {
      */
     func stepDone()
 }
+
 //++ BUG0054-SPJ (NguyenPT 20170418) Add new function G07
 /**
  * Protocol to define delegate with match order confirm event.
@@ -844,11 +845,17 @@ public extension UIView {
         }
         for view in self.subviews {
             for childView in view.subviews {
-                childView.backgroundColor = ColorFromRGB().getRandomColor()
+                //childView.backgroundColor = ColorFromRGB().getRandomColor()
+                childView.layer.borderColor = ColorFromRGB().getRandomColor().cgColor
+                childView.layer.borderWidth = 1
             }
-            view.backgroundColor = ColorFromRGB().getRandomColor()
+            //view.backgroundColor = ColorFromRGB().getRandomColor()
+            view.layer.borderColor = ColorFromRGB().getRandomColor().cgColor
+            view.layer.borderWidth = 1
         }
-        self.backgroundColor = ColorFromRGB().getRandomColor()
+        //self.backgroundColor = ColorFromRGB().getRandomColor()
+        self.layer.borderColor = ColorFromRGB().getRandomColor().cgColor
+        self.layer.borderWidth = 1
     }
 }
 

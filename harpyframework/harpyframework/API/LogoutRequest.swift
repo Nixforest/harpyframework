@@ -86,7 +86,7 @@ public class LogoutRequest: BaseRequest {
                                    reqMethod: DomainConst.HTTP_POST_REQUEST,
                                    view: view)
         request.setData()
-        NotificationCenter.default.addObserver(view, selector: action, name:NSNotification.Name(rawValue: request.theClassName), object: nil)
+        NotificationCenter.default.addObserver(view, selector: action, name: NSNotification.Name(rawValue: request.theClassName), object: nil)
         request.execute()
     }
     //-- BUG0046-SPJ (NguyenPT 20170301) Use action for Request server completion

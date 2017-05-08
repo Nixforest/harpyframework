@@ -46,7 +46,7 @@ public class WardsListRequest: BaseRequest {
                                            reqMethod: DomainConst.HTTP_POST_REQUEST,
                                            view: view)
         request.setData(provinceId: provinceId, districtId: districtId)
-        NotificationCenter.default.addObserver(view, selector: action, name:NSNotification.Name(rawValue: request.theClassName), object: nil)
+        NotificationCenter.default.addObserver(view, selector: action, name: NSNotification.Name(rawValue: request.theClassName), object: nil)
         request.execute()
     }
 

@@ -45,7 +45,7 @@ public class DetailInformationColumnView: UIView {
         for item in listValues {
             offset = addItem(value: item, offset: offset)
         }
-        CommonProcess.setBorder(view: self, radius: GlobalConst.BUTTON_CORNER_RADIUS)
+        //CommonProcess.setBorder(view: self, radius: GlobalConst.BUTTON_CORNER_RADIUS)
         self._scrollView.contentSize = CGSize(width: parentWidth,
                                               height: offset)
         self.addSubview(_scrollView)

@@ -21,6 +21,10 @@
 		D70B9F941E3F504400EB66F5 /* icon17.png in Resources */ = {isa = PBXBuildFile; fileRef = D70B9F901E3F504400EB66F5 /* icon17.png */; };
 		D70B9F951E3F504400EB66F5 /* icon18.png in Resources */ = {isa = PBXBuildFile; fileRef = D70B9F911E3F504400EB66F5 /* icon18.png */; };
 		D70B9F961E3F504400EB66F5 /* icon19.png in Resources */ = {isa = PBXBuildFile; fileRef = D70B9F921E3F504400EB66F5 /* icon19.png */; };
+		D715BB6B1EBE24650097BDA8 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D715BB6A1EBE24650097BDA8 /* DatePickerView.swift */; };
+		D715BB701EBE54760097BDA8 /* CacheDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D715BB6F1EBE54760097BDA8 /* CacheDataRequest.swift */; };
+		D715BB721EBE550A0097BDA8 /* CacheDataRespModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D715BB711EBE550A0097BDA8 /* CacheDataRespModel.swift */; };
+		D715BB741EBE553F0097BDA8 /* CacheDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D715BB731EBE553F0097BDA8 /* CacheDataModel.swift */; };
 		D716C18E1E923C17007CC50C /* DistrictsListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D716C18D1E923C17007CC50C /* DistrictsListRequest.swift */; };
 		D716C1901E924F16007CC50C /* WardsListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D716C18F1E924F16007CC50C /* WardsListRequest.swift */; };
 		D716C1921E92893B007CC50C /* ProvincesListRespModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D716C1911E92893B007CC50C /* ProvincesListRespModel.swift */; };
@@ -265,6 +269,10 @@
 		D70B9F901E3F504400EB66F5 /* icon17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon17.png; path = images/icon17.png; sourceTree = "<group>"; };
 		D70B9F911E3F504400EB66F5 /* icon18.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon18.png; path = images/icon18.png; sourceTree = "<group>"; };
 		D70B9F921E3F504400EB66F5 /* icon19.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon19.png; path = images/icon19.png; sourceTree = "<group>"; };
+		D715BB6A1EBE24650097BDA8 /* DatePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatePickerView.swift; path = CustomeControl/DatePickerView.swift; sourceTree = "<group>"; };
+		D715BB6F1EBE54760097BDA8 /* CacheDataRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CacheDataRequest.swift; path = API/CacheDataRequest.swift; sourceTree = "<group>"; };
+		D715BB711EBE550A0097BDA8 /* CacheDataRespModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CacheDataRespModel.swift; path = Model/CacheDataRespModel.swift; sourceTree = "<group>"; };
+		D715BB731EBE553F0097BDA8 /* CacheDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CacheDataModel.swift; path = Model/CacheDataModel.swift; sourceTree = "<group>"; };
 		D716C18D1E923C17007CC50C /* DistrictsListRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DistrictsListRequest.swift; path = API/DistrictsListRequest.swift; sourceTree = "<group>"; };
 		D716C18F1E924F16007CC50C /* WardsListRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WardsListRequest.swift; path = API/WardsListRequest.swift; sourceTree = "<group>"; };
 		D716C1911E92893B007CC50C /* ProvincesListRespModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProvincesListRespModel.swift; path = Model/ProvincesListRespModel.swift; sourceTree = "<group>"; };
@@ -532,6 +540,7 @@
 				D7F82AB41EA53A1100116B74 /* TransactionSetEventRequest.swift */,
 				D790BF881EA709CC00841CC5 /* OrderFamilyHandleRequest.swift */,
 				D7EBB7EA1EA9CC5700BE6612 /* OrderVipSetEventRequest.swift */,
+				D715BB6F1EBE54760097BDA8 /* CacheDataRequest.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -580,6 +589,7 @@
 				D709FE9C1E86F86900F32A7E /* CustomerFamilyListBean.swift */,
 				D7CDBE251E877F0F00B73877 /* CustomerFamilyBean.swift */,
 				D7CDBE2C1E880A7800B73877 /* WorkingReportBean.swift */,
+				D715BB731EBE553F0097BDA8 /* CacheDataModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -599,6 +609,7 @@
 				D716C1951E929422007CC50C /* WardsListRespModel.swift */,
 				D7FB47411E9750B80082FA5E /* OrderFamilyListRespModel.swift */,
 				D79C317B1E9B8C8B006F3683 /* OrderFamilyViewRespModel.swift */,
+				D715BB711EBE550A0097BDA8 /* CacheDataRespModel.swift */,
 			);
 			name = Response;
 			sourceTree = "<group>";
@@ -693,6 +704,7 @@
 				D716C1971E92A9E9007CC50C /* AddressPickerView.swift */,
 				D7CED6CF1E98CB2E00C2B568 /* OrderEmployeeTableViewCell.swift */,
 				D7CED6D01E98CB2E00C2B568 /* OrderEmployeeTableViewCell.xib */,
+				D715BB6A1EBE24650097BDA8 /* DatePickerView.swift */,
 			);
 			name = CustomControl;
 			sourceTree = "<group>";
@@ -1081,7 +1093,9 @@
 			files = (
 				D77F05C61E71729400797A6B /* UserProfileRespModel.swift in Sources */,
 				D7C30A3B1E305AB800B3FDA6 /* OrderConfigBean.swift in Sources */,
+				D715BB741EBE553F0097BDA8 /* CacheDataModel.swift in Sources */,
 				D7FB47421E9750B80082FA5E /* OrderFamilyListRespModel.swift in Sources */,
+				D715BB6B1EBE24650097BDA8 /* DatePickerView.swift in Sources */,
 				D77F05DB1E7172BD00797A6B /* BaseMenuViewController.swift in Sources */,
 				D77F05F41E71737200797A6B /* SearchCustomerRequest.swift in Sources */,
 				D77F05D31E7172AD00797A6B /* OrderBean.swift in Sources */,
@@ -1123,6 +1137,7 @@
 				D77F05C11E71729400797A6B /* LoginRespModel.swift in Sources */,
 				D77F06011E71738100797A6B /* LoadingView.swift in Sources */,
 				D7F6844C1E2F620400D3D6F4 /* BaseAgentInfoBean.swift in Sources */,
+				D715BB721EBE550A0097BDA8 /* CacheDataRespModel.swift in Sources */,
 				D7BA68851E83AC4D001C675D /* BaseAPITestViewController.swift in Sources */,
 				D716C1961E929422007CC50C /* WardsListRespModel.swift in Sources */,
 				D77F05B71E71703E00797A6B /* Extension.swift in Sources */,
@@ -1130,6 +1145,7 @@
 				D790BF891EA709CC00841CC5 /* OrderFamilyHandleRequest.swift in Sources */,
 				D7F82AB51EA53A1100116B74 /* TransactionSetEventRequest.swift in Sources */,
 				D716C1921E92893B007CC50C /* ProvincesListRespModel.swift in Sources */,
+				D715BB701EBE54760097BDA8 /* CacheDataRequest.swift in Sources */,
 				D79C1BBD1E4ACEC700E6E121 /* PromotionBean.swift in Sources */,
 				D791F6B01E238135009CBBED /* CommonProcess.swift in Sources */,
 				D7AB90561E2402170048AC4F /* StepSummary.swift in Sources */,

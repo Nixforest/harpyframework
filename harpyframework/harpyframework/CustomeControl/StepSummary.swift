@@ -49,7 +49,7 @@ open class StepSummary: UIView {
      * - parameter height:          Height of view
      */
     open func setup(mainView: UIView, title: String, contentHeight: CGFloat,
-               width: CGFloat, height: CGFloat) {
+                    width: CGFloat, height: CGFloat, reCalculate: Bool = false) {
         self.frame = CGRect(
             x: 0, y: 0,
             width: width, height: height)
@@ -76,6 +76,10 @@ open class StepSummary: UIView {
             mainViewHeight = self.frame.height - _tbxTitle.frame.height
         } else {
             mainViewHeight = contentHeight
+        }
+        // Recalculate
+        if reCalculate {
+            mainViewHeight -= _tbxTitle.frame.height
         }
         _mainView = mainView
         _mainView?.translatesAutoresizingMaskIntoConstraints = true
@@ -141,4 +145,12 @@ open class StepSummary: UIView {
         return 0.0
     }
     //-- BUG0050-SPJ (NguyenPT 20170331) Update Step Summary: Update content when show Summary
+    
+    /**
+     * Get height of title
+     * - returns: Height of title label
+     */
+    public func getTitleHeight() -> CGFloat {
+        return self._tbxTitle.frame.height
+    }
 }

@@ -36,6 +36,11 @@ public class OrderDetailTableViewCell: UITableViewCell {
         //-- BUG0073-SPJ (NguyenPT 20170504) Add alignment setting array
 )
     {
+        //++ BUG0078-SPJ (NguyenPT 20170508) Fix bug reload table view make data overlapping
+        for view in self.subviews {
+            view.removeFromSuperview()
+        }
+        //-- BUG0078-SPJ (NguyenPT 20170508) Fix bug reload table view make data overlapping
         //++ BUG0073-SPJ (NguyenPT 20170504) Check if alignment array not equal element with data
         if (alignment.count != 0)
             && (alignment.count != data.count) {

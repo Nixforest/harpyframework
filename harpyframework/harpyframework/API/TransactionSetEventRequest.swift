@@ -79,7 +79,7 @@ open class TransactionSetEventRequest: BaseRequest {
                         id: id, orderType: orderType, discountType: discountType,
                         amountDiscount: amountDiscount, typeAmount: typeAmount,
                         orderDetail: orderDetail)
-        NotificationCenter.default.addObserver(view, selector: action, name:NSNotification.Name(rawValue: request.theClassName), object: nil)
+        NotificationCenter.default.addObserver(view, selector: action, name: NSNotification.Name(rawValue: request.theClassName), object: nil)
         request.execute()
     }
 }

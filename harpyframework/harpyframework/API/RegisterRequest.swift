@@ -83,7 +83,7 @@ public class RegisterRequest: BaseRequest {
         LoadingView.shared.showOverlay(view: view.view)
         let request = RegisterRequest(url: DomainConst.PATH_CUSTOMER_REGISTER, reqMethod: DomainConst.HTTP_POST_REQUEST, view: view)
         request.setData(name: name, phone: phone)
-        NotificationCenter.default.addObserver(view, selector: action, name:NSNotification.Name(rawValue: request.theClassName), object: nil)
+        NotificationCenter.default.addObserver(view, selector: action, name: NSNotification.Name(rawValue: request.theClassName), object: nil)
         request.execute()
     }
     //-- BUG0046-SPJ (NguyenPT 20170301) Use action for Request server completion

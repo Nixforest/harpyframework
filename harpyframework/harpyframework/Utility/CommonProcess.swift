@@ -262,6 +262,7 @@ public class CommonProcess {
         let dateComp = userCalendar.dateComponents(requestedComponents, from: date)
         
         retVal = String.init(format: "%02d-%02d-%04d",
+        //retVal = String.init(format: "%02d/%02d/%04d",
                              dateComp.day!,
                              dateComp.month!,
                              dateComp.year!)
@@ -294,5 +295,22 @@ public class CommonProcess {
         
         return retVal
     }
-    //-- BUG0050-SPJ (NguyenPT 20170325) Add new function G06
+    //-- BUG0050-SPJ (NguyenPT 20170325) Add new function G06    
+    /**
+     * Set left image for textfield
+     * - parameter textField: Current textField
+     * - parameter name: Image name
+     */
+    public static func setLeftImgTextField(textField: UITextField, name: String) {
+        
+        textField.leftViewMode = .always
+        let imgView = UIImageView(frame: CGRect(x: 0, y: 0,
+                                                width: GlobalConst.EDITTEXT_H - GlobalConst.MARGIN,
+                                                height: GlobalConst.EDITTEXT_H - GlobalConst.MARGIN))
+        let img = ImageManager.getImage(named: name)
+        let tinted = img?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        imgView.image = tinted
+        imgView.tintColor = UIColor.black
+        textField.leftView = imgView
+    }
 }

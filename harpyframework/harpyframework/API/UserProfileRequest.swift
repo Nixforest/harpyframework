@@ -68,7 +68,7 @@ public class UserProfileRequest: BaseRequest {
         let request = UserProfileRequest(url: DomainConst.PATH_USER_PROFILE,
                                                 reqMethod: DomainConst.HTTP_POST_REQUEST, view: view)
         request.setData(token: BaseModel.shared.getUserToken())
-        NotificationCenter.default.addObserver(view, selector: action, name:NSNotification.Name(rawValue: request.theClassName), object: nil)
+        NotificationCenter.default.addObserver(view, selector: action, name: NSNotification.Name(rawValue: request.theClassName), object: nil)
         request.execute()
     }
     //-- BUG0046-SPJ (NguyenPT 20170301) Use action for Request server completion

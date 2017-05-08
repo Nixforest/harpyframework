@@ -50,7 +50,14 @@ class MaterialSelectionCell: UICollectionViewCell {
                                 height: height * 5 / 12)
         //_lblName.text          = _data.materials_name_short
         if BaseModel.shared.getDebugUseMaterialNameShort() {
-            _lblName.text          = _data.materials_name_short
+            //++ BUG0076-SPJ (NguyenPT 20170506) Name of cylinder not show when open add cylinder OrderFamily
+            //_lblName.text          = _data.materials_name_short
+            if _data.materials_name_short.isEmpty {
+                _lblName.text = _data.material_name
+            } else {
+                _lblName.text = _data.materials_name_short
+            }
+            //-- BUG0076-SPJ (NguyenPT 20170506) Name of cylinder not show when open add cylinder OrderFamily
         } else {
             _lblName.text          = _data.material_name
         }

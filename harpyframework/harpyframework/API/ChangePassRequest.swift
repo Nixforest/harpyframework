@@ -86,7 +86,7 @@ public class ChangePassRequest: BaseRequest {
         let request = ChangePassRequest(url: DomainConst.PATH_USER_CHANGE_PASS,
                                         reqMethod: DomainConst.HTTP_POST_REQUEST, view: view)
         request.setData(oldPass: oldPass, newPass: newPass)
-        NotificationCenter.default.addObserver(view, selector: action, name:NSNotification.Name(rawValue: request.theClassName), object: nil)
+        NotificationCenter.default.addObserver(view, selector: action, name: NSNotification.Name(rawValue: request.theClassName), object: nil)
         request.execute()
     }
     //-- BUG0046-SPJ (NguyenPT 20170301) Use action for Request server completion

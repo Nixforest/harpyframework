@@ -68,7 +68,8 @@ open class MaterialSelectViewController: ChildViewController, UICollectionViewDa
      * - parameter index: Index of object
      * - returns: MaterialBean
      */
-    public func getData(index: Int) -> MaterialBean {
+//    public func getData(index: Int) -> MaterialBean {
+    public func getData(index: Int) -> OrderDetailBean {
         return MaterialSelectViewController._data[index]
     }
 
@@ -185,7 +186,8 @@ open class MaterialSelectViewController: ChildViewController, UICollectionViewDa
      * Tells the delegate that the item at the specified index path was selected.
      */
     open func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        MaterialSelectViewController._selected = OrderDetailBean(data: self.getData(index: indexPath.row))
+//        MaterialSelectViewController._selected = OrderDetailBean(data: self.getData(index: indexPath.row))
+        MaterialSelectViewController._selected = self.getData(index: indexPath.row)
         self.backButtonTapped(self)
     }
     
@@ -206,8 +208,13 @@ open class MaterialSelectViewController: ChildViewController, UICollectionViewDa
             // Loop for all original dat
             for item in MaterialSelectViewController._originData {
                 // Get name of material and make it lower case + remove sign
-                let name = BaseModel.shared.getDebugUseMaterialNameShort()
+                var name = BaseModel.shared.getDebugUseMaterialNameShort()
                     ? item.materials_name_short : item.material_name
+                //++ BUG0076-SPJ (NguyenPT 20170506) Name of cylinder not show when open add cylinder OrderFamily
+                if name.isEmpty {
+                    name = item.material_name
+                }
+                //-- BUG0076-SPJ (NguyenPT 20170506) Name of cylinder not show when open add cylinder OrderFamily
                 // Check if name contain keyword
                 if (name.removeSign().lowercased().range(of: keyword) != nil) {
                     // Add to result list

@@ -57,7 +57,7 @@ public class OrderVipSetEventRequest: BaseRequest {
         request.setData(actionType: actionType, lat: lat, long: long,
                         id: id, note: note, statusCancel: statusCancel,
                         orderDetail: orderDetail)
-        NotificationCenter.default.addObserver(view, selector: action, name:NSNotification.Name(rawValue: request.theClassName), object: nil)
+        NotificationCenter.default.addObserver(view, selector: action, name: NSNotification.Name(rawValue: request.theClassName), object: nil)
         request.execute()
     }
 }

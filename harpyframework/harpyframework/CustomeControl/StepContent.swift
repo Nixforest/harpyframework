@@ -98,7 +98,7 @@ open class StepContent: UIView {
      * - returns: True if inputted data, False otherwise
      */
     open func checkDone() -> Bool {
-        return false
+        return true
     }
     
     /**
