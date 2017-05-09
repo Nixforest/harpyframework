@@ -608,6 +608,12 @@ public class DomainConst {
     /** Key List all materials */
     public static let KEY_LIST_CASHBOOK_MATER_LOOKUP    = "list_cashbook_master_lookup"
     //-- BUG0073-SPJ (NguyenPT 20170503) Add new function G08
+    //++ BUG0079-SPJ (NguyenPT 20170509) Add order type and support type in Family order
+    /** Key Support type */
+    public static let KEY_SUPPORT_ID                    = "support_id"
+    /** Key Support type */
+    public static let KEY_SUPPORT_TEXT                  = "support_text"
+    //-- BUG0079-SPJ (NguyenPT 20170509) Add order type and support type in Family order
     
     
     // MARK: -----Specified constant-----
@@ -833,6 +839,10 @@ public class DomainConst {
     public static let ORDER_INFO_EMPLOYEE_DELIVER_ID    = "###99921"
     /** Order information id: Order Gas Price */
     public static let ORDER_INFO_GAS_PRICE_ID           = "###99922"
+    /** Order information id: Order support type */
+    public static let ORDER_INFO_SUPPORT_TYPE_ID        = "###99923"
+    /** Order information id: Order order type */
+    public static let ORDER_INFO_ORDER_TYPE_ID          = "###99924"
     /** Order information id: Order Material */
     public static let ORDER_INFO_MATERIAL_ID            = "###999"
     
@@ -1693,4 +1703,7 @@ public class DomainConst {
     public static let CONTENT00366 = "Bạn đang gửi thông tin Thẻ kho như bên dưới. Xin hãy kiểm tra lại các thông tin cho thật chính xác và nhấn nút Gửi nếu bạn đồng ý."
     public static let CONTENT00367 = "Xin vui lòng chọn Vật tư"
     public static let CONTENT00368 = "Xin nhập thông tin Ghi chú"
+    public static let CONTENT00369 = "Mật khẩu mới phải khác mật khẩu cũ!"
+    public static let CONTENT00370 = "Loại hỗ trợ"
+    public static let CONTENT00371 = "Loại bán hàng"
 }

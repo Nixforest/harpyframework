@@ -83,6 +83,12 @@ public class OrderBean: NSObject {
     public var amount_bu_vo:        String = DomainConst.BLANK
     /** Number of status */
     public var status_number:       String = DomainConst.BLANK
+    //++ BUG0079-SPJ (NguyenPT 20170509) Add order type and support type in Family order
+    /** Support type id */
+    public var support_id:          String = DomainConst.BLANK
+    /** Support type text */
+    public var support_text:        String = DomainConst.BLANK
+    //-- BUG0079-SPJ (NguyenPT 20170509) Add order type and support type in Family order
     
     public override init() {
         super.init()
@@ -141,6 +147,10 @@ public class OrderBean: NSObject {
         self.order_type_text    = getString(json: jsonData, key: DomainConst.KEY_ORDER_TYPE_TEXT)
         self.order_type_amount  = getString(json: jsonData, key: DomainConst.KEY_ORDER_TYPE_AMOUNT)
         self.amount_bu_vo       = getString(json: jsonData, key: DomainConst.KEY_AMOUNT_BU_VO)
-        self.status_number          = getString(json: jsonData, key: DomainConst.KEY_STATUS_NUMBER)
+        self.status_number      = getString(json: jsonData, key: DomainConst.KEY_STATUS_NUMBER)
+        //++ BUG0079-SPJ (NguyenPT 20170509) Add order type and support type in Family order
+        self.support_id         = getString(json: jsonData, key: DomainConst.KEY_SUPPORT_ID)
+        self.support_text       = getString(json: jsonData, key: DomainConst.KEY_SUPPORT_TEXT)
+        //-- BUG0079-SPJ (NguyenPT 20170509) Add order type and support type in Family order
     }
 }
