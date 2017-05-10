@@ -20,6 +20,11 @@ open class BaseRequest: NSObject {
     public var session = URLSession.shared
     /** Current view */
     public var view: BaseViewController
+    //++ BUG0082-SPJ (NguyenPT 20170510) Change BaseRequest handle completion mechanism
+    /** Completion block code */
+    public var completionBlock: ((Any?) -> Void)? = nil
+    //-- BUG0082-SPJ (NguyenPT 20170510) Change BaseRequest handle completion mechanism
+    
     
     /**
      * Initializer
@@ -178,12 +183,24 @@ open class BaseRequest: NSObject {
                 self.view.showAlert(message: DomainConst.CONTENT00196)
                 return
             }
+            //++ BUG0082-SPJ (NguyenPT 20170510) Change BaseRequest handle completion mechanism
             //++ BUG0050-SPJ (NguyenPT 20170323) Handle result string
             // Convert to string
             let dataString = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
             print(dataString ?? DomainConst.BLANK)
-            self.handleCompleteTask(model: dataString)
+            //self.handleCompleteTask(model: dataString)
             //-- BUG0050-SPJ (NguyenPT 20170323) Handle result string
+            if self.completionBlock != nil {
+                // Hide overlay
+                LoadingView.shared.hideOverlayView()
+                // Call complete handler
+                DispatchQueue.main.async {
+                    self.completionBlock!(dataString)
+                }
+            } else {
+                self.handleCompleteTask(model: dataString)
+            }
+            //-- BUG0082-SPJ (NguyenPT 20170510) Change BaseRequest handle completion mechanism
         })
         return task
     }

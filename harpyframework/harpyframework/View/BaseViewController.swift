@@ -933,6 +933,15 @@ open class BaseViewController : UIViewController {
     }
     //-- BUG0057-SPJ (NguyenPT 20170414) Handle notification VIP customer order
     
+    //++ BUG0082-SPJ (NguyenPT 20170510) Change BaseRequest handle completion mechanism
+    /**
+     * Set data
+     */
+    open func finishRequest(_ model: Any?) {
+        // Not implement
+    }
+    //-- BUG0082-SPJ (NguyenPT 20170510) Change BaseRequest handle completion mechanism
+    
     /**
      * Destructor
      */
