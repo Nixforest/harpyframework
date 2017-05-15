@@ -59,7 +59,12 @@ public class LoginRespModel : BaseRespModel {
     //-- BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Get new data
     //++ BUG0060-SPJ (NguyenPT 20170426) Handle save list gas information to local
     var info_materialGas:                   [MaterialBean]      = [MaterialBean]()
-    //-- BUG0060-SPJ (NguyenPT 20170426) Handle save list gas information to local
+    //++ BUG0079-SPJ (NguyenPT 20170509) Add order type and support type in Family order
+    /** Number of max favourite items */
+    var limit_favorite:                     Int                 = 0
+    /** List support types fo employee */
+    var list_support_employee:              [ConfigBean]        = [ConfigBean]()
+    //-- BUG0079-SPJ (NguyenPT 20170509) Add order type and support type in Family order
     
     
     /**
@@ -156,6 +161,11 @@ public class LoginRespModel : BaseRespModel {
                 }
                 //-- BUG0060-SPJ (NguyenPT 20170426) Handle save list gas information to local
                 
+                //++ BUG0079-SPJ (NguyenPT 20170509) Add order type and support type in Family order
+                self.limit_favorite = getInt(json: json, key: DomainConst.KEY_LIMIT_FAVORITE)
+                /** List support types fo employee */
+                self.list_support_employee.append(contentsOf: getListConfig(json: json, key: DomainConst.KEY_LIST_SUPPORT_EMPLOYEE))
+                //-- BUG0079-SPJ (NguyenPT 20170509) Add order type and support type in Family order
             } catch let error as NSError {
                 print(DomainConst.JSON_ERR_FAILED_LOAD + "\(error.localizedDescription)")
             }

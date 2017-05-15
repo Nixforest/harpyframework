@@ -84,4 +84,19 @@ public class ConfigurationModel: ConfigBean {
         
     }
     //-- BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Get new data
+    //++ BUG0079-SPJ (NguyenPT 20170509) Add order type and support type in Family order
+    /**
+     * Update data
+     * - parameter id:          Id of model
+     * - parameter name:        Name of model
+     * - parameter iconPath:    Path of icon
+     * - parameter value:       Value of model
+     */
+    public func updateData(id: String, name: String, iconPath: String, value: String) {
+        self.id         = id
+        self.name       = name
+        self._iconPath  = iconPath
+        self._value     = value
+    }
+    //-- BUG0079-SPJ (NguyenPT 20170509) Add order type and support type in Family order
 }

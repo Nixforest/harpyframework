@@ -31,6 +31,7 @@ public class OrderFamilyHandleRequest: TransactionSetEventRequest {
                                            discountType: "0",
                                            amountDiscount: "0",
                                            typeAmount: "0",
+                                           support_id: "0",
                                            orderDetail: DomainConst.BLANK)
     }
     /**
@@ -55,6 +56,7 @@ public class OrderFamilyHandleRequest: TransactionSetEventRequest {
                                            discountType: "0",
                                            amountDiscount: "0",
                                            typeAmount: "0",
+                                           support_id: "0",
                                            orderDetail: DomainConst.BLANK)
     }
     
@@ -78,6 +80,7 @@ public class OrderFamilyHandleRequest: TransactionSetEventRequest {
                                      discountType: String,
                                      amountDiscount: String,
                                      typeAmount: String,
+                                     support_id: String,
                                      orderDetail: String) {
         TransactionSetEventRequest.request(action: action, view: view,
                                            actionType: ActionTypeEnum.EMPLOYEE_CHANGE.rawValue,
@@ -89,6 +92,7 @@ public class OrderFamilyHandleRequest: TransactionSetEventRequest {
                                            discountType: discountType,
                                            amountDiscount: amountDiscount,
                                            typeAmount: typeAmount,
+                                           support_id: support_id,
                                            orderDetail: orderDetail)
     }
     
@@ -112,6 +116,7 @@ public class OrderFamilyHandleRequest: TransactionSetEventRequest {
                                        discountType: String,
                                        amountDiscount: String,
                                        typeAmount: String,
+                                       support_id: String,
                                        orderDetail: String) {
         TransactionSetEventRequest.request(action: action, view: view,
                                            actionType: ActionTypeEnum.EMPLOYEE_COMPLETE.rawValue,
@@ -123,6 +128,7 @@ public class OrderFamilyHandleRequest: TransactionSetEventRequest {
                                            discountType: discountType,
                                            amountDiscount: amountDiscount,
                                            typeAmount: typeAmount,
+                                           support_id: support_id,
                                            orderDetail: orderDetail)
     }
     
@@ -152,6 +158,7 @@ public class OrderFamilyHandleRequest: TransactionSetEventRequest {
                                            discountType: "0",
                                            amountDiscount: "0",
                                            typeAmount: "0",
+                                           support_id: "0",
                                            orderDetail: DomainConst.BLANK)
     }
 }

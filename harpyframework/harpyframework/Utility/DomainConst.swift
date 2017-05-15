@@ -613,6 +613,10 @@ public class DomainConst {
     public static let KEY_SUPPORT_ID                    = "support_id"
     /** Key Support type */
     public static let KEY_SUPPORT_TEXT                  = "support_text"
+    /** Key favorite limit */
+    public static let KEY_LIMIT_FAVORITE                = "limit_favorite"
+    /** Key Support type list */
+    public static let KEY_LIST_SUPPORT_EMPLOYEE         = "list_support_employee"
     //-- BUG0079-SPJ (NguyenPT 20170509) Add order type and support type in Family order
     
     

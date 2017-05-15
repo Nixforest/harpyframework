@@ -86,6 +86,10 @@ public class BaseModel: NSObject {
     //++ BUG0060-SPJ (NguyenPT 20170426) Handle update Order VIP customer
     private var list_cancelOrderVIPReasons:     [ConfigBean]                    = [ConfigBean]()
     //-- BUG0060-SPJ (NguyenPT 20170426) Handle update Order VIP customer
+    //++ BUG0079-SPJ (NguyenPT 20170509) Add order type and support type in Family order
+    private var list_OrderTypes:                [ConfigBean]                    = [ConfigBean]()
+    private var list_SupportTypes:              [ConfigBean]                    = [ConfigBean]()
+    // BUG0079-SPJ (NguyenPT 20170509) Add order type and support type in Family order
     /** Uphold list data */
     public var upholdList: UpholdListRespModel = UpholdListRespModel()
     /** Search customer result */
@@ -655,6 +659,10 @@ public class BaseModel: NSObject {
         //++ BUG0077-SPJ (NguyenPT 20170508) Handle Flag need change pass
         self._isNeedChangePass = (loginModel.need_change_pass == DomainConst.NUMBER_ONE_VALUE)
         //-- BUG0077-SPJ (NguyenPT 20170508) Handle Flag need change pass
+        //++ BUG0079-SPJ (NguyenPT 20170509) Add order type and support type in Family order
+        self.list_OrderTypes = loginModel.list_OrderTypes
+        self.list_SupportTypes = loginModel.list_support_employee
+        // BUG0079-SPJ (NguyenPT 20170509) Add order type and support type in Family order
     }
     
     /**
@@ -1127,4 +1135,49 @@ public class BaseModel: NSObject {
         return self._isNeedChangePass
     }
     //-- BUG0077-SPJ (NguyenPT 20170508) Handle Flag need change pass
+    //++ BUG0079-SPJ (NguyenPT 20170509) Add order type and support type in Family order
+    /**
+     * Get list of order types
+     * - returns: List of order types
+     */
+    public func getListOrderTypes() -> [ConfigBean] {
+        return self.list_OrderTypes
+    }
+    
+    /**
+     * Get list of support types
+     * - returns: List of support types
+     */
+    public func getListSupportTypes() -> [ConfigBean] {
+        return self.list_SupportTypes
+    }
+    
+    /**
+     * Get name of support type
+     * - parameter id: Id of support type
+     * - returns: Name of support type
+     */
+    public func getSupportNameById(id: String) -> String {
+        for item in self.list_SupportTypes {
+            if item.id == id {
+                return item.name
+            }
+        }
+        return DomainConst.BLANK
+    }
+    
+    /**
+     * Get name of order type
+     * - parameter id: Id of order type
+     * - returns: Name of order type
+     */
+    public func getOrderTypeNameById(id: String) -> String {
+        for item in self.list_OrderTypes {
+            if item.id == id {
+                return item.name
+            }
+        }
+        return DomainConst.BLANK
+    }
+    //-- BUG0079-SPJ (NguyenPT 20170509) Add order type and support type in Family order
 }

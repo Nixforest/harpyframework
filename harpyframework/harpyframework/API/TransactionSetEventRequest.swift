@@ -26,10 +26,10 @@ open class TransactionSetEventRequest: BaseRequest {
     func setData(actionType: Int, lat: String, long: String,
                  changeType: String, statusCancel: String,
                  id: String, orderType: String, discountType: String,
-                 amountDiscount: String, typeAmount: String,
+                 amountDiscount: String, typeAmount: String, support_id: String,
                  orderDetail: String) {
         self.data = "q=" + String.init(
-            format: "{\"%@\":\"%@\",\"%@\":%d,\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":[%@],\"%@\":%d}",
+            format: "{\"%@\":\"%@\",\"%@\":%d,\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":[%@],\"%@\":%d}",
             DomainConst.KEY_TOKEN, BaseModel.shared.getUserToken(),
             DomainConst.KEY_ACTION_TYPE,            actionType,
             DomainConst.KEY_LATITUDE,               lat,
@@ -41,6 +41,7 @@ open class TransactionSetEventRequest: BaseRequest {
             DomainConst.KEY_DISCOUNT_TYPE,          discountType,
             DomainConst.KEY_AMOUNT_DISCOUNT,        amountDiscount,
             DomainConst.KEY_TYPE_AMOUNT,            typeAmount,
+            DomainConst.KEY_SUPPORT_ID,             support_id,
             DomainConst.KEY_ORDER_DETAIL,           orderDetail,
             DomainConst.KEY_PLATFORM,               DomainConst.PLATFORM_IOS
         )
@@ -67,7 +68,7 @@ open class TransactionSetEventRequest: BaseRequest {
                                actionType: Int, lat: String, long: String,
                                changeType: String, statusCancel: String,
                                id: String, orderType: String, discountType: String,
-                               amountDiscount: String, typeAmount: String,
+                               amountDiscount: String, typeAmount: String, support_id: String,
                                orderDetail: String) {
         // Show overlay
         LoadingView.shared.showOverlay(view: view.view)
@@ -78,6 +79,7 @@ open class TransactionSetEventRequest: BaseRequest {
                         changeType: changeType, statusCancel: statusCancel,
                         id: id, orderType: orderType, discountType: discountType,
                         amountDiscount: amountDiscount, typeAmount: typeAmount,
+                        support_id: support_id,
                         orderDetail: orderDetail)
         NotificationCenter.default.addObserver(view, selector: action, name: NSNotification.Name(rawValue: request.theClassName), object: nil)
         request.execute()
