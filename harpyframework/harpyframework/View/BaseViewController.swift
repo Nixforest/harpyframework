@@ -819,11 +819,15 @@ open class BaseViewController : UIViewController {
      * Finish request logout handler
      */
     public func finishRequestLogout(_ notification: Notification) {
-        self.showAlert(message: DomainConst.CONTENT00280, okHandler: {
-            (alert: UIAlertAction!) in
-            self.popToRootView()
-            self.pushToView(name: DomainConst.G00_LOGIN_VIEW_CTRL)
-        })
+        //++ BUG0087-SPJ (NguyenPT 20170516) Remove message Logout success
+//        self.showAlert(message: DomainConst.CONTENT00280, okHandler: {
+//            (alert: UIAlertAction!) in
+//            self.popToRootView()
+//            self.pushToView(name: DomainConst.G00_LOGIN_VIEW_CTRL)
+//        })
+        self.popToRootView()
+        self.pushToView(name: DomainConst.G00_LOGIN_VIEW_CTRL)
+        //-- BUG0087-SPJ (NguyenPT 20170516) Remove message Logout success
     }
     //-- BUG0046-SPJ (NguyenPT 20170301) Use action for Request server completion
     //++ BUG0049-SPJ (NguyenPT 20170313) Handle notification received

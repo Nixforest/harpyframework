@@ -44,6 +44,10 @@ public class LogoutRequest: BaseRequest {
 //                NotificationCenter.default.post(name: Notification.Name(rawValue: DomainConst.NOTIFY_NAME_SET_DATA_HOMEVIEW), object: model)
                 NotificationCenter.default.post(name: Notification.Name(rawValue: self.theClassName), object: model)
                 //-- BUG0046-SPJ (NguyenPT 20170301) Use action for Request server completion
+                //++ BUG0087-SPJ (NguyenPT 20170516) Remove message Logout success
+                // Remove observer
+                NotificationCenter.default.removeObserver(self.view, name: Notification.Name(rawValue: self.theClassName), object: nil)
+                //-- BUG0087-SPJ (NguyenPT 20170516) Remove message Logout success
             }
         })
         return task
