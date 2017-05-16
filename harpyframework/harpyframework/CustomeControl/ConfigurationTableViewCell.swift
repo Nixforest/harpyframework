@@ -114,20 +114,40 @@ open class ConfigurationTableViewCell: UITableViewCell {
      * - parameter value:           Value of item
      * - parameter isHideRightImg:  Flag hide/show right image
      */
-    public func setData(leftImg: String, name: String, value: String, isHideRightImg: Bool = false) {
+    public func setData(leftImg: String, name: String, value: String,
+                        isHideRightImg: Bool = false,
+                        //++ BUG0088-SPJ (NguyenPT 20170516) Can change gas material
+                        isShowFullValue: Bool = false) {
+                        //-- BUG0088-SPJ (NguyenPT 20170516) Can change gas material
         self._leftImg.setImage(imgPath: leftImg)
         self._switchValue.isHidden  = true
         self._name.text             = name
-        let size = _name.text?.widthOfString(usingFont: _name.font)
+        //++ BUG0088-SPJ (NguyenPT 20170516) Can change gas material
+//        let size = _name.text?.widthOfString(usingFont: _name.font)
         var frame = self._name.frame
-        //++ BUG0055-SPJ (NguyenPT 20170411) Handle view full name field
-        var width = size!
-        if frame.minX + width >= ConfigurationTableViewCell.PARENT_WIDTH {
-            width = ConfigurationTableViewCell.PARENT_WIDTH - frame.minX
+        if !isShowFullValue {
+            let size = _name.text?.widthOfString(usingFont: _name.font)
+            var width = size!
+            if frame.minX + width >= ConfigurationTableViewCell.PARENT_WIDTH {
+                width = ConfigurationTableViewCell.PARENT_WIDTH - frame.minX
+            }
+            frame.size = CGSize(width: width, height: frame.height)
+            self._name.frame = frame
+        } else {
+            let size = value.widthOfString(usingFont: _value.font)
+            frame.size = CGSize(
+                width: self.frame.width - _leftImg.frame.maxX - size - 4 * GlobalConst.MARGIN,
+                height: frame.height)
         }
+        //++ BUG0055-SPJ (NguyenPT 20170411) Handle view full name field
+//        var width = size!
+//        if frame.minX + width >= ConfigurationTableViewCell.PARENT_WIDTH {
+//            width = ConfigurationTableViewCell.PARENT_WIDTH - frame.minX
+//        }
 //        frame.size = CGSize(width: size!, height: frame.height)
-        frame.size = CGSize(width: width, height: frame.height)
+//        frame.size = CGSize(width: width, height: frame.height)
         //-- BUG0055-SPJ (NguyenPT 20170411) Handle view full name field
+        //-- BUG0088-SPJ (NguyenPT 20170516) Can change gas material
         self._name.frame = frame
         
         
@@ -154,11 +174,15 @@ open class ConfigurationTableViewCell: UITableViewCell {
      * Set data for cell, with data is Configuration model
      * - parameter data: ConfigurationModel
      */
-    public func setData(data: ConfigurationModel) {
+    //++ BUG0088-SPJ (NguyenPT 20170516) Can change gas material
+    //public func setData(data: ConfigurationModel) {
+    public func setData(data: ConfigurationModel, isShowFullValue: Bool = false) {
+    //-- BUG0088-SPJ (NguyenPT 20170516) Can change gas material
         self.setData(leftImg: data.getIconPath(),
                      name: data.name,
                      value: data.getValue(),
-                     isHideRightImg: true)
+                     isHideRightImg: true,
+                     isShowFullValue: isShowFullValue)
         let contentHeight = self.frame.height - 2 * GlobalConst.MARGIN_CELL_X
         _leftImg.frame = CGRect(x: GlobalConst.MARGIN + contentHeight / 4,
                                 y: GlobalConst.MARGIN_CELL_X + contentHeight / 4,
@@ -169,11 +193,22 @@ open class ConfigurationTableViewCell: UITableViewCell {
                                 height: contentHeight / 3 * 2)
                                 //-- BUG0056-SPJ (NguyenPT 20170411) Increase size of icon
         _leftImg.contentMode = .scaleAspectFit
-        let size = _name.text?.widthOfString(usingFont: _name.font)
-        _value.frame = CGRect(x: _leftImg.frame.maxX + GlobalConst.MARGIN + contentHeight / 4 + size!,
-                              y: GlobalConst.MARGIN_CELL_X,
-                              width: ConfigurationTableViewCell.PARENT_WIDTH - 4 * GlobalConst.MARGIN - _leftImg.frame.width - GlobalConst.CONFIGURATION_ITEM_RIGHT_SIZE - size!,
-                              height: contentHeight)
+        //++ BUG0088-SPJ (NguyenPT 20170516) Can change gas material
+        if !isShowFullValue {
+            let size = _name.text?.widthOfString(usingFont: _name.font)
+            _value.frame = CGRect(x: _leftImg.frame.maxX + GlobalConst.MARGIN + contentHeight / 4 + size!,
+                                  y: GlobalConst.MARGIN_CELL_X,
+                                  width: ConfigurationTableViewCell.PARENT_WIDTH - 4 * GlobalConst.MARGIN - _leftImg.frame.width -
+                                    GlobalConst.CONFIGURATION_ITEM_RIGHT_SIZE - size!,
+                                  height: contentHeight)
+        }
+//        let size = _name.text?.widthOfString(usingFont: _name.font)
+//        _value.frame = CGRect(x: _leftImg.frame.maxX + GlobalConst.MARGIN + contentHeight / 4 + size!,
+//                              y: GlobalConst.MARGIN_CELL_X,
+//                              width: ConfigurationTableViewCell.PARENT_WIDTH - 4 * GlobalConst.MARGIN - _leftImg.frame.width -
+//                                GlobalConst.CONFIGURATION_ITEM_RIGHT_SIZE - size!,
+//                              height: contentHeight)
+        //-- BUG0088-SPJ (NguyenPT 20170516) Can change gas material
         //++ BUG0054-SPJ (NguyenPT 20170411) Add new function G07
         if data.getValue().isEmpty {
             // If value is empty -> Set Name field is word wrap
@@ -184,6 +219,12 @@ open class ConfigurationTableViewCell: UITableViewCell {
             _name.lineBreakMode = .byTruncatingTail
         }
         //-- BUG0054-SPJ (NguyenPT 20170411) Add new function G07
+        //++ BUG0088-SPJ (NguyenPT 20170516) Can change gas material
+        if isShowFullValue {
+            _name.lineBreakMode = .byWordWrapping
+            _name.numberOfLines = 0
+        }
+        //-- BUG0088-SPJ (NguyenPT 20170516) Can change gas material
     }
     
     /**
