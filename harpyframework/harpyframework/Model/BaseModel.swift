@@ -923,6 +923,21 @@ public class BaseModel: NSObject {
         return [MaterialBean]()
     }
     //-- BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Get new data
+    //++ BUG0088-SPJ (NguyenPT 20170516) Can change gas material in Order Family detail screen
+    /**
+     * Get List gas material by agent id
+     * - parameter agentId: Id of agent
+     * - returns: List gas material match with agent id in order config data
+     */
+    public func getAgentMaterialGas(agentId: String) -> [MaterialBean] {
+        for item in self._orderConfig.agent {
+            if item.info_agent.agent_id == agentId {
+                return item.info_gas
+            }
+        }
+        return [MaterialBean]()
+    }
+    //-- BUG0088-SPJ (NguyenPT 20170516) Can change gas material in Order Family detail screen
     
     /**
      * Get main logo string
