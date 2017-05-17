@@ -618,6 +618,14 @@ public class DomainConst {
     /** Key Support type list */
     public static let KEY_LIST_SUPPORT_EMPLOYEE         = "list_support_employee"
     //-- BUG0079-SPJ (NguyenPT 20170509) Add order type and support type in Family order
+    //++ BUG0093-SPJ (NguyenPT 20170517) Add new key setting
+    /** Key lookup type */
+    public static let KEY_LOOKUP_TYPE                   = "lookup_type"
+    /** Key master lookup id */
+    public static let KEY_MASTER_LOOKUP_ID              = "master_lookup_id"
+    /** Key date input */
+    public static let KEY_DATE_INPUT                    = "date_input"
+    //-- BUG0093-SPJ (NguyenPT 20170517) Add new key setting
     
     
     // MARK: -----Specified constant-----
