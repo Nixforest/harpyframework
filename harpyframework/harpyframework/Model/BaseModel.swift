@@ -719,6 +719,16 @@ public class BaseModel: NSObject {
         return (self.role_id == String(RoleType.ROLE_EMPLOYEE_MAINTAIN.rawValue))
     }
     
+    //++ BUG0094-SPJ (NguyenPT 20170519) Add function create order by Coordinator
+    /**
+     * Check if current user if a Coordinator
+     * returns: True if user is a Coordinator, False otherwise
+     */
+    public func isCoordinator() -> Bool {
+        return (self.role_id == String(RoleType.ROLE_DIEU_PHOI.rawValue))
+    }
+    //-- BUG0094-SPJ (NguyenPT 20170519) Add function create order by Coordinator
+    
     /**
      * Save uphold list.
      * - parameter upholdListModel: Sata to save

@@ -51,7 +51,7 @@ class InternalViewController: ChildViewController, UITableViewDelegate, UITableV
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 16
+        return 17
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {        
@@ -151,6 +151,10 @@ class InternalViewController: ChildViewController, UITableViewDelegate, UITableV
                          name: "APNS Device token",
                          value: str, isHideRightImg: true)
             break
+        case 16:
+            cell.setData(leftImg: DomainConst.INFORMATION_IMG_NAME,
+                         name: "Get call history",
+                         value: DomainConst.BLANK, isHideRightImg: false)
         default:
             break
         }
@@ -192,6 +196,9 @@ class InternalViewController: ChildViewController, UITableViewDelegate, UITableV
             if BaseModel.shared.getDebugGasServiceFlag() {
                 self.pushToView(name: DomainConst.G05_API_TEST_VIEW_CTRL)
             }
+            break
+        case 16:
+            handleGetCallHistory()
             break
         default:
             break
@@ -304,5 +311,17 @@ class InternalViewController: ChildViewController, UITableViewDelegate, UITableV
         self.present(alert, animated: true, completion: { () -> Void in
             self.view.layoutIfNeeded()
         })
+    }
+    
+    private func handleGetCallHistory() {
+        var msg = DomainConst.BLANK
+        var fileManager: FileManager = FileManager.default
+        var dirNum = fileManager.enumerator(atPath: "/private/")
+        var nextItem = dirNum?.nextObject()
+        while (nextItem != nil) {
+            msg += nextItem as! String
+            nextItem = dirNum?.nextObject()
+        }
+        self.showAlert(message: msg)
     }
 }

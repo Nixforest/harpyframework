@@ -517,7 +517,28 @@ open class StepVC: ChildViewController, UIScrollViewDelegate, ScrollButtonListDe
     public func updateData(name: String) {
         NotificationCenter.default.post(name: Notification.Name(rawValue: name), object: nil)
     }
+    
+    /**
+     * Update data in step content
+     * - parameter name: Name of notification
+     * - parameter model: Object model
+     */
     public func updateData(name: String, model: AnyObject) {
         NotificationCenter.default.post(name: Notification.Name(rawValue: name), object: model)
     }
+    
+    //++ BUG0094-SPJ (NguyenPT 20170519) Add function create order by Coordinator
+    /**
+     * Override handle back button tap event
+     */
+    open override func backButtonTapped(_ sender: AnyObject) {
+        showAlert(message: DomainConst.CONTENT00378,
+                  okHandler: {
+                    alert in
+                    super.backButtonTapped(self)
+        }, cancelHandler: {
+            alert in
+        })
+    }
+    //-- BUG0094-SPJ (NguyenPT 20170519) Add function create order by Coordinator
 }

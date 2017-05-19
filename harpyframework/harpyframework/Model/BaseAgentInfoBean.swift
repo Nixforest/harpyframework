@@ -41,6 +41,10 @@ public class BaseAgentInfoBean: NSObject {
         self.agent_latitude         = getString(json: jsonData, key: DomainConst.KEY_AGENT_LAT)
         self.agent_longitude        = getString(json: jsonData, key: DomainConst.KEY_AGENT_LONG)
     }
+    
+    /**
+     * Default initializer
+     */
     public override init() {
         
     }
@@ -52,4 +56,14 @@ public class BaseAgentInfoBean: NSObject {
     public func isEmpty() -> Bool {
         return self.agent_id == DomainConst.BLANK
     }
+    
+    //++ BUG0094-SPJ (NguyenPT 20170519) Add function create order by Coordinator
+    /**
+     * Initializer by id
+     * - parameter id: Id of object
+     */
+    public init(id: String) {
+        self.agent_id = id
+    }
+    //-- BUG0094-SPJ (NguyenPT 20170519) Add function create order by Coordinator
 }

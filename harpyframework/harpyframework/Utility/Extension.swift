@@ -693,6 +693,23 @@ extension String {
         return substring(with: startIndex..<endIndex)
     }
     //-- BUG0050-SPJ (NguyenPT 20170405) Add new function G06
+    //++ BUG0094-SPJ (NguyenPT 20170519) Add function create order by Coordinator
+    /** Check if string is empty or white space */
+    public var isBlank: Bool {
+        get {
+            let trimmed = trimmingCharacters(in: CharacterSet.whitespaces)
+            return trimmed.isEmpty
+        }
+    }
+    
+    /**
+     * Check if string is phone number
+     * returns: True if string is phone number, False otherwise
+     */
+    public func isPhoneNumber() -> Bool {
+        return !isEmpty && range(of: "[^0-9]", options: .regularExpression) == nil
+    }
+    //-- BUG0094-SPJ (NguyenPT 20170519) Add function create order by Coordinator
 }
 
 public extension NSObject {    

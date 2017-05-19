@@ -132,4 +132,14 @@ open class StepContent: UIView {
     public func getTitleHeight() -> CGFloat {
         return self._lblTitle.frame.height
     }
+    
+    //++ BUG0094-SPJ (NguyenPT 20170519) Add function create order by Coordinator
+    /**
+     * Get scroll view
+     * - returns: Scrollview
+     */
+    public func getScrollView() -> UIScrollView {
+        return self._scrollView
+    }
+    //-- BUG0094-SPJ (NguyenPT 20170519) Add function create order by Coordinator
 }

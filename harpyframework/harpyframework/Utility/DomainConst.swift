@@ -113,6 +113,12 @@ public class DomainConst {
     public static let KEY_CUSTOMER_NAME                 = "customer_name"
     /** Customer Address */
     public static let KEY_CUSTOMER_ADDRESS              = "customer_address"
+    /** Customer Agent */
+    public static let KEY_CUSTOMER_AGENT                = "customer_agent"
+    /** Customer Agent */
+    public static let KEY_CUSTOMER_AGENT_DELIVERY       = "customer_delivery_agent"
+    /** Customer Agent */
+    public static let KEY_CUSTOMER_AGENT_DELIVERY_ID    = "customer_delivery_agent_id"
     /** Customer Phone */
     public static let KEY_CUSTOMER_PHONE                = "customer_phone"
     /** Customer contact */
@@ -205,6 +211,10 @@ public class DomainConst {
     public static let KEY_HOURS_HANDLE                  = "hours_handle"
     /** Contact phone */
     public static let KEY_CONTACT_PHONE                 = "contact_phone"
+    /** Contact */
+    public static let KEY_CONTACT                       = "contact"
+    /** Contact note */
+    public static let KEY_CONTACT_NOTE                  = "contact_note"
     /** Note */
     public static let KEY_NOTE                          = "note"
     /** Report wrong */
@@ -458,6 +468,10 @@ public class DomainConst {
     public static let KEY_CREATED_BY                    = "created_by"
     /** Sale name */
     public static let KEY_SALE_NAME                     = "sale_name"
+    /** Sale phone */
+    public static let KEY_SALE_PHONE                    = "sale_phone"
+    /** Sale type */
+    public static let KEY_SALE_TYPE                     = "sale_type"
     /** Schedule month */
     public static let KEY_SCHEDULE_MONTH                = "schedule_month"
     /** Last reply message */
@@ -623,6 +637,8 @@ public class DomainConst {
     public static let KEY_LOOKUP_TYPE                   = "lookup_type"
     /** Key master lookup id */
     public static let KEY_MASTER_LOOKUP_ID              = "master_lookup_id"
+    /** Key master lookup text */
+    public static let KEY_MASTER_LOOKUP_TEXT            = "master_lookup_text"
     /** Key date input */
     public static let KEY_DATE_INPUT                    = "date_input"
     //-- BUG0093-SPJ (NguyenPT 20170517) Add new key setting
@@ -972,6 +988,12 @@ public class DomainConst {
     /** Order Code prefix */
     public static let ORDER_CODE_PREFIX                 = "#"
     //-- BUG0060-SPJ (NguyenPT 20170421) Add new constant for Order status
+    //++ BUG0093-SPJ (NguyenPT 20170518) Type of cash book
+    /** Cashbook type: List */
+    public static let CASHBOOK_TYPE_LIST                = DomainConst.NUMBER_ONE_VALUE
+    /** Cashbook type: Schedule */
+    public static let CASHBOOK_TYPE_SCHEDULE            = DomainConst.NUMBER_TWO_VALUE
+    //-- BUG0093-SPJ (NguyenPT 20170518) Type of cash book
 
     /** -----Log message----- */
     /** Log tag: error. */
@@ -1718,4 +1740,11 @@ public class DomainConst {
     public static let CONTENT00369 = "Mật khẩu mới phải khác mật khẩu cũ!"
     public static let CONTENT00370 = "Loại hỗ trợ"
     public static let CONTENT00371 = "Loại bán hàng"
+    public static let CONTENT00372 = "Thu"
+    public static let CONTENT00373 = "Chi"
+    public static let CONTENT00374 = "Xin vui lòng chọn khách hàng"
+    public static let CONTENT00375 = "Bạn đang gửi thông tin Đơn hàng Bò/Mối như bên dưới. Xin hãy kiểm tra lại các thông tin cho thật chính xác và nhấn nút Gửi nếu bạn đồng ý."
+    public static let CONTENT00376 = "Tạo đơn hàng"
+    public static let CONTENT00377 = "Xin vui lòng chọn Đại lý giao hàng"
+    public static let CONTENT00378 = "Bạn có muốn thoát ra không?"
 }
