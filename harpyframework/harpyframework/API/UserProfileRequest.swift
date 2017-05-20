@@ -34,6 +34,9 @@ public class UserProfileRequest: BaseRequest {
                 DispatchQueue.main.async {
                     //NotificationCenter.default.post(name: Notification.Name(rawValue: DomainConst.NOTIFY_NAME_SET_DATA_ACCOUNTVIEW), object: nil)
                     NotificationCenter.default.post(name: Notification.Name(rawValue: self.theClassName), object: nil)
+                    // Remove observer
+                    NotificationCenter.default.removeObserver(self.view, name: Notification.Name(rawValue: self.theClassName), object: nil)
+                    
                 }
             } else {
                 self.showAlert(message: model.message)

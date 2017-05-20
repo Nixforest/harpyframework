@@ -415,6 +415,8 @@ public class DomainConst {
     public static let KEY_AGENT_LAT                     = "agent_latitude"
     /** Setting key: Agent longitude */
     public static let KEY_AGENT_LONG                    = "agent_longitude"
+    /** Setting key: Agent list */
+    public static let KEY_AGENT_LIST                    = "agent_list"
     /** Setting key: Information of agent */
     public static let KEY_INFO_AGENT                    = "info_agent"
     /** Setting key: Information of gas */
@@ -1747,4 +1749,13 @@ public class DomainConst {
     public static let CONTENT00376 = "Tạo đơn hàng"
     public static let CONTENT00377 = "Xin vui lòng chọn Đại lý giao hàng"
     public static let CONTENT00378 = "Bạn có muốn thoát ra không?"
+    public static let CONTENT00379 = "Bình gas 50Kg"
+    public static let CONTENT00380 = "Bình gas 45Kg"
+    public static let CONTENT00381 = "Bình gas 12Kg"
+    public static let CONTENT00382 = "Bình gas 6Kg"
+    public static let CONTENT00383 = "Số điện thoại mới"
+    public static let CONTENT00384 = "Bình 50kg"
+    public static let CONTENT00385 = "Bình 45kg"
+    public static let CONTENT00386 = "Bình 12kg"
+    public static let CONTENT00387 = "Bình 6kg"
 }
