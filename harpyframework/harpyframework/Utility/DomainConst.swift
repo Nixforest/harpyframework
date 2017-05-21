@@ -643,6 +643,8 @@ public class DomainConst {
     public static let KEY_MASTER_LOOKUP_TEXT            = "master_lookup_text"
     /** Key date input */
     public static let KEY_DATE_INPUT                    = "date_input"
+    /** Key lookup type text */
+    public static let KEY_LOOKUP_TYPE_TEXT              = "lookup_type_text"
     //-- BUG0093-SPJ (NguyenPT 20170517) Add new key setting
     
     
@@ -1140,6 +1142,9 @@ public class DomainConst {
     //++ BUG0073-SPJ (NguyenPT 20170503) Add new function G08
     public static let G08_F00_S01_VC                                = "G08F00S01VC"
     //-- BUG0073-SPJ (NguyenPT 20170503) Add new function G08
+    //++ BUG0093-SPJ (NguyenPT 20170520) Add new function G09
+    public static let G09_F00_S01_VC                                = "G09F00S01VC"
+    //-- BUG0093-SPJ (NguyenPT 20170520) Add new function G09
     
     /** Pop overmenu identifier */
     public static let POPOVER_MENU_IDENTIFIER                       = "popOverMenu"
@@ -1385,6 +1390,9 @@ public class DomainConst {
     public static let RELOAD_IMG_NAME                       = "reload-1.png"
     /** Default image */
     public static let DEFAULT_IMG_NAME                      = "default-thumbnail.jpg"
+    /** Edit image icon */
+    public static let EDIT_ICON_IMG_NAME                    = "icon79.png"
+    
     /** HTTP Post request method */
     public static let HTTP_POST_REQUEST                     = "POST"
     
@@ -1758,4 +1766,12 @@ public class DomainConst {
     public static let CONTENT00385 = "Bình 45kg"
     public static let CONTENT00386 = "Bình 12kg"
     public static let CONTENT00387 = "Bình 6kg"
+    public static let CONTENT00388 = "Quỹ tiền mặt"
+    public static let CONTENT00389 = "Bạn đang gửi thông tin Thu-Chi như bên dưới. Xin hãy kiểm tra lại các thông tin cho thật chính xác và nhấn nút Gửi nếu bạn đồng ý."
+    public static let CONTENT00390 = "Tạo Thu chi"
+    public static let CONTENT00391 = "Xin vui lòng chọn đối tượng để tạo Thu chi"
+    public static let CONTENT00392 = "Loại Thu chi"
+    public static let CONTENT00393 = "Xin vui lòng chọn số điện thoại"
+    public static let CONTENT00394 = "Số tiền"
+    public static let CONTENT00395 = "Xin vui lòng nhập Số tiền"
 }

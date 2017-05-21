@@ -101,4 +101,26 @@ public class CacheDataModel: NSObject {
     public func getAllMaterials() -> [OrderDetailBean] {
         return self._listAllMaterials
     }
+    
+    /**
+     * Get list cashbook types
+     * - returns: List store card types
+     */
+    public func getListCashBookType() -> [ConfigBean] {
+        return _listCashBook
+    }
+    
+    /**
+     * Get cashbook type by id
+     * - parameter id: Id of cashbook type
+     * - returns: Name of cashbook type
+     */
+    public func getCashBookTypeById(id: String) -> String {
+        for item in _listCashBook {
+            if item.id == id {
+                return item.name
+            }
+        }
+        return DomainConst.BLANK
+    }
 }

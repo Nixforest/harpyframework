@@ -512,11 +512,11 @@ public class BaseModel: NSObject {
         defaults.synchronize()
         
         // Handle display color when training mode is on
-        if BaseModel.shared.checkTrainningMode() {
-            GlobalConst.BUTTON_COLOR_RED = GlobalConst.TRAINING_COLOR
-        } else {    // Training mode off
-            GlobalConst.BUTTON_COLOR_RED = GlobalConst.MAIN_COLOR
-        }
+//        if BaseModel.shared.checkTrainningMode() {
+//            GlobalConst.BUTTON_COLOR_RED = GlobalConst.TRAINING_COLOR
+//        } else {    // Training mode off
+//            GlobalConst.BUTTON_COLOR_RED = GlobalConst.MAIN_COLOR
+//        }
     }
     
     /**

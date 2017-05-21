@@ -140,7 +140,10 @@ open class TableCellOrderType: UITableViewCell {
                                         y: GlobalConst.CELL_HEIGHT_SHOW / 40,
                                         width: GlobalConst.CELL_HEIGHT_SHOW / 5,
                                         height: GlobalConst.CELL_HEIGHT_SHOW / 5)
-        self.addressIcon.image = ImageManager.getImage(named: DomainConst.HUMAN_ICON_IMG_NAME)
+        //++ BUG0095-SPJ (NguyenPT 20170520) Fix Bug show human icon in VIP order
+        //self.addressIcon.image = ImageManager.getImage(named: DomainConst.HUMAN_ICON_IMG_NAME)
+        self.addressIcon.image = ImageManager.getImage(named: DomainConst.ADDRESS_ICON_IMG_NAME)
+        //-- BUG0095-SPJ (NguyenPT 20170520) Fix Bug show human icon in VIP order
         self.addressIcon.contentMode = .scaleAspectFit
         // Address label
         self.addressLabel.frame = CGRect(x: self.addressIcon.frame.maxX,

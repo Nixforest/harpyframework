@@ -527,7 +527,7 @@ open class StepVC: ChildViewController, UIScrollViewDelegate, ScrollButtonListDe
         NotificationCenter.default.post(name: Notification.Name(rawValue: name), object: model)
     }
     
-    //++ BUG0094-SPJ (NguyenPT 20170519) Add function create order by Coordinator
+    //++ BUG0090-SPJ (NguyenPT 20170519) Show confirm alert when back from create screen
     /**
      * Override handle back button tap event
      */
@@ -540,5 +540,5 @@ open class StepVC: ChildViewController, UIScrollViewDelegate, ScrollButtonListDe
             alert in
         })
     }
-    //-- BUG0094-SPJ (NguyenPT 20170519) Add function create order by Coordinator
+    //-- BUG0090-SPJ (NguyenPT 20170519) Show confirm alert when back from create screen
 }

@@ -14,7 +14,7 @@ public class SearchCustomerRespModel: BaseRespModel {
     /**
      * Initializer
      */
-    override init(jsonString: String) {
+    override public init(jsonString: String) {
         // Call super initializer
         super.init(jsonString: jsonString)
         

@@ -29,8 +29,14 @@ open class CustomeDateTimeView: UIView {
      * - parameter y: Y position
      * - parameter w: Width value
      * - parameter h: Height value
+     * - parameter type: Type of control
+     *                   Blank: Show both time and date (Default value)
+     *                   "1":   Show only date
      */
-    open func setup(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat) {
+    //++ BUG0093-SPJ (NguyenPT 20170520) Update only show date
+    //open func setup(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat) {
+    open func setup(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat, type: String = DomainConst.BLANK) {
+    //-- BUG0093-SPJ (NguyenPT 20170520) Update only show date
         self.frame = CGRect(x: x, y: y, width: w, height: h)
         // Time label
         self.timeLabel.frame = CGRect(x: GlobalConst.MARGIN_CELL_X,
@@ -39,23 +45,43 @@ open class CustomeDateTimeView: UIView {
                                       height: h / 2)
         self.timeLabel.font = UIFont.boldSystemFont(ofSize: GlobalConst.BIG_FONT_SIZE)
         self.timeLabel.text = DomainConst.BLANK
+        //++ BUG0093-SPJ (NguyenPT 20170520) Update only show date
+        var offset: CGFloat = 0.0
+        offset = self.timeLabel.frame.maxY + GlobalConst.MARGIN_CELL_Y
+        if type == DomainConst.NUMBER_ONE_VALUE {
+            self.timeLabel.isHidden = true
+            offset = GlobalConst.MARGIN_CELL_X * 2
+        }
+        //-- BUG0093-SPJ (NguyenPT 20170520) Update only show date
         // Date icon
         self.dateIcon.frame = CGRect(x: GlobalConst.MARGIN_CELL_X,
-                                     y: self.timeLabel.frame.maxY + GlobalConst.MARGIN_CELL_Y,
+                                     //++ BUG0093-SPJ (NguyenPT 20170520) Update only show date
+                                     //y: self.timeLabel.frame.maxY + GlobalConst.MARGIN_CELL_Y,
+                                     y: offset,
+                                     //-- BUG0093-SPJ (NguyenPT 20170520) Update only show date
                                      width: GlobalConst.CELL_HEIGHT_SHOW / 5,
                                      height: GlobalConst.CELL_HEIGHT_SHOW / 5)
         self.dateIcon.image = ImageManager.getImage(named: DomainConst.DATETIME_ICON_IMG_NAME)
         // Date label
         self.dateLabel.frame = CGRect(x: self.dateIcon.frame.maxX,
-                                      y: self.timeLabel.frame.maxY,
+                                      //++ BUG0093-SPJ (NguyenPT 20170520) Update only show date
+                                      //y: self.timeLabel.frame.maxY,
+                                      y: offset,
+                                      //-- BUG0093-SPJ (NguyenPT 20170520) Update only show date
                                       width: w,
                                       height: self.dateIcon.frame.height)
         self.dateLabel.font = UIFont.systemFont(ofSize: GlobalConst.SMALL_FONT_SIZE)
+        //++ BUG0093-SPJ (NguyenPT 20170520) Update only show date
+        if type == DomainConst.NUMBER_ONE_VALUE {
+            self.dateLabel.font = UIFont.systemFont(ofSize: GlobalConst.NORMAL_FONT_SIZE_1)
+        }
+        //-- BUG0093-SPJ (NguyenPT 20170520) Update only show date
         self.dateLabel.textColor = GlobalConst.TEXT_COLOR_GRAY
         self.dateLabel.text = DomainConst.BLANK
         self.addSubview(self.timeLabel)
         self.addSubview(self.dateIcon)
         self.addSubview(self.dateLabel)
+        self.makeComponentsColor()
     }
     /**
      * Set value for control

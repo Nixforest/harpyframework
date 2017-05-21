@@ -347,6 +347,7 @@ open class BaseMenuViewController : UIViewController {
             currentView.pushToViewAndClearData(name: DomainConst.G08_F00_S01_VC)
             break
         case DomainConst.KEY_MENU_CASH_BOOK_LIST:
+            currentView.pushToViewAndClearData(name: DomainConst.G09_F00_S01_VC)
             break
         case DomainConst.KEY_MENU_CASH_BOOK_SCHEDULE:
             break

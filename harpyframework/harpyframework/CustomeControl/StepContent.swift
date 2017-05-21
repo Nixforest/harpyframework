@@ -142,4 +142,13 @@ open class StepContent: UIView {
         return self._scrollView
     }
     //-- BUG0094-SPJ (NguyenPT 20170519) Add function create order by Coordinator
+    //++ BUG0093-SPJ (NguyenPT 20170520) Add new function G09
+    /**
+     * Set title for this step
+     * - parameter title: Tile value
+     */
+    public func setTitle(title: String) {
+        _lblTitle.text = title
+    }
+    //-- BUG0093-SPJ (NguyenPT 20170520) Add new function G09
 }

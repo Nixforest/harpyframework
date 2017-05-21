@@ -90,7 +90,7 @@ public class GlobalConst {
     //public static let MAIN_COLOR:                  = ColorFromRGB().getColorFromRGB(0xF00020)
     public static let MAIN_COLOR                    = ColorFromRGB().getColorFromRGB(0xFC4513)
     public static let BUTTON_COLOR_RED_TRUE         = ColorFromRGB().getColorFromRGB(0xF00020)
-    public static var TRAINING_COLOR                = MAIN_COLOR//ColorFromRGB().getColorFromRGB(0x08C011)
+    public static var TRAINING_COLOR                = ColorFromRGB().getColorFromRGB(0x08C011)
     //public static let TRAINING_COLOR              = ColorFromRGB().getColorFromRGB(0xF00020)
     public static var BUTTON_COLOR_RED              = MAIN_COLOR
     public static let BUTTON_COLOR_GRAY             = ColorFromRGB().getColorFromRGB(0xD5D5D5)
@@ -108,6 +108,9 @@ public class GlobalConst {
     public static let SCROLLBUTTONLIST_BTN_BKG_COLOR_DISABLE    = BUTTON_COLOR_GRAY
     public static let SCROLLBUTTONLIST_BTN_BKG_COLOR_SELECTING  = COLOR_SELECTING_GREEN
     public static let SCROLLBUTTONLIST_BTN_BKG_COLOR_ENABLE     = BUTTON_COLOR_GRAY
+    //++ BUG0093-SPJ (NguyenPT 20170520) Add new function G09
+    public static var MONEY_COLOR                   = ColorFromRGB().getColorFromRGB(0x4F852F)
+    //-- BUG0093-SPJ (NguyenPT 20170520) Add new function G09
     //++ BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
     /** Time interval for animation in Step view controller */
     public static let STEP_MOVE_TIME_INTERVAL       = 0.1

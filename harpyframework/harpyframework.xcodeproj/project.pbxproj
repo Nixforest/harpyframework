@@ -187,6 +187,7 @@
 		D7AB90551E2402170048AC4F /* StepContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AB90511E2402170048AC4F /* StepContent.swift */; };
 		D7AB90561E2402170048AC4F /* StepSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AB90521E2402170048AC4F /* StepSummary.swift */; };
 		D7AB90571E2402170048AC4F /* StepVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AB90531E2402170048AC4F /* StepVC.swift */; };
+		D7ADCBD01ED0497C00226523 /* icon79.png in Resources */ = {isa = PBXBuildFile; fileRef = D7ADCBCF1ED0497C00226523 /* icon79.png */; };
 		D7AF28001E58785500AFF9D6 /* OrderVIPListBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AF27FF1E58785500AFF9D6 /* OrderVIPListBean.swift */; };
 		D7AF280B1E58AF6000AFF9D6 /* icon65.png in Resources */ = {isa = PBXBuildFile; fileRef = D7AF280A1E58AF6000AFF9D6 /* icon65.png */; };
 		D7AF28101E58B8D600AFF9D6 /* icon66.png in Resources */ = {isa = PBXBuildFile; fileRef = D7AF280E1E58B8D600AFF9D6 /* icon66.png */; };
@@ -435,6 +436,7 @@
 		D7AB90511E2402170048AC4F /* StepContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StepContent.swift; path = CustomeControl/StepContent.swift; sourceTree = "<group>"; };
 		D7AB90521E2402170048AC4F /* StepSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StepSummary.swift; path = CustomeControl/StepSummary.swift; sourceTree = "<group>"; };
 		D7AB90531E2402170048AC4F /* StepVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StepVC.swift; path = CustomeControl/StepVC.swift; sourceTree = "<group>"; };
+		D7ADCBCF1ED0497C00226523 /* icon79.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon79.png; path = images/icon79.png; sourceTree = "<group>"; };
 		D7AF27FF1E58785500AFF9D6 /* OrderVIPListBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderVIPListBean.swift; path = Model/OrderVIPListBean.swift; sourceTree = "<group>"; };
 		D7AF280A1E58AF6000AFF9D6 /* icon65.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon65.png; path = images/icon65.png; sourceTree = "<group>"; };
 		D7AF280E1E58B8D600AFF9D6 /* icon66.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon66.png; path = images/icon66.png; sourceTree = "<group>"; };
@@ -720,12 +722,6 @@
 		D7F3D8D21E1B8BCC0018744F /* images */ = {
 			isa = PBXGroup;
 			children = (
-				D7D28B771EB9B8DD006DDF83 /* ic_menu_cash_book.png */,
-				D7D28B711EB9B800006DDF83 /* ic_menu_family.png */,
-				D7D28B721EB9B800006DDF83 /* ic_menu_report.png */,
-				D7D28B731EB9B800006DDF83 /* ic_menu_support.png */,
-				D7767C611EADAF4900D8FDA9 /* default-thumbnail.jpg */,
-				D74591321EA08F3C002C3AB3 /* reload-1.png */,
 				D75F64B81E28B39100A67B3C /* Account.jpeg */,
 				D75F64BA1E28B39100A67B3C /* back.png */,
 				D791F6791E234C89009CBBED /* bg_sliding_menu_body.jpg */,
@@ -737,6 +733,7 @@
 				D791F68F1E23688F009CBBED /* configuration.png */,
 				D78FB84B1E52EE3C00993A32 /* cong.png */,
 				D75F64BC1E28B39100A67B3C /* contact.png */,
+				D7767C611EADAF4900D8FDA9 /* default-thumbnail.jpg */,
 				D75F64BD1E28B39100A67B3C /* delete.png */,
 				D75F64BE1E28B39100A67B3C /* done.png */,
 				D706C2221E53F13700F89B8A /* gas24h_logo.png */,
@@ -744,10 +741,14 @@
 				D75F64C01E28B39100A67B3C /* gasservice.png */,
 				D7C30A411E306F7F00B3FDA6 /* ic_checkpoint.png */,
 				D75F64C11E28B39100A67B3C /* ic_custom_order_top.png */,
+				D7D28B771EB9B8DD006DDF83 /* ic_menu_cash_book.png */,
+				D7D28B711EB9B800006DDF83 /* ic_menu_family.png */,
 				D791F6811E2367F3009CBBED /* ic_menu_gift.png */,
 				D791F6821E2367F3009CBBED /* ic_menu_home.png */,
 				D791F6831E2367F3009CBBED /* ic_menu_profile.png */,
+				D7D28B721EB9B800006DDF83 /* ic_menu_report.png */,
 				D791F6841E2367F3009CBBED /* ic_menu_shoping_cart.png */,
+				D7D28B731EB9B800006DDF83 /* ic_menu_support.png */,
 				D78E326D1E571C980035C40D /* ic_number_back.png */,
 				D78E326E1E571C980035C40D /* ic_number_next.png */,
 				D75F64C21E28B39100A67B3C /* icon2.png */,
@@ -815,6 +816,7 @@
 				D7AF28141E58BAE400AFF9D6 /* icon70.png */,
 				D7C30A3F1E30628800B3FDA6 /* icon76.png */,
 				D7D04E361E55544900B3F8CF /* icon77.png */,
+				D7ADCBCF1ED0497C00226523 /* icon79.png */,
 				D708B1791E48315F0074C528 /* icon80.png */,
 				D778D6401E5D790D009FD654 /* icon81.png */,
 				D75F65101E28B3B100A67B3C /* information.png */,
@@ -838,6 +840,7 @@
 				D75F651F1E28B3BC00A67B3C /* rating.png */,
 				D791F6911E23688F009CBBED /* register.png */,
 				D75F65031E28B3A500A67B3C /* regMenu.png */,
+				D74591321EA08F3C002C3AB3 /* reload-1.png */,
 				D791F6871E2367F3009CBBED /* report.png */,
 				D7724F991E8935FF006ECEFA /* search.png */,
 				D75F65261E28B3C600A67B3C /* ServiceRating.jpeg */,
@@ -945,6 +948,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D75F64F51E28B39100A67B3C /* icon36-user.png in Resources */,
+				D7ADCBD01ED0497C00226523 /* icon79.png in Resources */,
 				D7E014AE1E348039001F26B6 /* MaterialSelectionCell.xib in Resources */,
 				D791F68B1E2367F3009CBBED /* ic_menu_shoping_cart.png in Resources */,
 				D7E9BF771E2C82F20068D200 /* icon11.png in Resources */,

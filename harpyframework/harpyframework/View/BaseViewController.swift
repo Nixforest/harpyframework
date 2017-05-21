@@ -275,7 +275,11 @@ open class BaseViewController : UIViewController {
         // Set title
         self.navigationBar.title = title
         // Set color text
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: GlobalConst.BUTTON_COLOR_RED]
+        if BaseModel.shared.isTrainningMode {
+            self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: GlobalConst.TRAINING_COLOR]
+        } else {
+            self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: GlobalConst.BUTTON_COLOR_RED]
+        }
     }
     
     /**

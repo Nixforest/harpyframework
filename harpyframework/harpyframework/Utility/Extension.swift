@@ -710,6 +710,41 @@ extension String {
         return !isEmpty && range(of: "[^0-9]", options: .regularExpression) == nil
     }
     //-- BUG0094-SPJ (NguyenPT 20170519) Add function create order by Coordinator
+    
+    //++ BUG0093-SPJ (NguyenPT 20170520) Add new function G09
+    /**
+     * Formatting text for currency textField
+     * - returns: String after formated
+     */
+    public func currencyInputFormatting() -> String {
+        var number: NSNumber!
+        let formatter                       = NumberFormatter()
+        formatter.numberStyle               = .currency
+        //formatter.currencySymbol = "$"
+        formatter.currencySymbol            = DomainConst.BLANK
+        formatter.maximumFractionDigits     = 0
+        formatter.minimumFractionDigits     = 0
+        
+        var amountWithPrefix = self
+        
+        // Temove from String: "$", ".", ","
+        let regex = try! NSRegularExpression(pattern: "[^0-9]", options: .caseInsensitive)
+        amountWithPrefix = regex.stringByReplacingMatches(
+            in:      amountWithPrefix,
+            options: NSRegularExpression.MatchingOptions(rawValue: 0),
+            range:   NSMakeRange(0, self.characters.count),
+            withTemplate: "")
+        
+        let double = (amountWithPrefix as NSString).doubleValue
+        number = NSNumber(value: (double))
+        
+        // if first number is 0 or all numbers were deleted
+        guard number != 0 as NSNumber else {
+            return ""
+        }
+        
+        return formatter.string(from: number)!
+    }
 }
 
 public extension NSObject {    
