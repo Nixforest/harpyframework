@@ -1774,4 +1774,7 @@ public class DomainConst {
     public static let CONTENT00393 = "Xin vui lòng chọn số điện thoại"
     public static let CONTENT00394 = "Số tiền"
     public static let CONTENT00395 = "Xin vui lòng nhập Số tiền"
+    public static let CONTENT00396 = "Cập nhật Thẻ kho"
+    public static let CONTENT00397 = "Cập nhật Thu chi"
+    public static let CONTENT00398 = "Xin vui lòng chọn Loại Thu chi"
 }

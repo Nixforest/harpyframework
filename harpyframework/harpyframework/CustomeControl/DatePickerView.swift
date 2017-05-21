@@ -150,6 +150,14 @@ public class DatePickerView: UIView, UITextFieldDelegate {
     }
     
     /**
+     * Set value
+     * - parameter value: Value
+     */
+    public func setValue(value: String) {
+        _txtDate.text = value
+    }
+    
+    /**
      * Handle tap on Today button
      */
     internal func btnTodayTapped(_ sender: AnyObject) {
