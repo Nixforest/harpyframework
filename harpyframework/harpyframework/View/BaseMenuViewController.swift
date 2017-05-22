@@ -304,10 +304,10 @@ open class BaseMenuViewController : UIViewController {
             currentView.pushToViewAndClearData(name: DomainConst.G01_F00_S01_VIEW_CTRL)
             break
         case DomainConst.ISSUE_LIST:                        // Issue list
-            currentView.showAlert(message: DomainConst.CONTENT00197)
+            currentView.showAlert(message: DomainConst.CONTENT00362)
             break
         case DomainConst.MESSAGE:                           // Message
-            currentView.showAlert(message: DomainConst.CONTENT00197)
+            currentView.showAlert(message: DomainConst.CONTENT00362)
             break
         case DomainConst.CUSTOMER_LIST:                     // Customer list
             //currentView.showAlert(message: DomainConst.CONTENT00197)
@@ -347,16 +347,22 @@ open class BaseMenuViewController : UIViewController {
             currentView.pushToViewAndClearData(name: DomainConst.G08_F00_S01_VC)
             break
         case DomainConst.KEY_MENU_CASH_BOOK_LIST:
+            BaseModel.shared.sharedString = DomainConst.CASHBOOK_TYPE_LIST
             currentView.pushToViewAndClearData(name: DomainConst.G09_F00_S01_VC)
             break
         case DomainConst.KEY_MENU_CASH_BOOK_SCHEDULE:
+            BaseModel.shared.sharedString = DomainConst.CASHBOOK_TYPE_SCHEDULE
+            currentView.pushToViewAndClearData(name: DomainConst.G09_F00_S03_VC)
             break
         case DomainConst.KEY_MENU_FAMILY_UPHOLD_LIST:
+            currentView.showAlert(message: DomainConst.CONTENT00362)
             break
         case DomainConst.KEY_MENU_REPORT_LIST:
+            currentView.showAlert(message: DomainConst.CONTENT00362)
             break
         //-- BUG0073-SPJ (NguyenPT 20170503) Add new function G08
         default:
+            currentView.showAlert(message: DomainConst.CONTENT00362)
             break
         }
         }

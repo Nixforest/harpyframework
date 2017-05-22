@@ -1146,6 +1146,7 @@ public class DomainConst {
     //-- BUG0073-SPJ (NguyenPT 20170503) Add new function G08
     //++ BUG0093-SPJ (NguyenPT 20170520) Add new function G09
     public static let G09_F00_S01_VC                                = "G09F00S01VC"
+    public static let G09_F00_S03_VC                                = "G09F00S03VC"
     //-- BUG0093-SPJ (NguyenPT 20170520) Add new function G09
     
     /** Pop overmenu identifier */
@@ -1780,4 +1781,7 @@ public class DomainConst {
     public static let CONTENT00397 = "Cập nhật Thu chi"
     public static let CONTENT00398 = "Xin vui lòng chọn Loại Thu chi"
     public static let CONTENT00399 = "Chi tiết Thu chi"
+    public static let CONTENT00400 = "Lịch thu tiền"
+    public static let CONTENT00401 = "Chọn thao tác"
+    public static let CONTENT00402 = "Tạo Ticket"
 }
