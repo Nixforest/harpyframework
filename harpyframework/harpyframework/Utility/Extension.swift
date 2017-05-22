@@ -57,7 +57,7 @@ public class UpholdImageInfoItem: NSObject {
      * Initializer
      * - parameter jsonData: List of data
      */
-    init(jsonData: [String: AnyObject]) {
+    public init(jsonData: [String: AnyObject]) {
         self.thumb       = jsonData[DomainConst.KEY_IMG_THUMB] as? String ?? ""
         self.large       = jsonData[DomainConst.KEY_IMG_LARGE] as? String ?? ""
     }

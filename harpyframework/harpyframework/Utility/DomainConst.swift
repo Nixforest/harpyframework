@@ -645,6 +645,8 @@ public class DomainConst {
     public static let KEY_DATE_INPUT                    = "date_input"
     /** Key lookup type text */
     public static let KEY_LOOKUP_TYPE_TEXT              = "lookup_type_text"
+    /** Key list images */
+    public static let KEY_LIST_IMAGE                    = "list_image"
     //-- BUG0093-SPJ (NguyenPT 20170517) Add new key setting
     
     
@@ -1777,4 +1779,5 @@ public class DomainConst {
     public static let CONTENT00396 = "Cập nhật Thẻ kho"
     public static let CONTENT00397 = "Cập nhật Thu chi"
     public static let CONTENT00398 = "Xin vui lòng chọn Loại Thu chi"
+    public static let CONTENT00399 = "Chi tiết Thu chi"
 }
