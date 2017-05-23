@@ -909,6 +909,18 @@ public extension UIView {
         self.layer.borderColor = ColorFromRGB().getRandomColor().cgColor
         self.layer.borderWidth = 1
     }
+    
+    /** Get parent view controller in UITableViewCell */
+    public var parentViewController: UIViewController? {
+        var parentResponder: UIResponder? = self
+        while parentResponder != nil {
+            parentResponder = parentResponder!.next
+            if parentResponder is UIViewController {
+                return parentResponder as! UIViewController!
+            }
+        }
+        return nil
+    }
 }
 
 //++ BUG0048-SPJ (NguyenPT 20170309) Get root view controller
