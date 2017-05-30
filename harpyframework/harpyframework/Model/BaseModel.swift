@@ -218,13 +218,19 @@ public class BaseModel: NSObject {
      */
     public func setOrderVipDescription(b50: String, b45: String, b12: String,
                              b6: String,
+                             //++ BUG0086-SPJ (NguyenPT 20170530) Add phone
+                             customerPhone: String,
+                             //-- BUG0086-SPJ (NguyenPT 20170530) Add phone
                              note: String) {
         self._orderVipDescription = String.init(
-            format: "%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@",
+            format: "%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@%@",
             DomainConst.KEY_B50, DomainConst.SPLITER_TYPE1, b50,
             DomainConst.SPLITER_TYPE2, DomainConst.KEY_B45, DomainConst.SPLITER_TYPE1, b45,
             DomainConst.SPLITER_TYPE2, DomainConst.KEY_B12, DomainConst.SPLITER_TYPE1, b12,
             DomainConst.SPLITER_TYPE2, DomainConst.KEY_B6, DomainConst.SPLITER_TYPE1, b6,
+            //++ BUG0086-SPJ (NguyenPT 20170530) Add phone
+            DomainConst.SPLITER_TYPE2, DomainConst.KEY_CUSTOMER_CONTACT, DomainConst.SPLITER_TYPE1, customerPhone,
+            //-- BUG0086-SPJ (NguyenPT 20170530) Add phone
             DomainConst.SPLITER_TYPE2, DomainConst.KEY_NOTE, DomainConst.SPLITER_TYPE1, note)
         defaults.set(self._orderVipDescription, forKey: DomainConst.KEY_SETTING_ORDER_VIP_DESCRIPTION)
         defaults.synchronize()
@@ -234,10 +240,10 @@ public class BaseModel: NSObject {
      * Get Order vip information
      * - returns: Temp token value
      */
-    public func getOrderVipDescription() -> (String, String, String, String, String) {
+    public func getOrderVipDescription() -> (String, String, String, String, String, String) {
         var retVal = (DomainConst.NUMBER_ZERO_VALUE, DomainConst.NUMBER_ZERO_VALUE,
-                      DomainConst.NUMBER_ZERO_VALUE,
-                      DomainConst.NUMBER_ZERO_VALUE, DomainConst.BLANK)
+                      DomainConst.NUMBER_ZERO_VALUE, DomainConst.NUMBER_ZERO_VALUE,
+                      DomainConst.BLANK, DomainConst.BLANK)
         if self._orderVipDescription.range(of: DomainConst.SPLITER_TYPE2) != nil {
             let arrStr = self._orderVipDescription.components(separatedBy: DomainConst.SPLITER_TYPE2)
             for item in arrStr {
@@ -256,9 +262,13 @@ public class BaseModel: NSObject {
                     case DomainConst.KEY_B6:
                         retVal.3 = itemArrStr[1]
                         break
-                    case DomainConst.KEY_NOTE:
+                    //++ BUG0086-SPJ (NguyenPT 20170530) Add phone
+                    case DomainConst.KEY_CUSTOMER_CONTACT:
                         retVal.4 = itemArrStr[1]
                         break
+                    //-- BUG0086-SPJ (NguyenPT 20170530) Add phone
+                    case DomainConst.KEY_NOTE:
+                        retVal.5 = itemArrStr[1]
                     default:
                         break
                     }
