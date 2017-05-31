@@ -648,6 +648,38 @@ public class DomainConst {
     /** Key list images */
     public static let KEY_LIST_IMAGE                    = "list_image"
     //-- BUG0093-SPJ (NguyenPT 20170517) Add new key setting
+    //-- BUG0098-SPJ (NguyenPT 20170530) Add new key setting
+    /** Key begin quantity */
+    public static let KEY_BEGIN                         = "begin"
+    /** Key in quantity */
+    public static let KEY_IN                            = "in"
+    /** Key out quantity */
+    public static let KEY_OUT                           = "out"
+    /** Key end quantity */
+    public static let KEY_END                           = "end"
+    /** Key rows */
+    public static let KEY_ROWS                          = "rows"
+    /** Key allow_update_storecard_hgd */
+    public static let KEY_ALLOW_UPDATE_STORECARD_HGD    = "allow_update_storecard_hgd"
+    /** Key next_time_update_storecard_hgd */
+    public static let KEY_NEXT_UPDATE_STORECARD_HGD     = "next_time_update_storecard_hgd"
+    /** Setting key: discount */
+    public static let KEY_DISCOUNT                      = "discount"
+    /** Key amount of bu vo */
+    public static let KEY_BU_VO                         = "bu_vo"
+    /** Key amount of revenue */
+    public static let KEY_REVENUE                       = "revenue"
+    /** Key sum all */
+    public static let KEY_SUM_ALL                       = "sum_all"
+    /** Key sum order type */
+    public static let KEY_SUM_ORDER_TYPE                = "sum_order_type"
+    /** Key total revenue */
+    public static let KEY_TOTAL_REVENUE                 = "total_revenue"
+    /** Key opening balance */
+    public static let KEY_OPENING_BALANCE               = "opening_balance"
+    /** Key ending balance */
+    public static let KEY_ENDING_BALANCE                = "ending_balance"
+    //-- BUG0098-SPJ (NguyenPT 20170530) Add new key setting
     
     
     // MARK: -----Specified constant-----
