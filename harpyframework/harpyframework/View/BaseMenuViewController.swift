@@ -139,7 +139,7 @@ open class BaseMenuViewController : UIViewController {
                     iconPath = DomainConst.MENU_ITEM_MSG_IMG_NAME
                     break
                 case DomainConst.CUSTOMER_LIST:
-                    iconPath = DomainConst.MENU_ITEM_UPHOLD_LIST_IMG_NAME
+                    iconPath = DomainConst.FAMILY_ICON_IMG_NAME
                     break
                 case DomainConst.WORKING_REPORT:
                     iconPath = DomainConst.MENU_ITEM_WORKING_REPORT_IMG_NAME
@@ -171,7 +171,7 @@ open class BaseMenuViewController : UIViewController {
                     iconPath = DomainConst.MENU_ITEM_SUPPORT_IMG_NAME
                     break
                 case DomainConst.KEY_MENU_REPORT_LIST:
-                    iconPath = DomainConst.MENU_ITEM_REPORT_IMG_NAME
+                    iconPath = DomainConst.REPORT_SUM_ICON_IMG_NAME
                     break
                 //-- BUG0073-SPJ (NguyenPT 20170503) Add new function G08
                 default:
@@ -358,7 +358,8 @@ open class BaseMenuViewController : UIViewController {
             currentView.showAlert(message: DomainConst.CONTENT00362)
             break
         case DomainConst.KEY_MENU_REPORT_LIST:
-            currentView.showAlert(message: DomainConst.CONTENT00362)
+            //currentView.showAlert(message: DomainConst.CONTENT00362)
+            currentView.pushToViewAndClearData(name: DomainConst.G10_F00_S01_VC)
             break
         //-- BUG0073-SPJ (NguyenPT 20170503) Add new function G08
         default:

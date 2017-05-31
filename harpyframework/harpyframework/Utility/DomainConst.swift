@@ -1180,6 +1180,9 @@ public class DomainConst {
     public static let G09_F00_S01_VC                                = "G09F00S01VC"
     public static let G09_F00_S03_VC                                = "G09F00S03VC"
     //-- BUG0093-SPJ (NguyenPT 20170520) Add new function G09
+    //++ BUG0098-SPJ (NguyenPT 20170531) Add new function G10
+    public static let G10_F00_S01_VC                                = "G10F00S01VC"
+    //-- BUG0098-SPJ (NguyenPT 20170531) Add new function G10
     
     /** Pop overmenu identifier */
     public static let POPOVER_MENU_IDENTIFIER                       = "popOverMenu"
@@ -1427,6 +1430,10 @@ public class DomainConst {
     public static let DEFAULT_IMG_NAME                      = "default-thumbnail.jpg"
     /** Edit image icon */
     public static let EDIT_ICON_IMG_NAME                    = "icon79.png"
+    /** Report image icon */
+    public static let REPORT_SUM_ICON_IMG_NAME              = "icon-baocao.png"
+    /** Report image icon */
+    public static let FAMILY_ICON_IMG_NAME                  = "hogiadinh.png"
     
     /** HTTP Post request method */
     public static let HTTP_POST_REQUEST                     = "POST"
