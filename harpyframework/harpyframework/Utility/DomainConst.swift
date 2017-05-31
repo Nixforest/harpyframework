@@ -679,6 +679,12 @@ public class DomainConst {
     public static let KEY_OPENING_BALANCE               = "opening_balance"
     /** Key ending balance */
     public static let KEY_ENDING_BALANCE                = "ending_balance"
+    /** Key report_inventory */
+    public static let KEY_REPORT_INVENTORY              = "report_inventory"
+    /** Key report_hgd */
+    public static let KEY_REPORT_ORDER_FAMILY           = "report_hgd"
+    /** Key report_cashbook */
+    public static let KEY_REPORT_CASHBOOK               = "report_cashbook"
     //-- BUG0098-SPJ (NguyenPT 20170530) Add new key setting
     
     
@@ -1823,4 +1829,7 @@ public class DomainConst {
     public static let CONTENT00400 = "Lịch thu tiền"
     public static let CONTENT00401 = "Chọn thao tác"
     public static let CONTENT00402 = "Tạo Ticket"
+    public static let CONTENT00403 = "Báo cáo vật tư"
+    public static let CONTENT00404 = "Báo cáo hộ gia đình"
+    public static let CONTENT00405 = "Báo cáo Quỹ tiền mặt"
 }

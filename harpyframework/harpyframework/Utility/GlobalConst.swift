@@ -111,6 +111,7 @@ public class GlobalConst {
     //++ BUG0093-SPJ (NguyenPT 20170520) Add new function G09
     public static var MONEY_COLOR                   = ColorFromRGB().getColorFromRGB(0x4F852F)
     //-- BUG0093-SPJ (NguyenPT 20170520) Add new function G09
+    public static var REPORT_PARENT_COLOR           = ColorFromRGB().getColorFromRGB(0x4DA4E7)
     //++ BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
     /** Time interval for animation in Step view controller */
     public static let STEP_MOVE_TIME_INTERVAL       = 0.1

@@ -103,6 +103,7 @@
 		D76E7E7C1EDE8AE0005D5585 /* hogiadinh.png in Resources */ = {isa = PBXBuildFile; fileRef = D76E7E7B1EDE8AE0005D5585 /* hogiadinh.png */; };
 		D7724F9A1E8935FF006ECEFA /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = D7724F991E8935FF006ECEFA /* search.png */; };
 		D7767C621EADAF4900D8FDA9 /* default-thumbnail.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D7767C611EADAF4900D8FDA9 /* default-thumbnail.jpg */; };
+		D77824A31EDEAE48002AB15A /* ReportCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77824A21EDEAE48002AB15A /* ReportCollectionViewLayout.swift */; };
 		D778D6411E5D790D009FD654 /* icon81.png in Resources */ = {isa = PBXBuildFile; fileRef = D778D6401E5D790D009FD654 /* icon81.png */; };
 		D77D2B581E72596A000D38DE /* ChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77D2B571E72596A000D38DE /* ChildViewController.swift */; };
 		D77D2B5A1E725A4D000D38DE /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77D2B591E725A4D000D38DE /* ParentViewController.swift */; };
@@ -354,6 +355,7 @@
 		D76E7E7B1EDE8AE0005D5585 /* hogiadinh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hogiadinh.png; path = images/hogiadinh.png; sourceTree = "<group>"; };
 		D7724F991E8935FF006ECEFA /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = search.png; path = images/search.png; sourceTree = "<group>"; };
 		D7767C611EADAF4900D8FDA9 /* default-thumbnail.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "default-thumbnail.jpg"; path = "images/default-thumbnail.jpg"; sourceTree = "<group>"; };
+		D77824A21EDEAE48002AB15A /* ReportCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReportCollectionViewLayout.swift; path = CustomeControl/ReportCollectionViewLayout.swift; sourceTree = "<group>"; };
 		D778D6401E5D790D009FD654 /* icon81.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon81.png; path = images/icon81.png; sourceTree = "<group>"; };
 		D77D2B571E72596A000D38DE /* ChildViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChildViewController.swift; path = View/ChildViewController.swift; sourceTree = "<group>"; };
 		D77D2B591E725A4D000D38DE /* ParentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParentViewController.swift; path = View/ParentViewController.swift; sourceTree = "<group>"; };
@@ -711,6 +713,7 @@
 				D7CED6CF1E98CB2E00C2B568 /* OrderEmployeeTableViewCell.swift */,
 				D7CED6D01E98CB2E00C2B568 /* OrderEmployeeTableViewCell.xib */,
 				D715BB6A1EBE24650097BDA8 /* DatePickerView.swift */,
+				D77824A21EDEAE48002AB15A /* ReportCollectionViewLayout.swift */,
 			);
 			name = CustomControl;
 			sourceTree = "<group>";
@@ -1197,6 +1200,7 @@
 				D7AB90571E2402170048AC4F /* StepVC.swift in Sources */,
 				D77F05EB1E71737200797A6B /* BaseRequest.swift in Sources */,
 				D7C30A391E3058B600B3FDA6 /* AgentInfoBean.swift in Sources */,
+				D77824A31EDEAE48002AB15A /* ReportCollectionViewLayout.swift in Sources */,
 				D7C2552A1E8B93D500941E31 /* WorkingReportListCell.swift in Sources */,
 				D77F05F51E71737200797A6B /* UpdateConfigurationRequest.swift in Sources */,
 				D709FE9D1E86F86900F32A7E /* CustomerFamilyListBean.swift in Sources */,
