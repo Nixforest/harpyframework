@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class ReportCollectionViewLayout: UICollectionViewLayout {
+open class ReportCollectionViewLayout: UICollectionViewLayout {
     // MARK: Properties
     /** 2D Array of Attributes */
     var itemAttributes: [[UICollectionViewLayoutAttributes]]?
@@ -16,9 +16,14 @@ public class ReportCollectionViewLayout: UICollectionViewLayout {
     var itemsSize : [CGSize]?
     /** Size of content */
     var contentSize : CGSize!
+    /** Weight of each column */
+    var weights:     [Int] = [Int]()
+    /** Width of single weight */
+    var singleWeightWidth:  CGFloat = 0.0
+    public static let SINGLE_WEIGHT_WIDTH: CGFloat = GlobalConst.SCREEN_WIDTH / CGFloat(100)
     
     // MARK: - UICollectionViewLayout Override Functions
-    override public func prepare() {
+    override open func prepare() {
         // Stop handle when collection view is empty
         if self.collectionView?.numberOfSections == 0 {
             return
@@ -182,17 +187,17 @@ public class ReportCollectionViewLayout: UICollectionViewLayout {
     }
     
     // This returns the size of the entire collection view
-    override public var collectionViewContentSize : CGSize {
+    override open var collectionViewContentSize : CGSize {
         return self.contentSize
     }
     
     // This returns the itemAttributes for each cell. itemAttributes was set in the prepare() func
-    override public func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+    override open func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         return self.itemAttributes?[indexPath.section][indexPath.row]
     }
     
     // This returns only the attributes for the cells that exist in (or intersect) the rectangle parameter
-    override public func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+    override open func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         var attributes = [UICollectionViewLayoutAttributes]()
         if let itemAttributes = self.itemAttributes {
             for section in itemAttributes {
@@ -205,12 +210,12 @@ public class ReportCollectionViewLayout: UICollectionViewLayout {
         return attributes
     }
     
-    override public func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
+    override open func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
         return true
     }
     
     // MARK: - Helper Functions
-    private func sizeForItemWithColumnIndex(_ columnIndex: Int) -> CGSize {
+    open func sizeForItemWithColumnIndex(_ columnIndex: Int) -> CGSize {
         var text : String = ""
         switch (columnIndex) {
         case 0:
@@ -244,8 +249,48 @@ public class ReportCollectionViewLayout: UICollectionViewLayout {
         }
     }
     
-    public override func invalidateLayout() {
+    open override func invalidateLayout() {
         super.invalidateLayout()
         self.itemAttributes?.removeAll()
+    }
+    
+    /**
+     * Update single weight width
+     */
+    public func updateSingleWeightWidth() {
+        // Get total weight
+        var totalWeight = 0
+        for item in weights {
+            totalWeight += item
+        }
+        singleWeightWidth = GlobalConst.SCREEN_WIDTH / CGFloat(totalWeight)
+    }
+    
+    /**
+     * Set weights value
+     * - parameter value: Weights array
+     */
+    public func setWeights(value: [Int]) {
+        self.weights = value
+    }
+    
+    /**
+     * Get single weight width
+     * - returns: Single weight width
+     */
+    public func getSingleWeightWidth() -> CGFloat {
+        return singleWeightWidth
+    }
+    
+    /**
+     * Get weight value by column index
+     * - parameter idx: Index of column
+     * - returns: Weight value
+     */
+    public func getWeightByColumnIdx(idx: Int) -> Int {
+        if weights.count > idx {
+            return weights[idx]
+        }
+        return 0
     }
 }
