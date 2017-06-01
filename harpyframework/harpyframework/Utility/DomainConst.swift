@@ -1832,4 +1832,12 @@ public class DomainConst {
     public static let CONTENT00403 = "Báo cáo vật tư"
     public static let CONTENT00404 = "Báo cáo hộ gia đình"
     public static let CONTENT00405 = "Báo cáo Quỹ tiền mặt"
+    public static let CONTENT00406 = "T.Đầu"
+    public static let CONTENT00407 = "Nhập"
+    public static let CONTENT00408 = "Xuất"
+    public static let CONTENT00409 = "T.Cuối"
+    public static let CONTENT00410 = "Refresh"
+    public static let CONTENT00411 = "Vật tư"
+    public static let CONTENT00412 = "Từ: "
+    public static let CONTENT00413 = "Đến:"
 }

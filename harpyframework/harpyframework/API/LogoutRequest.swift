@@ -14,11 +14,17 @@ public class LogoutRequest: BaseRequest {
             data, response, error) in
             // Check error
             guard error == nil else {
-                self.showAlert(message: DomainConst.CONTENT00196)
+                //++ BUG0099-SPJ (NguyenPT 20170601) Handle when error happen
+//                self.showAlert(message: DomainConst.CONTENT00196)
+                self.handleErrorTask()
+                //-- BUG0099-SPJ (NguyenPT 20170601) Handle when error happen
                 return
             }
             guard let data = data else {
-                self.showAlert(message: DomainConst.CONTENT00196)
+                //++ BUG0099-SPJ (NguyenPT 20170601) Handle when error happen
+//                self.showAlert(message: DomainConst.CONTENT00196)                
+                self.handleErrorTask()
+                //-- BUG0099-SPJ (NguyenPT 20170601) Handle when error happen
                 return
             }
             // Convert to string

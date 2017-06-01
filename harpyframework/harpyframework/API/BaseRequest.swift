@@ -169,18 +169,24 @@ open class BaseRequest: NSObject {
         let task = self.session.dataTask(with: request as URLRequest, completionHandler: {(data, response, error) in
             // Check error
             guard error == nil else {
-                //++ BUG0050-SPJ (NguyenPT 20170403) Handle Error
-                LoadingView.shared.hideOverlayView()
-                //-- BUG0050-SPJ (NguyenPT 20170403) Handle Error
-                self.view.showAlert(message: DomainConst.CONTENT00196)
+                //++ BUG0099-SPJ (NguyenPT 20170601) Handle when error happen
+//                //++ BUG0050-SPJ (NguyenPT 20170403) Handle Error
+//                LoadingView.shared.hideOverlayView()
+//                //-- BUG0050-SPJ (NguyenPT 20170403) Handle Error
+//                self.view.showAlert(message: DomainConst.CONTENT00196)
+                self.handleErrorTask()
+                //-- BUG0099-SPJ (NguyenPT 20170601) Handle when error happen
                 return
             }
             //++ BUG0050-SPJ (NguyenPT 20170323) Handle result string
             //guard data == nil else {
             guard let data = data else {
-                LoadingView.shared.hideOverlayView()
-            //-- BUG0050-SPJ (NguyenPT 20170323) Handle result string
-                self.view.showAlert(message: DomainConst.CONTENT00196)
+                //++ BUG0099-SPJ (NguyenPT 20170601) Handle when error happen
+//                LoadingView.shared.hideOverlayView()
+//            //-- BUG0050-SPJ (NguyenPT 20170323) Handle result string
+//                self.view.showAlert(message: DomainConst.CONTENT00196)
+                self.handleErrorTask()
+                //-- BUG0099-SPJ (NguyenPT 20170601) Handle when error happen
                 return
             }
             //++ BUG0082-SPJ (NguyenPT 20170510) Change BaseRequest handle completion mechanism
@@ -231,4 +237,18 @@ open class BaseRequest: NSObject {
             NotificationCenter.default.removeObserver(self.view, name: Notification.Name(rawValue: self.theClassName), object: nil)
         }
     }
+    
+    //++ BUG0099-SPJ (NguyenPT 20170601) Handle when error happen
+    /**
+     * Handle when error happen
+     */
+    public func handleErrorTask() {
+        LoadingView.shared.hideOverlayView()
+        self.view.showAlert(message: DomainConst.CONTENT00196)
+        DispatchQueue.main.async {
+            // Remove observer
+            NotificationCenter.default.removeObserver(self.view, name: Notification.Name(rawValue: self.theClassName), object: nil)
+        }
+    }
+    //-- BUG0099-SPJ (NguyenPT 20170601) Handle when error happen
 }

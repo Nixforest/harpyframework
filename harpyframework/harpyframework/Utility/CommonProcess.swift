@@ -295,7 +295,21 @@ public class CommonProcess {
         
         return retVal
     }
-    //-- BUG0050-SPJ (NguyenPT 20170325) Add new function G06    
+    //-- BUG0050-SPJ (NguyenPT 20170325) Add new function G06
+    
+    /**
+     * Get current date string
+     * - parameter widthSpliter: Spliter
+     * - returns: Date value as string
+     */
+    public static func getCurrentDate(withSpliter: String) -> String {
+        var retVal = CommonProcess.getCurrentDate()
+        retVal = retVal.replacingOccurrences(
+            of: DomainConst.SPLITER_TYPE1,
+            with: withSpliter)
+        return retVal
+    }
+    
     /**
      * Set left image for textfield
      * - parameter textField: Current textField
