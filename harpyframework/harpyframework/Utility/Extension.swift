@@ -174,6 +174,15 @@ public enum ActionTypeVIPCustomerEnum: Int {
     EMPLOYEE_DROP
 }
 //-- BUG0060-SPJ (NguyenPT 20170426) Update function G05 for Employee
+//++ BUG0100-SPJ (NguyenPT 20170602) Update function G01 for Family Uphold
+/** Action type of Family uphold */
+public enum ActionTypeFamilyUpholdEnum: Int {
+    case EMPLOYEE_CONFIRM = 2,
+    EMPLOYEE_CANCEL_CONFIRM,
+    EMPLOYEE_CANCEL,
+    EMPLOYEE_COMPLETE
+}
+//-- BUG0100-SPJ (NguyenPT 20170602) Update function G01 for Family Uphold
 
 // MARK: View extension
 /**

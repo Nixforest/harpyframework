@@ -686,6 +686,14 @@ public class DomainConst {
     /** Key report_cashbook */
     public static let KEY_REPORT_CASHBOOK               = "report_cashbook"
     //-- BUG0098-SPJ (NguyenPT 20170530) Add new key setting
+    //++ BUG0100-SPJ (NguyenPT 20170602) Add new key setting
+    /** Key note of create */
+    public static let KEY_NOTE_CREATE                   = "note_create"
+    /** show_confirm */
+    public static let KEY_SHOW_CONFIRM                  = "show_confirm"
+    /** show_cancel */
+    public static let KEY_SHOW_CANCEL                   = "show_cancel"
+    //-- BUG0100-SPJ (NguyenPT 20170602) Add new key setting
     
     
     // MARK: -----Specified constant-----
@@ -1189,6 +1197,9 @@ public class DomainConst {
     //++ BUG0098-SPJ (NguyenPT 20170531) Add new function G10
     public static let G10_F00_S01_VC                                = "G10F00S01VC"
     //-- BUG0098-SPJ (NguyenPT 20170531) Add new function G10
+    //++ BUG0100-SPJ (NguyenPT 20170602) Update function G01 for Family Uphold
+    public static let G01_F00_S04_VC                                = "G01F00S04VC"
+    //-- BUG0100-SPJ (NguyenPT 20170602) Update function G01 for Family Uphold
     
     /** Pop overmenu identifier */
     public static let POPOVER_MENU_IDENTIFIER                       = "popOverMenu"
@@ -1846,4 +1857,5 @@ public class DomainConst {
     public static let CONTENT00417 = "Thành tiền"
     public static let CONTENT00418 = "Tồn"
     public static let CONTENT00419 = "Loại"
+    public static let CONTENT00420 = "Bảo trì HGĐ"
 }

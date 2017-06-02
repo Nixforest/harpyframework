@@ -355,7 +355,8 @@ open class BaseMenuViewController : UIViewController {
             currentView.pushToViewAndClearData(name: DomainConst.G09_F00_S03_VC)
             break
         case DomainConst.KEY_MENU_FAMILY_UPHOLD_LIST:
-            currentView.showAlert(message: DomainConst.CONTENT00362)
+            //currentView.showAlert(message: DomainConst.CONTENT00362)
+            currentView.pushToViewAndClearData(name: DomainConst.G01_F00_S04_VC)
             break
         case DomainConst.KEY_MENU_REPORT_LIST:
             //currentView.showAlert(message: DomainConst.CONTENT00362)
