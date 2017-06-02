@@ -130,6 +130,13 @@ open class ReportCollectionViewLayout: UICollectionViewLayout {
                     var frame = attributes.frame
                     frame.origin.y = self.collectionView!.contentOffset.y
                     attributes.frame = frame
+                } else {
+                    // offset column headers
+                    var frame = attributes.frame
+                    if let currentVC = BaseViewController.getCurrentViewController() {
+                        frame.origin.y -= currentVC.getTopHeight()
+                    }
+                    attributes.frame = frame
                 }
                 if index == 0 {
                     // offset row headers
