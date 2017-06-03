@@ -44,11 +44,13 @@ open class BaseRespModel: NSObject {
                 // Token
                 self.token = getString(json: json, key: DomainConst.KEY_TOKEN)
             } catch let error as NSError {
-                print(DomainConst.JSON_ERR_FAILED_LOAD + "\(error.localizedDescription)")
+                //print(DomainConst.JSON_ERR_FAILED_LOAD + "\(error.localizedDescription)")
+                handleSerializationException(error: error, jsonString: jsonString)
             }
             
         } else {
-            print(DomainConst.JSON_ERR_WRONG_FORMAT)
+            //print(DomainConst.JSON_ERR_WRONG_FORMAT)
+            handleEncodeException(jsonString: jsonString)
         }
     }
     
