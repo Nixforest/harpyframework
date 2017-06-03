@@ -182,6 +182,14 @@ public enum ActionTypeFamilyUpholdEnum: Int {
     EMPLOYEE_CANCEL,
     EMPLOYEE_COMPLETE
 }
+/** Family uphold status enum */
+public enum FamilyUpholdStatusEnum: Int {
+    case STATUS_NEW = 1,
+    STATUS_CONFIRM,
+    STATUS_UNCONFIRM,
+    STATUS_CANCEL,
+    STATUS_COMPLETE
+}
 //-- BUG0100-SPJ (NguyenPT 20170602) Update function G01 for Family Uphold
 
 // MARK: View extension
@@ -318,6 +326,15 @@ extension CALayer {
         addBorder(edge: edge, color: GlobalConst.BACKGROUND_COLOR_GRAY, thickness: 1)
     }
 }
+extension UIButton {
+    public func setBackgroundColor(color: UIColor, forState: UIControlState) {
+        UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))
+        UIGraphicsGetCurrentContext()!.setFillColor(color.cgColor)
+        UIGraphicsGetCurrentContext()!.fill(CGRect(x: 0, y: 0, width: 1, height: 1))
+        let colorImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        self.setBackgroundImage(colorImage, for: forState)
+    }}
 
 // MARK: Protocols
 /**

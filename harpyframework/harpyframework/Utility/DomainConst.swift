@@ -923,6 +923,14 @@ public class DomainConst {
     public static let ORDER_INFO_SUPPORT_TYPE_ID        = "###99923"
     /** Order information id: Order order type */
     public static let ORDER_INFO_ORDER_TYPE_ID          = "###99924"
+    /** Uphold information id: Id */
+    public static let UPHOLD_INFO_ID_ID                 = "###99925"
+    /** Uphold information id: Uphold status */
+    public static let UPHOLD_INFO_STATUS_ID             = "###99926"
+    /** Uphold information id: Uphold created date */
+    public static let UPHOLD_INFO_CREATED_DATE_ID       = "###99927"
+    /** Uphold information id: Uphold customer note */
+    public static let UPHOLD_INFO_CUSTOMER_NOTE_ID      = "###99928"
     /** Order information id: Order Material */
     public static let ORDER_INFO_MATERIAL_ID            = "###999"
     
@@ -1858,4 +1866,7 @@ public class DomainConst {
     public static let CONTENT00418 = "Tồn"
     public static let CONTENT00419 = "Loại"
     public static let CONTENT00420 = "Bảo trì HGĐ"
+    public static let CONTENT00421 = "Mã bảo trì"
+    public static let CONTENT00422 = "Đang xử lý"
+    public static let CONTENT00423 = "Đã xử lý xong"
 }

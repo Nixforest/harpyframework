@@ -331,9 +331,11 @@ class InternalViewController: ChildViewController, UITableViewDelegate, UITableV
         }
         self.showAlert(message: msg)
     }
+    
+    /**
+     * Handle show error detail View controller
+     */
     private func handleShowErrorDetailVC() {
-        if BaseModel.shared.getDebugGasServiceFlag() {
-            self.pushToView(name: ErrorDetailVC.theClassName)
-        }
+        self.pushToView(name: ErrorDetailVC.theClassName)
     }
 }
