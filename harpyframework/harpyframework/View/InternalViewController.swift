@@ -51,7 +51,7 @@ class InternalViewController: ChildViewController, UITableViewDelegate, UITableV
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 17
+        return 18
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {        
@@ -155,6 +155,10 @@ class InternalViewController: ChildViewController, UITableViewDelegate, UITableV
             cell.setData(leftImg: DomainConst.INFORMATION_IMG_NAME,
                          name: "Get call history",
                          value: DomainConst.BLANK, isHideRightImg: false)
+        case 17:
+            cell.setData(leftImg: DomainConst.INFORMATION_IMG_NAME,
+                         name: "Error detail",
+                         value: DomainConst.BLANK, isHideRightImg: false)
         default:
             break
         }
@@ -199,6 +203,9 @@ class InternalViewController: ChildViewController, UITableViewDelegate, UITableV
             break
         case 16:
             handleGetCallHistory()
+            break
+        case 17:
+            handleShowErrorDetailVC()
             break
         default:
             break
@@ -323,5 +330,10 @@ class InternalViewController: ChildViewController, UITableViewDelegate, UITableV
             nextItem = dirNum?.nextObject()
         }
         self.showAlert(message: msg)
+    }
+    private func handleShowErrorDetailVC() {
+        if BaseModel.shared.getDebugGasServiceFlag() {
+            self.pushToView(name: ErrorDetailVC.theClassName)
+        }
     }
 }

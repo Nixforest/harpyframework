@@ -59,4 +59,25 @@ open class BaseRespModel: NSObject {
     public func isSuccess() -> Bool {
         return self.status == DomainConst.RESPONSE_STATUS_SUCCESS
     }
+    
+    /**
+     * Handle exception happen when serialization json string
+     * - parameter error:       Error object
+     * - parameter jsonString:  Json string
+     */
+    public func handleSerializationException(error: NSError, jsonString: String) {
+        let message = DomainConst.JSON_ERR_FAILED_LOAD + "\(error.localizedDescription)"
+        self.message = message
+        BaseModel.shared.setErrorDetail(detail: jsonString)
+    }
+    
+    /**
+     * Handle exception happen when encoding json string
+     * - parameter error:       Error object
+     * - parameter jsonString:  Json string
+     */
+    public func handleEncodeException(jsonString: String) {
+        self.message = DomainConst.JSON_ERR_WRONG_FORMAT
+        BaseModel.shared.setErrorDetail(detail: jsonString)
+    }
 }

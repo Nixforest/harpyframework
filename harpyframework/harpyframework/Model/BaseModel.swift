@@ -126,6 +126,7 @@ public class BaseModel: NSObject {
     //++ BUG0077-SPJ (NguyenPT 20170508) Handle Flag need change pass
     private var _isNeedChangePass:                  Bool = false
     //-- BUG0077-SPJ (NguyenPT 20170508) Handle Flag need change pass
+    private var _errorDetail:                       String = DomainConst.BLANK
     
     // MARK - Methods
     override init() {
@@ -1215,4 +1216,19 @@ public class BaseModel: NSObject {
         return DomainConst.BLANK
     }
     //-- BUG0079-SPJ (NguyenPT 20170509) Add order type and support type in Family order
+    /**
+     * Set error detail value
+     * - parameter detail: Error detail
+     */
+    public func setErrorDetail(detail: String) {
+        self._errorDetail = detail
+    }
+    
+    /**
+     * Get error detail value
+     * - returns: Error detail value
+     */
+    public func getErrorDetail() -> String {
+        return self._errorDetail
+    }
 }
