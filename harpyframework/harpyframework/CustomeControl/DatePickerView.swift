@@ -84,6 +84,7 @@ public class DatePickerView: UIView, UITextFieldDelegate {
                                                             right: GlobalConst.MARGIN)
         self.addSubview(_btnToday)
         offset += GlobalConst.BUTTON_H
+        self.makeComponentsColor()
     }
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -179,6 +180,9 @@ public class DatePickerView: UIView, UITextFieldDelegate {
                              action: #selector(datePickerChanged(sender:)),
                              for: .valueChanged)
         markSelected()
+        //++ BUG0101-SPJ (NguyenPT 20170603) Fix bug change value of from date and to date in Report screens
+        addDoneButtonOnKeyboard()
+        //-- BUG0101-SPJ (NguyenPT 20170603) Fix bug change value of from date and to date in Report screens
     }
     
     /**
@@ -207,4 +211,51 @@ public class DatePickerView: UIView, UITextFieldDelegate {
         _currentDate = sender.date
         _txtDate.text = CommonProcess.getDateString(date: _currentDate)
     }
+    
+    //++ BUG0101-SPJ (NguyenPT 20170603) Fix bug change value of from date and to date in Report screens
+    /**
+     * Show/hide today button
+     * - parameter isShow: Flag show/hide
+     */
+    public func showTodayButton(isShow: Bool = true) {
+        self._btnToday.isHidden = !isShow
+    }
+    
+    /**
+     * Set text alignment for control
+     * - parameter alignment: NSTextAlignment
+     */
+    public func setTextAlignment(alignment: NSTextAlignment) {
+        _lblTitle.textAlignment = alignment
+        _txtDate.textAlignment = alignment
+    }
+    
+    /**
+     * Add a done button when keyboard show
+     */
+    func addDoneButtonOnKeyboard() {
+        // Create toolbar
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
+        doneToolbar.barStyle       = UIBarStyle.default
+        let flexSpace              = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem  = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(hideKeyboard(_:)))
+        
+        var items = [UIBarButtonItem]()
+        items.append(flexSpace)
+        items.append(done)
+        
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        // Add toolbar to keyboard
+        self._txtDate.inputAccessoryView = doneToolbar
+    }
+    
+    /**
+     * Hide keyboard
+     */
+    func hideKeyboard(_ sender: AnyObject) {
+        // Hide keyboard
+        self.endEditing(true)
+    }
+    //-- BUG0101-SPJ (NguyenPT 20170603) Fix bug change value of from date and to date in Report screens
 }

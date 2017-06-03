@@ -91,6 +91,8 @@ open class StepContent: UIView {
         _scrollView.addSubview(_mainView!)
         
         self.addSubview(_scrollView)
+        self.makeComponentsColor()
+        _mainView?.makeComponentsColor()
     }
     
     /**
