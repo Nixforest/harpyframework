@@ -832,6 +832,8 @@ public class DomainConst {
     public static let NOTIFY_VIEW_VIP_CUSTOMER_ORDER    = "TYPE_ORDER_BO_MOI"
     /** Notify type: View Issue */
     public static let NOTIFY_VIEW_FAMILY_CUSTOMER_ORDER = "VIEW_TRANSACTION"
+    /** Notify type: Family Uphold */
+    public static let NOTIFY_VIEW_FAMILY_UPHOLD         = "TYPE_UPHOLD_HGD"
     /** Notify type: Uphold alert 10 */
     public static let NOTIFY_UPHOLD_ALERT_10            = "1"
     /** Notify type: Uphold periodically */

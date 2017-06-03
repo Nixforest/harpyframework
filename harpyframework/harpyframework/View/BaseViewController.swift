@@ -930,7 +930,14 @@ open class BaseViewController : UIViewController {
                     } else if BaseModel.shared.isNVGNUser() {
                         self.pushToView(name: "G05F00S03VC")
                     }
-                    
+                    break
+                case DomainConst.NOTIFY_VIEW_FAMILY_UPHOLD:
+                    if BaseModel.shared.isNVGNUser() {
+                        self.pushToView(name: "G01F00S04VC")
+                    } else {
+                        BaseModel.shared.sharedString = notify.getId()
+                        self.pushToView(name: "G01F00S05VC")
+                    }
                     break
                 default: break
                 }
