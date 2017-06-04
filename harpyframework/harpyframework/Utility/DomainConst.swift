@@ -1499,6 +1499,10 @@ public class DomainConst {
     public static let TICKET_ICON_IMG_NAME                  = "ticket.png"
     /** Map image icon */
     public static let MAP_ICON_IMG_NAME                     = "map.png"
+    /** Map image icon */
+    public static let TICKET_REPLY_ICON_IMG_NAME            = "traloi.png"
+    /** Map image icon */
+    public static let TICKET_CLOSE_ICON_IMG_NAME            = "close.png"
     //-- BUG0102-SPJ (NguyenPT 20170604) Update function G11
     
     /** HTTP Post request method */
@@ -1913,4 +1917,11 @@ public class DomainConst {
     public static let CONTENT00424 = "Ticket"
     public static let CONTENT00425 = "Thông tin hỗ trợ"
     public static let CONTENT00426 = "Chi tiết hỗ trợ"
+    public static let CONTENT00427 = "Trả lời Ticket"
+    public static let CONTENT00428 = "Nội dung trả lời"
+    public static let CONTENT00429 = "Bạn chưa nhập nội dung trả lời"
+    public static let CONTENT00430 = "Xác nhận đóng ticket?"
+    public static let CONTENT00431 = "Xin nhập thông tin cần hỗ trợ"
+    public static let CONTENT00432 = "Bạn đang gửi thông tin cần hỗ trợ như bên dưới. Xin hãy kiểm tra lại các thông tin cho thật chính xác và nhấn nút Gửi nếu bạn đồng ý."
+    public static let CONTENT00433 = "Người xử lý"
 }
