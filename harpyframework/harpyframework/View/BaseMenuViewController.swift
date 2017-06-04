@@ -174,6 +174,14 @@ open class BaseMenuViewController : UIViewController {
                     iconPath = DomainConst.REPORT_SUM_ICON_IMG_NAME
                     break
                 //-- BUG0073-SPJ (NguyenPT 20170503) Add new function G08
+                //++ BUG0102-SPJ (NguyenPT 20170604) Update function G11
+                case DomainConst.KEY_MENU_TICKET_LIST:
+                    iconPath = DomainConst.TICKET_ICON_IMG_NAME
+                    break
+                case DomainConst.KEY_MENU_GOOGLE_MAP:
+                    iconPath = DomainConst.MAP_ICON_IMG_NAME
+                    break
+                //-- BUG0102-SPJ (NguyenPT 20170604) Update function G11
                 default:
                     break
                 }
@@ -363,6 +371,14 @@ open class BaseMenuViewController : UIViewController {
             currentView.pushToViewAndClearData(name: DomainConst.G10_F00_S01_VC)
             break
         //-- BUG0073-SPJ (NguyenPT 20170503) Add new function G08
+        //++ BUG0102-SPJ (NguyenPT 20170604) Update function G11
+        case DomainConst.KEY_MENU_TICKET_LIST:
+            currentView.pushToViewAndClearData(name: DomainConst.G11_F00_S01_VC)
+            break
+        case DomainConst.KEY_MENU_GOOGLE_MAP:
+            currentView.showAlert(message: DomainConst.CONTENT00362)
+            break
+        //-- BUG0102-SPJ (NguyenPT 20170604) Update function G11
         default:
             currentView.showAlert(message: DomainConst.CONTENT00362)
             break

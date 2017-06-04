@@ -235,6 +235,9 @@
 		D7E9BF751E2C82F20068D200 /* icon10.png in Resources */ = {isa = PBXBuildFile; fileRef = D7E9BF6F1E2C82F20068D200 /* icon10.png */; };
 		D7E9BF761E2C82F20068D200 /* icon11-active.png in Resources */ = {isa = PBXBuildFile; fileRef = D7E9BF701E2C82F20068D200 /* icon11-active.png */; };
 		D7E9BF771E2C82F20068D200 /* icon11.png in Resources */ = {isa = PBXBuildFile; fileRef = D7E9BF711E2C82F20068D200 /* icon11.png */; };
+		D7EA53CF1EE3F40A004CFE1F /* ticket.png in Resources */ = {isa = PBXBuildFile; fileRef = D7EA53CE1EE3F40A004CFE1F /* ticket.png */; };
+		D7EA53D11EE3F5C5004CFE1F /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = D7EA53D01EE3F5C5004CFE1F /* map.png */; };
+		D7EA53D81EE40FC3004CFE1F /* icon51.png in Resources */ = {isa = PBXBuildFile; fileRef = D7EA53D71EE40FC3004CFE1F /* icon51.png */; };
 		D7EBB7EB1EA9CC5700BE6612 /* OrderVipSetEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EBB7EA1EA9CC5700BE6612 /* OrderVipSetEventRequest.swift */; };
 		D7F17CD61E5DF14000208A73 /* new-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D7F17CD51E5DF14000208A73 /* new-icon.png */; };
 		D7F3D8CD1E1B74720018744F /* CustomeDateTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F3D8CC1E1B74720018744F /* CustomeDateTimeView.swift */; };
@@ -492,6 +495,9 @@
 		D7E9BF6F1E2C82F20068D200 /* icon10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon10.png; path = images/icon10.png; sourceTree = "<group>"; };
 		D7E9BF701E2C82F20068D200 /* icon11-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon11-active.png"; path = "images/icon11-active.png"; sourceTree = "<group>"; };
 		D7E9BF711E2C82F20068D200 /* icon11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon11.png; path = images/icon11.png; sourceTree = "<group>"; };
+		D7EA53CE1EE3F40A004CFE1F /* ticket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ticket.png; path = images/ticket.png; sourceTree = "<group>"; };
+		D7EA53D01EE3F5C5004CFE1F /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = map.png; path = images/map.png; sourceTree = "<group>"; };
+		D7EA53D71EE40FC3004CFE1F /* icon51.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon51.png; path = images/icon51.png; sourceTree = "<group>"; };
 		D7EBB7EA1EA9CC5700BE6612 /* OrderVipSetEventRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderVipSetEventRequest.swift; path = API/OrderVipSetEventRequest.swift; sourceTree = "<group>"; };
 		D7F17CD51E5DF14000208A73 /* new-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "new-icon.png"; path = "images/new-icon.png"; sourceTree = "<group>"; };
 		D7F3D8CC1E1B74720018744F /* CustomeDateTimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomeDateTimeView.swift; path = CustomeControl/CustomeDateTimeView.swift; sourceTree = "<group>"; };
@@ -732,6 +738,9 @@
 		D7F3D8D21E1B8BCC0018744F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D7EA53D71EE40FC3004CFE1F /* icon51.png */,
+				D7EA53D01EE3F5C5004CFE1F /* map.png */,
+				D7EA53CE1EE3F40A004CFE1F /* ticket.png */,
 				D76E7E7B1EDE8AE0005D5585 /* hogiadinh.png */,
 				D76E7E791EDE8A1D005D5585 /* icon-baocao.png */,
 				D75F64B81E28B39100A67B3C /* Account.jpeg */,
@@ -1013,11 +1022,13 @@
 				D75F64F41E28B39100A67B3C /* icon36-user-ios.png in Resources */,
 				D78E32701E571C980035C40D /* ic_number_next.png in Resources */,
 				D75F64F31E28B39100A67B3C /* icon35-user.png in Resources */,
+				D7EA53D11EE3F5C5004CFE1F /* map.png in Resources */,
 				D75F64E01E28B39100A67B3C /* done.png in Resources */,
 				D75F65221E28B3BC00A67B3C /* phone-ios.png in Resources */,
 				D791F6891E2367F3009CBBED /* ic_menu_home.png in Resources */,
 				D78FB84C1E52EE3C00993A32 /* cong.png in Resources */,
 				D75F64E81E28B39100A67B3C /* icon4.png in Resources */,
+				D7EA53D81EE40FC3004CFE1F /* icon51.png in Resources */,
 				D791F68C1E2367F3009CBBED /* list.png in Resources */,
 				D791F69C1E237181009CBBED /* icon29.png in Resources */,
 				D791F68E1E2367F3009CBBED /* report.png in Resources */,
@@ -1058,6 +1069,7 @@
 				D75F64F61E28B39100A67B3C /* icon37-user-ios.png in Resources */,
 				D75F65251E28B3BC00A67B3C /* rating.png in Resources */,
 				D75F64AD1E28657900A67B3C /* icon52.png in Resources */,
+				D7EA53CF1EE3F40A004CFE1F /* ticket.png in Resources */,
 				D7D28B751EB9B800006DDF83 /* ic_menu_report.png in Resources */,
 				D791F6961E2368BA009CBBED /* logoutitem.png in Resources */,
 				D75F65181E28B3B100A67B3C /* informationSum.png in Resources */,

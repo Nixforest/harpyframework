@@ -23,7 +23,10 @@ class MenuItem: UIView {
     init(title: String, id: String, iconPath: String, action: Selector) {
         super.init(frame: UIScreen.main.bounds)
         // Icon
-        icon.image = ImageManager.getImage(named: iconPath)
+        let img = ImageManager.getImage(named: iconPath)
+        let tinted = img?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        icon.tintColor = UIColor.white
+        icon.image = tinted//ImageManager.getImage(named: iconPath)
         icon.translatesAutoresizingMaskIntoConstraints = true
         icon.frame = CGRect(x: GlobalConst.MARGIN,
                             y: GlobalConst.MARGIN,

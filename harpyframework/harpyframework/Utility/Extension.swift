@@ -550,7 +550,7 @@ extension String {
      * - parameter font: Font value
      * - returns: Height of string
      */
-    func heightWithConstrainedWidth(width: CGFloat, font: UIFont) -> CGFloat {
+    public func heightWithConstrainedWidth(width: CGFloat, font: UIFont) -> CGFloat {
         let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
         let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
         
@@ -771,9 +771,18 @@ extension String {
         
         return formatter.string(from: number)!
     }
+    public func capitalizingFirstLetter() -> String {
+        let first = String(characters.prefix(1)).capitalized
+        let other = String(characters.dropFirst())
+        return first + other
+    }
+    
+    public mutating func capitalizeFirstLetter() {
+        self = self.capitalizingFirstLetter()
+    }
 }
 
-public extension NSObject {    
+public extension NSObject {
     /**
      * Get string value from key in json list
      * - parameter json: Json data

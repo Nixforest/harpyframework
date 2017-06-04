@@ -694,6 +694,26 @@ public class DomainConst {
     /** show_cancel */
     public static let KEY_SHOW_CANCEL                   = "show_cancel"
     //-- BUG0100-SPJ (NguyenPT 20170602) Add new key setting
+    //++ BUG0101-SPJ (NguyenPT 20170604) Add new key setting
+    /** send_to_id */
+    public static let KEY_SEND_TO_ID                    = "send_to_id"
+    /** name_user_reply */
+    public static let KEY_NAME_USER_REPLY               = "name_user_reply"
+    /** position */
+    public static let KEY_POSITION                      = "position"
+    /** name_user_to */
+    public static let KEY_NAME_USER_TO                  = "name_user_to"
+//    /** name_user_reply */
+//    public static let KEY_NAME_USER_REPLY               = "name_user_reply"
+    /** time_reply */
+    public static let KEY_TIME_REPLY                    = "time_reply"
+    /** can_close */
+    public static let KEY_CAN_CLOSE                     = "can_close"
+    /** can_reply */
+    public static let KEY_CAN_REPLY                     = "can_reply"
+    /** list_reply */
+    public static let KEY_LIST_REPLY                    = "list_reply"
+    //-- BUG0101-SPJ (NguyenPT 20170604) Add new key setting
     
     
     // MARK: -----Specified constant-----
@@ -951,6 +971,14 @@ public class DomainConst {
     /** Key menu item: Report list */
     public static let KEY_MENU_REPORT_LIST              = "report"
     //-- BUG0073-SPJ (NguyenPT 20170504) Add new key setting
+    
+    //++ BUG0102-SPJ (NguyenPT 20170604) Add new key setting
+    /** Key menu item: Ticket list */
+    public static let KEY_MENU_TICKET_LIST              = "ticket_list"
+    /** Key menu item: Google map */
+    public static let KEY_MENU_GOOGLE_MAP               = "google_map"
+    //-- BUG0102-SPJ (NguyenPT 20170604) Add new key setting
+    
     //++ BUG0050-SPJ (NguyenPT 20170325) Add new function G06
     /** Platform value: Android */
     public static let PLATFORM_ANDROID                  = 1
@@ -1193,7 +1221,7 @@ public class DomainConst {
     public static let WORKING_REPORT_LIST_TABLE_VIEW_CELL          = "WorkingReportListCell"
     public static let G06_F00_S01_VC                                = "G06F00S01VC"
     public static let G06_F00_S04_VC                                = "G06F00S04VC"
-    //++ BUG0050-SPJ (NguyenPT 20170323) Add new key for new function G06
+    //-- BUG0050-SPJ (NguyenPT 20170323) Add new key for new function G06
     //++ BUG0054-SPJ (NguyenPT 20170407) Add new key for new function G07
     public static let G07_F00_S01_VC                                = "G07F00S01VC"
     //-- BUG0054-SPJ (NguyenPT 20170407) Add new key for new function G07
@@ -1210,6 +1238,9 @@ public class DomainConst {
     //++ BUG0100-SPJ (NguyenPT 20170602) Update function G01 for Family Uphold
     public static let G01_F00_S04_VC                                = "G01F00S04VC"
     //-- BUG0100-SPJ (NguyenPT 20170602) Update function G01 for Family Uphold
+    //++ BUG0102-SPJ (NguyenPT 20170604) Update function G11
+    public static let G11_F00_S01_VC                                = "G11F00S01VC"
+    //-- BUG0102-SPJ (NguyenPT 20170604) Update function G11
     
     /** Pop overmenu identifier */
     public static let POPOVER_MENU_IDENTIFIER                       = "popOverMenu"
@@ -1362,6 +1393,8 @@ public class DomainConst {
     /** Address icon image name */
     public static let ADDRESS_ICON_IMG_NAME                 = "icon49.png"
     /** Customer feeling image name: Normal */
+    public static let COMMENT_IMG_NAME                      = "icon51.png"
+    /** Customer feeling image name: Normal */
     public static let CUST_FEELING_NORMAL_IMG_NAME          = "icon52.png"
     /** Customer feeling image name: Glad */
     public static let CUST_FEELING_GLAD_IMG_NAME            = "icon53.png"
@@ -1459,8 +1492,14 @@ public class DomainConst {
     public static let EDIT_ICON_IMG_NAME                    = "icon79.png"
     /** Report image icon */
     public static let REPORT_SUM_ICON_IMG_NAME              = "icon-baocao.png"
-    /** Report image icon */
+    /** Family image icon */
     public static let FAMILY_ICON_IMG_NAME                  = "hogiadinh.png"
+    //++ BUG0102-SPJ (NguyenPT 20170604) Update function G11
+    /** Ticket image icon */
+    public static let TICKET_ICON_IMG_NAME                  = "ticket.png"
+    /** Map image icon */
+    public static let MAP_ICON_IMG_NAME                     = "map.png"
+    //-- BUG0102-SPJ (NguyenPT 20170604) Update function G11
     
     /** HTTP Post request method */
     public static let HTTP_POST_REQUEST                     = "POST"
@@ -1871,4 +1910,7 @@ public class DomainConst {
     public static let CONTENT00421 = "Mã bảo trì"
     public static let CONTENT00422 = "Đang xử lý"
     public static let CONTENT00423 = "Đã xử lý xong"
+    public static let CONTENT00424 = "Ticket"
+    public static let CONTENT00425 = "Thông tin hỗ trợ"
+    public static let CONTENT00426 = "Chi tiết hỗ trợ"
 }
