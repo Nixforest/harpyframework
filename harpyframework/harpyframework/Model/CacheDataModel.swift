@@ -15,6 +15,10 @@ public class CacheDataModel: NSObject {
     private var _listAllMaterials:      [OrderDetailBean]   = [OrderDetailBean]()
     /** List cashbook master lookup */
     private var _listCashBook:          [ConfigBean]        = [ConfigBean]()
+    //++ BUG0102-SPJ (NguyenPT 20170605) Add new key setting
+    /** List ticket handler */
+    private var _listTicketHandler:     [ConfigBean]        = [ConfigBean]()
+    //-- BUG0102-SPJ (NguyenPT 20170605) Add new key setting
     
     /**
      * Initializer
@@ -30,6 +34,9 @@ public class CacheDataModel: NSObject {
         }
         
         self._listCashBook = getListConfig(json: jsonData, key: DomainConst.KEY_LIST_CASHBOOK_MATER_LOOKUP)
+        //++ BUG0102-SPJ (NguyenPT 20170605) Add new key setting
+        self._listTicketHandler = getListConfig(json: jsonData, key: DomainConst.KEY_LIST_TICKET_HANDLE)
+        //-- BUG0102-SPJ (NguyenPT 20170605) Add new key setting
     }
     
     public override init() {
@@ -123,4 +130,28 @@ public class CacheDataModel: NSObject {
         }
         return DomainConst.BLANK
     }
+    
+    //++ BUG0102-SPJ (NguyenPT 20170605) Add new key setting
+    /**
+     * Get list ticket handler
+     * - returns: List ticket handler
+     */
+    public func getListTicketHandler() -> [ConfigBean] {
+        return _listTicketHandler
+    }
+    
+    /**
+     * Get ticket handler by id
+     * - parameter id: Id of ticket handler
+     * - returns: Name of ticket handler
+     */
+    public func getTicketHandlerById(id: String) -> String {
+        for item in _listTicketHandler {
+            if item.id == id {
+                return item.name
+            }
+        }
+        return DomainConst.BLANK
+    }
+    //-- BUG0102-SPJ (NguyenPT 20170605) Add new key setting
 }

@@ -977,6 +977,8 @@ public class DomainConst {
     public static let KEY_MENU_TICKET_LIST              = "ticket_list"
     /** Key menu item: Google map */
     public static let KEY_MENU_GOOGLE_MAP               = "google_map"
+    /** Key List Ticket handler */
+    public static let KEY_LIST_TICKET_HANDLE            = "list_ticket_handle"
     //-- BUG0102-SPJ (NguyenPT 20170604) Add new key setting
     
     //++ BUG0050-SPJ (NguyenPT 20170325) Add new function G06

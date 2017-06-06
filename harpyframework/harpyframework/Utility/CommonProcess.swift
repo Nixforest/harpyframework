@@ -32,6 +32,19 @@ public class CommonProcess {
     }
     
     /**
+     * Set border for control.
+     * - parameter view: Control to set border
+     * - parameter radius: Corner radius of border
+     * - parameter borderColor: Color of border
+     */
+    public static func setBorder(view: UIView, radius: CGFloat, borderColor: UIColor) {
+        view.layer.borderWidth  = GlobalConst.BUTTON_BORDER_WIDTH / 2
+        view.layer.borderColor  = borderColor.cgColor
+        view.clipsToBounds      = true
+        view.layer.cornerRadius = radius
+    }
+    
+    /**
      * Alignment text vertical center on TextView.
      * - parameter textView: TextView to set
      */

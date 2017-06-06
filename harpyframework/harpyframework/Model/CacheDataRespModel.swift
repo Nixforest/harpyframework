@@ -10,8 +10,7 @@ import UIKit
 
 public class CacheDataRespModel: BaseRespModel {
     /** Record */
-    public static var record: CacheDataModel = CacheDataModel()
-    
+    public static var record: CacheDataModel = CacheDataModel()    
     
     /**
      * Initializer
