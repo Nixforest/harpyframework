@@ -34,6 +34,7 @@
 		D716C1941E9293A4007CC50C /* DistrictsListRespModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D716C1931E9293A4007CC50C /* DistrictsListRespModel.swift */; };
 		D716C1961E929422007CC50C /* WardsListRespModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D716C1951E929422007CC50C /* WardsListRespModel.swift */; };
 		D716C1981E92A9E9007CC50C /* AddressPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D716C1971E92A9E9007CC50C /* AddressPickerView.swift */; };
+		D71C047F1EE6A31C00563469 /* icon40.png in Resources */ = {isa = PBXBuildFile; fileRef = D71C047E1EE6A31C00563469 /* icon40.png */; };
 		D71C25A31E41FDC400E29C3B /* TransactionCompleteBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71C25A21E41FDC400E29C3B /* TransactionCompleteBean.swift */; };
 		D7424AAD1E3B463600E442DC /* MaterialTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7424AAC1E3B463600E442DC /* MaterialTableViewCell.swift */; };
 		D74591331EA08F3C002C3AB3 /* reload-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D74591321EA08F3C002C3AB3 /* reload-1.png */; };
@@ -292,6 +293,7 @@
 		D716C1931E9293A4007CC50C /* DistrictsListRespModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DistrictsListRespModel.swift; path = Model/DistrictsListRespModel.swift; sourceTree = "<group>"; };
 		D716C1951E929422007CC50C /* WardsListRespModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WardsListRespModel.swift; path = Model/WardsListRespModel.swift; sourceTree = "<group>"; };
 		D716C1971E92A9E9007CC50C /* AddressPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddressPickerView.swift; path = CustomeControl/AddressPickerView.swift; sourceTree = "<group>"; };
+		D71C047E1EE6A31C00563469 /* icon40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon40.png; path = images/icon40.png; sourceTree = "<group>"; };
 		D71C25A21E41FDC400E29C3B /* TransactionCompleteBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransactionCompleteBean.swift; path = Model/TransactionCompleteBean.swift; sourceTree = "<group>"; };
 		D7424AAC1E3B463600E442DC /* MaterialTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MaterialTableViewCell.swift; path = CustomeControl/MaterialTableViewCell.swift; sourceTree = "<group>"; };
 		D74591321EA08F3C002C3AB3 /* reload-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "reload-1.png"; path = "images/reload-1.png"; sourceTree = "<group>"; };
@@ -742,6 +744,7 @@
 		D7F3D8D21E1B8BCC0018744F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D71C047E1EE6A31C00563469 /* icon40.png */,
 				19D74A801EE4599B00B7DE47 /* traloi.png */,
 				19D74A7E1EE4598F00B7DE47 /* close.png */,
 				D7EA53D71EE40FC3004CFE1F /* icon51.png */,
@@ -1046,6 +1049,7 @@
 				D791F6991E236BAA009CBBED /* checkbox-checked.png in Resources */,
 				D706C2241E53F13700F89B8A /* gas24h_logo.png in Resources */,
 				D75F64F71E28B39100A67B3C /* icon37-user.png in Resources */,
+				D71C047F1EE6A31C00563469 /* icon40.png in Resources */,
 				D791F6941E23688F009CBBED /* register.png in Resources */,
 				D75F65041E28B3A500A67B3C /* icon55.png in Resources */,
 				D7C30A441E307C1600B3FDA6 /* logo_agent.png in Resources */,

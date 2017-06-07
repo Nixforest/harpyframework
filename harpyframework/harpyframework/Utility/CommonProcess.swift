@@ -323,6 +323,24 @@ public class CommonProcess {
         return retVal
     }
     
+    //++ BUG0104-SPJ (NguyenPT 20170606) Fix bug when start input date
+    /**
+     * Get yesterday string
+     * - returns: String of yesterday with format dd-mm-yyyy
+     */
+    public static func getYesterday() -> String {
+        return getDateString(date: Date().yesterday)
+    }
+    
+    /**
+     * Get previous month string
+     * - returns: String of previous month with format dd-mm-yyyy
+     */
+    public static func getPrevMonth() -> String {
+        return getDateString(date: Date().previousMonth)
+    }
+    //-- BUG0104-SPJ (NguyenPT 20170606) Fix bug when start input date
+    
     /**
      * Set left image for textfield
      * - parameter textField: Current textField

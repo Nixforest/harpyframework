@@ -771,15 +771,49 @@ extension String {
         
         return formatter.string(from: number)!
     }
+    
+    //++ BUG0104-SPJ (NguyenPT 20170606) Fix bug when start input date
+    /**
+     * Capitalizing first letter of string
+     * - returns: String after format
+     */
     public func capitalizingFirstLetter() -> String {
         let first = String(characters.prefix(1)).capitalized
         let other = String(characters.dropFirst())
         return first + other
     }
     
+    /**
+     * Capitalizing first letter of string
+     */
     public mutating func capitalizeFirstLetter() {
         self = self.capitalizingFirstLetter()
     }
+    
+    /**
+     * Check flag value is ON
+     * - returns: True if value is "1", False otherwise
+     */
+    public func isON() -> Bool {
+        return (self == DomainConst.NUMBER_ONE_VALUE)
+    }
+    
+    /**
+     * Convert a string (format dd-mm-yyyy) to Date object
+     * - returns: Date object
+     */
+    public func getDateFromString()-> Date {
+        let calendar        = NSCalendar(identifier: NSCalendar.Identifier.gregorian)
+        let DateArray       = self.components(separatedBy: DomainConst.SPLITER_TYPE1)
+        let components      = NSDateComponents()
+        components.year     = Int(DateArray[2])!
+        components.month    = Int(DateArray[1])!
+        components.day      = Int(DateArray[0])!
+        let date            = calendar?.date(from: components as DateComponents)
+        
+        return date!
+    }
+    //-- BUG0104-SPJ (NguyenPT 20170606) Fix bug when start input date
 }
 
 public extension NSObject {
@@ -996,5 +1030,26 @@ public extension Bundle {
     /** Build version number */
     var buildVersionNumber: String? {
         return infoDictionary?["CFBundleVersion"] as? String
+    }
+}
+
+public extension Date {
+    var yesterday: Date {
+        return Calendar.current.date(byAdding: .day, value: -1, to: self)!
+    }
+    var tomorrow: Date {
+        return Calendar.current.date(byAdding: .day, value: 1, to: self)!
+    }
+    var noon: Date {
+        return Calendar.current.date(bySettingHour: 12, minute: 0, second: 0, of: self)!
+    }
+    var month: Int {
+        return Calendar.current.component(.month,  from: self)
+    }
+    var isLastDayOfMonth: Bool {
+        return tomorrow.month != month
+    }
+    var previousMonth: Date {
+        return Calendar.current.date(byAdding: .month, value: -1, to: self)!
     }
 }

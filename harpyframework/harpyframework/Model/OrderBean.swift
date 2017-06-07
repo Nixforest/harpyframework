@@ -89,6 +89,14 @@ public class OrderBean: NSObject {
     /** Support type text */
     public var support_text:        String = DomainConst.BLANK
     //-- BUG0079-SPJ (NguyenPT 20170509) Add order type and support type in Family order
+    //++ BUG0103-SPJ (NguyenPT 20170606) Update new flag
+    /** Flag show button complete or not */
+    public var show_button_complete:    String = DomainConst.BLANK
+    /** Flag show button save or not */
+    public var show_button_save:        String = DomainConst.BLANK
+    /** Created date */
+    public var created_date:            String = DomainConst.BLANK
+    //-- BUG0103-SPJ (NguyenPT 20170606) Update new flag
     
     public override init() {
         super.init()
@@ -152,5 +160,10 @@ public class OrderBean: NSObject {
         self.support_id         = getString(json: jsonData, key: DomainConst.KEY_SUPPORT_ID)
         self.support_text       = getString(json: jsonData, key: DomainConst.KEY_SUPPORT_TEXT)
         //-- BUG0079-SPJ (NguyenPT 20170509) Add order type and support type in Family order
+        //++ BUG0103-SPJ (NguyenPT 20170606) Update new flag
+        self.show_button_complete   = String(getInt(json: jsonData, key: DomainConst.KEY_SHOW_BUTTON_COMPLETE))
+        self.show_button_save       = String(getInt(json: jsonData, key: DomainConst.KEY_SHOW_BUTTON_SAVE))
+        self.created_date           = getString(json: jsonData, key: DomainConst.KEY_CREATED_DATE)
+        //-- BUG0103-SPJ (NguyenPT 20170606) Update new flag
     }
 }

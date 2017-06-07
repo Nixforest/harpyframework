@@ -156,6 +156,9 @@ public class DatePickerView: UIView, UITextFieldDelegate {
      */
     public func setValue(value: String) {
         _txtDate.text = value
+        //++ BUG0104-SPJ (NguyenPT 20170606) Fix bug when start input date
+        _currentDate = value.getDateFromString()
+        //-- BUG0104-SPJ (NguyenPT 20170606) Fix bug when start input date
     }
     
     /**

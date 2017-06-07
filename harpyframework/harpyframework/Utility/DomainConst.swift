@@ -634,6 +634,12 @@ public class DomainConst {
     /** Key Support type list */
     public static let KEY_LIST_SUPPORT_EMPLOYEE         = "list_support_employee"
     //-- BUG0079-SPJ (NguyenPT 20170509) Add order type and support type in Family order
+    //++ BUG0103-SPJ (NguyenPT 20170606) Update new flag
+    /** Key show button complete flag */
+    public static let KEY_SHOW_BUTTON_COMPLETE          = "show_button_complete"
+    /** Key show button save flag */
+    public static let KEY_SHOW_BUTTON_SAVE              = "show_button_save"
+    //-- BUG0103-SPJ (NguyenPT 20170606) Update new flag
     //++ BUG0093-SPJ (NguyenPT 20170517) Add new key setting
     /** Key lookup type */
     public static let KEY_LOOKUP_TYPE                   = "lookup_type"
@@ -1388,6 +1394,8 @@ public class DomainConst {
     public static let RATING_EMPTY_IMG_NAME                 = "icon27.png"
     /** Problem icon image name */
     public static let PROBLEM_ICON_IMG_NAME                 = "icon59.png"
+    /** Save icon image name */
+    public static let SAVE_ICON_IMG_NAME                    = "icon40.png"
     /** Human icon image name */
     public static let HUMAN_ICON_IMG_NAME                   = "icon47.png"
     /** Status icon image name */
@@ -1926,4 +1934,5 @@ public class DomainConst {
     public static let CONTENT00431 = "Xin nhập thông tin cần hỗ trợ"
     public static let CONTENT00432 = "Bạn đang gửi thông tin cần hỗ trợ như bên dưới. Xin hãy kiểm tra lại các thông tin cho thật chính xác và nhấn nút Gửi nếu bạn đồng ý."
     public static let CONTENT00433 = "Người xử lý"
+    public static let CONTENT00434 = "Nợ"
 }

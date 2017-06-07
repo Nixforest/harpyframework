@@ -212,7 +212,7 @@ public class OrderEmployeeTableViewCell: UITableViewCell {
                               y: y,
                               width: GlobalConst.BUTTON_W / 2,
                               height: GlobalConst.BUTTON_H)
-        button.setTitle(title.uppercased(), for: UIControlState())
+        button.setTitle(title, for: UIControlState())
         button.setTitleColor(UIColor.white, for: UIControlState())
         button.backgroundColor          = color
         button.titleLabel?.font         = UIFont.systemFont(ofSize: UIFont.systemFontSize)
