@@ -1935,4 +1935,5 @@ public class DomainConst {
     public static let CONTENT00432 = "Bạn đang gửi thông tin cần hỗ trợ như bên dưới. Xin hãy kiểm tra lại các thông tin cho thật chính xác và nhấn nút Gửi nếu bạn đồng ý."
     public static let CONTENT00433 = "Người xử lý"
     public static let CONTENT00434 = "Nợ"
+    public static let CONTENT00435 = "Tìm kiếm Khách hàng"
 }
