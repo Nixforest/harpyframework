@@ -640,6 +640,22 @@ public class DomainConst {
     /** Key show button save flag */
     public static let KEY_SHOW_BUTTON_SAVE              = "show_button_save"
     //-- BUG0103-SPJ (NguyenPT 20170606) Update new flag
+    
+    //++ BUG0104-SPJ (NguyenPT 20170607) Update new flag
+    /** Key setting */
+    public static let KEY_TOTAL_GAS_DU_KG               = "total_gas_du_kg"
+    /** Key setting */
+    public static let KEY_SHOW_THU_TIEN                 = "show_thu_tien"
+    /** Key setting */
+    public static let KEY_SHOW_CHI_GAS_DU               = "show_chi_gas_du"
+    /** Key setting */
+    public static let KEY_SHOW_BUTTON_DEBIT             = "show_button_debit"
+    /** Key setting */
+    public static let KEY_PAY_DIRECT                    = "pay_direct"
+    /** Key setting */
+    public static let KEY_SHOW_BUTTON_CANCEL            = "show_button_cancel"
+    //-- BUG0104-SPJ (NguyenPT 20170607) Update new flag
+    
     //++ BUG0093-SPJ (NguyenPT 20170517) Add new key setting
     /** Key lookup type */
     public static let KEY_LOOKUP_TYPE                   = "lookup_type"
@@ -1936,4 +1952,6 @@ public class DomainConst {
     public static let CONTENT00433 = "Người xử lý"
     public static let CONTENT00434 = "Nợ"
     public static let CONTENT00435 = "Tìm kiếm Khách hàng"
+    public static let CONTENT00436 = "Tác vụ khác"
+    public static let CONTENT00437 = "Xin chọn tác vụ cần thực hiện"
 }

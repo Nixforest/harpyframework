@@ -51,6 +51,26 @@ public class OrderVIPBean: ConfigBean {
     public var status_number:           String = DomainConst.BLANK
     /** Price information */
     public var info_price:              String = DomainConst.BLANK
+    //++ BUG0104-SPJ (NguyenPT 20170607) Update new properties
+    /** Mass of gas remain */
+    public var total_gas_du_kg:         String = DomainConst.BLANK
+    /** Collect money */
+    public var show_thu_tien:           Int    = 0
+    /** Pay for gas remain */
+    public var show_chi_gas_du:         Int    = 0
+    /** Debit flag */
+    public var show_button_debit:       Int    = 0
+    /** Complete flag */
+    public var show_button_complete:    Int    = 0
+    /** Save flag */
+    public var show_button_save:        Int    = 0
+    /** Cancel flag */
+    public var show_button_cancel:      Int    = 0
+    /** Pay direct */
+    public var pay_direct:              String = DomainConst.BLANK
+    /** List images */
+    public var images:                  [UpholdImageInfoItem] = [UpholdImageInfoItem]()
+    //-- BUG0104-SPJ (NguyenPT 20170607) Update new properties
     
     /**
      * Initializer
@@ -89,6 +109,22 @@ public class OrderVIPBean: ConfigBean {
         self.agent_name         = getString(json: jsonData, key: DomainConst.KEY_AGENT_NAME)
         self.status_number      = getString(json: jsonData, key: DomainConst.KEY_STATUS_NUMBER)
         self.info_price         = getString(json: jsonData, key: DomainConst.KEY_INFO_PRICE)
+        
+        //++ BUG0104-SPJ (NguyenPT 20170607) Update new properties
+        self.total_gas_du_kg        = getString(json: jsonData, key: DomainConst.KEY_TOTAL_GAS_DU_KG)
+        self.show_thu_tien          = getInt(json: jsonData, key: DomainConst.KEY_SHOW_THU_TIEN)
+        self.show_chi_gas_du        = getInt(json: jsonData, key: DomainConst.KEY_SHOW_CHI_GAS_DU)
+        self.show_button_debit      = getInt(json: jsonData, key: DomainConst.KEY_SHOW_BUTTON_DEBIT)
+        self.show_button_complete   = getInt(json: jsonData, key: DomainConst.KEY_SHOW_BUTTON_COMPLETE)
+        self.show_button_save       = getInt(json: jsonData, key: DomainConst.KEY_SHOW_BUTTON_SAVE)
+        self.show_button_cancel     = getInt(json: jsonData, key: DomainConst.KEY_SHOW_BUTTON_CANCEL)
+        self.pay_direct             = getString(json: jsonData, key: DomainConst.KEY_PAY_DIRECT)
+        if let dataArr = jsonData[DomainConst.KEY_LIST_IMAGE] as? [[String: AnyObject]] {
+            for listItem in dataArr {
+                self.images.append(UpholdImageInfoItem(jsonData: listItem))
+            }
+        }
+        //-- BUG0104-SPJ (NguyenPT 20170607) Update new properties
     }
     
     /**
