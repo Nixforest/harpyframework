@@ -1956,4 +1956,5 @@ public class DomainConst {
     public static let CONTENT00437 = "Xin chọn tác vụ cần thực hiện"
     public static let CONTENT00438 = "Xác nhận đơn hàng nợ"
     public static let CONTENT00439 = "Bạn đang gửi thông tin Xác nhận đơn hàng nợ như bên dưới. Xin hãy kiểm tra lại các thông tin cho thật chính xác và nhấn nút Gửi nếu bạn đồng ý."
+    public static let CONTENT00440 = "Chi gas dư"
 }
