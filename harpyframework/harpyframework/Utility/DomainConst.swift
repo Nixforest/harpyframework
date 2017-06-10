@@ -656,6 +656,11 @@ public class DomainConst {
     public static let KEY_SHOW_BUTTON_CANCEL            = "show_button_cancel"
     //-- BUG0104-SPJ (NguyenPT 20170607) Update new flag
     
+    //++ BUG0107-SPJ (NguyenPT 20170609) Handle image in store card
+    /** Key setting */
+    public static let KEY_LIST_ID_IMAGE                 = "list_id_image"
+    //-- BUG0107-SPJ (NguyenPT 20170609) Handle image in store card
+    
     //++ BUG0093-SPJ (NguyenPT 20170517) Add new key setting
     /** Key lookup type */
     public static let KEY_LOOKUP_TYPE                   = "lookup_type"
