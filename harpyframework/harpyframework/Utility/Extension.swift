@@ -746,6 +746,27 @@ extension String {
      * - returns: String after formated
      */
     public func currencyInputFormatting() -> String {
+        let number: NSNumber! = currencyValue()
+        let formatter                       = NumberFormatter()
+        formatter.numberStyle               = .currency
+        //formatter.currencySymbol = "$"
+        formatter.currencySymbol            = DomainConst.BLANK
+        formatter.maximumFractionDigits     = 0
+        formatter.minimumFractionDigits     = 0
+        
+        // if first number is 0 or all numbers were deleted
+        guard number != 0 as NSNumber else {
+            return ""
+        }
+        
+        return formatter.string(from: number)!
+    }
+
+    /**
+     * Get currency value from string
+     * - returns: NSNumber object
+     */
+    public func currencyValue() -> NSNumber {
         var number: NSNumber!
         let formatter                       = NumberFormatter()
         formatter.numberStyle               = .currency
@@ -769,11 +790,11 @@ extension String {
         
         // if first number is 0 or all numbers were deleted
         guard number != 0 as NSNumber else {
-            return ""
+            return 0
         }
-        
-        return formatter.string(from: number)!
+        return number
     }
+    //-- BUG0093-SPJ (NguyenPT 20170520) Add new function G09
     
     //++ BUG0104-SPJ (NguyenPT 20170606) Fix bug when start input date
     /**
