@@ -53,6 +53,8 @@ public class UpholdImageInfoItem: NSObject {
     public var thumb = ""
     /** Large image */
     public var large = ""
+    /** Id */
+    public var id    = DomainConst.BLANK
     /**
      * Initializer
      * - parameter jsonData: List of data
@@ -60,6 +62,7 @@ public class UpholdImageInfoItem: NSObject {
     public init(jsonData: [String: AnyObject]) {
         self.thumb       = jsonData[DomainConst.KEY_IMG_THUMB] as? String ?? ""
         self.large       = jsonData[DomainConst.KEY_IMG_LARGE] as? String ?? ""
+        self.id          = jsonData[DomainConst.KEY_ID] as? String ?? ""
     }
 }
 
@@ -806,9 +809,11 @@ extension String {
         let calendar        = NSCalendar(identifier: NSCalendar.Identifier.gregorian)
         let DateArray       = self.components(separatedBy: DomainConst.SPLITER_TYPE1)
         let components      = NSDateComponents()
-        components.year     = Int(DateArray[2])!
-        components.month    = Int(DateArray[1])!
-        components.day      = Int(DateArray[0])!
+        if DateArray.count >= 3 {            
+            components.year     = Int(DateArray[2])!
+            components.month    = Int(DateArray[1])!
+            components.day      = Int(DateArray[0])!
+        }
         let date            = calendar?.date(from: components as DateComponents)
         
         return date!

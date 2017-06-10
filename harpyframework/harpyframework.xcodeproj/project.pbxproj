@@ -24,6 +24,7 @@
 		D70B9F951E3F504400EB66F5 /* icon18.png in Resources */ = {isa = PBXBuildFile; fileRef = D70B9F911E3F504400EB66F5 /* icon18.png */; };
 		D70B9F961E3F504400EB66F5 /* icon19.png in Resources */ = {isa = PBXBuildFile; fileRef = D70B9F921E3F504400EB66F5 /* icon19.png */; };
 		D70ECEC91EE2788500997F1A /* ErrorDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70ECEC81EE2788500997F1A /* ErrorDetailVC.swift */; };
+		D712BE8B1EEA952800F679CE /* ImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D712BE8A1EEA952800F679CE /* ImageRequest.swift */; };
 		D715BB6B1EBE24650097BDA8 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D715BB6A1EBE24650097BDA8 /* DatePickerView.swift */; };
 		D715BB701EBE54760097BDA8 /* CacheDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D715BB6F1EBE54760097BDA8 /* CacheDataRequest.swift */; };
 		D715BB721EBE550A0097BDA8 /* CacheDataRespModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D715BB711EBE550A0097BDA8 /* CacheDataRespModel.swift */; };
@@ -283,6 +284,7 @@
 		D70B9F911E3F504400EB66F5 /* icon18.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon18.png; path = images/icon18.png; sourceTree = "<group>"; };
 		D70B9F921E3F504400EB66F5 /* icon19.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon19.png; path = images/icon19.png; sourceTree = "<group>"; };
 		D70ECEC81EE2788500997F1A /* ErrorDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorDetailVC.swift; path = View/ErrorDetailVC.swift; sourceTree = "<group>"; };
+		D712BE8A1EEA952800F679CE /* ImageRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageRequest.swift; path = API/ImageRequest.swift; sourceTree = "<group>"; };
 		D715BB6A1EBE24650097BDA8 /* DatePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatePickerView.swift; path = CustomeControl/DatePickerView.swift; sourceTree = "<group>"; };
 		D715BB6F1EBE54760097BDA8 /* CacheDataRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CacheDataRequest.swift; path = API/CacheDataRequest.swift; sourceTree = "<group>"; };
 		D715BB711EBE550A0097BDA8 /* CacheDataRespModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CacheDataRespModel.swift; path = Model/CacheDataRespModel.swift; sourceTree = "<group>"; };
@@ -563,6 +565,7 @@
 				D790BF881EA709CC00841CC5 /* OrderFamilyHandleRequest.swift */,
 				D7EBB7EA1EA9CC5700BE6612 /* OrderVipSetEventRequest.swift */,
 				D715BB6F1EBE54760097BDA8 /* CacheDataRequest.swift */,
+				D712BE8A1EEA952800F679CE /* ImageRequest.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -1152,6 +1155,7 @@
 				D77F068E1E719B1D00797A6B /* SlideMenuController.swift in Sources */,
 				D7D04E431E557FBF00B3F8CF /* OrderVIPDetailBean.swift in Sources */,
 				D7AB90541E2402170048AC4F /* ScrollButtonList.swift in Sources */,
+				D712BE8B1EEA952800F679CE /* ImageRequest.swift in Sources */,
 				D7CED6D11E98CB2E00C2B568 /* OrderEmployeeTableViewCell.swift in Sources */,
 				D77F05B61E71703E00797A6B /* DomainConst.swift in Sources */,
 				D77F05D61E7172AD00797A6B /* UpholdBean.swift in Sources */,
