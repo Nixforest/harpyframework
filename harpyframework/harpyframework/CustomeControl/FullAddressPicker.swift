@@ -204,4 +204,12 @@ public class FullAddressPicker: UIView, AddressPickerViewDelegate {
     public func getData() -> FullAddressBean {
         return self._model
     }
+    
+    /**
+     * Set current data of control
+     * - parameter bean: FullAddressBean object
+     */
+    public func setData(bean: FullAddressBean) {
+        self._model = bean
+    }
 }
