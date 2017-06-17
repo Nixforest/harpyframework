@@ -1012,6 +1012,11 @@ public class DomainConst {
     public static let KEY_LIST_TICKET_HANDLE            = "list_ticket_handle"
     //-- BUG0102-SPJ (NguyenPT 20170604) Add new key setting
     
+    //++ BUG0111-SPJ (NguyenPT 20170617) Update function G06
+    /** Key List CCS code */
+    public static let KEY_MENU_CCS_CODE_LIST            = "pttt_code_list"
+    //-- BUG0111-SPJ (NguyenPT 20170617) Update function G06
+    
     //++ BUG0050-SPJ (NguyenPT 20170325) Add new function G06
     /** Platform value: Android */
     public static let PLATFORM_ANDROID                  = 1
@@ -1976,4 +1981,5 @@ public class DomainConst {
     public static let CONTENT00442 = "Cập nhật tài khoản"
     public static let CONTENT00443 = "Email"
     public static let CONTENT00444 = "Bạn đang gửi thông tin Cập nhật tài khoản như bên dưới. Xin hãy kiểm tra lại các thông tin cho thật chính xác và nhấn nút Gửi nếu bạn đồng ý."
+    public static let CONTENT00445 = "PTTT Code"
 }
