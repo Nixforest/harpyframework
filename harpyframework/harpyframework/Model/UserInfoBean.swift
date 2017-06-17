@@ -9,27 +9,33 @@
 import Foundation
 public class UserInfoBean: NSObject {
     /** First name */
-    var first_name: String = ""
+    var first_name:         String      = DomainConst.BLANK
     /** Phone */
-    var phone: String = ""
+    var phone:              String      = DomainConst.BLANK
     /** Address */
-    var address: String = ""
+    var address:            String      = DomainConst.BLANK
     /** Avatar image */
-    var image_avatar: String = ""
+    var image_avatar:       String      = DomainConst.BLANK
     /** Addition information */
-    var customer_info: [ConfigBean] = [ConfigBean]()
+    var customer_info:      [ConfigBean] = [ConfigBean]()
     /** Email */
-    var email: String = ""
+    var email:              String      = DomainConst.BLANK
     /** Email */
-    var province_id: String = ""
+    var province_id:        String      = DomainConst.BLANK
     /** Email */
-    var district_id: String = ""
+    var district_id:        String      = DomainConst.BLANK
     /** Email */
-    var ward_id: String = ""
+    var ward_id:            String      = DomainConst.BLANK
     /** Email */
-    var street_id: String = ""
+    var street_id:          String      = DomainConst.BLANK
     /** Email */
-    var house_numbers: String = ""
+    var house_numbers:      String      = DomainConst.BLANK
+    //++ BUG0008-SPJ (NguyenPT 20170616) Update G00Account
+    /** Id of agent */
+    var agent_id:           String      = DomainConst.BLANK
+    /** Name of agent */
+    var agent_name:         String      = DomainConst.BLANK
+    //-- BUG0008-SPJ (NguyenPT 20170616) Update G00Account
     
     /**
      * Initializer
@@ -56,6 +62,10 @@ public class UserInfoBean: NSObject {
         self.ward_id        = getString(json: jsonString, key: DomainConst.KEY_WARD_ID)
         self.street_id      = getString(json: jsonString, key: DomainConst.KEY_STREET)
         self.house_numbers  = getString(json: jsonString, key: DomainConst.KEY_HOUSE_NUMBER)
+        //++ BUG0008-SPJ (NguyenPT 20170616) Update G00Account
+        self.agent_id       = getString(json: jsonString, key: DomainConst.KEY_AGENT_ID)
+        self.agent_name     = getString(json: jsonString, key: DomainConst.KEY_AGENT_NAME)
+        //-- BUG0008-SPJ (NguyenPT 20170616) Update G00Account
     }
     
     /**
@@ -231,4 +241,22 @@ public class UserInfoBean: NSObject {
     public func getTechnicalPhone() -> String {
         return self.getCustomerInfo(key: DomainConst.KEY_TECHNICAL_PHONE)
     }
+    
+    //++ BUG0008-SPJ (NguyenPT 20170616) Update G00Account
+    /**
+     * Get agent id
+     * - returns: Agent id
+     */
+    public func getAgentId() -> String {
+        return self.agent_id
+    }
+    
+    /**
+     * Get agent name
+     * - returns: Agent name
+     */
+    public func getAgentName() -> String {
+        return self.agent_name
+    }
+    //-- BUG0008-SPJ (NguyenPT 20170616) Update G00Account
 }

@@ -70,6 +70,18 @@ open class StepVC: ChildViewController, UIScrollViewDelegate, ScrollButtonListDe
         _swipeGestLeft.direction = .left
         self.view.addGestureRecognizer(_swipeGestLeft)
         //-- BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Handle slide gesture
+        
+        //++ BUG0109-SPJ (NguyenPT 20170614) HarpyFramework: Fix bug UI StepVC
+        // Set up buttons
+        setupButtons()
+        // Setup list step button
+        setupListButton()
+        
+        // Setup step contents
+        for i in 0..<(_numberStep - 2) {
+            self.view.addSubview(self._arrayContent[i])
+        }
+        //-- BUG0109-SPJ (NguyenPT 20170614) HarpyFramework: Fix bug UI StepVC
     }
     
     //++ BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Handle slide gesture
@@ -91,15 +103,17 @@ open class StepVC: ChildViewController, UIScrollViewDelegate, ScrollButtonListDe
     //-- BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Handle slide gesture
     
     override open func viewDidLayoutSubviews() {
-        // Set up buttons
-        setupButtons()
-        // Setup list step button
-        setupListButton()
-        
-        // Setup step contents
-        for i in 0..<(_numberStep - 2) {
-            self.view.addSubview(self._arrayContent[i])
-        }
+        //++ BUG0109-SPJ (NguyenPT 20170614) HarpyFramework: Fix bug UI StepVC
+//        // Set up buttons
+//        setupButtons()
+//        // Setup list step button
+//        setupListButton()
+//        
+//        // Setup step contents
+//        for i in 0..<(_numberStep - 2) {
+//            self.view.addSubview(self._arrayContent[i])
+//        }
+        //-- BUG0109-SPJ (NguyenPT 20170614) HarpyFramework: Fix bug UI StepVC
     }
     
     /**

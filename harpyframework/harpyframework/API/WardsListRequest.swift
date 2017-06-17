@@ -49,5 +49,23 @@ public class WardsListRequest: BaseRequest {
         NotificationCenter.default.addObserver(view, selector: action, name: NSNotification.Name(rawValue: request.theClassName), object: nil)
         request.execute()
     }
-
+    
+    //++ BUG0109-SPJ (NguyenPT 20170617) Request wards list on custom UIView
+    /**
+     * Request wards list
+     * - parameter action:      Action execute when finish this task
+     * - parameter view:        Current view
+     * - parameter provinceId:  Id of province
+     */
+    public static func requestWards(action: Selector, view: UIView,
+                                    provinceId: String,
+                                    districtId: String) {
+        LoadingView.shared.showOverlay(view: view)
+        let request = WardsListRequest(url: DomainConst.PATH_SITE_WARDS_LIST,
+                                           reqMethod: DomainConst.HTTP_POST_REQUEST)
+        request.setData(provinceId: provinceId,  districtId: districtId)
+        NotificationCenter.default.addObserver(view, selector: action, name: NSNotification.Name(rawValue: request.theClassName), object: nil)
+        request.execute()
+    }
+    //-- BUG0109-SPJ (NguyenPT 20170617) Request wards list on custom UIView
 }

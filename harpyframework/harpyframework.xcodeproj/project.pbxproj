@@ -37,6 +37,8 @@
 		D716C1981E92A9E9007CC50C /* AddressPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D716C1971E92A9E9007CC50C /* AddressPickerView.swift */; };
 		D71C047F1EE6A31C00563469 /* icon40.png in Resources */ = {isa = PBXBuildFile; fileRef = D71C047E1EE6A31C00563469 /* icon40.png */; };
 		D71C25A31E41FDC400E29C3B /* TransactionCompleteBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71C25A21E41FDC400E29C3B /* TransactionCompleteBean.swift */; };
+		D73561B41EF3BF0D00085514 /* FullAddressPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73561B31EF3BF0D00085514 /* FullAddressPicker.swift */; };
+		D73561B61EF3C1A100085514 /* FullAddressBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73561B51EF3C1A100085514 /* FullAddressBean.swift */; };
 		D7424AAD1E3B463600E442DC /* MaterialTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7424AAC1E3B463600E442DC /* MaterialTableViewCell.swift */; };
 		D74591331EA08F3C002C3AB3 /* reload-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D74591321EA08F3C002C3AB3 /* reload-1.png */; };
 		D75F64AD1E28657900A67B3C /* icon52.png in Resources */ = {isa = PBXBuildFile; fileRef = D75F64AA1E28657900A67B3C /* icon52.png */; };
@@ -297,6 +299,8 @@
 		D716C1971E92A9E9007CC50C /* AddressPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddressPickerView.swift; path = CustomeControl/AddressPickerView.swift; sourceTree = "<group>"; };
 		D71C047E1EE6A31C00563469 /* icon40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon40.png; path = images/icon40.png; sourceTree = "<group>"; };
 		D71C25A21E41FDC400E29C3B /* TransactionCompleteBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransactionCompleteBean.swift; path = Model/TransactionCompleteBean.swift; sourceTree = "<group>"; };
+		D73561B31EF3BF0D00085514 /* FullAddressPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FullAddressPicker.swift; path = CustomeControl/FullAddressPicker.swift; sourceTree = "<group>"; };
+		D73561B51EF3C1A100085514 /* FullAddressBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FullAddressBean.swift; path = Model/FullAddressBean.swift; sourceTree = "<group>"; };
 		D7424AAC1E3B463600E442DC /* MaterialTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MaterialTableViewCell.swift; path = CustomeControl/MaterialTableViewCell.swift; sourceTree = "<group>"; };
 		D74591321EA08F3C002C3AB3 /* reload-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "reload-1.png"; path = "images/reload-1.png"; sourceTree = "<group>"; };
 		D75F64AA1E28657900A67B3C /* icon52.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon52.png; path = images/icon52.png; sourceTree = "<group>"; };
@@ -616,6 +620,7 @@
 				D7CDBE251E877F0F00B73877 /* CustomerFamilyBean.swift */,
 				D7CDBE2C1E880A7800B73877 /* WorkingReportBean.swift */,
 				D715BB731EBE553F0097BDA8 /* CacheDataModel.swift */,
+				D73561B51EF3C1A100085514 /* FullAddressBean.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -732,6 +737,7 @@
 				D7CED6D01E98CB2E00C2B568 /* OrderEmployeeTableViewCell.xib */,
 				D715BB6A1EBE24650097BDA8 /* DatePickerView.swift */,
 				D77824A21EDEAE48002AB15A /* ReportCollectionViewLayout.swift */,
+				D73561B31EF3BF0D00085514 /* FullAddressPicker.swift */,
 			);
 			name = CustomControl;
 			sourceTree = "<group>";
@@ -747,14 +753,6 @@
 		D7F3D8D21E1B8BCC0018744F /* images */ = {
 			isa = PBXGroup;
 			children = (
-				D71C047E1EE6A31C00563469 /* icon40.png */,
-				19D74A801EE4599B00B7DE47 /* traloi.png */,
-				19D74A7E1EE4598F00B7DE47 /* close.png */,
-				D7EA53D71EE40FC3004CFE1F /* icon51.png */,
-				D7EA53D01EE3F5C5004CFE1F /* map.png */,
-				D7EA53CE1EE3F40A004CFE1F /* ticket.png */,
-				D76E7E7B1EDE8AE0005D5585 /* hogiadinh.png */,
-				D76E7E791EDE8A1D005D5585 /* icon-baocao.png */,
 				D75F64B81E28B39100A67B3C /* Account.jpeg */,
 				D75F64BA1E28B39100A67B3C /* back.png */,
 				D791F6791E234C89009CBBED /* bg_sliding_menu_body.jpg */,
@@ -762,6 +760,7 @@
 				D75F64B21E28B10300A67B3C /* bg1.jpg */,
 				D791F6971E236BAA009CBBED /* checkbox-checked.png */,
 				D791F6981E236BAA009CBBED /* checkbox-unchecked.png */,
+				19D74A7E1EE4598F00B7DE47 /* close.png */,
 				D75F64BB1E28B39100A67B3C /* config.png */,
 				D791F68F1E23688F009CBBED /* configuration.png */,
 				D78FB84B1E52EE3C00993A32 /* cong.png */,
@@ -772,6 +771,7 @@
 				D706C2221E53F13700F89B8A /* gas24h_logo.png */,
 				D706C2231E53F13700F89B8A /* gasservice_logo.png */,
 				D75F64C01E28B39100A67B3C /* gasservice.png */,
+				D76E7E7B1EDE8AE0005D5585 /* hogiadinh.png */,
 				D7C30A411E306F7F00B3FDA6 /* ic_checkpoint.png */,
 				D75F64C11E28B39100A67B3C /* ic_custom_order_top.png */,
 				D7D28B771EB9B8DD006DDF83 /* ic_menu_cash_book.png */,
@@ -784,6 +784,7 @@
 				D7D28B731EB9B800006DDF83 /* ic_menu_support.png */,
 				D78E326D1E571C980035C40D /* ic_number_back.png */,
 				D78E326E1E571C980035C40D /* ic_number_next.png */,
+				D76E7E791EDE8A1D005D5585 /* icon-baocao.png */,
 				D75F64C21E28B39100A67B3C /* icon2.png */,
 				D75F64C31E28B39100A67B3C /* icon3.png */,
 				D75F64C51E28B39100A67B3C /* icon4-ios.png */,
@@ -826,11 +827,13 @@
 				D75F64D71E28B39100A67B3C /* icon38.png */,
 				D75F64D81E28B39100A67B3C /* icon39-doimatkhau-ios.png */,
 				D75F64D91E28B39100A67B3C /* icon39.png */,
+				D71C047E1EE6A31C00563469 /* icon40.png */,
 				D76AFDA81E26967900E73E1D /* icon45.png */,
 				D791F6A31E237595009CBBED /* icon46.png */,
 				D791F6A11E23754C009CBBED /* icon47.png */,
 				D791F69F1E23747C009CBBED /* icon48.png */,
 				D791F6A71E2378C0009CBBED /* icon49.png */,
+				D7EA53D71EE40FC3004CFE1F /* icon51.png */,
 				D75F64AA1E28657900A67B3C /* icon52.png */,
 				D75F64AB1E28657900A67B3C /* icon53.png */,
 				D75F64AC1E28657900A67B3C /* icon54.png */,
@@ -862,6 +865,7 @@
 				D75F65001E28B3A500A67B3C /* logout.png */,
 				D791F6951E2368BA009CBBED /* logoutitem.png */,
 				D75F65011E28B3A500A67B3C /* logoutMenu.png */,
+				D7EA53D01EE3F5C5004CFE1F /* map.png */,
 				D75F65021E28B3A500A67B3C /* menu.png */,
 				D791F6861E2367F3009CBBED /* message.png */,
 				D75F651A1E28B3BC00A67B3C /* mobile.png */,
@@ -877,7 +881,9 @@
 				D791F6871E2367F3009CBBED /* report.png */,
 				D7724F991E8935FF006ECEFA /* search.png */,
 				D75F65261E28B3C600A67B3C /* ServiceRating.jpeg */,
+				D7EA53CE1EE3F40A004CFE1F /* ticket.png */,
 				D75F65271E28B3C600A67B3C /* trainingMode.png */,
+				19D74A801EE4599B00B7DE47 /* traloi.png */,
 				D75F65281E28B3C600A67B3C /* UpHoldList.jpeg */,
 				D75F65291E28B3C600A67B3C /* upholdRequest.png */,
 			);
@@ -1187,6 +1193,7 @@
 				D7BA68851E83AC4D001C675D /* BaseAPITestViewController.swift in Sources */,
 				D716C1961E929422007CC50C /* WardsListRespModel.swift in Sources */,
 				D77F05B71E71703E00797A6B /* Extension.swift in Sources */,
+				D73561B41EF3BF0D00085514 /* FullAddressPicker.swift in Sources */,
 				D79C317C1E9B8C8B006F3683 /* OrderFamilyViewRespModel.swift in Sources */,
 				D790BF891EA709CC00841CC5 /* OrderFamilyHandleRequest.swift in Sources */,
 				D7F82AB51EA53A1100116B74 /* TransactionSetEventRequest.swift in Sources */,
@@ -1219,6 +1226,7 @@
 				D716C1981E92A9E9007CC50C /* AddressPickerView.swift in Sources */,
 				D77F05C21E71729400797A6B /* NotificationCountRespModel.swift in Sources */,
 				D77F06031E71738100797A6B /* TableCellOrderType.swift in Sources */,
+				D73561B61EF3C1A100085514 /* FullAddressBean.swift in Sources */,
 				D7AF28171E58C91300AFF9D6 /* OrderDetailTableViewCell.swift in Sources */,
 				D77F05C51E71729400797A6B /* UpholdListRespModel.swift in Sources */,
 				D77F05F21E71737200797A6B /* RegisterRequest.swift in Sources */,

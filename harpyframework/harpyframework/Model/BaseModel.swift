@@ -645,6 +645,13 @@ public class BaseModel: NSObject {
         self.list_agent = loginModel.list_agent
         
         // List street
+        //++ BUG0109-SPJ (NguyenPT 20170617) Handle save unsigned value of street name
+        for item in loginModel.list_street {
+            let itemAdd = item
+            itemAdd.data.append(ConfigBean(id: DomainConst.BLANK, name: item.name.removeSign().lowercased()))
+            self.list_street.append(itemAdd)
+        }
+        //-- BUG0109-SPJ (NguyenPT 20170617) Handle save unsigned value of street name
         self.list_street = loginModel.list_street
         
         // List Family type
@@ -1231,4 +1238,70 @@ public class BaseModel: NSObject {
     public func getErrorDetail() -> String {
         return self._errorDetail
     }
+    
+    //++ BUG0109-SPJ (NguyenPT 20170617) Handle get name of address value by id
+    /**
+     * Get province name by id
+     * - parameter id: Id of province
+     * - returns: Name of province
+     */
+    public func getProvinceNameById(id: String) -> String {
+        for item in self._listProvinces {
+            if item.id == id {
+                return item.name
+            }
+        }
+        return DomainConst.BLANK
+    }
+    
+    /**
+     * Get district name by id
+     * - parameter id: Id of district
+     * - parameter provinceId: Id of province
+     * - returns: Name of district
+     */
+    public func getDistrictNameById(id: String, provinceId: String) -> String {
+        if let lst = self._listDistricts[provinceId] {
+            for item in lst {
+                if item.id == id {
+                    return item.name
+                }
+            }
+        }
+        
+        return DomainConst.BLANK
+    }
+    
+    /**
+     * Get ward name by id
+     * - parameter id: Id of ward
+     * - parameter districtId: Id of district
+     * - returns: Name of ward
+     */
+    public func getWardNameById(id: String, districtId: String) -> String {
+        if let lst = self._listWards[districtId] {
+            for item in lst {
+                if item.id == id {
+                    return item.name
+                }
+            }
+        }
+        
+        return DomainConst.BLANK
+    }
+    
+    /**
+     * Get street name by id
+     * - parameter id: Id of street
+     * - returns: Name of street
+     */
+    public func getStreetNameById(id: String) -> String {
+        for item in self.list_street {
+            if item.id == id {
+                return item.name
+            }
+        }
+        return DomainConst.BLANK
+    }
+    //-- BUG0109-SPJ (NguyenPT 20170617) Handle get name of address value by id
 }

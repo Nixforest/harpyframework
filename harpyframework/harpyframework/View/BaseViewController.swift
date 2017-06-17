@@ -185,12 +185,28 @@ open class BaseViewController : UIViewController {
         }
     }
     
+    /**
+     * Handle send email
+     * - parameter email: Email to send
+     */
     public func makeEmail(email: String) {
         let url = NSURL(string: "mailto:\(email)")
         if UIApplication.shared.canOpenURL(url as! URL) {
             UIApplication.shared.openURL(url as! URL)
         } else {
             showAlert(message: "Không gửi được email cho: \(email)")
+        }
+    }
+    
+    /**
+     * Open Apple Store to update version of app
+     */
+    public func updateVersionAppStore() {
+        let url = NSURL(string: "itms://appsto.re/us/BVpRgb.i")
+        if UIApplication.shared.canOpenURL(url as! URL) {
+            UIApplication.shared.openURL(url as! URL)
+        } else {
+            showAlert(message: "Không mở được")
         }
     }
     

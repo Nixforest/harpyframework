@@ -105,6 +105,11 @@ public class OrderDetailTableViewCell: UITableViewCell {
      * - parameter config:            Configuration model
      */
     public func setup(config: ConfigurationModel) {
+        //++ BUG0078-SPJ (NguyenPT 20170508) Fix bug reload table view make data overlapping
+        for view in self.subviews {
+            view.removeFromSuperview()
+        }
+        //-- BUG0078-SPJ (NguyenPT 20170508) Fix bug reload table view make data overlapping
         /** Left image */
         let _leftImg: UIImageView    = UIImageView()
         /** Name of config item */
