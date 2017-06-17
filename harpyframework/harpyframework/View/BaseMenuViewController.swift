@@ -315,7 +315,8 @@ open class BaseMenuViewController : UIViewController {
             currentView.showAlert(message: DomainConst.CONTENT00362)
             break
         case DomainConst.MESSAGE:                           // Message
-            currentView.showAlert(message: DomainConst.CONTENT00362)
+            //currentView.showAlert(message: DomainConst.CONTENT00362)
+            currentView.pushToViewAndClearData(name: "G03F00S01VC")
             break
         case DomainConst.CUSTOMER_LIST:                     // Customer list
             //currentView.showAlert(message: DomainConst.CONTENT00197)

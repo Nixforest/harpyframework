@@ -35,8 +35,6 @@ public class DomainConst {
     public static let PATH_SITE_NEWS_VIEW               = "site/newsView"
     /** Notify count */
     public static let PATH_SITE_NOTIFY_COUNT            = "site/notifyCount"
-    /** Notify list */
-    public static let PATH_SITE_NOTIFY_LIST             = "site/notifyList"
     /** Notify view */
     public static let PATH_SITE_NOTIFY_VIEW             = "site/notifyView"
     /** Order create */
@@ -741,6 +739,12 @@ public class DomainConst {
     /** list_reply */
     public static let KEY_LIST_REPLY                    = "list_reply"
     //-- BUG0101-SPJ (NguyenPT 20170604) Add new key setting
+    //++ BUG0110-SPJ (NguyenPT 20170617) Add new key setting
+    /** time_send */
+    public static let KEY_TIME_SEND                     = "time_send"
+    /** created_date_on_history */
+    public static let KEY_CREATED_DATE_ON_HISTORY       = "created_date_on_history"
+    //-- BUG0110-SPJ (NguyenPT 20170617) Add new key setting
     
     
     // MARK: -----Specified constant-----
@@ -1113,6 +1117,12 @@ public class DomainConst {
     /** Cashbook type: Schedule */
     public static let CASHBOOK_TYPE_SCHEDULE            = DomainConst.NUMBER_TWO_VALUE
     //-- BUG0093-SPJ (NguyenPT 20170518) Type of cash book
+    //++ BUG0110-SPJ (NguyenPT 20170617) Type of notify list
+    /** Notify list type: new */
+    public static let NOTIFY_LIST_TYPE_NEW               = DomainConst.NUMBER_ONE_VALUE
+    /** Notify list type: read */
+    public static let NOTIFY_LIST_TYPE_READ              = DomainConst.NUMBER_TWO_VALUE
+    //-- BUG0110-SPJ (NguyenPT 20170617) Type of notify list
 
     /** -----Log message----- */
     /** Log tag: error. */
