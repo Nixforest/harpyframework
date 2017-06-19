@@ -1015,6 +1015,8 @@ public class DomainConst {
     //++ BUG0111-SPJ (NguyenPT 20170617) Update function G06
     /** Key List CCS code */
     public static let KEY_MENU_CCS_CODE_LIST            = "pttt_code_list"
+    /** Key CCS code */
+    public static let KEY_MENU_CCS_CODE                 = "pttt_code"
     //-- BUG0111-SPJ (NguyenPT 20170617) Update function G06
     
     //++ BUG0050-SPJ (NguyenPT 20170325) Add new function G06
