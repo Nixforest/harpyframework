@@ -91,6 +91,7 @@ public class AddressPickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSo
         _tbx.textAlignment   = .left
         _tbx.textColor       = UIColor.black
         _tbx.clearButtonMode = .whileEditing
+        _tbx.clearsOnBeginEditing = true
         _bIsPicker           = isPicker
         if isPicker {
             //++ BUG0109-SPJ (NguyenPT 20170617) Handle search address when pick street
@@ -116,7 +117,8 @@ public class AddressPickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSo
         if isPicker {
             if isStreet {
                 // Table search
-                _tblSearch.isHidden = !_searchActive
+                //_tblSearch.isHidden = !_searchActive
+                showHideTableView(isShow: _searchActive)
                 // Put in bottom of window
                 _tblSearch.frame = CGRect(x: 0,
                                           y: GlobalConst.SCREEN_HEIGHT - (GlobalConst.CELL_IN_SEARCHBAR_TABLE_HEIGHT * 5),
@@ -129,6 +131,7 @@ public class AddressPickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSo
                 // Add handler when change value of text
                 _tbx.addTarget(self, action: #selector(textFieldDidChange(_:)),
                                for: .editingChanged)
+                _dataSearch.append(contentsOf: data)
             }
         }
         //-- BUG0109-SPJ (NguyenPT 20170617) Handle search address when pick street
@@ -196,6 +199,11 @@ public class AddressPickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSo
      */
     public func textFieldDidBeginEditing(_ textField: UITextField) {
         self._pickerView.isHidden = false
+        _searchActive = true
+//        _tblSearch.isHidden  = !_searchActive
+        _dataSearch.append(contentsOf: self._data)
+        showHideTableView(isShow: _searchActive)
+        _tblSearch.reloadData()
     }
     
     /**
@@ -235,7 +243,10 @@ public class AddressPickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSo
             _beginSearch            = false
             _searchActive           = false
             // Hide search bar table view
-            _tblSearch.isHidden  = !_searchActive
+            //_tblSearch.isHidden  = !_searchActive
+            _dataSearch.removeAll()
+            _dataSearch.append(contentsOf: self._data)
+            _tblSearch.reloadData()
         }
     }
     
@@ -261,7 +272,7 @@ public class AddressPickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSo
                 
             }
         }
-        _tblSearch.isHidden = !_searchActive
+        //_tblSearch.isHidden = !_searchActive
         _tblSearch.reloadData()
         _tblSearch.layer.zPosition = CGFloat(MAXFLOAT)
     }
@@ -381,7 +392,68 @@ public class AddressPickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSo
             delegate?.valueChanged(self)
         }
         _searchActive = false
-        _tblSearch.isHidden = !_searchActive
+        //_tblSearch.isHidden = !_searchActive
+        showHideTableView(isShow: _searchActive)
     }
     //-- BUG0109-SPJ (NguyenPT 20170617) Handle search address when pick street
+    
+    /**
+     * Handle show/hide tableview
+     * - parameter isShow: Flag show/hide
+     */
+    private func showHideTableView(isShow: Bool) {
+        if isShow { // Want to show
+            if self._data.count > 0 {   // Check if data is not empty
+                _tblSearch.isHidden = false
+            }
+        } else {    // Want to hide
+            _tblSearch.isHidden = true
+        }
+    }
+    
+    /**
+     * Get value of textfield
+     * - returns: Value of textfield
+     */
+    public func getTextValue() -> String {
+        return self._tbx.text!
+    }
+    
+    /**
+     * Set select row for picker
+     * - parameter row: Row for set select
+     */
+    public func setSelectRow(row: Int) {
+        if _bIsPicker {
+            if _pickerView.numberOfRows(inComponent: 0) > row {
+                _pickerView.selectRow(row, inComponent: 0, animated: false)
+            }
+        }
+    }
+    
+    /**
+     * Set value with Id
+     * - parameter id: Id of item need to set
+     * - returns: True if set value is success, False otherwise
+     */
+    public func setValue(id: String) -> Bool {
+        if _bIsPicker {
+            for i in 0..<_data.count {
+                if id == _data[i].id {
+                    _tbx.text = _data[i].name
+                    setSelectRow(row: i)
+                    return true
+                }
+            }
+        }
+        return false
+    }
+    
+    /**
+     * Set value for textbox
+     * - parameter value: Value for textbox
+     */
+    public func setTextValue(value: String) {
+        _tbx.text = value
+    }
 }

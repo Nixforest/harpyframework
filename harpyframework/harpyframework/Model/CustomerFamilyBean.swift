@@ -51,6 +51,10 @@ public class CustomerFamilyBean: ConfigBean {
     public var hgd_time_use:           String = DomainConst.BLANK
     /** Flag is can update info */
     public var can_update:             String = DomainConst.BLANK
+    //++ BUG0111-SPJ (NguyenPT 20170619) Add new field CCS code
+    /** CCS code */
+    public var ccsCode:                String = DomainConst.BLANK
+    //-- BUG0111-SPJ (NguyenPT 20170619) Add new field CCS code
     
     /**
      * Initializer
@@ -79,6 +83,9 @@ public class CustomerFamilyBean: ConfigBean {
         self.list_hgd_invest_text   = getString(json: jsonData, key: DomainConst.KEY_HGD_INVEST_TEXT)
         self.hgd_time_use           = getString(json: jsonData, key: DomainConst.KEY_HGD_TIME_USE)
         self.can_update             = getString(json: jsonData, key: DomainConst.KEY_CAN_UPDATE_FLAG)
+        //++ BUG0111-SPJ (NguyenPT 20170619) Add new field CCS code
+        self.ccsCode                = getString(json: jsonData, key: DomainConst.KEY_MENU_CCS_CODE)
+        //++ BUG0111-SPJ (NguyenPT 20170619) Add new field CCS code
     }
     /**
      * Default constructor

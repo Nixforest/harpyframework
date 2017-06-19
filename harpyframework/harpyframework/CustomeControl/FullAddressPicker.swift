@@ -211,5 +211,115 @@ public class FullAddressPicker: UIView, AddressPickerViewDelegate {
      */
     public func setData(bean: FullAddressBean) {
         self._model = bean
+//        if BaseModel.shared.getListProvinces().count > 0 {
+//            setProvinceValue(id: _model.provinceId)
+//        } else {
+//            ProvincesListRequest.requestProvinces(action: #selector(finishRequestProvinceListData(_:)),
+//                                         view: self)
+//        }
+//        // Check if list of district inside this provice have data
+//        if BaseModel.shared.getListDistricts(provinceId: _model.provinceId) != nil {
+//            setDistrictValue(id: _model.districtId)
+//        } else {
+//            // Request data from server
+//            DistrictsListRequest.requestDistricts(
+//                action: #selector(finishRequestDistrictListData(_:)),
+//                view: self,
+//                provinceId: _model.provinceId)
+//        }
+//        // Check if list of ward inside this district have data
+//        if BaseModel.shared.getListWards(districtId: _model.districtId) != nil {
+//            // Set data
+//            setWardValue(id: _model.wardId)
+//        } else {
+//            // Request data from server
+//            WardsListRequest.requestWards(
+//                action: #selector(finishRequestWardListData(_:)),
+//                view: self,
+//                provinceId: _model.provinceId,
+//                districtId: _model.districtId)
+//        }
+        setStreetValue(id: _model.streetId)
+        _pkrHouseNum.setTextValue(value: _model.houseNumber)
+    }
+    
+    /**
+     * Set province value
+     * - parameter id: Id of province
+     */
+    public func setProvinceValue(id: String) {
+        let bool = _pkrProvince.setValue(id: id)
+        if bool {
+            valueChanged(_pkrProvince)
+        }
+    }
+    
+    /**
+     * Set District value
+     * - parameter id: Id of District
+     */
+    public func setDistrictValue(id: String) {
+        let bool = _pkrDistrict.setValue(id: id)
+        if bool {
+            valueChanged(_pkrDistrict)
+        }
+    }
+    
+    /**
+     * Set Ward value
+     * - parameter id: Id of Ward
+     */
+    public func setWardValue(id: String) {
+        let bool = _pkrWard.setValue(id: id)
+        if bool {
+            valueChanged(_pkrWard)
+        }
+    }
+    
+    /**
+     * Set Street value
+     * - parameter id: Id of Ward
+     */
+    public func setStreetValue(id: String) {
+        let bool = _pkrStreet.setValue(id: id)
+        if bool {
+            valueChanged(_pkrStreet)
+        }
+    }
+    
+    internal func finishRequestProvinceListData(_ notification: Notification) {
+        let data = (notification.object as! String)
+        let model = ProvincesListRespModel(jsonString: data)
+        if model.isSuccess() {  // Request success
+            // Save data to BaseModel
+            BaseModel.shared.setListProvinces(data: model.getRecord())
+            // Set data to picker
+            _pkrProvince.setData(data: model.getRecord())
+            setProvinceValue(id: _model.provinceId)
+        }
+    }
+    
+    internal func finishRequestDistrictListData(_ notification: Notification) {
+        let data = (notification.object as! String)
+        let model = DistrictsListRespModel(jsonString: data)
+        if model.isSuccess() {  // Request success
+            // Save data to BaseModel
+            BaseModel.shared.setListDistricts(provinceId: self._model.provinceId, data: model.getRecord())
+            // Set data to picker
+            _pkrDistrict.setData(data: model.getRecord())
+            setDistrictValue(id: _model.districtId)
+        }
+    }
+    
+    internal func finishRequestWardListData(_ notification: Notification) {
+        let data = (notification.object as! String)
+        let model = WardsListRespModel(jsonString: data)
+        if model.isSuccess() {  // Request success
+            // Save data to BaseModel
+            BaseModel.shared.setListWards(districtId: self._model.districtId, data: model.getRecord())
+            // Set data to picker
+            _pkrWard.setData(data: model.getRecord())
+            setWardValue(id: _model.wardId)
+        }
     }
 }
