@@ -942,19 +942,34 @@ open class BaseViewController : UIViewController {
                 case DomainConst.NOTIFY_VIEW_VIP_CUSTOMER_ORDER:
                     if BaseModel.shared.isCustomerUser() {
                         BaseModel.shared.sharedString = notify.getId()
-                        self.pushToView(name: "G05F00S02VC")
+                        self.pushToView(name: DomainConst.G05_F00_S02_VC)
                     } else if BaseModel.shared.isNVGNUser() {
-                        self.pushToView(name: "G05F00S03VC")
+                        self.pushToView(name: DomainConst.G05_F00_S03_VC)
                     }
                     break
                 case DomainConst.NOTIFY_VIEW_FAMILY_UPHOLD:
                     if BaseModel.shared.isNVGNUser() {
-                        self.pushToView(name: "G01F00S04VC")
+                        self.pushToView(name: DomainConst.G01_F00_S04_VC)
                     } else {
                         BaseModel.shared.sharedString = notify.getId()
-                        self.pushToView(name: "G01F00S05VC")
+                        self.pushToView(name: DomainConst.G01_F00_S05_VC)
                     }
                     break
+                //++ BUG0049-SPJ (NguyenPT 20170622) Handle notification for Order family, Ticket and SPJ code
+                case DomainConst.NOTIFY_VIEW_FAMILY_CUSTOMER_ORDER:
+                    if BaseModel.shared.isNVGNUser() {
+                        self.pushToView(name: DomainConst.G07_F00_S01_VC)
+                    }
+                    break
+                case DomainConst.NOTIFY_VIEW_TICKET:
+                    BaseModel.shared.sharedString = notify.getId()
+                    self.pushToView(name: DomainConst.G11_F00_S02_VC)
+                    break
+                case DomainConst.NOTIFY_VIEW_SPJ_CODE:
+                    BaseModel.shared.sharedString = notify.getId()
+                    self.pushToView(name: DomainConst.G06_F00_S02_VC)
+                    break
+                //-- BUG0049-SPJ (NguyenPT 20170622) Handle notification for Order family, Ticket and SPJ code
                 default: break
                 }
             } else {

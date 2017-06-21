@@ -98,6 +98,11 @@ public class OrderBean: NSObject {
     public var created_date:            String = DomainConst.BLANK
     //-- BUG0103-SPJ (NguyenPT 20170606) Update new flag
     
+    //++ BUG0111-SPJ (NguyenPT 20170619) Add new field CCS code
+    /** CCS code */
+    public var ccsCode:                String = DomainConst.BLANK
+    //-- BUG0111-SPJ (NguyenPT 20170619) Add new field CCS code
+    
     public override init() {
         super.init()
     }
@@ -165,5 +170,9 @@ public class OrderBean: NSObject {
         self.show_button_save       = String(getInt(json: jsonData, key: DomainConst.KEY_SHOW_BUTTON_SAVE))
         self.created_date           = getString(json: jsonData, key: DomainConst.KEY_CREATED_DATE)
         //-- BUG0103-SPJ (NguyenPT 20170606) Update new flag
+        
+        //++ BUG0111-SPJ (NguyenPT 20170619) Add new field CCS code
+        self.ccsCode                = getString(json: jsonData, key: DomainConst.KEY_MENU_CCS_CODE)
+        //++ BUG0111-SPJ (NguyenPT 20170619) Add new field CCS code
     }
 }

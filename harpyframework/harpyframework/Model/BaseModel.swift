@@ -207,6 +207,13 @@ public class BaseModel: NSObject {
             self.list_infoGas = NSKeyedUnarchiver.unarchiveObject(with: data as! Data) as! [MaterialBean]
         }
         //-- BUG0071-SPJ (NguyenPT 20170426) Handle save data to UserDefault
+        
+        //++ BUG0049-SPJ (NguyenPT 20170622) Handle save user info in setting
+        self.role_id = DomainConst.BLANK
+        if let data = defaults.object(forKey: DomainConst.KEY_SETTING_ROLE_ID) {
+            self.role_id = data as! String
+        }
+        //-- BUG0049-SPJ (NguyenPT 20170622) Handle save user info in setting
     }
     
     /**
@@ -482,6 +489,9 @@ public class BaseModel: NSObject {
         defaults.set(userToken, forKey: DomainConst.KEY_SETTING_USER_TOKEN)
         defaults.set(self._transaction.id, forKey: DomainConst.KEY_SETTING_TRANSACTION_ID)
         defaults.set(self._transaction.name, forKey: DomainConst.KEY_SETTING_TRANSACTION_KEY)
+        //++ BUG0049-SPJ (NguyenPT 20170622) Handle save user info in setting
+        defaults.set(self.role_id, forKey: DomainConst.KEY_SETTING_ROLE_ID)
+        //-- BUG0049-SPJ (NguyenPT 20170622) Handle save user info in setting
         defaults.synchronize()
     }
     
@@ -495,6 +505,9 @@ public class BaseModel: NSObject {
         self.user_info = nil
         self.notifyCountText = ""
         self.setTempToken(token: "")
+        //++ BUG0049-SPJ (NguyenPT 20170622) Handle save user info in setting
+        self.role_id = DomainConst.BLANK
+        //-- BUG0049-SPJ (NguyenPT 20170622) Handle save user info in setting
     }
     
     /**
@@ -569,6 +582,7 @@ public class BaseModel: NSObject {
         }
     }
     
+    // MARK: Temp data
     /**
      * Save temp data.
      * - parameter loginModel: LoginRespModel
@@ -620,7 +634,10 @@ public class BaseModel: NSObject {
             }
         }
         // Role id
-        self.role_id = loginModel.role_id
+        //++ BUG0049-SPJ (NguyenPT 20170622) Handle save user info in setting
+        //self.role_id = loginModel.role_id
+        setRoleId(id: loginModel.role_id)
+        //-- BUG0049-SPJ (NguyenPT 20170622) Handle save user info in setting
         
         // Role name
         self.role_name = loginModel.role_name
@@ -1304,4 +1321,16 @@ public class BaseModel: NSObject {
         return DomainConst.BLANK
     }
     //-- BUG0109-SPJ (NguyenPT 20170617) Handle get name of address value by id
+    
+    //++ BUG0049-SPJ (NguyenPT 20170622) Handle save user info in setting
+    /**
+     * Set value for Role id
+     * - parameter id: Id of role
+     */
+    public func setRoleId(id: String) {
+        self.role_id = id
+        defaults.set(self.role_id, forKey: DomainConst.KEY_SETTING_ROLE_ID)
+        defaults.synchronize()
+    }
+    //-- BUG0049-SPJ (NguyenPT 20170622) Handle save user info in setting
 }

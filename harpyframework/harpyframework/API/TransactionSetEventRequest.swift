@@ -22,14 +22,18 @@ open class TransactionSetEventRequest: BaseRequest {
      * - parameter amountDiscount:  Buying type
      * - parameter typeAmount:      From date value
      * - parameter orderDetail:     To date value
+     * - parameter ccsCode:         CCS code
      */
     func setData(actionType: Int, lat: String, long: String,
                  changeType: String, statusCancel: String,
                  id: String, orderType: String, discountType: String,
                  amountDiscount: String, typeAmount: String, support_id: String,
-                 orderDetail: String) {
+                 orderDetail: String,
+                 //++ BUG0111-SPJ (NguyenPT 20170617) Update function G06
+                 ccsCode: String) {
+                 //-- BUG0111-SPJ (NguyenPT 20170617) Update function G06
         self.data = "q=" + String.init(
-            format: "{\"%@\":\"%@\",\"%@\":%d,\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":[%@],\"%@\":%d}",
+            format: "{\"%@\":\"%@\",\"%@\":%d,\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":[%@],\"%@\":\"%@\",\"%@\":%d}",
             DomainConst.KEY_TOKEN, BaseModel.shared.getUserToken(),
             DomainConst.KEY_ACTION_TYPE,            actionType,
             DomainConst.KEY_LATITUDE,               lat,
@@ -43,6 +47,9 @@ open class TransactionSetEventRequest: BaseRequest {
             DomainConst.KEY_TYPE_AMOUNT,            typeAmount,
             DomainConst.KEY_SUPPORT_ID,             support_id,
             DomainConst.KEY_ORDER_DETAIL,           orderDetail,
+            //++ BUG0111-SPJ (NguyenPT 20170617) Update function G06
+            DomainConst.KEY_MENU_CCS_CODE,          ccsCode,
+            //-- BUG0111-SPJ (NguyenPT 20170617) Update function G06
             DomainConst.KEY_PLATFORM,               DomainConst.PLATFORM_IOS
         )
     }
@@ -62,6 +69,7 @@ open class TransactionSetEventRequest: BaseRequest {
      * - parameter amountDiscount:  Buying type
      * - parameter typeAmount:      From date value
      * - parameter orderDetail:     To date value
+     * - parameter ccsCode:         CCS code
      */
     public static func request(action: Selector,
                                view: BaseViewController,
@@ -69,7 +77,10 @@ open class TransactionSetEventRequest: BaseRequest {
                                changeType: String, statusCancel: String,
                                id: String, orderType: String, discountType: String,
                                amountDiscount: String, typeAmount: String, support_id: String,
-                               orderDetail: String) {
+                               orderDetail: String,
+                               //++ BUG0111-SPJ (NguyenPT 20170617) Update function G06
+                               ccsCode: String) {
+                               //-- BUG0111-SPJ (NguyenPT 20170617) Update function G06
         // Show overlay
         LoadingView.shared.showOverlay(view: view.view)
         let request = TransactionSetEventRequest(url: DomainConst.PATH_ORDER_TRANSACTION_SET_EVENT,
@@ -80,7 +91,10 @@ open class TransactionSetEventRequest: BaseRequest {
                         id: id, orderType: orderType, discountType: discountType,
                         amountDiscount: amountDiscount, typeAmount: typeAmount,
                         support_id: support_id,
-                        orderDetail: orderDetail)
+                        orderDetail: orderDetail,
+                        //++ BUG0111-SPJ (NguyenPT 20170617) Update function G06
+                        ccsCode: ccsCode)
+                        //-- BUG0111-SPJ (NguyenPT 20170617) Update function G06
         NotificationCenter.default.addObserver(view, selector: action, name: NSNotification.Name(rawValue: request.theClassName), object: nil)
         request.execute()
     }

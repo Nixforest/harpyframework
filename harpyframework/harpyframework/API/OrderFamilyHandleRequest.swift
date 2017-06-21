@@ -32,7 +32,10 @@ public class OrderFamilyHandleRequest: TransactionSetEventRequest {
                                            amountDiscount: "0",
                                            typeAmount: "0",
                                            support_id: "0",
-                                           orderDetail: DomainConst.BLANK)
+                                           orderDetail: DomainConst.BLANK,
+                                           //++ BUG0111-SPJ (NguyenPT 20170617) Update function G06
+                                           ccsCode: DomainConst.BLANK)
+                                           //-- BUG0111-SPJ (NguyenPT 20170617) Update function G06
     }
     /**
      * Request cancel
@@ -57,7 +60,10 @@ public class OrderFamilyHandleRequest: TransactionSetEventRequest {
                                            amountDiscount: "0",
                                            typeAmount: "0",
                                            support_id: "0",
-                                           orderDetail: DomainConst.BLANK)
+                                           orderDetail: DomainConst.BLANK,
+                                           //++ BUG0111-SPJ (NguyenPT 20170617) Update function G06
+                                           ccsCode: DomainConst.BLANK)
+                                           //-- BUG0111-SPJ (NguyenPT 20170617) Update function G06
     }
     
     /**
@@ -70,6 +76,7 @@ public class OrderFamilyHandleRequest: TransactionSetEventRequest {
      * - parameter orderType:       Type of order
      * - parameter discountType:    Type of discount
      * - parameter orderDetail:     Detail of order
+     * - parameter ccsCode:         CCS code
      */
     public static func requestUpdate(action: Selector,
                                      view: BaseViewController,
@@ -81,7 +88,10 @@ public class OrderFamilyHandleRequest: TransactionSetEventRequest {
                                      amountDiscount: String,
                                      typeAmount: String,
                                      support_id: String,
-                                     orderDetail: String) {
+                                     orderDetail: String,
+                                     //++ BUG0111-SPJ (NguyenPT 20170617) Update function G06
+                                     ccsCode: String) {
+                                     //++ BUG0111-SPJ (NguyenPT 20170617) Update function G06
         TransactionSetEventRequest.request(action: action, view: view,
                                            actionType: ActionTypeEnum.EMPLOYEE_CHANGE.rawValue,
                                            lat: lat, long: long,
@@ -93,7 +103,10 @@ public class OrderFamilyHandleRequest: TransactionSetEventRequest {
                                            amountDiscount: amountDiscount,
                                            typeAmount: typeAmount,
                                            support_id: support_id,
-                                           orderDetail: orderDetail)
+                                           orderDetail: orderDetail,
+                                           //++ BUG0111-SPJ (NguyenPT 20170617) Update function G06
+                                           ccsCode: ccsCode)
+                                           //-- BUG0111-SPJ (NguyenPT 20170617) Update function G06
     }
     
     /**
@@ -106,6 +119,7 @@ public class OrderFamilyHandleRequest: TransactionSetEventRequest {
      * - parameter orderType:       Type of order
      * - parameter discountType:    Type of discount
      * - parameter orderDetail:     Detail of order
+     * - parameter ccsCode:         CCS code
      */
     public static func requestComplete(action: Selector,
                                        view: BaseViewController,
@@ -117,7 +131,10 @@ public class OrderFamilyHandleRequest: TransactionSetEventRequest {
                                        amountDiscount: String,
                                        typeAmount: String,
                                        support_id: String,
-                                       orderDetail: String) {
+                                       orderDetail: String,
+                                       //++ BUG0111-SPJ (NguyenPT 20170617) Update function G06
+                                       ccsCode: String) {
+                                       //-- BUG0111-SPJ (NguyenPT 20170617) Update function G06
         TransactionSetEventRequest.request(action: action, view: view,
                                            actionType: ActionTypeEnum.EMPLOYEE_COMPLETE.rawValue,
                                            lat: lat, long: long,
@@ -129,7 +146,10 @@ public class OrderFamilyHandleRequest: TransactionSetEventRequest {
                                            amountDiscount: amountDiscount,
                                            typeAmount: typeAmount,
                                            support_id: support_id,
-                                           orderDetail: orderDetail)
+                                           orderDetail: orderDetail,
+                                           //++ BUG0111-SPJ (NguyenPT 20170617) Update function G06
+                                           ccsCode: ccsCode)
+                                           //-- BUG0111-SPJ (NguyenPT 20170617) Update function G06
     }
     
     /**
@@ -159,6 +179,9 @@ public class OrderFamilyHandleRequest: TransactionSetEventRequest {
                                            amountDiscount: "0",
                                            typeAmount: "0",
                                            support_id: "0",
-                                           orderDetail: DomainConst.BLANK)
+                                           orderDetail: DomainConst.BLANK,
+                                           //++ BUG0111-SPJ (NguyenPT 20170617) Update function G06
+                                           ccsCode: DomainConst.BLANK)
+                                           //-- BUG0111-SPJ (NguyenPT 20170617) Update function G06
     }
 }

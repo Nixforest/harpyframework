@@ -361,6 +361,12 @@ public class DomainConst {
     /** Setting key: List gas information */
     public static let KEY_LIST_GAS_INFORMATION          = "gasservice.listGasInfo"
     //++ BUG0060-SPJ (NguyenPT 20170426) Save list of gas to local
+    
+    //++ BUG0049-SPJ (NguyenPT 20170622) Handle save user info in setting
+    /** Setting key: Role id */
+    public static let KEY_SETTING_ROLE_ID               = "gasservice.roleId"
+    //-- BUG0049-SPJ (NguyenPT 20170622) Handle save user info in setting
+    
     /** Setting key: Material type id */
     public static let KEY_MATERIALS_TYPE_ID             = "materials_type_id"
     /** Setting key: Material id */
@@ -885,6 +891,14 @@ public class DomainConst {
     public static let NOTIFY_VIEW_FAMILY_CUSTOMER_ORDER = "VIEW_TRANSACTION"
     /** Notify type: Family Uphold */
     public static let NOTIFY_VIEW_FAMILY_UPHOLD         = "TYPE_UPHOLD_HGD"
+    
+    //++ BUG0049-SPJ (NguyenPT 20170622) Handle notification for Ticket and SPJ code
+    /** Notify type: Ticket */
+    public static let NOTIFY_VIEW_TICKET                = "TYPE_TICKET_EVENT"
+    /** Notify type: Spj code */
+    public static let NOTIFY_VIEW_SPJ_CODE              = "TYPE_SPJ_CODE_GOBACK"
+    //-- BUG0049-SPJ (NguyenPT 20170622) Handle notification for Ticket and SPJ code
+    
     /** Notify type: Uphold alert 10 */
     public static let NOTIFY_UPHOLD_ALERT_10            = "1"
     /** Notify type: Uphold periodically */
@@ -984,6 +998,8 @@ public class DomainConst {
     public static let UPHOLD_INFO_CREATED_DATE_ID       = "###99927"
     /** Uphold information id: Uphold customer note */
     public static let UPHOLD_INFO_CUSTOMER_NOTE_ID      = "###99928"
+    /** Order information id: CCS code */
+    public static let ORDER_INFO_CCS_CODE_ID            = "###99929"
     /** Order information id: Order Material */
     public static let ORDER_INFO_MATERIAL_ID            = "###999"
     
@@ -1058,7 +1074,7 @@ public class DomainConst {
     /** Contact spliter */
     public static let CONTACT_SPLITER                   = DomainConst.LINE_FEED
     /** Address spliter */
-    public static let ADDRESS_SPLITER                   = ","
+    public static let ADDRESS_SPLITER                   = DomainConst.SPLITER_TYPE2
     /** Address spliter with space */
     public static let ADDRESS_SPLITER_WITH_SPACE        = ", "
     /** Phone spliter */
@@ -1069,6 +1085,8 @@ public class DomainConst {
     public static let SPLITER_TYPE2                     = ","
     /** Phone spliter */
     public static let SPLITER_TYPE3                     = "/"
+    /** Number spliter */
+    public static let SPLITER_TYPE4                     = "."
     /** Text spliter */
     public static let TEXT_SPLITER                      = ":"
     /** Plus spliter: + */
@@ -1266,27 +1284,47 @@ public class DomainConst {
     public static let CUSTOMER_FAMILY_LIST_TABLE_VIEW_CELL          = "CustomerFamilyListCell"
     public static let WORKING_REPORT_LIST_TABLE_VIEW_CELL          = "WorkingReportListCell"
     public static let G06_F00_S01_VC                                = "G06F00S01VC"
+    public static let G06_F00_S02_VC                                = "G06F00S02VC"
     public static let G06_F00_S04_VC                                = "G06F00S04VC"
     //-- BUG0050-SPJ (NguyenPT 20170323) Add new key for new function G06
+    
     //++ BUG0054-SPJ (NguyenPT 20170407) Add new key for new function G07
+    /** Order Family list of Employee */
     public static let G07_F00_S01_VC                                = "G07F00S01VC"
     //-- BUG0054-SPJ (NguyenPT 20170407) Add new key for new function G07
     //++ BUG0073-SPJ (NguyenPT 20170503) Add new function G08
     public static let G08_F00_S01_VC                                = "G08F00S01VC"
     //-- BUG0073-SPJ (NguyenPT 20170503) Add new function G08
+    
     //++ BUG0093-SPJ (NguyenPT 20170520) Add new function G09
     public static let G09_F00_S01_VC                                = "G09F00S01VC"
     public static let G09_F00_S03_VC                                = "G09F00S03VC"
     //-- BUG0093-SPJ (NguyenPT 20170520) Add new function G09
+    
     //++ BUG0098-SPJ (NguyenPT 20170531) Add new function G10
     public static let G10_F00_S01_VC                                = "G10F00S01VC"
     //-- BUG0098-SPJ (NguyenPT 20170531) Add new function G10
+    
     //++ BUG0100-SPJ (NguyenPT 20170602) Update function G01 for Family Uphold
+    /** Uphold Family List */
     public static let G01_F00_S04_VC                                = "G01F00S04VC"
+    /** Uphold Family View */
+    public static let G01_F00_S05_VC                                = "G01F00S05VC"
     //-- BUG0100-SPJ (NguyenPT 20170602) Update function G01 for Family Uphold
+    
     //++ BUG0102-SPJ (NguyenPT 20170604) Update function G11
+    /** Ticket List */
     public static let G11_F00_S01_VC                                = "G11F00S01VC"
+    /** Ticket View */
+    public static let G11_F00_S02_VC                                = "G11F00S02VC"
     //-- BUG0102-SPJ (NguyenPT 20170604) Update function G11
+    
+    //++ BUG0049-SPJ (NguyenPT 20170622) Handle notification
+    /** Order VIP List of Employee */
+    public static let G05_F00_S02_VC                                = "G05F00S02VC"
+    /** Order VIP View of Employee */
+    public static let G05_F00_S03_VC                                = "G05F00S03VC"
+    //-- BUG0049-SPJ (NguyenPT 20170622) Handle notification
     
     /** Pop overmenu identifier */
     public static let POPOVER_MENU_IDENTIFIER                       = "popOverMenu"

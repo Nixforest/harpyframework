@@ -182,10 +182,10 @@ open class BaseMenuViewController : UIViewController {
                     iconPath = DomainConst.MAP_ICON_IMG_NAME
                     break
                 //-- BUG0102-SPJ (NguyenPT 20170604) Update function G11
-                    //++ BUG0111-SPJ (NguyenPT 20170617) Update function G06
+                //++ BUG0111-SPJ (NguyenPT 20170617) Update function G06
                 case DomainConst.KEY_MENU_CCS_CODE_LIST:
                     iconPath = DomainConst.MENU_ITEM_UPHOLD_LIST_IMG_NAME
-                    //-- BUG0111-SPJ (NguyenPT 20170617) Update function G06
+                //-- BUG0111-SPJ (NguyenPT 20170617) Update function G06
                 default:
                     break
                 }
