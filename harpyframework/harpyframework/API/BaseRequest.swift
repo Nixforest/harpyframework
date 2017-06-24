@@ -58,6 +58,16 @@ open class BaseRequest: NSObject {
         request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringLocalCacheData
         // Make data string
         request.httpBody = self.data.data(using: String.Encoding.utf8)
+        //++ BUG0115-SPJ (NguyenPT 20170624) Handle add version code when request server
+        // Version
+        self.data = self.data.replacingOccurrences(
+            of: "}",
+            with: String.init(format: ",\"%@\":\"%@\"}",
+                              DomainConst.KEY_VERSION_CODE,
+                              DomainConst.VERSION_CODE.replacingOccurrences(
+                                of: DomainConst.SPLITER_TYPE4,
+                                with: DomainConst.BLANK)))
+        //-- BUG0115-SPJ (NguyenPT 20170624) Handle add version code when request server
         let task = completetionHandler(request: request)
         task.resume()
     }
@@ -87,6 +97,13 @@ open class BaseRequest: NSObject {
         request.httpBody = createBodyWithParameterList(parameters: self.param, filePathKey: filePathKey,
                                                    imageDataKey: imgDataList, boundary: boundary) as Data
         
+        //++ BUG0115-SPJ (NguyenPT 20170624) Handle add version code when request server
+        // Version
+        self.data = self.data.replacingOccurrences(
+            of: "}",
+            with: String.init(format: ",\"%@\":\"%@\"}",
+                              DomainConst.KEY_VERSION_CODE, DomainConst.VERSION_CODE))
+        //-- BUG0115-SPJ (NguyenPT 20170624) Handle add version code when request server
         let task = completetionHandler(request: request)
         task.resume()
     }
