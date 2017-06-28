@@ -252,7 +252,10 @@ open class TableCellOrderType: UITableViewCell {
      */
     open func setData(vipData: OrderVIPListBean) {
         self.dateTime.setValue(dateTime: vipData.created_date)
-        self.codeLabel.text = DomainConst.ORDER_CODE_PREFIX + vipData.code_no + " -"
+        //++ BUG0066-SPJ (NguyenPT 20170628) Handle show full code label
+        //self.codeLabel.text = DomainConst.ORDER_CODE_PREFIX + vipData.code_no + " -"
+        self.codeLabel.text = vipData.code_no + " -"
+        //-- BUG0066-SPJ (NguyenPT 20170628) Handle show full code label
         let width = self.codeLabel.text?.widthOfString(usingFont: self.codeLabel.font)
         let contentWidthMid     = GlobalConst.SCREEN_WIDTH / 3 * 2
         let contentHeight       = GlobalConst.CELL_HEIGHT_SHOW / 3 * 2
@@ -270,17 +273,31 @@ open class TableCellOrderType: UITableViewCell {
         self.statusIcon.image = ImageManager.getImage(named: getStatusIcon(status: vipData.status_number))
         let verticalMargin      = GlobalConst.MARGIN_CELL_X * 2
         if BaseModel.shared.isCustomerUser() {
-            TableCellOrderType.CELL_HEIGHT = contentHeight + verticalMargin
+            //++ BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
+            //TableCellOrderType.CELL_HEIGHT = contentHeight + verticalMargin
+            TableCellOrderType.CELL_HEIGHT = topHeight + contentHeight + verticalMargin
+            // Set customer label value
+            self.customerLabel.text = vipData.customer_name_chain
+            if vipData.customer_name_chain.isEmpty {
+                // Use customer name
+                self.customerLabel.text = vipData.customer_name
+            }
+            //-- BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
         } else {
             //++ BUG0060-SPJ (NguyenPT 20170421) Add 2 button for confirm and cancel confirm
             //TableCellOrderType.CELL_HEIGHT = topHeight + contentHeight + verticalMargin + GlobalConst.CELL_HEIGHT_SHOW / 4
             TableCellOrderType.CELL_HEIGHT = topHeight + contentHeight + verticalMargin + GlobalConst.CELL_HEIGHT_SHOW / 4 + GlobalConst.BUTTON_H
             //-- BUG0060-SPJ (NguyenPT 20170421) Add 2 button for confirm and cancel confirm
+            //++ BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
+            self.customerLabel.text = vipData.customer_name
+            //-- BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
         }
         self.addressLabel.text = vipData.customer_address.normalizateString()
-        self.customerLabel.text = vipData.customer_name
+        //++ BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
+        //self.customerLabel.text = vipData.customer_name
         self.bottomView.isHidden = BaseModel.shared.isCustomerUser()
-        self.topView.isHidden = BaseModel.shared.isCustomerUser()
+        //self.topView.isHidden = BaseModel.shared.isCustomerUser()
+        //-- BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
         //++ BUG0060-SPJ (NguyenPT 20170426)Handle action buttons
         // Update layout
         handleActionButton(data: vipData)
@@ -297,23 +314,24 @@ open class TableCellOrderType: UITableViewCell {
     private func updateLayout(isCustomer: Bool) {
         let verticalMargin      = GlobalConst.MARGIN_CELL_X * 2
         let offset = self.dateTime.frame.height
-        if isCustomer {
-            self.leftView.frame = CGRect(x: 0, y: 0,
-                                         width: GlobalConst.SCREEN_WIDTH / 4,
-                                         height: offset)
-            self.centerView.frame = CGRect(x: self.leftView.frame.maxX,
-                                           y: 0,
-                                           width: GlobalConst.SCREEN_WIDTH / 2,
-                                           height: offset)
-            self.rightView.frame = CGRect(x: self.centerView.frame.maxX,
-                                          y: 0,
-                                          width: GlobalConst.SCREEN_WIDTH / 4,
-                                          height: TableCellOrderType.CELL_HEIGHT)
-            self.bottomView.frame = CGRect(x: 0,
-                                           y: self.leftView.frame.maxY - verticalMargin * 2,
-                                           width: GlobalConst.SCREEN_WIDTH - GlobalConst.CELL_HEIGHT_SHOW / 5,
-                                           height: GlobalConst.LABEL_H + GlobalConst.BUTTON_H + verticalMargin)
-        } else {
+        //++ BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
+//        if isCustomer {
+//            self.leftView.frame = CGRect(x: 0, y: topView.frame.maxY,
+//                                         width: GlobalConst.SCREEN_WIDTH / 4,
+//                                         height: offset)
+//            self.centerView.frame = CGRect(x: self.leftView.frame.maxX,
+//                                           y: 0,
+//                                           width: GlobalConst.SCREEN_WIDTH / 2,
+//                                           height: offset)
+//            self.rightView.frame = CGRect(x: self.centerView.frame.maxX,
+//                                          y: 0,
+//                                          width: GlobalConst.SCREEN_WIDTH / 4,
+//                                          height: TableCellOrderType.CELL_HEIGHT)
+//            self.bottomView.frame = CGRect(x: 0,
+//                                           y: self.leftView.frame.maxY - verticalMargin * 2,
+//                                           width: GlobalConst.SCREEN_WIDTH - GlobalConst.CELL_HEIGHT_SHOW / 5,
+//                                           height: GlobalConst.LABEL_H + GlobalConst.BUTTON_H + verticalMargin)
+//        } else {
             self.topView.frame = CGRect(x: 0,
                                             y: 0,
                                             width: GlobalConst.SCREEN_WIDTH,
@@ -334,8 +352,8 @@ open class TableCellOrderType: UITableViewCell {
                                            y: self.leftView.frame.maxY - verticalMargin * 2,
                                            width: GlobalConst.SCREEN_WIDTH - GlobalConst.CELL_HEIGHT_SHOW / 5,
                                            height: GlobalConst.LABEL_H + GlobalConst.BUTTON_H + verticalMargin)
-        }
-        
+//        }
+        //-- BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
         self.statusIcon.frame = CGRect(x: self.statusIcon.frame.origin.x,
                                        y: (rightView.frame.height - GlobalConst.ICON_SIZE - GlobalConst.BUTTON_H) / 2,
                                        width: GlobalConst.ICON_SIZE,

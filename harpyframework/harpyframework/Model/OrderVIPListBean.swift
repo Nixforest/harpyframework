@@ -36,6 +36,13 @@ public class OrderVIPListBean: ConfigBean {
     /** show_huy_giao_hang */
     public var show_huy_giao_hang:  String = DomainConst.BLANK
     
+    //++ BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
+    /** customer_name_chain */
+    public var customer_name_chain: String = DomainConst.BLANK
+    /** app_status_text */
+    public var app_status_text:     String = DomainConst.BLANK
+    //-- BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
+    
     /**
      * Initializer
      * - parameter jsonData: List of data
@@ -55,5 +62,10 @@ public class OrderVIPListBean: ConfigBean {
         self.created_date           = getString(json: jsonData, key: DomainConst.KEY_CREATED_DATE)
         self.show_nhan_giao_hang    = getString(json: jsonData, key: DomainConst.KEY_SHOW_NHAN_GH)
         self.show_huy_giao_hang     = getString(json: jsonData, key: DomainConst.KEY_SHOW_HUY_GH)
+        
+        //++ BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
+        self.customer_name_chain    = getString(json: jsonData, key: DomainConst.KEY_CUSTOMER_NAME_CHAIN)
+        self.app_status_text        = getString(json: jsonData, key: DomainConst.KEY_APP_STATUS_TEXT)
+        //-- BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
     }
 }

@@ -74,59 +74,65 @@ public class BaseModel: NSObject {
     /** List family type */
     private var list_hgd_type:                  [ConfigBean]                    = [ConfigBean]()
     /** List Family invest */
-    private var list_hgd_invest:                [ConfigBean]                    = [ConfigBean]()
+    private var list_hgd_invest:            [ConfigBean]        = [ConfigBean]()
     //++ BUG0054-SPJ (NguyenPT 20170414) Add new function G07
-    private var list_cancelOrderReasons:        [ConfigBean]                    = [ConfigBean]()
-    private var list_infoCylinder:              [MaterialBean]                  = [MaterialBean]()
-    private var list_infoOtherMaterial:         [MaterialBean]                  = [MaterialBean]()
+    private var list_cancelOrderReasons:    [ConfigBean]        = [ConfigBean]()
+    private var list_infoCylinder:          [MaterialBean]      = [MaterialBean]()
+    private var list_infoOtherMaterial:     [MaterialBean]      = [MaterialBean]()
     //-- BUG0054-SPJ (NguyenPT 20170414) Add new function G07
+    
     //++ BUG0060-SPJ (NguyenPT 20170426) Handle save list gas information to local
-    private var list_infoGas:                   [MaterialBean]                  = [MaterialBean]()
+    private var list_infoGas:               [MaterialBean]      = [MaterialBean]()
     //-- BUG0060-SPJ (NguyenPT 20170426) Handle save list gas information to local
+    
     //++ BUG0060-SPJ (NguyenPT 20170426) Handle update Order VIP customer
-    private var list_cancelOrderVIPReasons:     [ConfigBean]                    = [ConfigBean]()
+    private var list_cancelOrderVIPReasons: [ConfigBean]        = [ConfigBean]()
     //-- BUG0060-SPJ (NguyenPT 20170426) Handle update Order VIP customer
+    
     //++ BUG0079-SPJ (NguyenPT 20170509) Add order type and support type in Family order
-    private var list_OrderTypes:                [ConfigBean]                    = [ConfigBean]()
-    private var list_SupportTypes:              [ConfigBean]                    = [ConfigBean]()
+    private var list_OrderTypes:            [ConfigBean]        = [ConfigBean]()
+    private var list_SupportTypes:          [ConfigBean]        = [ConfigBean]()
     // BUG0079-SPJ (NguyenPT 20170509) Add order type and support type in Family order
     /** Uphold list data */
-    public var upholdList: UpholdListRespModel = UpholdListRespModel()
+    public var upholdList:                  UpholdListRespModel     = UpholdListRespModel()
     /** Search customer result */
-    public var searchCustomerResult: SearchCustomerRespModel = SearchCustomerRespModel()
+    public var searchCustomerResult:        SearchCustomerRespModel = SearchCustomerRespModel()
     /** Shared string */
-    public var sharedString = ""
+    public var sharedString:                String              = DomainConst.BLANK
     /** Shared 2 string */
-    public var sharedDoubleStr = (DomainConst.BLANK, DomainConst.BLANK)
+    public var sharedDoubleStr:             (String, String)    = (DomainConst.BLANK, DomainConst.BLANK)
     /** Shared int */
-    public var sharedInt = -1
+    public var sharedInt:                   Int                 = -1
     /** Current uphold detail */
-    public var currentUpholdDetail: UpholdBean = UpholdBean()
+    public var currentUpholdDetail:         UpholdBean          = UpholdBean()
     /** Notification count text */
-    var notifyCountText: String = ""
+    var notifyCountText:                    String              = DomainConst.BLANK
     /** Id of user */
-    public var user_id: String = ""
+    public var user_id:                     String              = DomainConst.BLANK
     /** Notification */
-    public var notify: NotificationBean = NotificationBean()
+    public var notify:                      NotificationBean    = NotificationBean()
     /** Last uphold id */
-    public var lastUpholdId: String = ""
+    public var lastUpholdId:                String              = DomainConst.BLANK
     /** Flag check can handle notification from server or not */
-    var canHandleNotificationFromServer: Bool = true
+    var canHandleNotificationFromServer:    Bool                = true
     /** Call center */
-    private var callCenterUphold: String = DomainConst.BLANK
-    private var hotline: String = DomainConst.BLANK
+    private var callCenterUphold:           String              = DomainConst.BLANK
+    private var hotline:                    String              = DomainConst.BLANK
     /** Order config */
-    private var _orderConfig: OrderConfigBean = OrderConfigBean()
+    private var _orderConfig:               OrderConfigBean     = OrderConfigBean()
     // Transaction data
-    private var _transaction: TransactionBean = TransactionBean()
+    private var _transaction:               TransactionBean     = TransactionBean()
     /** Flag debug mode is ON */
-    private var _debug: DebugBean = DebugBean()
+    private var _debug:                     DebugBean           = DebugBean()
     /** Last save order vip description */
-    private var _orderVipDescription = DomainConst.BLANK
+    private var _orderVipDescription:       String              = DomainConst.BLANK
     //++ BUG0077-SPJ (NguyenPT 20170508) Handle Flag need change pass
-    private var _isNeedChangePass:                  Bool = false
+    private var _isNeedChangePass:          Bool                = false
     //-- BUG0077-SPJ (NguyenPT 20170508) Handle Flag need change pass
-    private var _errorDetail:                       String = DomainConst.BLANK
+    private var _errorDetail:               String              = DomainConst.BLANK
+    //++ BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
+    private var _listVipCustomerStores:     [ConfigBean]        = [ConfigBean]()
+    //-- BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
     
     // MARK - Methods
     override init() {
@@ -692,12 +698,16 @@ public class BaseModel: NSObject {
         self.list_cancelOrderVIPReasons = loginModel.list_cancelVIPOrderReasons
         //-- BUG0060-SPJ (NguyenPT 20170426) Handle update Order VIP customer
         //++ BUG0077-SPJ (NguyenPT 20170508) Handle Flag need change pass
-        self._isNeedChangePass = (loginModel.need_change_pass == DomainConst.NUMBER_ONE_VALUE)
+        self._isNeedChangePass      = (loginModel.need_change_pass == DomainConst.NUMBER_ONE_VALUE)
         //-- BUG0077-SPJ (NguyenPT 20170508) Handle Flag need change pass
         //++ BUG0079-SPJ (NguyenPT 20170509) Add order type and support type in Family order
-        self.list_OrderTypes = loginModel.list_OrderTypes
-        self.list_SupportTypes = loginModel.list_support_employee
+        self.list_OrderTypes        = loginModel.list_OrderTypes
+        self.list_SupportTypes      = loginModel.list_support_employee
         // BUG0079-SPJ (NguyenPT 20170509) Add order type and support type in Family order
+        
+        //++ BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
+        self._listVipCustomerStores = loginModel.customer_chain_store
+        //-- BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
     }
     
     /**
@@ -1333,4 +1343,13 @@ public class BaseModel: NSObject {
         defaults.synchronize()
     }
     //-- BUG0049-SPJ (NguyenPT 20170622) Handle save user info in setting
+    //++ BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
+    /**
+     * Get list of vip customer stores
+     * - returns: List of vip customer stores
+     */
+    public func getListVipCustomerStores() -> [ConfigBean] {
+        return self._listVipCustomerStores
+    }
+    //-- BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
 }

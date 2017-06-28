@@ -65,6 +65,9 @@ public class LoginRespModel : BaseRespModel {
     /** List support types fo employee */
     var list_support_employee:              [ConfigBean]        = [ConfigBean]()
     //-- BUG0079-SPJ (NguyenPT 20170509) Add order type and support type in Family order
+    //++ BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
+    var customer_chain_store:               [ConfigBean]        = [ConfigBean]()
+    //-- BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
     
     
     /**
@@ -166,10 +169,13 @@ public class LoginRespModel : BaseRespModel {
                 /** List support types fo employee */
                 self.list_support_employee.append(contentsOf: getListConfig(json: json, key: DomainConst.KEY_LIST_SUPPORT_EMPLOYEE))
                 //-- BUG0079-SPJ (NguyenPT 20170509) Add order type and support type in Family order
+                
+                //++ BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
+                self.customer_chain_store = getListConfig(json: json, key: DomainConst.KEY_CUSTOMER_CHAIN_STORE)
+                //-- BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
             } catch let error as NSError {
                 print(DomainConst.JSON_ERR_FAILED_LOAD + "\(error.localizedDescription)")
             }
-            
         } else {
             print(DomainConst.JSON_ERR_WRONG_FORMAT)
         }

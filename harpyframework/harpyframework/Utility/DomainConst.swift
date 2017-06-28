@@ -753,6 +753,8 @@ public class DomainConst {
     //-- BUG0110-SPJ (NguyenPT 20170617) Add new key setting
     
     
+    
+    
     // MARK: -----Specified constant-----
     /** File parameter: file_name[ + ] */
     public static let FILE_PARAM_FILE_NAME              = "file_name["
@@ -1036,6 +1038,19 @@ public class DomainConst {
     /** Key CCS code */
     public static let KEY_MENU_CCS_CODE                 = "pttt_code"
     //-- BUG0111-SPJ (NguyenPT 20170617) Update function G06
+    
+    //++ BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
+    /** Key customer_chain_store */
+    public static let KEY_CUSTOMER_CHAIN_STORE          = "customer_chain_store"
+    /** Key customer_chain_store_id */
+    public static let KEY_CUSTOMER_CHAIN_STORE_ID       = "customer_chain_store_id"
+    /** Key customer_chain_store_id */
+    public static let KEY_IS_CHAIN_STORE                = "is_chain_store"
+    /** Key customer_chain_store_id */
+    public static let KEY_CUSTOMER_NAME_CHAIN           = "customer_name_chain"
+    /** Key customer_chain_store_id */
+    public static let KEY_APP_STATUS_TEXT               = "app_status_text"
+    //-- BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
     
     //++ BUG0050-SPJ (NguyenPT 20170325) Add new function G06
     /** Platform value: Android */
@@ -2024,4 +2039,5 @@ public class DomainConst {
     public static let CONTENT00443 = "Email"
     public static let CONTENT00444 = "Bạn đang gửi thông tin Cập nhật tài khoản như bên dưới. Xin hãy kiểm tra lại các thông tin cho thật chính xác và nhấn nút Gửi nếu bạn đồng ý."
     public static let CONTENT00445 = "PTTT Code"
+    public static let CONTENT00446 = "Chọn chi nhánh"
 }
