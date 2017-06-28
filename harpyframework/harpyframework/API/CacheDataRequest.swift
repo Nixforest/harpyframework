@@ -36,5 +36,20 @@ public class CacheDataRequest: BaseRequest {
         NotificationCenter.default.addObserver(view, selector: action, name: NSNotification.Name(rawValue: request.theClassName), object: nil)
         request.execute()
     }
-
+    
+    /**
+     * Request transaction event
+     * - parameter action:      Action execute when finish this task
+     * - parameter view:        Current view
+     */
+    public static func requestCashBook(action: Selector,
+                               view: UIView) {
+        // Show overlay
+        LoadingView.shared.showOverlay(view: view)
+        let request = CacheDataRequest(url: DomainConst.PATH_SITE_CACHE_DATA,
+                                       reqMethod: DomainConst.HTTP_POST_REQUEST)
+        request.setData()
+        NotificationCenter.default.addObserver(view, selector: action, name: NSNotification.Name(rawValue: request.theClassName), object: nil)
+        request.execute()
+    }
 }

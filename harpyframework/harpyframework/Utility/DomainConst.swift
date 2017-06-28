@@ -1000,6 +1000,8 @@ public class DomainConst {
     public static let UPHOLD_INFO_CUSTOMER_NOTE_ID      = "###99928"
     /** Order information id: CCS code */
     public static let ORDER_INFO_CCS_CODE_ID            = "###99929"
+    /** Order information id: Note */
+    public static let ORDER_INFO_NOTE_ID                = "###99930"
     /** Order information id: Order Material */
     public static let ORDER_INFO_MATERIAL_ID            = "###999"
     
