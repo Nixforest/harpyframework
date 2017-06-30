@@ -1343,6 +1343,7 @@ public class BaseModel: NSObject {
         defaults.synchronize()
     }
     //-- BUG0049-SPJ (NguyenPT 20170622) Handle save user info in setting
+    
     //++ BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
     /**
      * Get list of vip customer stores
@@ -1350,6 +1351,15 @@ public class BaseModel: NSObject {
      */
     public func getListVipCustomerStores() -> [ConfigBean] {
         return self._listVipCustomerStores
+    }
+    
+    /**
+     * Check if Customer has sub-agent
+     * - returns: True if number of _listVipCustomerStores's element greater than zero,
+     *              False otherwise
+     */
+    public func isVIPCustomerHasSubStores() -> Bool {
+        return (self._listVipCustomerStores.count > 0)
     }
     //-- BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
 }
