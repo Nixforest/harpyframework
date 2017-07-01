@@ -103,6 +103,13 @@ public class OrderBean: NSObject {
     public var ccsCode:                String = DomainConst.BLANK
     //-- BUG0111-SPJ (NguyenPT 20170619) Add new field CCS code
     
+    //++ BUG0119-SPJ (NguyenPT 20170630) Handle update customer in Order Family
+    /** Flag show/hide Update customer button */
+    public var show_button_update_customer:    Int    = 0
+    /** Customer id */
+    public var customer_id:            String = DomainConst.BLANK
+    //-- BUG0119-SPJ (NguyenPT 20170630) Handle update customer in Order Family
+    
     public override init() {
         super.init()
     }
@@ -174,5 +181,10 @@ public class OrderBean: NSObject {
         //++ BUG0111-SPJ (NguyenPT 20170619) Add new field CCS code
         self.ccsCode                = getString(json: jsonData, key: DomainConst.KEY_MENU_CCS_CODE)
         //++ BUG0111-SPJ (NguyenPT 20170619) Add new field CCS code
+        
+        //++ BUG0119-SPJ (NguyenPT 20170630) Handle update customer in Order Family
+        self.show_button_update_customer = getInt(json: jsonData, key: DomainConst.KEY_SHOW_BTN_UPDATE_CUSTOMER)
+        self.customer_id = getString(json: jsonData, key: DomainConst.KEY_CUSTOMER_ID)
+        //-- BUG0119-SPJ (NguyenPT 20170630) Handle update customer in Order Family
     }
 }

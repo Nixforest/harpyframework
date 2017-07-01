@@ -1052,6 +1052,11 @@ public class DomainConst {
     public static let KEY_APP_STATUS_TEXT               = "app_status_text"
     //-- BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
     
+    //++ BUG0119-SPJ (NguyenPT 20170630) Handle update customer in Order Family
+    /** Key show_button_update_customer */
+    public static let KEY_SHOW_BTN_UPDATE_CUSTOMER      = "show_button_update_customer"
+    //-- BUG0119-SPJ (NguyenPT 20170630) Handle update customer in Order Family
+    
     //++ BUG0050-SPJ (NguyenPT 20170325) Add new function G06
     /** Platform value: Android */
     public static let PLATFORM_ANDROID                  = 1
