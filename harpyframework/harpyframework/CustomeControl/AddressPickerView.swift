@@ -172,7 +172,13 @@ public class AddressPickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSo
      * Called by the picker view when it needs the title to use for a given row in a given component.
      */
     public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return self._data[row].name
+        //++ BUG0119-SPJ (NguyenPT 20170704) Handle update customer in Order Family
+        //return self._data[row].name
+        if self._data.count > row {
+            return self._data[row].name
+        }
+        return DomainConst.BLANK
+        //-- BUG0119-SPJ (NguyenPT 20170704) Handle update customer in Order Family
     }
     
     /**
@@ -456,4 +462,13 @@ public class AddressPickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSo
     public func setTextValue(value: String) {
         _tbx.text = value
     }
+    
+    //++ BUG0119-SPJ (NguyenPT 20170704) Handle update customer in Order Family
+    /**
+     * Check if data of picker is empty
+     */
+    public func isDataEmpty() -> Bool {
+        return (self._data.count == 0)
+    }
+    //-- BUG0119-SPJ (NguyenPT 20170704) Handle update customer in Order Family
 }

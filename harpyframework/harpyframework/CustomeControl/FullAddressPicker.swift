@@ -115,7 +115,12 @@ public class FullAddressPicker: UIView, AddressPickerViewDelegate {
         // Change value of province
         if picker == _pkrProvince {
             // Save current province id
-            self._model.provinceId = _pkrProvince.getSelectedID()
+            //++ BUG0119-SPJ (NguyenPT 20170704) Handle update customer in Order Family
+            //self._model.provinceId = _pkrProvince.getSelectedID()
+            if !_pkrProvince.getSelectedID().isEmpty {
+                self._model.provinceId = _pkrProvince.getSelectedID()
+            }
+            //-- BUG0119-SPJ (NguyenPT 20170704) Handle update customer in Order Family
             
             // Check if list of district inside this provice have data
             if BaseModel.shared.getListDistricts(provinceId: _pkrProvince.getSelectedID()) != nil {
@@ -131,7 +136,12 @@ public class FullAddressPicker: UIView, AddressPickerViewDelegate {
             }
         } else if (picker == _pkrDistrict) {    // Change value of district
             // Save current district id
-            self._model.districtId = _pkrDistrict.getSelectedID()
+            //++ BUG0119-SPJ (NguyenPT 20170704) Handle update customer in Order Family
+            //self._model.districtId = _pkrDistrict.getSelectedID()
+            if !_pkrDistrict.getSelectedID().isEmpty {
+                self._model.districtId = _pkrDistrict.getSelectedID()
+            }
+            //-- BUG0119-SPJ (NguyenPT 20170704) Handle update customer in Order Family
             
             // Check if list of ward inside this district have data
             if BaseModel.shared.getListWards(districtId: _pkrDistrict.getSelectedID()) != nil {
@@ -211,36 +221,14 @@ public class FullAddressPicker: UIView, AddressPickerViewDelegate {
      */
     public func setData(bean: FullAddressBean) {
         self._model = bean
-//        if BaseModel.shared.getListProvinces().count > 0 {
-//            setProvinceValue(id: _model.provinceId)
-//        } else {
-//            ProvincesListRequest.requestProvinces(action: #selector(finishRequestProvinceListData(_:)),
-//                                         view: self)
-//        }
-//        // Check if list of district inside this provice have data
-//        if BaseModel.shared.getListDistricts(provinceId: _model.provinceId) != nil {
-//            setDistrictValue(id: _model.districtId)
-//        } else {
-//            // Request data from server
-//            DistrictsListRequest.requestDistricts(
-//                action: #selector(finishRequestDistrictListData(_:)),
-//                view: self,
-//                provinceId: _model.provinceId)
-//        }
-//        // Check if list of ward inside this district have data
-//        if BaseModel.shared.getListWards(districtId: _model.districtId) != nil {
-//            // Set data
-//            setWardValue(id: _model.wardId)
-//        } else {
-//            // Request data from server
-//            WardsListRequest.requestWards(
-//                action: #selector(finishRequestWardListData(_:)),
-//                view: self,
-//                provinceId: _model.provinceId,
-//                districtId: _model.districtId)
-//        }
+        //++ BUG0119-SPJ (NguyenPT 20170704) Handle update customer in Order Family
+        // Update street value
         setStreetValue(id: _model.streetId)
+        // Update house number value
         _pkrHouseNum.setTextValue(value: _model.houseNumber)
+        // Start set province value
+        startSetProvince()
+        //-- BUG0119-SPJ (NguyenPT 20170704) Handle update customer in Order Family
     }
     
     /**
@@ -281,12 +269,18 @@ public class FullAddressPicker: UIView, AddressPickerViewDelegate {
      * - parameter id: Id of Ward
      */
     public func setStreetValue(id: String) {
+        if _pkrStreet.isDataEmpty() {
+            _pkrStreet.setData(data: BaseModel.shared.getListStreets())
+        }
         let bool = _pkrStreet.setValue(id: id)
         if bool {
             valueChanged(_pkrStreet)
         }
     }
     
+    /**
+     * Handle when finish request province list data (while set data)
+     */
     internal func finishRequestProvinceListData(_ notification: Notification) {
         let data = (notification.object as! String)
         let model = ProvincesListRespModel(jsonString: data)
@@ -297,8 +291,12 @@ public class FullAddressPicker: UIView, AddressPickerViewDelegate {
             _pkrProvince.setData(data: model.getRecord())
             setProvinceValue(id: _model.provinceId)
         }
+        startSetDistrict()
     }
     
+    /**
+     * Handle when finish request district list data (while set data)
+     */
     internal func finishRequestDistrictListData(_ notification: Notification) {
         let data = (notification.object as! String)
         let model = DistrictsListRespModel(jsonString: data)
@@ -309,8 +307,12 @@ public class FullAddressPicker: UIView, AddressPickerViewDelegate {
             _pkrDistrict.setData(data: model.getRecord())
             setDistrictValue(id: _model.districtId)
         }
+        startSetWard()
     }
     
+    /**
+     * Handle when finish request ward list data (while set data)
+     */
     internal func finishRequestWardListData(_ notification: Notification) {
         let data = (notification.object as! String)
         let model = WardsListRespModel(jsonString: data)
@@ -320,6 +322,62 @@ public class FullAddressPicker: UIView, AddressPickerViewDelegate {
             // Set data to picker
             _pkrWard.setData(data: model.getRecord())
             setWardValue(id: _model.wardId)
+        }
+    }
+    
+    /**
+     * Start set province value
+     */
+    internal func startSetProvince() {
+        print(_model.provinceId)
+        // Check if list provinces does exist
+        if BaseModel.shared.getListProvinces().count > 0 {
+            // Set value
+            setProvinceValue(id: _model.provinceId)
+            // Start set district value
+            startSetDistrict()
+        } else {
+            // Request from server
+            ProvincesListRequest.requestProvinces(action: #selector(finishRequestProvinceListData(_:)), view: self)
+        }
+    }
+    
+    /**
+     * Start set district value
+     */
+    internal func startSetDistrict() {
+        print(_model.districtId)
+        // Check if list of district inside this provice have data
+        if BaseModel.shared.getListDistricts(provinceId: _model.provinceId) != nil {
+            // Set value
+            setDistrictValue(id: _model.districtId)
+            // Start set ward value
+            startSetWard()
+        } else {
+            // Request data from server
+            DistrictsListRequest.requestDistricts(
+                action: #selector(finishRequestDistrictListData(_:)),
+                view: self,
+                provinceId: _model.provinceId)
+        }
+    }
+    
+    /**
+     * Start set ward value
+     */
+    internal func startSetWard() {
+        print(_model.wardId)
+        // Check if list of ward inside this district have data
+        if BaseModel.shared.getListWards(districtId: _model.districtId) != nil {
+            // Set data
+            setWardValue(id: _model.wardId)
+        } else {
+            // Request data from server
+            WardsListRequest.requestWards(
+                action: #selector(finishRequestWardListData(_:)),
+                view: self,
+                provinceId: _model.provinceId,
+                districtId: _model.districtId)
         }
     }
 }

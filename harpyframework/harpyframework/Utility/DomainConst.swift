@@ -2045,4 +2045,5 @@ public class DomainConst {
     public static let CONTENT00444 = "Bạn đang gửi thông tin Cập nhật tài khoản như bên dưới. Xin hãy kiểm tra lại các thông tin cho thật chính xác và nhấn nút Gửi nếu bạn đồng ý."
     public static let CONTENT00445 = "PTTT Code"
     public static let CONTENT00446 = "Chọn chi nhánh"
+    public static let CONTENT00447 = "Id khách hàng đang rỗng"
 }
