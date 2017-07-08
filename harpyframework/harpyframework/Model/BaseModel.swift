@@ -1159,6 +1159,20 @@ public class BaseModel: NSObject {
     }
     //-- BUG0060-SPJ (NguyenPT 20170426) Handle save list gas information to local
     
+    //++ BUG0094-SPJ (NguyenPT 20170701) Add function create order by Coordinator
+    /**
+     * Handle get material name from id
+     */
+    public func getMaterialNameFromId(id: String) -> String {
+        for item in self.list_infoGas {
+            if item.material_id == id {
+                return item.material_name
+            }
+        }
+        return DomainConst.BLANK
+    }
+    //-- BUG0094-SPJ (NguyenPT 20170701) Add function create order by Coordinator
+    
     /**
      * Get Name of order cancel reason by id
      * - parameter id: Id of order cancel reason

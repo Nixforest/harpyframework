@@ -1057,6 +1057,13 @@ public class DomainConst {
     public static let KEY_SHOW_BTN_UPDATE_CUSTOMER      = "show_button_update_customer"
     //-- BUG0119-SPJ (NguyenPT 20170630) Handle update customer in Order Family
     
+    //++ BUG0094-SPJ (NguyenPT 20170701) Add function create order by Coordinator
+    /** Key employee_maintain_id */
+    public static let KEY_EMPLOYEE_MAINTAIN_ID          = "employee_maintain_id"
+    /** Key monitor_market_development_id */
+    public static let KEY_MONITOR_MARKET_DEV_ID         = "monitor_market_development_id"
+    //-- BUG0094-SPJ (NguyenPT 20170701) Add function create order by Coordinator
+    
     //++ BUG0050-SPJ (NguyenPT 20170325) Add new function G06
     /** Platform value: Android */
     public static let PLATFORM_ANDROID                  = 1
