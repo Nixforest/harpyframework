@@ -118,77 +118,80 @@ open class BaseMenuViewController : UIViewController {
         // Dynamic menu
         if listMenu[MenuItemEnum.DYNAMIC_MENU_LIST.hashValue] {
             for item in BaseModel.shared.menu {
-                var iconPath: String = DomainConst.MENU_ITEM_HOME_IMG_NAME
-                switch (item.id) {
-                case DomainConst.HOME:
-                    iconPath = DomainConst.MENU_ITEM_HOME_IMG_NAME
-                    break
-                case DomainConst.USER_PROFILE:
-                    iconPath = DomainConst.MENU_ITEM_PROFILE_IMG_NAME
-                    break
-                case DomainConst.UPHOLD_LIST:
-                    //++ BUG0073-SPJ (NguyenPT 20170503) Change uphold list menu icon
-                    //iconPath = DomainConst.MENU_ITEM_UPHOLD_LIST_IMG_NAME
-                    iconPath = DomainConst.MENU_ITEM_SUPPORT_IMG_NAME
-                    //-- BUG0073-SPJ (NguyenPT 20170503) Add new function G08
-                    break
-                case DomainConst.ISSUE_LIST:
-                    iconPath = DomainConst.MENU_ITEM_UPHOLD_LIST_IMG_NAME
-                    break
-                case DomainConst.MESSAGE:
-                    iconPath = DomainConst.MENU_ITEM_MSG_IMG_NAME
-                    break
-                case DomainConst.CUSTOMER_LIST:
-                    iconPath = DomainConst.FAMILY_ICON_IMG_NAME
-                    break
-                case DomainConst.WORKING_REPORT:
-                    iconPath = DomainConst.MENU_ITEM_WORKING_REPORT_IMG_NAME
-                    break
-                case DomainConst.ORDER_LIST:
-                    iconPath = DomainConst.MENU_ITEM_ORDER_LIST_IMG_NAME
-                    break
-                case DomainConst.ORDER_VIP_LIST:
-                    iconPath = DomainConst.MENU_ITEM_ORDER_LIST_IMG_NAME
-                    break
-                case DomainConst.KEY_MENU_PROMOTION_LIST:
-                    iconPath = DomainConst.MENU_ITEM_GIFT_IMG_NAME
-                    break
-                //++ BUG0054-SPJ (NguyenPT 20170407) Add new key for new function G07
-                case DomainConst.ORDER_TRANSACTION_LIST:
-                    iconPath = DomainConst.MENU_ITEM_ORDER_LIST_IMG_NAME
-                //-- BUG0054-SPJ (NguyenPT 20170407) Add new key for new function G07
-                //++ BUG0073-SPJ (NguyenPT 20170503) Add new function G08
-                case DomainConst.KEY_MENU_STORE_CARD_LIST:
-                    iconPath = DomainConst.MENU_ITEM_UPHOLD_LIST_IMG_NAME
-                    break
-                case DomainConst.KEY_MENU_CASH_BOOK_LIST:
-                    iconPath = DomainConst.MENU_ITEM_CASH_BOOK_IMG_NAME
-                    break
-                case DomainConst.KEY_MENU_CASH_BOOK_SCHEDULE:
-                    iconPath = DomainConst.MENU_ITEM_CASH_BOOK_IMG_NAME
-                    break
-                case DomainConst.KEY_MENU_FAMILY_UPHOLD_LIST:
-                    iconPath = DomainConst.MENU_ITEM_SUPPORT_IMG_NAME
-                    break
-                case DomainConst.KEY_MENU_REPORT_LIST:
-                    iconPath = DomainConst.REPORT_SUM_ICON_IMG_NAME
-                    break
-                //-- BUG0073-SPJ (NguyenPT 20170503) Add new function G08
-                //++ BUG0102-SPJ (NguyenPT 20170604) Update function G11
-                case DomainConst.KEY_MENU_TICKET_LIST:
-                    iconPath = DomainConst.TICKET_ICON_IMG_NAME
-                    break
-                case DomainConst.KEY_MENU_GOOGLE_MAP:
-                    iconPath = DomainConst.MAP_ICON_IMG_NAME
-                    break
-                //-- BUG0102-SPJ (NguyenPT 20170604) Update function G11
-                //++ BUG0111-SPJ (NguyenPT 20170617) Update function G06
-                case DomainConst.KEY_MENU_CCS_CODE_LIST:
-                    iconPath = DomainConst.MENU_ITEM_UPHOLD_LIST_IMG_NAME
-                //-- BUG0111-SPJ (NguyenPT 20170617) Update function G06
-                default:
-                    break
-                }
+                //++ BUG0121-SPJ (NguyenPT 20170712) Add menu to Home
+//                var iconPath: String = DomainConst.MENU_ITEM_HOME_IMG_NAME
+//                switch (item.id) {
+//                case DomainConst.HOME:
+//                    iconPath = DomainConst.MENU_ITEM_HOME_IMG_NAME
+//                    break
+//                case DomainConst.USER_PROFILE:
+//                    iconPath = DomainConst.MENU_ITEM_PROFILE_IMG_NAME
+//                    break
+//                case DomainConst.UPHOLD_LIST:
+//                    //++ BUG0073-SPJ (NguyenPT 20170503) Change uphold list menu icon
+//                    //iconPath = DomainConst.MENU_ITEM_UPHOLD_LIST_IMG_NAME
+//                    iconPath = DomainConst.MENU_ITEM_SUPPORT_IMG_NAME
+//                    //-- BUG0073-SPJ (NguyenPT 20170503) Add new function G08
+//                    break
+//                case DomainConst.ISSUE_LIST:
+//                    iconPath = DomainConst.MENU_ITEM_UPHOLD_LIST_IMG_NAME
+//                    break
+//                case DomainConst.MESSAGE:
+//                    iconPath = DomainConst.MENU_ITEM_MSG_IMG_NAME
+//                    break
+//                case DomainConst.CUSTOMER_LIST:
+//                    iconPath = DomainConst.FAMILY_ICON_IMG_NAME
+//                    break
+//                case DomainConst.WORKING_REPORT:
+//                    iconPath = DomainConst.MENU_ITEM_WORKING_REPORT_IMG_NAME
+//                    break
+//                case DomainConst.ORDER_LIST:
+//                    iconPath = DomainConst.MENU_ITEM_ORDER_LIST_IMG_NAME
+//                    break
+//                case DomainConst.ORDER_VIP_LIST:
+//                    iconPath = DomainConst.MENU_ITEM_ORDER_LIST_IMG_NAME
+//                    break
+//                case DomainConst.KEY_MENU_PROMOTION_LIST:
+//                    iconPath = DomainConst.MENU_ITEM_GIFT_IMG_NAME
+//                    break
+//                //++ BUG0054-SPJ (NguyenPT 20170407) Add new key for new function G07
+//                case DomainConst.ORDER_TRANSACTION_LIST:
+//                    iconPath = DomainConst.MENU_ITEM_ORDER_LIST_IMG_NAME
+//                //-- BUG0054-SPJ (NguyenPT 20170407) Add new key for new function G07
+//                //++ BUG0073-SPJ (NguyenPT 20170503) Add new function G08
+//                case DomainConst.KEY_MENU_STORE_CARD_LIST:
+//                    iconPath = DomainConst.MENU_ITEM_UPHOLD_LIST_IMG_NAME
+//                    break
+//                case DomainConst.KEY_MENU_CASH_BOOK_LIST:
+//                    iconPath = DomainConst.MENU_ITEM_CASH_BOOK_IMG_NAME
+//                    break
+//                case DomainConst.KEY_MENU_CASH_BOOK_SCHEDULE:
+//                    iconPath = DomainConst.MENU_ITEM_CASH_BOOK_IMG_NAME
+//                    break
+//                case DomainConst.KEY_MENU_FAMILY_UPHOLD_LIST:
+//                    iconPath = DomainConst.MENU_ITEM_SUPPORT_IMG_NAME
+//                    break
+//                case DomainConst.KEY_MENU_REPORT_LIST:
+//                    iconPath = DomainConst.REPORT_SUM_ICON_IMG_NAME
+//                    break
+//                //-- BUG0073-SPJ (NguyenPT 20170503) Add new function G08
+//                //++ BUG0102-SPJ (NguyenPT 20170604) Update function G11
+//                case DomainConst.KEY_MENU_TICKET_LIST:
+//                    iconPath = DomainConst.TICKET_ICON_IMG_NAME
+//                    break
+//                case DomainConst.KEY_MENU_GOOGLE_MAP:
+//                    iconPath = DomainConst.MAP_ICON_IMG_NAME
+//                    break
+//                //-- BUG0102-SPJ (NguyenPT 20170604) Update function G11
+//                //++ BUG0111-SPJ (NguyenPT 20170617) Update function G06
+//                case DomainConst.KEY_MENU_CCS_CODE_LIST:
+//                    iconPath = DomainConst.MENU_ITEM_UPHOLD_LIST_IMG_NAME
+//                //-- BUG0111-SPJ (NguyenPT 20170617) Update function G06
+//                default:
+//                    break
+//                }
+                let iconPath = BaseMenuViewController.getMenuIcon(id: item.id)
+                //-- BUG0121-SPJ (NguyenPT 20170712) Add menu to Home
                 setItemContent(title: item.name, iconPath: iconPath,
                                //++ BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
                                //action: #selector(issueItemTapped),
@@ -381,7 +384,8 @@ open class BaseMenuViewController : UIViewController {
             currentView.pushToViewAndClearData(name: DomainConst.G11_F00_S01_VC)
             break
         case DomainConst.KEY_MENU_GOOGLE_MAP:
-            currentView.showAlert(message: DomainConst.CONTENT00362)
+            //currentView.showAlert(message: DomainConst.CONTENT00362)
+            currentView.pushToViewAndClearData(name: "G05F01S01VC")
             break
         //-- BUG0102-SPJ (NguyenPT 20170604) Update function G11
         //++ BUG0111-SPJ (NguyenPT 20170617) Update function G06
@@ -490,4 +494,75 @@ open class BaseMenuViewController : UIViewController {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
+    
+    //++ BUG0121-SPJ (NguyenPT 20170712) Add menu to Home
+    /**
+     * Get Menu icon from menu id
+     * - parameter id: Id of menu
+     * - returns: Icon path of menu
+     */
+    public static func getMenuIcon(id: String) -> String {
+        var iconPath: String = DomainConst.MENU_ITEM_HOME_IMG_NAME
+        switch (id) {
+        case DomainConst.HOME:
+            iconPath = DomainConst.MENU_ITEM_HOME_IMG_NAME
+            break
+        case DomainConst.USER_PROFILE:
+            iconPath = DomainConst.MENU_ITEM_PROFILE_IMG_NAME
+            break
+        case DomainConst.UPHOLD_LIST:
+            iconPath = DomainConst.MENU_ITEM_SUPPORT_IMG_NAME
+            break
+        case DomainConst.ISSUE_LIST:
+            iconPath = DomainConst.MENU_ITEM_UPHOLD_LIST_IMG_NAME
+            break
+        case DomainConst.MESSAGE:
+            iconPath = DomainConst.MENU_ITEM_MSG_IMG_NAME
+            break
+        case DomainConst.CUSTOMER_LIST:
+            iconPath = DomainConst.FAMILY_ICON_IMG_NAME
+            break
+        case DomainConst.WORKING_REPORT:
+            iconPath = DomainConst.MENU_ITEM_WORKING_REPORT_IMG_NAME
+            break
+        case DomainConst.ORDER_LIST:
+            iconPath = DomainConst.MENU_ITEM_ORDER_LIST_IMG_NAME
+            break
+        case DomainConst.ORDER_VIP_LIST:
+            iconPath = DomainConst.MENU_ITEM_ORDER_LIST_IMG_NAME
+            break
+        case DomainConst.KEY_MENU_PROMOTION_LIST:
+            iconPath = DomainConst.MENU_ITEM_GIFT_IMG_NAME
+            break
+        case DomainConst.ORDER_TRANSACTION_LIST:
+            iconPath = DomainConst.MENU_ITEM_ORDER_LIST_IMG_NAME
+        case DomainConst.KEY_MENU_STORE_CARD_LIST:
+            iconPath = DomainConst.MENU_ITEM_UPHOLD_LIST_IMG_NAME
+            break
+        case DomainConst.KEY_MENU_CASH_BOOK_LIST:
+            iconPath = DomainConst.MENU_ITEM_CASH_BOOK_IMG_NAME
+            break
+        case DomainConst.KEY_MENU_CASH_BOOK_SCHEDULE:
+            iconPath = DomainConst.MENU_ITEM_CASH_BOOK_IMG_NAME
+            break
+        case DomainConst.KEY_MENU_FAMILY_UPHOLD_LIST:
+            iconPath = DomainConst.MENU_ITEM_SUPPORT_IMG_NAME
+            break
+        case DomainConst.KEY_MENU_REPORT_LIST:
+            iconPath = DomainConst.REPORT_SUM_ICON_IMG_NAME
+            break
+        case DomainConst.KEY_MENU_TICKET_LIST:
+            iconPath = DomainConst.TICKET_ICON_IMG_NAME
+            break
+        case DomainConst.KEY_MENU_GOOGLE_MAP:
+            iconPath = DomainConst.MAP_ICON_IMG_NAME
+            break
+        case DomainConst.KEY_MENU_CCS_CODE_LIST:
+            iconPath = DomainConst.MENU_ITEM_UPHOLD_LIST_IMG_NAME
+        default:
+            break
+        }
+        return iconPath
+    }
+    //-- BUG0121-SPJ (NguyenPT 20170712) Add menu to Home
 }
