@@ -542,17 +542,17 @@ open class StepVC: ChildViewController, UIScrollViewDelegate, ScrollButtonListDe
     }
     
     //++ BUG0090-SPJ (NguyenPT 20170519) Show confirm alert when back from create screen
-    /**
-     * Override handle back button tap event
-     */
-    open override func backButtonTapped(_ sender: AnyObject) {
-        showAlert(message: DomainConst.CONTENT00378,
-                  okHandler: {
-                    alert in
-                    super.backButtonTapped(self)
-        }, cancelHandler: {
-            alert in
-        })
-    }
+//    /**
+//     * Override handle back button tap event
+//     */
+//    open override func backButtonTapped(_ sender: AnyObject) {
+//        showAlert(message: DomainConst.CONTENT00378,
+//                  okHandler: {
+//                    alert in
+//                    super.backButtonTapped(self)
+//        }, cancelHandler: {
+//            alert in
+//        })
+//    }
     //-- BUG0090-SPJ (NguyenPT 20170519) Show confirm alert when back from create screen
 }
