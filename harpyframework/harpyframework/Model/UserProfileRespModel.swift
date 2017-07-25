@@ -8,13 +8,13 @@
 
 import Foundation
 
-class UserProfileRespModel: BaseRespModel {
-    var record: UserInfoBean = UserInfoBean()
+public class UserProfileRespModel: BaseRespModel {
+    public var record: UserInfoBean = UserInfoBean()
     /**
      * Initializer
      * - parameter jsonString: JSON data
      */
-    override init(jsonString: String) {
+    override public init(jsonString: String) {
         super.init(jsonString: jsonString)
         if let jsonData = jsonString.data(using: String.Encoding.utf8, allowLossyConversion: false) {
             do {

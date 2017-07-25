@@ -9,16 +9,23 @@
 import Foundation
 public class UpholdListRespModel: BaseRespModel {
     /** Total record */
-    var total_record: Int = 0
+    public var total_record: Int = 0
     /** Total page */
-    var total_page: Int = 0
+    public var total_page: Int = 0
     /** Record */
     var record: [UpholdBean] = [UpholdBean]()
     
     /**
+     * Default constructor
+     */
+    override public init() {
+        super.init()
+    }
+    
+    /**
      * Initializer
      */
-    override init(jsonString: String) {
+    override public init(jsonString: String) {
         // Call super initializer
         super.init(jsonString: jsonString)
         
@@ -51,13 +58,6 @@ public class UpholdListRespModel: BaseRespModel {
         } else {
             print(DomainConst.JSON_ERR_WRONG_FORMAT)
         }
-    }
-    
-    /**
-     * Initializer
-     */
-    override init() {
-        super.init()
     }
     
     /**
@@ -95,5 +95,22 @@ public class UpholdListRespModel: BaseRespModel {
                 item.status = status
             }
         }
+    }
+    
+    /**
+     * Append list of record
+     * - parameter contentOf: List of record
+     */
+    public func append(contentOf: [UpholdBean]) {
+        self.record.append(contentsOf: contentOf)
+    }
+    
+    /**
+     * Remove all data
+     */
+    public func clearData() {
+        self.record.removeAll()
+        self.total_page = 0
+        self.total_record = 0
     }
 }

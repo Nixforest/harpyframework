@@ -8,30 +8,32 @@
 
 import Foundation
 public class ConfirmNotifyRequest: BaseRequest {
-    override public func completetionHandler(request: NSMutableURLRequest) -> URLSessionTask {
-        let task = self.session.dataTask(with: request as URLRequest, completionHandler: {
-            (
-            data, response, error) in
-            // Check error
-            guard error == nil else {
-                return
-            }
-            guard (data != nil) else {
-                return
-            }
-        })
-        return task
-    }
-    
-    /**
-     * Initializer
-     * - parameter url: URL
-     * - parameter reqMethod: Request method
-     * - parameter view: Root view
-     */
-    override init(url: String, reqMethod: String) {
-        super.init(url: url, reqMethod: reqMethod)
-    }
+    //++ BUG0047-SPJ (NguyenPT 20170724) Refactor BaseRequest class
+//    override public func completetionHandler(request: NSMutableURLRequest) -> URLSessionTask {
+//        let task = self.session.dataTask(with: request as URLRequest, completionHandler: {
+//            (
+//            data, response, error) in
+//            // Check error
+//            guard error == nil else {
+//                return
+//            }
+//            guard (data != nil) else {
+//                return
+//            }
+//        })
+//        return task
+//    }
+//    
+//    /**
+//     * Initializer
+//     * - parameter url: URL
+//     * - parameter reqMethod: Request method
+//     * - parameter view: Root view
+//     */
+//    override init(url: String, reqMethod: String) {
+//        super.init(url: url, reqMethod: reqMethod)
+//    }
+    //-- BUG0047-SPJ (NguyenPT 20170724) Refactor BaseRequest class
     
     /**
      * Set data content

@@ -259,7 +259,20 @@ open class BaseViewController : UIViewController {
      * Finish request register confirm handler
      */
     internal func finishRequestRegisterConfirm(_ notification: Notification) {
-        self.pushToView(name: DomainConst.G00_LOGIN_VIEW_CTRL)
+        //++ BUG0047-SPJ (NguyenPT 20170724) Refactor BaseRequest class
+        //self.pushToView(name: DomainConst.G00_LOGIN_VIEW_CTRL)
+        let data = (notification.object as! String)
+        let model = BaseRespModel(jsonString: data)
+        if model.isSuccess() {
+            BaseModel.shared.resetTempToken()
+            showAlert(message: model.message, okHandler: {
+                (alert: UIAlertAction!) in
+                self.pushToView(name: DomainConst.G00_LOGIN_VIEW_CTRL)
+            })
+        } else {
+            showAlert(message: model.message)
+        }
+        //-- BUG0047-SPJ (NguyenPT 20170724) Refactor BaseRequest class
     }
     //-- BUG0046-SPJ (NguyenPT 20170302) Use action for Request server completion
     
@@ -677,7 +690,16 @@ open class BaseViewController : UIViewController {
      * Update notification button status
      */
     public func updateNotificationStatus(_ notification: Notification) {
-        updateNotificationStatus()
+        //++ BUG0047-SPJ (NguyenPT 20170724) Refactor BaseRequest class
+//        updateNotificationStatus()
+        let data = (notification.object as! String)
+        let model = NotificationCountRespModel(jsonString: data)
+        if model.isSuccess() {
+            BaseModel.shared.setNotificationCountText(text: model.NotifyCountText)
+            BaseModel.shared.setOtherInfo(data: model.otherInfo)
+            updateNotificationStatus()
+        }
+        //-- BUG0047-SPJ (NguyenPT 20170724) Refactor BaseRequest class
     }
     
     /**
@@ -845,8 +867,19 @@ open class BaseViewController : UIViewController {
 //            self.popToRootView()
 //            self.pushToView(name: DomainConst.G00_LOGIN_VIEW_CTRL)
 //        })
-        self.popToRootView()
-        self.pushToView(name: DomainConst.G00_LOGIN_VIEW_CTRL)
+        //++ BUG0047-SPJ (NguyenPT 20170724) Refactor BaseRequest class
+//        self.popToRootView()
+//        self.pushToView(name: DomainConst.G00_LOGIN_VIEW_CTRL)
+        let data = (notification.object as! String)
+        let model = BaseRespModel(jsonString: data)
+        if model.isSuccess() {
+            BaseModel.shared.logoutSuccess()
+            self.popToRootView()
+            self.pushToView(name: DomainConst.G00_LOGIN_VIEW_CTRL)
+        } else {
+            showAlert(message: model.message)
+        }
+        //-- BUG0047-SPJ (NguyenPT 20170724) Refactor BaseRequest class
         //-- BUG0087-SPJ (NguyenPT 20170516) Remove message Logout success
     }
     //-- BUG0046-SPJ (NguyenPT 20170301) Use action for Request server completion

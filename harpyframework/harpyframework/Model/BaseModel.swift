@@ -477,7 +477,7 @@ public class BaseModel: NSObject {
      * Call When Login Success
      * - parameter token: User token
      */
-    func loginSuccess(_ token: String)  {
+    public func loginSuccess(_ token: String)  {
         isLogin = true
         userToken = token
         defaults.set(isLogin, forKey: DomainConst.KEY_SETTING_IS_LOGGING)
@@ -489,7 +489,7 @@ public class BaseModel: NSObject {
     /**
      * Call When Logout Success
      */
-    func logoutSuccess()  {
+    public func logoutSuccess()  {
         resetData()
         defaults.set(isLogin, forKey: DomainConst.KEY_SETTING_IS_LOGGING)
         defaults.set(userToken, forKey: DomainConst.KEY_SETTING_USER_TOKEN)
@@ -574,7 +574,7 @@ public class BaseModel: NSObject {
      * - parameter userId: Id of user
      * - parameter roleId: Id of role
      */
-    func setUserInfo(userInfo: UserInfoBean) {
+    public func setUserInfo(userInfo: UserInfoBean) {
         self.user_info = userInfo
     }
     
@@ -593,7 +593,7 @@ public class BaseModel: NSObject {
      * Save temp data.
      * - parameter loginModel: LoginRespModel
      */
-    func saveTempData(loginModel: LoginRespModel) {
+    public func saveTempData(loginModel: LoginRespModel) {
         for item in loginModel.data_uphold {
             // Uphold status data
             if item.id == DomainConst.KEY_STATUS {
@@ -778,7 +778,7 @@ public class BaseModel: NSObject {
      * Save uphold list.
      * - parameter upholdListModel: Sata to save
      */
-    func saveUpholdList(upholdListModel: UpholdListRespModel) {
+    public func saveUpholdList(upholdListModel: UpholdListRespModel) {
         if self.upholdList.record.count == 0{
             self.upholdList = upholdListModel
         } else {
@@ -797,7 +797,7 @@ public class BaseModel: NSObject {
      * Search customer result
      * - parameter result: Search result model
      */
-    func saveSearchCustomerResult(result: SearchCustomerRespModel) {
+    public func saveSearchCustomerResult(result: SearchCustomerRespModel) {
         self.searchCustomerResult = result
     }
     
@@ -805,7 +805,7 @@ public class BaseModel: NSObject {
      * Save current uphold detail
      * - parameter model: Search result model
      */
-    func saveCurrentUpholdDetail(model: UpholdBean) {
+    public func saveCurrentUpholdDetail(model: UpholdBean) {
         self.currentUpholdDetail = model
     }
     

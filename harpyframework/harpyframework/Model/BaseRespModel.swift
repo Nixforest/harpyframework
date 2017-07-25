@@ -59,7 +59,16 @@ open class BaseRespModel: NSObject {
      * - returns: True if status is "1", False otherwise
      */
     public func isSuccess() -> Bool {
-        return self.status == DomainConst.RESPONSE_STATUS_SUCCESS
+        //++ BUG0047-SPJ (NguyenPT 20170724) Refactor BaseRequest class
+        if self.status == DomainConst.RESPONSE_STATUS_SUCCESS {
+            return true
+        }
+        if self.code == "1987" {
+            BaseModel.shared.logoutSuccess()
+        }
+        //return self.status == DomainConst.RESPONSE_STATUS_SUCCESS
+        return false
+        //-- BUG0047-SPJ (NguyenPT 20170724) Refactor BaseRequest class
     }
     
     /**

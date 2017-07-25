@@ -7,14 +7,14 @@
 //
 
 import Foundation
-class UpholdDetailRespModel: BaseRespModel {
+public class UpholdDetailRespModel: BaseRespModel {
     /** Model uphold */
-    var model_uphold: UpholdBean = UpholdBean()
+    public var model_uphold: UpholdBean = UpholdBean()
     
     /**
      * Initializer
      */
-    override init(jsonString: String) {
+    override public init(jsonString: String) {
         // Call super initializer
         super.init(jsonString: jsonString)
         

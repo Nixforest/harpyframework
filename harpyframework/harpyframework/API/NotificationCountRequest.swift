@@ -8,45 +8,47 @@
 
 import Foundation
 public class NotificationCountRequest: BaseRequest {
-    override public func completetionHandler(request: NSMutableURLRequest) -> URLSessionTask {
-        let task = self.session.dataTask(with: request as URLRequest, completionHandler: {
-            (
-            data, response, error) in
-            // Check error
-            guard error == nil else {
-                //self.showAlert(message: DomainConst.CONTENT00196)
-                return
-            }
-            guard let data = data else {
-                //self.showAlert(message: DomainConst.CONTENT00196)
-                return
-            }
-            // Convert to string
-            let dataString = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
-            print(dataString ?? "")
-            // Convert to object
-            let model: NotificationCountRespModel = NotificationCountRespModel(jsonString: dataString as! String)
-            if model.status == DomainConst.RESPONSE_STATUS_SUCCESS {
-                BaseModel.shared.setNotificationCountText(text: model.NotifyCountText)
-                BaseModel.shared.setOtherInfo(data: model.otherInfo)
-            } else {
-                self.showAlert(message: model.message)
-                return
-            }
-            //++ BUG0049-SPJ (NguyenPT 20170325) Remove loading view
-//            // Hide overlay
-//            LoadingView.shared.hideOverlayView()
-            //-- BUG0049-SPJ (NguyenPT 20170325) Remove loading view
-            DispatchQueue.main.async {
-                //++ BUG0046-SPJ (NguyenPT 20170302) Use action for Request server completion
-//                NotificationCenter.default.post(name: Notification.Name(rawValue: DomainConst.NOTIFY_NAME_UPDATE_NOTIFY_HOMEVIEW), object: model)
-//                self.view.updateNotificationStatus()
-                NotificationCenter.default.post(name: Notification.Name(rawValue: self.theClassName), object: model)
-                //-- BUG0046-SPJ (NguyenPT 20170302) Use action for Request server completion
-            }
-        })
-        return task
-    }
+    //++ BUG0047-SPJ (NguyenPT 20170724) Refactor BaseRequest class
+//    override public func completetionHandler(request: NSMutableURLRequest) -> URLSessionTask {
+//        let task = self.session.dataTask(with: request as URLRequest, completionHandler: {
+//            (
+//            data, response, error) in
+//            // Check error
+//            guard error == nil else {
+//                //self.showAlert(message: DomainConst.CONTENT00196)
+//                return
+//            }
+//            guard let data = data else {
+//                //self.showAlert(message: DomainConst.CONTENT00196)
+//                return
+//            }
+//            // Convert to string
+//            let dataString = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
+//            print(dataString ?? "")
+//            // Convert to object
+//            let model: NotificationCountRespModel = NotificationCountRespModel(jsonString: dataString as! String)
+//            if model.status == DomainConst.RESPONSE_STATUS_SUCCESS {
+//                BaseModel.shared.setNotificationCountText(text: model.NotifyCountText)
+//                BaseModel.shared.setOtherInfo(data: model.otherInfo)
+//            } else {
+//                self.showAlert(message: model.message)
+//                return
+//            }
+//            //++ BUG0049-SPJ (NguyenPT 20170325) Remove loading view
+////            // Hide overlay
+////            LoadingView.shared.hideOverlayView()
+//            //-- BUG0049-SPJ (NguyenPT 20170325) Remove loading view
+//            DispatchQueue.main.async {
+//                //++ BUG0046-SPJ (NguyenPT 20170302) Use action for Request server completion
+////                NotificationCenter.default.post(name: Notification.Name(rawValue: DomainConst.NOTIFY_NAME_UPDATE_NOTIFY_HOMEVIEW), object: model)
+////                self.view.updateNotificationStatus()
+//                NotificationCenter.default.post(name: Notification.Name(rawValue: self.theClassName), object: model)
+//                //-- BUG0046-SPJ (NguyenPT 20170302) Use action for Request server completion
+//            }
+//        })
+//        return task
+//    }
+    //-- BUG0047-SPJ (NguyenPT 20170724) Refactor BaseRequest class
     
 //    /**
 //     * Initializer
