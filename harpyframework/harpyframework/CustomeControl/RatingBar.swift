@@ -24,6 +24,10 @@ open class RatingBar: UIView {
     }
     /** Rating buttons */
     var _ratingButtons: [UIButton] = [UIButton]()
+    //++ BUG0127-SPJ (NguyenPT 20170724) Uphold rating: merge to 1 step
+    /** Delegate */
+    public var delegate: RatingBarDelegate? = nil
+    //-- BUG0127-SPJ (NguyenPT 20170724) Uphold rating: merge to 1 step
     
     // MARK: Initialization
     public init() {
@@ -54,7 +58,9 @@ open class RatingBar: UIView {
             button.adjustsImageWhenHighlighted = false
             button.addTarget(self, action: #selector(RatingBar.ratingButtonTapped),
                              for: .touchDown)
-            button.backgroundColor = GlobalConst.BACKGROUND_COLOR_GRAY
+            //++ BUG0127-SPJ (NguyenPT 20170724) Uphold rating: merge to 1 step
+            //button.backgroundColor = GlobalConst.BACKGROUND_COLOR_GRAY
+            //-- BUG0127-SPJ (NguyenPT 20170724) Uphold rating: merge to 1 step
             button.tintColor = GlobalConst.BUTTON_COLOR_YELLOW
             self._ratingButtons.append(button)
             addSubview(button)
@@ -92,6 +98,11 @@ open class RatingBar: UIView {
     func ratingButtonTapped(button: UIButton) {
         self._rating = self._ratingButtons.index(of: button)! + 1
         updateButtonSelectionStates()
+        //++ BUG0127-SPJ (NguyenPT 20170724) Uphold rating: merge to 1 step
+        if delegate != nil {
+            delegate?.rating(button)
+        }
+        //-- BUG0127-SPJ (NguyenPT 20170724) Uphold rating: merge to 1 step
     }
     
     /**

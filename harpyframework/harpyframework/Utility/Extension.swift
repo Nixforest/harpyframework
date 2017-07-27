@@ -414,6 +414,22 @@ public protocol OrderConfirmDelegate {
 }
 //-- BUG0054-SPJ (NguyenPT 20170418) Add new function G07
 
+//++ BUG0127-SPJ (NguyenPT 20170724) Uphold rating: merge to 1 step
+/**
+ * Protocol to define delegate with match select rating value event.
+ */
+public protocol RatingBarDelegate {
+    func rating(_ sender: AnyObject)
+}
+
+/**
+ * Protocol to define delegate with match Send button tapped event.
+ */
+public protocol RatingViewDelegate {
+    func requestRating(_ sender: AnyObject)
+}
+//-- BUG0127-SPJ (NguyenPT 20170724) Uphold rating: merge to 1 step
+
 /**
  * Extension of button control.
  */

@@ -224,6 +224,9 @@ public class AddressPickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSo
         return true
     }
     
+    /**
+     * Tells the delegate that editing stopped for the specified text field.
+     */
     public func textFieldDidEndEditing(_ textField: UITextField) {
         if !_bIsPicker {
             delegate?.valueChanged(self)

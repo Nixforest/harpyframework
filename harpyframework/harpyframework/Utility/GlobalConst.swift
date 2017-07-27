@@ -56,6 +56,7 @@ public class GlobalConst {
     public static let SCROLL_BUTTON_LIST_HEIGHT         : CGFloat = BUTTON_HEIGHT / 5.0
     public static let STEPPER_LAYOUT_HEIGHT             : CGFloat = 29.0
     public static let STEPPER_LAYOUT_WIDTH              : CGFloat = 94.0
+    public static let RATING_BAR_HEIGHT                 : CGFloat = GlobalConst.LABEL_HEIGHT * 1.5
     
     public static let NORMAL_FONT_SIZE                  : CGFloat = UIFont.systemFontSize
     public static let NORMAL_FONT_SIZE_1                : CGFloat = 13.0
@@ -91,7 +92,7 @@ public class GlobalConst {
     public static let MAIN_COLOR                    = ColorFromRGB().getColorFromRGB(0xFC4513)
     public static let BUTTON_COLOR_RED_TRUE         = ColorFromRGB().getColorFromRGB(0xF00020)
     public static var TRAINING_COLOR                = ColorFromRGB().getColorFromRGB(0x08C011)
-    //public static let TRAINING_COLOR              = ColorFromRGB().getColorFromRGB(0xF00020)
+//    public static var TRAINING_COLOR              = ColorFromRGB().getColorFromRGB(0xF00020)
     public static var BUTTON_COLOR_RED              = MAIN_COLOR
     public static let BUTTON_COLOR_GRAY             = ColorFromRGB().getColorFromRGB(0xD5D5D5)
     public static let BUTTON_COLOR_YELLOW           = ColorFromRGB().getColorFromRGB(0xFF9E19)
@@ -101,6 +102,7 @@ public class GlobalConst {
     public static let TEXT_COLOR_GRAY               = ColorFromRGB().getColorFromRGB(0x666666)
     public static let PARENT_BORDER_COLOR_YELLOW    = UIColor.yellow
     public static let BACKGROUND_COLOR_GRAY         = ColorFromRGB().getColorFromRGB(0xECECEC)
+    //public static let TEXT_COLOR_GRAY               = ColorFromRGB().getColorFromRGB(0x9FA0A2)
     public static let SCROLLBUTTONLIST_BKG_COLOR    = BUTTON_COLOR_GRAY
     public static let INFOR_TITLE_COLOR             = ColorFromRGB().getColorFromRGB(0x1899E5)
     public static let TEXT_COLOR                    = ColorFromRGB().getColorFromRGB(0x333333)

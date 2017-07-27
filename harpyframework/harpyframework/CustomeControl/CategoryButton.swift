@@ -36,8 +36,11 @@ public class CategoryButton: UIButton {
         self.setTitle(title, for: UIControlState())
         self.setTitleColor(UIColor.darkText, for: UIControlState.normal)
         self.setTitleColor(GlobalConst.BUTTON_COLOR_RED_TRUE, for: UIControlState.selected)
-        self.setImage(ImageManager.getImage(named: icon), for: UIControlState.normal)
-        self.setImage(ImageManager.getImage(named: iconActive), for: UIControlState.selected)
+        //++ BUG0127-SPJ (NguyenPT 20170724) Uphold rating: merge to 1 step
+//        self.setImage(ImageManager.getImage(named: icon), for: UIControlState.normal)
+//        self.setImage(ImageManager.getImage(named: iconActive), for: UIControlState.selected)
+        handleImage(icon: icon, iconActive: iconActive)
+        //-- BUG0127-SPJ (NguyenPT 20170724) Uphold rating: merge to 1 step
         self.imageView?.contentMode = .scaleAspectFit
         self.centerVertically()
         self.makeComponentsColor()
@@ -62,8 +65,11 @@ public class CategoryButton: UIButton {
         self.setTitle(title, for: UIControlState())
         self.setTitleColor(UIColor.darkText, for: UIControlState.normal)
         self.setTitleColor(GlobalConst.BUTTON_COLOR_RED_TRUE, for: UIControlState.selected)
-        self.setImage(ImageManager.getImage(named: icon), for: UIControlState.normal)
-        self.setImage(ImageManager.getImage(named: iconActive), for: UIControlState.selected)
+        //++ BUG0127-SPJ (NguyenPT 20170724) Uphold rating: merge to 1 step
+//        self.setImage(ImageManager.getImage(named: icon), for: UIControlState.normal)
+//        self.setImage(ImageManager.getImage(named: iconActive), for: UIControlState.selected)
+        handleImage(icon: icon, iconActive: iconActive)
+        //-- BUG0127-SPJ (NguyenPT 20170724) Uphold rating: merge to 1 step
         self.imageView?.contentMode = .scaleAspectFit
         self.centerVerticallyRect()
         self.makeComponentsColor()
@@ -72,4 +78,23 @@ public class CategoryButton: UIButton {
     required public init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
     }
+    
+    //++ BUG0127-SPJ (NguyenPT 20170724) Uphold rating: merge to 1 step
+    /**
+     * Handle image on button
+     * - parameter icon:        Icon of button
+     * - parameter iconActive:  Active icon of button
+     */
+    private func handleImage(icon: String, iconActive: String) {
+        self.setImage(ImageManager.getImage(named: icon), for: UIControlState.normal)
+        if icon == iconActive {
+            let active = ImageManager.getImage(named: iconActive)
+            let tinted = active?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+            self.tintColor = GlobalConst.BUTTON_COLOR_RED
+            self.setImage(tinted, for: UIControlState.selected)
+        } else {
+            self.setImage(ImageManager.getImage(named: iconActive), for: UIControlState.selected)
+        }
+    }
+    //-- BUG0127-SPJ (NguyenPT 20170724) Uphold rating: merge to 1 step
 }

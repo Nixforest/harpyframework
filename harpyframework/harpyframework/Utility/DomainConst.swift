@@ -1200,6 +1200,8 @@ public class DomainConst {
     public static let SERVER_URL_TRAINING               = "http://android.huongminhgroup.com/api/"
     /** Server URL */
     public static let SERVER_URL                        = "http://spj.daukhimiennam.com/api/"
+    /** Immortal Server URL */
+    public static let SERVER_URL_IMMORTAL               = "http://build.immortal.vn/api/"
     
     // MARK -----Define id of fragment-----
     public static let LOGOUT                            = "logout"
@@ -1227,6 +1229,7 @@ public class DomainConst {
     // MARK: -----Controller names-----
     /** Application name */
     public static let APPNAME                                       = "gasservice"
+    public static let APPNAME_IMMORTAL                              = "countingstar"
     public static let HARPY_FRAMEWORK_BUNDLE_NAME                   = "com.spj.harpyframework.harpyframework"
     /** Name of RegisterViewController */
     public static let G00_REGISTER_VIEW_CTRL                        = "G00RegisterVC"
@@ -1525,6 +1528,8 @@ public class DomainConst {
     public static let CONTENT_ICON_IMG_NAME                 = "icon60.png"
     /** Content icon image name */
     public static let REPORT_ICON_IMG_NAME                  = "icon62.png"
+    /** Content icon image name */
+    public static let CONTACT_HOTLINE_IMG_NAME              = "icon64.png"
     /** Content icon image name */
     public static let ORDER_ID_ICON_IMG_NAME                = "icon65.png"
     /** Content icon image name */
@@ -2053,4 +2058,14 @@ public class DomainConst {
     public static let CONTENT00445 = "PTTT Code"
     public static let CONTENT00446 = "Chọn chi nhánh"
     public static let CONTENT00447 = "Id khách hàng đang rỗng"
+    public static let CONTENT00448 = "Vui lòng đánh giá dịch vụ của chúng tôi"
+    public static let CONTENT00449 = "Bạn cần chúng tôi cải thiện về?"
+    public static let CONTENT00450 = "Rất vui vì bạn hài lòng với dịch vụ của chúng tôi. Bán có thêm nhận xét gì không nào?"
+    public static let CONTENT00451 = "Thái độ"
+    public static let CONTENT00452 = "Tay nghề"
+    public static let CONTENT00453 = "Đúng giờ"
+    public static let CONTENT00454 = "An toàn"
+    public static let CONTENT00455 = "Vật tư"
+    public static let CONTENT00456 = "Khác"
+    public static let CONTENT00457 = "Bổ sung ý kiến của bạn"
 }
