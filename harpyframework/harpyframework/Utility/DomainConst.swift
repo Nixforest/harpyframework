@@ -366,6 +366,10 @@ public class DomainConst {
     /** Setting key: Role id */
     public static let KEY_SETTING_ROLE_ID               = "gasservice.roleId"
     //-- BUG0049-SPJ (NguyenPT 20170622) Handle save user info in setting
+    //++ BUG0132-SPJ (NguyenPT 20170724) Remember username after login
+    /** Setting key: Username */
+    public static let KEY_SETTING_USERNAME              = "gasservice.username"
+    //-- BUG0132-SPJ (NguyenPT 20170724) Remember username after login
     
     /** Setting key: Material type id */
     public static let KEY_MATERIALS_TYPE_ID             = "materials_type_id"

@@ -133,6 +133,10 @@ public class BaseModel: NSObject {
     //++ BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
     private var _listVipCustomerStores:     [ConfigBean]        = [ConfigBean]()
     //-- BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
+    //++ BUG0132-SPJ (NguyenPT 20170724) Remember username after login
+    /** Call center */
+    private var _currentUsername:           String              = DomainConst.BLANK
+    //-- BUG0132-SPJ (NguyenPT 20170724) Remember username after login
     
     // MARK - Methods
     override init() {
@@ -220,6 +224,12 @@ public class BaseModel: NSObject {
             self.role_id = data as! String
         }
         //-- BUG0049-SPJ (NguyenPT 20170622) Handle save user info in setting
+        //++ BUG0132-SPJ (NguyenPT 20170724) Remember username after login
+        self._currentUsername = DomainConst.BLANK
+        if let data = defaults.object(forKey: DomainConst.KEY_SETTING_USERNAME) {
+            self._currentUsername = data as! String
+        }
+        //-- BUG0132-SPJ (NguyenPT 20170724) Remember username after login
     }
     
     /**
@@ -566,6 +576,15 @@ public class BaseModel: NSObject {
             return DomainConst.SERVER_URL
         }
         return DomainConst.SERVER_URL_TRAINING
+//        return getServerURLImmortal()
+    }
+    
+    /**
+     * Get server ULR
+     * - returns: Server URL
+     */
+    public func getServerURLImmortal() -> String {
+        return DomainConst.SERVER_URL_IMMORTAL
     }
     
     /**
@@ -1376,4 +1395,23 @@ public class BaseModel: NSObject {
         return (self._listVipCustomerStores.count > 0)
     }
     //-- BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
+    //++ BUG0132-SPJ (NguyenPT 20170724) Remember username after login
+    /**
+     * Set current username
+     * - parameter username: Username string
+     */
+    public func setCurrentUsername(username: String) {
+        self._currentUsername = username
+        defaults.set(self._currentUsername, forKey: DomainConst.KEY_SETTING_USERNAME)
+        defaults.synchronize()
+    }
+    
+    /**
+     * Get current username value
+     * - returns: Username string
+     */
+    public func getCurrentUsername() -> String {
+        return self._currentUsername
+    }
+    //-- BUG0132-SPJ (NguyenPT 20170724) Remember username after login
 }

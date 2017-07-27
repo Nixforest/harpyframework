@@ -30,7 +30,14 @@ open class BaseMenuViewController : UIViewController {
         
         // Re-create menu items
         if BaseModel.shared.checkIsLogin() {
-            setItem(listValues: [false, true, false, true, true])
+            //++ BUG0130-SPJ (NguyenPT 20170724) Remove Signout menu
+            //setItem(listValues: [false, true, false, true, true])
+            if BaseModel.shared.isTrainningMode {
+                setItem(listValues: [false, true, false, true, true])
+            } else {
+                setItem(listValues: [false, false, false, true, true])
+            }
+            //-- BUG0130-SPJ (NguyenPT 20170724) Remove Signout menu
         } else {
             setItem(listValues: [true, false, true, false, true])
         }
