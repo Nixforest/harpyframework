@@ -135,6 +135,17 @@ open class StepContent: UIView {
         return self._lblTitle.frame.height
     }
     
+    /**
+     * Get title of content
+     * - returns: Title string
+     */
+    public func getTitleText() -> String {
+        if let title = self._lblTitle.text {
+            return title
+        }
+        return DomainConst.BLANK
+    }
+    
     //++ BUG0094-SPJ (NguyenPT 20170519) Add function create order by Coordinator
     /**
      * Get scroll view

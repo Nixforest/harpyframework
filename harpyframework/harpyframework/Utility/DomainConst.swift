@@ -755,7 +755,10 @@ public class DomainConst {
     /** created_date_on_history */
     public static let KEY_CREATED_DATE_ON_HISTORY       = "created_date_on_history"
     //-- BUG0110-SPJ (NguyenPT 20170617) Add new key setting
-    
+    //++ BUG0133-SPJ (NguyenPT 20170724) Family order: change agent delivery
+    /** Flag show/hide Update agent button */
+    public static let KEY_SHOW_BUTTON_CHANGE_AGENT      = "show_button_change_agent"
+    //-- BUG0133-SPJ (NguyenPT 20170724) Family order: change agent delivery
     
     
     
@@ -2072,4 +2075,8 @@ public class DomainConst {
     public static let CONTENT00455 = "Vật tư"
     public static let CONTENT00456 = "Khác"
     public static let CONTENT00457 = "Bổ sung ý kiến của bạn"
+    public static let CONTENT00458 = "Chuyển đại lý giao hàng"
+    public static let CONTENT00459 = "Bạn đang gửi thông tin Thay đổi đại lý giao hàng như bên dưới. Xin hãy kiểm tra lại các thông tin cho thật chính xác và nhấn nút Gửi nếu bạn đồng ý."
+    public static let CONTENT00460 = "Đại lý hiện tại"
+    public static let CONTENT00461 = "Đại lý mới"
 }

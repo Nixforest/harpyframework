@@ -109,6 +109,11 @@ public class OrderBean: NSObject {
     /** Customer id */
     public var customer_id:            String = DomainConst.BLANK
     //-- BUG0119-SPJ (NguyenPT 20170630) Handle update customer in Order Family
+    //++ BUG0133-SPJ (NguyenPT 20170724) Family order: change agent delivery
+    /** Flag show/hide Update agent button */
+    public var show_button_change_agent:    Int    = 0
+    //-- BUG0133-SPJ (NguyenPT 20170724) Family order: change agent delivery
+    
     
     public override init() {
         super.init()
@@ -186,5 +191,8 @@ public class OrderBean: NSObject {
         self.show_button_update_customer = getInt(json: jsonData, key: DomainConst.KEY_SHOW_BTN_UPDATE_CUSTOMER)
         self.customer_id = getString(json: jsonData, key: DomainConst.KEY_CUSTOMER_ID)
         //-- BUG0119-SPJ (NguyenPT 20170630) Handle update customer in Order Family
+        //++ BUG0133-SPJ (NguyenPT 20170724) Family order: change agent delivery
+        self.show_button_change_agent = getInt(json: jsonData, key: DomainConst.KEY_SHOW_BUTTON_CHANGE_AGENT)
+        //-- BUG0133-SPJ (NguyenPT 20170724) Family order: change agent delivery
     }
 }
