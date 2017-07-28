@@ -30,10 +30,13 @@ open class TransactionSetEventRequest: BaseRequest {
                  amountDiscount: String, typeAmount: String, support_id: String,
                  orderDetail: String,
                  //++ BUG0111-SPJ (NguyenPT 20170617) Update function G06
-                 ccsCode: String) {
+                 ccsCode: String,
                  //-- BUG0111-SPJ (NguyenPT 20170617) Update function G06
+                 //++ BUG0133-SPJ (NguyenPT 20170724) Family order: change agent delivery
+                 agentId: String) {
+                 //-- BUG0133-SPJ (NguyenPT 20170724) Family order: change agent delivery
         self.data = "q=" + String.init(
-            format: "{\"%@\":\"%@\",\"%@\":%d,\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":[%@],\"%@\":\"%@\",\"%@\":%d}",
+            format: "{\"%@\":\"%@\",\"%@\":%d,\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":[%@],\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":%d}",
             DomainConst.KEY_TOKEN, BaseModel.shared.getUserToken(),
             DomainConst.KEY_ACTION_TYPE,            actionType,
             DomainConst.KEY_LATITUDE,               lat,
@@ -50,6 +53,9 @@ open class TransactionSetEventRequest: BaseRequest {
             //++ BUG0111-SPJ (NguyenPT 20170617) Update function G06
             DomainConst.KEY_MENU_CCS_CODE,          ccsCode,
             //-- BUG0111-SPJ (NguyenPT 20170617) Update function G06
+            //++ BUG0133-SPJ (NguyenPT 20170724) Family order: change agent delivery
+            DomainConst.KEY_CHANGE_TO_AGENT,          agentId,
+            //-- BUG0133-SPJ (NguyenPT 20170724) Family order: change agent delivery
             DomainConst.KEY_PLATFORM,               DomainConst.PLATFORM_IOS
         )
     }
@@ -79,8 +85,11 @@ open class TransactionSetEventRequest: BaseRequest {
                                amountDiscount: String, typeAmount: String, support_id: String,
                                orderDetail: String,
                                //++ BUG0111-SPJ (NguyenPT 20170617) Update function G06
-                               ccsCode: String) {
+                               ccsCode: String,
                                //-- BUG0111-SPJ (NguyenPT 20170617) Update function G06
+                               //++ BUG0133-SPJ (NguyenPT 20170724) Family order: change agent delivery
+                               agentId: String = DomainConst.BLANK) {
+                               //-- BUG0133-SPJ (NguyenPT 20170724) Family order: change agent delivery
         // Show overlay
         LoadingView.shared.showOverlay(view: view.view)
         let request = TransactionSetEventRequest(url: DomainConst.PATH_ORDER_TRANSACTION_SET_EVENT,
@@ -93,8 +102,11 @@ open class TransactionSetEventRequest: BaseRequest {
                         support_id: support_id,
                         orderDetail: orderDetail,
                         //++ BUG0111-SPJ (NguyenPT 20170617) Update function G06
-                        ccsCode: ccsCode)
+                        ccsCode: ccsCode,
                         //-- BUG0111-SPJ (NguyenPT 20170617) Update function G06
+                        //++ BUG0133-SPJ (NguyenPT 20170724) Family order: change agent delivery
+                        agentId: agentId)
+                        //-- BUG0133-SPJ (NguyenPT 20170724) Family order: change agent delivery
         NotificationCenter.default.addObserver(view, selector: action, name: NSNotification.Name(rawValue: request.theClassName), object: nil)
         request.execute()
     }

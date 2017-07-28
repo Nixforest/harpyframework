@@ -1070,6 +1070,10 @@ public class DomainConst {
     /** Key monitor_market_development_id */
     public static let KEY_MONITOR_MARKET_DEV_ID         = "monitor_market_development_id"
     //-- BUG0094-SPJ (NguyenPT 20170701) Add function create order by Coordinator
+    //++ BUG0133-SPJ (NguyenPT 20170724) Family order: change agent delivery
+    /** Key monitor_market_development_id */
+    public static let KEY_CHANGE_TO_AGENT               = "change_to_agent"
+    //-- BUG0133-SPJ (NguyenPT 20170724) Family order: change agent delivery
     
     //++ BUG0050-SPJ (NguyenPT 20170325) Add new function G06
     /** Platform value: Android */
@@ -2079,4 +2083,6 @@ public class DomainConst {
     public static let CONTENT00459 = "Bạn đang gửi thông tin Thay đổi đại lý giao hàng như bên dưới. Xin hãy kiểm tra lại các thông tin cho thật chính xác và nhấn nút Gửi nếu bạn đồng ý."
     public static let CONTENT00460 = "Đại lý hiện tại"
     public static let CONTENT00461 = "Đại lý mới"
+    public static let CONTENT00462 = "Bạn chưa chọn Đại lý cần chuyển"
+    public static let CONTENT00463 = "Bạn vừa chọn Đại lý cần chuyển là Đại lý hiện tại. Xin hãy kiểm tra lại lần nữa."
 }

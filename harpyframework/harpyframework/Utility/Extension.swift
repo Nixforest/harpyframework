@@ -157,7 +157,11 @@ enum RoleType: Int {
 //++ BUG0054-SPJ (NguyenPT 20170418) Add new function G07
 /** Action type */
 public enum ActionTypeEnum: Int {
-    case EMPLOYEE_CONFIRM = -1,
+    //++ BUG0133-SPJ (NguyenPT 20170724) Family order: change agent delivery
+    //case EMPLOYEE_CONFIRM = -1,
+    case EMPLOYEE_CHANGE_AGENT = -2,
+    EMPLOYEE_CONFIRM,
+    //-- BUG0133-SPJ (NguyenPT 20170724) Family order: change agent delivery
     EMPLOYEE_FREE,
     EMPLOYEE_NHAN_GIAO_HANG,
     EMPLOYEE_HUY_GIAO_HANG,

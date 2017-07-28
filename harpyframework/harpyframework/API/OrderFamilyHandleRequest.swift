@@ -10,7 +10,7 @@ import UIKit
 
 public class OrderFamilyHandleRequest: TransactionSetEventRequest {
     /**
-     * Request confirm order
+     * Request confirm order [P037_OrderTransactionConfirm_API]
      * - parameter action:      Action execute when finish this task
      * - parameter view:        Current view
      * - parameter lat:         Latitude
@@ -38,7 +38,7 @@ public class OrderFamilyHandleRequest: TransactionSetEventRequest {
                                            //-- BUG0111-SPJ (NguyenPT 20170617) Update function G06
     }
     /**
-     * Request cancel
+     * Request cancel [P038_OrderTransactionCancelConfirm_API]
      * - parameter action:      Action execute when finish this task
      * - parameter view:        Current view
      * - parameter lat:         Latitude
@@ -67,7 +67,7 @@ public class OrderFamilyHandleRequest: TransactionSetEventRequest {
     }
     
     /**
-     * Request update
+     * Request update [P039_OrderTransactionUpdate_API]
      * - parameter action:          Action execute when finish this task
      * - parameter view:            Current view
      * - parameter lat:             Latitude
@@ -110,7 +110,7 @@ public class OrderFamilyHandleRequest: TransactionSetEventRequest {
     }
     
     /**
-     * Request complete
+     * Request complete [P040_OrderTransactionComplete_API]
      * - parameter action:          Action execute when finish this task
      * - parameter view:            Current view
      * - parameter lat:             Latitude
@@ -153,7 +153,7 @@ public class OrderFamilyHandleRequest: TransactionSetEventRequest {
     }
     
     /**
-     * Request cancel
+     * Request cancel [P041_OrderTransactionCancel_API]
      * - parameter action:          Action execute when finish this task
      * - parameter view:            Current view
      * - parameter lat:             Latitude
@@ -184,4 +184,36 @@ public class OrderFamilyHandleRequest: TransactionSetEventRequest {
                                            ccsCode: DomainConst.BLANK)
                                            //-- BUG0111-SPJ (NguyenPT 20170617) Update function G06
     }
+    
+    //++ BUG0133-SPJ (NguyenPT 20170724) Family order: change agent delivery
+    /**
+     * Request change agent [P0075_OrderTransactionUpdateAgent_API]
+     * - parameter action:          Action execute when finish this task
+     * - parameter view:            Current view
+     * - parameter lat:             Latitude
+     * - parameter long:            Longitude
+     * - parameter id:              Id of order
+     * - parameter agentId:         Id of agent
+     */
+    public static func requestChangeAgentOrder(action: Selector,
+                                          view: BaseViewController,
+                                          lat: String, long: String,
+                                          id: String,
+                                          agentId: String) {
+        TransactionSetEventRequest.request(action: action, view: view,
+                                           actionType: ActionTypeEnum.EMPLOYEE_CHANGE_AGENT.rawValue,
+                                           lat: lat, long: long,
+                                           changeType: "0",
+                                           statusCancel: "0",
+                                           id: id,
+                                           orderType: "0",
+                                           discountType: "0",
+                                           amountDiscount: "0",
+                                           typeAmount: "0",
+                                           support_id: "0",
+                                           orderDetail: DomainConst.BLANK,
+                                           ccsCode: DomainConst.BLANK,
+                                           agentId: agentId)
+    }
+    //-- BUG0133-SPJ (NguyenPT 20170724) Family order: change agent delivery
 }
