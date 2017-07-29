@@ -55,7 +55,7 @@ public class OrderDetailTableViewCell: UITableViewCell {
         // Get width of 1 weight
         //++ BUG0073-SPJ (NguyenPT 20170504) Re-calculate width of 1 weight
         //let width: CGFloat = (GlobalConst.SCREEN_WIDTH - GlobalConst.MARGIN_CELL_X * (CGFloat(totalWeight) + 1)) / CGFloat(totalWeight)
-        let width: CGFloat = (GlobalConst.SCREEN_WIDTH - GlobalConst.MARGIN_CELL_X * CGFloat(data.count)) / CGFloat(totalWeight)
+        let width: CGFloat = (GlobalConst.SCREEN_WIDTH - GlobalConst.MARGIN_CELL_X * CGFloat(data.count + 1)) / CGFloat(totalWeight)
         //-- BUG0073-SPJ (NguyenPT 20170504) Re-calculate width of 1 weight
         
         // Create labels

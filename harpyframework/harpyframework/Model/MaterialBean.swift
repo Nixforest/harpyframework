@@ -88,11 +88,39 @@ open class MaterialBean: NSObject, NSCoding {
         if self.materials_type_id == "1" ||
             self.materials_type_id == "12" ||
             self.materials_type_id == "10" ||
-            self.materials_type_id == "14" {
+            self.materials_type_id == "14" ||
+            self.materials_type_id == "19" {
             return true
         }
         return false
     }
+    
+    //++ BUG0135-SPJ (NguyenPT 20170758) Add new cylinder Order VIP customer
+    /**
+     * Check if material is Cylinder type 1 (4kg, 6kg, 12kg)
+     * - returns: True if "materials_type_id" equal 1/14/19, False otherwise
+     */
+    public func isCylinderType1() -> Bool {
+        if self.materials_type_id == "1" ||
+            self.materials_type_id == "14" ||
+            self.materials_type_id == "19" {
+            return true
+        }
+        return false
+    }
+    
+    /**
+     * Check if material is Cylinder type 2 (45kg, 50kg)
+     * - returns: True if "materials_type_id" equal 10/12, False otherwise
+     */
+    public func isCylinderType2() -> Bool {
+        if self.materials_type_id == "10" ||
+            self.materials_type_id == "12" {
+            return true
+        }
+        return false
+    }
+    //-- BUG0135-SPJ (NguyenPT 20170758) Add new cylinder Order VIP customer
     
     /**
      * Check if object is empty

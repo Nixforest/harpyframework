@@ -70,6 +70,7 @@ open class BaseRequest: NSObject {
         //-- BUG0115-SPJ (NguyenPT 20170624) Handle add version code when request server
         let task = completetionHandler(request: request)
         task.resume()
+//        self.completeHandlerConnection(request: request)
     }
     
     /**
@@ -106,6 +107,7 @@ open class BaseRequest: NSObject {
         //-- BUG0115-SPJ (NguyenPT 20170624) Handle add version code when request server
         let task = completetionHandler(request: request)
         task.resume()
+//        self.completeHandlerConnection(request: request)
     }
     
     /**
@@ -180,6 +182,45 @@ open class BaseRequest: NSObject {
     }
     
     /**
+     * Handle request server by NSURLConnection
+     */
+    open func completeHandlerConnection(request: NSMutableURLRequest) {
+        let queue: OperationQueue = OperationQueue()
+        
+        NSURLConnection.sendAsynchronousRequest(
+            request as URLRequest,
+            queue: queue,
+            completionHandler: {
+                (response, data, error) in
+                // Check error
+                guard error == nil else {
+                    BaseModel.shared.setErrorDetail(detail: (error?.localizedDescription)!)
+                    self.handleErrorTask()
+                    return
+                }
+                //guard data == nil else {
+                guard let data = data else {
+                    BaseModel.shared.setErrorDetail(detail: (error?.localizedDescription)!)
+                    self.handleErrorTask()
+                    return
+                }
+                // Convert to string
+                let dataString = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
+                print(dataString ?? DomainConst.BLANK)
+                if self.completionBlock != nil {
+                    // Hide overlay
+                    LoadingView.shared.hideOverlayView()
+                    // Call complete handler
+                    DispatchQueue.main.async {
+                        self.completionBlock!(dataString)
+                    }
+                } else {
+                    self.handleCompleteTask(model: dataString)
+                }
+        })
+    }
+    
+    /**
      * Handle when complete task
      */
     open func completetionHandler(request: NSMutableURLRequest) -> URLSessionTask {
@@ -191,6 +232,7 @@ open class BaseRequest: NSObject {
 //                LoadingView.shared.hideOverlayView()
 //                //-- BUG0050-SPJ (NguyenPT 20170403) Handle Error
 //                self.view.showAlert(message: DomainConst.CONTENT00196)
+                BaseModel.shared.setErrorDetail(detail: (error?.localizedDescription)!)
                 self.handleErrorTask()
                 //-- BUG0099-SPJ (NguyenPT 20170601) Handle when error happen
                 return
@@ -202,6 +244,7 @@ open class BaseRequest: NSObject {
 //                LoadingView.shared.hideOverlayView()
 //            //-- BUG0050-SPJ (NguyenPT 20170323) Handle result string
 //                self.view.showAlert(message: DomainConst.CONTENT00196)
+                BaseModel.shared.setErrorDetail(detail: (error?.localizedDescription)!)
                 self.handleErrorTask()
                 //-- BUG0099-SPJ (NguyenPT 20170601) Handle when error happen
                 return
@@ -261,7 +304,17 @@ open class BaseRequest: NSObject {
      */
     public func handleErrorTask() {
         LoadingView.shared.hideOverlayView()
-        self.view.showAlert(message: DomainConst.CONTENT00196)
+        //self.view.showAlert(message: DomainConst.CONTENT00196)
+        self.view.showAlert(
+            message: DomainConst.CONTENT00196,
+            okHandler: {
+                alert in
+                self.execute()
+        },
+            cancelHandler: {
+                alert in
+        
+        })
         DispatchQueue.main.async {
             // Remove observer
             NotificationCenter.default.removeObserver(self.view, name: Notification.Name(rawValue: self.theClassName), object: nil)

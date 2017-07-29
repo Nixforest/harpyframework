@@ -1842,7 +1842,8 @@ public class DomainConst {
     public static let CONTENT00191 = "Khách hàng báo sai sự cố"
     public static let CONTENT00194 = "Thời gian"
     public static let CONTENT00195 = "Nghiệm thu"
-    public static let CONTENT00196 = "Lỗi kết nối đến máy chủ"
+    //public static let CONTENT00196 = "Lỗi kết nối đến máy chủ"
+    public static let CONTENT00196 = "Lỗi kết nối internet. Bạn có muốn tải lại không?"
     public static let CONTENT00197 = "Chức năng đã bị khoá, vui lòng thử lại sau!"
     public static let CONTENT00198 = "Thông tin phiên bản"
     public static let CONTENT00199 = "Email góp ý"
@@ -2091,4 +2092,5 @@ public class DomainConst {
     public static let CONTENT00463 = "Bạn vừa chọn Đại lý cần chuyển là Đại lý hiện tại. Xin hãy kiểm tra lại lần nữa."
     public static let CONTENT00464 = "Xoá tất cả"
     public static let CONTENT00465 = "Bạn có muốn xoá tất cả vỏ?"
+    public static let CONTENT00466 = "Seri"
 }
