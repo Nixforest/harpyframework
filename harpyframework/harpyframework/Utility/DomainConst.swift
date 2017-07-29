@@ -1011,6 +1011,8 @@ public class DomainConst {
     public static let ORDER_INFO_CCS_CODE_ID            = "###99929"
     /** Order information id: Note */
     public static let ORDER_INFO_NOTE_ID                = "###99930"
+    /** Order information id: Order Clear all cylinder */
+    public static let ORDER_INFO_MATERIAL_CLEAR_ALL_CYLINDER       = "###99931"
     /** Order information id: Order Material */
     public static let ORDER_INFO_MATERIAL_ID            = "###999"
     
@@ -1635,6 +1637,8 @@ public class DomainConst {
     /** Map image icon */
     public static let TICKET_CLOSE_ICON_IMG_NAME            = "close.png"
     //-- BUG0102-SPJ (NguyenPT 20170604) Update function G11
+    /** Cancel image name */
+    public static let CLEAR_ALL_ICON_IMG_NAME               = "delete-all.png"
     
     /** HTTP Post request method */
     public static let HTTP_POST_REQUEST                     = "POST"
@@ -2085,4 +2089,6 @@ public class DomainConst {
     public static let CONTENT00461 = "Đại lý mới"
     public static let CONTENT00462 = "Bạn chưa chọn Đại lý cần chuyển"
     public static let CONTENT00463 = "Bạn vừa chọn Đại lý cần chuyển là Đại lý hiện tại. Xin hãy kiểm tra lại lần nữa."
+    public static let CONTENT00464 = "Xoá tất cả"
+    public static let CONTENT00465 = "Bạn có muốn xoá tất cả vỏ?"
 }
