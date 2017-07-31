@@ -1012,7 +1012,9 @@ public class DomainConst {
     /** Order information id: Note */
     public static let ORDER_INFO_NOTE_ID                = "###99930"
     /** Order information id: Order Clear all cylinder */
-    public static let ORDER_INFO_MATERIAL_CLEAR_ALL_CYLINDER       = "###99931"
+    public static let ORDER_INFO_MATERIAL_CLEAR_ALL_CYLINDER    = "###99931"
+    /** Order information id: Order Sum all cylinder */
+    public static let ORDER_INFO_MATERIAL_SUM_ALL_CYLINDER      = "###99932"
     /** Order information id: Order Material */
     public static let ORDER_INFO_MATERIAL_ID            = "###999"
     
@@ -1099,6 +1101,29 @@ public class DomainConst {
     /** Search target type: Search Customer */
     public static let SEARCH_TARGET_TYPE_CUSTOMER       = "2"
     //-- BUG0073-SPJ (NguyenPT 20170504) Add new key setting
+    
+    /** Cylinder type id: 6Kg */
+    public static let CYLINDER_TYPE_ID_6KG              = "14"
+    /** Cylinder type id: 12Kg */
+    public static let CYLINDER_TYPE_ID_12KG             = "1"
+    /** Cylinder type id: 45Kg */
+    public static let CYLINDER_TYPE_ID_45KG             = "10"
+    /** Cylinder type id: 50Kg */
+    public static let CYLINDER_TYPE_ID_50KG             = "12"
+    /** Gas type id: 4Kg */
+    public static let GAS_TYPE_ID_4KG                   = "19"
+    /** Gas type id: 6Kg */
+    public static let GAS_TYPE_ID_6KG                   = "9"
+    /** Gas type id: 12Kg */
+    public static let GAS_TYPE_ID_12KG                  = "4"
+    /** Gas type id: 45Kg */
+    public static let GAS_TYPE_ID_45KG                  = "7"
+    /** Gas type id: 50Kg */
+    public static let GAS_TYPE_ID_50KG                  = "11"
+    /** Gas type id: Big pool */
+    public static let GAS_TYPE_ID_BIG_POOL              = "13"
+    /** Promotion type id */
+    public static let PROMOTION_TYPE_ID                 = "6"
     
     
     /** Money unit: Vietnam dong */

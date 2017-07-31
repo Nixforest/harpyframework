@@ -124,7 +124,13 @@ public class OrderDetailTableViewCell: UITableViewCell {
                                 width: contentHeight / 3 * 2,
                                 height: contentHeight / 3 * 2)
         _leftImg.contentMode = .scaleAspectFit
-        _leftImg.setImage(imgPath: config.getIconPath())
+        //++ BUG0136-SPJ (NguyenPT 20170727) Handle sum all cylinders
+        //_leftImg.setImage(imgPath: config.getIconPath())
+        let img = ImageManager.getImage(named: config.getIconPath())
+        let tintedImg = img?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        _leftImg.image = tintedImg
+        _leftImg.tintColor = GlobalConst.MAIN_COLOR
+        //-- BUG0136-SPJ (NguyenPT 20170727) Handle sum all cylinders
         // Name label
         _name.translatesAutoresizingMaskIntoConstraints = true
         _name.frame = CGRect(x: _leftImg.frame.maxX + GlobalConst.MARGIN,

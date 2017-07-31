@@ -57,13 +57,13 @@ open class MaterialBean: NSObject, NSCoding {
     
     /**
      * Check if material is Gas type
-     * - returns: True if "materials_type_id" equal 4/19/11/7, False otherwise
+     * - returns: True if "materials_type_id" equal 4/7/9/11/19, False otherwise
      */
     public func isGas() -> Bool {
-        if self.materials_type_id == "4" ||
-            self.materials_type_id == "11" ||
-            self.materials_type_id == "19" ||
-            self.materials_type_id == "7" {
+        if self.materials_type_id == DomainConst.GAS_TYPE_ID_6KG ||
+            self.materials_type_id == DomainConst.GAS_TYPE_ID_12KG ||
+            self.materials_type_id == DomainConst.GAS_TYPE_ID_45KG ||
+            self.materials_type_id == DomainConst.GAS_TYPE_ID_50KG {
             return true
         }
         return false
@@ -74,7 +74,7 @@ open class MaterialBean: NSObject, NSCoding {
      * - returns: True if "materials_type_id" equal 6, False otherwise
      */
     public func isPromotion() -> Bool {
-        if self.materials_type_id == "6" {
+        if self.materials_type_id == DomainConst.PROMOTION_TYPE_ID {
             return true
         }
         return false
@@ -85,11 +85,11 @@ open class MaterialBean: NSObject, NSCoding {
      * - returns: True if "materials_type_id" equal 1/12/10/14, False otherwise
      */
     public func isCylinder() -> Bool {
-        if self.materials_type_id == "1" ||
-            self.materials_type_id == "12" ||
-            self.materials_type_id == "10" ||
-            self.materials_type_id == "14" ||
-            self.materials_type_id == "19" {
+        if self.materials_type_id == DomainConst.CYLINDER_TYPE_ID_6KG ||
+            self.materials_type_id == DomainConst.CYLINDER_TYPE_ID_12KG ||
+            self.materials_type_id == DomainConst.CYLINDER_TYPE_ID_45KG ||
+            self.materials_type_id == DomainConst.CYLINDER_TYPE_ID_50KG ||
+            self.materials_type_id == DomainConst.GAS_TYPE_ID_4KG {
             return true
         }
         return false
@@ -98,12 +98,11 @@ open class MaterialBean: NSObject, NSCoding {
     //++ BUG0135-SPJ (NguyenPT 20170758) Add new cylinder Order VIP customer
     /**
      * Check if material is Cylinder type 1 (4kg, 6kg, 12kg)
-     * - returns: True if "materials_type_id" equal 1/14/19, False otherwise
+     * - returns: True if "materials_type_id" equal 1/14, False otherwise
      */
     public func isCylinderType1() -> Bool {
-        if self.materials_type_id == "1" ||
-            self.materials_type_id == "14" ||
-            self.materials_type_id == "19" {
+        if self.materials_type_id == DomainConst.CYLINDER_TYPE_ID_6KG ||
+            self.materials_type_id == DomainConst.CYLINDER_TYPE_ID_12KG {
             return true
         }
         return false
@@ -114,8 +113,8 @@ open class MaterialBean: NSObject, NSCoding {
      * - returns: True if "materials_type_id" equal 10/12, False otherwise
      */
     public func isCylinderType2() -> Bool {
-        if self.materials_type_id == "10" ||
-            self.materials_type_id == "12" {
+        if self.materials_type_id == DomainConst.CYLINDER_TYPE_ID_45KG ||
+            self.materials_type_id == DomainConst.CYLINDER_TYPE_ID_50KG {
             return true
         }
         return false
