@@ -1133,6 +1133,8 @@ public class DomainConst {
     public static let GAS_TYPE_ID_BIG_POOL              = "13"
     /** Promotion type id */
     public static let PROMOTION_TYPE_ID                 = "6"
+    /** Unit mass of gas */
+    public static let GAS_MASS_UNIT                     = "kg"
     
     
     /** Money unit: Vietnam dong */
@@ -2127,5 +2129,6 @@ public class DomainConst {
     public static let CONTENT00464 = "Xoá tất cả"
     public static let CONTENT00465 = "Bạn có muốn xoá tất cả vỏ?"
     public static let CONTENT00466 = "Seri"
-    public static let CONTENT00467 = "Trừ tiền thiếu đầu vào"
+    //public static let CONTENT00467 = "Trừ tiền thiếu đầu vào"
+    public static let CONTENT00467 = "Số Kg thiếu"
 }
