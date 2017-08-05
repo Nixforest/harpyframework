@@ -71,6 +71,12 @@ public class OrderVIPBean: ConfigBean {
     /** List images */
     public var images:                  [UpholdImageInfoItem] = [UpholdImageInfoItem]()
     //-- BUG0104-SPJ (NguyenPT 20170607) Update new properties
+    //++ BUG0137-SPJ (NguyenPT 20170727) Show payback field
+    /** Show payback */
+    public var show_pay_back:           Int    = 0
+    /** pay_back */
+    public var pay_back:                String = DomainConst.BLANK
+    //-- BUG0137-SPJ (NguyenPT 20170727) Show payback field
     
     /**
      * Initializer
@@ -125,6 +131,10 @@ public class OrderVIPBean: ConfigBean {
             }
         }
         //-- BUG0104-SPJ (NguyenPT 20170607) Update new properties
+        //++ BUG0137-SPJ (NguyenPT 20170727) Show payback field
+        self.show_pay_back      = getInt(json: jsonData, key: DomainConst.KEY_SHOW_PAY_BACK)
+        self.pay_back           = getString(json: jsonData, key: DomainConst.KEY_PAY_BACK)
+        //-- BUG0137-SPJ (NguyenPT 20170727) Show payback field
     }
     
     /**
