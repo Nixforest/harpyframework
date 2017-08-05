@@ -128,8 +128,12 @@ open class ConfigurationTableViewCell: UITableViewCell {
         if !isShowFullValue {
             let size = _name.text?.widthOfString(usingFont: _name.font)
             var width = size!
-            if frame.minX + width >= ConfigurationTableViewCell.PARENT_WIDTH {
-                width = ConfigurationTableViewCell.PARENT_WIDTH - frame.minX
+            //++ BUG0128-SPJ (NguyenPT 20170724) Update right border of Order detail screen
+            //if frame.minX + width >= ConfigurationTableViewCell.PARENT_WIDTH {
+                //width = ConfigurationTableViewCell.PARENT_WIDTH - frame.minX
+            if frame.minX + width >= (ConfigurationTableViewCell.PARENT_WIDTH - GlobalConst.CONFIGURATION_ITEM_RIGHT_SIZE) {
+                width = ConfigurationTableViewCell.PARENT_WIDTH - frame.minX - GlobalConst.CONFIGURATION_ITEM_RIGHT_SIZE
+            //-- BUG0128-SPJ (NguyenPT 20170724) Update right border of Order detail screen
             }
             frame.size = CGSize(width: width, height: frame.height)
             self._name.frame = frame
@@ -156,7 +160,10 @@ open class ConfigurationTableViewCell: UITableViewCell {
             self._rightImg.isHidden = true
             self._value.frame       = CGRect(x: self._name.frame.maxX,
                                              y: self._value.frame.origin.y,
-                                             width: ConfigurationTableViewCell.PARENT_WIDTH - self._name.frame.maxX - GlobalConst.MARGIN,
+                                             //++ BUG0128-SPJ (NguyenPT 20170724) Update right border of Order detail screen
+                                             //width: ConfigurationTableViewCell.PARENT_WIDTH - self._name.frame.maxX - GlobalConst.MARGIN,
+                                             width: ConfigurationTableViewCell.PARENT_WIDTH - self._name.frame.maxX - GlobalConst.CONFIGURATION_ITEM_RIGHT_SIZE,
+                                             //-- BUG0128-SPJ (NguyenPT 20170724) Update right border of Order detail screen
                                              height: self._value.frame.height)
         } else {
             let back                = ImageManager.getImage(named: DomainConst.BACK_IMG_NAME)
