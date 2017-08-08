@@ -49,8 +49,8 @@ public class OrderVipSetEventRequest: BaseRequest {
                                actionType: Int, lat: String, long: String,
                                id: String, note: String, statusCancel: String = DomainConst.NUMBER_ZERO_VALUE,
                                orderDetail: String = DomainConst.BLANK) {
-        // Show overlay
-        LoadingView.shared.showOverlay(view: view.view)
+//        // Show overlay
+//        LoadingView.shared.showOverlay(view: view.view)
         let request = OrderVipSetEventRequest(url: DomainConst.PATH_ORDER_VIP_SET_EVENT,
                                                  reqMethod: DomainConst.HTTP_POST_REQUEST,
                                                  view: view)

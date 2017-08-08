@@ -81,8 +81,8 @@ public class RegisterRequest: BaseRequest {
     public static func requestRegister(action: Selector, view: BaseViewController,
                                        name: String,
                                        phone: String) {
-        // Show overlay
-        LoadingView.shared.showOverlay(view: view.view)
+//        // Show overlay
+//        LoadingView.shared.showOverlay(view: view.view)
         let request = RegisterRequest(url: DomainConst.PATH_CUSTOMER_REGISTER, reqMethod: DomainConst.HTTP_POST_REQUEST, view: view)
         request.setData(name: name, phone: phone)
         NotificationCenter.default.addObserver(view, selector: action, name: NSNotification.Name(rawValue: request.theClassName), object: nil)

@@ -90,8 +90,8 @@ open class TransactionSetEventRequest: BaseRequest {
                                //++ BUG0133-SPJ (NguyenPT 20170724) Family order: change agent delivery
                                agentId: String = DomainConst.BLANK) {
                                //-- BUG0133-SPJ (NguyenPT 20170724) Family order: change agent delivery
-        // Show overlay
-        LoadingView.shared.showOverlay(view: view.view)
+//        // Show overlay
+//        LoadingView.shared.showOverlay(view: view.view)
         let request = TransactionSetEventRequest(url: DomainConst.PATH_ORDER_TRANSACTION_SET_EVENT,
                                                 reqMethod: DomainConst.HTTP_POST_REQUEST,
                                                 view: view)

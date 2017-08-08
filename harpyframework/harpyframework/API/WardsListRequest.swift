@@ -47,7 +47,8 @@ public class WardsListRequest: BaseRequest {
                                            view: view)
         request.setData(provinceId: provinceId, districtId: districtId)
         NotificationCenter.default.addObserver(view, selector: action, name: NSNotification.Name(rawValue: request.theClassName), object: nil)
-        request.execute()
+        //request.execute()
+        request.execute(isShowLoadingView: false)
     }
     
     //++ BUG0109-SPJ (NguyenPT 20170617) Request wards list on custom UIView
@@ -60,7 +61,7 @@ public class WardsListRequest: BaseRequest {
     public static func requestWards(action: Selector, view: UIView,
                                     provinceId: String,
                                     districtId: String) {
-        LoadingView.shared.showOverlay(view: view)
+//        LoadingView.shared.showOverlay(view: view)
         let request = WardsListRequest(url: DomainConst.PATH_SITE_WARDS_LIST,
                                            reqMethod: DomainConst.HTTP_POST_REQUEST)
         request.setData(provinceId: provinceId,  districtId: districtId)

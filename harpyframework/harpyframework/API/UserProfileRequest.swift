@@ -70,7 +70,7 @@ public class UserProfileRequest: BaseRequest {
      * - parameter view:    View controller
      */
     public static func requestUserProfile(action: Selector, view: BaseViewController) {
-        LoadingView.shared.showOverlay(view: view.view)
+//        LoadingView.shared.showOverlay(view: view.view)
         let request = UserProfileRequest(url: DomainConst.PATH_USER_PROFILE,
                                                 reqMethod: DomainConst.HTTP_POST_REQUEST, view: view)
         request.setData(token: BaseModel.shared.getUserToken())

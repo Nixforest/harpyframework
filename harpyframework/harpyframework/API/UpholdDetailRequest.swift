@@ -81,8 +81,8 @@ public class UpholdDetailRequest: BaseRequest {
      */
     public static func requestUpholdDetail(action: Selector, view: BaseViewController,
                                            upholdId: String, replyId: String) {
-        // Show overlay
-        LoadingView.shared.showOverlay(view: view.view)
+//        // Show overlay
+//        LoadingView.shared.showOverlay(view: view.view)
         let request = UpholdDetailRequest(url: DomainConst.PATH_SITE_UPHOLD_VIEW, reqMethod: DomainConst.HTTP_POST_REQUEST, view: view)
         request.setData(upholdId: upholdId, replyId: replyId)
         NotificationCenter.default.addObserver(view, selector: action, name: NSNotification.Name(rawValue: request.theClassName), object: nil)

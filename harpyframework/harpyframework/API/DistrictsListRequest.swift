@@ -43,7 +43,8 @@ public class DistrictsListRequest: BaseRequest {
                                            view: view)
         request.setData(provinceId: provinceId)
         NotificationCenter.default.addObserver(view, selector: action, name: NSNotification.Name(rawValue: request.theClassName), object: nil)
-        request.execute()
+        //request.execute()
+        request.execute(isShowLoadingView: false)
     }
     
     //++ BUG0109-SPJ (NguyenPT 20170617) Request districts list on custom UIView
@@ -54,7 +55,7 @@ public class DistrictsListRequest: BaseRequest {
      * - parameter provinceId:  Id of province
      */
     public static func requestDistricts(action: Selector, view: UIView, provinceId: String) {
-        LoadingView.shared.showOverlay(view: view)
+//        LoadingView.shared.showOverlay(view: view)
         let request = DistrictsListRequest(url: DomainConst.PATH_SITE_DISRICTS_LIST,
                                            reqMethod: DomainConst.HTTP_POST_REQUEST)
         request.setData(provinceId: provinceId)

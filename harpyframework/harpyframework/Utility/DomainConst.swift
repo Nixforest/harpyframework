@@ -1484,7 +1484,7 @@ public class DomainConst {
     /** Training mode image name */
     public static let TRAINING_MODE_IMG_NAME                = "trainingMode.png"
     /** Information image name */
-    public static let INFORMATION_IMG_NAME                  = "information"
+    public static let INFORMATION_IMG_NAME                  = "thongtin.png"
     /** Order gas image name */
     public static let ORDER_GAS_IMG_NAME                    = "ordergas.png"
     /** Logo of agent image name */
@@ -1552,7 +1552,7 @@ public class DomainConst {
     /** Problem icon image name */
     public static let PROBLEM_ICON_IMG_NAME                 = "icon59.png"
     /** Save icon image name */
-    public static let SAVE_ICON_IMG_NAME                    = "icon40.png"
+    public static let SAVE_ICON_IMG_NAME                    = "save.png"
     /** Human icon image name */
     public static let HUMAN_ICON_IMG_NAME                   = "icon47.png"
     /** Status icon image name */
@@ -1675,6 +1675,24 @@ public class DomainConst {
     //-- BUG0102-SPJ (NguyenPT 20170604) Update function G11
     /** Cancel image name */
     public static let CLEAR_ALL_ICON_IMG_NAME               = "delete-all.png"
+    /** Order type image name */
+    public static let ORDER_TYPE_ICON_IMG_NAME              = "loaidonhang.png"
+    /** Store card type image name */
+    public static let STORE_CARD_TYPE_ICON_IMG_NAME         = "loaithekho.png"
+    /** CCS code image name */
+    public static let CCS_CODE_ICON_IMG_NAME                = "mapttt.png"
+    /** Other task image name */
+    public static let OTHER_TASK_ICON_IMG_NAME              = "tacvukhac.png"
+    /** Add material image name */
+    public static let ADD_MATERIAL_ICON_IMG_NAME            = "themvattu-2.png"
+    /** Information image name */
+    public static let SUPPORT_INFO_ICON_IMG_NAME            = "thongtinhotro.png"
+    /** Cash type image name */
+    public static let CASH_TYPE_ICON_IMG_NAME               = "thutien.png"
+    /** Sum image name */
+    public static let SUM_ICON_IMG_NAME                     = "tongcong.png"
+    /** Version image name */
+    public static let VERSION_TYPE_ICON_IMG_NAME            = "version.png"
     
     /** HTTP Post request method */
     public static let HTTP_POST_REQUEST                     = "POST"

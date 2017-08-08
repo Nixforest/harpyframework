@@ -87,8 +87,8 @@ public class LoginRequest: BaseRequest {
      * - parameter password:    Password
      */
     public static func requestLogin(action: Selector, view: BaseViewController, username: String, password: String) {
-        // Show overlay
-        LoadingView.shared.showOverlay(view: view.view)
+//        // Show overlay
+//        LoadingView.shared.showOverlay(view: view.view)
         let request = LoginRequest(url: DomainConst.PATH_SITE_LOGIN,
                                    reqMethod: DomainConst.HTTP_POST_REQUEST,
                                    view: view)

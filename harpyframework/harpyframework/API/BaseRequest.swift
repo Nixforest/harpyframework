@@ -50,8 +50,16 @@ open class BaseRequest: NSObject {
     
     /**
      * Execute task
+     * - parameter isShowLoadingView: Flag show/not show loading view
      */
-    open func execute() {
+    //++ BUG0138-SPJ (NguyenPT 20170510) Handle loading view
+    //open func execute() {
+    open func execute(isShowLoadingView: Bool = true) {
+        if isShowLoadingView {
+            LoadingView.shared.showOverlay(view: self.view.view, className: self.theClassName)
+        }
+    //-- BUG0138-SPJ (NguyenPT 20170510) Handle loading view
+        
         let serverUrl: URL = URL(string: BaseModel.shared.getServerURL() + self.url)!
         let request = NSMutableURLRequest(url: serverUrl)
         request.httpMethod = self.reqMethod
@@ -76,8 +84,16 @@ open class BaseRequest: NSObject {
     /**
      * Execute task and upload files
      * - parameter listImages: List of images
+     * - parameter isShowLoadingView: Flag show/not show loading view
      */
-    public func executeUploadFile(listImages: [UIImage]) {
+    //++ BUG0138-SPJ (NguyenPT 20170510) Handle loading view
+    //public func executeUploadFile(listImages: [UIImage]) {
+    public func executeUploadFile(listImages: [UIImage], isShowLoadingView: Bool = true) {
+        if isShowLoadingView {
+            LoadingView.shared.showOverlay(view: self.view.view, className: self.theClassName)
+        }
+    //-- BUG0138-SPJ (NguyenPT 20170510) Handle loading view
+        
         let serverUrl: URL = URL(string: BaseModel.shared.getServerURL() + self.url)!
         let request = NSMutableURLRequest(url: serverUrl)
         request.httpMethod = self.reqMethod
@@ -209,7 +225,7 @@ open class BaseRequest: NSObject {
                 print(dataString ?? DomainConst.BLANK)
                 if self.completionBlock != nil {
                     // Hide overlay
-                    LoadingView.shared.hideOverlayView()
+                    LoadingView.shared.hideOverlayView(className: self.theClassName)
                     // Call complete handler
                     DispatchQueue.main.async {
                         self.completionBlock!(dataString)
@@ -258,7 +274,7 @@ open class BaseRequest: NSObject {
             //-- BUG0050-SPJ (NguyenPT 20170323) Handle result string
             if self.completionBlock != nil {
                 // Hide overlay
-                LoadingView.shared.hideOverlayView()
+                LoadingView.shared.hideOverlayView(className: self.theClassName)
                 // Call complete handler
                 DispatchQueue.main.async {
                     self.completionBlock!(dataString)
@@ -277,7 +293,7 @@ open class BaseRequest: NSObject {
      */
     public func showAlert(message: String) {
         // Hide overlay
-        LoadingView.shared.hideOverlayView()
+        LoadingView.shared.hideOverlayView(className: self.theClassName)
         DispatchQueue.main.async {
             self.view.showAlert(message: message)
         }
@@ -289,7 +305,7 @@ open class BaseRequest: NSObject {
      */
     public func handleCompleteTask(model: Any?) {
         // Hide overlay
-        LoadingView.shared.hideOverlayView()
+        LoadingView.shared.hideOverlayView(className: self.theClassName)
         // Call complete handler
         DispatchQueue.main.async {
             NotificationCenter.default.post(name: Notification.Name(rawValue: self.theClassName), object: model)
@@ -303,7 +319,7 @@ open class BaseRequest: NSObject {
      * Handle when error happen
      */
     public func handleErrorTask() {
-        LoadingView.shared.hideOverlayView()
+        LoadingView.shared.hideOverlayView(className: self.theClassName)
         //self.view.showAlert(message: DomainConst.CONTENT00196)
         self.view.showAlert(
             message: DomainConst.CONTENT00196,

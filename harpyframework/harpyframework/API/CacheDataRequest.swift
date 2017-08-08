@@ -27,8 +27,8 @@ public class CacheDataRequest: BaseRequest {
      */
     public static func request(action: Selector,
                                view: BaseViewController) {
-        // Show overlay
-        LoadingView.shared.showOverlay(view: view.view)
+//        // Show overlay
+//        LoadingView.shared.showOverlay(view: view.view)
         let request = CacheDataRequest(url: DomainConst.PATH_SITE_CACHE_DATA,
                                               reqMethod: DomainConst.HTTP_POST_REQUEST,
                                               view: view)
@@ -44,8 +44,8 @@ public class CacheDataRequest: BaseRequest {
      */
     public static func requestCashBook(action: Selector,
                                view: UIView) {
-        // Show overlay
-        LoadingView.shared.showOverlay(view: view)
+//        // Show overlay
+//        LoadingView.shared.showOverlay(view: view)
         let request = CacheDataRequest(url: DomainConst.PATH_SITE_CACHE_DATA,
                                        reqMethod: DomainConst.HTTP_POST_REQUEST)
         request.setData()

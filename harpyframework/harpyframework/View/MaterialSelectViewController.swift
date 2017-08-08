@@ -200,7 +200,8 @@ open class MaterialSelectViewController: ChildViewController, UICollectionViewDa
         if _beginSearch == false {
             _beginSearch = true
         }
-        LoadingView.shared.showOverlay()
+        //LoadingView.shared.showOverlay()
+        LoadingView.shared.showOverlay(view: self.view, className: self.theClassName)
         MaterialSelectViewController._data.removeAll()
         if _searchBar.text != nil {
             // Get keyword
@@ -223,7 +224,7 @@ open class MaterialSelectViewController: ChildViewController, UICollectionViewDa
             }
         }
         _cltMaterial.reloadData()
-        LoadingView.shared.hideOverlayView()
+        LoadingView.shared.hideOverlayView(className: self.theClassName)
     }
     
     /**

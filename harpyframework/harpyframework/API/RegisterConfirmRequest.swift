@@ -84,8 +84,8 @@ public class RegisterConfirmRequest: BaseRequest {
      */
     public static func requestRegisterConfirm(action: Selector, view: BaseViewController,
                                               code: String) {
-        // Show overlay
-        LoadingView.shared.showOverlay(view: view.view)
+//        // Show overlay
+//        LoadingView.shared.showOverlay(view: view.view)
         let request = RegisterConfirmRequest(url: DomainConst.PATH_CUSTOMER_REGISTER_CONFIRM, reqMethod: DomainConst.HTTP_POST_REQUEST, view: view)
         request.setData(code: code)
         NotificationCenter.default.addObserver(view, selector: action, name: NSNotification.Name(rawValue: request.theClassName), object: nil)

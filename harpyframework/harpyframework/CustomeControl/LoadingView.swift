@@ -16,6 +16,10 @@ public class LoadingView{
     var lblTitle = UILabel()
     /** Flag status */
     var isShowing = false
+    //++ BUG0138-SPJ (NguyenPT 20170510) Handle loading view
+    /** Request stack */
+    var requestStack: RequestStack  = RequestStack()
+    //-- BUG0138-SPJ (NguyenPT 20170510) Handle loading view
     /** Instance */
     public static let shared: LoadingView = {
         let instance = LoadingView()
@@ -89,12 +93,22 @@ public class LoadingView{
      * Show overlay
      * - parameter view: Current view
      */
-    public func showOverlay(view: UIView = UIView()) {
+    //++ BUG0138-SPJ (NguyenPT 20170510) Handle loading view
+    //public func showOverlay(view: UIView = UIView()) {
+    public func showOverlay(view: UIView = UIView(), className: String = DomainConst.BLANK) {
+    //-- BUG0138-SPJ (NguyenPT 20170510) Handle loading view
         if self.isShowing {
             return
         } else {
             self.isShowing = !self.isShowing
         }
+        
+        //++ BUG0138-SPJ (NguyenPT 20170510) Handle loading view
+        if !requestStack.isRequestStarted(className: className) {
+            requestStack.startRequest(className: className)
+        }
+        //-- BUG0138-SPJ (NguyenPT 20170510) Handle loading view
+        
         //++ BUG0048-SPJ (NguyenPT 20170309) Create slide menu view controller
 //        var currentView: UIViewController? = nil
 //        if let navigationController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
@@ -102,10 +116,10 @@ public class LoadingView{
         if let currentView = BaseViewController.getCurrentViewController() {
         //-- BUG0048-SPJ (NguyenPT 20170309) Create slide menu view controller
             lblTitle = UILabel(frame: CGRect(x: 50, y: 0, width: 200, height: 50))
-            lblTitle.text = "Đang tải"
+            //lblTitle.text = "Đang tải"
             lblTitle.textColor = UIColor.white
             overlayView = UIView(frame: CGRect(x: 0, y: 0, width: GlobalConst.SCREEN_WIDTH, height: GlobalConst.SCREEN_HEIGHT))
-            overlayView.layer.cornerRadius = 15
+            //overlayView.layer.cornerRadius = 15
             overlayView.backgroundColor = UIColor(white: 0, alpha: 0.7)
             activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.white)
             activityIndicator.frame = CGRect(x: (overlayView.bounds.width - 50) / 2,
@@ -117,12 +131,16 @@ public class LoadingView{
             DispatchQueue.main.async {
                 //++ BUG0048-SPJ (NguyenPT 20170309) Create slide menu view controller
                 //currentView?.view.addSubview(self.overlayView)
-                currentView.view.addSubview(self.overlayView)
+                //++ BUG0138-SPJ (NguyenPT 20170510) Handle loading view cover navigation bar
+                //currentView.view.addSubview(self.overlayView)
+                currentView.navigationController?.view.addSubview(self.overlayView)
+                //-- BUG0138-SPJ (NguyenPT 20170510) Handle loading view cover navigation bar
                 //-- BUG0048-SPJ (NguyenPT 20170309) Create slide menu view controller
             }
             // If this view run about 30s, turn it off
             DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(30000)) {
-                self.hideOverlayView()
+                //self.hideOverlayView()
+                self.hideOverlayView(className: className)
             }
         }
     }
@@ -130,12 +148,22 @@ public class LoadingView{
     /**
      * Hide overlay view
      */
-    public func hideOverlayView() {
-        if !self.isShowing {
-            return
-        } else {
+    public func hideOverlayView(className: String = DomainConst.BLANK) {
+//        if !self.isShowing {
+//            return
+//        } else {
+//            self.isShowing = !self.isShowing
+//        }
+        
+        //++ BUG0138-SPJ (NguyenPT 20170510) Handle loading view
+        if requestStack.isStopLoading(className: className) {
+            requestStack.endRequest(className: className)
             self.isShowing = !self.isShowing
+        } else {
+            return
         }
+        //-- BUG0138-SPJ (NguyenPT 20170510) Handle loading view
+        
         // Stop animating
         activityIndicator.stopAnimating()
         

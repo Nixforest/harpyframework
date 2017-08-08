@@ -51,7 +51,7 @@ class InternalViewController: ChildViewController, UITableViewDelegate, UITableV
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 18
+        return 19
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {        
@@ -159,6 +159,10 @@ class InternalViewController: ChildViewController, UITableViewDelegate, UITableV
             cell.setData(leftImg: DomainConst.INFORMATION_IMG_NAME,
                          name: "Error detail",
                          value: DomainConst.BLANK, isHideRightImg: false)
+        case 18:
+            cell.setData(leftImg: DomainConst.INFORMATION_IMG_NAME,
+                         name: "Log detail",
+                         value: DomainConst.BLANK, isHideRightImg: false)
         default:
             break
         }
@@ -206,6 +210,9 @@ class InternalViewController: ChildViewController, UITableViewDelegate, UITableV
             break
         case 17:
             handleShowErrorDetailVC()
+            break
+        case 18:
+            handleShowLogDetailVC()
             break
         default:
             break
@@ -321,21 +328,29 @@ class InternalViewController: ChildViewController, UITableViewDelegate, UITableV
     }
     
     private func handleGetCallHistory() {
-        var msg = DomainConst.BLANK
-        var fileManager: FileManager = FileManager.default
-        var dirNum = fileManager.enumerator(atPath: "/private/")
-        var nextItem = dirNum?.nextObject()
-        while (nextItem != nil) {
-            msg += nextItem as! String
-            nextItem = dirNum?.nextObject()
-        }
-        self.showAlert(message: msg)
+//        var msg = DomainConst.BLANK
+//        var fileManager: FileManager = FileManager.default
+//        var dirNum = fileManager.enumerator(atPath: "/private/")
+//        var nextItem = dirNum?.nextObject()
+//        while (nextItem != nil) {
+//            msg += nextItem as! String
+//            nextItem = dirNum?.nextObject()
+//        }
+//        self.showAlert(message: msg)
     }
     
     /**
      * Handle show error detail View controller
      */
     private func handleShowErrorDetailVC() {
+        self.pushToView(name: ErrorDetailVC.theClassName)
+    }
+    
+    /**
+     * Handle show error detail View controller
+     */
+    private func handleShowLogDetailVC() {
+        ErrorDetailVC.content = Logger.shared.read()
         self.pushToView(name: ErrorDetailVC.theClassName)
     }
 }

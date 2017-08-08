@@ -12,7 +12,11 @@ public class ImageRequest: BaseRequest {
     /**
      * Execute task
      */
-    public override func execute() {
+    //public override func execute() {
+    public override func execute(isShowLoadingView: Bool = true) {
+        if isShowLoadingView {
+            LoadingView.shared.showOverlay(view: self.view.view, className: self.theClassName)
+        }
         let serverUrl: URL = URL(string: self.url)!
         let request = NSMutableURLRequest(url: serverUrl)
         request.httpMethod = self.reqMethod
@@ -30,8 +34,8 @@ public class ImageRequest: BaseRequest {
      * - parameter url:         Image url
      */
     public static func request(action: Selector, view: BaseViewController, url: String) {
-        // Show overlay
-        LoadingView.shared.showOverlay(view: view.view)
+//        // Show overlay
+//        LoadingView.shared.showOverlay(view: view.view)
         let request = ImageRequest(url: url,
                                    reqMethod: DomainConst.HTTP_POST_REQUEST,
                                    view: view)

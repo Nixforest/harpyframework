@@ -77,8 +77,8 @@ public class SearchCustomerRequest: BaseRequest {
      */
     public static func requestSearchCustomer(action: Selector, view: BaseViewController,
                                              keyword: String) {
-        // Show overlay
-        LoadingView.shared.showOverlay(view: view.view)
+//        // Show overlay
+//        LoadingView.shared.showOverlay(view: view.view)
         let request = SearchCustomerRequest(url: DomainConst.PATH_SITE_AUTOCOMPLETE_USER, reqMethod: DomainConst.HTTP_POST_REQUEST, view: view)
         request.setData(keyword: keyword)
         NotificationCenter.default.addObserver(view, selector: action, name: NSNotification.Name(rawValue: request.theClassName), object: nil)

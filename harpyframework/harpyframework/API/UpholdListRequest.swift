@@ -87,8 +87,8 @@ public class UpholdListRequest: BaseRequest {
     public static func requestUpholdList(action: Selector, view: BaseViewController,
                                          page: Int, type: Int,
                                          customerId: String, status: String) {
-        // Show overlay
-        LoadingView.shared.showOverlay(view: view.view)
+//        // Show overlay
+//        LoadingView.shared.showOverlay(view: view.view)
         let request = UpholdListRequest(url: DomainConst.PATH_SITE_UPHOLD_LIST,
                                         reqMethod: DomainConst.HTTP_POST_REQUEST,
                                         view: view)

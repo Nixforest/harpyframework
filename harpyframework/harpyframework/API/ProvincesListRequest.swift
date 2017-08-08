@@ -34,7 +34,8 @@ public class ProvincesListRequest: BaseRequest {
                                                 view: view)
         request.setData()
         NotificationCenter.default.addObserver(view, selector: action, name: NSNotification.Name(rawValue: request.theClassName), object: nil)
-        request.execute()
+        //request.execute()
+        request.execute(isShowLoadingView: false)
     }
     
     //++ BUG0109-SPJ (NguyenPT 20170617) Request provinces list on custom UIView
@@ -45,8 +46,8 @@ public class ProvincesListRequest: BaseRequest {
      */
     public static func requestProvinces(action: Selector,
                                view: UIView) {
-        // Show overlay
-        LoadingView.shared.showOverlay(view: view)
+//        // Show overlay
+//        LoadingView.shared.showOverlay(view: view)
         let request = ProvincesListRequest(url: DomainConst.PATH_SITE_PROVINCES_LIST,
                                            reqMethod: DomainConst.HTTP_POST_REQUEST)
         request.setData()

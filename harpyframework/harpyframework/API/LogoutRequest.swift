@@ -93,8 +93,8 @@ public class LogoutRequest: BaseRequest {
      * - parameter view:        Current screen
      */
     public static func requestLogout(action: Selector, view: BaseViewController) {
-        // Show overlay
-        LoadingView.shared.showOverlay(view: view.view)
+//        // Show overlay
+//        LoadingView.shared.showOverlay(view: view.view)
         let request = LogoutRequest(url: DomainConst.PATH_SITE_LOGOUT,
                                    reqMethod: DomainConst.HTTP_POST_REQUEST,
                                    view: view)

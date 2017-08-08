@@ -9,22 +9,19 @@
 import Foundation
 public class NotificationCountRequest: BaseRequest {
     //++ BUG0047-SPJ (NguyenPT 20170724) Refactor BaseRequest class
-//    override public func completetionHandler(request: NSMutableURLRequest) -> URLSessionTask {
-//        let task = self.session.dataTask(with: request as URLRequest, completionHandler: {
-//            (
-//            data, response, error) in
-//            // Check error
-//            guard error == nil else {
-//                //self.showAlert(message: DomainConst.CONTENT00196)
-//                return
-//            }
-//            guard let data = data else {
-//                //self.showAlert(message: DomainConst.CONTENT00196)
-//                return
-//            }
-//            // Convert to string
-//            let dataString = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
-//            print(dataString ?? "")
+    override public func completetionHandler(request: NSMutableURLRequest) -> URLSessionTask {
+        let task = self.session.dataTask(with: request as URLRequest, completionHandler: {
+            (
+            data, response, error) in
+            // Check error
+            guard error == nil else {
+                return
+            }
+            guard let data = data else {
+                return
+            }
+            // Convert to string
+            let dataString = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
 //            // Convert to object
 //            let model: NotificationCountRespModel = NotificationCountRespModel(jsonString: dataString as! String)
 //            if model.status == DomainConst.RESPONSE_STATUS_SUCCESS {
@@ -45,9 +42,17 @@ public class NotificationCountRequest: BaseRequest {
 //                NotificationCenter.default.post(name: Notification.Name(rawValue: self.theClassName), object: model)
 //                //-- BUG0046-SPJ (NguyenPT 20170302) Use action for Request server completion
 //            }
-//        })
-//        return task
-//    }
+            if self.completionBlock != nil {
+                // Call complete handler
+                DispatchQueue.main.async {
+                    self.completionBlock!(dataString)
+                }
+            } else {
+                self.handleCompleteTask(model: dataString)
+            }
+        })
+        return task
+    }
     //-- BUG0047-SPJ (NguyenPT 20170724) Refactor BaseRequest class
     
 //    /**
@@ -83,7 +88,8 @@ public class NotificationCountRequest: BaseRequest {
         let request = NotificationCountRequest(url: DomainConst.PATH_SITE_NOTIFY_COUNT, reqMethod: DomainConst.HTTP_POST_REQUEST, view: view)
         request.setData()
         NotificationCenter.default.addObserver(view, selector: action, name: NSNotification.Name(rawValue: request.theClassName), object: nil)
-        request.execute()
+        //request.execute()
+        request.execute(isShowLoadingView: false)
     }
     //-- BUG0046-SPJ (NguyenPT 20170301) Use action for Request server completion
 }

@@ -83,8 +83,8 @@ public class UpdateConfigurationRequest: BaseRequest {
      * - parameter view: View controller
      */
     public static func requestUpdateConfiguration(action: Selector, view: BaseViewController) {
-        // Show overlay
-        LoadingView.shared.showOverlay(view: view.view)
+//        // Show overlay
+//        LoadingView.shared.showOverlay(view: view.view)
         let request = UpdateConfigurationRequest(url: DomainConst.PATH_SITE_UPDATE_CONFIG, reqMethod: DomainConst.HTTP_POST_REQUEST, view: view)
         request.setData()
         NotificationCenter.default.addObserver(view, selector: action, name: NSNotification.Name(rawValue: request.theClassName), object: nil)

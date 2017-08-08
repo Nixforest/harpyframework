@@ -12,8 +12,22 @@
 		D7023EE51E2CAC0A00ED6394 /* MaterialSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7023EE41E2CAC0A00ED6394 /* MaterialSelector.swift */; };
 		D7025E241E4B06C700045B5B /* PromotionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7025E231E4B06C700045B5B /* PromotionTableViewCell.swift */; };
 		D7025E261E4B21BA00045B5B /* icon13.png in Resources */ = {isa = PBXBuildFile; fileRef = D7025E251E4B21BA00045B5B /* icon13.png */; };
+		D7029F831F38276A0081797B /* RequestStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7029F821F38276A0081797B /* RequestStack.swift */; };
+		D7029F901F3871B20081797B /* loaidonhang.png in Resources */ = {isa = PBXBuildFile; fileRef = D7029F841F3871B20081797B /* loaidonhang.png */; };
+		D7029F911F3871B20081797B /* loaithekho.png in Resources */ = {isa = PBXBuildFile; fileRef = D7029F851F3871B20081797B /* loaithekho.png */; };
+		D7029F921F3871B20081797B /* mapttt.png in Resources */ = {isa = PBXBuildFile; fileRef = D7029F861F3871B20081797B /* mapttt.png */; };
+		D7029F931F3871B20081797B /* save.png in Resources */ = {isa = PBXBuildFile; fileRef = D7029F871F3871B20081797B /* save.png */; };
+		D7029F941F3871B20081797B /* tacvukhac.png in Resources */ = {isa = PBXBuildFile; fileRef = D7029F881F3871B20081797B /* tacvukhac.png */; };
+		D7029F951F3871B20081797B /* themvattu-2.png in Resources */ = {isa = PBXBuildFile; fileRef = D7029F891F3871B20081797B /* themvattu-2.png */; };
+		D7029F961F3871B20081797B /* themvattu.png in Resources */ = {isa = PBXBuildFile; fileRef = D7029F8A1F3871B20081797B /* themvattu.png */; };
+		D7029F971F3871B20081797B /* thongtin.png in Resources */ = {isa = PBXBuildFile; fileRef = D7029F8B1F3871B20081797B /* thongtin.png */; };
+		D7029F981F3871B20081797B /* thongtinhotro.png in Resources */ = {isa = PBXBuildFile; fileRef = D7029F8C1F3871B20081797B /* thongtinhotro.png */; };
+		D7029F991F3871B20081797B /* thutien.png in Resources */ = {isa = PBXBuildFile; fileRef = D7029F8D1F3871B20081797B /* thutien.png */; };
+		D7029F9A1F3871B20081797B /* tongcong.png in Resources */ = {isa = PBXBuildFile; fileRef = D7029F8E1F3871B20081797B /* tongcong.png */; };
+		D7029F9B1F3871B20081797B /* version.png in Resources */ = {isa = PBXBuildFile; fileRef = D7029F8F1F3871B20081797B /* version.png */; };
 		D706C2241E53F13700F89B8A /* gas24h_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D706C2221E53F13700F89B8A /* gas24h_logo.png */; };
 		D706C2251E53F13700F89B8A /* gasservice_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D706C2231E53F13700F89B8A /* gasservice_logo.png */; };
+		D70754A71F3969520098C48C /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70754A61F3969520098C48C /* Logger.swift */; };
 		D708B17A1E48315F0074C528 /* icon80.png in Resources */ = {isa = PBXBuildFile; fileRef = D708B1791E48315F0074C528 /* icon80.png */; };
 		D708B17C1E4852120074C528 /* DebugBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D708B17B1E4852120074C528 /* DebugBean.swift */; };
 		D709FE9D1E86F86900F32A7E /* CustomerFamilyListBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D709FE9C1E86F86900F32A7E /* CustomerFamilyListBean.swift */; };
@@ -275,8 +289,22 @@
 		D7023EE41E2CAC0A00ED6394 /* MaterialSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MaterialSelector.swift; path = CustomeControl/MaterialSelector.swift; sourceTree = "<group>"; };
 		D7025E231E4B06C700045B5B /* PromotionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PromotionTableViewCell.swift; path = CustomeControl/PromotionTableViewCell.swift; sourceTree = "<group>"; };
 		D7025E251E4B21BA00045B5B /* icon13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon13.png; path = images/icon13.png; sourceTree = "<group>"; };
+		D7029F821F38276A0081797B /* RequestStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestStack.swift; path = Model/RequestStack.swift; sourceTree = "<group>"; };
+		D7029F841F3871B20081797B /* loaidonhang.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loaidonhang.png; path = images/loaidonhang.png; sourceTree = "<group>"; };
+		D7029F851F3871B20081797B /* loaithekho.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loaithekho.png; path = images/loaithekho.png; sourceTree = "<group>"; };
+		D7029F861F3871B20081797B /* mapttt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mapttt.png; path = images/mapttt.png; sourceTree = "<group>"; };
+		D7029F871F3871B20081797B /* save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = save.png; path = images/save.png; sourceTree = "<group>"; };
+		D7029F881F3871B20081797B /* tacvukhac.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tacvukhac.png; path = images/tacvukhac.png; sourceTree = "<group>"; };
+		D7029F891F3871B20081797B /* themvattu-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "themvattu-2.png"; path = "images/themvattu-2.png"; sourceTree = "<group>"; };
+		D7029F8A1F3871B20081797B /* themvattu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = themvattu.png; path = images/themvattu.png; sourceTree = "<group>"; };
+		D7029F8B1F3871B20081797B /* thongtin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = thongtin.png; path = images/thongtin.png; sourceTree = "<group>"; };
+		D7029F8C1F3871B20081797B /* thongtinhotro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = thongtinhotro.png; path = images/thongtinhotro.png; sourceTree = "<group>"; };
+		D7029F8D1F3871B20081797B /* thutien.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = thutien.png; path = images/thutien.png; sourceTree = "<group>"; };
+		D7029F8E1F3871B20081797B /* tongcong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tongcong.png; path = images/tongcong.png; sourceTree = "<group>"; };
+		D7029F8F1F3871B20081797B /* version.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = version.png; path = images/version.png; sourceTree = "<group>"; };
 		D706C2221E53F13700F89B8A /* gas24h_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gas24h_logo.png; path = images/gas24h_logo.png; sourceTree = "<group>"; };
 		D706C2231E53F13700F89B8A /* gasservice_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gasservice_logo.png; path = images/gasservice_logo.png; sourceTree = "<group>"; };
+		D70754A61F3969520098C48C /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Logger.swift; path = Utility/Logger.swift; sourceTree = "<group>"; };
 		D708B1791E48315F0074C528 /* icon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon80.png; path = images/icon80.png; sourceTree = "<group>"; };
 		D708B17B1E4852120074C528 /* DebugBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DebugBean.swift; path = Model/DebugBean.swift; sourceTree = "<group>"; };
 		D709FE9C1E86F86900F32A7E /* CustomerFamilyListBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomerFamilyListBean.swift; path = Model/CustomerFamilyListBean.swift; sourceTree = "<group>"; };
@@ -623,6 +651,7 @@
 				D77F05CE1E7172AD00797A6B /* UpholdReplyBean.swift */,
 				D77F05CF1E7172AD00797A6B /* UserInfoBean.swift */,
 				D7CDBE2C1E880A7800B73877 /* WorkingReportBean.swift */,
+				D7029F821F38276A0081797B /* RequestStack.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -654,6 +683,7 @@
 				D77F05B41E71703E00797A6B /* Extension.swift */,
 				D77F05B51E71703E00797A6B /* GlobalConst.swift */,
 				D791F6AF1E238135009CBBED /* CommonProcess.swift */,
+				D70754A61F3969520098C48C /* Logger.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -755,6 +785,18 @@
 		D7F3D8D21E1B8BCC0018744F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D7029F841F3871B20081797B /* loaidonhang.png */,
+				D7029F851F3871B20081797B /* loaithekho.png */,
+				D7029F861F3871B20081797B /* mapttt.png */,
+				D7029F871F3871B20081797B /* save.png */,
+				D7029F881F3871B20081797B /* tacvukhac.png */,
+				D7029F891F3871B20081797B /* themvattu-2.png */,
+				D7029F8A1F3871B20081797B /* themvattu.png */,
+				D7029F8B1F3871B20081797B /* thongtin.png */,
+				D7029F8C1F3871B20081797B /* thongtinhotro.png */,
+				D7029F8D1F3871B20081797B /* thutien.png */,
+				D7029F8E1F3871B20081797B /* tongcong.png */,
+				D7029F8F1F3871B20081797B /* version.png */,
 				D7D578371F2B6FCC00855C0F /* delete-all.png */,
 				D75F64B81E28B39100A67B3C /* Account.jpeg */,
 				D75F64BA1E28B39100A67B3C /* back.png */,
@@ -1008,11 +1050,13 @@
 				D7D28B781EB9B8DD006DDF83 /* ic_menu_cash_book.png in Resources */,
 				D78E326F1E571C980035C40D /* ic_number_back.png in Resources */,
 				D7E9BF721E2C82F20068D200 /* icon9-active.png in Resources */,
+				D7029F9A1F3871B20081797B /* tongcong.png in Resources */,
 				D791F67C1E234C89009CBBED /* bg_sliding_menu_top.jpg in Resources */,
 				D75F65061E28B3A500A67B3C /* icon58.png in Resources */,
 				D7CED6D21E98CB2E00C2B568 /* OrderEmployeeTableViewCell.xib in Resources */,
 				D75F64E51E28B39100A67B3C /* icon3.png in Resources */,
 				D75F64B71E28B2A900A67B3C /* icon27.png in Resources */,
+				D7029F981F3871B20081797B /* thongtinhotro.png in Resources */,
 				D75F65141E28B3B100A67B3C /* icon62.png in Resources */,
 				D791F6931E23688F009CBBED /* login.png in Resources */,
 				D75F64AF1E28657900A67B3C /* icon54.png in Resources */,
@@ -1023,6 +1067,7 @@
 				D75F64DE1E28B39100A67B3C /* contact.png in Resources */,
 				D791F6A21E23754C009CBBED /* icon47.png in Resources */,
 				D75F64F21E28B39100A67B3C /* icon35-user-ios.png in Resources */,
+				D7029F9B1F3871B20081797B /* version.png in Resources */,
 				D75F64F01E28B39100A67B3C /* icon34-user-iso.png in Resources */,
 				D791F68A1E2367F3009CBBED /* ic_menu_profile.png in Resources */,
 				D75F65231E28B3BC00A67B3C /* problemType.png in Resources */,
@@ -1030,12 +1075,15 @@
 				D791F67B1E234C89009CBBED /* bg_sliding_menu_body.jpg in Resources */,
 				D75F64AE1E28657900A67B3C /* icon53.png in Resources */,
 				D75F64E71E28B39100A67B3C /* icon4-ios.png in Resources */,
+				D7029F961F3871B20081797B /* themvattu.png in Resources */,
 				D75F64DD1E28B39100A67B3C /* config.png in Resources */,
 				D7767C621EADAF4900D8FDA9 /* default-thumbnail.jpg in Resources */,
 				D7AB904F1E23FBC20048AC4F /* SearchBarTableViewCell.xib in Resources */,
 				D75F65151E28B3B100A67B3C /* icon63.png in Resources */,
 				D75F65161E28B3B100A67B3C /* icon64.png in Resources */,
 				D75F65081E28B3A500A67B3C /* logout.png in Resources */,
+				D7029F911F3871B20081797B /* loaithekho.png in Resources */,
+				D7029F921F3871B20081797B /* mapttt.png in Resources */,
 				D7AF280B1E58AF6000AFF9D6 /* icon65.png in Resources */,
 				D75F650B1E28B3A500A67B3C /* regMenu.png in Resources */,
 				D7E9BF751E2C82F20068D200 /* icon10.png in Resources */,
@@ -1059,8 +1107,10 @@
 				D70B9F8E1E3F4F1F00EB66F5 /* icon69.png in Resources */,
 				D77F06041E71738100797A6B /* TableCellOrderType.xib in Resources */,
 				D791F6991E236BAA009CBBED /* checkbox-checked.png in Resources */,
+				D7029F941F3871B20081797B /* tacvukhac.png in Resources */,
 				D706C2241E53F13700F89B8A /* gas24h_logo.png in Resources */,
 				D75F64F71E28B39100A67B3C /* icon37-user.png in Resources */,
+				D7029F931F3871B20081797B /* save.png in Resources */,
 				D71C047F1EE6A31C00563469 /* icon40.png in Resources */,
 				D791F6941E23688F009CBBED /* register.png in Resources */,
 				D75F65041E28B3A500A67B3C /* icon55.png in Resources */,
@@ -1092,6 +1142,7 @@
 				D7E9BF731E2C82F20068D200 /* icon9.png in Resources */,
 				D75F64F61E28B39100A67B3C /* icon37-user-ios.png in Resources */,
 				D7D578381F2B6FCC00855C0F /* delete-all.png in Resources */,
+				D7029F991F3871B20081797B /* thutien.png in Resources */,
 				D75F65251E28B3BC00A67B3C /* rating.png in Resources */,
 				D75F64AD1E28657900A67B3C /* icon52.png in Resources */,
 				D7EA53CF1EE3F40A004CFE1F /* ticket.png in Resources */,
@@ -1106,6 +1157,7 @@
 				D791F6A61E237658009CBBED /* icon59.png in Resources */,
 				D791F6921E23688F009CBBED /* configuration.png in Resources */,
 				D7AF28131E58B9EB00AFF9D6 /* icon68.png in Resources */,
+				D7029F971F3871B20081797B /* thongtin.png in Resources */,
 				D7E9BF741E2C82F20068D200 /* icon10-active.png in Resources */,
 				D75F64EF1E28B39100A67B3C /* icon33-user.png in Resources */,
 				D75F64E21E28B39100A67B3C /* gasservice.png in Resources */,
@@ -1114,6 +1166,7 @@
 				D75F64B31E28B10300A67B3C /* bg1.jpg in Resources */,
 				D7D28B761EB9B800006DDF83 /* ic_menu_support.png in Resources */,
 				D75F64E91E28B39100A67B3C /* icon20.png in Resources */,
+				D7029F951F3871B20081797B /* themvattu-2.png in Resources */,
 				D706C2251E53F13700F89B8A /* gasservice_logo.png in Resources */,
 				D7AF28151E58BAE400AFF9D6 /* icon70.png in Resources */,
 				D791F69A1E236BAA009CBBED /* checkbox-unchecked.png in Resources */,
@@ -1122,6 +1175,7 @@
 				D7724F9A1E8935FF006ECEFA /* search.png in Resources */,
 				D74591331EA08F3C002C3AB3 /* reload-1.png in Resources */,
 				D76E7E7C1EDE8AE0005D5585 /* hogiadinh.png in Resources */,
+				D7029F901F3871B20081797B /* loaidonhang.png in Resources */,
 				D7E014B01E348CCE001F26B6 /* icon12.png in Resources */,
 				D75F64EB1E28B39100A67B3C /* icon30.png in Resources */,
 				D791F6A41E237595009CBBED /* icon46.png in Resources */,
@@ -1194,6 +1248,7 @@
 				D77F06011E71738100797A6B /* LoadingView.swift in Sources */,
 				D7F6844C1E2F620400D3D6F4 /* BaseAgentInfoBean.swift in Sources */,
 				D715BB721EBE550A0097BDA8 /* CacheDataRespModel.swift in Sources */,
+				D7029F831F38276A0081797B /* RequestStack.swift in Sources */,
 				D7BA68851E83AC4D001C675D /* BaseAPITestViewController.swift in Sources */,
 				D716C1961E929422007CC50C /* WardsListRespModel.swift in Sources */,
 				D77F05B71E71703E00797A6B /* Extension.swift in Sources */,
@@ -1204,6 +1259,7 @@
 				D716C1921E92893B007CC50C /* ProvincesListRespModel.swift in Sources */,
 				D715BB701EBE54760097BDA8 /* CacheDataRequest.swift in Sources */,
 				D79C1BBD1E4ACEC700E6E121 /* PromotionBean.swift in Sources */,
+				D70754A71F3969520098C48C /* Logger.swift in Sources */,
 				D791F6B01E238135009CBBED /* CommonProcess.swift in Sources */,
 				D7AB90561E2402170048AC4F /* StepSummary.swift in Sources */,
 				D77D2B581E72596A000D38DE /* ChildViewController.swift in Sources */,

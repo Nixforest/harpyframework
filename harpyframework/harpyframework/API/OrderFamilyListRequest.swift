@@ -33,8 +33,8 @@ public class OrderFamilyListRequest: BaseRequest {
      */
     public static func request(action: Selector, view: BaseViewController,
                                page: String, status: String) {
-        // Show overlay
-        LoadingView.shared.showOverlay(view: view.view)
+//        // Show overlay
+//        LoadingView.shared.showOverlay(view: view.view)
         let request = OrderFamilyListRequest(url: DomainConst.PATH_ORDER_TRANSACTION_LIST,
                                        reqMethod: DomainConst.HTTP_POST_REQUEST,
                                        view: view)
@@ -52,8 +52,8 @@ public class OrderFamilyListRequest: BaseRequest {
      * - parameter completionHandler:   Action execute when finish this task
      */
     public static func request(view: BaseViewController, page: String, status: String, completionHandler: ((Any?) -> Void)?) {
-        // Show overlay
-        LoadingView.shared.showOverlay(view: view.view)
+//        // Show overlay
+//        LoadingView.shared.showOverlay(view: view.view)
         let request = OrderFamilyListRequest(url: DomainConst.PATH_ORDER_TRANSACTION_LIST,
                                              reqMethod: DomainConst.HTTP_POST_REQUEST,
                                              view: view)

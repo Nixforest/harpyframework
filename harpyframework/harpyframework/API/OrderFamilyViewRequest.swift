@@ -30,8 +30,8 @@ public class OrderFamilyViewRequest: BaseRequest {
      */
     public static func request(action: Selector, view: BaseViewController,
                                id: String) {
-        // Show overlay
-        LoadingView.shared.showOverlay(view: view.view)
+//        // Show overlay
+//        LoadingView.shared.showOverlay(view: view.view)
         let request = OrderFamilyViewRequest(url: DomainConst.PATH_ORDER_TRANSACTION_VIEW,
                                              reqMethod: DomainConst.HTTP_POST_REQUEST,
                                              view: view)

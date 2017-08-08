@@ -83,8 +83,8 @@ public class ChangePassRequest: BaseRequest {
      */
     public static func requestChangePassword(action: Selector, view: BaseViewController,
                                              oldPass: String, newPass: String) {
-        // Show overlay
-        LoadingView.shared.showOverlay(view: view.view)
+//        // Show overlay
+//        LoadingView.shared.showOverlay(view: view.view)
         let request = ChangePassRequest(url: DomainConst.PATH_USER_CHANGE_PASS,
                                         reqMethod: DomainConst.HTTP_POST_REQUEST, view: view)
         request.setData(oldPass: oldPass, newPass: newPass)
