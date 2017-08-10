@@ -884,6 +884,16 @@ public extension NSObject {
     }
     
     /**
+     * Get float value from key in json list
+     * - parameter json: Json data
+     * - parameter key: Key value
+     * - returns: Value of int match with key value
+     */
+    public func getFloat(json: [String: AnyObject], key: String) -> CGFloat {
+        return json[key] as? CGFloat ?? 0.0
+    }
+    
+    /**
      * Get string value from key in json list, really value is Int
      * - parameter json: Json data
      * - parameter key: Key value
@@ -893,6 +903,21 @@ public extension NSObject {
         let intValue = json[key] as? Int ?? 0
         if intValue != 0 {
             return String(intValue)
+        } else {
+            return DomainConst.BLANK
+        }
+    }
+    
+    /**
+     * Get string value from key in json list, really value is Float
+     * - parameter json: Json data
+     * - parameter key: Key value
+     * - returns: Value of string match with key value
+     */
+    public func getStringFromFloat(json: [String: AnyObject], key: String) -> String {
+        let value = json[key] as? CGFloat ?? 0
+        if value != 0 {
+            return String(describing: value)
         } else {
             return DomainConst.BLANK
         }

@@ -139,12 +139,12 @@ public class OrderVIPBean: ConfigBean {
         //-- BUG0104-SPJ (NguyenPT 20170607) Update new properties
         //++ BUG0137-SPJ (NguyenPT 20170727) Show payback field
         self.show_pay_back      = getInt(json: jsonData, key: DomainConst.KEY_SHOW_PAY_BACK)
-        self.pay_back           = getString(json: jsonData, key: DomainConst.KEY_PAY_BACK)
+        self.pay_back           = getStringFromFloat(json: jsonData, key: DomainConst.KEY_PAY_BACK)
         //-- BUG0137-SPJ (NguyenPT 20170727) Show payback field
         
         //++ BUG0139-SPJ (NguyenPT 20170805) Show discount field
         self.show_discount      = getInt(json: jsonData, key: DomainConst.KEY_SHOW_DISCOUNT)
-        self.discount           = getString(json: jsonData, key: DomainConst.KEY_DISCOUNT)
+        self.discount           = getStringFromInt(json: jsonData, key: DomainConst.KEY_DISCOUNT)
         //-- BUG0139-SPJ (NguyenPT 20170805) Show discount field
     }
     
