@@ -1019,6 +1019,8 @@ public class DomainConst {
     public static let ORDER_INFO_PAY_BACK               = "###99933"
     /** Order information id: Order Sum all cylinder */
     public static let ORDER_INFO_PAY_DIRECT             = "###99934"
+    /** Order information id: Order discount */
+    public static let ORDER_INFO_DISCOUNT               = "###99935"
     /** Order information id: Order Material */
     public static let ORDER_INFO_MATERIAL_ID            = "###999"
     
@@ -1087,6 +1089,8 @@ public class DomainConst {
     public static let KEY_SHOW_PAY_BACK                 = "show_pay_back"
     /** Key pay_back */
     public static let KEY_PAY_BACK                      = "pay_back"
+    /** Key show_discount */
+    public static let KEY_SHOW_DISCOUNT                 = "show_discount"
     
     //++ BUG0050-SPJ (NguyenPT 20170325) Add new function G06
     /** Platform value: Android */
@@ -2149,4 +2153,5 @@ public class DomainConst {
     public static let CONTENT00466 = "Seri"
     //public static let CONTENT00467 = "Trừ tiền thiếu đầu vào"
     public static let CONTENT00467 = "Số Kg thiếu"
+    public static let CONTENT00468 = "Giảm giá"
 }

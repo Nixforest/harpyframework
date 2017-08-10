@@ -77,6 +77,12 @@ public class OrderVIPBean: ConfigBean {
     /** pay_back */
     public var pay_back:                String = DomainConst.BLANK
     //-- BUG0137-SPJ (NguyenPT 20170727) Show payback field
+    //++ BUG0139-SPJ (NguyenPT 20170805) Show discount field
+    /** Show discount */
+    public var show_discount:           Int    = 0
+    /** discount */
+    public var discount:                String = DomainConst.BLANK
+    //-- BUG0139-SPJ (NguyenPT 20170805) Show discount field
     
     /**
      * Initializer
@@ -135,6 +141,11 @@ public class OrderVIPBean: ConfigBean {
         self.show_pay_back      = getInt(json: jsonData, key: DomainConst.KEY_SHOW_PAY_BACK)
         self.pay_back           = getString(json: jsonData, key: DomainConst.KEY_PAY_BACK)
         //-- BUG0137-SPJ (NguyenPT 20170727) Show payback field
+        
+        //++ BUG0139-SPJ (NguyenPT 20170805) Show discount field
+        self.show_discount      = getInt(json: jsonData, key: DomainConst.KEY_SHOW_DISCOUNT)
+        self.discount           = getString(json: jsonData, key: DomainConst.KEY_DISCOUNT)
+        //-- BUG0139-SPJ (NguyenPT 20170805) Show discount field
     }
     
     /**
