@@ -154,7 +154,10 @@ open class TableCellOrderType: UITableViewCell {
         self.addressLabel.textColor = GlobalConst.TEXT_COLOR_GRAY
         self.addressLabel.text = DomainConst.BLANK
         self.addressLabel.numberOfLines = 0
-        self.addressLabel.lineBreakMode = .byWordWrapping
+        //++ BUG0150-SPJ (NguyenPT 20170817) VIP customer order of Driver: Update list order UI
+        //self.addressLabel.lineBreakMode = .byWordWrapping
+        self.addressLabel.lineBreakMode = .byTruncatingTail
+        //-- BUG0150-SPJ (NguyenPT 20170817) VIP customer order of Driver: Update list order UI
         
         //++ BUG0060-SPJ (NguyenPT 20170421) Add 2 button for confirm and cancel confirm
         botOffset += addressLabel.frame.height + verticalMargin
@@ -256,9 +259,14 @@ open class TableCellOrderType: UITableViewCell {
         //self.codeLabel.text = DomainConst.ORDER_CODE_PREFIX + vipData.code_no + " -"
         self.codeLabel.text = vipData.code_no + " -"
         //-- BUG0066-SPJ (NguyenPT 20170628) Handle show full code label
-        let width = self.codeLabel.text?.widthOfString(usingFont: self.codeLabel.font)
+        var width = self.codeLabel.text?.widthOfString(usingFont: self.codeLabel.font)
         let contentWidthMid     = GlobalConst.SCREEN_WIDTH / 3 * 2
         let contentHeight       = GlobalConst.CELL_HEIGHT_SHOW / 3 * 2
+        //++ BUG0150-SPJ (NguyenPT 20170817) VIP customer order of Driver: Update list order UI
+        if width! > contentWidthMid / 2 {
+            width = contentWidthMid / 2
+        }
+        //-- BUG0150-SPJ (NguyenPT 20170817) VIP customer order of Driver: Update list order UI
         // Total label
         self.totalLabel.frame = CGRect(x: self.codeLabel.frame.minX + width! + GlobalConst.MARGIN_CELL_X,
                                        y: self.totalLabel.frame.minY,
@@ -359,8 +367,18 @@ open class TableCellOrderType: UITableViewCell {
                                            width: GlobalConst.SCREEN_WIDTH - GlobalConst.CELL_HEIGHT_SHOW / 5,
                                            height: GlobalConst.LABEL_H + GlobalConst.BUTTON_H + verticalMargin)
         }
+        
+        //++ BUG0145-SPJ (NguyenPT 20170817) VIP customer order list: Change status icon position
+        var yPos = (rightView.frame.height - GlobalConst.ICON_SIZE - GlobalConst.BUTTON_H) / 2
+        if isCustomer {
+            yPos = (rightView.frame.height - GlobalConst.ICON_SIZE) / 2
+        }
+        //-- BUG0145-SPJ (NguyenPT 20170817) VIP customer order list: Change status icon position
         self.statusIcon.frame = CGRect(x: self.statusIcon.frame.origin.x,
-                                       y: (rightView.frame.height - GlobalConst.ICON_SIZE - GlobalConst.BUTTON_H) / 2,
+                                       //++ BUG0145-SPJ (NguyenPT 20170817) VIP customer order list: Change status icon position
+                                       //y: (rightView.frame.height - GlobalConst.ICON_SIZE - GlobalConst.BUTTON_H) / 2,
+                                       y: yPos,
+                                       //-- BUG0145-SPJ (NguyenPT 20170817) VIP customer order list: Change status icon position
                                        width: GlobalConst.ICON_SIZE,
                                        height: GlobalConst.ICON_SIZE)
     }

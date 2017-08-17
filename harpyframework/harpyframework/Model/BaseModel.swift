@@ -783,6 +783,14 @@ public class BaseModel: NSObject {
         return (self.role_id == String(RoleType.ROLE_EMPLOYEE_MAINTAIN.rawValue))
     }
     
+    /**
+     * Check if current user if a Driver
+     * returns: True if user is a Driver, False otherwise
+     */
+    public func isDriverUser() -> Bool {
+        return (self.role_id == String(RoleType.ROLE_DRIVER.rawValue))
+    }
+    
     //++ BUG0094-SPJ (NguyenPT 20170519) Add function create order by Coordinator
     /**
      * Check if current user if a Coordinator
