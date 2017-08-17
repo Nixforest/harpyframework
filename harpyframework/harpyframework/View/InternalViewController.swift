@@ -51,7 +51,7 @@ class InternalViewController: ChildViewController, UITableViewDelegate, UITableV
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 19
+        return 20
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {        
@@ -163,6 +163,10 @@ class InternalViewController: ChildViewController, UITableViewDelegate, UITableV
             cell.setData(leftImg: DomainConst.INFORMATION_IMG_NAME,
                          name: "Log detail",
                          value: DomainConst.BLANK, isHideRightImg: false)
+        case 19:
+            cell.setData(leftImg: DomainConst.INFORMATION_IMG_NAME,
+                         name: "Create app log",
+                         value: DomainConst.BLANK, isHideRightImg: true)
         default:
             break
         }
@@ -213,6 +217,9 @@ class InternalViewController: ChildViewController, UITableViewDelegate, UITableV
             break
         case 18:
             handleShowLogDetailVC()
+            break
+        case 19:
+            handleCreateAppLog()
             break
         default:
             break
@@ -352,5 +359,18 @@ class InternalViewController: ChildViewController, UITableViewDelegate, UITableV
     private func handleShowLogDetailVC() {
         ErrorDetailVC.content = Logger.shared.read()
         self.pushToView(name: ErrorDetailVC.theClassName)
+    }
+    
+    /**
+     * Handle create app log
+     */
+    private func handleCreateAppLog() {
+        let msg = "This is a test content for support/appLog request. Please ignore this message."
+        CreateErrorLogRequest.request(action: #selector(self.finishRequestCreateErrLog(_:)), view: self, msg: msg)
+    }
+    internal func finishRequestCreateErrLog(_ notification: Notification) {
+        let data = (notification.object as! String)
+        let model = BaseRespModel(jsonString: data)
+        showAlert(message: model.message)
     }
 }

@@ -64,8 +64,6 @@ open class BaseRequest: NSObject {
         let request = NSMutableURLRequest(url: serverUrl)
         request.httpMethod = self.reqMethod
         request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringLocalCacheData
-        // Make data string
-        request.httpBody = self.data.data(using: String.Encoding.utf8)
         //++ BUG0115-SPJ (NguyenPT 20170624) Handle add version code when request server
         // Version
         self.data = self.data.replacingOccurrences(
@@ -76,6 +74,8 @@ open class BaseRequest: NSObject {
                                 of: DomainConst.SPLITER_TYPE4,
                                 with: DomainConst.BLANK)))
         //-- BUG0115-SPJ (NguyenPT 20170624) Handle add version code when request server
+        // Make data string
+        request.httpBody = self.data.data(using: String.Encoding.utf8)
         let task = completetionHandler(request: request)
         task.resume()
 //        self.completeHandlerConnection(request: request)
@@ -111,16 +111,18 @@ open class BaseRequest: NSObject {
             imgDataList.append(imgData!)
             filePathKey.append(String.init(format: "file_name[%d]", i))
         }
-        request.httpBody = createBodyWithParameterList(parameters: self.param, filePathKey: filePathKey,
-                                                   imageDataKey: imgDataList, boundary: boundary) as Data
         
         //++ BUG0115-SPJ (NguyenPT 20170624) Handle add version code when request server
         // Version
-        self.data = self.data.replacingOccurrences(
+        self.param["q"] = self.param["q"]?.replacingOccurrences(
             of: "}",
             with: String.init(format: ",\"%@\":\"%@\"}",
                               DomainConst.KEY_VERSION_CODE, DomainConst.VERSION_CODE))
         //-- BUG0115-SPJ (NguyenPT 20170624) Handle add version code when request server
+        
+        request.httpBody = createBodyWithParameterList(parameters: self.param, filePathKey: filePathKey,
+                                                   imageDataKey: imgDataList, boundary: boundary) as Data
+        
         let task = completetionHandler(request: request)
         task.resume()
 //        self.completeHandlerConnection(request: request)
@@ -210,14 +212,16 @@ open class BaseRequest: NSObject {
                 (response, data, error) in
                 // Check error
                 guard error == nil else {
-                    BaseModel.shared.setErrorDetail(detail: (error?.localizedDescription)!)
-                    self.handleErrorTask()
+//                    BaseModel.shared.setErrorDetail(detail: (error?.localizedDescription)!)
+//                    self.handleErrorTask()
+                    self.handleErrorTask(error: (error?.localizedDescription)!)
                     return
                 }
                 //guard data == nil else {
                 guard let data = data else {
-                    BaseModel.shared.setErrorDetail(detail: (error?.localizedDescription)!)
-                    self.handleErrorTask()
+//                    BaseModel.shared.setErrorDetail(detail: (error?.localizedDescription)!)
+//                    self.handleErrorTask()
+                    self.handleErrorTask(error: (error?.localizedDescription)!)
                     return
                 }
                 // Convert to string
@@ -248,8 +252,9 @@ open class BaseRequest: NSObject {
 //                LoadingView.shared.hideOverlayView()
 //                //-- BUG0050-SPJ (NguyenPT 20170403) Handle Error
 //                self.view.showAlert(message: DomainConst.CONTENT00196)
-                BaseModel.shared.setErrorDetail(detail: (error?.localizedDescription)!)
-                self.handleErrorTask()
+//                BaseModel.shared.setErrorDetail(detail: (error?.localizedDescription)!)
+//                self.handleErrorTask()
+                self.handleErrorTask(error: (error?.localizedDescription)!)
                 //-- BUG0099-SPJ (NguyenPT 20170601) Handle when error happen
                 return
             }
@@ -260,8 +265,12 @@ open class BaseRequest: NSObject {
 //                LoadingView.shared.hideOverlayView()
 //            //-- BUG0050-SPJ (NguyenPT 20170323) Handle result string
 //                self.view.showAlert(message: DomainConst.CONTENT00196)
-                BaseModel.shared.setErrorDetail(detail: (error?.localizedDescription)!)
-                self.handleErrorTask()
+//                BaseModel.shared.setErrorDetail(detail: (error?.localizedDescription)!)
+//                self.handleErrorTask()
+                if let err = error?.localizedDescription {
+                    self.handleErrorTask(error: err)
+                }
+                
                 //-- BUG0099-SPJ (NguyenPT 20170601) Handle when error happen
                 return
             }
@@ -317,8 +326,16 @@ open class BaseRequest: NSObject {
     //++ BUG0099-SPJ (NguyenPT 20170601) Handle when error happen
     /**
      * Handle when error happen
+     * - parameter error: Error content, default is blank
      */
-    public func handleErrorTask() {
+    //++ BUG0146-SPJ (NguyenPT 20170817) Handle error: request to server create log
+    //public func handleErrorTask() {
+    public func handleErrorTask(error: String = DomainConst.BLANK) {
+        BaseModel.shared.setErrorDetail(detail: error)
+        if self.url != DomainConst.PATH_SUPPORT_APPLOG {
+            CreateErrorLogRequest.request(action: #selector(finishCreateErrorLog(_:)), view: self.view, msg: error)
+        }
+    //-- BUG0146-SPJ (NguyenPT 20170817) Handle error: request to server create log
         LoadingView.shared.hideOverlayView(className: self.theClassName)
         //self.view.showAlert(message: DomainConst.CONTENT00196)
         self.view.showAlert(
@@ -337,4 +354,8 @@ open class BaseRequest: NSObject {
         }
     }
     //-- BUG0099-SPJ (NguyenPT 20170601) Handle when error happen
+    
+    internal func finishCreateErrorLog(_ notification: Notification) {
+        
+    }
 }

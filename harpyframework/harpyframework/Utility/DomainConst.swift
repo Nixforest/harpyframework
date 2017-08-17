@@ -89,6 +89,8 @@ public class DomainConst {
     public static let PATH_ORDER_VIP_UPDATE             = "boMoi/boMoiDriverUpdate"
     /** Get order VIP update */
     public static let PATH_SITE_CACHE_DATA              = "site/getDataCache"
+    /** Request create support app log */
+    public static let PATH_SUPPORT_APPLOG               = "support/appLog"
     
     // MARK: -----List of keys-----
     /** Token */
@@ -125,6 +127,8 @@ public class DomainConst {
     public static let KEY_TITLE                         = "title"
     /** Message */
     public static let KEY_MESSAGE                       = "message"
+    /** Message */
+    public static let KEY_MSG                           = "msg"
     /** Problem */
     public static let KEY_PROBLEM                       = "problem"
     /** Page */
