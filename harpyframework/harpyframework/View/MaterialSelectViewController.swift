@@ -36,6 +36,9 @@ open class MaterialSelectViewController: ChildViewController, UICollectionViewDa
     private static var _selected:   OrderDetailBean     = OrderDetailBean.init()
     //-- BUG0054-SPJ (NguyenPT 20170417) Add new function G07 - Add search bar
     
+    /** Type of material */
+    public static var _type:        String              = DomainConst.BLANK
+    
     // MARK: Methods
     /**
      * Set data for controller
@@ -189,7 +192,9 @@ open class MaterialSelectViewController: ChildViewController, UICollectionViewDa
 //        MaterialSelectViewController._selected = OrderDetailBean(data: self.getData(index: indexPath.row))
         MaterialSelectViewController._selected = self.getData(index: indexPath.row)
         //++ BUG0151-SPJ (NguyenPT 20170819) Handle favourite when select material
-        FavouriteDataModel.shared.increaseMaterialGas(id: MaterialSelectViewController._selected.material_id)
+        FavouriteDataModel.shared.increaseMaterialGas(id: MaterialSelectViewController._selected.material_id,
+                                                      key: MaterialSelectViewController._type)
+        
         //-- BUG0151-SPJ (NguyenPT 20170819) Handle favourite when select material
         self.backButtonTapped(self)
     }
@@ -288,4 +293,18 @@ open class MaterialSelectViewController: ChildViewController, UICollectionViewDa
         MaterialSelectViewController._selected = item
     }
     //-- BUG0054-SPJ (NguyenPT 20170417) Add new function G07 - Add search bar
+    
+    public static func setMaterialDataFromFavourite(key: String) {
+        MaterialSelectViewController._type = key
+        MaterialSelectViewController.setMaterialData(
+            orderDetails: FavouriteDataModel.shared.getListGas(key: key))
+        
+    }
+    
+    open override func clearData() {
+        MaterialSelectViewController._type = DomainConst.BLANK
+        MaterialSelectViewController._data.removeAll()
+        MaterialSelectViewController._originData.removeAll()
+//        MaterialSelectViewController._selected = OrderDetailBean.init()
+    }
 }

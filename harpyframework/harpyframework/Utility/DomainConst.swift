@@ -377,7 +377,9 @@ public class DomainConst {
     /** Setting key: Agent id */
     public static let KEY_SETTING_AGENT_ID              = "gasservice.agentId"
     /** Setting key: List favourite gas information */
-    public static let KEY_LIST_FAVOURITE_GAS            = "gasservice.listFavouriteGas"
+    public static let KEY_SETTING_FAVOURITE_GAS         = "gasservice.listFavouriteGas"
+    /** Setting key: List favourite gas information */
+    public static let KEY_SETTING_FAVOURITE_GAS_LOGIN   = "gasservice.listFavouriteGasLogin"
     
     /** Setting key: Material type id */
     public static let KEY_MATERIALS_TYPE_ID             = "materials_type_id"

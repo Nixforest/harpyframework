@@ -240,9 +240,6 @@ public class BaseModel: NSObject {
         if defaults.object(forKey: DomainConst.KEY_SETTING_AGENT_ID) != nil {
             self._agentId = defaults.object(forKey: DomainConst.KEY_SETTING_AGENT_ID) as! String
         }
-        
-        // Read favourite data
-        FavouriteDataModel.shared.readDataFromUserDefault(key: DomainConst.KEY_LIST_FAVOURITE_GAS)
         //-- BUG0151-SPJ (NguyenPT 20170819) Save agent id to user default setting
     }
     
@@ -728,8 +725,9 @@ public class BaseModel: NSObject {
             let encodedData = NSKeyedArchiver.archivedData(withRootObject: self.list_infoGas)
             defaults.set(encodedData, forKey: DomainConst.KEY_LIST_GAS_INFORMATION)
             defaults.synchronize()
-            //FavouriteDataModel.shared.updateListMaterialGas(data: self.list_infoGas)
         }
+        FavouriteDataModel.shared.updateListMaterialGas(data: self.list_infoGas,
+                                                        key: DomainConst.KEY_SETTING_FAVOURITE_GAS_LOGIN)
         //-- BUG0071-SPJ (NguyenPT 20170426) Handle save data to UserDefault
         //++ BUG0060-SPJ (NguyenPT 20170426) Handle update Order VIP customer
         self.list_cancelOrderVIPReasons = loginModel.list_cancelVIPOrderReasons
