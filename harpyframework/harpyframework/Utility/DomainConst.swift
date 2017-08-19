@@ -374,6 +374,10 @@ public class DomainConst {
     /** Setting key: Username */
     public static let KEY_SETTING_USERNAME              = "gasservice.username"
     //-- BUG0132-SPJ (NguyenPT 20170724) Remember username after login
+    /** Setting key: Agent id */
+    public static let KEY_SETTING_AGENT_ID              = "gasservice.agentId"
+    /** Setting key: List favourite gas information */
+    public static let KEY_LIST_FAVOURITE_GAS            = "gasservice.listFavouriteGas"
     
     /** Setting key: Material type id */
     public static let KEY_MATERIALS_TYPE_ID             = "materials_type_id"

@@ -188,6 +188,9 @@ open class MaterialSelectViewController: ChildViewController, UICollectionViewDa
     open func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //        MaterialSelectViewController._selected = OrderDetailBean(data: self.getData(index: indexPath.row))
         MaterialSelectViewController._selected = self.getData(index: indexPath.row)
+        //++ BUG0151-SPJ (NguyenPT 20170819) Handle favourite when select material
+        FavouriteDataModel.shared.increaseMaterialGas(id: MaterialSelectViewController._selected.material_id)
+        //-- BUG0151-SPJ (NguyenPT 20170819) Handle favourite when select material
         self.backButtonTapped(self)
     }
     

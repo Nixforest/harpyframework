@@ -172,6 +172,8 @@
 		D77F068E1E719B1D00797A6B /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F068D1E719B1D00797A6B /* SlideMenuController.swift */; };
 		D77F06901E719B5300797A6B /* BaseSlideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77F068F1E719B5300797A6B /* BaseSlideMenuViewController.swift */; };
 		D781E5B51F456AC9003A9CD4 /* CreateErrorLogRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781E5B41F456AC9003A9CD4 /* CreateErrorLogRequest.swift */; };
+		D781E5B71F457E33003A9CD4 /* FavouriteDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781E5B61F457E33003A9CD4 /* FavouriteDataModel.swift */; };
+		D781E5B91F457F29003A9CD4 /* FavouriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D781E5B81F457F29003A9CD4 /* FavouriteModel.swift */; };
 		D7885B481E88C20A00F8F87A /* CustomerFamilyListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7885B471E88C20A00F8F87A /* CustomerFamilyListCell.swift */; };
 		D78E32631E5693000035C40D /* OrderVIPBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78E32621E5693000035C40D /* OrderVIPBean.swift */; };
 		D78E326F1E571C980035C40D /* ic_number_back.png in Resources */ = {isa = PBXBuildFile; fileRef = D78E326D1E571C980035C40D /* ic_number_back.png */; };
@@ -450,6 +452,8 @@
 		D77F068D1E719B1D00797A6B /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideMenuController.swift; path = View/SlideMenuController.swift; sourceTree = "<group>"; };
 		D77F068F1E719B5300797A6B /* BaseSlideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseSlideMenuViewController.swift; path = View/BaseSlideMenuViewController.swift; sourceTree = "<group>"; };
 		D781E5B41F456AC9003A9CD4 /* CreateErrorLogRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateErrorLogRequest.swift; path = API/CreateErrorLogRequest.swift; sourceTree = "<group>"; };
+		D781E5B61F457E33003A9CD4 /* FavouriteDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FavouriteDataModel.swift; path = Model/FavouriteDataModel.swift; sourceTree = "<group>"; };
+		D781E5B81F457F29003A9CD4 /* FavouriteModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FavouriteModel.swift; path = Model/FavouriteModel.swift; sourceTree = "<group>"; };
 		D7885B471E88C20A00F8F87A /* CustomerFamilyListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomerFamilyListCell.swift; path = CustomeControl/CustomerFamilyListCell.swift; sourceTree = "<group>"; };
 		D78E32621E5693000035C40D /* OrderVIPBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderVIPBean.swift; path = Model/OrderVIPBean.swift; sourceTree = "<group>"; };
 		D78E326D1E571C980035C40D /* ic_number_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_number_back.png; path = images/ic_number_back.png; sourceTree = "<group>"; };
@@ -655,6 +659,8 @@
 				D77F05CF1E7172AD00797A6B /* UserInfoBean.swift */,
 				D7CDBE2C1E880A7800B73877 /* WorkingReportBean.swift */,
 				D7029F821F38276A0081797B /* RequestStack.swift */,
+				D781E5B61F457E33003A9CD4 /* FavouriteDataModel.swift */,
+				D781E5B81F457F29003A9CD4 /* FavouriteModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1208,6 +1214,7 @@
 				D715BB741EBE553F0097BDA8 /* CacheDataModel.swift in Sources */,
 				D781E5B51F456AC9003A9CD4 /* CreateErrorLogRequest.swift in Sources */,
 				D7FB47421E9750B80082FA5E /* OrderFamilyListRespModel.swift in Sources */,
+				D781E5B91F457F29003A9CD4 /* FavouriteModel.swift in Sources */,
 				D715BB6B1EBE24650097BDA8 /* DatePickerView.swift in Sources */,
 				D77F05DB1E7172BD00797A6B /* BaseMenuViewController.swift in Sources */,
 				D77F05F41E71737200797A6B /* SearchCustomerRequest.swift in Sources */,
@@ -1222,6 +1229,7 @@
 				D77F05C41E71729400797A6B /* UpholdDetailRespModel.swift in Sources */,
 				D77F068E1E719B1D00797A6B /* SlideMenuController.swift in Sources */,
 				D7D04E431E557FBF00B3F8CF /* OrderVIPDetailBean.swift in Sources */,
+				D781E5B71F457E33003A9CD4 /* FavouriteDataModel.swift in Sources */,
 				D7AB90541E2402170048AC4F /* ScrollButtonList.swift in Sources */,
 				D712BE8B1EEA952800F679CE /* ImageRequest.swift in Sources */,
 				D7CED6D11E98CB2E00C2B568 /* OrderEmployeeTableViewCell.swift in Sources */,

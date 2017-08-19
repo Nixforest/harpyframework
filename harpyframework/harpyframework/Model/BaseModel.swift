@@ -137,6 +137,10 @@ public class BaseModel: NSObject {
     /** Call center */
     private var _currentUsername:           String              = DomainConst.BLANK
     //-- BUG0132-SPJ (NguyenPT 20170724) Remember username after login
+    //++ BUG0151-SPJ (NguyenPT 20170819) Save agent id to user default setting
+    /** Agent id */
+    private var _agentId:                   String              = DomainConst.BLANK
+    //-- BUG0151-SPJ (NguyenPT 20170819) Save agent id to user default setting
     
     // MARK - Methods
     override init() {
@@ -230,6 +234,16 @@ public class BaseModel: NSObject {
             self._currentUsername = data as! String
         }
         //-- BUG0132-SPJ (NguyenPT 20170724) Remember username after login
+        //++ BUG0151-SPJ (NguyenPT 20170819) Save agent id to user default setting
+        // Get agent id value
+        self._agentId = DomainConst.BLANK
+        if defaults.object(forKey: DomainConst.KEY_SETTING_AGENT_ID) != nil {
+            self._agentId = defaults.object(forKey: DomainConst.KEY_SETTING_AGENT_ID) as! String
+        }
+        
+        // Read favourite data
+        FavouriteDataModel.shared.readDataFromUserDefault(key: DomainConst.KEY_LIST_FAVOURITE_GAS)
+        //-- BUG0151-SPJ (NguyenPT 20170819) Save agent id to user default setting
     }
     
     /**
@@ -682,6 +696,9 @@ public class BaseModel: NSObject {
         
         // User infor
         self.user_info_login = loginModel.user_info
+        //++ BUG0151-SPJ (NguyenPT 20170819) Save agent id to user default setting
+        self.setAgentId(id: self.getUserInfoLogin(id: DomainConst.KEY_AGENT_ID))
+        //-- BUG0151-SPJ (NguyenPT 20170819) Save agent id to user default setting
         
         // Agent info
         self.list_agent = loginModel.list_agent
@@ -711,6 +728,7 @@ public class BaseModel: NSObject {
             let encodedData = NSKeyedArchiver.archivedData(withRootObject: self.list_infoGas)
             defaults.set(encodedData, forKey: DomainConst.KEY_LIST_GAS_INFORMATION)
             defaults.synchronize()
+            //FavouriteDataModel.shared.updateListMaterialGas(data: self.list_infoGas)
         }
         //-- BUG0071-SPJ (NguyenPT 20170426) Handle save data to UserDefault
         //++ BUG0060-SPJ (NguyenPT 20170426) Handle update Order VIP customer
@@ -980,6 +998,9 @@ public class BaseModel: NSObject {
      */
     public func saveOrderConfig(config: OrderConfigBean) {
         self._orderConfig = config
+        //++ BUG0151-SPJ (NguyenPT 20170819) Handle favourite when select material
+        FavouriteDataModel.shared.updateListMaterialGas(agentInfo: self._orderConfig.agent)
+        //-- BUG0151-SPJ (NguyenPT 20170819) Handle favourite when select material
     }
     
     /**
@@ -1422,4 +1443,24 @@ public class BaseModel: NSObject {
         return self._currentUsername
     }
     //-- BUG0132-SPJ (NguyenPT 20170724) Remember username after login
+    
+    //++ BUG0151-SPJ (NguyenPT 20170819) Handle favourite when select material
+    /**
+     * Set current username
+     * - parameter username: Username string
+     */
+    public func setAgentId(id: String) {
+        self._agentId = id
+        defaults.set(self._agentId, forKey: DomainConst.KEY_SETTING_AGENT_ID)
+        defaults.synchronize()
+    }
+    
+    /**
+     * Get current username value
+     * - returns: Username string
+     */
+    public func getAgentId() -> String {
+        return self._agentId
+    }
+    //-- BUG0151-SPJ (NguyenPT 20170819) Handle favourite when select material
 }

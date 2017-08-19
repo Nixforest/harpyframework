@@ -76,8 +76,10 @@ public class OrderDetailBean: MaterialBean {
     /**
      * Constructor
      * - parameter data: Material bean
+     * - parameter qty: Quantity
      */
-    public init(data: MaterialBean) {
+    //public init(data: MaterialBean) {
+    public init(data: MaterialBean, qty: String = DomainConst.NUMBER_ONE_VALUE) {
         super.init()
         self.material_id        = data.material_id
         self.materials_type_id  = data.materials_type_id
@@ -86,9 +88,10 @@ public class OrderDetailBean: MaterialBean {
         self.price              = data.price
         self.material_image     = data.material_image
         //++ BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Get new data
-        self.qty                = DomainConst.NUMBER_ONE_VALUE
+        //self.qty                = DomainConst.NUMBER_ONE_VALUE
         self.amount             = data.price
         //-- BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Get new data
+        self.qty                = qty
     }
     //++ BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Get new data
     public override init() {
