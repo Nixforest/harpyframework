@@ -202,7 +202,7 @@ open class BaseViewController : UIViewController {
      * Open Apple Store to update version of app
      */
     public func updateVersionAppStore() {
-        let url = NSURL(string: "itms://appsto.re/us/BVpRgb.i")
+        let url = NSURL(string: BaseModel.shared.getAppStoreLink())
         if UIApplication.shared.canOpenURL(url as! URL) {
             UIApplication.shared.openURL(url as! URL)
         } else {

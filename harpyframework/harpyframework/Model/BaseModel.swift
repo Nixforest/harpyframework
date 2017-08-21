@@ -1089,6 +1089,24 @@ public class BaseModel: NSObject {
             return DomainConst.LOGO_AGENT_GAS_24H_IMG_NAME
         }
     }
+    
+    /**
+     * Get app store link
+     * - returns:   Gas service - [itms://appsto.re/us/BVpRgb.i]
+     *              Gas 24h     - [itms://appsto.re/us/BVpRgb.i]
+     */
+    public func getAppStoreLink() -> String {
+        switch BaseModel.shared.getAppType() {
+        case DomainConst.APP_TYPE_FLAG_GAS_24H:
+            return "itms://itunes.apple.com/vn/app/gas24h/id1189016286?mt=8"
+        case DomainConst.APP_TYPE_FLAG_GAS_SERVICE:
+            return "itms://appsto.re/us/BVpRgb.i"
+        default:
+            break
+        }
+        return DomainConst.BLANK
+    }
+    
     //++ BUG0050-SPJ (NguyenPT 20170403) Handle Address information
     /**
      * Get list of provinces
