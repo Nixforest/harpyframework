@@ -64,6 +64,7 @@ open class BaseRequest: NSObject {
         let request = NSMutableURLRequest(url: serverUrl)
         request.httpMethod = self.reqMethod
         request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringLocalCacheData
+        request.setValue("Keep-Alive", forHTTPHeaderField: "Connection")
         //++ BUG0115-SPJ (NguyenPT 20170624) Handle add version code when request server
         // Version
         self.data = self.data.replacingOccurrences(
