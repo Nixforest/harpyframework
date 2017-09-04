@@ -51,7 +51,7 @@ class InternalViewController: ChildViewController, UITableViewDelegate, UITableV
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return 21
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {        
@@ -167,6 +167,10 @@ class InternalViewController: ChildViewController, UITableViewDelegate, UITableV
             cell.setData(leftImg: DomainConst.INFORMATION_IMG_NAME,
                          name: "Create app log",
                          value: DomainConst.BLANK, isHideRightImg: true)
+        case 20:
+            cell.setData(leftImg: DomainConst.INFORMATION_IMG_NAME,
+                         name: "Scan code",
+                         value: DomainConst.BLANK, isHideRightImg: true)
         default:
             break
         }
@@ -220,6 +224,9 @@ class InternalViewController: ChildViewController, UITableViewDelegate, UITableV
             break
         case 19:
             handleCreateAppLog()
+            break
+        case 20:
+            handleScanCode()
             break
         default:
             break
@@ -372,5 +379,14 @@ class InternalViewController: ChildViewController, UITableViewDelegate, UITableV
         let data = (notification.object as! String)
         let model = BaseRespModel(jsonString: data)
         showAlert(message: model.message)
+    }
+    
+    /**
+     * Handle show error detail View controller
+     */
+    private func handleScanCode() {
+        let frameworkBundle = Bundle(identifier: DomainConst.HARPY_FRAMEWORK_BUNDLE_NAME)
+        let scan = ScanCodeVC(nibName: ScanCodeVC.theClassName, bundle: frameworkBundle)
+        self.navigationController?.pushViewController(scan, animated: true)
     }
 }
