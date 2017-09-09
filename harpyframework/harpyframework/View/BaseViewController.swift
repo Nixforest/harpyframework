@@ -37,6 +37,12 @@ open class BaseViewController : UIViewController {
     private var backgroundImg: String = ""
     
     // MARK: Methods
+    // MARK: - Override
+//    open override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+//        GlobalConst.SCREEN_WIDTH = UIScreen.main.bounds.height
+//        GlobalConst.SCREEN_HEIGHT = UIScreen.main.bounds.width
+//    }
+    
     /**
      * Empty method, use for completion handler
      * - parameter notification: Notification object
@@ -68,7 +74,7 @@ open class BaseViewController : UIViewController {
         //notification button enable/disable
         //self.updateNotificationStatus()
         if BaseModel.shared.checkIsLogin() {
-            NotificationCountRequest.requestNotificationCount(action: #selector(updateNotificationStatus(_:)), view: self)
+//            NotificationCountRequest.requestNotificationCount(action: #selector(updateNotificationStatus(_:)), view: self)
         }
     }
     

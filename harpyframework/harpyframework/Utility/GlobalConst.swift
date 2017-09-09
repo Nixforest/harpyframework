@@ -9,8 +9,8 @@
 import Foundation
 public class GlobalConst {    
     // ----- Size of control -----
-    public static let SCREEN_WIDTH                      : CGFloat = UIScreen.main.bounds.width
-    public static let SCREEN_HEIGHT                     : CGFloat = UIScreen.main.bounds.height
+    public static var SCREEN_WIDTH                      : CGFloat = UIScreen.main.bounds.width
+    public static var SCREEN_HEIGHT                     : CGFloat = UIScreen.main.bounds.height
     public static let BUTTON_HEIGHT                     : CGFloat = 50.0
     public static var PARENT_BORDER_WIDTH               : CGFloat = 0.0
     public static let BUTTON_BORDER_WIDTH               : CGFloat = 1.0
@@ -120,4 +120,10 @@ public class GlobalConst {
     /** Time interval for animation in Step view controller */
     public static let STEP_MOVE_TIME_INTERVAL       = 0.1
     //-- BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
+    
+    // ----- New constants -----
+    /** Width of animating loading */
+    public static let ANIMATING_LOADING_WIDTH:      CGFloat = 30
+    /** Height of animating loading */
+    public static let ANIMATING_LOADING_HEIGHT:     CGFloat = 30
 }

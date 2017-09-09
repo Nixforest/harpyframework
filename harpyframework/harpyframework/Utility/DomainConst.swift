@@ -1710,6 +1710,10 @@ public class DomainConst {
     
     /** HTTP Post request method */
     public static let HTTP_POST_REQUEST                     = "POST"
+    /** HTTP Post request method */
+    public static let GOOGLE_API_KEY                        = "AIzaSyCOXWFIXGsvZqkOziYt5CQj7Y-bB7Ej40U"
+    /** HTTP Post request method */
+    public static let GOOGLE_API_KEY1                       = "AIzaSyDw5SP_bZzyuO130sTtioXwd25JfOKyjEk"
     
     // MARK: -----Version code-----
     public static let VERSION_CODE                          = Bundle.main.releaseVersionNumber!
@@ -2164,4 +2168,7 @@ public class DomainConst {
     //public static let CONTENT00467 = "Trừ tiền thiếu đầu vào"
     public static let CONTENT00467 = "Số Kg thiếu"
     public static let CONTENT00468 = "Giảm giá"
+    public static let CONTENT00469 = "Điều hướng"
+    public static let CONTENT00470 = "Thêm hình từ camera"
+    public static let CONTENT00471 = "Thêm hình từ thư viện"
 }

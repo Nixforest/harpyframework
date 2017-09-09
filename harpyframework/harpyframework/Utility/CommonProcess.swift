@@ -346,8 +346,7 @@ public class CommonProcess {
      * - parameter textField: Current textField
      * - parameter name: Image name
      */
-    public static func setLeftImgTextField(textField: UITextField, name: String) {
-        
+    public static func setLeftImgTextField(textField: UITextField, name: String) {        
         textField.leftViewMode = .always
         let imgView = UIImageView(frame: CGRect(x: 0, y: 0,
                                                 width: GlobalConst.EDITTEXT_H - GlobalConst.MARGIN,
@@ -357,5 +356,15 @@ public class CommonProcess {
         imgView.image = tinted
         imgView.tintColor = UIColor.black
         textField.leftView = imgView
+    }
+    
+    /**
+     * Generate random number
+     * - parameter min: Minimum value
+     * - parameter max: Maximum value
+     * - returns: Random value
+     */
+    public static func generateRandom(min: Int, max: Int) -> Int {
+        return Int(arc4random_uniform(UInt32(max - min + 1))) + min
     }
 }

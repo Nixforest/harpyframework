@@ -253,7 +253,7 @@ extension UIImageView {
             DispatchQueue.main.async {
                 self.image = image
             }
-            LoadingView.shared.hideOverlayView(className: self.theClassName)
+//            LoadingView.shared.hideOverlayView(className: self.theClassName)
         }).resume()
     }
 }
