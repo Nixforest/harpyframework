@@ -826,6 +826,14 @@
 			name = ObjectMappable;
 			sourceTree = "<group>";
 		};
+		D7359B061F679FEF0032F0AF /* Version2 */ = {
+			isa = PBXGroup;
+			children = (
+				D737DFC51F57B507008E9E94 /* ChildExtViewController.swift */,
+			);
+			name = Version2;
+			sourceTree = "<group>";
+		};
 		D73B64511E0B797B0032D582 /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -861,6 +869,7 @@
 		D73B64541E0B79BC0032D582 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D7359B061F679FEF0032F0AF /* Version2 */,
 				D71106221F57FC36001BC56C /* ScanCode */,
 				D7BA68841E83AC4D001C675D /* BaseAPITestViewController.swift */,
 				D77F05D91E7172BD00797A6B /* BaseMenuViewController.swift */,
@@ -872,7 +881,6 @@
 				D7E014A91E347EA4001F26B6 /* MaterialSelectViewController.swift */,
 				D77D2B591E725A4D000D38DE /* ParentViewController.swift */,
 				D77F068D1E719B1D00797A6B /* SlideMenuController.swift */,
-				D737DFC51F57B507008E9E94 /* ChildExtViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
