@@ -1707,6 +1707,12 @@ public class DomainConst {
     public static let SUM_ICON_IMG_NAME                     = "tongcong.png"
     /** Version image name */
     public static let VERSION_TYPE_ICON_IMG_NAME            = "version.png"
+    /** Login background image [iphone] */
+    public static let LOGIN_BKG_IPHONE_IMG_NAME             = "signup_bg_1080_1920.png"
+    /** Login background image [ipad] */
+    public static let LOGIN_BKG_IPAD_IMG_NAME               = "signup_bg_1536_2048.png"
+    /** Login background image [ipad landscape]*/
+    public static let LOGIN_BKG_IPAD_LANDSCAPE_IMG_NAME     = "signup_bg_2048_1536.png"
     
     /** HTTP Post request method */
     public static let HTTP_POST_REQUEST                     = "POST"

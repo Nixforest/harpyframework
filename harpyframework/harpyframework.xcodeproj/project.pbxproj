@@ -40,6 +40,9 @@
 		D70ECEC91EE2788500997F1A /* ErrorDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70ECEC81EE2788500997F1A /* ErrorDetailVC.swift */; };
 		D71106211F57F1FE001BC56C /* ScanCodeVC~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = D71106201F57F1FE001BC56C /* ScanCodeVC~ipad.xib */; };
 		D712BE8B1EEA952800F679CE /* ImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D712BE8A1EEA952800F679CE /* ImageRequest.swift */; };
+		D71544B71F6BBF6400480486 /* signup_bg_1080_1920.png in Resources */ = {isa = PBXBuildFile; fileRef = D71544B41F6BBF6400480486 /* signup_bg_1080_1920.png */; };
+		D71544B81F6BBF6400480486 /* signup_bg_1536_2048.png in Resources */ = {isa = PBXBuildFile; fileRef = D71544B51F6BBF6400480486 /* signup_bg_1536_2048.png */; };
+		D71544B91F6BBF6400480486 /* signup_bg_2048_1536.png in Resources */ = {isa = PBXBuildFile; fileRef = D71544B61F6BBF6400480486 /* signup_bg_2048_1536.png */; };
 		D715BB6B1EBE24650097BDA8 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D715BB6A1EBE24650097BDA8 /* DatePickerView.swift */; };
 		D715BB701EBE54760097BDA8 /* CacheDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D715BB6F1EBE54760097BDA8 /* CacheDataRequest.swift */; };
 		D715BB721EBE550A0097BDA8 /* CacheDataRespModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D715BB711EBE550A0097BDA8 /* CacheDataRespModel.swift */; };
@@ -393,6 +396,9 @@
 		D70ECEC81EE2788500997F1A /* ErrorDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorDetailVC.swift; path = View/ErrorDetailVC.swift; sourceTree = "<group>"; };
 		D71106201F57F1FE001BC56C /* ScanCodeVC~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "ScanCodeVC~ipad.xib"; path = "View/ScanCodeVC~ipad.xib"; sourceTree = "<group>"; };
 		D712BE8A1EEA952800F679CE /* ImageRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageRequest.swift; path = API/ImageRequest.swift; sourceTree = "<group>"; };
+		D71544B41F6BBF6400480486 /* signup_bg_1080_1920.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = signup_bg_1080_1920.png; path = images/background/signup_bg_1080_1920.png; sourceTree = "<group>"; };
+		D71544B51F6BBF6400480486 /* signup_bg_1536_2048.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = signup_bg_1536_2048.png; path = images/background/signup_bg_1536_2048.png; sourceTree = "<group>"; };
+		D71544B61F6BBF6400480486 /* signup_bg_2048_1536.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = signup_bg_2048_1536.png; path = images/background/signup_bg_2048_1536.png; sourceTree = "<group>"; };
 		D715BB6A1EBE24650097BDA8 /* DatePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatePickerView.swift; path = CustomeControl/DatePickerView.swift; sourceTree = "<group>"; };
 		D715BB6F1EBE54760097BDA8 /* CacheDataRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CacheDataRequest.swift; path = API/CacheDataRequest.swift; sourceTree = "<group>"; };
 		D715BB711EBE550A0097BDA8 /* CacheDataRespModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CacheDataRespModel.swift; path = Model/CacheDataRespModel.swift; sourceTree = "<group>"; };
@@ -737,6 +743,16 @@
 			name = ScanCode;
 			sourceTree = "<group>";
 		};
+		D71544B31F6BBF5700480486 /* background */ = {
+			isa = PBXGroup;
+			children = (
+				D71544B41F6BBF6400480486 /* signup_bg_1080_1920.png */,
+				D71544B51F6BBF6400480486 /* signup_bg_1536_2048.png */,
+				D71544B61F6BBF6400480486 /* signup_bg_2048_1536.png */,
+			);
+			name = background;
+			sourceTree = "<group>";
+		};
 		D71777501F5E95D3009CF656 /* NVActivityIndicatorView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1065,6 +1081,7 @@
 		D7F3D8D21E1B8BCC0018744F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D71544B31F6BBF5700480486 /* background */,
 				D7E40E4D1F57BEA900AB1C33 /* quickaction_icon_add.png */,
 				D7C7A9F81F56781B0037986D /* cross.png */,
 				D7C7A9F91F56781B0037986D /* focus.png */,
@@ -1338,6 +1355,7 @@
 				D791F67C1E234C89009CBBED /* bg_sliding_menu_top.jpg in Resources */,
 				D75F65061E28B3A500A67B3C /* icon58.png in Resources */,
 				D788926E1F551F5F00FB743E /* camera.png in Resources */,
+				D71544B91F6BBF6400480486 /* signup_bg_2048_1536.png in Resources */,
 				D7CED6D21E98CB2E00C2B568 /* OrderEmployeeTableViewCell.xib in Resources */,
 				D75F64E51E28B39100A67B3C /* icon3.png in Resources */,
 				D75F64B71E28B2A900A67B3C /* icon27.png in Resources */,
@@ -1406,6 +1424,7 @@
 				D75F65171E28B3B100A67B3C /* information.png in Resources */,
 				19D74A7F1EE4598F00B7DE47 /* close.png in Resources */,
 				D75F64FB1E28B39100A67B3C /* icon39.png in Resources */,
+				D71544B71F6BBF6400480486 /* signup_bg_1080_1920.png in Resources */,
 				D7D28B741EB9B800006DDF83 /* ic_menu_family.png in Resources */,
 				D75F652D1E28B3C600A67B3C /* upholdRequest.png in Resources */,
 				D70B9F961E3F504400EB66F5 /* icon19.png in Resources */,
@@ -1474,6 +1493,7 @@
 				D75F65201E28B3BC00A67B3C /* mobile.png in Resources */,
 				D75F64EC1E28B39100A67B3C /* icon32-user-iso.png in Resources */,
 				D76AFDA91E26967900E73E1D /* icon45.png in Resources */,
+				D71544B81F6BBF6400480486 /* signup_bg_1536_2048.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

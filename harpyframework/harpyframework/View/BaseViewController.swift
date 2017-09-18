@@ -36,6 +36,8 @@ open class BaseViewController : UIViewController {
     /** Background image path */
     private var backgroundImg: String = ""
     
+    public var backgroundImgView: UIImageView? = nil
+    
     // MARK: Methods
     // MARK: - Override
 //    open override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -111,6 +113,33 @@ open class BaseViewController : UIViewController {
      */
     public func setBackground(bkg: String) {
         self.backgroundImg = bkg
+    }
+    
+    /**
+     * Update Background frame
+     * - parameter size: Size of new frame
+     */
+    public func updateBkgFrame(size: CGSize) {
+        if backgroundImgView != nil {
+            backgroundImgView?.frame = CGRect(x: 0, y: 0,
+                                              width: size.width,
+                                              height: size.height)
+        }
+    }
+    
+    /**
+     * Update background
+     * - parameter bkg: Background image path
+     */
+    public func updateBackground(bkg: String) {
+        // Set background image
+        if !bkg.isEmpty {
+            if backgroundImgView == nil {
+                backgroundImgView = UIImageView(frame: UIScreen.main.bounds)
+                self.view.insertSubview(backgroundImgView!, at: 0)
+            }
+            backgroundImgView?.image = ImageManager.getImage(named: bkg)
+        }
     }
     
     /**
