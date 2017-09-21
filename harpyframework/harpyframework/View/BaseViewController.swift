@@ -37,6 +37,13 @@ open class BaseViewController : UIViewController {
     private var backgroundImg: String = ""
     
     public var backgroundImgView: UIImageView? = nil
+    // MARK: Constant
+    public static var W_RATE_HD    = UIScreen.main.bounds.width / GlobalConst.HD_SCREEN_BOUND.w
+    public static var H_RATE_HD    = UIScreen.main.bounds.height / GlobalConst.HD_SCREEN_BOUND.h
+    public static var W_RATE_FHD   = UIScreen.main.bounds.width / GlobalConst.FULL_HD_SCREEN_BOUND.w
+    public static var H_RATE_FHD   = UIScreen.main.bounds.height / GlobalConst.FULL_HD_SCREEN_BOUND.h
+    public static var W_RATE_FHD_L = UIScreen.main.bounds.width / GlobalConst.FULL_HD_SCREEN_BOUND.h
+    public static var H_RATE_FHD_L = UIScreen.main.bounds.height / GlobalConst.FULL_HD_SCREEN_BOUND.w
     
     // MARK: Methods
     // MARK: - Override
@@ -92,10 +99,15 @@ open class BaseViewController : UIViewController {
             background.image = ImageManager.getImage(named: self.backgroundImg)
             self.view.insertSubview(background, at: 0)
         }
+        self.setBackgroundImage()
+        self.createChildrenViews()
         // Keyboard
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)),
                                                name: .UIKeyboardWillShow,
                                                object: nil)
+        // Handle rotated event
+        NotificationCenter.default.addObserver(self, selector: #selector(rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        self.view.makeComponentsColor()
     }
     
     /**
@@ -116,18 +128,6 @@ open class BaseViewController : UIViewController {
     }
     
     /**
-     * Update Background frame
-     * - parameter size: Size of new frame
-     */
-    public func updateBkgFrame(size: CGSize) {
-        if backgroundImgView != nil {
-            backgroundImgView?.frame = CGRect(x: 0, y: 0,
-                                              width: size.width,
-                                              height: size.height)
-        }
-    }
-    
-    /**
      * Update background
      * - parameter bkg: Background image path
      */
@@ -138,6 +138,9 @@ open class BaseViewController : UIViewController {
                 backgroundImgView = UIImageView(frame: UIScreen.main.bounds)
                 self.view.insertSubview(backgroundImgView!, at: 0)
             }
+            backgroundImgView?.frame = CGRect(x: 0, y: 0,
+                                              width: UIScreen.main.bounds.width,
+                                              height: UIScreen.main.bounds.height)
             backgroundImgView?.image = ImageManager.getImage(named: bkg)
         }
     }
@@ -1056,6 +1059,52 @@ open class BaseViewController : UIViewController {
     }
     //-- BUG0082-SPJ (NguyenPT 20170510) Change BaseRequest handle completion mechanism
     
+    
+    // MARK: Event handler
+    /**
+     * Handle view position when rotated
+     */
+    internal func rotated() {
+        self.updateConst()
+        self.setBackgroundImage()
+        UIView.animate(withDuration: TimeInterval(GlobalConst.ROTATED_TIME_INTERVAL), animations: {
+            self.updateChildrenViews()
+        })
+    }
+    
+    /**
+     * Handle update constants
+     */
+    open func updateConst() {
+        BaseViewController.W_RATE_HD    = UIScreen.main.bounds.width / GlobalConst.HD_SCREEN_BOUND.w
+        BaseViewController.H_RATE_HD    = UIScreen.main.bounds.height / GlobalConst.HD_SCREEN_BOUND.h
+        BaseViewController.W_RATE_FHD   = UIScreen.main.bounds.width / GlobalConst.FULL_HD_SCREEN_BOUND.w
+        BaseViewController.H_RATE_FHD   = UIScreen.main.bounds.height / GlobalConst.FULL_HD_SCREEN_BOUND.h
+        BaseViewController.W_RATE_FHD_L = UIScreen.main.bounds.width / GlobalConst.FULL_HD_SCREEN_BOUND.h
+        BaseViewController.H_RATE_FHD_L = UIScreen.main.bounds.height / GlobalConst.FULL_HD_SCREEN_BOUND.w
+    }
+    
+    /**
+     * Handle set background image
+     */
+    open func setBackgroundImage() {
+    }
+    
+    /**
+     * Create children views
+     */
+    open func createChildrenViews() {
+    }
+    
+    /**
+     * Update children views
+     */
+    open func updateChildrenViews() {
+    }
+    
+    override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     /**
      * Destructor
      */

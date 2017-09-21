@@ -1707,6 +1707,20 @@ public class DomainConst {
     public static let SUM_ICON_IMG_NAME                     = "tongcong.png"
     /** Version image name */
     public static let VERSION_TYPE_ICON_IMG_NAME            = "version.png"
+    /** Version image name */
+    public static let LOGO_LOGIN_ICON_IMG_NAME              = "logo_login.png"
+    /** Version image name */
+    public static let NEXT_BUTTON_ICON_IMG_NAME             = "nextbutton.png"
+    /** Version image name */
+    public static let LOGO_FACEBOOK_ICON_IMG_NAME           = "logo_fb.png"
+    /** Version image name */
+    public static let LOGO_ZALO_ICON_IMG_NAME               = "logo_zalo.png"
+    /** Version image name */
+    public static let CATEGORY_DETAIL_ICON_IMG_NAME         = "categoryDetail.png"
+    /** Version image name */
+    public static let CATEGORY_GAS_ICON_IMG_NAME               = "categoryGAS.png"
+    /** Version image name */
+    public static let CATEGORY_VIP_ICON_IMG_NAME               = "categoryVIP.png"
     /** Login background image [iphone] */
     public static let LOGIN_BKG_IPHONE_IMG_NAME             = "signup_bg_1080_1920.png"
     /** Login background image [ipad] */
@@ -2177,4 +2191,15 @@ public class DomainConst {
     public static let CONTENT00469 = "Điều hướng"
     public static let CONTENT00470 = "Thêm hình từ camera"
     public static let CONTENT00471 = "Thêm hình từ thư viện"
+    public static let CONTENT00472 = "---------- hoặc ----------"
+    public static let CONTENT00473 = "Sử dụng tài khoản Facebook"
+    public static let CONTENT00474 = "Sử dụng tài khoản Zalo"
+    public static let CONTENT00475 = "Nhập mã pin"
+    public static let CONTENT00476 = "Mã pin"
+    public static let CONTENT00477 = "Mã pin vừa được gửi đến số điện thoại"
+    public static let CONTENT00478 = "Vui lòng xem tin nhắn"
+    public static let CONTENT00479 = "và nhập mã pin vào ô bên trên để"
+    public static let CONTENT00480 = "hoàn tất đăng ký sử dụng ứng dụng"
+    public static let CONTENT00481 = "Chưa nhận được mã PIN?"
+    public static let CONTENT00482 = "Gửi lại"
 }

@@ -1,14 +1,14 @@
 //
-//  ChildExtViewController.swift
+//  ParentExtViewController.swift
 //  harpyframework
 //
-//  Created by SPJ on 8/31/17.
+//  Created by SPJ on 9/20/17.
 //  Copyright © 2017 SPJ. All rights reserved.
 //
 
 import UIKit
 
-open class ChildExtViewController: ChildViewController {
+open class ParentExtViewController: ParentViewController {
 
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -25,26 +25,26 @@ open class ChildExtViewController: ChildViewController {
             self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: GlobalConst.BUTTON_COLOR_RED]
         }
     }
+    
     /**
      * Build items on navigation bar for children view
      */
-    public override func setupNavigationBarChildItems() {
-        // Create back button
-        let back = ImageManager.getImage(named: DomainConst.BACK_IMG_NAME)
-        let tintedBack = back?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
-        let btnBack = UIButton()
-        btnBack.setImage(tintedBack, for: UIControlState())
-        btnBack.tintColor = GlobalConst.BUTTON_COLOR_RED
-        btnBack.frame = CGRect(x: 0, y: 0,
-                               width: GlobalConst.MENU_BUTTON_W,
-                               height: GlobalConst.MENU_BUTTON_W)
-        btnBack.setTitle(DomainConst.BLANK, for: UIControlState())
-        btnBack.addTarget(self, action: #selector(backButtonTapped(_:)), for: UIControlEvents.touchUpInside)
-        
-        let backNavBar = UIBarButtonItem()
-        backNavBar.customView = btnBack
-        backNavBar.isEnabled = true
-        self.navigationItem.setLeftBarButton(backNavBar, animated: false)
+    public override func setupNavigationBarParentItems() {
+        // Create menu button
+        let menu                = ImageManager.getImage(named: DomainConst.MENU_IMG_NAME)
+        let tintedImg           = menu?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        let btnMenu = UIButton()
+        btnMenu.setImage(tintedImg, for: UIControlState())
+        btnMenu.tintColor    = GlobalConst.BUTTON_COLOR_RED
+        btnMenu.frame        = CGRect(x: 0, y: 0,
+                                      width: GlobalConst.MENU_BUTTON_W,
+                                      height: GlobalConst.MENU_BUTTON_H)
+        btnMenu.setTitle(DomainConst.BLANK, for: UIControlState())
+        btnMenu.addTarget(self, action: #selector(btnMenuTapped(_:)), for: UIControlEvents.touchUpInside)
+        let menuNavBar          = UIBarButtonItem()
+        menuNavBar.customView   = btnMenu
+        menuNavBar.isEnabled    = true
+        self.navigationItem.setLeftBarButton(menuNavBar, animated: false)
         
         // Notify button
         let btnNotify = UIButton()

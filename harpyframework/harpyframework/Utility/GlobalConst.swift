@@ -84,6 +84,7 @@ public class GlobalConst {
     public static let CONFIGURATION_ITEM_RIGHT_SIZE     : CGFloat = 15.0
     public static let BASE_FONT_SIZE                    : CGFloat = UIFont.systemFontSize
     public static let BASE_FONT                         : UIFont = UIFont.systemFont(ofSize: GlobalConst.BASE_FONT_SIZE)
+    public static let BASE_BOLD_FONT                    : UIFont = UIFont.boldSystemFont(ofSize: GlobalConst.BASE_FONT_SIZE)
     
     
     // ----- Color defines -----
@@ -116,6 +117,8 @@ public class GlobalConst {
     public static var REPORT_PARENT_COLOR           = ColorFromRGB().getColorFromRGB(0x4DA4E7)
     public static var REPORT_PARENT_COLOR_1         = ColorFromRGB().getColorFromRGB(0x92BDDF)
     public static var TEXTVIEW_BORDER_COLOR         = ColorFromRGB().getColorFromRGB(0xCECECE)
+    public static var FACEBOOK_BKG_COLOR            = ColorFromRGB().getColorFromRGB(0x3B5998)
+    public static var ZALO_BKG_COLOR                = ColorFromRGB().getColorFromRGB(0x1987C4)
     //++ BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
     /** Time interval for animation in Step view controller */
     public static let STEP_MOVE_TIME_INTERVAL       = 0.1
@@ -126,4 +129,34 @@ public class GlobalConst {
     public static let ANIMATING_LOADING_WIDTH:      CGFloat = 30
     /** Height of animating loading */
     public static let ANIMATING_LOADING_HEIGHT:     CGFloat = 30
+    /** HD screen bound size */
+    public static let HD_SCREEN_BOUND:          (w: CGFloat, h: CGFloat)    = (1080, 1920)
+    /** Full 10HD screen bound size */
+    public static let FULL_HD_SCREEN_BOUND:     (w: CGFloat, h: CGFloat)    = (1536, 2048)
+    /** Width of Login logo */
+    public static let LOGIN_LOGO_WIDTH:             CGFloat = 625
+    /** Height of Login logo */
+    public static let LOGIN_LOGO_HEIGHT:            CGFloat = 250
+    /** Y position of Login logo */
+    public static let LOGIN_LOGO_Y_POS:             CGFloat = 370
+    /** Y position of Login logo */
+    public static let LOGIN_LOGO_Y_POS_FHD:         CGFloat = 530
+    /** Y position of Login logo */
+    public static let LOGIN_LOGO_Y_POS_FHD_LAND:    CGFloat = 130
+    /** Width of Login textfield */
+    public static let LOGIN_TEXTFIELD_WIDTH:        CGFloat = 860
+    /** Height of Login textfield */
+    public static let LOGIN_TEXTFIELD_HEIGHT:       CGFloat = 135
+    /** Size of Login next button */
+    public static let LOGIN_NEXT_BUTTON_SIZE:       CGFloat = 100
+    /** Butotn corner radius */
+    public static let BUTTON_CORNER_RADIUS_NEW:     CGFloat = 5.0
+    /** Time interval for animation in Step view controller */
+    public static let ROTATED_TIME_INTERVAL:        CGFloat = 0.5
+    /** Width of resend button */
+    public static let RESEND_BUTTON_WIDTH:          CGFloat = 230
+    /** Size of button category */
+    public static let BUTTON_CATEGORY_SIZE_NEW:     CGFloat = 170.0
+    /** Y position of Login logo */
+    public static let ORDER_LABEL_Y_POS:            CGFloat = 555
 }

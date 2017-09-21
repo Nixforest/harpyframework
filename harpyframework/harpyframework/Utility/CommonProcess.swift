@@ -367,4 +367,16 @@ public class CommonProcess {
     public static func generateRandom(min: Int, max: Int) -> Int {
         return Int(arc4random_uniform(UInt32(max - min + 1))) + min
     }
+    
+    /**
+     * Update view position
+     * - parameter view: View need to update
+     * - parameter x: X position
+     * - parameter y: Y position
+     * - parameter w: Width of view
+     * - parameter h: Height of view
+     */
+    public static func updateViewPos(view: UIView, x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat) {
+        view.frame = CGRect(x: x, y: y, width: w, height: h)
+    }
 }

@@ -31,7 +31,8 @@ public class CategoryButton: UIButton {
         super.init(frame: UIScreen.main.bounds)
         self.frame                      = frame
         self.accessibilityIdentifier    = id
-        self.backgroundColor            = UIColor.white
+//        self.backgroundColor            = UIColor.white
+        self.backgroundColor            = UIColor(white: 0, alpha: 0.0)
         self.titleLabel?.font           = UIFont.systemFont(ofSize: GlobalConst.SMALL_FONT_SIZE)
         self.setTitle(title, for: UIControlState())
         self.setTitleColor(UIColor.darkText, for: UIControlState.normal)
