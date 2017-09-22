@@ -1726,17 +1726,21 @@ public class DomainConst {
     /** Version image name */
     public static let CATEGORY_DETAIL_ICON_IMG_NAME         = "categoryDetail.png"
     /** Version image name */
-    public static let CATEGORY_GAS_ICON_IMG_NAME               = "categoryGAS.png"
+    public static let CATEGORY_GAS_ICON_IMG_NAME            = "categoryGAS.png"
     /** Version image name */
-    public static let CATEGORY_VIP_ICON_IMG_NAME               = "categoryVIP.png"
+    public static let CATEGORY_VIP_ICON_IMG_NAME            = "categoryVIP.png"
     /** Version image name */
-    public static let ORDER_BUTTON_ICON_IMG_NAME               = "orderbtn.png"
+    public static let ORDER_BUTTON_ICON_IMG_NAME            = "orderbtn.png"
     /** Version image name */
-    public static let SUPPORT_BUTTON_ICON_IMG_NAME               = "supportbtn.png"
+    public static let SUPPORT_BUTTON_ICON_IMG_NAME          = "supportbtn.png"
     /** Version image name */
-    public static let PROMOTE_BUTTON_ICON_IMG_NAME               = "promoteBtn.png"
+    public static let PROMOTE_BUTTON_ICON_IMG_NAME          = "promoteBtn.png"
     /** Version image name */
-    public static let GAS_BUTTON_ICON_IMG_NAME               = "gasbtn.png"
+    public static let GAS_BUTTON_ICON_IMG_NAME              = "gasbtn.png"
+    /** Version image name */
+    public static let PROCESSING_BUTTON_ICON_IMG_NAME       = "processingbtn.png"
+    /** Version image name */
+    public static let CANCEL_ORDER_BUTTON_ICON_IMG_NAME     = "cancelOrderbtn.png"
     /** Login background image [iphone] */
     public static let LOGIN_BKG_IPHONE_IMG_NAME             = "signup_bg_1080_1920.png"
     /** Login background image [ipad] */
@@ -2222,4 +2226,10 @@ public class DomainConst {
     public static let CONTENT00484 = "Hỗ trợ"
     public static let CONTENT00485 = "Chọn gas"
     public static let CONTENT00486 = "Chọn quà"
+    public static let CONTENT00487 = "Đơn hàng của bạn đang được xử lý"
+    public static let CONTENT00488 = "vui lòng chờ trong giây lát..."
+    public static let CONTENT00489 = "Đơn hàng hoàn tất!"
+    public static let CONTENT00490 = "Chạm vào biểu tượng để xem hoá đơn."
+    public static let CONTENT00491 = "Cám ơn Quý Khách"
+    public static let CONTENT00492 = "Giới thiệu người thân cài đặt ứng dụng, NHẬN MÃ GIẢM GIÁ"
 }

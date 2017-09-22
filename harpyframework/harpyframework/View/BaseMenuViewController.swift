@@ -305,7 +305,10 @@ open class BaseMenuViewController : UIViewController {
             currentView.pushToViewAndClearData(name: DomainConst.G00_CONFIGURATION_VIEW_CTRL)
             break
         case DomainConst.G00_LOGIN_VIEW_CTRL:               // Login menu
-            currentView.pushToView(name: DomainConst.G00_LOGIN_VIEW_CTRL)
+            //++ BUG0156-SPJ (NguyenPT 20170922) Re-design Gas24h
+            //currentView.pushToView(name: DomainConst.G00_LOGIN_VIEW_CTRL)
+            openLogin()
+            //-- BUG0156-SPJ (NguyenPT 20170922) Re-design Gas24h
             break
         case DomainConst.NOTIFY_NAME_LOGOUT_ITEM:           // Logout menu
             LogoutRequest.requestLogout(action: #selector(currentView.finishRequestLogout), view: currentView)
@@ -572,4 +575,12 @@ open class BaseMenuViewController : UIViewController {
         return iconPath
     }
     //-- BUG0121-SPJ (NguyenPT 20170712) Add menu to Home
+    //++ BUG0156-SPJ (NguyenPT 20170922) Re-design Gas24h
+    /**
+     * Handle open login view
+     */
+    open func openLogin() {
+        
+    }
+    //-- BUG0156-SPJ (NguyenPT 20170922) Re-design Gas24h
 }

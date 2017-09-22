@@ -143,7 +143,7 @@ public class GlobalConst {
     public static let LOGIN_LOGO_Y_POS_FHD:         CGFloat = 530
     /** Y position of Login logo */
     public static let LOGIN_LOGO_Y_POS_FHD_LAND:    CGFloat = 130
-    /** Width of Login textfield */
+    /** Width of Logi       n textfield */
     public static let LOGIN_TEXTFIELD_WIDTH:        CGFloat = 860
     /** Height of Login textfield */
     public static let LOGIN_TEXTFIELD_HEIGHT:       CGFloat = 135
@@ -163,4 +163,6 @@ public class GlobalConst {
     public static let ORDER_BUTTON_SIZE:            CGFloat = 250
     /** Size of button action */
     public static let BUTTON_ACTION_SIZE:           CGFloat = 250
+    /** Width of Cancel order button */
+    public static let BUTTON_CANCEL_ORDER_WIDTH:    CGFloat = 600
 }

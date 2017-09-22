@@ -335,6 +335,8 @@
 		D7E014AD1E348039001F26B6 /* MaterialSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E014AB1E348039001F26B6 /* MaterialSelectionCell.swift */; };
 		D7E014AE1E348039001F26B6 /* MaterialSelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7E014AC1E348039001F26B6 /* MaterialSelectionCell.xib */; };
 		D7E014B01E348CCE001F26B6 /* icon12.png in Resources */ = {isa = PBXBuildFile; fileRef = D7E014AF1E348CCE001F26B6 /* icon12.png */; };
+		D7E298FC1F74A3E80078C46C /* processingbtn.png in Resources */ = {isa = PBXBuildFile; fileRef = D7E298FB1F74A3E80078C46C /* processingbtn.png */; };
+		D7E298FE1F74B5260078C46C /* cancelOrderbtn.png in Resources */ = {isa = PBXBuildFile; fileRef = D7E298FD1F74B5260078C46C /* cancelOrderbtn.png */; };
 		D7E307311F72B74A0065F2E1 /* ParentExtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E307301F72B74A0065F2E1 /* ParentExtViewController.swift */; };
 		D7E40E491F57BE5D00AB1C33 /* CIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E40E451F57BE5D00AB1C33 /* CIColorExtension.swift */; };
 		D7E40E4A1F57BE5D00AB1C33 /* CIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E40E461F57BE5D00AB1C33 /* CIImageExtension.swift */; };
@@ -708,6 +710,8 @@
 		D7E014AB1E348039001F26B6 /* MaterialSelectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MaterialSelectionCell.swift; path = CustomeControl/MaterialSelectionCell.swift; sourceTree = "<group>"; };
 		D7E014AC1E348039001F26B6 /* MaterialSelectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MaterialSelectionCell.xib; path = CustomeControl/MaterialSelectionCell.xib; sourceTree = "<group>"; };
 		D7E014AF1E348CCE001F26B6 /* icon12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon12.png; path = images/icon12.png; sourceTree = "<group>"; };
+		D7E298FB1F74A3E80078C46C /* processingbtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = processingbtn.png; path = images/processingbtn.png; sourceTree = "<group>"; };
+		D7E298FD1F74B5260078C46C /* cancelOrderbtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cancelOrderbtn.png; path = images/cancelOrderbtn.png; sourceTree = "<group>"; };
 		D7E307301F72B74A0065F2E1 /* ParentExtViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParentExtViewController.swift; path = View/Version2/ParentExtViewController.swift; sourceTree = "<group>"; };
 		D7E40E451F57BE5D00AB1C33 /* CIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CIColorExtension.swift; path = CustomeControl/QRCode/CIColorExtension.swift; sourceTree = "<group>"; };
 		D7E40E461F57BE5D00AB1C33 /* CIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CIImageExtension.swift; path = CustomeControl/QRCode/CIImageExtension.swift; sourceTree = "<group>"; };
@@ -1109,6 +1113,8 @@
 		D7F3D8D21E1B8BCC0018744F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D7E298FD1F74B5260078C46C /* cancelOrderbtn.png */,
+				D7E298FB1F74A3E80078C46C /* processingbtn.png */,
 				D74841D91F743D3700AE79D0 /* gasbtn.png */,
 				D74841D71F743CAC00AE79D0 /* promoteBtn.png */,
 				D72134DC1F7414500025E42B /* supportbtn.png */,
@@ -1428,6 +1434,7 @@
 				D7767C621EADAF4900D8FDA9 /* default-thumbnail.jpg in Resources */,
 				D7AB904F1E23FBC20048AC4F /* SearchBarTableViewCell.xib in Resources */,
 				D75F65151E28B3B100A67B3C /* icon63.png in Resources */,
+				D7E298FE1F74B5260078C46C /* cancelOrderbtn.png in Resources */,
 				D75F65161E28B3B100A67B3C /* icon64.png in Resources */,
 				D75F65081E28B3A500A67B3C /* logout.png in Resources */,
 				D7029F911F3871B20081797B /* loaithekho.png in Resources */,
@@ -1464,6 +1471,7 @@
 				D7029F931F3871B20081797B /* save.png in Resources */,
 				D71C047F1EE6A31C00563469 /* icon40.png in Resources */,
 				D791F6941E23688F009CBBED /* register.png in Resources */,
+				D7E298FC1F74A3E80078C46C /* processingbtn.png in Resources */,
 				D7E40E4E1F57BEA900AB1C33 /* quickaction_icon_add.png in Resources */,
 				D75F65041E28B3A500A67B3C /* icon55.png in Resources */,
 				D7C30A441E307C1600B3FDA6 /* logo_agent.png in Resources */,
