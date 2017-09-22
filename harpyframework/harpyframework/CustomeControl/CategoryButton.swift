@@ -57,11 +57,14 @@ public class CategoryButton: UIButton {
      * - parameter font:        Font of button
      */
     public init(frame: CGRect, icon: String, iconActive: String,
-                title: String, id: String, font: CGFloat) {
+                title: String, id: String, font: CGFloat, isUpperText: Bool = false) {
         super.init(frame: UIScreen.main.bounds)
         self.frame                      = frame
         self.accessibilityIdentifier    = id
-        self.backgroundColor            = UIColor.white
+        //++ BUG0156-SPJ (NguyenPT 20170921) Re-design Gas24h
+//        self.backgroundColor            = UIColor.white
+        self.backgroundColor            = UIColor(white: 0, alpha: 0.0)
+        //-- BUG0156-SPJ (NguyenPT 20170921) Re-design Gas24h
         self.titleLabel?.font           = UIFont.systemFont(ofSize: font)
         self.setTitle(title, for: UIControlState())
         self.setTitleColor(UIColor.darkText, for: UIControlState.normal)
@@ -72,7 +75,14 @@ public class CategoryButton: UIButton {
         handleImage(icon: icon, iconActive: iconActive)
         //-- BUG0127-SPJ (NguyenPT 20170724) Uphold rating: merge to 1 step
         self.imageView?.contentMode = .scaleAspectFit
-        self.centerVerticallyRect()
+        //++ BUG0156-SPJ (NguyenPT 20170921) Re-design Gas24h
+//        self.centerVerticallyRect()
+        if isUpperText {
+            self.centerVerticallyRectTextUpper()
+        } else {
+            self.centerVerticallyRect()
+        }
+        //-- BUG0156-SPJ (NguyenPT 20170921) Re-design Gas24h
         self.makeComponentsColor()
     }
     

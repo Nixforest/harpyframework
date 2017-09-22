@@ -956,6 +956,14 @@ public class DomainConst {
     public static let CATEGORY_TYPE_ORDER_VIP           = "4"
     /** Category type: Uphold */
     public static let CATEGORY_TYPE_UPHOLD              = "5"
+    /** Category type: Uphold */
+    public static let ACTION_TYPE_SELECT_GAS            = "6"
+    /** Category type: Uphold */
+    public static let ACTION_TYPE_SELECT_PROMOTE        = "7"
+    /** Category type: Uphold */
+    public static let ACTION_TYPE_SUPPORT               = "8"
+    /** Category type: Uphold */
+    public static let ACTION_TYPE_NONE                  = "9999"
     /** Employee information id: Phone */
     public static let EMPLOYEE_INFO_PHONE_ID            = "1"
     /** Employee information id: Code */
@@ -1721,6 +1729,14 @@ public class DomainConst {
     public static let CATEGORY_GAS_ICON_IMG_NAME               = "categoryGAS.png"
     /** Version image name */
     public static let CATEGORY_VIP_ICON_IMG_NAME               = "categoryVIP.png"
+    /** Version image name */
+    public static let ORDER_BUTTON_ICON_IMG_NAME               = "orderbtn.png"
+    /** Version image name */
+    public static let SUPPORT_BUTTON_ICON_IMG_NAME               = "supportbtn.png"
+    /** Version image name */
+    public static let PROMOTE_BUTTON_ICON_IMG_NAME               = "promoteBtn.png"
+    /** Version image name */
+    public static let GAS_BUTTON_ICON_IMG_NAME               = "gasbtn.png"
     /** Login background image [iphone] */
     public static let LOGIN_BKG_IPHONE_IMG_NAME             = "signup_bg_1080_1920.png"
     /** Login background image [ipad] */
@@ -2202,4 +2218,8 @@ public class DomainConst {
     public static let CONTENT00480 = "hoàn tất đăng ký sử dụng ứng dụng"
     public static let CONTENT00481 = "Chưa nhận được mã PIN?"
     public static let CONTENT00482 = "Gửi lại"
+    public static let CONTENT00483 = "Chạm vào biểu tượng để đặt gas"
+    public static let CONTENT00484 = "Hỗ trợ"
+    public static let CONTENT00485 = "Chọn gas"
+    public static let CONTENT00486 = "Chọn quà"
 }

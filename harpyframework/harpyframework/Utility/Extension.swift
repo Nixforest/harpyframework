@@ -538,30 +538,79 @@ extension UIButton {
     public func centerVerticallyRect() {
         // Get original image size and title size
         let imgSize = self.imageView?.frame
-        let lblSize = self.titleLabel?.frame.size
-        let btnSize: CGFloat = self.frame.width
+        let titleOriginSize = self.titleLabel?.frame.size
+        let btnWidth: CGFloat = self.frame.width
         let btnHeight: CGFloat = self.frame.height
         // Resize image and put at specific location
         self.imageEdgeInsets = UIEdgeInsets(top: 0.0,
-                                            left: (btnSize - btnHeight / 2) / 2,
+//                                            left: (btnWidth - btnHeight / 2) / 2,
+                                            left: (btnWidth - (imgSize?.width)!) / 2,
                                             bottom: btnHeight / 2,
-                                            right: (btnSize - btnHeight / 2) / 2)
+                                            right: (btnWidth - (imgSize?.width)!) / 2)
+//                                            right: (btnWidth - btnHeight / 2) / 2)
         // Get natural width of title label
-        let width       = self.titleLabel?.text?.widthOfString(usingFont: (self.titleLabel?.font)!)
+        let titleRealWidth       = self.titleLabel?.text?.widthOfString(usingFont: (self.titleLabel?.font)!)
         // Calculate left distance want to move
-        var deltaLeft   = (btnSize - width! - (lblSize?.width)!) / 2
+//        var deltaLeft   = (btnWidth - titleRealWidth! - (titleOriginSize?.width)!) / 2
+        var deltaLeft: CGFloat    = 0.0
         // Calculate right distance want to move
         var deltaRight: CGFloat = 0.0
-        if width! > btnSize {
-            deltaLeft   = (width! - btnSize + (lblSize?.width)!)
-            deltaRight  = (btnSize - width!)
+        if titleRealWidth! >= btnWidth {
+            if UIDevice.current.userInterfaceIdiom == .phone {
+                deltaLeft   = (titleRealWidth! - btnWidth + (titleOriginSize?.width)!)
+            } else {
+                deltaLeft   = (titleRealWidth! - btnWidth)
+            }
+//            deltaRight  = (btnWidth - titleRealWidth!)
+            deltaRight  = (btnWidth - titleRealWidth!)
         }
         
         // Resize title and put at specific location
         self.titleEdgeInsets = UIEdgeInsets(top: btnHeight / 2,
-                                            left: deltaLeft - (imgSize?.maxX)!,
+//                                            left: deltaLeft - (imgSize?.maxX)!,
+                                            left: -(imgSize?.maxX)! - deltaLeft,
                                             bottom: 0.0,
                                             right: deltaRight)
+//                                            right: deltaLeft)
+        self.titleLabel?.sizeToFit()
+    }
+    
+    public func centerVerticallyRectTextUpper() {
+        // Get original image size and title size
+        let imgSize = self.imageView?.frame
+        let titleOriginSize = self.titleLabel?.frame.size
+        let btnWidth: CGFloat = self.frame.width
+        let btnHeight: CGFloat = self.frame.height
+        // Get natural width of title label
+        let titleRealWidth  = self.titleLabel?.text?.widthOfString(usingFont: (self.titleLabel?.font)!)
+        // Calculate left distance want to move
+        var deltaLeft: CGFloat    = 0.0
+        // Calculate right distance want to move
+        var deltaRight: CGFloat = 0.0
+        if titleRealWidth! >= btnWidth {
+            if UIDevice.current.userInterfaceIdiom == .phone {
+                deltaLeft   = (titleRealWidth! - btnWidth + (titleOriginSize?.width)!)
+            } else {
+                deltaLeft   = (titleRealWidth! - btnWidth)
+            }
+            //            deltaRight  = (btnWidth - titleRealWidth!)
+            deltaRight  = (btnWidth - titleRealWidth!)
+        } else {
+            deltaLeft   = (btnWidth - titleRealWidth! - (titleOriginSize?.width)!) / 2
+        }
+        
+        // Resize title and put at specific location
+        self.titleEdgeInsets = UIEdgeInsets(top: -btnHeight / 2,
+                                            left: (btnWidth)/2,
+                                            bottom: (btnHeight / 2 - (titleOriginSize?.height)!),
+                                            right: 0.0)
+        // Resize image and put at specific location
+//        self.imageEdgeInsets = UIEdgeInsets(top: (self.titleLabel?.frame.maxY)! / 2,
+        self.imageEdgeInsets = UIEdgeInsets(top: (self.titleLabel?.frame.maxY)! / 2,
+                                            left: (btnWidth - (imgSize?.width)!) / 2,
+                                            bottom: 0.0,
+                                            right: (btnWidth - (imgSize?.width)!) / 2)
+        self.titleLabel?.sizeToFit()
     }
 }
 

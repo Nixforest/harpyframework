@@ -159,4 +159,8 @@ public class GlobalConst {
     public static let BUTTON_CATEGORY_SIZE_NEW:     CGFloat = 170.0
     /** Y position of Login logo */
     public static let ORDER_LABEL_Y_POS:            CGFloat = 555
+    /** Size of Order button */
+    public static let ORDER_BUTTON_SIZE:            CGFloat = 250
+    /** Size of button action */
+    public static let BUTTON_ACTION_SIZE:           CGFloat = 250
 }
