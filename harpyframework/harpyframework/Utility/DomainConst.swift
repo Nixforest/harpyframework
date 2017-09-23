@@ -1741,6 +1741,12 @@ public class DomainConst {
     public static let PROCESSING_BUTTON_ICON_IMG_NAME       = "processingbtn.png"
     /** Version image name */
     public static let CANCEL_ORDER_BUTTON_ICON_IMG_NAME     = "cancelOrderbtn.png"
+    /** Version image name */
+    public static let SOURCE_MARKER_IMG_NAME                = "sourceMarker.png"
+    /** Version image name */
+    public static let DESTINATION_MARKER_IMG_NAME           = "destinationMarker.png"
+    /** Version image name */
+    public static let COLLAPSE_BUTTON_ICON_IMG_NAME         = "collapseBtn.png"
     /** Login background image [iphone] */
     public static let LOGIN_BKG_IPHONE_IMG_NAME             = "signup_bg_1080_1920.png"
     /** Login background image [ipad] */
@@ -2232,4 +2238,5 @@ public class DomainConst {
     public static let CONTENT00490 = "Chạm vào biểu tượng để xem hoá đơn."
     public static let CONTENT00491 = "Cám ơn Quý Khách"
     public static let CONTENT00492 = "Giới thiệu người thân cài đặt ứng dụng, NHẬN MÃ GIẢM GIÁ"
+    public static let CONTENT00493 = "Nhân viên giao gas"
 }

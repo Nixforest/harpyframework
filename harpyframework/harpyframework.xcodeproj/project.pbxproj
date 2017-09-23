@@ -337,6 +337,9 @@
 		D7E014B01E348CCE001F26B6 /* icon12.png in Resources */ = {isa = PBXBuildFile; fileRef = D7E014AF1E348CCE001F26B6 /* icon12.png */; };
 		D7E298FC1F74A3E80078C46C /* processingbtn.png in Resources */ = {isa = PBXBuildFile; fileRef = D7E298FB1F74A3E80078C46C /* processingbtn.png */; };
 		D7E298FE1F74B5260078C46C /* cancelOrderbtn.png in Resources */ = {isa = PBXBuildFile; fileRef = D7E298FD1F74B5260078C46C /* cancelOrderbtn.png */; };
+		D7E2990C1F75210A0078C46C /* destinationMarker.png in Resources */ = {isa = PBXBuildFile; fileRef = D7E2990A1F75210A0078C46C /* destinationMarker.png */; };
+		D7E2990D1F75210A0078C46C /* sourceMarker.png in Resources */ = {isa = PBXBuildFile; fileRef = D7E2990B1F75210A0078C46C /* sourceMarker.png */; };
+		D7E2990F1F7544F40078C46C /* collapseBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = D7E2990E1F7544F30078C46C /* collapseBtn.png */; };
 		D7E307311F72B74A0065F2E1 /* ParentExtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E307301F72B74A0065F2E1 /* ParentExtViewController.swift */; };
 		D7E40E491F57BE5D00AB1C33 /* CIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E40E451F57BE5D00AB1C33 /* CIColorExtension.swift */; };
 		D7E40E4A1F57BE5D00AB1C33 /* CIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E40E461F57BE5D00AB1C33 /* CIImageExtension.swift */; };
@@ -712,6 +715,9 @@
 		D7E014AF1E348CCE001F26B6 /* icon12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon12.png; path = images/icon12.png; sourceTree = "<group>"; };
 		D7E298FB1F74A3E80078C46C /* processingbtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = processingbtn.png; path = images/processingbtn.png; sourceTree = "<group>"; };
 		D7E298FD1F74B5260078C46C /* cancelOrderbtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cancelOrderbtn.png; path = images/cancelOrderbtn.png; sourceTree = "<group>"; };
+		D7E2990A1F75210A0078C46C /* destinationMarker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = destinationMarker.png; path = images/destinationMarker.png; sourceTree = "<group>"; };
+		D7E2990B1F75210A0078C46C /* sourceMarker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sourceMarker.png; path = images/sourceMarker.png; sourceTree = "<group>"; };
+		D7E2990E1F7544F30078C46C /* collapseBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = collapseBtn.png; path = images/collapseBtn.png; sourceTree = "<group>"; };
 		D7E307301F72B74A0065F2E1 /* ParentExtViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParentExtViewController.swift; path = View/Version2/ParentExtViewController.swift; sourceTree = "<group>"; };
 		D7E40E451F57BE5D00AB1C33 /* CIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CIColorExtension.swift; path = CustomeControl/QRCode/CIColorExtension.swift; sourceTree = "<group>"; };
 		D7E40E461F57BE5D00AB1C33 /* CIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CIImageExtension.swift; path = CustomeControl/QRCode/CIImageExtension.swift; sourceTree = "<group>"; };
@@ -1113,6 +1119,9 @@
 		D7F3D8D21E1B8BCC0018744F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D7E2990E1F7544F30078C46C /* collapseBtn.png */,
+				D7E2990A1F75210A0078C46C /* destinationMarker.png */,
+				D7E2990B1F75210A0078C46C /* sourceMarker.png */,
 				D7E298FD1F74B5260078C46C /* cancelOrderbtn.png */,
 				D7E298FB1F74A3E80078C46C /* processingbtn.png */,
 				D74841D91F743D3700AE79D0 /* gasbtn.png */,
@@ -1392,6 +1401,7 @@
 				D7AF28111E58B8D600AFF9D6 /* icon67.png in Resources */,
 				D75F65071E28B3A500A67B3C /* loginMenu.png in Resources */,
 				D75F652A1E28B3C600A67B3C /* ServiceRating.jpeg in Resources */,
+				D7E2990D1F75210A0078C46C /* sourceMarker.png in Resources */,
 				D75F64B61E28B2A900A67B3C /* icon25.png in Resources */,
 				D791F6A81E2378C0009CBBED /* icon49.png in Resources */,
 				D7D28B781EB9B8DD006DDF83 /* ic_menu_cash_book.png in Resources */,
@@ -1429,6 +1439,7 @@
 				D791F67B1E234C89009CBBED /* bg_sliding_menu_body.jpg in Resources */,
 				D75F64AE1E28657900A67B3C /* icon53.png in Resources */,
 				D75F64E71E28B39100A67B3C /* icon4-ios.png in Resources */,
+				D7E2990F1F7544F40078C46C /* collapseBtn.png in Resources */,
 				D7029F961F3871B20081797B /* themvattu.png in Resources */,
 				D75F64DD1E28B39100A67B3C /* config.png in Resources */,
 				D7767C621EADAF4900D8FDA9 /* default-thumbnail.jpg in Resources */,
@@ -1549,6 +1560,7 @@
 				D791F6A41E237595009CBBED /* icon46.png in Resources */,
 				D75F650A1E28B3A500A67B3C /* menu.png in Resources */,
 				D75F65201E28B3BC00A67B3C /* mobile.png in Resources */,
+				D7E2990C1F75210A0078C46C /* destinationMarker.png in Resources */,
 				D75F64EC1E28B39100A67B3C /* icon32-user-iso.png in Resources */,
 				D76AFDA91E26967900E73E1D /* icon45.png in Resources */,
 				D71544B81F6BBF6400480486 /* signup_bg_1536_2048.png in Resources */,

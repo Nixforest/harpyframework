@@ -165,4 +165,6 @@ public class GlobalConst {
     public static let BUTTON_ACTION_SIZE:           CGFloat = 250
     /** Width of Cancel order button */
     public static let BUTTON_CANCEL_ORDER_WIDTH:    CGFloat = 600
+    /** Height of delivery map top view */
+    public static let DELIVERY_MAP_TOP_VIEW_HEIGHT: CGFloat = 335
 }
