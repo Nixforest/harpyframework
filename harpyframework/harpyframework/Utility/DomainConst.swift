@@ -1747,6 +1747,16 @@ public class DomainConst {
     public static let DESTINATION_MARKER_IMG_NAME           = "destinationMarker.png"
     /** Version image name */
     public static let COLLAPSE_BUTTON_ICON_IMG_NAME         = "collapseBtn.png"
+    /** Version image name */
+    public static let CHAT_BUTTON_ICON_IMG_NAME             = "chatbtn.png"
+    /** Version image name */
+    public static let PHONE_BUTTON_ICON_IMG_NAME            = "phonebtn.png"
+    /** Version image name */
+    public static let EDIT_BUTTON_ICON_IMG_NAME             = "editbtn.png"
+    /** Menu backgroud body image name */
+    public static let MENU_BKG_BODY_NEW_IMG_NAME                = "bg_sliding_menu_body_new.png"
+    /** Menu backgroud top image name */
+    public static let MENU_BKG_TOP_NEW_IMG_NAME                 = "bg_sliding_menu_top_new.png"
     /** Login background image [iphone] */
     public static let LOGIN_BKG_IPHONE_IMG_NAME             = "signup_bg_1080_1920.png"
     /** Login background image [ipad] */

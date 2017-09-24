@@ -745,8 +745,18 @@ open class BaseViewController : UIViewController {
      * - returns: Height of status bar + navigation bar
      */
     open func getTopHeight() -> CGFloat {
-        return (self.navigationController!.navigationBar.frame.size.height
-            + UIApplication.shared.statusBarFrame.size.height)
+        //++ BUG0156-SPJ (NguyenPT 20170924) Re-design Gas24h
+//        return (self.navigationController!.navigationBar.frame.size.height
+//            + UIApplication.shared.statusBarFrame.size.height)
+        var retVal = UIApplication.shared.statusBarFrame.size.height
+        if let navigation = self.navigationController {
+            retVal += navigation.navigationBar.frame.size.height
+        } else {
+            retVal += 64.0
+        }
+        
+        return retVal
+        //++ BUG0156-SPJ (NguyenPT 20170924) Re-design Gas24h
     }
     
     /**

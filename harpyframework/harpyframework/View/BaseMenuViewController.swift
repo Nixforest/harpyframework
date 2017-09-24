@@ -7,7 +7,7 @@
 //
 
 import Foundation
-open class BaseMenuViewController : UIViewController {
+open class BaseMenuViewController : BaseViewController {
     // MARK: Properties
     //++ BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
     /** Menu item tapped delegate */
@@ -15,11 +15,96 @@ open class BaseMenuViewController : UIViewController {
     //-- BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
     /** List menu flag */
     var listMenu: [Bool] = []
+    /** Top part height */
+    var topHeight:      CGFloat = GlobalConst.LOGIN_LOGO_H * 3 / 2
     
     /** Scroll view */
     var _scrollView: UIScrollView   = UIScrollView()
     
     // MARK: Methods
+    /**
+     * View will appear
+     */
+    override open func viewWillAppear(_ animated: Bool) {
+        self.update()
+    }
+    //-- BUG0048-SPJ (NguyenPT 20170309) Create slide menu
+    
+    /**
+     * View did load
+     */
+    override open func viewDidLoad() {
+        // Background
+//        self.view.layer.contents = ImageManager.getImage(named: DomainConst.MENU_BKG_BODY_IMG_NAME)?.cgImage
+        createBackground()
+        
+        // Setting top image
+//        let topImg: UIImageView = UIImageView()
+//        topImg.image = ImageManager.getImage(named: DomainConst.MENU_BKG_TOP_IMG_NAME)
+//        topImg.frame = CGRect(x: 0,
+//                               y: 0,
+//                               width: GlobalConst.POPOVER_WIDTH,
+//                               height: GlobalConst.LOGIN_LOGO_H * 3 / 2)
+//        topImg.contentMode = .scaleToFill
+//        topImg.translatesAutoresizingMaskIntoConstraints = true
+//        self.view.addSubview(topImg)
+//        // Setting logo
+//        let imgLogo: UIImageView = UIImageView()
+//        imgLogo.image = ImageManager.getImage(named: BaseModel.shared.getMainLogo())
+//        imgLogo.frame = CGRect(x: GlobalConst.MARGIN,
+//                               y: GlobalConst.MARGIN,
+//                               width: GlobalConst.POPOVER_WIDTH - GlobalConst.MARGIN * 2,
+//                               height: GlobalConst.LOGIN_LOGO_H)
+//        imgLogo.contentMode = .scaleAspectFit
+//        imgLogo.translatesAutoresizingMaskIntoConstraints = true
+//        self.view.addSubview(imgLogo)
+        createTopPart()
+        self.preferredContentSize = CGSize(width: GlobalConst.POPOVER_WIDTH, height: GlobalConst.SCREEN_HEIGHT)
+        
+    }
+    
+    // MARK: Methods
+    /**
+     * Create background
+     */
+    open func createBackground() {
+        self.view.layer.contents = ImageManager.getImage(named: DomainConst.MENU_BKG_BODY_IMG_NAME)?.cgImage
+    }
+    
+    /**
+     * Create top image of menu
+     * - returns: Offset
+     */
+    open func createTopPart() {
+        // Setting top image
+        createTopView(topImgPath: DomainConst.MENU_BKG_TOP_IMG_NAME)
+        // Setting logo
+        createTopLogo(logo: BaseModel.shared.getMainLogo())
+    }
+    
+    public func createTopView(topImgPath: String) {
+        let topImg: UIImageView = UIImageView()
+        topImg.image = ImageManager.getImage(named: topImgPath)
+        topImg.frame = CGRect(x: 0,
+                              y: 0,
+                              width: GlobalConst.POPOVER_WIDTH,
+                              height: GlobalConst.LOGIN_LOGO_H * 3 / 2)
+        topImg.contentMode = .scaleToFill
+        topImg.translatesAutoresizingMaskIntoConstraints = true
+        self.view.addSubview(topImg)
+    }
+    
+    public func createTopLogo(logo: String) {
+        let imgLogo: UIImageView = UIImageView()
+        imgLogo.image = ImageManager.getImage(named: logo)
+        imgLogo.frame = CGRect(x: GlobalConst.MARGIN,
+                               y: GlobalConst.MARGIN,
+                               width: GlobalConst.POPOVER_WIDTH - GlobalConst.MARGIN * 2,
+                               height: GlobalConst.LOGIN_LOGO_H)
+        imgLogo.contentMode = .scaleAspectFit
+        imgLogo.translatesAutoresizingMaskIntoConstraints = true
+        self.view.addSubview(imgLogo)
+    }
     //++ BUG0048-SPJ (NguyenPT 20170309) Create slide menu
     /**
      * Update layout of menu
@@ -47,46 +132,6 @@ open class BaseMenuViewController : UIViewController {
         self.view.setNeedsDisplay()
     }
     
-    /**
-     * View will appear
-     */
-    override open func viewWillAppear(_ animated: Bool) {
-        self.update()
-    }
-    //-- BUG0048-SPJ (NguyenPT 20170309) Create slide menu
-    
-    /**
-     * View did load
-     */
-    override open func viewDidLoad() {
-        // Background
-        self.view.layer.contents = ImageManager.getImage(named: DomainConst.MENU_BKG_BODY_IMG_NAME)?.cgImage
-        
-        // Setting top image
-        let topImg: UIImageView = UIImageView()
-        topImg.image = ImageManager.getImage(named: DomainConst.MENU_BKG_TOP_IMG_NAME)
-        topImg.frame = CGRect(x: 0,
-                               y: 0,
-                               width: GlobalConst.POPOVER_WIDTH,
-                               height: GlobalConst.LOGIN_LOGO_H * 3 / 2)
-        topImg.contentMode = .scaleToFill
-        topImg.translatesAutoresizingMaskIntoConstraints = true
-        self.view.addSubview(topImg)
-        // Setting logo
-        let imgLogo: UIImageView = UIImageView()
-        imgLogo.image = ImageManager.getImage(named: BaseModel.shared.getMainLogo())
-        imgLogo.frame = CGRect(x: GlobalConst.MARGIN,
-                               y: GlobalConst.MARGIN,
-                               width: GlobalConst.POPOVER_WIDTH - GlobalConst.MARGIN * 2,
-                               height: GlobalConst.LOGIN_LOGO_H)
-        imgLogo.contentMode = .scaleAspectFit
-        imgLogo.translatesAutoresizingMaskIntoConstraints = true
-        self.view.addSubview(imgLogo)
-        self.preferredContentSize = CGSize(width: GlobalConst.POPOVER_WIDTH, height: GlobalConst.SCREEN_HEIGHT)
-        
-    }
-    
-    // MARK: Methods
     /**
      * Set menu item flag values
      * - parameter listValues: List of values
@@ -118,9 +163,11 @@ open class BaseMenuViewController : UIViewController {
         _scrollView.translatesAutoresizingMaskIntoConstraints = true
         _scrollView.frame = CGRect(
             x: 0,
-            y: GlobalConst.LOGIN_LOGO_H * 3 / 2,
+//            y: GlobalConst.LOGIN_LOGO_H * 3 / 2,
+            y: topHeight,
             width: GlobalConst.POPOVER_WIDTH,
-            height: self.preferredContentSize.height - GlobalConst.LOGIN_LOGO_H * 3 / 2)
+//            height: self.preferredContentSize.height - GlobalConst.LOGIN_LOGO_H * 3 / 2)
+            height: self.preferredContentSize.height - topHeight)
         
         // Dynamic menu
         if listMenu[MenuItemEnum.DYNAMIC_MENU_LIST.hashValue] {
@@ -581,6 +628,21 @@ open class BaseMenuViewController : UIViewController {
      */
     open func openLogin() {
         
+    }
+    
+    /**
+     * Update value of top height
+     * - parameter value: Value to update
+     */
+    public func updateTopPartHeight(value: CGFloat) {
+        self.topHeight = value
+    }
+    
+    /**
+     * Get value of top height
+     */
+    public func getTopPartHeight() -> CGFloat {
+        return self.topHeight
     }
     //-- BUG0156-SPJ (NguyenPT 20170922) Re-design Gas24h
 }
