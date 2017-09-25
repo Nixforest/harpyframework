@@ -2249,4 +2249,5 @@ public class DomainConst {
     public static let CONTENT00491 = "Cám ơn Quý Khách"
     public static let CONTENT00492 = "Giới thiệu người thân cài đặt ứng dụng, NHẬN MÃ GIẢM GIÁ"
     public static let CONTENT00493 = "Nhân viên giao gas"
+    public static let CONTENT00494 = "Chưa nhập mã pin"
 }

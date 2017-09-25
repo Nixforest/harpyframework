@@ -1009,6 +1009,24 @@ public class BaseModel: NSObject {
         return self._orderConfig
     }
     
+    //++ BUG0156-SPJ (NguyenPT 20170925) Re-design Gas24h
+    /**
+     * Get list agent from order config data
+     * - returns: List agent from order config data
+     */
+    public func getAgentListFromOrderConfig() -> [AgentInfoBean] {
+        return self._orderConfig.agent
+    }
+    
+    /**
+     * Get max range distant from Order config
+     * - returns: Return [distance_1] value
+     */
+    public func getMaxRangeDistantFromOrderConfig() -> Double {
+        return self._orderConfig.distance_1
+    }
+    //-- BUG0156-SPJ (NguyenPT 20170925) Re-design Gas24h
+    
     //++ BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Get new data
     /**
      * Get List promotion by agent id

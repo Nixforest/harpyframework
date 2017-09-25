@@ -40,7 +40,7 @@ public class UserInfoBean: NSObject {
     /**
      * Initializer
      */
-    override init() {
+    override public init() {
         // Not implement
     }
     

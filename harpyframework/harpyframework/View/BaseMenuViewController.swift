@@ -109,7 +109,7 @@ open class BaseMenuViewController : BaseViewController {
     /**
      * Update layout of menu
      */
-    private func update() {
+    open func update() {
         // Remove all current menu items
         self.listMenu.removeAll()
         
@@ -623,13 +623,6 @@ open class BaseMenuViewController : BaseViewController {
     }
     //-- BUG0121-SPJ (NguyenPT 20170712) Add menu to Home
     //++ BUG0156-SPJ (NguyenPT 20170922) Re-design Gas24h
-    /**
-     * Handle open login view
-     */
-    open func openLogin() {
-        
-    }
-    
     /**
      * Update value of top height
      * - parameter value: Value to update

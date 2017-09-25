@@ -1,4 +1,4 @@
-//
+                //
 //  CommonViewController.swift
 //  harpyframework
 //
@@ -64,7 +64,7 @@ open class BaseViewController : UIViewController {
      * Get root view controller
      * - returns: BaseSlideMenu controller
      */
-    static func getRootController() -> BaseSlideMenuViewController? {
+    public static func getRootController() -> BaseSlideMenuViewController? {
         // Get root view controller
         if let root = UIApplication.getRootVC() {
             // Check if root view controller is slide menu controller
@@ -923,7 +923,8 @@ open class BaseViewController : UIViewController {
         if model.isSuccess() {
             BaseModel.shared.logoutSuccess()
             self.popToRootView()
-            self.pushToView(name: DomainConst.G00_LOGIN_VIEW_CTRL)
+//            self.pushToView(name: DomainConst.G00_LOGIN_VIEW_CTRL)
+            openLogin()
         } else {
             showAlert(message: model.message)
         }
@@ -1111,6 +1112,13 @@ open class BaseViewController : UIViewController {
      */
     open func updateChildrenViews() {
     }
+    
+    /**
+     * Handle open login view
+     */
+    open func openLogin() {
+    }
+    
     
     override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
