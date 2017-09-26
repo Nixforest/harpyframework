@@ -43,7 +43,7 @@ public class OrderConfigBean: NSObject {
      * - returns: True if agent list is not empty, False otherwise
      */
     public func isExist() -> Bool {
-        return agent.isEmpty
+        return !agent.isEmpty
     }
     //-- BUG0156-SPJ (NguyenPT 20170925) Re-design Gas24h
 }

@@ -1484,7 +1484,7 @@ public class DomainConst {
     /** Address image name */
     public static let ADDRESS_IMG_NAME                      = "icon34-user-iso.png"
     /** Menu image name */
-    public static let MENU_IMG_NAME                         = "menu.png"
+    public static let MENU_IMG_NAME                         = "menubtn.png"
     /** Back image name */
     public static let BACK_IMG_NAME                         = "back.png"
     /** Back image name */
