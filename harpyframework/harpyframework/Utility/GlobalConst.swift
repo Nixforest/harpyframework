@@ -167,4 +167,10 @@ public class GlobalConst {
     public static let BUTTON_CANCEL_ORDER_WIDTH:    CGFloat = 600
     /** Height of delivery map top view */
     public static let DELIVERY_MAP_TOP_VIEW_HEIGHT: CGFloat = 335
+    /** Height of bottom message view */
+    public static let BOTTOM_MESSAGE_HEIGHT:        CGFloat = 250
+    /** Height of navigation bar */
+    public static let NAVIGATION_BAR_HEIGHT:        CGFloat = 64
+    /** Bottom message view corner radius */
+    public static let BOTTOM_MSG_VIEW_CORNER_RADIUS:    CGFloat = 5.0
 }

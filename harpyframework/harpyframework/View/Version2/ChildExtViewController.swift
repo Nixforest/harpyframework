@@ -25,6 +25,7 @@ open class ChildExtViewController: ChildViewController {
             self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: GlobalConst.BUTTON_COLOR_RED]
         }
     }
+    
     /**
      * Build items on navigation bar for children view
      */

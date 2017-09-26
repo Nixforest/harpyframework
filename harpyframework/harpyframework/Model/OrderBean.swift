@@ -195,4 +195,14 @@ public class OrderBean: NSObject {
         self.show_button_change_agent = getInt(json: jsonData, key: DomainConst.KEY_SHOW_BUTTON_CHANGE_AGENT)
         //-- BUG0133-SPJ (NguyenPT 20170724) Family order: change agent delivery
     }
+    
+    //++ BUG0156-SPJ (NguyenPT 20170926) Re-design Gas24h
+    /**
+     * Check if this object is empty
+     * - returns: True if id is empty, false otherwise
+     */
+    public func isEmpty() -> Bool {
+        return self.id.isEmpty
+    }
+    //-- BUG0156-SPJ (NguyenPT 20170926) Re-design Gas24h
 }

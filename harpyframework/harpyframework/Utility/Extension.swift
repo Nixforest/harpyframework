@@ -227,6 +227,9 @@ extension UIImageView {
      * - parameter mode: Image view content mode
      */
     public func getImgFromUrl(link: String, contentMode mode: UIViewContentMode) {
+        if link.isEmpty {
+            return
+        }
         // Reset image
         self.image = nil // Here you can put nil to have a blank image or a placeholder image
         contentMode = mode

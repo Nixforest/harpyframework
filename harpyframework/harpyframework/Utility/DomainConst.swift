@@ -1197,6 +1197,8 @@ public class DomainConst {
     public static let NUMBER_ONE_VALUE                  = "1"
     /** Number string: 2 */
     public static let NUMBER_TWO_VALUE                  = "2"
+    /** Number string: 3 */
+    public static let NUMBER_THREE_VALUE                = "3"
     /** Default time value */
     public static let DEFAULT_TIME_VALUE                = "08:00"
     /** Address unknown string */
@@ -1753,6 +1755,8 @@ public class DomainConst {
     public static let PHONE_BUTTON_ICON_IMG_NAME            = "phonebtn.png"
     /** Version image name */
     public static let EDIT_BUTTON_ICON_IMG_NAME             = "editbtn.png"
+    /** Version image name */
+    public static let FINISH_BUTTON_ICON_IMG_NAME             = "finishbtn.png"
     /** Menu backgroud body image name */
     public static let MENU_BKG_BODY_NEW_IMG_NAME                = "bg_sliding_menu_body_new.png"
     /** Menu backgroud top image name */
@@ -2250,4 +2254,8 @@ public class DomainConst {
     public static let CONTENT00492 = "Giới thiệu người thân cài đặt ứng dụng, NHẬN MÃ GIẢM GIÁ"
     public static let CONTENT00493 = "Nhân viên giao gas"
     public static let CONTENT00494 = "Chưa nhập mã pin"
+    public static let CONTENT00495 = "Bạn có thể chọn loại Gas và Quà trước khi đặt Gas\nHoặc chờ nhân viên Gas24h liên hệ để xác nhận"
+    public static let CONTENT00496 = "Quý khách vui lòng chờ trong giây lát\nNhân viên Gas24h sẽ liên hệ Quý khách trong vài phút"
+    public static let CONTENT00497 = "Quý khách vừa hoàn tất đơn hàng đầu tiên\nĐiểm thưởng +300. Tổng số điểm hiện tại 4300"
+    public static let CONTENT00498 = "Chạm vào đơn hàng XXXXXX để xem lại chi tiết\nLộ trình giao hàng khoảng 3km"
 }
