@@ -119,6 +119,7 @@ public class GlobalConst {
     public static var TEXTVIEW_BORDER_COLOR         = ColorFromRGB().getColorFromRGB(0xCECECE)
     public static var FACEBOOK_BKG_COLOR            = ColorFromRGB().getColorFromRGB(0x3B5998)
     public static var ZALO_BKG_COLOR                = ColorFromRGB().getColorFromRGB(0x1987C4)
+    public static var PROMOTION_BKG_COLOR           = ColorFromRGB().getColorFromRGB(0xEFEFEF)
     //++ BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
     /** Time interval for animation in Step view controller */
     public static let STEP_MOVE_TIME_INTERVAL       = 0.1
@@ -173,4 +174,12 @@ public class GlobalConst {
     public static let NAVIGATION_BAR_HEIGHT:        CGFloat = 64
     /** Bottom message view corner radius */
     public static let BOTTOM_MSG_VIEW_CORNER_RADIUS:    CGFloat = 5.0
+    /** Height of segment promote */
+    public static let SEGMENT_PROMOTE_HEIGHT:       CGFloat = GlobalConst.LOGIN_TEXTFIELD_HEIGHT
+    /** Width of textfield promote */
+    public static let TEXTFIELD_PROMOTE_WIDTH:      CGFloat = GlobalConst.LOGIN_TEXTFIELD_WIDTH
+    /** Width of Share code button */
+    public static let BUTTON_SHARE_PROMOTE_WIDTH:   CGFloat = GlobalConst.BUTTON_CANCEL_ORDER_WIDTH
+    /** Size of QR code image */
+    public static let QR_CODE_SIZE:                 CGFloat = 500
 }

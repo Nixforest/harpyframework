@@ -9,17 +9,18 @@
 import UIKit
 import AVFoundation
 
-class ScannerVC: ChildExtViewController, AVCaptureMetadataOutputObjectsDelegate {
+public class ScannerVC: ChildExtViewController, AVCaptureMetadataOutputObjectsDelegate {
+    public static var _notificationName:    String = DomainConst.BLANK
+    /** Value label */
+    @IBOutlet var messageLabel:     UILabel!
     
-    @IBOutlet var messageLabel:UILabel!
-    
-    var captureSession:AVCaptureSession?
-    var videoPreviewLayer:AVCaptureVideoPreviewLayer?
-    var qrCodeFrameView:UIView?
-    override func viewDidLoad() {
+    var captureSession:             AVCaptureSession?
+    var videoPreviewLayer:          AVCaptureVideoPreviewLayer?
+    var qrCodeFrameView:            UIView?
+    override public func viewDidLoad() {
         super.viewDidLoad()
 //        self.setNavigationBarTitle(title: "Quét mã")
-        self.createNavigationBar(title: "Quét mã")
+        self.createNavigationBar(title: "Quét mã QR")
         // Do any additional setup after loading the view.
         // Get an instance of the AVCaptureDevice class to initialize a device object and provide the video as the media type parameter.
         let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
@@ -73,7 +74,7 @@ class ScannerVC: ChildExtViewController, AVCaptureMetadataOutputObjectsDelegate 
         self.view.makeComponentsColor()
     }
     
-    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
+    public func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
         
         // Check if the metadataObjects array is not nil and it contains at least one object.
         if metadataObjects == nil || metadataObjects.count == 0 {
@@ -88,17 +89,47 @@ class ScannerVC: ChildExtViewController, AVCaptureMetadataOutputObjectsDelegate 
         if metadataObj.type == AVMetadataObjectTypeQRCode {
             // If the found metadata is equal to the QR code metadata then update the status label's text and set the bounds
             let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
-            qrCodeFrameView?.frame = barCodeObject!.bounds
+//            qrCodeFrameView?.frame = barCodeObject!.bounds
+            qrCodeFrameView?.frame = CGRect(
+                x: barCodeObject!.bounds.minX,
+                y: barCodeObject!.bounds.minY + getTopHeight(),
+                width: barCodeObject!.bounds.width,
+                height: barCodeObject!.bounds.height)
             
             if metadataObj.stringValue != nil {
                 messageLabel.text = metadataObj.stringValue
+//                showAlert(message: "Quét mã thành công:\n\(metadataObj.stringValue)",
+//                    okTitle: DomainConst.CONTENT00008,
+//                    cancelTitle: "Quét lại",
+//                    okHandler: {
+//                        alert in
+//                },
+//                    cancelHandler: {
+//                        alert in
+//                })
+                self.finishScanQR(value: metadataObj.stringValue)
+                _ = self.navigationController?.popViewController(animated: true)
             }
         }
     }
 
-    override func didReceiveMemoryWarning() {
+    override public func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    private func finishScanQR(value: String) {
+        DispatchQueue.main.async {
+            NotificationCenter.default.post(
+                name: Notification.Name(rawValue: ScannerVC._notificationName),
+                object: value)
+            // Remove observer
+            NotificationCenter.default.removeObserver(
+                self.view,
+                name: Notification.Name(
+                    rawValue: ScannerVC._notificationName),
+                object: nil)
+        }
     }
     
 

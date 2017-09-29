@@ -1187,6 +1187,8 @@ public class DomainConst {
     public static let SPLITER_TYPE3                     = "/"
     /** Number spliter */
     public static let SPLITER_TYPE4                     = "."
+    /** Separator string */
+    public static let SEPARATOR_STR                     = "-------------------------------------------------------------------------------------------------"
     /** Text spliter */
     public static let TEXT_SPLITER                      = ":"
     /** Plus spliter: + */
@@ -1199,6 +1201,8 @@ public class DomainConst {
     public static let NUMBER_TWO_VALUE                  = "2"
     /** Number string: 3 */
     public static let NUMBER_THREE_VALUE                = "3"
+    /** Number string: 4 */
+    public static let NUMBER_FOUR_VALUE                 = "4"
     /** Default time value */
     public static let DEFAULT_TIME_VALUE                = "08:00"
     /** Address unknown string */
@@ -1756,11 +1760,15 @@ public class DomainConst {
     /** Version image name */
     public static let EDIT_BUTTON_ICON_IMG_NAME             = "editbtn.png"
     /** Version image name */
-    public static let FINISH_BUTTON_ICON_IMG_NAME             = "finishbtn.png"
+    public static let FINISH_BUTTON_ICON_IMG_NAME           = "finishbtn.png"
+    /** Version image name */
+    public static let DISCOUNT_PLUS_ICON_IMG_NAME           = "ic_discount_plus.png"
+    /** Version image name */
+    public static let DISCOUNT_SHARE_ICON_IMG_NAME           = "ic_discount_share.png"
     /** Menu backgroud body image name */
-    public static let MENU_BKG_BODY_NEW_IMG_NAME                = "bg_sliding_menu_body_new.png"
+    public static let MENU_BKG_BODY_NEW_IMG_NAME            = "bg_sliding_menu_body_new.png"
     /** Menu backgroud top image name */
-    public static let MENU_BKG_TOP_NEW_IMG_NAME                 = "bg_sliding_menu_top_new.png"
+    public static let MENU_BKG_TOP_NEW_IMG_NAME             = "bg_sliding_menu_top_new.png"
     /** Login background image [iphone] */
     public static let LOGIN_BKG_IPHONE_IMG_NAME             = "signup_bg_1080_1920.png"
     /** Login background image [ipad] */
@@ -2258,4 +2266,13 @@ public class DomainConst {
     public static let CONTENT00496 = "Quý khách vui lòng chờ trong giây lát\nNhân viên Gas24h sẽ liên hệ Quý khách trong vài phút"
     public static let CONTENT00497 = "Quý khách vừa hoàn tất đơn hàng đầu tiên\nĐiểm thưởng +300. Tổng số điểm hiện tại 4300"
     public static let CONTENT00498 = "Chạm vào đơn hàng XXXXXX để xem lại chi tiết\nLộ trình giao hàng khoảng 3km"
+    public static let CONTENT00499 = "Giới thiệu"
+    public static let CONTENT00500 = "Sử dụng mã"
+    public static let CONTENT00501 = "Mã code"
+    public static let CONTENT00502 = "QR code"
+    public static let CONTENT00503 = "Chia sẻ mã KM"
+    public static let CONTENT00504 = "Thêm mã khuyến mãi"
+    public static let CONTENT00505 = "Đơn hàng của bạn đã bị huỷ"
+    public static let CONTENT00506 = "Hoá đơn mua hàng"
+    public static let CONTENT00507 = "Bình chọn"
 }

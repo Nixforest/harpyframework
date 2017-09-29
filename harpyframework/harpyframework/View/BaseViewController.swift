@@ -1213,13 +1213,18 @@ open class BaseViewController : UIViewController {
     open func openLogin() {
     }
     
+    open func openPromotion() {
+        
+    }
+    
     //++ BUG0156-SPJ (NguyenPT 20170926) Re-design Gas24h
     private func createBotMsgView(width: CGFloat) {
         botMsgView.frame = CGRect(x: (UIScreen.main.bounds.width - width) / 2,
                                   y: getTopHeight() + GlobalConst.MARGIN,
                                   width: width,
                                   height: BOTTOM_MSG_FULL_HEIGHT)
-        botMsgView.backgroundColor = UIColor(white: 1, alpha: 1.0)
+//        botMsgView.backgroundColor = UIColor(white: 1, alpha: 1.0)
+        botMsgView.backgroundColor = GlobalConst.PROMOTION_BKG_COLOR
         botMsgView.layer.cornerRadius = GlobalConst.BOTTOM_MSG_VIEW_CORNER_RADIUS
         createCollapseButton()
         createBotMsgLabelNote()

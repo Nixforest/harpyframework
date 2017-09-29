@@ -24,6 +24,10 @@ open class BaseRequest: NSObject {
     /** Completion block code */
     public var completionBlock: ((Any?) -> Void)? = nil
     //-- BUG0082-SPJ (NguyenPT 20170510) Change BaseRequest handle completion mechanism
+    //++ BUG0156-SPJ (NguyenPT 20170930) Re-design Gas24h
+    /** Flag show error */
+    private var isShowError:    Bool        = true
+    //-- BUG0156-SPJ (NguyenPT 20170930) Re-design Gas24h
     
     
     /**
@@ -339,16 +343,34 @@ open class BaseRequest: NSObject {
     //-- BUG0146-SPJ (NguyenPT 20170817) Handle error: request to server create log
         LoadingView.shared.hideOverlayView(className: self.theClassName)
         //self.view.showAlert(message: DomainConst.CONTENT00196)
-        self.view.showAlert(
-            message: DomainConst.CONTENT00196,
-            okHandler: {
-                alert in
-                self.execute()
-        },
-            cancelHandler: {
-                alert in
         
-        })
+        //++ BUG0156-SPJ (NguyenPT 20170930) Re-design Gas24h
+//        self.view.showAlert(
+//            message: DomainConst.CONTENT00196,
+//            okHandler: {
+//                alert in
+//                self.execute()
+//        },
+//            cancelHandler: {
+//                alert in
+//        
+//        })
+        if isShowError {
+            self.view.showAlert(
+                message: DomainConst.CONTENT00196,
+                okHandler: {
+                    alert in
+                    self.execute()
+            },
+                cancelHandler: {
+                    alert in
+                    
+            })
+        } else {
+            self.execute(isShowLoadingView: false)
+        }
+        //-- BUG0156-SPJ (NguyenPT 20170930) Re-design Gas24h
+        
         DispatchQueue.main.async {
             // Remove observer
             NotificationCenter.default.removeObserver(self.view, name: Notification.Name(rawValue: self.theClassName), object: nil)
@@ -359,4 +381,14 @@ open class BaseRequest: NSObject {
     internal func finishCreateErrorLog(_ notification: Notification) {
         
     }
+    
+    //++ BUG0156-SPJ (NguyenPT 20170930) Re-design Gas24h
+    /**
+     * Set value of flag show error
+     * - parameter value: Value of flag
+     */
+    public func setFlagShowError(value: Bool) {
+        self.isShowError = value
+    }
+    //-- BUG0156-SPJ (NguyenPT 20170930) Re-design Gas24h
 }

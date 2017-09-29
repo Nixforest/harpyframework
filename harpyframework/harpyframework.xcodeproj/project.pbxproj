@@ -292,6 +292,8 @@
 		D7AB90551E2402170048AC4F /* StepContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AB90511E2402170048AC4F /* StepContent.swift */; };
 		D7AB90561E2402170048AC4F /* StepSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AB90521E2402170048AC4F /* StepSummary.swift */; };
 		D7AB90571E2402170048AC4F /* StepVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AB90531E2402170048AC4F /* StepVC.swift */; };
+		D7ABFCA11F7BB04300648E3E /* ic_discount_plus.png in Resources */ = {isa = PBXBuildFile; fileRef = D7ABFC9F1F7BB04300648E3E /* ic_discount_plus.png */; };
+		D7ABFCA21F7BB04300648E3E /* ic_discount_share.png in Resources */ = {isa = PBXBuildFile; fileRef = D7ABFCA01F7BB04300648E3E /* ic_discount_share.png */; };
 		D7ADCBD01ED0497C00226523 /* icon79.png in Resources */ = {isa = PBXBuildFile; fileRef = D7ADCBCF1ED0497C00226523 /* icon79.png */; };
 		D7AF28001E58785500AFF9D6 /* OrderVIPListBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AF27FF1E58785500AFF9D6 /* OrderVIPListBean.swift */; };
 		D7AF280B1E58AF6000AFF9D6 /* icon65.png in Resources */ = {isa = PBXBuildFile; fileRef = D7AF280A1E58AF6000AFF9D6 /* icon65.png */; };
@@ -673,6 +675,8 @@
 		D7AB90511E2402170048AC4F /* StepContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StepContent.swift; path = CustomeControl/StepContent.swift; sourceTree = "<group>"; };
 		D7AB90521E2402170048AC4F /* StepSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StepSummary.swift; path = CustomeControl/StepSummary.swift; sourceTree = "<group>"; };
 		D7AB90531E2402170048AC4F /* StepVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StepVC.swift; path = CustomeControl/StepVC.swift; sourceTree = "<group>"; };
+		D7ABFC9F1F7BB04300648E3E /* ic_discount_plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_discount_plus.png; path = images/ic_discount_plus.png; sourceTree = "<group>"; };
+		D7ABFCA01F7BB04300648E3E /* ic_discount_share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_discount_share.png; path = images/ic_discount_share.png; sourceTree = "<group>"; };
 		D7ADCBCF1ED0497C00226523 /* icon79.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon79.png; path = images/icon79.png; sourceTree = "<group>"; };
 		D7AF27FF1E58785500AFF9D6 /* OrderVIPListBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderVIPListBean.swift; path = Model/OrderVIPListBean.swift; sourceTree = "<group>"; };
 		D7AF280A1E58AF6000AFF9D6 /* icon65.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon65.png; path = images/icon65.png; sourceTree = "<group>"; };
@@ -1133,6 +1137,8 @@
 		D7F3D8D21E1B8BCC0018744F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D7ABFC9F1F7BB04300648E3E /* ic_discount_plus.png */,
+				D7ABFCA01F7BB04300648E3E /* ic_discount_share.png */,
 				D7117B4A1F7A83B200B8C2FA /* finishbtn.png */,
 				D74B3F7F1F797917001F22B9 /* menubtn.png */,
 				D7DDA4EE1F77986000824FC4 /* editbtn.png */,
@@ -1415,6 +1421,7 @@
 				D7F3D8D11E1B80D80018744F /* TableCellUpholdType.xib in Resources */,
 				D778D6411E5D790D009FD654 /* icon81.png in Resources */,
 				D75F65211E28B3BC00A67B3C /* ordergas.png in Resources */,
+				D7ABFCA11F7BB04300648E3E /* ic_discount_plus.png in Resources */,
 				D74841DA1F743D3700AE79D0 /* gasbtn.png in Resources */,
 				D791F68D1E2367F3009CBBED /* message.png in Resources */,
 				D70B9F941E3F504400EB66F5 /* icon17.png in Resources */,
@@ -1437,6 +1444,7 @@
 				D7DDA4ED1F776DA300824FC4 /* bg_sliding_menu_top_new.png in Resources */,
 				D71544B91F6BBF6400480486 /* signup_bg_2048_1536.png in Resources */,
 				D7CED6D21E98CB2E00C2B568 /* OrderEmployeeTableViewCell.xib in Resources */,
+				D7ABFCA21F7BB04300648E3E /* ic_discount_share.png in Resources */,
 				D75F64E51E28B39100A67B3C /* icon3.png in Resources */,
 				D75F64B71E28B2A900A67B3C /* icon27.png in Resources */,
 				D7029F981F3871B20081797B /* thongtinhotro.png in Resources */,

@@ -409,7 +409,8 @@ open class BaseMenuViewController : BaseViewController {
             break
         case DomainConst.KEY_MENU_PROMOTION_LIST:           // Promotion list
             //currentView.pushToView(name: DomainConst.G04_F02_S01_VIEW_CTRL)
-            currentView.pushToViewAndClearData(name: DomainConst.G04_F02_S01_VIEW_CTRL)
+//            currentView.pushToViewAndClearData(name: DomainConst.G04_F02_S01_VIEW_CTRL)
+            openPromotion()
             break
         //++ BUG0054-SPJ (NguyenPT 20170407) Add new key for new function G07
         case DomainConst.ORDER_TRANSACTION_LIST:
