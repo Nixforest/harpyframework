@@ -2277,4 +2277,5 @@ public class DomainConst {
     public static let CONTENT00507 = "Bình chọn"
     public static let CONTENT00508 = "Sai số điện thoại?"
     public static let CONTENT00509 = "Trở về"
+    public static let CONTENT00510 = "Xin quý khách vui lòng nhập số điện thoại để nhân viên Gas24h liên hệ với quý khách"
 }
