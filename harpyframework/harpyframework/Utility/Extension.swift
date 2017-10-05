@@ -199,6 +199,20 @@ public enum FamilyUpholdStatusEnum: Int {
 }
 //-- BUG0100-SPJ (NguyenPT 20170602) Update function G01 for Family Uphold
 
+//++ BUG0156-SPJ (NguyenPT 20171005) Re-design Gas 24h
+/**
+ * Order status enum.
+ */
+public enum OrderStatusEnum: Int {
+    case STATUS_CREATE = 0,
+    STATUS_WAIT_CONFIRM,
+    STATUS_CONFIRMED,
+    STATUS_DELIVERING,
+    STATUS_COMPLETE,
+    STATUS_NUM
+}
+//-- BUG0156-SPJ (NguyenPT 20171005) Re-design Gas 24h
+
 // MARK: View extension
 /**
  * Download image async extension

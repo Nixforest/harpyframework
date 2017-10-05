@@ -1025,6 +1025,14 @@ public class BaseModel: NSObject {
     public func getMaxRangeDistantFromOrderConfig() -> Double {
         return self._orderConfig.distance_1
     }
+    
+    /**
+     * Check if order does exist
+     * - returns: True if order config exist, False otherwise
+     */
+    public func checkOrderConfigExist() -> Bool {
+        return self._orderConfig.isExist()
+    }
     //-- BUG0156-SPJ (NguyenPT 20170925) Re-design Gas24h
     
     //++ BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Get new data

@@ -1110,6 +1110,9 @@ public class DomainConst {
     /** Key show_discount */
     public static let KEY_SHOW_DISCOUNT                 = "show_discount"
     
+    /** Key otp vode */
+    public static let KEY_OTP_CODE                      = "otp_code"
+    
     //++ BUG0050-SPJ (NguyenPT 20170325) Add new function G06
     /** Platform value: Android */
     public static let PLATFORM_ANDROID                  = 1
@@ -1775,6 +1778,26 @@ public class DomainConst {
     public static let LOGIN_BKG_IPAD_IMG_NAME               = "signup_bg_1536_2048.png"
     /** Login background image [ipad landscape]*/
     public static let LOGIN_BKG_IPAD_LANDSCAPE_IMG_NAME     = "signup_bg_2048_1536.png"
+    /** Order status image: Create - Active */
+    public static let ORDER_STATUS_CREATE_ACTIVE_IMG_NAME       = "orderStatus_Create_Active.png"
+    /** Order status image: Create - Inactive */
+    public static let ORDER_STATUS_CREATE_INACTIVE_IMG_NAME     = "orderStatus_Create_Inactive.png"
+    /** Order status image: Waiting confirm - Active */
+    public static let ORDER_STATUS_WAITING_ACTIVE_IMG_NAME      = "orderStatus_Waiting_Active.png"
+    /** Order status image: Waiting confirm - Inactive */
+    public static let ORDER_STATUS_WAITING_INACTIVE_IMG_NAME    = "orderStatus_Waiting_Inactive.png"
+    /** Order status image: Confirmed - Active */
+    public static let ORDER_STATUS_CONFIRMED_ACTIVE_IMG_NAME    = "orderStatus_Confirmed_Active.png"
+    /** Order status image: Confirmed - Inactive */
+    public static let ORDER_STATUS_CONFIRMED_INACTIVE_IMG_NAME  = "orderStatus_Confirmed_Inactive.png"
+    /** Order status image: Delivering - Active */
+    public static let ORDER_STATUS_DELIVERING_ACTIVE_IMG_NAME   = "orderStatus_Delivering_Active.png"
+    /** Order status image: Delivering - Inactive */
+    public static let ORDER_STATUS_DELIVERING_INACTIVE_IMG_NAME = "orderStatus_Delivering_Inactive.png"
+    /** Order status image: Complete - Active */
+    public static let ORDER_STATUS_COMPLETE_ACTIVE_IMG_NAME       = "orderStatus_Complete_Active.png"
+    /** Order status image: Complete - Inactive */
+    public static let ORDER_STATUS_COMPLETE_INACTIVE_IMG_NAME     = "orderStatus_Complete_Inactive.png"
     
     /** HTTP Post request method */
     public static let HTTP_POST_REQUEST                     = "POST"
@@ -2256,7 +2279,7 @@ public class DomainConst {
     public static let CONTENT00486 = "Chọn quà"
     public static let CONTENT00487 = "Đơn hàng của bạn đang được xử lý"
     public static let CONTENT00488 = "vui lòng chờ trong giây lát..."
-    public static let CONTENT00489 = "Đơn hàng hoàn tất!"
+    public static let CONTENT00489 = "Đơn hàng hoàn tất"
     public static let CONTENT00490 = "Chạm vào biểu tượng để xem hoá đơn."
     public static let CONTENT00491 = "Cám ơn Quý Khách"
     public static let CONTENT00492 = "Giới thiệu người thân cài đặt ứng dụng, NHẬN MÃ GIẢM GIÁ"
@@ -2278,4 +2301,13 @@ public class DomainConst {
     public static let CONTENT00508 = "Sai số điện thoại?"
     public static let CONTENT00509 = "Trở về"
     public static let CONTENT00510 = "Xin quý khách vui lòng nhập số điện thoại để nhân viên Gas24h liên hệ với quý khách"
+    public static let CONTENT00511 = "Người dùng không cho phép"
+    public static let CONTENT00512 = "Trạng thái đơn hàng"
+    public static let CONTENT00513 = "Chờ xác nhận"
+    public static let CONTENT00514 = "Đã xác nhận"
+    public static let CONTENT00515 = "Đang giao gas"
+    public static let CONTENT00516 = "Xem trước đơn hàng"
+    public static let CONTENT00517 = "Thay đổi"
+    public static let CONTENT00518 = "Thông tin giao hàng"
+    public static let CONTENT00519 = "Tiếp tục đơn hàng"
 }

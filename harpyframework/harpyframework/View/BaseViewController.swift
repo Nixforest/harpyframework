@@ -1249,7 +1249,7 @@ open class BaseViewController : UIViewController {
         let back = ImageManager.getImage(named: DomainConst.COLLAPSE_BUTTON_ICON_IMG_NAME)
         let tintedBack = back?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
         btnCollapse.setImage(tintedBack, for: UIControlState())
-        btnCollapse.tintColor = UIColor.red
+        btnCollapse.tintColor = GlobalConst.MAIN_COLOR_GAS_24H
         btnCollapse.backgroundColor = UIColor.clear
         btnCollapse.imageView?.contentMode = .scaleAspectFit
         self.btnCollapse.layer.transform = CATransform3DConcat(
