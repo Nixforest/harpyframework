@@ -92,6 +92,8 @@
 		D71777971F5E9626009CF656 /* NVActivityIndicatorAnimationTriangleSkewSpin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71777771F5E9626009CF656 /* NVActivityIndicatorAnimationTriangleSkewSpin.swift */; };
 		D717779B1F5E9640009CF656 /* NVActivityIndicatorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71777991F5E9640009CF656 /* NVActivityIndicatorPresenter.swift */; };
 		D717779C1F5E9640009CF656 /* NVActivityIndicatorViewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D717779A1F5E9640009CF656 /* NVActivityIndicatorViewable.swift */; };
+		D71A08071F87847100366378 /* confirmedbtn.png in Resources */ = {isa = PBXBuildFile; fileRef = D71A08061F87847100366378 /* confirmedbtn.png */; };
+		D71A08091F878E2300366378 /* referBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = D71A08081F878E2300366378 /* referBtn.png */; };
 		D71C047F1EE6A31C00563469 /* icon40.png in Resources */ = {isa = PBXBuildFile; fileRef = D71C047E1EE6A31C00563469 /* icon40.png */; };
 		D71C25A31E41FDC400E29C3B /* TransactionCompleteBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71C25A21E41FDC400E29C3B /* TransactionCompleteBean.swift */; };
 		D72134DB1F73D83E0025E42B /* orderbtn.png in Resources */ = {isa = PBXBuildFile; fileRef = D72134DA1F73D83E0025E42B /* orderbtn.png */; };
@@ -485,6 +487,8 @@
 		D71777771F5E9626009CF656 /* NVActivityIndicatorAnimationTriangleSkewSpin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NVActivityIndicatorAnimationTriangleSkewSpin.swift; path = CustomeControl/NVActivityIndicatorView/Animations/NVActivityIndicatorAnimationTriangleSkewSpin.swift; sourceTree = "<group>"; };
 		D71777991F5E9640009CF656 /* NVActivityIndicatorPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NVActivityIndicatorPresenter.swift; path = CustomeControl/NVActivityIndicatorView/Presenter/NVActivityIndicatorPresenter.swift; sourceTree = "<group>"; };
 		D717779A1F5E9640009CF656 /* NVActivityIndicatorViewable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NVActivityIndicatorViewable.swift; path = CustomeControl/NVActivityIndicatorView/Presenter/NVActivityIndicatorViewable.swift; sourceTree = "<group>"; };
+		D71A08061F87847100366378 /* confirmedbtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = confirmedbtn.png; path = images/confirmedbtn.png; sourceTree = "<group>"; };
+		D71A08081F878E2300366378 /* referBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = referBtn.png; path = images/referBtn.png; sourceTree = "<group>"; };
 		D71C047E1EE6A31C00563469 /* icon40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon40.png; path = images/icon40.png; sourceTree = "<group>"; };
 		D71C25A21E41FDC400E29C3B /* TransactionCompleteBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransactionCompleteBean.swift; path = Model/TransactionCompleteBean.swift; sourceTree = "<group>"; };
 		D72134DA1F73D83E0025E42B /* orderbtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = orderbtn.png; path = images/orderbtn.png; sourceTree = "<group>"; };
@@ -1157,6 +1161,8 @@
 		D7F3D8D21E1B8BCC0018744F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D71A08081F878E2300366378 /* referBtn.png */,
+				D71A08061F87847100366378 /* confirmedbtn.png */,
 				D746DE001F86212800C014DA /* orderStatus_Complete_Active.png */,
 				D746DE011F86212800C014DA /* orderStatus_Complete_Inactive.png */,
 				D746DE021F86212800C014DA /* orderStatus_Confirmed_Active.png */,
@@ -1497,6 +1503,7 @@
 				D7029F9B1F3871B20081797B /* version.png in Resources */,
 				D75F64F01E28B39100A67B3C /* icon34-user-iso.png in Resources */,
 				D791F68A1E2367F3009CBBED /* ic_menu_profile.png in Resources */,
+				D71A08071F87847100366378 /* confirmedbtn.png in Resources */,
 				D75F65231E28B3BC00A67B3C /* problemType.png in Resources */,
 				D75F64DF1E28B39100A67B3C /* delete.png in Resources */,
 				D791F67B1E234C89009CBBED /* bg_sliding_menu_body.jpg in Resources */,
@@ -1550,6 +1557,7 @@
 				D75F64F71E28B39100A67B3C /* icon37-user.png in Resources */,
 				D7029F931F3871B20081797B /* save.png in Resources */,
 				D71C047F1EE6A31C00563469 /* icon40.png in Resources */,
+				D71A08091F878E2300366378 /* referBtn.png in Resources */,
 				D791F6941E23688F009CBBED /* register.png in Resources */,
 				D7E298FC1F74A3E80078C46C /* processingbtn.png in Resources */,
 				D7E40E4E1F57BEA900AB1C33 /* quickaction_icon_add.png in Resources */,

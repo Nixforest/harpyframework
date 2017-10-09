@@ -1404,7 +1404,7 @@ open class BaseViewController : UIViewController {
         } else {
             updateBotMsgView(
                 x: (UIScreen.main.bounds.width - BOTTOM_MSG_REAL_WIDTH_FHD_L) / 2,
-                y: UIScreen.main.bounds.height - BOTTOM_MSG_REAL_HEIGHT_FHD_L,
+                y: UIScreen.main.bounds.height - BOTTOM_MSG_REAL_HEIGHT_FHD_L / 2,
                 w: BOTTOM_MSG_REAL_WIDTH_FHD_L,
                 h: BOTTOM_MSG_FULL_HEIGHT)
         }
@@ -1420,6 +1420,38 @@ open class BaseViewController : UIViewController {
     public func setBotMsgContent(note: String, description: String) {
         lblNote.text = note
         lblDescription.text = description
+    }
+    
+    /**
+     * Check if screen is HD size
+     */
+    public func isHDSize() -> Bool {
+        return (UIDevice.current.userInterfaceIdiom == .phone)
+    }
+    
+    /**
+     * Check if screen is Full HD size
+     */
+    public func isFHDSize() -> Bool {
+        return (UIDevice.current.userInterfaceIdiom == .pad)
+            && ((UIApplication.shared.statusBarOrientation == .portrait)
+                || (UIApplication.shared.statusBarOrientation == .portraitUpsideDown))
+    }
+    
+    /**
+     * Check if screen is Full HD Landscape size
+     */
+    public func isFHD_LSize() -> Bool {
+        return (UIDevice.current.userInterfaceIdiom == .pad)
+            && ((UIApplication.shared.statusBarOrientation == .landscapeLeft)
+                || (UIApplication.shared.statusBarOrientation == .landscapeRight))
+    }
+    
+    /**
+     * Check if screen is ipad size
+     */
+    public func isPadSize() -> Bool {
+        return (UIDevice.current.userInterfaceIdiom == .pad)
     }
     //-- BUG0156-SPJ (NguyenPT 20170926) Re-design Gas24h
     

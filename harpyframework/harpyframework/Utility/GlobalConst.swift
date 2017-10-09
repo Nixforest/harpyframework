@@ -183,4 +183,8 @@ public class GlobalConst {
     public static let BUTTON_SHARE_PROMOTE_WIDTH:   CGFloat = GlobalConst.BUTTON_CANCEL_ORDER_WIDTH
     /** Size of QR code image */
     public static let QR_CODE_SIZE:                 CGFloat = 500
+    /** Width of refer button */
+    public static let REFER_BUTTON_WIDTH:           CGFloat = 590
+    /** Height of refer button */
+    public static let REFER_BUTTON_HEIGHT:          CGFloat = 270
 }

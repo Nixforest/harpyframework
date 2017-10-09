@@ -33,10 +33,23 @@ public class CategoryButton: UIButton {
         self.accessibilityIdentifier    = id
 //        self.backgroundColor            = UIColor.white
         self.backgroundColor            = UIColor(white: 0, alpha: 0.0)
+        //++ BUG0156-SPJ (NguyenPT 20171009) Re-design Gas24h
+        let titleFrame = self.titleLabel?.frame
+        self.titleLabel?.frame = CGRect(
+            x: (titleFrame?.minX)!,
+            y: (titleFrame?.minY)!,
+            width: frame.width,
+            height: GlobalConst.LABEL_H * 2)
+        //-- BUG0156-SPJ (NguyenPT 20171009) Re-design Gas24h
         self.titleLabel?.font           = UIFont.systemFont(ofSize: GlobalConst.SMALL_FONT_SIZE)
         self.setTitle(title, for: UIControlState())
         self.setTitleColor(UIColor.darkText, for: UIControlState.normal)
         self.setTitleColor(GlobalConst.BUTTON_COLOR_RED_TRUE, for: UIControlState.selected)
+        //++ BUG0156-SPJ (NguyenPT 20171009) Re-design Gas24h
+        self.titleLabel?.lineBreakMode = .byWordWrapping
+        self.titleLabel?.numberOfLines = 0
+        self.titleLabel?.textAlignment = .center
+        //-- BUG0156-SPJ (NguyenPT 20171009) Re-design Gas24h
         //++ BUG0127-SPJ (NguyenPT 20170724) Uphold rating: merge to 1 step
 //        self.setImage(ImageManager.getImage(named: icon), for: UIControlState.normal)
 //        self.setImage(ImageManager.getImage(named: iconActive), for: UIControlState.selected)

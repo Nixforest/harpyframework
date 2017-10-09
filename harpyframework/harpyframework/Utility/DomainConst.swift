@@ -1749,6 +1749,10 @@ public class DomainConst {
     /** Version image name */
     public static let PROCESSING_BUTTON_ICON_IMG_NAME       = "processingbtn.png"
     /** Version image name */
+    public static let CONFIRMED_BUTTON_ICON_IMG_NAME        = "confirmedbtn.png"
+    /** Version image name */
+    public static let REFER_BUTTON_ICON_IMG_NAME            = "referBtn.png"
+    /** Version image name */
     public static let CANCEL_ORDER_BUTTON_ICON_IMG_NAME     = "cancelOrderbtn.png"
     /** Version image name */
     public static let SOURCE_MARKER_IMG_NAME                = "sourceMarker.png"
@@ -2279,7 +2283,7 @@ public class DomainConst {
     public static let CONTENT00486 = "Chọn quà"
     public static let CONTENT00487 = "Đơn hàng của bạn đang được xử lý"
     public static let CONTENT00488 = "vui lòng chờ trong giây lát..."
-    public static let CONTENT00489 = "Đơn hàng hoàn tất"
+    public static let CONTENT00489 = "Đơn hàng hoàn tất!"
     public static let CONTENT00490 = "Chạm vào biểu tượng để xem hoá đơn."
     public static let CONTENT00491 = "Cám ơn Quý Khách"
     public static let CONTENT00492 = "Giới thiệu người thân cài đặt ứng dụng, NHẬN MÃ GIẢM GIÁ"
@@ -2303,11 +2307,14 @@ public class DomainConst {
     public static let CONTENT00510 = "Xin quý khách vui lòng nhập số điện thoại để nhân viên Gas24h liên hệ với quý khách"
     public static let CONTENT00511 = "Người dùng không cho phép"
     public static let CONTENT00512 = "Trạng thái đơn hàng"
-    public static let CONTENT00513 = "Chờ xác nhận"
-    public static let CONTENT00514 = "Đã xác nhận"
-    public static let CONTENT00515 = "Đang giao gas"
+    public static let CONTENT00513 = "Chờ xác\nnhận"
+    public static let CONTENT00514 = "Đã xác\nnhận"
+    public static let CONTENT00515 = "Đang\ngiao gas"
     public static let CONTENT00516 = "Xem trước đơn hàng"
     public static let CONTENT00517 = "Thay đổi"
     public static let CONTENT00518 = "Thông tin giao hàng"
     public static let CONTENT00519 = "Tiếp tục đơn hàng"
+    public static let CONTENT00520 = "Đơn hàng\nhoàn tất"
+    public static let CONTENT00521 = "Đơn hàng của bạn đã được xác nhận."
+    public static let CONTENT00522 = "Chúng tôi sẽ gọi cho bạn trong giây lát!"
 }
