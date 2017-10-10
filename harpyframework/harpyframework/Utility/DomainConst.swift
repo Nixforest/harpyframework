@@ -770,6 +770,8 @@ public class DomainConst {
     public static let KEY_SHOW_BUTTON_CHANGE_AGENT      = "show_button_change_agent"
     //-- BUG0133-SPJ (NguyenPT 20170724) Family order: change agent delivery
     
+    public static let KEY_IS_INVITED                    = "is_invited"
+    public static let KEY_INVITED_CODE                  = "invite_code"
     
     
     // MARK: -----Specified constant-----

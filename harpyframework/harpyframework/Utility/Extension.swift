@@ -452,6 +452,19 @@ public protocol RatingViewDelegate {
     func requestRating(_ sender: AnyObject)
 }
 //-- BUG0127-SPJ (NguyenPT 20170724) Uphold rating: merge to 1 step
+/**
+ * Protocol to define delegate with match OrderPreview button tapped event.
+ */
+public protocol OrderPreviewDelegate {
+    /**
+     * Handle tap on Gas select button.
+     */
+    func btnGasTapped(_ sender: AnyObject)
+    /**
+     * Handle tap on Promote select button.
+     */
+    func btnPromoteTapped(_ sender: AnyObject)
+}
 
 /**
  * Extension of button control.

@@ -18,6 +18,10 @@ public class CategoryButton: UIButton {
     }
      */
     
+    public init() {
+        super.init(frame: CGRect.zero)
+    }
+    
     /**
      * Constructor
      * - parameter frame:       Frame of button
