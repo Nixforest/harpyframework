@@ -193,6 +193,10 @@ public class DomainConst {
     public static let KEY_EMPLOYEE_CODE                 = "employee_code"
     /** Employee image */
     public static let KEY_EMPLOYEE_IMG                  = "employee_image"
+    /** Employee latitude */
+    public static let KEY_EMPLOYEE_LAT                  = "employee_latitude"
+    /** Employee longitude */
+    public static let KEY_EMPLOYEE_LONG                 = "employee_longitude"
     /** Uphold type */
     public static let KEY_UPHOLD_TYPE                   = "type_uphold"
     /** Uphold type */
@@ -361,6 +365,8 @@ public class DomainConst {
     public static let KEY_SETTING_DEBUG_IS_SHOW_TOP_ICON    = "gasservice.debug.isShowTopIcon"
     /** Setting key: Debug Flag use material_name or material_name_short */
     public static let KEY_SETTING_DEBUG_IS_USE_MATERIAL_NAME_SHORT    = "gasservice.debug.isUseMaterialNameShort"
+    /** Setting key: is first order */
+    public static let KEY_SETTING_IS_FIRST_ORDER            = "gasservice.isFirstOrder"
     //++ BUG0060-SPJ (NguyenPT 20170426) Save list of gas to local
     /** Setting key: List gas information */
     public static let KEY_LIST_GAS_INFORMATION          = "gasservice.listGasInfo"
@@ -2319,4 +2325,7 @@ public class DomainConst {
     public static let CONTENT00520 = "Đơn hàng\nhoàn tất"
     public static let CONTENT00521 = "Đơn hàng của bạn đã được xác nhận."
     public static let CONTENT00522 = "Chúng tôi sẽ gọi cho bạn trong giây lát!"
+    public static let CONTENT00523 = "Loại gas được chọn sẽ được mặc định trong đơn hàng nếu Quý khách không thay đổi"
+    public static let CONTENT00524 = "Chọn loại gas"
+    public static let CONTENT00525 = "Điểm thưởng hiện tại: 500 điểm\nĐặt 1 bình gas mới, điểm thưởng 300 điểm\nBạn có thể chọn quà đến 800 điểm"
 }

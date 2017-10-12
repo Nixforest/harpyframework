@@ -53,6 +53,10 @@ public class OrderBean: NSObject {
     public var employee_phone: String = ""
     /** show_huy_giao_hang */
     public var employee_image: String = ""
+    /** employee_latitude */
+    public var employee_latitude:   String = DomainConst.BLANK
+    /** employee_longitude */
+    public var employee_longitude:   String = DomainConst.BLANK
     /** show_huy_giao_hang */
     public var order_type: String = ""
     /** show_huy_giao_hang */
@@ -154,6 +158,8 @@ public class OrderBean: NSObject {
         self.employee_code      = getString(json: jsonData, key: DomainConst.KEY_EMPLOYEE_CODE)
         self.employee_phone     = getString(json: jsonData, key: DomainConst.KEY_EMPLOYEE_PHONE)
         self.employee_image     = getString(json: jsonData, key: DomainConst.KEY_EMPLOYEE_IMG)
+        self.employee_latitude  = getString(json: jsonData, key: DomainConst.KEY_EMPLOYEE_LAT)
+        self.employee_longitude = getString(json: jsonData, key: DomainConst.KEY_EMPLOYEE_LONG)
         self.order_type         = getString(json: jsonData, key: DomainConst.KEY_ORDER_TYPE)
         self.type_amount        = getString(json: jsonData, key: DomainConst.KEY_TYPE_AMOUNT)
         self.amount_discount    = getString(json: jsonData, key: DomainConst.KEY_AMOUNT_DISCOUNT)

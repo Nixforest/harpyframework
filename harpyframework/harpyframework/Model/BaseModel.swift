@@ -142,6 +142,9 @@ public class BaseModel: NSObject {
     private var _agentId:                   String              = DomainConst.BLANK
     //-- BUG0151-SPJ (NguyenPT 20170819) Save agent id to user default setting
     
+    /** Flag check first order */
+    private var _isFirstOrder:              Bool                = true
+    
     // MARK - Methods
     override init() {
         super.init()
@@ -241,6 +244,11 @@ public class BaseModel: NSObject {
             self._agentId = defaults.object(forKey: DomainConst.KEY_SETTING_AGENT_ID) as! String
         }
         //-- BUG0151-SPJ (NguyenPT 20170819) Save agent id to user default setting
+        // Get isFirstOrder flag value
+        self._isFirstOrder = true
+        if defaults.object(forKey: DomainConst.KEY_SETTING_IS_FIRST_ORDER) != nil {
+            self._isFirstOrder = defaults.object(forKey: DomainConst.KEY_SETTING_IS_FIRST_ORDER) as! Bool
+        }
     }
     
     /**
@@ -1505,4 +1513,12 @@ public class BaseModel: NSObject {
         return self._agentId
     }
     //-- BUG0151-SPJ (NguyenPT 20170819) Handle favourite when select material
+    
+    /**
+     * Check is first order
+     * - returns: Value of _isFirstOrder flag
+     */
+    public func isFirstOrder() -> Bool {
+        return self._isFirstOrder
+    }
 }
