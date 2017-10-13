@@ -59,8 +59,8 @@ public class ScannerVC: ChildExtViewController {
             videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
             videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
             videoPreviewLayer?.frame = CGRect(x: 0, y: self.getTopHeight(),
-                                              width: view.layer.bounds.width,
-                                              height: view.layer.bounds.height - self.getTopHeight())
+                                              width: UIScreen.main.bounds.width,
+                                              height: UIScreen.main.bounds.height - self.getTopHeight())
             view.layer.addSublayer(videoPreviewLayer!)
             
             // Start video capture.
@@ -123,6 +123,7 @@ public class ScannerVC: ChildExtViewController {
      */
     override public func updateChildrenViews() {
         super.updateChildrenViews()
+        updateLayout()
         // Get current device type
         switch UIDevice.current.userInterfaceIdiom {
         case .phone:        // iPhone
@@ -147,7 +148,7 @@ public class ScannerVC: ChildExtViewController {
     /**
      * Finish scan QR code
      */
-    private func finishScanQR(value: String) {
+    internal func finishScanQR(value: String) {
         DispatchQueue.main.async {
             NotificationCenter.default.post(
                 name: Notification.Name(rawValue: ScannerVC._notificationName),
@@ -159,6 +160,13 @@ public class ScannerVC: ChildExtViewController {
                     rawValue: ScannerVC._notificationName),
                 object: nil)
         }
+    }
+    
+    // MARK - Layout
+    private func updateLayout() {
+        videoPreviewLayer?.frame = CGRect(x: 0, y: self.getTopHeight(),
+                                          width: UIScreen.main.bounds.width,
+                                          height: UIScreen.main.bounds.height - self.getTopHeight())
     }
 }
 
