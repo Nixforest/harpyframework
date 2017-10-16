@@ -47,8 +47,8 @@ public class CategoryButton: UIButton {
         //-- BUG0156-SPJ (NguyenPT 20171009) Re-design Gas24h
         self.titleLabel?.font           = UIFont.systemFont(ofSize: GlobalConst.SMALL_FONT_SIZE)
         self.setTitle(title, for: UIControlState())
-        self.setTitleColor(UIColor.darkText, for: UIControlState.normal)
-        self.setTitleColor(GlobalConst.BUTTON_COLOR_RED_TRUE, for: UIControlState.selected)
+        self.setTitleColor(UIColor.gray, for: UIControlState.normal)
+        self.setTitleColor(UIColor.black, for: UIControlState.selected)
         //++ BUG0156-SPJ (NguyenPT 20171009) Re-design Gas24h
         self.titleLabel?.lineBreakMode = .byWordWrapping
         self.titleLabel?.numberOfLines = 0
