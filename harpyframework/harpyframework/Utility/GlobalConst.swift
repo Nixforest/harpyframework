@@ -188,4 +188,10 @@ public class GlobalConst {
     public static let REFER_BUTTON_WIDTH:           CGFloat = 590
     /** Height of refer button */
     public static let REFER_BUTTON_HEIGHT:          CGFloat = 270
+    /** Time wait to show Resend button on Confirm code screen */
+    public static let RESEND_BTN_TIME_WAIT:                 Int  = 30000
+    /** Time wait to request Transaction status again */
+    public static let RESEND_TRANSACTION_STATUS_TIME_WAIT:  Int  = 5000
+    /** Time wait to change Confirmed status */
+    public static let CHANGE_CONFIRMED_STATUS_TIME_WAIT:    Int  = 15000
 }
