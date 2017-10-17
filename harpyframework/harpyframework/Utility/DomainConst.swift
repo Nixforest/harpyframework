@@ -1290,6 +1290,8 @@ public class DomainConst {
     public static let SERVER_URL                        = "http://spj.daukhimiennam.com/api/"
     /** Immortal Server URL */
     public static let SERVER_URL_IMMORTAL               = "http://build.immortal.vn/api/"
+    /** Hotline */
+    public static let HOTLINE                           = "1900 1565"
     
     // MARK -----Define id of fragment-----
     public static let LOGOUT                            = "logout"
@@ -1807,9 +1809,11 @@ public class DomainConst {
     /** Order status image: Delivering - Inactive */
     public static let ORDER_STATUS_DELIVERING_INACTIVE_IMG_NAME = "orderStatus_Delivering_Inactive.png"
     /** Order status image: Complete - Active */
-    public static let ORDER_STATUS_COMPLETE_ACTIVE_IMG_NAME       = "orderStatus_Complete_Active.png"
+    public static let ORDER_STATUS_COMPLETE_ACTIVE_IMG_NAME     = "orderStatus_Complete_Active.png"
     /** Order status image: Complete - Inactive */
-    public static let ORDER_STATUS_COMPLETE_INACTIVE_IMG_NAME     = "orderStatus_Complete_Inactive.png"
+    public static let ORDER_STATUS_COMPLETE_INACTIVE_IMG_NAME   = "orderStatus_Complete_Inactive.png"
+    /** Hotline image */
+    public static let HOTLINE_IMG_NAME                          = "hotline.png"
     
     /** HTTP Post request method */
     public static let HTTP_POST_REQUEST                     = "POST"
@@ -2315,8 +2319,8 @@ public class DomainConst {
     public static let CONTENT00510 = "Xin quý khách vui lòng nhập số điện thoại để nhân viên Gas24h liên hệ với quý khách"
     public static let CONTENT00511 = "Người dùng không cho phép"
     public static let CONTENT00512 = "Trạng thái đơn hàng"
-    public static let CONTENT00513 = "Chờ xác\nnhận"
-    public static let CONTENT00514 = "Đã xác\nnhận"
+    public static let CONTENT00513 = "Chờ\nxác nhận"
+    public static let CONTENT00514 = "Đã\nxác nhận"
     public static let CONTENT00515 = "Đang\ngiao gas"
     public static let CONTENT00516 = "Xem trước đơn hàng"
     public static let CONTENT00517 = "Thay đổi"

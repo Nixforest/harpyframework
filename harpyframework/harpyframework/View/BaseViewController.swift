@@ -254,6 +254,19 @@ open class BaseViewController : UIViewController {
     }
     
     /**
+     * Handle make a sms message
+     * - parameter phone: Phone string to send sms
+     */
+    public func makeASMS(phone: String) {
+        let url = NSURL(string: "sms:\(phone)")
+        if UIApplication.shared.canOpenURL(url as! URL) {
+            UIApplication.shared.openURL(url as! URL)
+        } else {
+            showAlert(message: "Không nhắn tin được vào số: \(phone)")
+        }
+    }
+    
+    /**
      * Handle send email
      * - parameter email: Email to send
      */

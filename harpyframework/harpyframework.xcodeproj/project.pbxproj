@@ -38,6 +38,7 @@
 		D70B9F951E3F504400EB66F5 /* icon18.png in Resources */ = {isa = PBXBuildFile; fileRef = D70B9F911E3F504400EB66F5 /* icon18.png */; };
 		D70B9F961E3F504400EB66F5 /* icon19.png in Resources */ = {isa = PBXBuildFile; fileRef = D70B9F921E3F504400EB66F5 /* icon19.png */; };
 		D70ECEC91EE2788500997F1A /* ErrorDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70ECEC81EE2788500997F1A /* ErrorDetailVC.swift */; };
+		D70EDFB51F95EB3A00658F64 /* hotline.png in Resources */ = {isa = PBXBuildFile; fileRef = D70EDFB41F95EB3A00658F64 /* hotline.png */; };
 		D71106211F57F1FE001BC56C /* ScanCodeVC~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = D71106201F57F1FE001BC56C /* ScanCodeVC~ipad.xib */; };
 		D7117B4B1F7A83B200B8C2FA /* finishbtn.png in Resources */ = {isa = PBXBuildFile; fileRef = D7117B4A1F7A83B200B8C2FA /* finishbtn.png */; };
 		D7117B561F7AA32500B8C2FA /* ChildExtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7117B551F7AA32500B8C2FA /* ChildExtViewController.swift */; };
@@ -433,6 +434,7 @@
 		D70B9F911E3F504400EB66F5 /* icon18.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon18.png; path = images/icon18.png; sourceTree = "<group>"; };
 		D70B9F921E3F504400EB66F5 /* icon19.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon19.png; path = images/icon19.png; sourceTree = "<group>"; };
 		D70ECEC81EE2788500997F1A /* ErrorDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorDetailVC.swift; path = View/ErrorDetailVC.swift; sourceTree = "<group>"; };
+		D70EDFB41F95EB3A00658F64 /* hotline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hotline.png; path = images/hotline.png; sourceTree = "<group>"; };
 		D71106201F57F1FE001BC56C /* ScanCodeVC~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "ScanCodeVC~ipad.xib"; path = "View/ScanCodeVC~ipad.xib"; sourceTree = "<group>"; };
 		D7117B4A1F7A83B200B8C2FA /* finishbtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = finishbtn.png; path = images/finishbtn.png; sourceTree = "<group>"; };
 		D7117B551F7AA32500B8C2FA /* ChildExtViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChildExtViewController.swift; path = View/Version2/ChildExtViewController.swift; sourceTree = "<group>"; };
@@ -1161,6 +1163,7 @@
 		D7F3D8D21E1B8BCC0018744F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D70EDFB41F95EB3A00658F64 /* hotline.png */,
 				D71A08081F878E2300366378 /* referBtn.png */,
 				D71A08061F87847100366378 /* confirmedbtn.png */,
 				D746DE001F86212800C014DA /* orderStatus_Complete_Active.png */,
@@ -1578,6 +1581,7 @@
 				D7025E261E4B21BA00045B5B /* icon13.png in Resources */,
 				D75F64F91E28B39100A67B3C /* icon38.png in Resources */,
 				D75F64DA1E28B39100A67B3C /* Account.jpeg in Resources */,
+				D70EDFB51F95EB3A00658F64 /* hotline.png in Resources */,
 				D76332A71F72D30300FF648C /* categoryGAS.png in Resources */,
 				D76E7E7A1EDE8A1D005D5585 /* icon-baocao.png in Resources */,
 				D791F69E1E2372FB009CBBED /* icon31.png in Resources */,

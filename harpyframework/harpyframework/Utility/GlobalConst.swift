@@ -194,4 +194,8 @@ public class GlobalConst {
     public static let RESEND_TRANSACTION_STATUS_TIME_WAIT:  Int  = 5000
     /** Time wait to change Confirmed status */
     public static let CHANGE_CONFIRMED_STATUS_TIME_WAIT:    Int  = 15000
+    /** Width of submit button */
+    public static let SUBMIT_BUTTON_WIDTH:          CGFloat = 330
+    /** Height of submit button */
+    public static let SUBMIT_BUTTON_HEIGHT:         CGFloat = 135
 }

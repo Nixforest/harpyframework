@@ -22,7 +22,7 @@ open class ChildExtViewController: ChildViewController {
         if BaseModel.shared.isTrainningMode {
             self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: GlobalConst.TRAINING_COLOR]
         } else {
-            self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: GlobalConst.BUTTON_COLOR_RED]
+            self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         }
     }
     
@@ -35,7 +35,7 @@ open class ChildExtViewController: ChildViewController {
         let tintedBack = back?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
         let btnBack = UIButton()
         btnBack.setImage(tintedBack, for: UIControlState())
-        btnBack.tintColor = GlobalConst.BUTTON_COLOR_RED
+        btnBack.tintColor = UIColor.white
         btnBack.frame = CGRect(x: 0, y: 0,
                                width: GlobalConst.MENU_BUTTON_W,
                                height: GlobalConst.MENU_BUTTON_W)
@@ -67,6 +67,6 @@ open class ChildExtViewController: ChildViewController {
         let notifyNavBar = UIBarButtonItem()
         notifyNavBar.customView = btnNotify
         notifyNavBar.isEnabled = BaseModel.shared.checkIsLogin()
-        self.navigationItem.setRightBarButton(notifyNavBar, animated: true)
+//        self.navigationItem.setRightBarButton(notifyNavBar, animated: true)
     }
 }
