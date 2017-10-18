@@ -1814,6 +1814,12 @@ public class DomainConst {
     public static let ORDER_STATUS_COMPLETE_INACTIVE_IMG_NAME   = "orderStatus_Complete_Inactive.png"
     /** Hotline image */
     public static let HOTLINE_IMG_NAME                          = "hotline.png"
+    /** Status finish image */
+    public static let STATUS_FINISH_IMG_NAME                    = "status_finish.png"
+    /** Status finish [Small] image */
+    public static let STATUS_FINISH_SMALL_IMG_NAME              = "status_finish_small.png"
+    /** Status cancel [Small] image */
+    public static let STATUS_CANCEL_SMALL_IMG_NAME              = "status_cancel_small.png"
     
     /** HTTP Post request method */
     public static let HTTP_POST_REQUEST                     = "POST"
@@ -2332,4 +2338,6 @@ public class DomainConst {
     public static let CONTENT00523 = "Loại gas được chọn sẽ được mặc định trong đơn hàng nếu Quý khách không thay đổi"
     public static let CONTENT00524 = "Chọn loại gas"
     public static let CONTENT00525 = "Điểm thưởng hiện tại: 500 điểm\nĐặt 1 bình gas mới, điểm thưởng 300 điểm\nBạn có thể chọn quà đến 800 điểm"
+    public static let CONTENT00526 = "Chia sẻ mã giới thiệu của bạn: %@ hoặc truy cập địa chỉ: %@"
+    public static let CONTENT00527 = "Lịch sử đơn hàng"
 }

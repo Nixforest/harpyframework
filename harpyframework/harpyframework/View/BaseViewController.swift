@@ -1230,6 +1230,10 @@ open class BaseViewController : UIViewController {
         
     }
     
+    open func openListOrder() {
+        
+    }
+    
     //++ BUG0156-SPJ (NguyenPT 20170926) Re-design Gas24h
     private func createBotMsgView(width: CGFloat) {
         botMsgView.frame = CGRect(x: (UIScreen.main.bounds.width - width) / 2,

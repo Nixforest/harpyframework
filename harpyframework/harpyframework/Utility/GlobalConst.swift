@@ -198,4 +198,6 @@ public class GlobalConst {
     public static let SUBMIT_BUTTON_WIDTH:          CGFloat = 330
     /** Height of submit button */
     public static let SUBMIT_BUTTON_HEIGHT:         CGFloat = 135
+    /** Size of status icon */
+    public static let STATUS_ICON_SIZE:             CGFloat = 60
 }

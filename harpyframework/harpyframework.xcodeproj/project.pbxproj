@@ -39,6 +39,7 @@
 		D70B9F961E3F504400EB66F5 /* icon19.png in Resources */ = {isa = PBXBuildFile; fileRef = D70B9F921E3F504400EB66F5 /* icon19.png */; };
 		D70ECEC91EE2788500997F1A /* ErrorDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70ECEC81EE2788500997F1A /* ErrorDetailVC.swift */; };
 		D70EDFB51F95EB3A00658F64 /* hotline.png in Resources */ = {isa = PBXBuildFile; fileRef = D70EDFB41F95EB3A00658F64 /* hotline.png */; };
+		D70EDFC71F96613100658F64 /* status_finish.png in Resources */ = {isa = PBXBuildFile; fileRef = D70EDFC61F96613100658F64 /* status_finish.png */; };
 		D71106211F57F1FE001BC56C /* ScanCodeVC~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = D71106201F57F1FE001BC56C /* ScanCodeVC~ipad.xib */; };
 		D7117B4B1F7A83B200B8C2FA /* finishbtn.png in Resources */ = {isa = PBXBuildFile; fileRef = D7117B4A1F7A83B200B8C2FA /* finishbtn.png */; };
 		D7117B561F7AA32500B8C2FA /* ChildExtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7117B551F7AA32500B8C2FA /* ChildExtViewController.swift */; };
@@ -379,6 +380,8 @@
 		D7EA53D11EE3F5C5004CFE1F /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = D7EA53D01EE3F5C5004CFE1F /* map.png */; };
 		D7EA53D81EE40FC3004CFE1F /* icon51.png in Resources */ = {isa = PBXBuildFile; fileRef = D7EA53D71EE40FC3004CFE1F /* icon51.png */; };
 		D7EBB7EB1EA9CC5700BE6612 /* OrderVipSetEventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EBB7EA1EA9CC5700BE6612 /* OrderVipSetEventRequest.swift */; };
+		D7EDF4821F96F7E700215A5E /* status_finish_small.png in Resources */ = {isa = PBXBuildFile; fileRef = D7EDF4811F96F7E700215A5E /* status_finish_small.png */; };
+		D7EDF4861F97352B00215A5E /* status_cancel_small.png in Resources */ = {isa = PBXBuildFile; fileRef = D7EDF4851F97352B00215A5E /* status_cancel_small.png */; };
 		D7F17CD61E5DF14000208A73 /* new-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D7F17CD51E5DF14000208A73 /* new-icon.png */; };
 		D7F3D8CD1E1B74720018744F /* CustomeDateTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F3D8CC1E1B74720018744F /* CustomeDateTimeView.swift */; };
 		D7F3D8D01E1B80D80018744F /* TableCellUpholdType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F3D8CE1E1B80D80018744F /* TableCellUpholdType.swift */; };
@@ -435,6 +438,7 @@
 		D70B9F921E3F504400EB66F5 /* icon19.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon19.png; path = images/icon19.png; sourceTree = "<group>"; };
 		D70ECEC81EE2788500997F1A /* ErrorDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorDetailVC.swift; path = View/ErrorDetailVC.swift; sourceTree = "<group>"; };
 		D70EDFB41F95EB3A00658F64 /* hotline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hotline.png; path = images/hotline.png; sourceTree = "<group>"; };
+		D70EDFC61F96613100658F64 /* status_finish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = status_finish.png; path = images/status_finish.png; sourceTree = "<group>"; };
 		D71106201F57F1FE001BC56C /* ScanCodeVC~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "ScanCodeVC~ipad.xib"; path = "View/ScanCodeVC~ipad.xib"; sourceTree = "<group>"; };
 		D7117B4A1F7A83B200B8C2FA /* finishbtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = finishbtn.png; path = images/finishbtn.png; sourceTree = "<group>"; };
 		D7117B551F7AA32500B8C2FA /* ChildExtViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChildExtViewController.swift; path = View/Version2/ChildExtViewController.swift; sourceTree = "<group>"; };
@@ -779,6 +783,8 @@
 		D7EA53D01EE3F5C5004CFE1F /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = map.png; path = images/map.png; sourceTree = "<group>"; };
 		D7EA53D71EE40FC3004CFE1F /* icon51.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon51.png; path = images/icon51.png; sourceTree = "<group>"; };
 		D7EBB7EA1EA9CC5700BE6612 /* OrderVipSetEventRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderVipSetEventRequest.swift; path = API/OrderVipSetEventRequest.swift; sourceTree = "<group>"; };
+		D7EDF4811F96F7E700215A5E /* status_finish_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = status_finish_small.png; path = images/status_finish_small.png; sourceTree = "<group>"; };
+		D7EDF4851F97352B00215A5E /* status_cancel_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = status_cancel_small.png; path = images/status_cancel_small.png; sourceTree = "<group>"; };
 		D7F17CD51E5DF14000208A73 /* new-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "new-icon.png"; path = "images/new-icon.png"; sourceTree = "<group>"; };
 		D7F3D8CC1E1B74720018744F /* CustomeDateTimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomeDateTimeView.swift; path = CustomeControl/CustomeDateTimeView.swift; sourceTree = "<group>"; };
 		D7F3D8CE1E1B80D80018744F /* TableCellUpholdType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableCellUpholdType.swift; path = CustomeControl/TableCellUpholdType.swift; sourceTree = "<group>"; };
@@ -1163,6 +1169,9 @@
 		D7F3D8D21E1B8BCC0018744F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D7EDF4851F97352B00215A5E /* status_cancel_small.png */,
+				D7EDF4811F96F7E700215A5E /* status_finish_small.png */,
+				D70EDFC61F96613100658F64 /* status_finish.png */,
 				D70EDFB41F95EB3A00658F64 /* hotline.png */,
 				D71A08081F878E2300366378 /* referBtn.png */,
 				D71A08061F87847100366378 /* confirmedbtn.png */,
@@ -1510,6 +1519,7 @@
 				D75F65231E28B3BC00A67B3C /* problemType.png in Resources */,
 				D75F64DF1E28B39100A67B3C /* delete.png in Resources */,
 				D791F67B1E234C89009CBBED /* bg_sliding_menu_body.jpg in Resources */,
+				D7EDF4861F97352B00215A5E /* status_cancel_small.png in Resources */,
 				D746DE0A1F86212800C014DA /* orderStatus_Delivering_Active.png in Resources */,
 				D75F64AE1E28657900A67B3C /* icon53.png in Resources */,
 				D75F64E71E28B39100A67B3C /* icon4-ios.png in Resources */,
@@ -1552,6 +1562,7 @@
 				D791F68E1E2367F3009CBBED /* report.png in Resources */,
 				D75F64EE1E28B39100A67B3C /* icon33-user-iso.png in Resources */,
 				D7CFF1F81E44F23500A37C07 /* icon23.png in Resources */,
+				D70EDFC71F96613100658F64 /* status_finish.png in Resources */,
 				D70B9F8E1E3F4F1F00EB66F5 /* icon69.png in Resources */,
 				D77F06041E71738100797A6B /* TableCellOrderType.xib in Resources */,
 				D791F6991E236BAA009CBBED /* checkbox-checked.png in Resources */,
@@ -1569,6 +1580,7 @@
 				D75F64ED1E28B39100A67B3C /* icon32-user.png in Resources */,
 				D75F65171E28B3B100A67B3C /* information.png in Resources */,
 				19D74A7F1EE4598F00B7DE47 /* close.png in Resources */,
+				D7EDF4821F96F7E700215A5E /* status_finish_small.png in Resources */,
 				D75F64FB1E28B39100A67B3C /* icon39.png in Resources */,
 				D71544B71F6BBF6400480486 /* signup_bg_1080_1920.png in Resources */,
 				D7D28B741EB9B800006DDF83 /* ic_menu_family.png in Resources */,

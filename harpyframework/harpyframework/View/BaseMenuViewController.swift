@@ -394,7 +394,8 @@ open class BaseMenuViewController : BaseViewController {
             break
         case DomainConst.ORDER_LIST:                        // Order list
             //currentView.pushToView(name: DomainConst.G04_F00_S01_VIEW_CTRL)
-            currentView.pushToViewAndClearData(name: DomainConst.G04_F00_S01_VIEW_CTRL)
+            //currentView.pushToViewAndClearData(name: DomainConst.G04_F00_S01_VIEW_CTRL)
+            openListOrder()
             break
         case DomainConst.ORDER_VIP_LIST:                    // VIP order list
             //currentView.pushToView(name: DomainConst.G05_F00_S01_VIEW_CTRL)
