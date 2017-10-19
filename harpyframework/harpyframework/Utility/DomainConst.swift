@@ -1820,6 +1820,12 @@ public class DomainConst {
     public static let STATUS_FINISH_SMALL_IMG_NAME              = "status_finish_small.png"
     /** Status cancel [Small] image */
     public static let STATUS_CANCEL_SMALL_IMG_NAME              = "status_cancel_small.png"
+    /** Name icon image */
+    public static let NAME_ICON_IMG_NAME                        = "name_icon.png"
+    /** Phone icon image */
+    public static let PHONE_ICON_NEW_IMG_NAME                   = "phone_icon.png"
+    /** Address icon image */
+    public static let ADDRESS_ICON_NEW_IMG_NAME                 = "address_icon.png"
     
     /** HTTP Post request method */
     public static let HTTP_POST_REQUEST                     = "POST"
@@ -2340,4 +2346,5 @@ public class DomainConst {
     public static let CONTENT00525 = "Điểm thưởng hiện tại: 500 điểm\nĐặt 1 bình gas mới, điểm thưởng 300 điểm\nBạn có thể chọn quà đến 800 điểm"
     public static let CONTENT00526 = "Chia sẻ mã giới thiệu của bạn: %@ hoặc truy cập địa chỉ: %@"
     public static let CONTENT00527 = "Lịch sử đơn hàng"
+    public static let CONTENT00528 = "Thông tin tài khoản"
 }

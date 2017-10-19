@@ -774,7 +774,7 @@ extension String {
     
     /**
      * Remove sign
-     * - returns: Sttring after remove sign
+     * - returns: String after remove sign
      */
     public func removeSign() -> String {
         var retVal = self

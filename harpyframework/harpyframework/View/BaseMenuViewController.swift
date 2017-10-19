@@ -369,7 +369,8 @@ open class BaseMenuViewController : BaseViewController {
             break
         case DomainConst.USER_PROFILE:                      // User profile
             //currentView.pushToView(name: DomainConst.G00_ACCOUNT_VIEW_CTRL)
-            currentView.pushToViewAndClearData(name: DomainConst.G00_ACCOUNT_VIEW_CTRL)
+            //currentView.pushToViewAndClearData(name: DomainConst.G00_ACCOUNT_VIEW_CTRL)
+            openUserProfile()
             break
         case DomainConst.UPHOLD_LIST:                       // Uphold list
             //currentView.pushToView(name: DomainConst.G01_F00_S01_VIEW_CTRL)

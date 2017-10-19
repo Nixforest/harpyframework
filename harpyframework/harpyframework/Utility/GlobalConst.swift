@@ -99,6 +99,7 @@ public class GlobalConst {
     public static var BUTTON_COLOR_RED              = MAIN_COLOR
     public static let BUTTON_COLOR_GRAY             = ColorFromRGB().getColorFromRGB(0xD5D5D5)
     public static let BUTTON_COLOR_YELLOW           = ColorFromRGB().getColorFromRGB(0xFF9E19)
+    public static let BUTTON_COLOR_YELLOW_NEW       = ColorFromRGB().getColorFromRGB(0xFAA61A)
     public static let BUTTON_COLOR_DISABLE          = ColorFromRGB().getColorFromRGB(0x535353)
     public static let COLOR_SELECTING_GREEN         = ColorFromRGB().getColorFromRGB(0x08C011)
     public static let PARENT_BORDER_COLOR_GRAY      = UIColor.gray
