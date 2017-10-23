@@ -303,6 +303,10 @@ public class DomainConst {
     public static let KEY_RATING_TYPE                   = "rating_type"
     /** Request type */
     public static let KEY_RATING_NOTE                   = "rating_note"
+    /** Key rating value */
+    public static let KEY_RATING                        = "rating"
+    /** Key rating comment */
+    public static let KEY_RATING_COMMENT                = "rating_comment"
     /** Other information */
     public static let KEY_OTHER_INFO                    = "OtherInfo"
     /** Uphold last id */
@@ -1047,6 +1051,24 @@ public class DomainConst {
     public static let ORDER_INFO_PAY_DIRECT             = "###99934"
     /** Order information id: Order discount */
     public static let ORDER_INFO_DISCOUNT               = "###99935"
+    /** Account information id: Name */
+    public static let ACCOUNT_INFO_NAME_ID              = "###99936"
+    /** Account information id: Email */
+    public static let ACCOUNT_INFO_EMAIL_ID             = "###99937"
+    /** Account information id: House number */
+    public static let ACCOUNT_INFO_HOUSE_NUMBER_ID      = "###99938"
+    /** Account information id: Street */
+    public static let ACCOUNT_INFO_STREET_ID            = "###99939"
+    /** Account information id: Ward */
+    public static let ACCOUNT_INFO_WARD_ID              = "###99940"
+    /** Account information id: District */
+    public static let ACCOUNT_INFO_DISTRICT_ID          = "###99941"
+    /** Account information id: City */
+    public static let ACCOUNT_INFO_CITY_ID              = "###99942"
+    /** Account information id: Save */
+    public static let ACCOUNT_INFO_SAVE_ID              = "###99943"
+    /** Account information id: Cancel */
+    public static let ACCOUNT_INFO_CANCEL_ID            = "###99944"
     /** Order information id: Order Material */
     public static let ORDER_INFO_MATERIAL_ID            = "###999"
     
@@ -1118,8 +1140,14 @@ public class DomainConst {
     /** Key show_discount */
     public static let KEY_SHOW_DISCOUNT                 = "show_discount"
     
-    /** Key otp vode */
+    /** Key otp code */
     public static let KEY_OTP_CODE                      = "otp_code"
+    /** Key change_qty */
+    public static let KEY_CHANGE_QTY                    = "change_qty"
+    /** Key show_input_promotion_amount */
+    public static let KEY_SHOW_INPUT_PROMOTION_AMOUNT   = "show_input_promotion_amount"
+    /** Key input_promotion_amount */
+    public static let KEY_INPUT_PROMOTION_AMOUNT        = "input_promotion_amount"
     
     //++ BUG0050-SPJ (NguyenPT 20170325) Add new function G06
     /** Platform value: Android */
@@ -1820,6 +1848,10 @@ public class DomainConst {
     public static let STATUS_FINISH_SMALL_IMG_NAME              = "status_finish_small.png"
     /** Status cancel [Small] image */
     public static let STATUS_CANCEL_SMALL_IMG_NAME              = "status_cancel_small.png"
+    /** Status new [Small] image */
+    public static let STATUS_NEW_SMALL_IMG_NAME                 = "status_new.png"
+    /** Status waiting [Small] image */
+    public static let STATUS_WAITING_SMALL_IMG_NAME             = "status_waiting.png"
     /** Name icon image */
     public static let NAME_ICON_IMG_NAME                        = "name_icon.png"
     /** Phone icon image */
@@ -2058,7 +2090,7 @@ public class DomainConst {
     public static let CONTENT00223 = "Xem"
     public static let CONTENT00224 = "Để sau"
     public static let CONTENT00225 = "Bảo trì miễn phí"
-    public static let CONTENT00226 = "Gas 24h"
+    public static let CONTENT00226 = "Gas24h"
     public static let CONTENT00227 = "Quên mật khẩu?"
     public static let CONTENT00228 = "Tạo tài khoản mới"
     public static let CONTENT00229 = "Lưu thông tin"
@@ -2347,4 +2379,5 @@ public class DomainConst {
     public static let CONTENT00526 = "Chia sẻ mã giới thiệu của bạn: %@ hoặc truy cập địa chỉ: %@"
     public static let CONTENT00527 = "Lịch sử đơn hàng"
     public static let CONTENT00528 = "Thông tin tài khoản"
+    public static let CONTENT00529 = "Bật dịch vụ định vị để ứng dụng tự động tìm thấy địa chỉ giao hàng"
 }

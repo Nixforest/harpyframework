@@ -27,10 +27,12 @@ public class OrderBean: NSObject {
     public var note: String = ""
     /** Address */
     public var address: String = ""
-    /** show_nhan_giao_hang */
+    /** code_no */
     public var code_no: String = ""
     /** show_huy_giao_hang */
     public var allow_update: String = ""
+    /** change_qty */
+    public var change_qty:          String = DomainConst.BLANK
     /** show_huy_giao_hang */
     public var province_id: String = ""
     /** show_huy_giao_hang */
@@ -54,9 +56,9 @@ public class OrderBean: NSObject {
     /** show_huy_giao_hang */
     public var employee_image: String = ""
     /** employee_latitude */
-    public var employee_latitude:   String = DomainConst.BLANK
+    public var employee_latitude:       String = DomainConst.BLANK
     /** employee_longitude */
-    public var employee_longitude:   String = DomainConst.BLANK
+    public var employee_longitude:      String = DomainConst.BLANK
     /** show_huy_giao_hang */
     public var order_type: String = ""
     /** show_huy_giao_hang */
@@ -67,56 +69,77 @@ public class OrderBean: NSObject {
     public var discount_type: String = ""
     /** show_huy_giao_hang */
     public var status_cancel: String = ""
-    /** show_huy_giao_hang */
-    public var order_detail: [OrderDetailBean] = [OrderDetailBean]()
-    /** Total quantity */
-    public var total_qty:        String = DomainConst.BLANK
-    /** Promotion amount */
-    public var promotion_amount: String = DomainConst.BLANK
-    /** Discount amount */
-    public var discount_amount:  String = DomainConst.BLANK
-    /** Total */
-    public var total:            String = DomainConst.BLANK
-    /** Grand total */
-    public var grand_total:      String = DomainConst.BLANK
-    /** Grand total */
-    public var order_type_text:     String = DomainConst.BLANK
-    /** Grand total */
-    public var order_type_amount:   String = DomainConst.BLANK
-    /** Grand total */
-    public var amount_bu_vo:        String = DomainConst.BLANK
     /** Number of status */
-    public var status_number:       String = DomainConst.BLANK
+    public var status_number:           String = DomainConst.BLANK
+    /** rating */
+    public var rating:                  String = DomainConst.BLANK
+    /** rating_comment */
+    public var rating_comment:          String = DomainConst.BLANK
+    /** show_nhan_giao_hang */
+    public var show_nhan_giao_hang:     String = DomainConst.BLANK
+    /** show_huy_giao_hang */
+    public var show_huy_giao_hang:      String = DomainConst.BLANK
+    
     //++ BUG0079-SPJ (NguyenPT 20170509) Add order type and support type in Family order
     /** Support type id */
-    public var support_id:          String = DomainConst.BLANK
+    public var support_id:              String = DomainConst.BLANK
     /** Support type text */
-    public var support_text:        String = DomainConst.BLANK
+    public var support_text:            String = DomainConst.BLANK
     //-- BUG0079-SPJ (NguyenPT 20170509) Add order type and support type in Family order
+    
     //++ BUG0103-SPJ (NguyenPT 20170606) Update new flag
+    /** Created date */
+    public var created_date:            String = DomainConst.BLANK
     /** Flag show button complete or not */
     public var show_button_complete:    String = DomainConst.BLANK
     /** Flag show button save or not */
     public var show_button_save:        String = DomainConst.BLANK
-    /** Created date */
-    public var created_date:            String = DomainConst.BLANK
     //-- BUG0103-SPJ (NguyenPT 20170606) Update new flag
+    
+    /** List images */
+    public var images:                  [UpholdImageInfoItem] = [UpholdImageInfoItem]()
     
     //++ BUG0111-SPJ (NguyenPT 20170619) Add new field CCS code
     /** CCS code */
-    public var ccsCode:                String = DomainConst.BLANK
+    public var ccsCode:                 String = DomainConst.BLANK
     //-- BUG0111-SPJ (NguyenPT 20170619) Add new field CCS code
     
     //++ BUG0119-SPJ (NguyenPT 20170630) Handle update customer in Order Family
     /** Flag show/hide Update customer button */
-    public var show_button_update_customer:    Int    = 0
-    /** Customer id */
-    public var customer_id:            String = DomainConst.BLANK
-    //-- BUG0119-SPJ (NguyenPT 20170630) Handle update customer in Order Family
+    public var show_button_update_customer:     Int    = 0
     //++ BUG0133-SPJ (NguyenPT 20170724) Family order: change agent delivery
     /** Flag show/hide Update agent button */
-    public var show_button_change_agent:    Int    = 0
+    public var show_button_change_agent:        Int    = 0
     //-- BUG0133-SPJ (NguyenPT 20170724) Family order: change agent delivery
+    /** Customer id */
+    public var customer_id:                     String = DomainConst.BLANK
+    //-- BUG0119-SPJ (NguyenPT 20170630) Handle update customer in Order Family
+    
+    /** show_button_cancel */
+    public var show_button_cancel:              Int    = 0
+    /** show_input_promotion_amount */
+    public var show_input_promotion_amount:     Int    = 0
+    
+    /** show_huy_giao_hang */
+    public var order_detail:            [OrderDetailBean] = [OrderDetailBean]()
+    /** Total quantity */
+    public var total_qty:               String = DomainConst.BLANK
+    /** Promotion amount */
+    public var promotion_amount:        String = DomainConst.BLANK
+    /** Discount amount */
+    public var discount_amount:         String = DomainConst.BLANK
+    /** Total */
+    public var total:                   String = DomainConst.BLANK
+    /** Grand total */
+    public var grand_total:             String = DomainConst.BLANK
+    /** Grand total */
+    public var order_type_text:         String = DomainConst.BLANK
+    /** Grand total */
+    public var order_type_amount:       String = DomainConst.BLANK
+    /** Grand total */
+    public var amount_bu_vo:            String = DomainConst.BLANK
+    /** input_promotion_amount */
+    public var input_promotion_amount:  String = DomainConst.BLANK
     
     
     public override init() {
@@ -147,6 +170,7 @@ public class OrderBean: NSObject {
         self.address            = getString(json: jsonData, key: DomainConst.KEY_ADDRESS)
         self.code_no            = getString(json: jsonData, key: DomainConst.KEY_CODE_NO)
         self.allow_update       = getString(json: jsonData, key: DomainConst.KEY_ALLOW_UPDATE)
+        self.change_qty         = getString(json: jsonData, key: DomainConst.KEY_CHANGE_QTY)
         self.province_id        = getString(json: jsonData, key: DomainConst.KEY_PROVINCE_ID)
         self.district_id        = getString(json: jsonData, key: DomainConst.KEY_DISTRICT_ID)
         self.ward_id            = getString(json: jsonData, key: DomainConst.KEY_WARD_ID)
@@ -165,6 +189,44 @@ public class OrderBean: NSObject {
         self.amount_discount    = getString(json: jsonData, key: DomainConst.KEY_AMOUNT_DISCOUNT)
         self.discount_type      = getString(json: jsonData, key: DomainConst.KEY_DISCOUNT_TYPE)
         self.status_cancel      = getString(json: jsonData, key: DomainConst.KEY_STATUS_CANCEL)
+        self.status_number      = getString(json: jsonData, key: DomainConst.KEY_STATUS_NUMBER)
+        self.rating             = getString(json: jsonData, key: DomainConst.KEY_RATING)
+        self.rating_comment     = getString(json: jsonData, key: DomainConst.KEY_RATING_COMMENT)
+        self.show_nhan_giao_hang    = getString(json: jsonData, key: DomainConst.KEY_SHOW_NHAN_GH)
+        self.show_huy_giao_hang     = getString(json: jsonData, key: DomainConst.KEY_SHOW_HUY_GH)
+        
+        //++ BUG0079-SPJ (NguyenPT 20170509) Add order type and support type in Family order
+        self.support_id         = getString(json: jsonData, key: DomainConst.KEY_SUPPORT_ID)
+        self.support_text       = getString(json: jsonData, key: DomainConst.KEY_SUPPORT_TEXT)
+        //-- BUG0079-SPJ (NguyenPT 20170509) Add order type and support type in Family order
+        
+        //++ BUG0103-SPJ (NguyenPT 20170606) Update new flag
+        self.created_date           = getString(json: jsonData, key: DomainConst.KEY_CREATED_DATE)
+        self.show_button_complete   = String(getInt(json: jsonData, key: DomainConst.KEY_SHOW_BUTTON_COMPLETE))
+        self.show_button_save       = String(getInt(json: jsonData, key: DomainConst.KEY_SHOW_BUTTON_SAVE))
+        //-- BUG0103-SPJ (NguyenPT 20170606) Update new flag
+        
+        if let dataArr = jsonData[DomainConst.KEY_LIST_IMAGE] as? [[String: AnyObject]] {
+            for listItem in dataArr {
+                self.images.append(UpholdImageInfoItem(jsonData: listItem))
+            }
+        }
+        
+        //++ BUG0111-SPJ (NguyenPT 20170619) Add new field CCS code
+        self.ccsCode                = getString(json: jsonData, key: DomainConst.KEY_MENU_CCS_CODE)
+        //++ BUG0111-SPJ (NguyenPT 20170619) Add new field CCS code
+        
+        //++ BUG0119-SPJ (NguyenPT 20170630) Handle update customer in Order Family
+        self.show_button_update_customer = getInt(json: jsonData, key: DomainConst.KEY_SHOW_BTN_UPDATE_CUSTOMER)
+        //++ BUG0133-SPJ (NguyenPT 20170724) Family order: change agent delivery
+        self.show_button_change_agent = getInt(json: jsonData, key: DomainConst.KEY_SHOW_BUTTON_CHANGE_AGENT)
+        //-- BUG0133-SPJ (NguyenPT 20170724) Family order: change agent delivery
+        self.customer_id = getString(json: jsonData, key: DomainConst.KEY_CUSTOMER_ID)
+        //-- BUG0119-SPJ (NguyenPT 20170630) Handle update customer in Order Family
+        
+        self.show_button_cancel = getInt(json: jsonData, key: DomainConst.KEY_SHOW_BUTTON_CANCEL)
+        self.show_input_promotion_amount    = getInt(json: jsonData, key: DomainConst.KEY_SHOW_INPUT_PROMOTION_AMOUNT)
+        
         if let dataArr = jsonData[DomainConst.KEY_ORDER_DETAIL] as? [[String: AnyObject]] {
             for item in dataArr {
                 self.order_detail.append(OrderDetailBean(jsonData: item))
@@ -178,28 +240,7 @@ public class OrderBean: NSObject {
         self.order_type_text    = getString(json: jsonData, key: DomainConst.KEY_ORDER_TYPE_TEXT)
         self.order_type_amount  = getString(json: jsonData, key: DomainConst.KEY_ORDER_TYPE_AMOUNT)
         self.amount_bu_vo       = getString(json: jsonData, key: DomainConst.KEY_AMOUNT_BU_VO)
-        self.status_number      = getString(json: jsonData, key: DomainConst.KEY_STATUS_NUMBER)
-        //++ BUG0079-SPJ (NguyenPT 20170509) Add order type and support type in Family order
-        self.support_id         = getString(json: jsonData, key: DomainConst.KEY_SUPPORT_ID)
-        self.support_text       = getString(json: jsonData, key: DomainConst.KEY_SUPPORT_TEXT)
-        //-- BUG0079-SPJ (NguyenPT 20170509) Add order type and support type in Family order
-        //++ BUG0103-SPJ (NguyenPT 20170606) Update new flag
-        self.show_button_complete   = String(getInt(json: jsonData, key: DomainConst.KEY_SHOW_BUTTON_COMPLETE))
-        self.show_button_save       = String(getInt(json: jsonData, key: DomainConst.KEY_SHOW_BUTTON_SAVE))
-        self.created_date           = getString(json: jsonData, key: DomainConst.KEY_CREATED_DATE)
-        //-- BUG0103-SPJ (NguyenPT 20170606) Update new flag
-        
-        //++ BUG0111-SPJ (NguyenPT 20170619) Add new field CCS code
-        self.ccsCode                = getString(json: jsonData, key: DomainConst.KEY_MENU_CCS_CODE)
-        //++ BUG0111-SPJ (NguyenPT 20170619) Add new field CCS code
-        
-        //++ BUG0119-SPJ (NguyenPT 20170630) Handle update customer in Order Family
-        self.show_button_update_customer = getInt(json: jsonData, key: DomainConst.KEY_SHOW_BTN_UPDATE_CUSTOMER)
-        self.customer_id = getString(json: jsonData, key: DomainConst.KEY_CUSTOMER_ID)
-        //-- BUG0119-SPJ (NguyenPT 20170630) Handle update customer in Order Family
-        //++ BUG0133-SPJ (NguyenPT 20170724) Family order: change agent delivery
-        self.show_button_change_agent = getInt(json: jsonData, key: DomainConst.KEY_SHOW_BUTTON_CHANGE_AGENT)
-        //-- BUG0133-SPJ (NguyenPT 20170724) Family order: change agent delivery
+        self.input_promotion_amount = getString(json: jsonData, key: DomainConst.KEY_INPUT_PROMOTION_AMOUNT)
     }
     
     //++ BUG0156-SPJ (NguyenPT 20170926) Re-design Gas24h
