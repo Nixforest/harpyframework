@@ -778,13 +778,15 @@ extension String {
      */
     public func removeSign() -> String {
         var retVal = self
-        for i in 1..<DomainConst.UNICODE_SIGNS.count {
-            for j in 0..<(DomainConst.UNICODE_SIGNS[i].characters.count - 1) {
-                retVal = retVal.replacingOccurrences(
-                    of:     DomainConst.UNICODE_SIGNS[i].substring(with: j..<(j + 1)),
-                    with:   DomainConst.UNICODE_SIGNS[0].substring(with: (i - 1)..<i))
-            }
-        }
+//        for i in 1..<DomainConst.UNICODE_SIGNS.count {
+//            for j in 0..<(DomainConst.UNICODE_SIGNS[i].characters.count - 1) {
+//                retVal = retVal.replacingOccurrences(
+//                    of:     DomainConst.UNICODE_SIGNS[i].substring(with: j..<(j + 1)),
+//                    with:   DomainConst.UNICODE_SIGNS[0].substring(with: (i - 1)..<i))
+//            }
+//        }
+        retVal = retVal.folding(options: .diacriticInsensitive,
+                                locale: .current)
         retVal = retVal.replacingOccurrences(of: "đ", with: "d")
         retVal = retVal.replacingOccurrences(of: "Đ", with: "D")
         return retVal

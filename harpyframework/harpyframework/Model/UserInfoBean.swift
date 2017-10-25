@@ -60,7 +60,7 @@ public class UserInfoBean: NSObject {
         self.province_id    = getString(json: jsonString, key: DomainConst.KEY_PROVINCE_ID)
         self.district_id    = getString(json: jsonString, key: DomainConst.KEY_DISTRICT_ID)
         self.ward_id        = getString(json: jsonString, key: DomainConst.KEY_WARD_ID)
-        self.street_id      = getString(json: jsonString, key: DomainConst.KEY_STREET)
+        self.street_id      = getString(json: jsonString, key: DomainConst.KEY_STREET_ID)
         self.house_numbers  = getString(json: jsonString, key: DomainConst.KEY_HOUSE_NUMBER)
         //++ BUG0008-SPJ (NguyenPT 20170616) Update G00Account
         self.agent_id       = getString(json: jsonString, key: DomainConst.KEY_AGENT_ID)
@@ -259,4 +259,15 @@ public class UserInfoBean: NSObject {
         return self.agent_name
     }
     //-- BUG0008-SPJ (NguyenPT 20170616) Update G00Account
+    
+    /**
+     * Check if user info is empty
+     * - returns: True if phone and first_name are empty, False otherwise
+     */
+    public func isEmpty() -> Bool {
+        if self.phone.isEmpty && self.first_name.isEmpty {
+            return true
+        }
+        return false
+    }
 }

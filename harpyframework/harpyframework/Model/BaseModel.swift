@@ -50,8 +50,11 @@ public class BaseModel: NSObject {
     public var listRatingType: [ConfigBean] = [ConfigBean]()
     /** Id of role */
     var role_id: String = ""
+    // NguyenPT - Will remove in next version
     /** List user info */
     public var user_info: UserInfoBean? = nil
+    // NguyenPT
+    private var _userInfo:                      UserInfoBean    = UserInfoBean()
     /** User information get from login */
     public var user_info_login: [ConfigBean] = [ConfigBean]()
     /** List check menu */
@@ -537,7 +540,8 @@ public class BaseModel: NSObject {
         isLogin = false
         userToken = ""
         self._transaction = TransactionBean.init()
-        self.user_info = nil
+        //self.user_info = nil
+        self._userInfo = UserInfoBean()
         self.notifyCountText = ""
         self.setTempToken(token: "")
         //++ BUG0049-SPJ (NguyenPT 20170622) Handle save user info in setting
@@ -613,7 +617,8 @@ public class BaseModel: NSObject {
      * - parameter roleId: Id of role
      */
     public func setUserInfo(userInfo: UserInfoBean) {
-        self.user_info = userInfo
+        //self.user_info = userInfo
+        self._userInfo = userInfo
     }
     
     /**
@@ -711,9 +716,9 @@ public class BaseModel: NSObject {
         // List street
         //++ BUG0109-SPJ (NguyenPT 20170617) Handle save unsigned value of street name
         for item in loginModel.list_street {
-            let itemAdd = item
-            itemAdd.data.append(ConfigBean(id: DomainConst.BLANK, name: item.name.removeSign().lowercased()))
-            self.list_street.append(itemAdd)
+            //let itemAdd = item
+            item.data.append(ConfigBean(id: DomainConst.BLANK, name: item.name.removeSign().lowercased()))
+            //self.list_street.append(itemAdd)
         }
         //-- BUG0109-SPJ (NguyenPT 20170617) Handle save unsigned value of street name
         self.list_street = loginModel.list_street
@@ -1163,8 +1168,12 @@ public class BaseModel: NSObject {
      * - parameter districtId: Id of district
      * - returns: List of wards
      */
-    public func getListWards(districtId: String) -> [ConfigBean]? {
-        return self._listWards[districtId]
+    public func getListWards(districtId: String) -> [ConfigBean] {
+        if let retVal = self._listWards[districtId] {
+            return retVal
+        }
+//        return self._listWards[districtId]
+        return [ConfigBean]()
     }
     
     /**
@@ -1180,8 +1189,12 @@ public class BaseModel: NSObject {
      * - parameter provinceId: Id of province
      * - returns: List of districts
      */
-    public func getListDistricts(provinceId: String) -> [ConfigBean]? {
-        return self._listDistricts[provinceId]
+    public func getListDistricts(provinceId: String) -> [ConfigBean] {
+        if let retVal = self._listDistricts[provinceId] {
+            return retVal
+        }
+        return [ConfigBean]()
+        //return self._listDistricts[provinceId]
     }
     
     /**
@@ -1212,6 +1225,40 @@ public class BaseModel: NSObject {
      */
     public func getListFamilyInvestments() -> [ConfigBean] {
         return self.list_hgd_invest
+    }
+    
+    /**
+     * Check if provinces list is empty
+     * - returns: True if list provinces is empty, False otherwise
+     */
+    public func checkProvincesListEmpty() -> Bool {
+        return self._listProvinces.isEmpty
+    }
+    
+    /**
+     * Check if districts of a province is empty
+     * - parameter provinceId: If of province
+     * - returns: True if list of districts of province is empty, False otherwise
+     */
+    public func checkDistrictListEmpty(provinceId: String) -> Bool {
+        if let val = self._listDistricts[provinceId] {
+            return val.isEmpty
+        } else {
+            return true
+        }
+    }
+    
+    /**
+     * Check if wards of a district is empty
+     * - parameter districtId: Id of district
+     * - returns: True if list of wards of district is empty, False otherwise
+     */
+    public func checkWardListEmpty(districtId: String) -> Bool {
+        if let val = self._listWards[districtId] {
+            return val.isEmpty
+        } else {
+            return true
+        }
     }
     //-- BUG0050-SPJ (NguyenPT 20170403) Handle Address information
     //++ BUG0054-SPJ (NguyenPT 20170414) Add new function G07
@@ -1520,5 +1567,39 @@ public class BaseModel: NSObject {
      */
     public func isFirstOrder() -> Bool {
         return self._isFirstOrder
+    }
+    
+    /**
+     * Get user information
+     * - returns: User information
+     */
+    public func getUserInfo() -> UserInfoBean {
+        return self._userInfo
+    }
+    
+    /**
+     * Get name of province in User info
+     * - returns: Name of province
+     */
+    public func getUserInfoProvinceName() -> String {
+        return self.getProvinceNameById(id: self._userInfo.getProvinceId())
+    }
+    
+    /**
+     * Get name of district in User info
+     * - returns: Name of district
+     */
+    public func getUserInfoDistrictName() -> String {
+        return self.getDistrictNameById(id: self._userInfo.getDistrictId(),
+                                        provinceId: self._userInfo.getProvinceId())
+    }
+    
+    /**
+     * Get name of ward in User info
+     * - returns: Name of ward
+     */
+    public func getUserInfoWardName() -> String {
+        return self.getWardNameById(id: self._userInfo.getWardId(),
+                                    districtId: self._userInfo.getDistrictId())
     }
 }

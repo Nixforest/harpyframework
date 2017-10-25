@@ -123,6 +123,7 @@ public class GlobalConst {
     public static var FACEBOOK_BKG_COLOR            = ColorFromRGB().getColorFromRGB(0x3B5998)
     public static var ZALO_BKG_COLOR                = ColorFromRGB().getColorFromRGB(0x1987C4)
     public static var PROMOTION_BKG_COLOR           = ColorFromRGB().getColorFromRGB(0xEFEFEF)
+    public static var CANCEL_BKG_COLOR              = ColorFromRGB().getColorFromRGB(0x9F9F9F)
     //++ BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
     /** Time interval for animation in Step view controller */
     public static let STEP_MOVE_TIME_INTERVAL       = 0.1

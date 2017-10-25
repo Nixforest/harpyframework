@@ -36,7 +36,7 @@ public class WardsListRequest: BaseRequest {
                                districtId: String) {
         //++ BUG0059-SPJ (NguyenPT 20170420) Check list district is existed
         if BaseModel.shared.getListWards(districtId: districtId) != nil
-            && BaseModel.shared.getListWards(districtId: districtId)?.count != 0 {
+            && BaseModel.shared.getListWards(districtId: districtId).count != 0 {
             return
         }
         //-- BUG0059-SPJ (NguyenPT 20170420) Check list district is existed
