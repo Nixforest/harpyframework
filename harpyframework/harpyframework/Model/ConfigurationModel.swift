@@ -54,7 +54,7 @@ public class ConfigurationModel: ConfigBean {
             // Make price is blank if price = "0"
             price = DomainConst.BLANK
         }
-        super.init(id: material.material_id, name: material.material_name)
+        super.init(id: material.material_id, name: material.materials_name_short)
         self._iconPath  = material.material_image
         self._value     = price
     }
@@ -78,7 +78,11 @@ public class ConfigurationModel: ConfigBean {
                 value = qty + " x " + value
             }
         }
-        super.init(id: orderDetail.material_id, name: orderDetail.material_name)
+        var name = orderDetail.materials_name_short
+        if name.isEmpty {
+            name = orderDetail.material_name
+        }
+        super.init(id: orderDetail.material_id, name: name)
         self._iconPath  = orderDetail.material_image
         self._value     = value
         

@@ -12,7 +12,7 @@ public class DebugBean {
     public static let DEBUG_DEFAULT_GAS_SERVICE                 = false
     public static let DEBUG_DEFAULT_TOP_ICON                    = false
     public static let DEBUG_DEFAULT_SHOW_NUMBER_PICKER          = true
-    public static let DEBUG_DEFAULT_USE_MATERIAL_NAME_SHORT     = false
+    public static let DEBUG_DEFAULT_USE_MATERIAL_NAME_SHORT     = true
     /** Flag set color for all components on View */
     public var _isColorOn:              Bool    = true
     /** Flag show toast message on View */

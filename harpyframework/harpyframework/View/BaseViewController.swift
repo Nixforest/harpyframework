@@ -1226,19 +1226,32 @@ open class BaseViewController : UIViewController {
     open func openLogin() {
     }
     
+    /**
+     * Handle open Promotion view
+     */
     open func openPromotion() {
         
     }
     
+    /**
+     * Handle open List order view
+     */
     open func openListOrder() {
         
     }
     
+    /**
+     * Handle open User profile view
+     */
     open func openUserProfile() {
         
     }
     
     //++ BUG0156-SPJ (NguyenPT 20170926) Re-design Gas24h
+    /**
+     * Create bottom message view
+     * - parameter width: Width of view
+     */
     private func createBotMsgView(width: CGFloat) {
         botMsgView.frame = CGRect(x: (UIScreen.main.bounds.width - width) / 2,
                                   y: getTopHeight() + GlobalConst.MARGIN,
@@ -1259,6 +1272,9 @@ open class BaseViewController : UIViewController {
         botMsgView.addSubview(lblDescription)
     }
     
+    /**
+     * Create collapse button
+     */
     private func createCollapseButton() {
         let btnSize = GlobalConst.LABEL_H
         btnCollapse.frame = CGRect(
@@ -1280,11 +1296,17 @@ open class BaseViewController : UIViewController {
                               for: .touchUpInside)
     }
     
+    /**
+     * Handle when tap on collapse button
+     */
     internal func btnCollapsedTappedHandler(_ sender: AnyObject) {
         self.isCollapsed = !self.isCollapsed
         showHideBotMsgView(isShow: !self.isCollapsed)
     }
     
+    /**
+     * Create bottom message label note
+     */
     private func createBotMsgLabelNote() {
         lblNote.frame = CGRect(x: 0, y: btnCollapse.frame.maxY,
                                width: botMsgView.frame.width,
@@ -1296,6 +1318,9 @@ open class BaseViewController : UIViewController {
         lblNote.numberOfLines = 0
     }
     
+    /**
+     * Create bottom message label description
+     */
     private func createBotMsgLabelDescription() {
         lblDescription.frame = CGRect(x: 0, y: lblNote.frame.maxY,
                                width: botMsgView.frame.width,
@@ -1306,17 +1331,21 @@ open class BaseViewController : UIViewController {
         lblDescription.numberOfLines = 0
     }
     
-    private func showHideBotMsgView(isShow: Bool) {
+    private func showHideBotMsgView(isShow: Bool, isRotate: Bool = true) {
         let duration = 0.5
         var rotateAngle: CGFloat = 1.0
         if !isShow {
             rotateAngle = -1.0
         }
-        UIView.animate(withDuration: duration, animations: {
-            self.btnCollapse.layer.transform = CATransform3DConcat(
-                self.btnCollapse.layer.transform,
-                CATransform3DMakeRotation(CGFloat(M_PI), rotateAngle, 0.0, 0.0))
-        })
+        // If flag is on
+        if isRotate {
+            // Rotate button collapse
+            UIView.animate(withDuration: duration, animations: {
+                self.btnCollapse.layer.transform = CATransform3DConcat(
+                    self.btnCollapse.layer.transform,
+                    CATransform3DMakeRotation(CGFloat(M_PI), rotateAngle, 0.0, 0.0))
+            })
+        }
         
         // Get current device type
         switch UIDevice.current.userInterfaceIdiom {
@@ -1431,16 +1460,41 @@ open class BaseViewController : UIViewController {
         }
     }
     
-    public func showBotMsg(note: String, description: String, isShow: Bool = true) {
+    /**
+     * Add bottom message view to view controller
+     * - parameter note:        Note string
+     * - parameter description: Description string
+     * - parameter isShow:      Flag show or not
+     */
+    public func addBotMsg(note: String, description: String, isShow: Bool = true) {
         self.isShowBotMsgView = isShow
         self.view.addSubview(botMsgView)
         botMsgView.isHidden = !isShow
         lblNote.text = note
     }
     
+    /**
+     * Update bottom message view content
+     * - parameter note:        Note string
+     * - parameter description: Description string
+     */
     public func setBotMsgContent(note: String, description: String) {
         lblNote.text = note
         lblDescription.text = description
+    }
+    
+    public func makeBotMsgVisible(isShow: Bool) {
+//        botMsgView.isHidden = !isShow
+//        botMsgView.isUserInteractionEnabled = isShow
+        if isShow {
+            showHideBotMsgView(isShow: !self.isCollapsed, isRotate: false)
+        } else {
+            updateBotMsgView(
+                x: botMsgView.frame.minX,
+                y: UIScreen.main.bounds.height,
+                w: botMsgView.frame.width,
+                h: botMsgView.frame.height)
+        }
     }
     
     /**

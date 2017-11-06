@@ -113,7 +113,7 @@ public class CategoryButton: UIButton {
      * - parameter icon:        Icon of button
      * - parameter iconActive:  Active icon of button
      */
-    private func handleImage(icon: String, iconActive: String) {
+    public func handleImage(icon: String, iconActive: String) {
         self.setImage(ImageManager.getImage(named: icon), for: UIControlState.normal)
         if icon == iconActive {
             let active = ImageManager.getImage(named: iconActive)

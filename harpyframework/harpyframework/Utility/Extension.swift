@@ -464,6 +464,18 @@ public protocol OrderPreviewDelegate {
      * Handle tap on Promote select button.
      */
     func btnPromoteTapped(_ sender: AnyObject)
+    /**
+     * Handle tap on Delivery info update button.
+     */
+    func btnDeliveryInfoUpdateTapped(_ sender: AnyObject)
+    /**
+     * Handle tap on Cancel button.
+     */
+    func btnCancelTapped(_ sender: AnyObject)
+    /**
+     * Handle tap on Next button.
+     */
+    func btnNextTapped(_ sender: AnyObject)
 }
 
 /**

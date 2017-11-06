@@ -144,6 +144,7 @@ public class BaseModel: NSObject {
     /** Agent id */
     private var _agentId:                   String              = DomainConst.BLANK
     //-- BUG0151-SPJ (NguyenPT 20170819) Save agent id to user default setting
+    private var _gas24hTimeCheckOrder:      Int                 = 5
     
     /** Flag check first order */
     private var _isFirstOrder:              Bool                = true
@@ -248,7 +249,7 @@ public class BaseModel: NSObject {
         }
         //-- BUG0151-SPJ (NguyenPT 20170819) Save agent id to user default setting
         // Get isFirstOrder flag value
-        self._isFirstOrder = true
+        self._isFirstOrder = false
         if defaults.object(forKey: DomainConst.KEY_SETTING_IS_FIRST_ORDER) != nil {
             self._isFirstOrder = defaults.object(forKey: DomainConst.KEY_SETTING_IS_FIRST_ORDER) as! Bool
         }
@@ -756,6 +757,7 @@ public class BaseModel: NSObject {
         //++ BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
         self._listVipCustomerStores = loginModel.customer_chain_store
         //-- BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
+        self._gas24hTimeCheckOrder = loginModel.gas24h_time_check_order
     }
     
     /**
@@ -1601,5 +1603,13 @@ public class BaseModel: NSObject {
     public func getUserInfoWardName() -> String {
         return self.getWardNameById(id: self._userInfo.getWardId(),
                                     districtId: self._userInfo.getDistrictId())
+    }
+    
+    /**
+     * Get gas24h time check order
+     * - returns: Int
+     */
+    public func getGas24hTimeCheckOrder() -> Int {
+        return _gas24hTimeCheckOrder
     }
 }

@@ -1148,6 +1148,14 @@ public class DomainConst {
     public static let KEY_SHOW_INPUT_PROMOTION_AMOUNT   = "show_input_promotion_amount"
     /** Key input_promotion_amount */
     public static let KEY_INPUT_PROMOTION_AMOUNT        = "input_promotion_amount"
+    public static let KEY_LAST_ORDER                    = "last_order"
+    public static let KEY_REVIEW                        = "review"
+    /** Key transaction id */
+    public static let KEY_SESSION_ID                    = "session_id"
+    /** Key transaction key */
+    public static let KEY_SESSION_KEY                   = "session_key"
+    /** Key gas24h_time_check_order */
+    public static let KEY_GAS24H_TIME_INTERVAL          = "gas24h_time_check_order"
     
     //++ BUG0050-SPJ (NguyenPT 20170325) Add new function G06
     /** Platform value: Android */
@@ -2380,4 +2388,6 @@ public class DomainConst {
     public static let CONTENT00527 = "Lịch sử đơn hàng"
     public static let CONTENT00528 = "Thông tin tài khoản"
     public static let CONTENT00529 = "Bật dịch vụ định vị để ứng dụng tự động tìm thấy địa chỉ giao hàng"
+    public static let CONTENT00530 = "Thông tin chưa được lưu lại, bạn chắc chắn muốn huỷ?"
+    public static let CONTENT00531 = "Quà tặng"
 }

@@ -41,9 +41,9 @@ open class MaterialBean: NSObject, NSCoding {
         self.material_id        = getString(json: jsonData, key: DomainConst.KEY_MATERIALS_ID)
         self.material_name      = getString(json: jsonData, key: DomainConst.KEY_MATERIALS_NAME)
         self.materials_name_short      = getString(json: jsonData, key: DomainConst.KEY_MATERIALS_NAME_SHORT)
-        if self.materials_name_short.isEmpty {
-            self.materials_name_short = self.material_name
-        }
+//        if self.materials_name_short.isEmpty {
+//            self.materials_name_short = self.material_name
+//        }
         self.material_price     = getString(json: jsonData, key: DomainConst.KEY_MATERIALS_PRICE)
         self.price              = getString(json: jsonData, key: DomainConst.KEY_PRICE)
         self.material_image     = getString(json: jsonData, key: DomainConst.KEY_MATERIAL_IMAGE)

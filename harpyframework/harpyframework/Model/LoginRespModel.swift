@@ -68,6 +68,7 @@ public class LoginRespModel : BaseRespModel {
     //++ BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
     var customer_chain_store:               [ConfigBean]        = [ConfigBean]()
     //-- BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
+    var gas24h_time_check_order:            Int                 = 5
     
     
     /**
@@ -173,6 +174,8 @@ public class LoginRespModel : BaseRespModel {
                 //++ BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
                 self.customer_chain_store = getListConfig(json: json, key: DomainConst.KEY_CUSTOMER_CHAIN_STORE)
                 //-- BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
+                
+                self.gas24h_time_check_order = getInt(json: json, key: DomainConst.KEY_GAS24H_TIME_INTERVAL)
             } catch let error as NSError {
                 print(DomainConst.JSON_ERR_FAILED_LOAD + "\(error.localizedDescription)")
             }
