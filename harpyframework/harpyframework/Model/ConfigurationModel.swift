@@ -103,4 +103,12 @@ public class ConfigurationModel: ConfigBean {
         self._value     = value
     }
     //-- BUG0079-SPJ (NguyenPT 20170509) Add order type and support type in Family order
+    
+    /**
+     * Set value
+     * - parameter value: Value to set
+     */
+    public func setValue(value: String) {
+        self._value = value
+    }
 }

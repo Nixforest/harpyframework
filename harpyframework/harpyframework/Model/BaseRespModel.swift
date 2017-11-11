@@ -91,4 +91,18 @@ open class BaseRespModel: NSObject {
         self.message = DomainConst.JSON_ERR_WRONG_FORMAT
         BaseModel.shared.setErrorDetail(detail: jsonString)
     }
+    
+    /**
+     * Create failed json
+     * - parameter msg: Message content
+     * - returns: Format {"status":0,"code":0,"message":"Message content"}
+     */
+    public static func createFailedJson(msg: String) -> String {
+        var retVal = String.init(
+            format: "{\"%@\":%d,\"%@\":%d,\"%@\":\"%@\"}",
+            DomainConst.KEY_STATUS, 0,
+            DomainConst.KEY_CODE, 0,
+            DomainConst.KEY_MESSAGE, msg)
+        return retVal
+    }
 }

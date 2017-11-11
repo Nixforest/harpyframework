@@ -372,6 +372,8 @@ open class BaseRequest: NSObject {
         //-- BUG0156-SPJ (NguyenPT 20170930) Re-design Gas24h
         
         DispatchQueue.main.async {
+            let model = BaseRespModel.createFailedJson(msg: error)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: self.theClassName), object: model)
             // Remove observer
             NotificationCenter.default.removeObserver(self.view, name: Notification.Name(rawValue: self.theClassName), object: nil)
         }

@@ -320,7 +320,7 @@ extension CALayer {
             border.frame = CGRect(
                 x: 0,
                 y: self.frame.height - thickness,
-                width: UIScreen.main.bounds.width,
+                width: self.frame.width,
                 height: thickness)
             break
         case UIRectEdge.left:
@@ -476,6 +476,10 @@ public protocol OrderPreviewDelegate {
      * Handle tap on Next button.
      */
     func btnNextTapped(_ sender: AnyObject)
+    /**
+     * Handle dismiss view controller.
+     */
+    func dismissVC(_ sender: AnyObject)
 }
 
 /**
