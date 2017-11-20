@@ -67,6 +67,7 @@ open class BaseRequest: NSObject {
         let serverUrl: URL = URL(string: BaseModel.shared.getServerURL() + self.url)!
         let request = NSMutableURLRequest(url: serverUrl)
         request.httpMethod = self.reqMethod
+        request.timeoutInterval = TimeInterval(30)
         request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringLocalCacheData
         request.setValue("Keep-Alive", forHTTPHeaderField: "Connection")
         //++ BUG0115-SPJ (NguyenPT 20170624) Handle add version code when request server
@@ -260,6 +261,9 @@ open class BaseRequest: NSObject {
 //                BaseModel.shared.setErrorDetail(detail: (error?.localizedDescription)!)
 //                self.handleErrorTask()
                 self.handleErrorTask(error: (error?.localizedDescription)!)
+//                if let err = error {
+//                    self.handleErrorTask(error: (error as! NSError).localizedDescription + (error as! NSError).localizedFailureReason!)
+//                }
                 //-- BUG0099-SPJ (NguyenPT 20170601) Handle when error happen
                 return
             }
@@ -355,20 +359,23 @@ open class BaseRequest: NSObject {
 //                alert in
 //        
 //        })
-        if isShowError {
-            self.view.showAlert(
-                message: DomainConst.CONTENT00196,
-                okHandler: {
-                    alert in
-                    self.execute()
-            },
-                cancelHandler: {
-                    alert in
-                    
-            })
-        } else {
-            self.execute(isShowLoadingView: false)
-        }
+//        if isShowError {
+//            self.view.showAlert(
+//                message: DomainConst.CONTENT00196,
+//                okHandler: {
+//                    alert in
+//                    // Reload data
+//                    // Update setting
+//                    // Re-execute
+//                    self.execute()
+//            },
+//                cancelHandler: {
+//                    alert in
+//                    
+//            })
+//        } else {
+//            self.execute(isShowLoadingView: false)
+//        }
         //-- BUG0156-SPJ (NguyenPT 20170930) Re-design Gas24h
         
         DispatchQueue.main.async {
@@ -393,4 +400,12 @@ open class BaseRequest: NSObject {
         self.isShowError = value
     }
     //-- BUG0156-SPJ (NguyenPT 20170930) Re-design Gas24h
+    
+    public static func cancel() {
+        URLSession.shared.invalidateAndCancel()
+    }
+}
+
+extension BaseRequest: URLSessionDelegate {
+    
 }

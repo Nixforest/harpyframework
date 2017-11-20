@@ -782,6 +782,7 @@ public class DomainConst {
     
     public static let KEY_IS_INVITED                    = "is_invited"
     public static let KEY_INVITED_CODE                  = "invite_code"
+    public static let KEY_CURRENT_POINT                 = "current_point"
     
     
     // MARK: -----Specified constant-----
@@ -2390,4 +2391,6 @@ public class DomainConst {
     public static let CONTENT00529 = "Bật dịch vụ định vị để ứng dụng tự động tìm thấy địa chỉ giao hàng"
     public static let CONTENT00530 = "Thông tin chưa được lưu lại, bạn chắc chắn muốn huỷ?"
     public static let CONTENT00531 = "Quà tặng"
+    public static let CONTENT00532 = "Không lấy quà"
+    public static let CONTENT00533 = "Nội dung đang được cập nhật"
 }

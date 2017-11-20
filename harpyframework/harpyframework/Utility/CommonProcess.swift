@@ -379,4 +379,35 @@ public class CommonProcess {
     public static func updateViewPos(view: UIView, x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat) {
         view.frame = CGRect(x: x, y: y, width: w, height: h)
     }
+    
+    /**
+     * Make label multi color
+     * - parameter lbl:         Label view
+     * - parameter lstString:   List of sub strings
+     * - parameter colors:      List of colors
+     */
+    public static func makeMultiColorLabel(lbl: UILabel, lstString: [String], colors: [UIColor]) {
+        // Make sure list strings and list colors
+        if lstString.count != colors.count {
+            return
+        }
+        if let text = lbl.text, let font = lbl.font {
+            let mutableStr = NSMutableAttributedString(
+                string: lbl.text!,
+                attributes: [NSFontAttributeName: font])
+            for i in 0..<lstString.count {
+                let str = lstString[i]
+                let color = colors[i]
+                // Get range of current color
+                if let range = text.range(of: str) {
+                    let startPos = text.distance(from: text.startIndex, to: range.lowerBound)
+                    let nsRange = NSRange(location: startPos, length: str.characters.count)
+                    mutableStr.addAttribute(NSForegroundColorAttributeName,
+                                            value: color,
+                                            range: nsRange)
+                }
+            }
+            lbl.attributedText = mutableStr
+        }
+    }
 }

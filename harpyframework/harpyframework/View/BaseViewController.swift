@@ -1483,6 +1483,19 @@ open class BaseViewController : UIViewController {
         lblDescription.text = description
     }
     
+    /**
+     * Set bottom message color
+     * - parameter lstString: List of sub strings
+     */
+    public func setBotMsgColor(lstString: [String]) {
+        var colors: [UIColor] = [UIColor]()
+        for _ in lstString {
+            colors.append(GlobalConst.MAIN_COLOR_GAS_24H)
+        }
+        CommonProcess.makeMultiColorLabel(lbl: lblNote,
+                                          lstString: lstString, colors: colors)
+    }
+    
     public func makeBotMsgVisible(isShow: Bool) {
 //        botMsgView.isHidden = !isShow
 //        botMsgView.isUserInteractionEnabled = isShow

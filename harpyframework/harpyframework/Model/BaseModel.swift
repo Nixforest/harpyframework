@@ -1010,7 +1010,24 @@ public class BaseModel: NSObject {
      * - parameter config: Order config data
      */
     public func saveOrderConfig(config: OrderConfigBean) {
-        self._orderConfig = config
+//        self._orderConfig = config
+        // If server response only 1 agent
+        if config.agent.count == 1 {
+            // Loop through all current data
+            for i in 0..<self._orderConfig.agent.count {
+                // Get current item
+                var item = self._orderConfig.agent[i]
+                // Current item have id equal response agent id
+                if item.info_agent.agent_id == config.agent[0].info_agent.agent_id {
+                    // Overwrite current item
+                    item = config.agent[0]
+                    break
+                }
+            }
+        } else {
+            // Save all data
+            self._orderConfig = config
+        }
         //++ BUG0151-SPJ (NguyenPT 20170819) Handle favourite when select material
         FavouriteDataModel.shared.updateListMaterialGas(agentInfo: self._orderConfig.agent)
         //-- BUG0151-SPJ (NguyenPT 20170819) Handle favourite when select material
