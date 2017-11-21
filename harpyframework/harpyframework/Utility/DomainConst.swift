@@ -1070,6 +1070,8 @@ public class DomainConst {
     public static let ACCOUNT_INFO_SAVE_ID              = "###99943"
     /** Account information id: Cancel */
     public static let ACCOUNT_INFO_CANCEL_ID            = "###99944"
+    /** Order information id: Order promotion */
+    public static let ORDER_INFO_PROMOTION              = "###99945"
     /** Order information id: Order Material */
     public static let ORDER_INFO_MATERIAL_ID            = "###999"
     
