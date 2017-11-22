@@ -783,6 +783,7 @@ public class DomainConst {
     public static let KEY_IS_INVITED                    = "is_invited"
     public static let KEY_INVITED_CODE                  = "invite_code"
     public static let KEY_CURRENT_POINT                 = "current_point"
+    public static let KEY_INVITED_LIST                  = "invited_list"
     
     
     // MARK: -----Specified constant-----
@@ -880,9 +881,9 @@ public class DomainConst {
     public static let APP_TYPE_FLAG_GAS_SERVICE         = "0"
     
     /** Order status: New */
-    public static let ORDER_STATUS_NEW                  = "1"
+    public static let ORDER_STATUS_NEW                  = "3"
     /** Order status: New */
-    public static let ORDER_STATUS_PROCESSING           = "3"
+    public static let ORDER_STATUS_PROCESSING           = "1"
     /** Order status: Complete */
     public static let ORDER_STATUS_COMPLETE             = "4"
     /** Order status: Complete */
@@ -2384,10 +2385,11 @@ public class DomainConst {
     public static let CONTENT00520 = "Đơn hàng\nhoàn tất"
     public static let CONTENT00521 = "Đơn hàng của bạn đã được xác nhận."
     public static let CONTENT00522 = "Chúng tôi sẽ gọi cho bạn trong giây lát!"
-    public static let CONTENT00523 = "Loại gas được chọn sẽ được mặc định trong đơn hàng nếu Quý khách không thay đổi"
+    public static let CONTENT00523 = "Loại gas được fchọn sẽ được mặc định trong đơn hàng nếu Quý khách không thay đổi"
     public static let CONTENT00524 = "Chọn loại gas"
     public static let CONTENT00525 = "Điểm thưởng hiện tại: 500 điểm\nĐặt 1 bình gas mới, điểm thưởng 300 điểm\nBạn có thể chọn quà đến 800 điểm"
-    public static let CONTENT00526 = "Chia sẻ mã giới thiệu của bạn: %@ hoặc truy cập địa chỉ: %@"
+//    public static let CONTENT00526 = "Chia sẻ mã giới thiệu của bạn: %@ hoặc truy cập địa chỉ: %@"
+    public static let CONTENT00526 = "Dùng mã giới thiệu %@ trong ứng dụng Gas24h để nhận ưu đãi. Truy cập địa chỉ: %@ để tải ứng dụng."
     public static let CONTENT00527 = "Lịch sử đơn hàng"
     public static let CONTENT00528 = "Thông tin tài khoản"
     public static let CONTENT00529 = "Bật dịch vụ định vị để ứng dụng tự động tìm thấy địa chỉ giao hàng"
@@ -2395,4 +2397,6 @@ public class DomainConst {
     public static let CONTENT00531 = "Quà tặng"
     public static let CONTENT00532 = "Không lấy quà"
     public static let CONTENT00533 = "Nội dung đang được cập nhật"
+    public static let CONTENT00534 = "Bạn đã giới thiệu %d người sử dụng"
+    public static let CONTENT00535 = "Bạn đang có %d điểm thưởng"
 }
