@@ -364,8 +364,11 @@ open class BaseMenuViewController : BaseViewController {
             currentView.pushToView(name: DomainConst.G00_REGISTER_VIEW_CTRL)
             break
         case DomainConst.HOME:                              // Home menu
-            currentView.clearData()
-            currentView.popToRootView()
+            //++ BUG0165-SPJ (NguyenPT 20171123) Override select home menu
+//            currentView.clearData()
+//            currentView.popToRootView()
+            openHome()
+            //-- BUG0165-SPJ (NguyenPT 20171123) Override select home menu
             break
         case DomainConst.USER_PROFILE:                      // User profile
             //currentView.pushToView(name: DomainConst.G00_ACCOUNT_VIEW_CTRL)

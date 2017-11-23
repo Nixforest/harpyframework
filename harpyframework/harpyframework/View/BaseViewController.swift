@@ -1247,6 +1247,12 @@ open class BaseViewController : UIViewController {
         
     }
     
+    //++ BUG0165-SPJ (NguyenPT 20171123) Override select home menu
+    open func openHome() {
+        
+    }
+    //-- BUG0165-SPJ (NguyenPT 20171123) Override select home menu
+    
     //++ BUG0156-SPJ (NguyenPT 20170926) Re-design Gas24h
     /**
      * Create bottom message view
