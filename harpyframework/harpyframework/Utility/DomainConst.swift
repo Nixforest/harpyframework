@@ -2385,7 +2385,7 @@ public class DomainConst {
     public static let CONTENT00520 = "Đơn hàng\nhoàn tất"
     public static let CONTENT00521 = "Đơn hàng của bạn đã được xác nhận."
     public static let CONTENT00522 = "Chúng tôi sẽ gọi cho bạn trong giây lát!"
-    public static let CONTENT00523 = "Loại gas được fchọn sẽ được mặc định trong đơn hàng nếu Quý khách không thay đổi"
+    public static let CONTENT00523 = "Loại gas được chọn sẽ được mặc định trong đơn hàng nếu Quý khách không thay đổi"
     public static let CONTENT00524 = "Chọn loại gas"
     public static let CONTENT00525 = "Điểm thưởng hiện tại: 500 điểm\nĐặt 1 bình gas mới, điểm thưởng 300 điểm\nBạn có thể chọn quà đến 800 điểm"
 //    public static let CONTENT00526 = "Chia sẻ mã giới thiệu của bạn: %@ hoặc truy cập địa chỉ: %@"
@@ -2398,5 +2398,5 @@ public class DomainConst {
     public static let CONTENT00532 = "Không lấy quà"
     public static let CONTENT00533 = "Nội dung đang được cập nhật"
     public static let CONTENT00534 = "Bạn đã giới thiệu %d người sử dụng"
-    public static let CONTENT00535 = "Bạn đang có %d điểm thưởng"
+    public static let CONTENT00535 = "Bạn đang có %@ điểm thưởng"
 }

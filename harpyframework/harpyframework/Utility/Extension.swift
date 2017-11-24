@@ -252,6 +252,7 @@ extension UIImageView {
         request.httpMethod  = DomainConst.HTTP_POST_REQUEST
         //request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringLocalCacheData
         request.cachePolicy = NSURLRequest.CachePolicy.returnCacheDataElseLoad
+        
         // Execute task
         URLSession.shared.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
             let phImage = UIImage(named: DomainConst.DEFAULT_IMG_NAME)

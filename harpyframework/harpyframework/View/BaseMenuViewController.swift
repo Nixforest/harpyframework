@@ -117,14 +117,20 @@ open class BaseMenuViewController : BaseViewController {
         if BaseModel.shared.checkIsLogin() {
             //++ BUG0130-SPJ (NguyenPT 20170724) Remove Signout menu
             //setItem(listValues: [false, true, false, true, true])
-            if BaseModel.shared.isTrainningMode {
+            if BaseModel.shared.isTrainningMode {   // Training mode
                 setItem(listValues: [false, true, false, true, true])
-            } else {
-                setItem(listValues: [false, false, false, true, true])
+            } else {                                // Normal mode
+                //++ BUG0167-SPJ (NguyenPT 20171123) Remove Config menu
+//                setItem(listValues: [false, false, false, true, true])
+                setItem(listValues: [false, false, false, true, false])
+                //-- BUG0167-SPJ (NguyenPT 20171123) Remove Config menu
             }
             //-- BUG0130-SPJ (NguyenPT 20170724) Remove Signout menu
         } else {
-            setItem(listValues: [true, false, true, false, true])
+            //++ BUG0167-SPJ (NguyenPT 20171123) Remove Register menu
+//            setItem(listValues: [true, false, true, false, true])
+            setItem(listValues: [true, false, false, false, true])
+            //-- BUG0167-SPJ (NguyenPT 20171123) Remove Register menu
         }
         setupMenuItem()
         
