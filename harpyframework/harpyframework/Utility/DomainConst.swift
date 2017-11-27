@@ -91,6 +91,8 @@ public class DomainConst {
     public static let PATH_SITE_CACHE_DATA              = "site/getDataCache"
     /** Request create support app log */
     public static let PATH_SUPPORT_APPLOG               = "support/appLog"
+    /** Request news content*/
+    public static let PATH_SUPPORT_NEWS                 = "support/viewPage"
     
     // MARK: -----List of keys-----
     /** Token */
@@ -1160,6 +1162,10 @@ public class DomainConst {
     public static let KEY_SESSION_KEY                   = "session_key"
     /** Key gas24h_time_check_order */
     public static let KEY_GAS24H_TIME_INTERVAL          = "gas24h_time_check_order"
+    /** Key menu item: Promotion policy */
+    public static let KEY_MENU_PROMOTION_POLICY         = "id_page_promotion"
+    /** Key menu item: Promotion policy */
+    public static let KEY_MENU_APP_GUIDE                = "id_page_guide"
     
     //++ BUG0050-SPJ (NguyenPT 20170325) Add new function G06
     /** Platform value: Android */
@@ -1301,10 +1307,14 @@ public class DomainConst {
     //-- BUG0093-SPJ (NguyenPT 20170518) Type of cash book
     //++ BUG0110-SPJ (NguyenPT 20170617) Type of notify list
     /** Notify list type: new */
-    public static let NOTIFY_LIST_TYPE_NEW               = DomainConst.NUMBER_ONE_VALUE
+    public static let NOTIFY_LIST_TYPE_NEW              = DomainConst.NUMBER_ONE_VALUE
     /** Notify list type: read */
-    public static let NOTIFY_LIST_TYPE_READ              = DomainConst.NUMBER_TWO_VALUE
+    public static let NOTIFY_LIST_TYPE_READ             = DomainConst.NUMBER_TWO_VALUE
     //-- BUG0110-SPJ (NguyenPT 20170617) Type of notify list
+    /** Constant Promotion policy */
+    public static let MENU_PROMOTION_POLICY_ID          = "3"
+    /** Constant App guide */
+    public static let MENU_APP_GUIDE_ID                 = "4"
 
     /** -----Log message----- */
     /** Log tag: error. */
@@ -2399,4 +2409,6 @@ public class DomainConst {
     public static let CONTENT00533 = "Nội dung đang được cập nhật"
     public static let CONTENT00534 = "Bạn đã giới thiệu %d người sử dụng"
     public static let CONTENT00535 = "Bạn đang có %@ điểm thưởng"
+    public static let CONTENT00536 = "Chính sách khuyến mãi"
+    public static let CONTENT00537 = "Hướng dẫn sử dụng"
 }

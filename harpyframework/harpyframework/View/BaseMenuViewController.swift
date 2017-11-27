@@ -460,7 +460,17 @@ open class BaseMenuViewController : BaseViewController {
         //++ BUG0111-SPJ (NguyenPT 20170617) Update function G06
         case DomainConst.KEY_MENU_CCS_CODE_LIST:
             currentView.pushToViewAndClearData(name: "G06F00S06VC")
+            break
         //-- BUG0111-SPJ (NguyenPT 20170617) Update function G06
+            
+        //++ BUG0171-SPJ (NguyenPT 20171127	) Add new menu
+        case DomainConst.KEY_MENU_PROMOTION_POLICY:
+            openPromotionPolicy()
+            break
+        case DomainConst.KEY_MENU_APP_GUIDE:
+            openAppGuide()
+            break
+        //-- BUG0171-SPJ (NguyenPT 20171127	) Add new menu
         default:
             currentView.showAlert(message: DomainConst.CONTENT00362)
             break
