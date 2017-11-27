@@ -881,9 +881,9 @@ public class DomainConst {
     public static let APP_TYPE_FLAG_GAS_SERVICE         = "0"
     
     /** Order status: New */
-    public static let ORDER_STATUS_NEW                  = "3"
+    public static let ORDER_STATUS_NEW                  = "1"
     /** Order status: New */
-    public static let ORDER_STATUS_PROCESSING           = "1"
+    public static let ORDER_STATUS_PROCESSING           = "3"
     /** Order status: Complete */
     public static let ORDER_STATUS_COMPLETE             = "4"
     /** Order status: Complete */

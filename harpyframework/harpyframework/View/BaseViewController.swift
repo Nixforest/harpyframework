@@ -1126,6 +1126,35 @@ open class BaseViewController : UIViewController {
     }
     //-- BUG0156-SPJ (NguyenPT 20170926) Re-design Gas24h
     
+    //++ BUG0169-SPJ (NguyenPT 20171125) Add swipe gesture
+    /**
+     * Handle when tap on actions buttons
+     * - parameter sender: Button object
+     */
+    internal func handleSwipeBottomMsgView(_ gestureRecognizer: UIGestureRecognizer) {
+        if let swipeGesture = gestureRecognizer as? UISwipeGestureRecognizer {
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizerDirection.up:
+                if self.isCollapsed {
+                    self.isCollapsed = false
+                    showHideBotMsgView(isShow: !self.isCollapsed)
+                }
+                
+                break
+            case UISwipeGestureRecognizerDirection.down:
+                if !self.isCollapsed {
+                    self.isCollapsed = true
+                    showHideBotMsgView(isShow: !self.isCollapsed)
+                }
+                
+                break
+            default:
+                break
+            }
+        }
+    }
+    //-- BUG0169-SPJ (NguyenPT 20171125) Add swipe gesture
+    
     /**
      * Handle view position when rotated
      */
@@ -1272,7 +1301,15 @@ open class BaseViewController : UIViewController {
         let tappedRecog = UITapGestureRecognizer(
             target: self,
             action: #selector(handleTappedBottomMsgView(_:)))
+        let swipeTop = UISwipeGestureRecognizer(target: self,
+                                                action: #selector(handleSwipeBottomMsgView(_:)))
+        swipeTop.direction = .up
+        let swipeBot = UISwipeGestureRecognizer(target: self,
+                                                action: #selector(handleSwipeBottomMsgView(_:)))
+        swipeBot.direction = .down
         botMsgView.addGestureRecognizer(tappedRecog)
+        botMsgView.addGestureRecognizer(swipeTop)
+        botMsgView.addGestureRecognizer(swipeBot)
         botMsgView.addSubview(btnCollapse)
         botMsgView.addSubview(lblNote)
         botMsgView.addSubview(lblDescription)
