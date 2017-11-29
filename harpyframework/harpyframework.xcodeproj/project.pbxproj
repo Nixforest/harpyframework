@@ -39,6 +39,9 @@
 		D70B9F941E3F504400EB66F5 /* icon17.png in Resources */ = {isa = PBXBuildFile; fileRef = D70B9F901E3F504400EB66F5 /* icon17.png */; };
 		D70B9F951E3F504400EB66F5 /* icon18.png in Resources */ = {isa = PBXBuildFile; fileRef = D70B9F911E3F504400EB66F5 /* icon18.png */; };
 		D70B9F961E3F504400EB66F5 /* icon19.png in Resources */ = {isa = PBXBuildFile; fileRef = D70B9F921E3F504400EB66F5 /* icon19.png */; };
+		D70BE4A11FCD15F800635B60 /* BotMsgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70BE4A01FCD15F800635B60 /* BotMsgView.swift */; };
+		D70BE4A41FCD4D0500635B60 /* ic_page_guide.png in Resources */ = {isa = PBXBuildFile; fileRef = D70BE4A21FCD4D0500635B60 /* ic_page_guide.png */; };
+		D70BE4A51FCD4D0500635B60 /* ic_page_promotion.png in Resources */ = {isa = PBXBuildFile; fileRef = D70BE4A31FCD4D0500635B60 /* ic_page_promotion.png */; };
 		D70ECEC91EE2788500997F1A /* ErrorDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70ECEC81EE2788500997F1A /* ErrorDetailVC.swift */; };
 		D70EDFB51F95EB3A00658F64 /* hotline.png in Resources */ = {isa = PBXBuildFile; fileRef = D70EDFB41F95EB3A00658F64 /* hotline.png */; };
 		D70EDFC71F96613100658F64 /* status_finish.png in Resources */ = {isa = PBXBuildFile; fileRef = D70EDFC61F96613100658F64 /* status_finish.png */; };
@@ -403,6 +406,8 @@
 		D7F958111E3DD36B00C76F2F /* ConfigurationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F958101E3DD36B00C76F2F /* ConfigurationTableViewCell.swift */; };
 		D7FB47401E974EB70082FA5E /* OrderFamilyListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FB473F1E974EB70082FA5E /* OrderFamilyListRequest.swift */; };
 		D7FB47421E9750B80082FA5E /* OrderFamilyListRespModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FB47411E9750B80082FA5E /* OrderFamilyListRespModel.swift */; };
+		D7FFEEA91FCE53BE005ADF1C /* BottomMsgCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FFEEA71FCE53BE005ADF1C /* BottomMsgCell.swift */; };
+		D7FFEEAA1FCE53BE005ADF1C /* BottomMsgCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7FFEEA81FCE53BE005ADF1C /* BottomMsgCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -448,6 +453,9 @@
 		D70B9F901E3F504400EB66F5 /* icon17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon17.png; path = images/icon17.png; sourceTree = "<group>"; };
 		D70B9F911E3F504400EB66F5 /* icon18.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon18.png; path = images/icon18.png; sourceTree = "<group>"; };
 		D70B9F921E3F504400EB66F5 /* icon19.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon19.png; path = images/icon19.png; sourceTree = "<group>"; };
+		D70BE4A01FCD15F800635B60 /* BotMsgView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BotMsgView.swift; path = CustomeControl/BotMsgView.swift; sourceTree = "<group>"; };
+		D70BE4A21FCD4D0500635B60 /* ic_page_guide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_page_guide.png; path = images/ic_page_guide.png; sourceTree = "<group>"; };
+		D70BE4A31FCD4D0500635B60 /* ic_page_promotion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_page_promotion.png; path = images/ic_page_promotion.png; sourceTree = "<group>"; };
 		D70ECEC81EE2788500997F1A /* ErrorDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorDetailVC.swift; path = View/ErrorDetailVC.swift; sourceTree = "<group>"; };
 		D70EDFB41F95EB3A00658F64 /* hotline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hotline.png; path = images/hotline.png; sourceTree = "<group>"; };
 		D70EDFC61F96613100658F64 /* status_finish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = status_finish.png; path = images/status_finish.png; sourceTree = "<group>"; };
@@ -816,6 +824,8 @@
 		D7F958101E3DD36B00C76F2F /* ConfigurationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigurationTableViewCell.swift; path = CustomeControl/ConfigurationTableViewCell.swift; sourceTree = "<group>"; };
 		D7FB473F1E974EB70082FA5E /* OrderFamilyListRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderFamilyListRequest.swift; path = API/OrderFamilyListRequest.swift; sourceTree = "<group>"; };
 		D7FB47411E9750B80082FA5E /* OrderFamilyListRespModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderFamilyListRespModel.swift; path = Model/OrderFamilyListRespModel.swift; sourceTree = "<group>"; };
+		D7FFEEA71FCE53BE005ADF1C /* BottomMsgCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BottomMsgCell.swift; path = CustomeControl/BottomMsgCell.swift; sourceTree = "<group>"; };
+		D7FFEEA81FCE53BE005ADF1C /* BottomMsgCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BottomMsgCell.xib; path = CustomeControl/BottomMsgCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1168,6 +1178,9 @@
 				D7F3D8CF1E1B80D80018744F /* TableCellUpholdType.xib */,
 				D7C255291E8B93D500941E31 /* WorkingReportListCell.swift */,
 				D7D7A8C91F70D9340076D9C2 /* CustomButton.swift */,
+				D70BE4A01FCD15F800635B60 /* BotMsgView.swift */,
+				D7FFEEA71FCE53BE005ADF1C /* BottomMsgCell.swift */,
+				D7FFEEA81FCE53BE005ADF1C /* BottomMsgCell.xib */,
 			);
 			name = CustomControl;
 			sourceTree = "<group>";
@@ -1194,6 +1207,8 @@
 		D7F3D8D21E1B8BCC0018744F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D70BE4A21FCD4D0500635B60 /* ic_page_guide.png */,
+				D70BE4A31FCD4D0500635B60 /* ic_page_promotion.png */,
 				D7097AB61F9B27E500B4DF26 /* status_new.png */,
 				D7097AB71F9B27E500B4DF26 /* status_waiting.png */,
 				D7EDF48F1F97499500215A5E /* address_icon.png */,
@@ -1548,6 +1563,7 @@
 				D75F64F01E28B39100A67B3C /* icon34-user-iso.png in Resources */,
 				D791F68A1E2367F3009CBBED /* ic_menu_profile.png in Resources */,
 				D71A08071F87847100366378 /* confirmedbtn.png in Resources */,
+				D70BE4A41FCD4D0500635B60 /* ic_page_guide.png in Resources */,
 				D75F65231E28B3BC00A67B3C /* problemType.png in Resources */,
 				D75F64DF1E28B39100A67B3C /* delete.png in Resources */,
 				D791F67B1E234C89009CBBED /* bg_sliding_menu_body.jpg in Resources */,
@@ -1565,8 +1581,10 @@
 				D7E298FE1F74B5260078C46C /* cancelOrderbtn.png in Resources */,
 				D75F65161E28B3B100A67B3C /* icon64.png in Resources */,
 				D75F65081E28B3A500A67B3C /* logout.png in Resources */,
+				D70BE4A51FCD4D0500635B60 /* ic_page_promotion.png in Resources */,
 				D7029F911F3871B20081797B /* loaithekho.png in Resources */,
 				D746DE061F86212800C014DA /* orderStatus_Complete_Active.png in Resources */,
+				D7FFEEAA1FCE53BE005ADF1C /* BottomMsgCell.xib in Resources */,
 				D7029F921F3871B20081797B /* mapttt.png in Resources */,
 				D7AF280B1E58AF6000AFF9D6 /* icon65.png in Resources */,
 				D75F650B1E28B3A500A67B3C /* regMenu.png in Resources */,
@@ -1803,6 +1821,7 @@
 				D7BA68851E83AC4D001C675D /* BaseAPITestViewController.swift in Sources */,
 				D716C1961E929422007CC50C /* WardsListRespModel.swift in Sources */,
 				D77F05B71E71703E00797A6B /* Extension.swift in Sources */,
+				D70BE4A11FCD15F800635B60 /* BotMsgView.swift in Sources */,
 				D73561B41EF3BF0D00085514 /* FullAddressPicker.swift in Sources */,
 				D79C317C1E9B8C8B006F3683 /* OrderFamilyViewRespModel.swift in Sources */,
 				D790BF891EA709CC00841CC5 /* OrderFamilyHandleRequest.swift in Sources */,
@@ -1814,6 +1833,7 @@
 				D716C1921E92893B007CC50C /* ProvincesListRespModel.swift in Sources */,
 				D715BB701EBE54760097BDA8 /* CacheDataRequest.swift in Sources */,
 				D71777821F5E9626009CF656 /* NVActivityIndicatorAnimationBallRotate.swift in Sources */,
+				D7FFEEA91FCE53BE005ADF1C /* BottomMsgCell.swift in Sources */,
 				D79C1BBD1E4ACEC700E6E121 /* PromotionBean.swift in Sources */,
 				D7E40E4C1F57BE5D00AB1C33 /* UIImageViewExtension.swift in Sources */,
 				D7E307311F72B74A0065F2E1 /* ParentExtViewController.swift in Sources */,

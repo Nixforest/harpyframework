@@ -1880,6 +1880,11 @@ public class DomainConst {
     public static let PHONE_ICON_NEW_IMG_NAME                   = "phone_icon.png"
     /** Address icon image */
     public static let ADDRESS_ICON_NEW_IMG_NAME                 = "address_icon.png"
+    //++ BUG0171-SPJ (NguyenPT 20171127	) Add new menu
+    /** Menu item Promotion Policy */
+    public static let MENU_ITEM_PROMOTION_POLICY                = "ic_page_promotion.png"
+    /** Menu item App guide */
+    public static let MENU_ITEM_APP_GUIDE                       = "ic_page_guide.png"
     
     /** HTTP Post request method */
     public static let HTTP_POST_REQUEST                     = "POST"

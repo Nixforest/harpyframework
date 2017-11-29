@@ -41,16 +41,19 @@ open class BaseViewController : UIViewController {
     //++ BUG0156-SPJ (NguyenPT 20170926) Re-design Gas24h
     /** Flag show/hide bottom message view */
     private var isShowBotMsgView:   Bool        = false
+    //++ BUG0170-SPJ (NguyenPT 20172711) Update bottom message view
     /** Bottom message view */
-    private var botMsgView:         UIView      = UIView()
-    /** Button collapse */
-    private var btnCollapse:        UIButton    = UIButton()
-    /** Flag collapsed */
-    private var isCollapsed:        Bool        = true
-    /** Label note */
-    private var lblNote:            UILabel     = UILabel()
-    /** Label description */
-    private var lblDescription:     UILabel     = UILabel()
+//    private var botMsgView:         UIView      = UIView()
+    private var botMsgView:         BotMsgView      = BotMsgView()
+//    /** Button collapse */
+//    private var btnCollapse:        UIButton    = UIButton()
+//    /** Flag collapsed */
+//    private var isCollapsed:        Bool        = true
+//    /** Label note */
+//    private var lblNote:            UILabel     = UILabel()
+//    /** Label description */
+//    private var lblDescription:     UILabel     = UILabel()
+    //-- BUG0170-SPJ (NguyenPT 20172711) Update bottom message view
     //-- BUG0156-SPJ (NguyenPT 20170926) Re-design Gas24h
     
     // MARK: Constant
@@ -61,13 +64,13 @@ open class BaseViewController : UIViewController {
     public static var W_RATE_FHD_L = UIScreen.main.bounds.width / GlobalConst.FULL_HD_SCREEN_BOUND.h
     public static var H_RATE_FHD_L = UIScreen.main.bounds.height / GlobalConst.FULL_HD_SCREEN_BOUND.w
     // Bottom message view
-    var BOTTOM_MSG_FULL_HEIGHT          = UIScreen.main.bounds.height - GlobalConst.NAVIGATION_BAR_HEIGHT - 2 * GlobalConst.MARGIN
-    var BOTTOM_MSG_REAL_HEIGHT_HD       = GlobalConst.BOTTOM_MESSAGE_HEIGHT * BaseViewController.H_RATE_HD
-    var BOTTOM_MSG_REAL_HEIGHT_FHD      = GlobalConst.BOTTOM_MESSAGE_HEIGHT * BaseViewController.H_RATE_FHD
-    var BOTTOM_MSG_REAL_HEIGHT_FHD_L    = GlobalConst.BOTTOM_MESSAGE_HEIGHT * BaseViewController.H_RATE_FHD_L
-    var BOTTOM_MSG_REAL_WIDTH_HD        = GlobalConst.HD_SCREEN_BOUND.w * BaseViewController.H_RATE_HD - 2 * GlobalConst.MARGIN
-    var BOTTOM_MSG_REAL_WIDTH_FHD       = GlobalConst.HD_SCREEN_BOUND.w * BaseViewController.H_RATE_FHD - 2 * GlobalConst.MARGIN
-    var BOTTOM_MSG_REAL_WIDTH_FHD_L     = GlobalConst.HD_SCREEN_BOUND.w * BaseViewController.H_RATE_FHD_L - 2 * GlobalConst.MARGIN
+    public static var BOTTOM_MSG_FULL_HEIGHT          = UIScreen.main.bounds.height - GlobalConst.NAVIGATION_BAR_HEIGHT - 2 * GlobalConst.MARGIN
+    public static var BOTTOM_MSG_REAL_HEIGHT_HD       = GlobalConst.BOTTOM_MESSAGE_HEIGHT * BaseViewController.H_RATE_HD
+    public static var BOTTOM_MSG_REAL_HEIGHT_FHD      = GlobalConst.BOTTOM_MESSAGE_HEIGHT * BaseViewController.H_RATE_FHD
+    public static var BOTTOM_MSG_REAL_HEIGHT_FHD_L    = GlobalConst.BOTTOM_MESSAGE_HEIGHT * BaseViewController.H_RATE_FHD_L
+    public static var BOTTOM_MSG_REAL_WIDTH_HD        = GlobalConst.HD_SCREEN_BOUND.w * BaseViewController.H_RATE_HD - 2 * GlobalConst.MARGIN
+    public static var BOTTOM_MSG_REAL_WIDTH_FHD       = GlobalConst.HD_SCREEN_BOUND.w * BaseViewController.H_RATE_FHD - 2 * GlobalConst.MARGIN
+    public static var BOTTOM_MSG_REAL_WIDTH_FHD_L     = GlobalConst.HD_SCREEN_BOUND.w * BaseViewController.H_RATE_FHD_L - 2 * GlobalConst.MARGIN
     
     // MARK: Methods
     // MARK: - Override
@@ -83,6 +86,7 @@ open class BaseViewController : UIViewController {
     public func emptyMethod(_ notification: Notification) {
         // Do nothing
     }
+    
     //++ BUG0048-SPJ (NguyenPT 20170309) Get root view controller
     /**
      * Get root view controller
@@ -133,8 +137,11 @@ open class BaseViewController : UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
         
         //++ BUG0156-SPJ (NguyenPT 20170926) Re-design Gas24h
-        self.isCollapsed = true
-        showHideBotMsgView(isShow: !self.isCollapsed)
+        //++ BUG0170-SPJ (NguyenPT 20172711) Update bottom message view
+//        self.isCollapsed = true
+//        showHideBotMsgView(isShow: !self.isCollapsed)
+        botMsgView.showHide(isShow: false)
+        //-- BUG0170-SPJ (NguyenPT 20172711) Update bottom message view
         //-- BUG0156-SPJ (NguyenPT 20170926) Re-design Gas24h
         
         self.view.makeComponentsColor()
@@ -1115,45 +1122,47 @@ open class BaseViewController : UIViewController {
     
     
     // MARK: Event handler
+    //++ BUG0170-SPJ (NguyenPT 20172711) Update bottom message view
     //++ BUG0156-SPJ (NguyenPT 20170926) Re-design Gas24h
-    /**
-     * Handle when tap on actions buttons
-     * - parameter sender: Button object
-     */
-    internal func handleTappedBottomMsgView(_ gestureRecognizer: UITapGestureRecognizer) {
-        self.isCollapsed = !self.isCollapsed
-        showHideBotMsgView(isShow: !self.isCollapsed)
-    }
+//    /**
+//     * Handle when tap on actions buttons
+//     * - parameter sender: Button object
+//     */
+//    internal func handleTappedBottomMsgView(_ gestureRecognizer: UITapGestureRecognizer) {
+//        self.isCollapsed = !self.isCollapsed
+//        showHideBotMsgView(isShow: !self.isCollapsed)
+//    }
     //-- BUG0156-SPJ (NguyenPT 20170926) Re-design Gas24h
     
     //++ BUG0169-SPJ (NguyenPT 20171125) Add swipe gesture
-    /**
-     * Handle when tap on actions buttons
-     * - parameter sender: Button object
-     */
-    internal func handleSwipeBottomMsgView(_ gestureRecognizer: UIGestureRecognizer) {
-        if let swipeGesture = gestureRecognizer as? UISwipeGestureRecognizer {
-            switch swipeGesture.direction {
-            case UISwipeGestureRecognizerDirection.up:
-                if self.isCollapsed {
-                    self.isCollapsed = false
-                    showHideBotMsgView(isShow: !self.isCollapsed)
-                }
-                
-                break
-            case UISwipeGestureRecognizerDirection.down:
-                if !self.isCollapsed {
-                    self.isCollapsed = true
-                    showHideBotMsgView(isShow: !self.isCollapsed)
-                }
-                
-                break
-            default:
-                break
-            }
-        }
-    }
+//    /**
+//     * Handle when tap on actions buttons
+//     * - parameter sender: Button object
+//     */
+//    internal func handleSwipeBottomMsgView(_ gestureRecognizer: UIGestureRecognizer) {
+//        if let swipeGesture = gestureRecognizer as? UISwipeGestureRecognizer {
+//            switch swipeGesture.direction {
+//            case UISwipeGestureRecognizerDirection.up:
+//                if self.isCollapsed {
+//                    self.isCollapsed = false
+//                    showHideBotMsgView(isShow: !self.isCollapsed)
+//                }
+//                
+//                break
+//            case UISwipeGestureRecognizerDirection.down:
+//                if !self.isCollapsed {
+//                    self.isCollapsed = true
+//                    showHideBotMsgView(isShow: !self.isCollapsed)
+//                }
+//                
+//                break
+//            default:
+//                break
+//            }
+//        }
+//    }
     //-- BUG0169-SPJ (NguyenPT 20171125) Add swipe gesture
+    //-- BUG0170-SPJ (NguyenPT 20172711) Update bottom message view
     
     /**
      * Handle view position when rotated
@@ -1177,13 +1186,13 @@ open class BaseViewController : UIViewController {
         BaseViewController.W_RATE_FHD_L = UIScreen.main.bounds.width / GlobalConst.FULL_HD_SCREEN_BOUND.h
         BaseViewController.H_RATE_FHD_L = UIScreen.main.bounds.height / GlobalConst.FULL_HD_SCREEN_BOUND.w
         // Bottom message view
-        BOTTOM_MSG_FULL_HEIGHT          = UIScreen.main.bounds.height - GlobalConst.NAVIGATION_BAR_HEIGHT - 2 * GlobalConst.MARGIN
-        BOTTOM_MSG_REAL_HEIGHT_HD       = GlobalConst.BOTTOM_MESSAGE_HEIGHT * BaseViewController.H_RATE_HD
-        BOTTOM_MSG_REAL_HEIGHT_FHD      = GlobalConst.BOTTOM_MESSAGE_HEIGHT * BaseViewController.H_RATE_FHD
-        BOTTOM_MSG_REAL_HEIGHT_FHD_L    = GlobalConst.BOTTOM_MESSAGE_HEIGHT * BaseViewController.H_RATE_FHD_L
-        BOTTOM_MSG_REAL_WIDTH_HD        = GlobalConst.HD_SCREEN_BOUND.w * BaseViewController.H_RATE_HD - 2 * GlobalConst.MARGIN
-        BOTTOM_MSG_REAL_WIDTH_FHD       = GlobalConst.HD_SCREEN_BOUND.w * BaseViewController.H_RATE_FHD - 2 * GlobalConst.MARGIN
-        BOTTOM_MSG_REAL_WIDTH_FHD_L     = GlobalConst.HD_SCREEN_BOUND.w * BaseViewController.H_RATE_FHD_L - 2 * GlobalConst.MARGIN
+        BaseViewController.BOTTOM_MSG_FULL_HEIGHT          = UIScreen.main.bounds.height - GlobalConst.NAVIGATION_BAR_HEIGHT - 2 * GlobalConst.MARGIN
+        BaseViewController.BOTTOM_MSG_REAL_HEIGHT_HD       = GlobalConst.BOTTOM_MESSAGE_HEIGHT * BaseViewController.H_RATE_HD
+        BaseViewController.BOTTOM_MSG_REAL_HEIGHT_FHD      = GlobalConst.BOTTOM_MESSAGE_HEIGHT * BaseViewController.H_RATE_FHD
+        BaseViewController.BOTTOM_MSG_REAL_HEIGHT_FHD_L    = GlobalConst.BOTTOM_MESSAGE_HEIGHT * BaseViewController.H_RATE_FHD_L
+        BaseViewController.BOTTOM_MSG_REAL_WIDTH_HD        = GlobalConst.HD_SCREEN_BOUND.w * BaseViewController.H_RATE_HD - 2 * GlobalConst.MARGIN
+        BaseViewController.BOTTOM_MSG_REAL_WIDTH_FHD       = GlobalConst.HD_SCREEN_BOUND.w * BaseViewController.H_RATE_FHD - 2 * GlobalConst.MARGIN
+        BaseViewController.BOTTOM_MSG_REAL_WIDTH_FHD_L     = GlobalConst.HD_SCREEN_BOUND.w * BaseViewController.H_RATE_FHD_L - 2 * GlobalConst.MARGIN
     }
     
     /**
@@ -1229,15 +1238,15 @@ open class BaseViewController : UIViewController {
         // Get current device type
         switch UIDevice.current.userInterfaceIdiom {
         case .phone:        // iPhone
-            updateBottomMsgViewHD(isShow: !isCollapsed)
+            botMsgView.updateLayoutHD(isShow: !botMsgView.isCollapsed())
             break
         case .pad:          // iPad
             switch UIApplication.shared.statusBarOrientation {
             case .portrait, .portraitUpsideDown:        // Portrait
-                updateBottomMsgViewFHD(isShow: !isCollapsed)
+                botMsgView.updateLayoutFHD(isShow: !botMsgView.isCollapsed())
                 break
             case .landscapeLeft, .landscapeRight:       // Landscape
-                updateBottomMsgViewFHD_L(isShow: !isCollapsed)
+                botMsgView.updateLayoutFHD_L(isShow: !botMsgView.isCollapsed())
                 break
             default:
                 break
@@ -1282,14 +1291,14 @@ open class BaseViewController : UIViewController {
     }
     //-- BUG0165-SPJ (NguyenPT 20171123) Override select home menu
     
-    //++ BUG0171-SPJ (NguyenPT 20171127	) Add new menu
+    //++ BUG0171-SPJ (NguyenPT 20171127) Add new menu
     open func openPromotionPolicy() {
         
     }
     open func openAppGuide() {
         
     }
-    //-- BUG0171-SPJ (NguyenPT 20171127	) Add new menu
+    //-- BUG0171-SPJ (NguyenPT 20171127) Add new menu
     
     //++ BUG0156-SPJ (NguyenPT 20170926) Re-design Gas24h
     /**
@@ -1297,270 +1306,293 @@ open class BaseViewController : UIViewController {
      * - parameter width: Width of view
      */
     private func createBotMsgView(width: CGFloat) {
-        botMsgView.frame = CGRect(x: (UIScreen.main.bounds.width - width) / 2,
-                                  y: getTopHeight() + GlobalConst.MARGIN,
-                                  width: width,
-                                  height: BOTTOM_MSG_FULL_HEIGHT)
-//        botMsgView.backgroundColor = UIColor(white: 1, alpha: 1.0)
-        botMsgView.backgroundColor = GlobalConst.PROMOTION_BKG_COLOR
-        botMsgView.layer.cornerRadius = GlobalConst.BOTTOM_MSG_VIEW_CORNER_RADIUS
-        createCollapseButton()
-        createBotMsgLabelNote()
-        createBotMsgLabelDescription()
-        let tappedRecog = UITapGestureRecognizer(
-            target: self,
-            action: #selector(handleTappedBottomMsgView(_:)))
-        let swipeTop = UISwipeGestureRecognizer(target: self,
-                                                action: #selector(handleSwipeBottomMsgView(_:)))
-        swipeTop.direction = .up
-        let swipeBot = UISwipeGestureRecognizer(target: self,
-                                                action: #selector(handleSwipeBottomMsgView(_:)))
-        swipeBot.direction = .down
-        botMsgView.addGestureRecognizer(tappedRecog)
-        botMsgView.addGestureRecognizer(swipeTop)
-        botMsgView.addGestureRecognizer(swipeBot)
-        botMsgView.addSubview(btnCollapse)
-        botMsgView.addSubview(lblNote)
-        botMsgView.addSubview(lblDescription)
-    }
-    
-    /**
-     * Create collapse button
-     */
-    private func createCollapseButton() {
-        let btnSize = GlobalConst.LABEL_H
-        btnCollapse.frame = CGRect(
-            x: (botMsgView.frame.width - btnSize) / 2,
-            y: 0,
-            width: btnSize,
-            height: btnSize)
+        //++ BUG0170-SPJ (NguyenPT 20172711) Update bottom message view
+//        botMsgView.frame = CGRect(x: (UIScreen.main.bounds.width - width) / 2,
+//                                  y: getTopHeight() + GlobalConst.MARGIN,
+//                                  width: width,
+//                                  height: BOTTOM_MSG_FULL_HEIGHT)
+//        botMsgView.backgroundColor = GlobalConst.PROMOTION_BKG_COLOR
+//        botMsgView.layer.cornerRadius = GlobalConst.BOTTOM_MSG_VIEW_CORNER_RADIUS
+//        createCollapseButton()
+//        createBotMsgLabelNote()
+//        createBotMsgLabelDescription()
+//        let tappedRecog = UITapGestureRecognizer(
+//            target: self,
+//            action: #selector(handleTappedBottomMsgView(_:)))
+//        let swipeTop = UISwipeGestureRecognizer(target: self,
+//                                                action: #selector(handleSwipeBottomMsgView(_:)))
+//        swipeTop.direction = .up
+//        let swipeBot = UISwipeGestureRecognizer(target: self,
+//                                                action: #selector(handleSwipeBottomMsgView(_:)))
+//        swipeBot.direction = .down
+//        botMsgView.addGestureRecognizer(tappedRecog)
+//        botMsgView.addGestureRecognizer(swipeTop)
+//        botMsgView.addGestureRecognizer(swipeBot)
+//        botMsgView.addSubview(btnCollapse)
+//        botMsgView.addSubview(lblNote)
+//        botMsgView.addSubview(lblDescription)
         
-        let back = ImageManager.getImage(named: DomainConst.COLLAPSE_BUTTON_ICON_IMG_NAME)
-        let tintedBack = back?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
-        btnCollapse.setImage(tintedBack, for: UIControlState())
-        btnCollapse.tintColor = GlobalConst.MAIN_COLOR_GAS_24H
-        btnCollapse.backgroundColor = UIColor.clear
-        btnCollapse.imageView?.contentMode = .scaleAspectFit
-        self.btnCollapse.layer.transform = CATransform3DConcat(
-            self.btnCollapse.layer.transform,
-            CATransform3DMakeRotation(CGFloat(M_PI), 1.0, 0.0, 0.0))
-        btnCollapse.addTarget(self, action: #selector(btnCollapsedTappedHandler(_:)),
-                              for: .touchUpInside)
+        botMsgView.createLayout(
+            width: width,
+            height: BaseViewController.BOTTOM_MSG_FULL_HEIGHT,
+            yPos: getTopHeight() + GlobalConst.MARGIN)
+        //-- BUG0170-SPJ (NguyenPT 20172711) Update bottom message view
     }
+    
+    //++ BUG0170-SPJ (NguyenPT 20172711) Update bottom message view
+//    /**
+//     * Create collapse button
+//     */
+//    private func createCollapseButton() {
+//        let btnSize = GlobalConst.LABEL_H
+//        btnCollapse.frame = CGRect(
+//            x: (botMsgView.frame.width - btnSize) / 2,
+//            y: 0,
+//            width: btnSize,
+//            height: btnSize)
+//        
+//        let back = ImageManager.getImage(named: DomainConst.COLLAPSE_BUTTON_ICON_IMG_NAME)
+//        let tintedBack = back?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+//        btnCollapse.setImage(tintedBack, for: UIControlState())
+//        btnCollapse.tintColor = GlobalConst.MAIN_COLOR_GAS_24H
+//        btnCollapse.backgroundColor = UIColor.clear
+//        btnCollapse.imageView?.contentMode = .scaleAspectFit
+//        self.btnCollapse.layer.transform = CATransform3DConcat(
+//            self.btnCollapse.layer.transform,
+//            CATransform3DMakeRotation(CGFloat(M_PI), 1.0, 0.0, 0.0))
+//        btnCollapse.addTarget(self, action: #selector(btnCollapsedTappedHandler(_:)),
+//                              for: .touchUpInside)
+//    }
+//    
+//    /**
+//     * Handle when tap on collapse button
+//     */
+//    internal func btnCollapsedTappedHandler(_ sender: AnyObject) {
+//        self.isCollapsed = !self.isCollapsed
+//        showHideBotMsgView(isShow: !self.isCollapsed)
+//    }
+    
+//    /**
+//     * Create bottom message label note
+//     */
+//    private func createBotMsgLabelNote() {
+//        lblNote.frame = CGRect(x: 0, y: btnCollapse.frame.maxY,
+//                               width: botMsgView.frame.width,
+//                               height: GlobalConst.LABEL_H * 2)
+//        lblNote.textColor = UIColor.black
+//        lblNote.textAlignment = .center
+//        lblNote.adjustsFontSizeToFitWidth = true
+//        lblNote.font = GlobalConst.BASE_FONT
+//        lblNote.numberOfLines = 0
+//    }
+    
+//    /**
+//     * Create bottom message label description
+//     */
+//    private func createBotMsgLabelDescription() {
+//        lblDescription.frame = CGRect(x: 0, y: lblNote.frame.maxY,
+//                               width: botMsgView.frame.width,
+//                               height: botMsgView.frame.height - lblNote.frame.height)
+//        lblDescription.textColor = UIColor.black
+//        lblDescription.textAlignment = .center
+//        lblDescription.font = GlobalConst.BASE_FONT
+//        lblDescription.numberOfLines = 0
+//    }
+    
+//    private func showHideBotMsgView(isShow: Bool, isRotate: Bool = true) {
+//        let duration = 0.5
+//        var rotateAngle: CGFloat = 1.0
+//        if !isShow {
+//            rotateAngle = -1.0
+//        }
+//        // If flag is on
+//        if isRotate {
+//            // Rotate button collapse
+//            UIView.animate(withDuration: duration, animations: {
+//                self.btnCollapse.layer.transform = CATransform3DConcat(
+//                    self.btnCollapse.layer.transform,
+//                    CATransform3DMakeRotation(CGFloat(M_PI), rotateAngle, 0.0, 0.0))
+//            })
+//        }
+//        
+//        // Get current device type
+//        switch UIDevice.current.userInterfaceIdiom {
+//        case .phone:        // iPhone
+//            UIView.animate(withDuration: duration, animations: {
+//                self.updateBottomMsgViewHD(isShow: isShow)
+//            })
+//            break
+//        case .pad:          // iPad
+//            switch UIApplication.shared.statusBarOrientation {
+//            case .portrait, .portraitUpsideDown:        // Portrait
+//                UIView.animate(withDuration: duration, animations: {
+//                    self.updateBottomMsgViewFHD(isShow: isShow)
+//                })
+//                break
+//            case .landscapeLeft, .landscapeRight:       // Landscape
+//                UIView.animate(withDuration: duration, animations: {
+//                    self.updateBottomMsgViewFHD_L(isShow: isShow)
+//                })
+//                break
+//            default:
+//                break
+//            }
+//            break
+//        default:
+//            break
+//        }
+//    }
+    //-- BUG0170-SPJ (NguyenPT 20172711) Update bottom message view
     
     /**
-     * Handle when tap on collapse button
+     * Create bottom message view in HD mode
      */
-    internal func btnCollapsedTappedHandler(_ sender: AnyObject) {
-        self.isCollapsed = !self.isCollapsed
-        showHideBotMsgView(isShow: !self.isCollapsed)
-    }
-    
-    /**
-     * Create bottom message label note
-     */
-    private func createBotMsgLabelNote() {
-        lblNote.frame = CGRect(x: 0, y: btnCollapse.frame.maxY,
-                               width: botMsgView.frame.width,
-                               height: GlobalConst.LABEL_H * 2)
-        lblNote.textColor = UIColor.black
-        lblNote.textAlignment = .center
-        lblNote.adjustsFontSizeToFitWidth = true
-        lblNote.font = GlobalConst.BASE_FONT
-        lblNote.numberOfLines = 0
-    }
-    
-    /**
-     * Create bottom message label description
-     */
-    private func createBotMsgLabelDescription() {
-        lblDescription.frame = CGRect(x: 0, y: lblNote.frame.maxY,
-                               width: botMsgView.frame.width,
-                               height: botMsgView.frame.height - lblNote.frame.height)
-        lblDescription.textColor = UIColor.black
-        lblDescription.textAlignment = .center
-        lblDescription.font = GlobalConst.BASE_FONT
-        lblDescription.numberOfLines = 0
-    }
-    
-    private func showHideBotMsgView(isShow: Bool, isRotate: Bool = true) {
-        let duration = 0.5
-        var rotateAngle: CGFloat = 1.0
-        if !isShow {
-            rotateAngle = -1.0
-        }
-        // If flag is on
-        if isRotate {
-            // Rotate button collapse
-            UIView.animate(withDuration: duration, animations: {
-                self.btnCollapse.layer.transform = CATransform3DConcat(
-                    self.btnCollapse.layer.transform,
-                    CATransform3DMakeRotation(CGFloat(M_PI), rotateAngle, 0.0, 0.0))
-            })
-        }
-        
-        // Get current device type
-        switch UIDevice.current.userInterfaceIdiom {
-        case .phone:        // iPhone
-            UIView.animate(withDuration: duration, animations: {
-                self.updateBottomMsgViewHD(isShow: isShow)
-            })
-            break
-        case .pad:          // iPad
-            switch UIApplication.shared.statusBarOrientation {
-            case .portrait, .portraitUpsideDown:        // Portrait
-                UIView.animate(withDuration: duration, animations: {
-                    self.updateBottomMsgViewFHD(isShow: isShow)
-                })
-                break
-            case .landscapeLeft, .landscapeRight:       // Landscape
-                UIView.animate(withDuration: duration, animations: {
-                    self.updateBottomMsgViewFHD_L(isShow: isShow)
-                })
-                break
-            default:
-                break
-            }
-            break
-        default:
-            break
-        }
-    }
-    
     private func createBotMsgViewHD() {
-        createBotMsgView(width: BOTTOM_MSG_REAL_WIDTH_HD)
+        createBotMsgView(width: BaseViewController.BOTTOM_MSG_REAL_WIDTH_HD)
     }
     
+    /**
+     * Create bottom message view in FHD mode
+     */
     private func createBotMsgViewFHD() {
-        createBotMsgView(width: BOTTOM_MSG_REAL_WIDTH_FHD)
+        createBotMsgView(width: BaseViewController.BOTTOM_MSG_REAL_WIDTH_FHD)
     }
     
+    /**
+     * Create bottom message view in Full HD landscape mode
+     */
     private func createBotMsgViewFHD_L() {
-        createBotMsgView(width: BOTTOM_MSG_REAL_WIDTH_FHD_L)
+        createBotMsgView(width: BaseViewController.BOTTOM_MSG_REAL_WIDTH_FHD_L)
     }
     
     private func updateBotMsgView(x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat) {
-        CommonProcess.updateViewPos(view: botMsgView,
-                                    x: x, y: y, w: w, h: h)
-        CommonProcess.updateViewPos(view: lblNote,
-                                    x: 0, y: btnCollapse.frame.maxY,
-                                    w: botMsgView.frame.width,
-                                    h: GlobalConst.LABEL_H * 2)
-        CommonProcess.updateViewPos(view: lblDescription,
-                                    x: 0, y: lblNote.frame.maxY,
-                                    w: botMsgView.frame.width,
-                                    h: botMsgView.frame.height - lblNote.frame.height)
+        //++ BUG0170-SPJ (NguyenPT 20172711) Update bottom message view
+//        CommonProcess.updateViewPos(view: botMsgView,
+//                                    x: x, y: y, w: w, h: h)
+//        CommonProcess.updateViewPos(view: lblNote,
+//                                    x: 0, y: btnCollapse.frame.maxY,
+//                                    w: botMsgView.frame.width,
+//                                    h: GlobalConst.LABEL_H * 2)
+//        CommonProcess.updateViewPos(view: lblDescription,
+//                                    x: 0, y: lblNote.frame.maxY,
+//                                    w: botMsgView.frame.width,
+//                                    h: botMsgView.frame.height - lblNote.frame.height)
+        botMsgView.updateLayout(
+            y: y, w: w, h: h)
+        //-- BUG0170-SPJ (NguyenPT 20172711) Update bottom message view
     }
     
-    /**
-     * Update bottom message view in HD mode
-     * - parameter isShow: Flag show/hide
-     */
-    private func updateBottomMsgViewHD(isShow: Bool = true) {
-        if isShow {
-            updateBotMsgView(
-                x: (UIScreen.main.bounds.width - BOTTOM_MSG_REAL_WIDTH_HD) / 2,
-                y: getTopHeight() + GlobalConst.MARGIN,
-                w: BOTTOM_MSG_REAL_WIDTH_HD,
-                h: BOTTOM_MSG_FULL_HEIGHT)
-        } else {
-            updateBotMsgView(
-                x: (UIScreen.main.bounds.width - BOTTOM_MSG_REAL_WIDTH_HD) / 2,
-                y: UIScreen.main.bounds.height - BOTTOM_MSG_REAL_HEIGHT_HD,
-                w: BOTTOM_MSG_REAL_WIDTH_HD,
-                h: BOTTOM_MSG_FULL_HEIGHT)
-        }
-    }
+    //++ BUG0170-SPJ (NguyenPT 20172711) Update bottom message view
+//    /**
+//     * Update bottom message view in HD mode
+//     * - parameter isShow: Flag show/hide
+//     */
+//    private func updateBottomMsgViewHD(isShow: Bool = true) {
+//        if isShow {
+//            updateBotMsgView(
+//                x: (UIScreen.main.bounds.width - BOTTOM_MSG_REAL_WIDTH_HD) / 2,
+//                y: getTopHeight() + GlobalConst.MARGIN,
+//                w: BOTTOM_MSG_REAL_WIDTH_HD,
+//                h: BOTTOM_MSG_FULL_HEIGHT)
+//        } else {
+//            updateBotMsgView(
+//                x: (UIScreen.main.bounds.width - BOTTOM_MSG_REAL_WIDTH_HD) / 2,
+//                y: UIScreen.main.bounds.height - BOTTOM_MSG_REAL_HEIGHT_HD,
+//                w: BOTTOM_MSG_REAL_WIDTH_HD,
+//                h: BOTTOM_MSG_FULL_HEIGHT)
+//        }
+//    }
     
-    /**
-     * Update bottom message view in Full HD mode
-     * - parameter isShow: Flag show/hide
-     */
-    private func updateBottomMsgViewFHD(isShow: Bool = true) {
-        if isShow {
-            updateBotMsgView(
-                x: (UIScreen.main.bounds.width - BOTTOM_MSG_REAL_WIDTH_FHD) / 2,
-                y: getTopHeight() + GlobalConst.MARGIN,
-                w: BOTTOM_MSG_REAL_WIDTH_FHD,
-                h: BOTTOM_MSG_FULL_HEIGHT)
-        } else {
-            updateBotMsgView(
-                x: (UIScreen.main.bounds.width - BOTTOM_MSG_REAL_WIDTH_FHD) / 2,
-                y: UIScreen.main.bounds.height - BOTTOM_MSG_REAL_HEIGHT_FHD,
-                w: BOTTOM_MSG_REAL_WIDTH_FHD,
-                h: BOTTOM_MSG_FULL_HEIGHT)
-        }
-    }
+//    /**
+//     * Update bottom message view in Full HD mode
+//     * - parameter isShow: Flag show/hide
+//     */
+//    private func updateBottomMsgViewFHD(isShow: Bool = true) {
+//        if isShow {
+//            updateBotMsgView(
+//                x: (UIScreen.main.bounds.width - BOTTOM_MSG_REAL_WIDTH_FHD) / 2,
+//                y: getTopHeight() + GlobalConst.MARGIN,
+//                w: BOTTOM_MSG_REAL_WIDTH_FHD,
+//                h: BOTTOM_MSG_FULL_HEIGHT)
+//        } else {
+//            updateBotMsgView(
+//                x: (UIScreen.main.bounds.width - BOTTOM_MSG_REAL_WIDTH_FHD) / 2,
+//                y: UIScreen.main.bounds.height - BOTTOM_MSG_REAL_HEIGHT_FHD,
+//                w: BOTTOM_MSG_REAL_WIDTH_FHD,
+//                h: BOTTOM_MSG_FULL_HEIGHT)
+//        }
+//    }
     
-    /**
-     * Update bottom message view in Full HD Landscape mode
-     * - parameter isShow: Flag show/hide
-     */
-    private func updateBottomMsgViewFHD_L(isShow: Bool = true) {
-        if isShow {
-            updateBotMsgView(
-                x: (UIScreen.main.bounds.width - BOTTOM_MSG_REAL_WIDTH_FHD_L) / 2,
-                y: getTopHeight() + GlobalConst.MARGIN,
-                w: BOTTOM_MSG_REAL_WIDTH_FHD_L,
-                h: BOTTOM_MSG_FULL_HEIGHT)
-        } else {
-            updateBotMsgView(
-                x: (UIScreen.main.bounds.width - BOTTOM_MSG_REAL_WIDTH_FHD_L) / 2,
-                y: UIScreen.main.bounds.height - BOTTOM_MSG_REAL_HEIGHT_FHD_L / 2,
-                w: BOTTOM_MSG_REAL_WIDTH_FHD_L,
-                h: BOTTOM_MSG_FULL_HEIGHT)
-        }
-    }
+//    /**
+//     * Update bottom message view in Full HD Landscape mode
+//     * - parameter isShow: Flag show/hide
+//     */
+//    private func updateBottomMsgViewFHD_L(isShow: Bool = true) {
+//        if isShow {
+//            updateBotMsgView(
+//                x: (UIScreen.main.bounds.width - BOTTOM_MSG_REAL_WIDTH_FHD_L) / 2,
+//                y: getTopHeight() + GlobalConst.MARGIN,
+//                w: BOTTOM_MSG_REAL_WIDTH_FHD_L,
+//                h: BOTTOM_MSG_FULL_HEIGHT)
+//        } else {
+//            updateBotMsgView(
+//                x: (UIScreen.main.bounds.width - BOTTOM_MSG_REAL_WIDTH_FHD_L) / 2,
+//                y: UIScreen.main.bounds.height - BOTTOM_MSG_REAL_HEIGHT_FHD_L / 2,
+//                w: BOTTOM_MSG_REAL_WIDTH_FHD_L,
+//                h: BOTTOM_MSG_FULL_HEIGHT)
+//        }
+//    }
     
-    /**
-     * Add bottom message view to view controller
-     * - parameter note:        Note string
-     * - parameter description: Description string
-     * - parameter isShow:      Flag show or not
-     */
-    public func addBotMsg(note: String, description: String, isShow: Bool = true) {
-        self.isShowBotMsgView = isShow
-        self.view.addSubview(botMsgView)
-        botMsgView.isHidden = !isShow
-        lblNote.text = note
-    }
+//    /**
+//     * Add bottom message view to view controller
+//     * - parameter note:        Note string
+//     * - parameter description: Description string
+//     * - parameter isShow:      Flag show or not
+//     */
+//    public func addBotMsg(note: String, description: String, isShow: Bool = true) {
+//        self.isShowBotMsgView = isShow
+//        self.view.addSubview(botMsgView)
+//        botMsgView.isHidden = !isShow
+//        lblNote.text = note
+//    }
+//    
+//    /**
+//     * Update bottom message view content
+//     * - parameter note:        Note string
+//     * - parameter description: Description string
+//     */
+//    public func setBotMsgContent(note: String, description: String) {
+//        lblNote.text = note
+//        lblDescription.text = description
+//    }
     
-    /**
-     * Update bottom message view content
-     * - parameter note:        Note string
-     * - parameter description: Description string
-     */
-    public func setBotMsgContent(note: String, description: String) {
-        lblNote.text = note
-        lblDescription.text = description
-    }
+//    /**
+//     * Set bottom message color
+//     * - parameter lstString: List of sub strings
+//     */
+//    public func setBotMsgColor(lstString: [String]) {
+//        var colors: [UIColor] = [UIColor]()
+//        for _ in lstString {
+//            colors.append(GlobalConst.MAIN_COLOR_GAS_24H)
+//        }
+//        CommonProcess.makeMultiColorLabel(lbl: lblNote,
+//                                          lstString: lstString, colors: colors)
+//    }
     
-    /**
-     * Set bottom message color
-     * - parameter lstString: List of sub strings
-     */
-    public func setBotMsgColor(lstString: [String]) {
-        var colors: [UIColor] = [UIColor]()
-        for _ in lstString {
-            colors.append(GlobalConst.MAIN_COLOR_GAS_24H)
-        }
-        CommonProcess.makeMultiColorLabel(lbl: lblNote,
-                                          lstString: lstString, colors: colors)
-    }
-    
-    public func makeBotMsgVisible(isShow: Bool) {
+//    public func makeBotMsgVisible(isShow: Bool) {
 //        botMsgView.isHidden = !isShow
 //        botMsgView.isUserInteractionEnabled = isShow
-        if isShow {
-            showHideBotMsgView(isShow: !self.isCollapsed, isRotate: false)
-        } else {
-            updateBotMsgView(
-                x: botMsgView.frame.minX,
-                y: UIScreen.main.bounds.height,
-                w: botMsgView.frame.width,
-                h: botMsgView.frame.height)
-        }
-    }
+//        if isShow {
+//            showHideBotMsgView(isShow: !self.isCollapsed, isRotate: false)
+//        } else {
+//            updateBotMsgView(
+//                x: botMsgView.frame.minX,
+//                y: UIScreen.main.bounds.height,
+//                w: botMsgView.frame.width,
+//                h: botMsgView.frame.height)
+//        }
+//    }
+    //-- BUG0170-SPJ (NguyenPT 20172711) Update bottom message view
     
     /**
      * Check if screen is HD size

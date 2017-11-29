@@ -638,6 +638,15 @@ open class BaseMenuViewController : BaseViewController {
             break
         case DomainConst.KEY_MENU_CCS_CODE_LIST:
             iconPath = DomainConst.MENU_ITEM_UPHOLD_LIST_IMG_NAME
+            break            
+        //++ BUG0171-SPJ (NguyenPT 20171127	) Add new menu
+        case DomainConst.KEY_MENU_PROMOTION_POLICY:
+            iconPath = DomainConst.MENU_ITEM_PROMOTION_POLICY
+            break
+        case DomainConst.KEY_MENU_APP_GUIDE:
+            iconPath = DomainConst.MENU_ITEM_APP_GUIDE
+            break
+        //-- BUG0171-SPJ (NguyenPT 20171127	) Add new menu
         default:
             break
         }

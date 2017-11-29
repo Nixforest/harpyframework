@@ -128,5 +128,6 @@ public class BaseNewsViewController: ChildExtViewController {
             x: 0, y: 0,
             w: UIScreen.main.bounds.width,
             h: UIScreen.main.bounds.height)
+//        _webView.reload()
     }
 }
