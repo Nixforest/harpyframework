@@ -8,8 +8,10 @@
 
 import UIKit
 
-public class BaseNewsViewController: ChildExtViewController {
+public class BaseNewsViewController: ParentExtViewController {
     // MARK: Properties
+    /** Title label */
+    var _lblTitle:              UILabel         = UILabel()
     /** Web view */
     var _webView:               UIWebView       = UIWebView()
     /** Title */
@@ -22,14 +24,11 @@ public class BaseNewsViewController: ChildExtViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.createNavigationBar(title: _title)
-        
+        self.createNavigationBar(title: DomainConst.HOTLINE)
         
         NewsRequest.request(action: #selector(setData(_:)),
                             view: self,
                             id: self._id)
-        
-        self.view.addSubview(_webView)
     }
     
     /**
@@ -44,6 +43,7 @@ public class BaseNewsViewController: ChildExtViewController {
      */
     override public func createChildrenViews() {
         super.createChildrenViews()
+        createTitle()
         createWebView()
         // Get current device type
         switch UIDevice.current.userInterfaceIdiom {
@@ -63,6 +63,7 @@ public class BaseNewsViewController: ChildExtViewController {
         default:
             break
         }
+        self.view.addSubview(_lblTitle)
         self.view.addSubview(_webView)
     }
     
@@ -71,6 +72,7 @@ public class BaseNewsViewController: ChildExtViewController {
      */
     override public func updateChildrenViews() {
         super.updateChildrenViews()
+        updateTitle()
         updateWebView()
         // Get current device type
         switch UIDevice.current.userInterfaceIdiom {
@@ -96,6 +98,7 @@ public class BaseNewsViewController: ChildExtViewController {
         let data = (notification.object as! String)
         let model = NewsRespModel(jsonString: data)
         if model.isSuccess() {
+            _lblTitle.text = model.getRecord().id
             _webView.loadHTMLString(model.getRecord().name, baseURL: nil)
         } else {
             //
@@ -111,23 +114,56 @@ public class BaseNewsViewController: ChildExtViewController {
         self._title = title
         self._id    = id
     }
-    // MARK: Information table view
-    private func createWebView() {
-        _webView.frame = CGRect(
-            x: 0,
-            //            y: getTopHeight(),
-            y: 0,
-            width: UIScreen.main.bounds.width,
-            //            height: UIScreen.main.bounds.height - getTopHeight()
-            height: UIScreen.main.bounds.height)
+    
+    // MARK: Layout
+    // MARK: Title label
+    /**
+     * Create title bale
+     */
+    private func createTitle() {
+        _lblTitle.frame = CGRect(
+            x: GlobalConst.MARGIN, y: getTopHeight(),
+            width: UIScreen.main.bounds.width - GlobalConst.MARGIN * 2,
+            height: GlobalConst.LABEL_H * 3)
+        _lblTitle.textColor = GlobalConst.MAIN_COLOR_GAS_24H
+        _lblTitle.textAlignment = .center
+        _lblTitle.lineBreakMode = .byWordWrapping
+        _lblTitle.font = GlobalConst.BASE_FONT
     }
     
+    /**
+     * Update title label
+     */
+    private func updateTitle() {
+        CommonProcess.updateViewPos(
+            view: _lblTitle,
+            x: GlobalConst.MARGIN, y: getTopHeight(),
+            w: UIScreen.main.bounds.width - GlobalConst.MARGIN * 2,
+            h: GlobalConst.LABEL_H * 3)
+    }
+    
+    // MARK: Web view
+    /**
+     * Create web view
+     */
+    private func createWebView() {
+        let yPos = _lblTitle.frame.maxY
+        _webView.frame = CGRect(
+            x: 0,
+            y: yPos,
+            width: UIScreen.main.bounds.width,
+            height: UIScreen.main.bounds.height - yPos)
+    }
+    
+    /**
+     * Update web view
+     */
     private func updateWebView() {
+        let yPos = _lblTitle.frame.maxY
         CommonProcess.updateViewPos(
             view: _webView,
-            x: 0, y: 0,
+            x: 0, y: yPos,
             w: UIScreen.main.bounds.width,
-            h: UIScreen.main.bounds.height)
-//        _webView.reload()
+            h: UIScreen.main.bounds.height - yPos)
     }
 }
