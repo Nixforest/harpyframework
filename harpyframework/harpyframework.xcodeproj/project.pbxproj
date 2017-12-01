@@ -101,6 +101,9 @@
 		D717779C1F5E9640009CF656 /* NVActivityIndicatorViewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D717779A1F5E9640009CF656 /* NVActivityIndicatorViewable.swift */; };
 		D71A08071F87847100366378 /* confirmedbtn.png in Resources */ = {isa = PBXBuildFile; fileRef = D71A08061F87847100366378 /* confirmedbtn.png */; };
 		D71A08091F878E2300366378 /* referBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = D71A08081F878E2300366378 /* referBtn.png */; };
+		D71B96661FCFABF7000CF718 /* background_share.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D71B96651FCFABF7000CF718 /* background_share.jpg */; };
+		D71B96681FCFE60B000CF718 /* icon_share.png in Resources */ = {isa = PBXBuildFile; fileRef = D71B96671FCFE60B000CF718 /* icon_share.png */; };
+		D71B966C1FCFFEC9000CF718 /* icon_qr.png in Resources */ = {isa = PBXBuildFile; fileRef = D71B966B1FCFFEC9000CF718 /* icon_qr.png */; };
 		D71C047F1EE6A31C00563469 /* icon40.png in Resources */ = {isa = PBXBuildFile; fileRef = D71C047E1EE6A31C00563469 /* icon40.png */; };
 		D71C25A31E41FDC400E29C3B /* TransactionCompleteBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71C25A21E41FDC400E29C3B /* TransactionCompleteBean.swift */; };
 		D72134DB1F73D83E0025E42B /* orderbtn.png in Resources */ = {isa = PBXBuildFile; fileRef = D72134DA1F73D83E0025E42B /* orderbtn.png */; };
@@ -515,6 +518,9 @@
 		D717779A1F5E9640009CF656 /* NVActivityIndicatorViewable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NVActivityIndicatorViewable.swift; path = CustomeControl/NVActivityIndicatorView/Presenter/NVActivityIndicatorViewable.swift; sourceTree = "<group>"; };
 		D71A08061F87847100366378 /* confirmedbtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = confirmedbtn.png; path = images/confirmedbtn.png; sourceTree = "<group>"; };
 		D71A08081F878E2300366378 /* referBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = referBtn.png; path = images/referBtn.png; sourceTree = "<group>"; };
+		D71B96651FCFABF7000CF718 /* background_share.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = background_share.jpg; path = images/background_share.jpg; sourceTree = "<group>"; };
+		D71B96671FCFE60B000CF718 /* icon_share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_share.png; path = images/icon_share.png; sourceTree = "<group>"; };
+		D71B966B1FCFFEC9000CF718 /* icon_qr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_qr.png; path = images/icon_qr.png; sourceTree = "<group>"; };
 		D71C047E1EE6A31C00563469 /* icon40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon40.png; path = images/icon40.png; sourceTree = "<group>"; };
 		D71C25A21E41FDC400E29C3B /* TransactionCompleteBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransactionCompleteBean.swift; path = Model/TransactionCompleteBean.swift; sourceTree = "<group>"; };
 		D72134DA1F73D83E0025E42B /* orderbtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = orderbtn.png; path = images/orderbtn.png; sourceTree = "<group>"; };
@@ -1207,6 +1213,9 @@
 		D7F3D8D21E1B8BCC0018744F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D71B966B1FCFFEC9000CF718 /* icon_qr.png */,
+				D71B96671FCFE60B000CF718 /* icon_share.png */,
+				D71B96651FCFABF7000CF718 /* background_share.jpg */,
 				D70BE4A21FCD4D0500635B60 /* ic_page_guide.png */,
 				D70BE4A31FCD4D0500635B60 /* ic_page_promotion.png */,
 				D7097AB61F9B27E500B4DF26 /* status_new.png */,
@@ -1572,6 +1581,7 @@
 				D746DE0A1F86212800C014DA /* orderStatus_Delivering_Active.png in Resources */,
 				D75F64AE1E28657900A67B3C /* icon53.png in Resources */,
 				D75F64E71E28B39100A67B3C /* icon4-ios.png in Resources */,
+				D71B96681FCFE60B000CF718 /* icon_share.png in Resources */,
 				D7E2990F1F7544F40078C46C /* collapseBtn.png in Resources */,
 				D7029F961F3871B20081797B /* themvattu.png in Resources */,
 				D75F64DD1E28B39100A67B3C /* config.png in Resources */,
@@ -1664,6 +1674,7 @@
 				D75F64F61E28B39100A67B3C /* icon37-user-ios.png in Resources */,
 				D7D578381F2B6FCC00855C0F /* delete-all.png in Resources */,
 				D7029F991F3871B20081797B /* thutien.png in Resources */,
+				D71B966C1FCFFEC9000CF718 /* icon_qr.png in Resources */,
 				D75F65251E28B3BC00A67B3C /* rating.png in Resources */,
 				D74B3F801F797917001F22B9 /* menubtn.png in Resources */,
 				D75F64AD1E28657900A67B3C /* icon52.png in Resources */,
@@ -1704,6 +1715,7 @@
 				D75F65131E28B3B100A67B3C /* icon60.png in Resources */,
 				D7724F9A1E8935FF006ECEFA /* search.png in Resources */,
 				D74591331EA08F3C002C3AB3 /* reload-1.png in Resources */,
+				D71B96661FCFABF7000CF718 /* background_share.jpg in Resources */,
 				D76E7E7C1EDE8AE0005D5585 /* hogiadinh.png in Resources */,
 				D71106211F57F1FE001BC56C /* ScanCodeVC~ipad.xib in Resources */,
 				D7029F901F3871B20081797B /* loaidonhang.png in Resources */,

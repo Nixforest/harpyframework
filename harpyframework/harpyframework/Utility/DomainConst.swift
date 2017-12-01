@@ -1166,6 +1166,8 @@ public class DomainConst {
     public static let KEY_MENU_PROMOTION_POLICY         = "id_page_promotion"
     /** Key menu item: Promotion policy */
     public static let KEY_MENU_APP_GUIDE                = "id_page_guide"
+    /** Key my_invite_code */
+    public static let KEY_MY_INVITE_CODE                = "my_invite_code"
     
     //++ BUG0050-SPJ (NguyenPT 20170325) Add new function G06
     /** Platform value: Android */
@@ -1342,6 +1344,8 @@ public class DomainConst {
     public static let SERVER_URL_IMMORTAL               = "http://build.immortal.vn/api/"
     /** Hotline */
     public static let HOTLINE                           = "1900 1565"
+    /** Refer link */
+    public static let REFER_LINK                        = "http://spj.vn/app?code="
     
     // MARK -----Define id of fragment-----
     public static let LOGOUT                            = "logout"
@@ -1885,6 +1889,12 @@ public class DomainConst {
     public static let MENU_ITEM_PROMOTION_POLICY                = "ic_page_promotion.png"
     /** Menu item App guide */
     public static let MENU_ITEM_APP_GUIDE                       = "ic_page_guide.png"
+    /** Background of share content */
+    public static let SHARE_BACKGROUND_IMG_NAME                 = "background_share.jpg"
+    /** Background of share content */
+    public static let SHARE_ICON_IMG_NAME                       = "icon_share.png"
+    /** Image qr code */
+    public static let QR_CODE_ICON_IMG_NAME                     = "icon_qr.png"
     
     /** HTTP Post request method */
     public static let HTTP_POST_REQUEST                     = "POST"
@@ -2416,4 +2426,5 @@ public class DomainConst {
     public static let CONTENT00535 = "Bạn đang có %@ điểm thưởng"
     public static let CONTENT00536 = "Chính sách khuyến mãi"
     public static let CONTENT00537 = "Hướng dẫn sử dụng"
+    public static let CONTENT00538 = "Chia sẻ với bạn bè"
 }

@@ -12,12 +12,18 @@ class BotMsgView: UIView {
     // MARK: Properties
     /** Button collapse */
     var _btnCollapse:       UIButton    = UIButton()
+    /** Label note */
+    var _lblNote:           UILabel     = UILabel()
     /** Table view */
     var _tblView:           UITableView     = UITableView()
     /** Flag collapsed */
     var _isCollapsed:       Bool        = true
     /** Type of content */
-    var _listType:          [BottomMsgCellTypeEnum] = [BottomMsgCellTypeEnum]()
+    var _listData:          [(BottomMsgCellTypeEnum, AnyObject)] = [(BottomMsgCellTypeEnum, AnyObject)]()
+    /** Handle event */
+    let _tappedRecog = UITapGestureRecognizer(
+        target: self,
+        action: #selector(handleTapped(_:)))
     
     // MARK: Methods
     /**
@@ -94,6 +100,38 @@ class BotMsgView: UIView {
         default:
             break
         }
+        _tblView.reloadData()
+    }
+    
+    /**
+     * Set text for note label
+     * - parameter text: Note text
+     */
+    public func setLabelText(text: String) {
+        self._lblNote.text = text
+    }
+    
+    /**
+     * Update data for this view
+     * - parameter data: List of data
+     */
+    public func updateData(data: [(BottomMsgCellTypeEnum, AnyObject)]) {
+        _listData.removeAll()
+        _listData.append(contentsOf: data)
+        _tblView.reloadData()
+    }
+    
+    /**
+     * Set bottom message color
+     * - parameter lstString: List of sub strings
+     */
+    public func setBotMsgColor(lstString: [String]) {
+        var colors: [UIColor] = [UIColor]()
+        for _ in lstString {
+            colors.append(GlobalConst.MAIN_COLOR_GAS_24H)
+        }
+        CommonProcess.makeMultiColorLabel(lbl: _lblNote,
+                                          lstString: lstString, colors: colors)
     }
     
     // MARK: Event handlers
@@ -105,37 +143,54 @@ class BotMsgView: UIView {
     }
     
     /**
-     * Handle when tap on actions buttons
-     * - parameter sender: Button object
+     * Handle when tap on view
+     * - parameter gestureRecognizer: Gesture
      */
     internal func handleTapped(_ gestureRecognizer: UITapGestureRecognizer) {
         showHide()
     }
     
     /**
-     * Handle when tap on actions buttons
-     * - parameter sender: Button object
+     * Handle dragged view
      */
-    internal func handleSwipe(_ gestureRecognizer: UIGestureRecognizer) {
-        if let swipeGesture = gestureRecognizer as? UISwipeGestureRecognizer {
-            switch swipeGesture.direction {
-            case UISwipeGestureRecognizerDirection.up:
-                if self._isCollapsed {
-                    self._isCollapsed = false
-                    showHide(isShow: !self._isCollapsed)
-                }
-                
+    internal func draggedView(_ sender: UIPanGestureRecognizer) {
+        if let currentVC = BaseViewController.getCurrentViewController() {
+            let translation = sender.translation(in: currentVC.view)
+            switch sender.state {
+            case .began:
                 break
-            case UISwipeGestureRecognizerDirection.down:
-                if !self._isCollapsed {
-                    self._isCollapsed = true
-                    showHide(isShow: !self._isCollapsed)
+            case .cancelled:
+                break
+            case .changed:
+                self.center = CGPoint(
+                    x: self.center.x,
+                    y: self.center.y + translation.y)
+                break
+            case .ended:
+                if _isCollapsed {
+                    // Handle when view is collapsed
+                    if (self.center.y + translation.y) > UIScreen.main.bounds.height * 5 / 4 {
+                        showHide(isShow: false, isRotate: false)
+                    } else {
+                        showHide()
+                    }
+                } else {
+                    // Handle when view is not collapsed
+                    if (self.center.y + translation.y) > UIScreen.main.bounds.height / 4 {
+                        showHide()
+                    } else {
+                        showHide(isShow: true, isRotate: false)
+                    }
                 }
-                
+                break
+            case .failed:
+                break
+            case .possible:
                 break
             default:
                 break
             }
+            sender.setTranslation(CGPoint.zero, in: currentVC.view)
         }
     }
     
@@ -151,30 +206,27 @@ class BotMsgView: UIView {
                                   y: yPos,
                                   width: width,
                                   height: height)
-        if BaseModel.shared.checkTrainningMode() {
-            self.backgroundColor = GlobalConst.PROMOTION_BKG_COLOR
-        } else {
-            self.backgroundColor = UIColor(white: 1, alpha: 0)
-        }
+//        if BaseModel.shared.checkTrainningMode() {
+//            self.backgroundColor = GlobalConst.PROMOTION_BKG_COLOR
+//        } else {
+//            self.backgroundColor = UIColor(white: 1, alpha: 0)
+//        }
+        self.backgroundColor = GlobalConst.PROMOTION_BKG_COLOR
         
         self.layer.cornerRadius = GlobalConst.BOTTOM_MSG_VIEW_CORNER_RADIUS
         createCollapseButton(width: width)
-        // Handle event
-        let tappedRecog = UITapGestureRecognizer(
-            target: self,
-            action: #selector(handleTapped(_:)))
-        let swipeTop = UISwipeGestureRecognizer(target: self,
-                                                action: #selector(handleSwipe(_:)))
-        swipeTop.direction = .up
-        let swipeBot = UISwipeGestureRecognizer(target: self,
-                                                action: #selector(handleSwipe(_:)))
-        swipeBot.direction = .down
+        createNoteLabel(width: width)
+        createTableView(width: width, height: height)
+        // Pan gesture
+        let panGesture = UIPanGestureRecognizer(target: self,
+                                                action: #selector(draggedView(_:)))
         
         // Add children views and gesture
-        self.addGestureRecognizer(tappedRecog)
-        self.addGestureRecognizer(swipeTop)
-        self.addGestureRecognizer(swipeBot)
+        self.addGestureRecognizer(_tappedRecog)
+        self.addGestureRecognizer(panGesture)
         self.addSubview(_btnCollapse)
+        self.addSubview(_lblNote)
+        self.addSubview(_tblView)
     }
     
     /**
@@ -190,6 +242,14 @@ class BotMsgView: UIView {
             y: y,
             w: w, h: h)
         updateCollapseButton(width: w)
+        updateNoteLabel(width: w)
+        updateTableView(width: w, height: h)
+        if _isCollapsed {
+            self.addGestureRecognizer(_tappedRecog)
+        } else {
+            self.removeGestureRecognizer(_tappedRecog)
+        }
+        _tblView.reloadData()
     }
     
     /**
@@ -218,7 +278,7 @@ class BotMsgView: UIView {
         if isShow {
             updateLayout(
                 y: GlobalConst.NAVIGATION_BAR_HEIGHT,
-                w: UIScreen.main.bounds.width,
+                w: BaseViewController.BOTTOM_MSG_REAL_WIDTH_FHD,
                 h: UIScreen.main.bounds.height - GlobalConst.NAVIGATION_BAR_HEIGHT)
         } else {
             updateLayout(
@@ -263,7 +323,7 @@ class BotMsgView: UIView {
         let tintedBack = back?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
         _btnCollapse.setImage(tintedBack, for: UIControlState())
         _btnCollapse.tintColor = GlobalConst.MAIN_COLOR_GAS_24H
-        _btnCollapse.backgroundColor = UIColor.clear
+        _btnCollapse.backgroundColor = GlobalConst.PROMOTION_BKG_COLOR
         _btnCollapse.imageView?.contentMode = .scaleAspectFit
         _btnCollapse.layer.transform = CATransform3DConcat(
             _btnCollapse.layer.transform,
@@ -286,21 +346,58 @@ class BotMsgView: UIView {
             h: btnSize)
     }
     
+    // MARK: Lable note
+    /**
+     * Create note label
+     */
+    private func createNoteLabel(width: CGFloat) {
+        var height = GlobalConst.LABEL_H * 2
+        if !_isCollapsed {
+            height = 0
+        }
+        _lblNote.frame = CGRect(x: 0, y: _btnCollapse.frame.maxY,
+                               width: width,
+                               height: height)
+        _lblNote.textColor = UIColor.black
+        _lblNote.textAlignment = .center
+        _lblNote.adjustsFontSizeToFitWidth = true
+        _lblNote.font = GlobalConst.BASE_FONT
+        _lblNote.numberOfLines = 0
+    }
+    
+    /**
+     * Update note label
+     */
+    private func updateNoteLabel(width: CGFloat) {
+        var height = GlobalConst.LABEL_H * 2
+        if !_isCollapsed {
+            height = 0
+        }
+        CommonProcess.updateViewPos(
+            view: _lblNote,
+            x: 0, y: _btnCollapse.frame.maxY,
+            w: width,
+            h: height)
+    }
+    
+    // MARK: Table view
     /**
      * Create table view
      * - parameter width:   Width of parent view
      * - parameter height:   height of parent view
      */
     private func createTableView(width: CGFloat, height: CGFloat) {
-        let yPos = _btnCollapse.frame.height + GlobalConst.MARGIN_CELL_Y
+        let yPos = _lblNote.frame.maxY + GlobalConst.MARGIN_CELL_X
         _tblView.frame = CGRect(
             x: 0, y: yPos,
             width: width,
             height: height - yPos)
+        _tblView.backgroundColor = UIColor.clear
         let bundle = Bundle(identifier: DomainConst.HARPY_FRAMEWORK_BUNDLE_NAME)
         _tblView.register(UINib(nibName: BottomMsgCell.theClassName, bundle: bundle),
                           forCellReuseIdentifier: BottomMsgCell.theClassName)
         _tblView.dataSource = self
+        _tblView.delegate = self
     }
     
     /**
@@ -309,7 +406,7 @@ class BotMsgView: UIView {
      * - parameter height:   height of parent view
      */
     private func updateTableView(width: CGFloat, height: CGFloat) {
-        let yPos = _btnCollapse.frame.height + GlobalConst.MARGIN_CELL_Y
+        let yPos = _lblNote.frame.maxY + GlobalConst.MARGIN_CELL_X
         CommonProcess.updateViewPos(
             view: _tblView,
             x: 0, y: yPos,
@@ -325,36 +422,24 @@ extension BotMsgView: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return _listType.count
+        return _listData.count
     }
     
-    /**
-     * Asks the data source for a cell to insert in a particular location of the table view.
-     */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row >= _listType.count {
+        if indexPath.row >= _listData.count {
             return UITableViewCell()
         }
-        var cell = UITableViewCell()
+        var cell = tableView.dequeueReusableCell(withIdentifier: BottomMsgCell.theClassName) as! BottomMsgCell
         
-        switch _listType[indexPath.row] {
-        case .shareCode:
-            break
-        case .usingCode:
-            break
-        case .news:
-            break
-        default:
-            break
-        }
+        cell.setData(data: _listData[indexPath.row])
         
         return cell
     }
-    
-    /**
-     * Asks the delegate for the height to use for a row in a specified location.
-     */
+}
+
+// MARK: Protocol - UITableViewDelegate
+extension BotMsgView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+        return BottomMsgCell.getHeight(type: _listData[indexPath.row].0)
     }
 }

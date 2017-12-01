@@ -145,6 +145,8 @@ public class BaseModel: NSObject {
     private var _agentId:                   String              = DomainConst.BLANK
     //-- BUG0151-SPJ (NguyenPT 20170819) Save agent id to user default setting
     private var _gas24hTimeCheckOrder:      Int                 = 5
+    /** My invite code */
+    private var _inviteCode:                String              = DomainConst.BLANK
     
     /** Flag check first order */
     private var _isFirstOrder:              Bool                = true
@@ -757,7 +759,8 @@ public class BaseModel: NSObject {
         //++ BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
         self._listVipCustomerStores = loginModel.customer_chain_store
         //-- BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
-        self._gas24hTimeCheckOrder = loginModel.gas24h_time_check_order
+        self._gas24hTimeCheckOrder  = loginModel.gas24h_time_check_order
+        self._inviteCode            = loginModel.my_invite_code
     }
     
     /**
@@ -1628,5 +1631,13 @@ public class BaseModel: NSObject {
      */
     public func getGas24hTimeCheckOrder() -> Int {
         return _gas24hTimeCheckOrder
+    }
+    
+    /**
+     * Get invite code
+     * - returns: String
+     */
+    public func getInviteCode() -> String {
+        return _inviteCode
     }
 }

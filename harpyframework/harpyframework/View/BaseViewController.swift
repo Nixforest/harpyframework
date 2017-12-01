@@ -1,4 +1,4 @@
-                //
+                 //
 //  CommonViewController.swift
 //  harpyframework
 //
@@ -1272,6 +1272,13 @@ open class BaseViewController : UIViewController {
     }
     
     /**
+     * Handle open Promotion view
+     */
+    open func openPromotionActiveQR() {
+        
+    }
+    
+    /**
      * Handle open List order view
      */
     open func openListOrder() {
@@ -1543,55 +1550,66 @@ open class BaseViewController : UIViewController {
 //        }
 //    }
     
-//    /**
-//     * Add bottom message view to view controller
-//     * - parameter note:        Note string
-//     * - parameter description: Description string
-//     * - parameter isShow:      Flag show or not
-//     */
-//    public func addBotMsg(note: String, description: String, isShow: Bool = true) {
+    /**
+     * Add bottom message view to view controller
+     * - parameter note:        Note string
+     * - parameter description: Description string
+     * - parameter isShow:      Flag show or not
+     */
+    public func addBotMsg(note: String, description: String, isShow: Bool = true) {
 //        self.isShowBotMsgView = isShow
-//        self.view.addSubview(botMsgView)
-//        botMsgView.isHidden = !isShow
+        self.view.addSubview(botMsgView)
+        botMsgView.setLabelText(text: note)
+        botMsgView.isHidden = false
+        botMsgView.updateData(
+            data: [(BottomMsgCellTypeEnum.shareCode,
+                    (BaseModel.shared.getInviteCode(), "123") as AnyObject)])
 //        lblNote.text = note
-//    }
-//    
-//    /**
-//     * Update bottom message view content
-//     * - parameter note:        Note string
-//     * - parameter description: Description string
-//     */
-//    public func setBotMsgContent(note: String, description: String) {
+    }
+
+    /**
+     * Update bottom message view content
+     * - parameter note:        Note string
+     * - parameter description: Description string
+     */
+    public func setBotMsgContent(note: String, description: String) {
 //        lblNote.text = note
 //        lblDescription.text = description
-//    }
+        botMsgView.setLabelText(text: note)
+    }
     
-//    /**
-//     * Set bottom message color
-//     * - parameter lstString: List of sub strings
-//     */
-//    public func setBotMsgColor(lstString: [String]) {
+    /**
+     * Set bottom message color
+     * - parameter lstString: List of sub strings
+     */
+    public func setBotMsgColor(lstString: [String]) {
 //        var colors: [UIColor] = [UIColor]()
 //        for _ in lstString {
 //            colors.append(GlobalConst.MAIN_COLOR_GAS_24H)
 //        }
 //        CommonProcess.makeMultiColorLabel(lbl: lblNote,
 //                                          lstString: lstString, colors: colors)
-//    }
+        botMsgView.setBotMsgColor(lstString: lstString)
+    }
     
-//    public func makeBotMsgVisible(isShow: Bool) {
-//        botMsgView.isHidden = !isShow
-//        botMsgView.isUserInteractionEnabled = isShow
-//        if isShow {
+    public func makeBotMsgVisible(isShow: Bool) {
+        botMsgView.isHidden = !isShow
+        botMsgView.isUserInteractionEnabled = isShow
+        if isShow {
 //            showHideBotMsgView(isShow: !self.isCollapsed, isRotate: false)
-//        } else {
-//            updateBotMsgView(
-//                x: botMsgView.frame.minX,
-//                y: UIScreen.main.bounds.height,
-//                w: botMsgView.frame.width,
-//                h: botMsgView.frame.height)
-//        }
-//    }
+            botMsgView.showHide(isShow: !botMsgView.isCollapsed(),
+                                isRotate: false)
+        } else {
+            updateBotMsgView(
+                x: botMsgView.frame.minX,
+                y: UIScreen.main.bounds.height,
+                w: botMsgView.frame.width,
+                h: botMsgView.frame.height)
+            botMsgView.updateLayout(y: UIScreen.main.bounds.height,
+                                    w: botMsgView.frame.width,
+                                    h: botMsgView.frame.height)
+        }
+    }
     //-- BUG0170-SPJ (NguyenPT 20172711) Update bottom message view
     
     /**
