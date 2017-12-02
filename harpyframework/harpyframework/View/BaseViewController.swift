@@ -194,7 +194,16 @@ open class BaseViewController : UIViewController {
      * - parameter message: Message content
      */
     public func showAlert(message: String) -> Void {
-        let alert = UIAlertController(title: DomainConst.CONTENT00162, message: message, preferredStyle: .alert)
+        //++ BUG0174-SPJ (NguyenPT 20171202) Replace <br> by /n
+        let msg = message.replacingOccurrences(of: "<br>", with: DomainConst.LINE_FEED)
+        //-- BUG0174-SPJ (NguyenPT 20171202) Replace <br> by /n
+        let alert = UIAlertController(
+            title: DomainConst.CONTENT00162,
+            //++ BUG0174-SPJ (NguyenPT 20171202) Replace <br> by /n
+//            message: message,
+            message: msg,
+            //-- BUG0174-SPJ (NguyenPT 20171202) Replace <br> by /n
+            preferredStyle: .alert)
         let okAction = UIAlertAction(title: DomainConst.CONTENT00008, style: .default, handler: nil)
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
@@ -1174,6 +1183,15 @@ open class BaseViewController : UIViewController {
             self.updateChildrenViews()
         })
     }
+    
+    /**
+     * Handle when back from Login process
+     */
+    open func notifyLoginSuccess(_ notification: Notification) {
+        self.popToRootView()
+    }
+    
+    // MARK: Handle layout
     
     /**
      * Handle update constants
