@@ -1618,14 +1618,23 @@ open class BaseViewController : UIViewController {
             botMsgView.showHide(isShow: !botMsgView.isCollapsed(),
                                 isRotate: false)
         } else {
-            updateBotMsgView(
-                x: botMsgView.frame.minX,
-                y: UIScreen.main.bounds.height,
-                w: botMsgView.frame.width,
-                h: botMsgView.frame.height)
+//            updateBotMsgView(
+//                x: botMsgView.frame.minX,
+//                y: UIScreen.main.bounds.height,
+//                w: botMsgView.frame.width,
+//                h: botMsgView.frame.height)
             botMsgView.updateLayout(y: UIScreen.main.bounds.height,
                                     w: botMsgView.frame.width,
                                     h: botMsgView.frame.height)
+        }
+    }
+    
+    /**
+     * Hide bottom message view
+     */
+    public func hideBotMsgView() {
+        if !botMsgView.isCollapsed() {
+            botMsgView.showHide()
         }
     }
     //-- BUG0170-SPJ (NguyenPT 20172711) Update bottom message view

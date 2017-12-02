@@ -153,7 +153,8 @@ public class GlobalConst {
     /** Height of Login textfield */
     public static let LOGIN_TEXTFIELD_HEIGHT:       CGFloat = 135
     /** Size of Login next button */
-    public static let LOGIN_NEXT_BUTTON_SIZE:       CGFloat = 100
+//    public static let LOGIN_NEXT_BUTTON_SIZE:       CGFloat = 100
+    public static let LOGIN_NEXT_BUTTON_SIZE:       CGFloat = 135
     /** Butotn corner radius */
     public static let BUTTON_CORNER_RADIUS_NEW:     CGFloat = 5.0
     /** Time interval for animation in Step view controller */
