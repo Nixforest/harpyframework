@@ -29,6 +29,17 @@ open class BaseRequest: NSObject {
     private var isShowError:    Bool        = true
     //-- BUG0156-SPJ (NguyenPT 20170930) Re-design Gas24h
     
+    //++ BUG0175-SPJ (NguyenPT 20171206) Handle response code
+    // MARK - Constant
+    /** Error code response when Log out */
+    public static let ERROR_CODE_LOG_OUT                    =   "1987"
+    /** Error code response when Lost connection */
+    public static let ERROR_CODE_LOST_CONNECTION            =   "1988"
+    /** Error code response when Unknown reason */
+    public static let ERROR_CODE_UNKNOWN                    =   "1989"
+    /** Error code response when Wrong version application */
+    public static let ERROR_CODE_WRONG_VERSION              =   "1990"
+    //-- BUG0175-SPJ (NguyenPT 20171206) Handle response code
     
     /**
      * Initializer
