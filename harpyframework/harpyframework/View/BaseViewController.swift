@@ -1178,6 +1178,7 @@ open class BaseViewController : UIViewController {
      */
     internal func rotated() {
         self.updateConst()
+        self.view.endEditing(true)
         self.setBackgroundImage()
         UIView.animate(withDuration: TimeInterval(GlobalConst.ROTATED_TIME_INTERVAL), animations: {
             self.updateChildrenViews()
