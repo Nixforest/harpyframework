@@ -1561,6 +1561,8 @@ public class DomainConst {
     /** Back image name */
     public static let BACK_IMG_NAME                         = "back.png"
     /** Back image name */
+    public static let BACK_2_IMG_NAME                       = "back_2.png"
+    /** Back image name */
     public static let DELETE_IMG_NAME                       = "delete.png"
     /** Uncheck image name */
     public static let UNCHECK_IMG_NAME                      = "checkbox-unchecked.png"
@@ -2427,4 +2429,5 @@ public class DomainConst {
     public static let CONTENT00536 = "Chính sách khuyến mãi"
     public static let CONTENT00537 = "Hướng dẫn sử dụng"
     public static let CONTENT00538 = "Chia sẻ với bạn bè"
+    public static let CONTENT00539 = "---------- Hỗ trợ ----------"
 }

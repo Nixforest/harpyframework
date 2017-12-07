@@ -99,6 +99,7 @@
 		D71777971F5E9626009CF656 /* NVActivityIndicatorAnimationTriangleSkewSpin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71777771F5E9626009CF656 /* NVActivityIndicatorAnimationTriangleSkewSpin.swift */; };
 		D717779B1F5E9640009CF656 /* NVActivityIndicatorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71777991F5E9640009CF656 /* NVActivityIndicatorPresenter.swift */; };
 		D717779C1F5E9640009CF656 /* NVActivityIndicatorViewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D717779A1F5E9640009CF656 /* NVActivityIndicatorViewable.swift */; };
+		D7197ED31FD923D000D6F2E6 /* back_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D7197ED21FD923D000D6F2E6 /* back_2.png */; };
 		D71A08071F87847100366378 /* confirmedbtn.png in Resources */ = {isa = PBXBuildFile; fileRef = D71A08061F87847100366378 /* confirmedbtn.png */; };
 		D71A08091F878E2300366378 /* referBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = D71A08081F878E2300366378 /* referBtn.png */; };
 		D71B96661FCFABF7000CF718 /* background_share.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D71B96651FCFABF7000CF718 /* background_share.jpg */; };
@@ -516,6 +517,7 @@
 		D71777771F5E9626009CF656 /* NVActivityIndicatorAnimationTriangleSkewSpin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NVActivityIndicatorAnimationTriangleSkewSpin.swift; path = CustomeControl/NVActivityIndicatorView/Animations/NVActivityIndicatorAnimationTriangleSkewSpin.swift; sourceTree = "<group>"; };
 		D71777991F5E9640009CF656 /* NVActivityIndicatorPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NVActivityIndicatorPresenter.swift; path = CustomeControl/NVActivityIndicatorView/Presenter/NVActivityIndicatorPresenter.swift; sourceTree = "<group>"; };
 		D717779A1F5E9640009CF656 /* NVActivityIndicatorViewable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NVActivityIndicatorViewable.swift; path = CustomeControl/NVActivityIndicatorView/Presenter/NVActivityIndicatorViewable.swift; sourceTree = "<group>"; };
+		D7197ED21FD923D000D6F2E6 /* back_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back_2.png; path = images/back_2.png; sourceTree = "<group>"; };
 		D71A08061F87847100366378 /* confirmedbtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = confirmedbtn.png; path = images/confirmedbtn.png; sourceTree = "<group>"; };
 		D71A08081F878E2300366378 /* referBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = referBtn.png; path = images/referBtn.png; sourceTree = "<group>"; };
 		D71B96651FCFABF7000CF718 /* background_share.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = background_share.jpg; path = images/background_share.jpg; sourceTree = "<group>"; };
@@ -1213,6 +1215,7 @@
 		D7F3D8D21E1B8BCC0018744F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D7197ED21FD923D000D6F2E6 /* back_2.png */,
 				D71B966B1FCFFEC9000CF718 /* icon_qr.png */,
 				D71B96671FCFE60B000CF718 /* icon_share.png */,
 				D71B96651FCFABF7000CF718 /* background_share.jpg */,
@@ -1714,6 +1717,7 @@
 				D7E9BF761E2C82F20068D200 /* icon11-active.png in Resources */,
 				D75F65131E28B3B100A67B3C /* icon60.png in Resources */,
 				D7724F9A1E8935FF006ECEFA /* search.png in Resources */,
+				D7197ED31FD923D000D6F2E6 /* back_2.png in Resources */,
 				D74591331EA08F3C002C3AB3 /* reload-1.png in Resources */,
 				D71B96661FCFABF7000CF718 /* background_share.jpg in Resources */,
 				D76E7E7C1EDE8AE0005D5585 /* hogiadinh.png in Resources */,
