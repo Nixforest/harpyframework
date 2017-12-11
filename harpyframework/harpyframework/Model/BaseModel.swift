@@ -147,6 +147,8 @@ public class BaseModel: NSObject {
     private var _gas24hTimeCheckOrder:      Int                 = 5
     /** My invite code */
     private var _inviteCode:                String              = DomainConst.BLANK
+    /** Gas24h menu text */
+    private var _gas24hMenuText:            String              = DomainConst.BLANK
     
     /** Flag check first order */
     private var _isFirstOrder:              Bool                = true
@@ -761,6 +763,7 @@ public class BaseModel: NSObject {
         //-- BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
         self._gas24hTimeCheckOrder  = loginModel.gas24h_time_check_order
         self._inviteCode            = loginModel.my_invite_code
+        self._gas24hMenuText        = loginModel.gas24h_menu_text
     }
     
     /**
@@ -1639,5 +1642,13 @@ public class BaseModel: NSObject {
      */
     public func getInviteCode() -> String {
         return _inviteCode
+    }
+    
+    /**
+     * Get Gas24h Menu text
+     * - returns: String
+     */
+    public func getGas24hMenuText() -> String {
+        return _gas24hMenuText
     }
 }

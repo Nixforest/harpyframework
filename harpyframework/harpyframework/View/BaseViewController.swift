@@ -1578,7 +1578,8 @@ open class BaseViewController : UIViewController {
     public func addBotMsg(note: String, description: String, isShow: Bool = true) {
 //        self.isShowBotMsgView = isShow
         self.view.addSubview(botMsgView)
-        botMsgView.setLabelText(text: note)
+//        botMsgView.setLabelText(text: note)
+        botMsgView.setLabelText(text: BaseModel.shared.getGas24hMenuText())
         botMsgView.isHidden = false
         botMsgView.updateData(
             data: [(BottomMsgCellTypeEnum.shareCode,
@@ -1594,7 +1595,8 @@ open class BaseViewController : UIViewController {
     public func setBotMsgContent(note: String, description: String) {
 //        lblNote.text = note
 //        lblDescription.text = description
-        botMsgView.setLabelText(text: note)
+//        botMsgView.setLabelText(text: note)
+        botMsgView.setLabelText(text: BaseModel.shared.getGas24hMenuText())
     }
     
     /**

@@ -20,7 +20,7 @@ open class ParentExtViewController: ParentViewController {
 //        self.navigationItem.title = title
         
         let button =  UIButton(type: .custom)
-        button.frame = CGRect(x: 0, y: 0, width: 100, height: 40)
+        button.frame = CGRect(x: 0, y: 0, width: GlobalConst.MENU_BUTTON_W, height: GlobalConst.MENU_BUTTON_H)
         // Set color text
 //        if BaseModel.shared.isTrainningMode {
 ////            self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: GlobalConst.TRAINING_COLOR]

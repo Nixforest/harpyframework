@@ -1168,6 +1168,8 @@ public class DomainConst {
     public static let KEY_MENU_APP_GUIDE                = "id_page_guide"
     /** Key my_invite_code */
     public static let KEY_MY_INVITE_CODE                = "my_invite_code"
+    /** Key my_invite_code */
+    public static let KEY_GAS24H_MENU_TEXT              = "gas24h_menu_text"
     
     //++ BUG0050-SPJ (NguyenPT 20170325) Add new function G06
     /** Platform value: Android */

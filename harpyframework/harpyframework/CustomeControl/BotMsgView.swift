@@ -312,7 +312,7 @@ class BotMsgView: UIView {
      * - parameter width:   Width of view
      */
     private func createCollapseButton(width: CGFloat) {
-        let btnSize = GlobalConst.LABEL_H
+        let btnSize = GlobalConst.LABEL_H * 1.5
         _btnCollapse.frame = CGRect(
             x: (width - btnSize) / 2,
             y: 0,
@@ -337,7 +337,7 @@ class BotMsgView: UIView {
      * - parameter width:   Width of view
      */
     private func updateCollapseButton(width: CGFloat) {
-        let btnSize = GlobalConst.LABEL_H
+        let btnSize = GlobalConst.LABEL_H * 1.5
         CommonProcess.updateViewPos(
             view: _btnCollapse,
             x: (width - btnSize) / 2,
