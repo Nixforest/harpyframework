@@ -339,17 +339,24 @@ open class BaseRequest: NSObject {
     //-- BUG0146-SPJ (NguyenPT 20170817) Handle error: request to server create log
         LoadingView.shared.hideOverlayView(className: self.theClassName)
         //self.view.showAlert(message: DomainConst.CONTENT00196)
-        self.view.showAlert(
-            message: DomainConst.CONTENT00196,
-            okHandler: {
-                alert in
-                self.execute()
-        },
-            cancelHandler: {
-                alert in
         
-        })
+        //++ BUG0158-SPJ (NguyenPT 20171113) Refactor BaseRequest class
+//        self.view.showAlert(
+//            message: DomainConst.CONTENT00196,
+//            okHandler: {
+//                alert in
+//                self.execute()
+//        },
+//            cancelHandler: {
+//                alert in
+//        
+//        })
+        //-- BUG0158-SPJ (NguyenPT 20171113) Refactor BaseRequest class
         DispatchQueue.main.async {
+            //++ BUG0158-SPJ (NguyenPT 20171113) Refactor BaseRequest class
+            let model = BaseRespModel.createFailedJson(msg: error)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: self.theClassName), object: model)
+            //-- BUG0158-SPJ (NguyenPT 20171113) Refactor BaseRequest class
             // Remove observer
             NotificationCenter.default.removeObserver(self.view, name: Notification.Name(rawValue: self.theClassName), object: nil)
         }

@@ -199,6 +199,20 @@ public enum FamilyUpholdStatusEnum: Int {
 }
 //-- BUG0100-SPJ (NguyenPT 20170602) Update function G01 for Family Uphold
 
+//++ BUG0156-SPJ (NguyenPT 20171005) Re-design Gas 24h
+/**
+ * Order status enum.
+ */
+public enum OrderStatusEnum: Int {
+    case STATUS_CREATE = 0,
+    STATUS_WAIT_CONFIRM,
+    STATUS_CONFIRMED,
+    STATUS_DELIVERING,
+    STATUS_COMPLETE,
+    STATUS_NUM
+}
+//-- BUG0156-SPJ (NguyenPT 20171005) Re-design Gas 24h
+
 // MARK: View extension
 /**
  * Download image async extension
@@ -227,6 +241,9 @@ extension UIImageView {
      * - parameter mode: Image view content mode
      */
     public func getImgFromUrl(link: String, contentMode mode: UIViewContentMode) {
+        if link.isEmpty {
+            return
+        }
         // Reset image
         self.image = nil // Here you can put nil to have a blank image or a placeholder image
         contentMode = mode
@@ -237,7 +254,7 @@ extension UIImageView {
         request.cachePolicy = NSURLRequest.CachePolicy.returnCacheDataElseLoad
         // Execute task
         URLSession.shared.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
-            let phImage = UIImage(named: "default-thumbnail.jpg")
+            let phImage = UIImage(named: DomainConst.DEFAULT_IMG_NAME)
             guard
                 let httpURLResponse = response as? HTTPURLResponse , httpURLResponse.statusCode == 200,
                 let mimeType = response?.mimeType , mimeType.hasPrefix("image"),
@@ -303,7 +320,7 @@ extension CALayer {
             border.frame = CGRect(
                 x: 0,
                 y: self.frame.height - thickness,
-                width: UIScreen.main.bounds.width,
+                width: self.frame.width,
                 height: thickness)
             break
         case UIRectEdge.left:
@@ -341,7 +358,9 @@ extension UIButton {
         let colorImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         self.setBackgroundImage(colorImage, for: forState)
-    }}
+    }
+    
+}
 
 // MARK: Protocols
 /**
@@ -433,6 +452,35 @@ public protocol RatingViewDelegate {
     func requestRating(_ sender: AnyObject)
 }
 //-- BUG0127-SPJ (NguyenPT 20170724) Uphold rating: merge to 1 step
+/**
+ * Protocol to define delegate with match OrderPreview button tapped event.
+ */
+public protocol OrderPreviewDelegate {
+    /**
+     * Handle tap on Gas select button.
+     */
+    func btnGasTapped(_ sender: AnyObject)
+    /**
+     * Handle tap on Promote select button.
+     */
+    func btnPromoteTapped(_ sender: AnyObject)
+    /**
+     * Handle tap on Delivery info update button.
+     */
+    func btnDeliveryInfoUpdateTapped(_ sender: AnyObject)
+    /**
+     * Handle tap on Cancel button.
+     */
+    func btnCancelTapped(_ sender: AnyObject)
+    /**
+     * Handle tap on Next button.
+     */
+    func btnNextTapped(_ sender: AnyObject)
+    /**
+     * Handle dismiss view controller.
+     */
+    func dismissVC(_ sender: AnyObject)
+}
 
 /**
  * Extension of button control.
@@ -684,13 +732,15 @@ extension String {
      */
     public func removeSign() -> String {
         var retVal = self
-        for i in 1..<DomainConst.UNICODE_SIGNS.count {
-            for j in 0..<(DomainConst.UNICODE_SIGNS[i].characters.count - 1) {
-                retVal = retVal.replacingOccurrences(
-                    of:     DomainConst.UNICODE_SIGNS[i].substring(with: j..<(j + 1)),
-                    with:   DomainConst.UNICODE_SIGNS[0].substring(with: (i - 1)..<i))
-            }
-        }
+//        for i in 1..<DomainConst.UNICODE_SIGNS.count {
+//            for j in 0..<(DomainConst.UNICODE_SIGNS[i].characters.count - 1) {
+//                retVal = retVal.replacingOccurrences(
+//                    of:     DomainConst.UNICODE_SIGNS[i].substring(with: j..<(j + 1)),
+//                    with:   DomainConst.UNICODE_SIGNS[0].substring(with: (i - 1)..<i))
+//            }
+//        }
+        retVal = retVal.folding(options: .diacriticInsensitive,
+                                locale: .current)
         retVal = retVal.replacingOccurrences(of: "đ", with: "d")
         retVal = retVal.replacingOccurrences(of: "Đ", with: "D")
         return retVal

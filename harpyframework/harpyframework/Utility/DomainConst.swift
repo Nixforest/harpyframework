@@ -193,6 +193,10 @@ public class DomainConst {
     public static let KEY_EMPLOYEE_CODE                 = "employee_code"
     /** Employee image */
     public static let KEY_EMPLOYEE_IMG                  = "employee_image"
+    /** Employee latitude */
+    public static let KEY_EMPLOYEE_LAT                  = "employee_latitude"
+    /** Employee longitude */
+    public static let KEY_EMPLOYEE_LONG                 = "employee_longitude"
     /** Uphold type */
     public static let KEY_UPHOLD_TYPE                   = "type_uphold"
     /** Uphold type */
@@ -299,6 +303,10 @@ public class DomainConst {
     public static let KEY_RATING_TYPE                   = "rating_type"
     /** Request type */
     public static let KEY_RATING_NOTE                   = "rating_note"
+    /** Key rating value */
+    public static let KEY_RATING                        = "rating"
+    /** Key rating comment */
+    public static let KEY_RATING_COMMENT                = "rating_comment"
     /** Other information */
     public static let KEY_OTHER_INFO                    = "OtherInfo"
     /** Uphold last id */
@@ -361,6 +369,8 @@ public class DomainConst {
     public static let KEY_SETTING_DEBUG_IS_SHOW_TOP_ICON    = "gasservice.debug.isShowTopIcon"
     /** Setting key: Debug Flag use material_name or material_name_short */
     public static let KEY_SETTING_DEBUG_IS_USE_MATERIAL_NAME_SHORT    = "gasservice.debug.isUseMaterialNameShort"
+    /** Setting key: is first order */
+    public static let KEY_SETTING_IS_FIRST_ORDER            = "gasservice.isFirstOrder"
     //++ BUG0060-SPJ (NguyenPT 20170426) Save list of gas to local
     /** Setting key: List gas information */
     public static let KEY_LIST_GAS_INFORMATION          = "gasservice.listGasInfo"
@@ -770,6 +780,8 @@ public class DomainConst {
     public static let KEY_SHOW_BUTTON_CHANGE_AGENT      = "show_button_change_agent"
     //-- BUG0133-SPJ (NguyenPT 20170724) Family order: change agent delivery
     
+    public static let KEY_IS_INVITED                    = "is_invited"
+    public static let KEY_INVITED_CODE                  = "invite_code"
     
     
     // MARK: -----Specified constant-----
@@ -956,6 +968,14 @@ public class DomainConst {
     public static let CATEGORY_TYPE_ORDER_VIP           = "4"
     /** Category type: Uphold */
     public static let CATEGORY_TYPE_UPHOLD              = "5"
+    /** Category type: Uphold */
+    public static let ACTION_TYPE_SELECT_GAS            = "6"
+    /** Category type: Uphold */
+    public static let ACTION_TYPE_SELECT_PROMOTE        = "7"
+    /** Category type: Uphold */
+    public static let ACTION_TYPE_SUPPORT               = "8"
+    /** Category type: Uphold */
+    public static let ACTION_TYPE_NONE                  = "9999"
     /** Employee information id: Phone */
     public static let EMPLOYEE_INFO_PHONE_ID            = "1"
     /** Employee information id: Code */
@@ -1031,6 +1051,24 @@ public class DomainConst {
     public static let ORDER_INFO_PAY_DIRECT             = "###99934"
     /** Order information id: Order discount */
     public static let ORDER_INFO_DISCOUNT               = "###99935"
+    /** Account information id: Name */
+    public static let ACCOUNT_INFO_NAME_ID              = "###99936"
+    /** Account information id: Email */
+    public static let ACCOUNT_INFO_EMAIL_ID             = "###99937"
+    /** Account information id: House number */
+    public static let ACCOUNT_INFO_HOUSE_NUMBER_ID      = "###99938"
+    /** Account information id: Street */
+    public static let ACCOUNT_INFO_STREET_ID            = "###99939"
+    /** Account information id: Ward */
+    public static let ACCOUNT_INFO_WARD_ID              = "###99940"
+    /** Account information id: District */
+    public static let ACCOUNT_INFO_DISTRICT_ID          = "###99941"
+    /** Account information id: City */
+    public static let ACCOUNT_INFO_CITY_ID              = "###99942"
+    /** Account information id: Save */
+    public static let ACCOUNT_INFO_SAVE_ID              = "###99943"
+    /** Account information id: Cancel */
+    public static let ACCOUNT_INFO_CANCEL_ID            = "###99944"
     /** Order information id: Order Material */
     public static let ORDER_INFO_MATERIAL_ID            = "###999"
     
@@ -1101,6 +1139,23 @@ public class DomainConst {
     public static let KEY_PAY_BACK                      = "pay_back"
     /** Key show_discount */
     public static let KEY_SHOW_DISCOUNT                 = "show_discount"
+    
+    /** Key otp code */
+    public static let KEY_OTP_CODE                      = "otp_code"
+    /** Key change_qty */
+    public static let KEY_CHANGE_QTY                    = "change_qty"
+    /** Key show_input_promotion_amount */
+    public static let KEY_SHOW_INPUT_PROMOTION_AMOUNT   = "show_input_promotion_amount"
+    /** Key input_promotion_amount */
+    public static let KEY_INPUT_PROMOTION_AMOUNT        = "input_promotion_amount"
+    public static let KEY_LAST_ORDER                    = "last_order"
+    public static let KEY_REVIEW                        = "review"
+    /** Key transaction id */
+    public static let KEY_SESSION_ID                    = "session_id"
+    /** Key transaction key */
+    public static let KEY_SESSION_KEY                   = "session_key"
+    /** Key gas24h_time_check_order */
+    public static let KEY_GAS24H_TIME_INTERVAL          = "gas24h_time_check_order"
     
     //++ BUG0050-SPJ (NguyenPT 20170325) Add new function G06
     /** Platform value: Android */
@@ -1179,6 +1234,8 @@ public class DomainConst {
     public static let SPLITER_TYPE3                     = "/"
     /** Number spliter */
     public static let SPLITER_TYPE4                     = "."
+    /** Separator string */
+    public static let SEPARATOR_STR                     = "-------------------------------------------------------------------------------------------------"
     /** Text spliter */
     public static let TEXT_SPLITER                      = ":"
     /** Plus spliter: + */
@@ -1189,6 +1246,10 @@ public class DomainConst {
     public static let NUMBER_ONE_VALUE                  = "1"
     /** Number string: 2 */
     public static let NUMBER_TWO_VALUE                  = "2"
+    /** Number string: 3 */
+    public static let NUMBER_THREE_VALUE                = "3"
+    /** Number string: 4 */
+    public static let NUMBER_FOUR_VALUE                 = "4"
     /** Default time value */
     public static let DEFAULT_TIME_VALUE                = "08:00"
     /** Address unknown string */
@@ -1265,6 +1326,8 @@ public class DomainConst {
     public static let SERVER_URL                        = "http://spj.daukhimiennam.com/api/"
     /** Immortal Server URL */
     public static let SERVER_URL_IMMORTAL               = "http://build.immortal.vn/api/"
+    /** Hotline */
+    public static let HOTLINE                           = "1900 1565"
     
     // MARK -----Define id of fragment-----
     public static let LOGOUT                            = "logout"
@@ -1707,6 +1770,102 @@ public class DomainConst {
     public static let SUM_ICON_IMG_NAME                     = "tongcong.png"
     /** Version image name */
     public static let VERSION_TYPE_ICON_IMG_NAME            = "version.png"
+    /** Version image name */
+    public static let LOGO_LOGIN_ICON_IMG_NAME              = "logo_login.png"
+    /** Version image name */
+    public static let NEXT_BUTTON_ICON_IMG_NAME             = "nextbutton.png"
+    /** Version image name */
+    public static let LOGO_FACEBOOK_ICON_IMG_NAME           = "logo_fb.png"
+    /** Version image name */
+    public static let LOGO_ZALO_ICON_IMG_NAME               = "logo_zalo.png"
+    /** Version image name */
+    public static let CATEGORY_DETAIL_ICON_IMG_NAME         = "categoryDetail.png"
+    /** Version image name */
+    public static let CATEGORY_GAS_ICON_IMG_NAME            = "categoryGAS.png"
+    /** Version image name */
+    public static let CATEGORY_VIP_ICON_IMG_NAME            = "categoryVIP.png"
+    /** Version image name */
+    public static let ORDER_BUTTON_ICON_IMG_NAME            = "orderbtn.png"
+    /** Version image name */
+    public static let SUPPORT_BUTTON_ICON_IMG_NAME          = "supportbtn.png"
+    /** Version image name */
+    public static let PROMOTE_BUTTON_ICON_IMG_NAME          = "promoteBtn.png"
+    /** Version image name */
+    public static let GAS_BUTTON_ICON_IMG_NAME              = "gasbtn.png"
+    /** Version image name */
+    public static let PROCESSING_BUTTON_ICON_IMG_NAME       = "processingbtn.png"
+    /** Version image name */
+    public static let CONFIRMED_BUTTON_ICON_IMG_NAME        = "confirmedbtn.png"
+    /** Version image name */
+    public static let REFER_BUTTON_ICON_IMG_NAME            = "referBtn.png"
+    /** Version image name */
+    public static let CANCEL_ORDER_BUTTON_ICON_IMG_NAME     = "cancelOrderbtn.png"
+    /** Version image name */
+    public static let SOURCE_MARKER_IMG_NAME                = "sourceMarker.png"
+    /** Version image name */
+    public static let DESTINATION_MARKER_IMG_NAME           = "destinationMarker.png"
+    /** Version image name */
+    public static let COLLAPSE_BUTTON_ICON_IMG_NAME         = "collapseBtn.png"
+    /** Version image name */
+    public static let CHAT_BUTTON_ICON_IMG_NAME             = "chatbtn.png"
+    /** Version image name */
+    public static let PHONE_BUTTON_ICON_IMG_NAME            = "phonebtn.png"
+    /** Version image name */
+    public static let EDIT_BUTTON_ICON_IMG_NAME             = "editbtn.png"
+    /** Version image name */
+    public static let FINISH_BUTTON_ICON_IMG_NAME           = "finishbtn.png"
+    /** Version image name */
+    public static let DISCOUNT_PLUS_ICON_IMG_NAME           = "ic_discount_plus.png"
+    /** Version image name */
+    public static let DISCOUNT_SHARE_ICON_IMG_NAME           = "ic_discount_share.png"
+    /** Menu backgroud body image name */
+    public static let MENU_BKG_BODY_NEW_IMG_NAME            = "bg_sliding_menu_body_new.png"
+    /** Menu backgroud top image name */
+    public static let MENU_BKG_TOP_NEW_IMG_NAME             = "bg_sliding_menu_top_new.png"
+    /** Login background image [iphone] */
+    public static let LOGIN_BKG_IPHONE_IMG_NAME             = "signup_bg_1080_1920.png"
+    /** Login background image [ipad] */
+    public static let LOGIN_BKG_IPAD_IMG_NAME               = "signup_bg_1536_2048.png"
+    /** Login background image [ipad landscape]*/
+    public static let LOGIN_BKG_IPAD_LANDSCAPE_IMG_NAME     = "signup_bg_2048_1536.png"
+    /** Order status image: Create - Active */
+    public static let ORDER_STATUS_CREATE_ACTIVE_IMG_NAME       = "orderStatus_Create_Active.png"
+    /** Order status image: Create - Inactive */
+    public static let ORDER_STATUS_CREATE_INACTIVE_IMG_NAME     = "orderStatus_Create_Inactive.png"
+    /** Order status image: Waiting confirm - Active */
+    public static let ORDER_STATUS_WAITING_ACTIVE_IMG_NAME      = "orderStatus_Waiting_Active.png"
+    /** Order status image: Waiting confirm - Inactive */
+    public static let ORDER_STATUS_WAITING_INACTIVE_IMG_NAME    = "orderStatus_Waiting_Inactive.png"
+    /** Order status image: Confirmed - Active */
+    public static let ORDER_STATUS_CONFIRMED_ACTIVE_IMG_NAME    = "orderStatus_Confirmed_Active.png"
+    /** Order status image: Confirmed - Inactive */
+    public static let ORDER_STATUS_CONFIRMED_INACTIVE_IMG_NAME  = "orderStatus_Confirmed_Inactive.png"
+    /** Order status image: Delivering - Active */
+    public static let ORDER_STATUS_DELIVERING_ACTIVE_IMG_NAME   = "orderStatus_Delivering_Active.png"
+    /** Order status image: Delivering - Inactive */
+    public static let ORDER_STATUS_DELIVERING_INACTIVE_IMG_NAME = "orderStatus_Delivering_Inactive.png"
+    /** Order status image: Complete - Active */
+    public static let ORDER_STATUS_COMPLETE_ACTIVE_IMG_NAME     = "orderStatus_Complete_Active.png"
+    /** Order status image: Complete - Inactive */
+    public static let ORDER_STATUS_COMPLETE_INACTIVE_IMG_NAME   = "orderStatus_Complete_Inactive.png"
+    /** Hotline image */
+    public static let HOTLINE_IMG_NAME                          = "hotline.png"
+    /** Status finish image */
+    public static let STATUS_FINISH_IMG_NAME                    = "status_finish.png"
+    /** Status finish [Small] image */
+    public static let STATUS_FINISH_SMALL_IMG_NAME              = "status_finish_small.png"
+    /** Status cancel [Small] image */
+    public static let STATUS_CANCEL_SMALL_IMG_NAME              = "status_cancel_small.png"
+    /** Status new [Small] image */
+    public static let STATUS_NEW_SMALL_IMG_NAME                 = "status_new.png"
+    /** Status waiting [Small] image */
+    public static let STATUS_WAITING_SMALL_IMG_NAME             = "status_waiting.png"
+    /** Name icon image */
+    public static let NAME_ICON_IMG_NAME                        = "name_icon.png"
+    /** Phone icon image */
+    public static let PHONE_ICON_NEW_IMG_NAME                   = "phone_icon.png"
+    /** Address icon image */
+    public static let ADDRESS_ICON_NEW_IMG_NAME                 = "address_icon.png"
     
     /** HTTP Post request method */
     public static let HTTP_POST_REQUEST                     = "POST"
@@ -1939,7 +2098,7 @@ public class DomainConst {
     public static let CONTENT00223 = "Xem"
     public static let CONTENT00224 = "Để sau"
     public static let CONTENT00225 = "Bảo trì miễn phí"
-    public static let CONTENT00226 = "Gas 24h"
+    public static let CONTENT00226 = "Gas24h"
     public static let CONTENT00227 = "Quên mật khẩu?"
     public static let CONTENT00228 = "Tạo tài khoản mới"
     public static let CONTENT00229 = "Lưu thông tin"
@@ -2171,4 +2330,64 @@ public class DomainConst {
     public static let CONTENT00469 = "Điều hướng"
     public static let CONTENT00470 = "Thêm hình từ camera"
     public static let CONTENT00471 = "Thêm hình từ thư viện"
+    public static let CONTENT00472 = "---------- hoặc ----------"
+    public static let CONTENT00473 = "Sử dụng tài khoản Facebook"
+    public static let CONTENT00474 = "Sử dụng tài khoản Zalo"
+    public static let CONTENT00475 = "Nhập mã pin"
+    public static let CONTENT00476 = "Mã pin"
+    public static let CONTENT00477 = "Mã pin vừa được gửi đến số điện thoại"
+    public static let CONTENT00478 = "Vui lòng xem tin nhắn"
+    public static let CONTENT00479 = "và nhập mã pin vào ô bên trên để"
+    public static let CONTENT00480 = "hoàn tất đăng ký sử dụng ứng dụng"
+    public static let CONTENT00481 = "Chưa nhận được mã PIN?"
+    public static let CONTENT00482 = "Gửi lại"
+    public static let CONTENT00483 = "Chạm vào biểu tượng để đặt gas"
+    public static let CONTENT00484 = "Hỗ trợ"
+    public static let CONTENT00485 = "Chọn gas"
+    public static let CONTENT00486 = "Chọn quà"
+    public static let CONTENT00487 = "Đơn hàng của bạn đang được xử lý"
+    public static let CONTENT00488 = "vui lòng chờ trong giây lát..."
+    public static let CONTENT00489 = "Đơn hàng hoàn tất!"
+    public static let CONTENT00490 = "Chạm vào biểu tượng để xem hoá đơn."
+    public static let CONTENT00491 = "Cám ơn Quý Khách"
+    public static let CONTENT00492 = "Giới thiệu người thân cài đặt ứng dụng, NHẬN MÃ GIẢM GIÁ"
+    public static let CONTENT00493 = "Nhân viên giao gas"
+    public static let CONTENT00494 = "Chưa nhập mã pin"
+    public static let CONTENT00495 = "Bạn có thể chọn loại Gas và Quà trước khi đặt Gas\nHoặc chờ nhân viên Gas24h liên hệ để xác nhận"
+    public static let CONTENT00496 = "Quý khách vui lòng chờ trong giây lát\nNhân viên Gas24h sẽ liên hệ Quý khách trong vài phút"
+    public static let CONTENT00497 = "Quý khách vừa hoàn tất đơn hàng đầu tiên\nĐiểm thưởng +300. Tổng số điểm hiện tại 4300"
+    public static let CONTENT00498 = "Chạm vào đơn hàng XXXXXX để xem lại chi tiết\nLộ trình giao hàng khoảng 3km"
+    public static let CONTENT00499 = "Giới thiệu"
+    public static let CONTENT00500 = "Sử dụng mã"
+    public static let CONTENT00501 = "Mã code"
+    public static let CONTENT00502 = "QR code"
+    public static let CONTENT00503 = "Chia sẻ mã KM"
+    public static let CONTENT00504 = "Thêm mã khuyến mãi"
+    public static let CONTENT00505 = "Đơn hàng của bạn đã bị huỷ"
+    public static let CONTENT00506 = "Hoá đơn mua hàng"
+    public static let CONTENT00507 = "Bình chọn"
+    public static let CONTENT00508 = "Sai số điện thoại?"
+    public static let CONTENT00509 = "Trở về"
+    public static let CONTENT00510 = "Xin quý khách vui lòng nhập số điện thoại để nhân viên Gas24h liên hệ với quý khách"
+    public static let CONTENT00511 = "Người dùng không cho phép"
+    public static let CONTENT00512 = "Trạng thái đơn hàng"
+    public static let CONTENT00513 = "Chờ\nxác nhận"
+    public static let CONTENT00514 = "Đã\nxác nhận"
+    public static let CONTENT00515 = "Đang\ngiao gas"
+    public static let CONTENT00516 = "Xem trước đơn hàng"
+    public static let CONTENT00517 = "Thay đổi"
+    public static let CONTENT00518 = "Thông tin giao hàng"
+    public static let CONTENT00519 = "Tiếp tục đơn hàng"
+    public static let CONTENT00520 = "Đơn hàng\nhoàn tất"
+    public static let CONTENT00521 = "Đơn hàng của bạn đã được xác nhận."
+    public static let CONTENT00522 = "Chúng tôi sẽ gọi cho bạn trong giây lát!"
+    public static let CONTENT00523 = "Loại gas được chọn sẽ được mặc định trong đơn hàng nếu Quý khách không thay đổi"
+    public static let CONTENT00524 = "Chọn loại gas"
+    public static let CONTENT00525 = "Điểm thưởng hiện tại: 500 điểm\nĐặt 1 bình gas mới, điểm thưởng 300 điểm\nBạn có thể chọn quà đến 800 điểm"
+    public static let CONTENT00526 = "Chia sẻ mã giới thiệu của bạn: %@ hoặc truy cập địa chỉ: %@"
+    public static let CONTENT00527 = "Lịch sử đơn hàng"
+    public static let CONTENT00528 = "Thông tin tài khoản"
+    public static let CONTENT00529 = "Bật dịch vụ định vị để ứng dụng tự động tìm thấy địa chỉ giao hàng"
+    public static let CONTENT00530 = "Thông tin chưa được lưu lại, bạn chắc chắn muốn huỷ?"
+    public static let CONTENT00531 = "Quà tặng"
 }

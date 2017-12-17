@@ -15,22 +15,6 @@ open class ChildExtViewController: ChildViewController {
 
         // Do any additional setup after loading the view.
     }
-
-    override open func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     open override func setNavigationBarTitle(title: String) {
         self.navigationItem.title = title
@@ -41,6 +25,7 @@ open class ChildExtViewController: ChildViewController {
             self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: GlobalConst.BUTTON_COLOR_RED]
         }
     }
+    
     /**
      * Build items on navigation bar for children view
      */
@@ -82,6 +67,6 @@ open class ChildExtViewController: ChildViewController {
         let notifyNavBar = UIBarButtonItem()
         notifyNavBar.customView = btnNotify
         notifyNavBar.isEnabled = BaseModel.shared.checkIsLogin()
-        self.navigationItem.setRightBarButton(notifyNavBar, animated: true)
+//        self.navigationItem.setRightBarButton(notifyNavBar, animated: true)
     }
 }

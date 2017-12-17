@@ -367,4 +367,42 @@ public class CommonProcess {
     public static func generateRandom(min: Int, max: Int) -> Int {
         return Int(arc4random_uniform(UInt32(max - min + 1))) + min
     }
+    
+    /**
+     * Update view position
+     * - parameter view: View need to update
+     * - parameter x: X position
+     * - parameter y: Y position
+     * - parameter w: Width of view
+     * - parameter h: Height of view
+     */
+    public static func updateViewPos(view: UIView, x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat) {
+        view.frame = CGRect(x: x, y: y, width: w, height: h)
+    }
+    
+    /**
+     * Get status string from status number
+     * - parameter status: Value of status number
+     * - returns: Value of status string
+     */
+    public static func getOrderVIPStatusString(status: String) -> String {
+        var retVal = DomainConst.BLANK
+        switch status {
+        case DomainConst.ORDER_STATUS_NEW:
+            retVal = DomainConst.CONTENT00329
+            break
+        case DomainConst.ORDER_STATUS_PROCESSING:
+            retVal = DomainConst.CONTENT00328
+            break
+        case DomainConst.ORDER_STATUS_COMPLETE:
+            retVal = DomainConst.CONTENT00330
+            break
+        case DomainConst.ORDER_STATUS_CANCEL:
+            retVal = DomainConst.CONTENT00331
+            break
+        default:
+            break
+        }
+        return retVal
+    }
 }

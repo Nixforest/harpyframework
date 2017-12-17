@@ -111,9 +111,10 @@
 		D721C5361F5D3ED7003E823D /* TransformOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = D721C5201F5D3ED6003E823D /* TransformOperators.swift */; };
 		D721C5371F5D3ED7003E823D /* TransformType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D721C5211F5D3ED6003E823D /* TransformType.swift */; };
 		D721C5381F5D3ED7003E823D /* URLTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = D721C5221F5D3ED6003E823D /* URLTransform.swift */; };
+		D722648A1FB97F8600DDA94B /* ChildExtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72264881FB97F8600DDA94B /* ChildExtViewController.swift */; };
+		D722648B1FB97F8600DDA94B /* ParentExtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72264891FB97F8600DDA94B /* ParentExtViewController.swift */; };
 		D73561B41EF3BF0D00085514 /* FullAddressPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73561B31EF3BF0D00085514 /* FullAddressPicker.swift */; };
 		D73561B61EF3C1A100085514 /* FullAddressBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73561B51EF3C1A100085514 /* FullAddressBean.swift */; };
-		D737DFC61F57B507008E9E94 /* ChildExtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D737DFC51F57B507008E9E94 /* ChildExtViewController.swift */; };
 		D7424AAD1E3B463600E442DC /* MaterialTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7424AAC1E3B463600E442DC /* MaterialTableViewCell.swift */; };
 		D74591331EA08F3C002C3AB3 /* reload-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D74591321EA08F3C002C3AB3 /* reload-1.png */; };
 		D75F64AD1E28657900A67B3C /* icon52.png in Resources */ = {isa = PBXBuildFile; fileRef = D75F64AA1E28657900A67B3C /* icon52.png */; };
@@ -464,9 +465,10 @@
 		D721C5201F5D3ED6003E823D /* TransformOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransformOperators.swift; path = Model/ObjectMapper/TransformOperators.swift; sourceTree = "<group>"; };
 		D721C5211F5D3ED6003E823D /* TransformType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransformType.swift; path = Model/ObjectMapper/TransformType.swift; sourceTree = "<group>"; };
 		D721C5221F5D3ED6003E823D /* URLTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = URLTransform.swift; path = Model/ObjectMapper/URLTransform.swift; sourceTree = "<group>"; };
+		D72264881FB97F8600DDA94B /* ChildExtViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChildExtViewController.swift; path = View/Version2/ChildExtViewController.swift; sourceTree = "<group>"; };
+		D72264891FB97F8600DDA94B /* ParentExtViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParentExtViewController.swift; path = View/Version2/ParentExtViewController.swift; sourceTree = "<group>"; };
 		D73561B31EF3BF0D00085514 /* FullAddressPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FullAddressPicker.swift; path = CustomeControl/FullAddressPicker.swift; sourceTree = "<group>"; };
 		D73561B51EF3C1A100085514 /* FullAddressBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FullAddressBean.swift; path = Model/FullAddressBean.swift; sourceTree = "<group>"; };
-		D737DFC51F57B507008E9E94 /* ChildExtViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChildExtViewController.swift; path = View/ChildExtViewController.swift; sourceTree = "<group>"; };
 		D7424AAC1E3B463600E442DC /* MaterialTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MaterialTableViewCell.swift; path = CustomeControl/MaterialTableViewCell.swift; sourceTree = "<group>"; };
 		D74591321EA08F3C002C3AB3 /* reload-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "reload-1.png"; path = "images/reload-1.png"; sourceTree = "<group>"; };
 		D75F64AA1E28657900A67B3C /* icon52.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon52.png; path = images/icon52.png; sourceTree = "<group>"; };
@@ -826,6 +828,15 @@
 			name = ObjectMappable;
 			sourceTree = "<group>";
 		};
+		D72264871FB97F7A00DDA94B /* Version2 */ = {
+			isa = PBXGroup;
+			children = (
+				D72264881FB97F8600DDA94B /* ChildExtViewController.swift */,
+				D72264891FB97F8600DDA94B /* ParentExtViewController.swift */,
+			);
+			name = Version2;
+			sourceTree = "<group>";
+		};
 		D73B64511E0B797B0032D582 /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -861,6 +872,7 @@
 		D73B64541E0B79BC0032D582 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D72264871FB97F7A00DDA94B /* Version2 */,
 				D71106221F57FC36001BC56C /* ScanCode */,
 				D7BA68841E83AC4D001C675D /* BaseAPITestViewController.swift */,
 				D77F05D91E7172BD00797A6B /* BaseMenuViewController.swift */,
@@ -872,7 +884,6 @@
 				D7E014A91E347EA4001F26B6 /* MaterialSelectViewController.swift */,
 				D77D2B591E725A4D000D38DE /* ParentViewController.swift */,
 				D77F068D1E719B1D00797A6B /* SlideMenuController.swift */,
-				D737DFC51F57B507008E9E94 /* ChildExtViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1540,6 +1551,7 @@
 				D71777911F5E9626009CF656 /* NVActivityIndicatorAnimationLineScalePulseOutRapid.swift in Sources */,
 				D77F05F31E71737200797A6B /* RequestAPI.swift in Sources */,
 				D71777961F5E9626009CF656 /* NVActivityIndicatorAnimationSquareSpin.swift in Sources */,
+				D722648A1FB97F8600DDA94B /* ChildExtViewController.swift in Sources */,
 				D717777F1F5E9626009CF656 /* NVActivityIndicatorAnimationBallPulse.swift in Sources */,
 				D77F05C31E71729400797A6B /* SearchCustomerRespModel.swift in Sources */,
 				D7E40E4B1F57BE5D00AB1C33 /* QRCode.swift in Sources */,
@@ -1580,6 +1592,7 @@
 				D715BB701EBE54760097BDA8 /* CacheDataRequest.swift in Sources */,
 				D71777821F5E9626009CF656 /* NVActivityIndicatorAnimationBallRotate.swift in Sources */,
 				D79C1BBD1E4ACEC700E6E121 /* PromotionBean.swift in Sources */,
+				D722648B1FB97F8600DDA94B /* ParentExtViewController.swift in Sources */,
 				D7E40E4C1F57BE5D00AB1C33 /* UIImageViewExtension.swift in Sources */,
 				D70754A71F3969520098C48C /* Logger.swift in Sources */,
 				D791F6B01E238135009CBBED /* CommonProcess.swift in Sources */,
@@ -1627,7 +1640,6 @@
 				D7F958111E3DD36B00C76F2F /* ConfigurationTableViewCell.swift in Sources */,
 				D721C5311F5D3ED7003E823D /* Mapper.swift in Sources */,
 				D71777841F5E9626009CF656 /* NVActivityIndicatorAnimationBallScale.swift in Sources */,
-				D737DFC61F57B507008E9E94 /* ChildExtViewController.swift in Sources */,
 				D7E40E491F57BE5D00AB1C33 /* CIColorExtension.swift in Sources */,
 				D716C1981E92A9E9007CC50C /* AddressPickerView.swift in Sources */,
 				D77F05C21E71729400797A6B /* NotificationCountRespModel.swift in Sources */,

@@ -55,7 +55,7 @@ open class BaseViewController : UIViewController {
      * Get root view controller
      * - returns: BaseSlideMenu controller
      */
-    static func getRootController() -> BaseSlideMenuViewController? {
+    public static func getRootController() -> BaseSlideMenuViewController? {
         // Get root view controller
         if let root = UIApplication.getRootVC() {
             // Check if root view controller is slide menu controller
@@ -94,6 +94,7 @@ open class BaseViewController : UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)),
                                                name: .UIKeyboardWillShow,
                                                object: nil)
+        self.view.makeComponentsColor()
     }
     
     /**
@@ -188,6 +189,19 @@ open class BaseViewController : UIViewController {
             UIApplication.shared.openURL(url as! URL)
         } else {
             showAlert(message: "Không gọi được vào số: \(phone)")
+        }
+    }
+    
+    /**
+     * Handle make a sms message
+     * - parameter phone: Phone string to send sms
+     */
+    public func makeASMS(phone: String) {
+        let url = NSURL(string: "sms:\(phone)")
+        if UIApplication.shared.canOpenURL(url as! URL) {
+            UIApplication.shared.openURL(url as! URL)
+        } else {
+            showAlert(message: "Không nhắn tin được vào số: \(phone)")
         }
     }
     
@@ -713,8 +727,18 @@ open class BaseViewController : UIViewController {
      * - returns: Height of status bar + navigation bar
      */
     open func getTopHeight() -> CGFloat {
-        return (self.navigationController!.navigationBar.frame.size.height
-            + UIApplication.shared.statusBarFrame.size.height)
+        //++ BUG0156-SPJ (NguyenPT 20170924) Re-design Gas24h
+//        return (self.navigationController!.navigationBar.frame.size.height
+//            + UIApplication.shared.statusBarFrame.size.height)
+        var retVal = UIApplication.shared.statusBarFrame.size.height
+        if let navigation = self.navigationController {
+            retVal += navigation.navigationBar.frame.size.height
+        } else {
+            retVal += 64.0
+        }
+        
+        return retVal
+        //++ BUG0156-SPJ (NguyenPT 20170924) Re-design Gas24h
     }
     
     /**
