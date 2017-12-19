@@ -445,6 +445,7 @@ open class BaseViewController : UIViewController {
         let tinted = img?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
         let btn = UIButton()
         btn.setImage(tinted, for: UIControlState())
+        btn.imageView?.contentMode = .scaleAspectFit
         btn.tintColor = UIColor.white
         btn.frame = CGRect(x: 0, y: 0,
                                width: GlobalConst.MENU_BUTTON_W,
@@ -466,11 +467,12 @@ open class BaseViewController : UIViewController {
      * - parameter action:      Handle when tapped on item
      * - parameter target:      Target of action
      */
-    public func createRightNavigationItem(title: String, action: Selector, target: Any?) {
+    public func createRightNavigationItem(title: String, action: Selector, target: Any?, fontSize: CGFloat = 35.0) {
         let btn = UIButton()
         btn.setTitle(title, for: UIControlState())
         btn.setTitleColor(UIColor.white, for: UIControlState())
-        btn.titleLabel?.font = UIFont.systemFont(ofSize: 35.0)
+//        btn.titleLabel?.font = UIFont.systemFont(ofSize: 35.0)
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: fontSize)
         btn.frame = CGRect(x: 0, y: 0,
                            width: GlobalConst.MENU_BUTTON_W,
                            height: GlobalConst.MENU_BUTTON_W)

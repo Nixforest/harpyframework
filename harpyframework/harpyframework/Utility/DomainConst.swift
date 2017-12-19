@@ -1321,7 +1321,8 @@ public class DomainConst {
     /** Space string */
     public static let SPACE_STR                         = " "
     /** Server URL (Training mode) */
-    public static let SERVER_URL_TRAINING               = "http://android.huongminhgroup.com/api/"
+//    public static let SERVER_URL_TRAINING               = "http://android.huongminhgroup.com/api/"
+    public static let SERVER_URL_TRAINING               = "http://dev.spj.vn/api/"
     /** Server URL */
     public static let SERVER_URL                        = "http://spj.daukhimiennam.com/api/"
     /** Immortal Server URL */
@@ -1866,6 +1867,8 @@ public class DomainConst {
     public static let PHONE_ICON_NEW_IMG_NAME                   = "phone_icon.png"
     /** Address icon image */
     public static let ADDRESS_ICON_NEW_IMG_NAME                 = "address_icon.png"
+    /** Search image name */
+    public static let QUICK_ACTION_ICON_IMG_NAME                = "quickaction_icon_add.png"
     
     /** HTTP Post request method */
     public static let HTTP_POST_REQUEST                     = "POST"
@@ -2390,4 +2393,7 @@ public class DomainConst {
     public static let CONTENT00529 = "Bật dịch vụ định vị để ứng dụng tự động tìm thấy địa chỉ giao hàng"
     public static let CONTENT00530 = "Thông tin chưa được lưu lại, bạn chắc chắn muốn huỷ?"
     public static let CONTENT00531 = "Quà tặng"
+    public static let CONTENT00532 = "Đơn hàng HGD"
+    public static let CONTENT00533 = "Tạo trả thẻ"
+    public static let CONTENT00534 = "Bạn có muốn trả thẻ cho đơn hàng hộ gia đình?"
 }
