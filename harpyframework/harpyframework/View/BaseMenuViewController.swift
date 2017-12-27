@@ -7,7 +7,7 @@
 //
 
 import Foundation
-open class BaseMenuViewController : UIViewController {
+open class BaseMenuViewController : BaseViewController {
     // MARK: Properties
     //++ BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
     /** Menu item tapped delegate */
@@ -297,112 +297,115 @@ open class BaseMenuViewController : UIViewController {
 //            self.menuItemTappedDelegate?.menuItemTapped(sender)
 //        })
         if let currentView = BaseViewController.getCurrentViewController() {
-        // Close slide menu
-        BaseViewController.getRootController()?.closeLeft()
-        switch (sender as! UIButton).accessibilityIdentifier! {
-        case DomainConst.G00_CONFIGURATION_VIEW_CTRL:       // Config menu
-            //currentView.pushToView(name: DomainConst.G00_CONFIGURATION_VIEW_CTRL)
-            currentView.pushToViewAndClearData(name: DomainConst.G00_CONFIGURATION_VIEW_CTRL)
-            break
-        case DomainConst.G00_LOGIN_VIEW_CTRL:               // Login menu
-            currentView.pushToView(name: DomainConst.G00_LOGIN_VIEW_CTRL)
-            break
-        case DomainConst.NOTIFY_NAME_LOGOUT_ITEM:           // Logout menu
-            LogoutRequest.requestLogout(action: #selector(currentView.finishRequestLogout), view: currentView)
-            break
-        case DomainConst.G00_REGISTER_VIEW_CTRL:            // Register menu
-            currentView.pushToView(name: DomainConst.G00_REGISTER_VIEW_CTRL)
-            break
-        case DomainConst.HOME:                              // Home menu
-            currentView.clearData()
-            currentView.popToRootView()
-            break
-        case DomainConst.USER_PROFILE:                      // User profile
-            //currentView.pushToView(name: DomainConst.G00_ACCOUNT_VIEW_CTRL)
-            currentView.pushToViewAndClearData(name: DomainConst.G00_ACCOUNT_VIEW_CTRL)
-            break
-        case DomainConst.UPHOLD_LIST:                       // Uphold list
-            //currentView.pushToView(name: DomainConst.G01_F00_S01_VIEW_CTRL)
-            currentView.pushToViewAndClearData(name: DomainConst.G01_F00_S01_VIEW_CTRL)
-            break
-        case DomainConst.ISSUE_LIST:                        // Issue list
-            currentView.showAlert(message: DomainConst.CONTENT00362)
-            break
-        case DomainConst.MESSAGE:                           // Message
-            //currentView.showAlert(message: DomainConst.CONTENT00362)
-            currentView.pushToViewAndClearData(name: "G03F00S01VC")
-            break
-        case DomainConst.CUSTOMER_LIST:                     // Customer list
-            //currentView.showAlert(message: DomainConst.CONTENT00197)
-            //currentView.pushToView(name: DomainConst.G06_F00_S01_VC)
-            currentView.pushToViewAndClearData(name: DomainConst.G06_F00_S01_VC)
-            break
-        case DomainConst.WORKING_REPORT:                    // Working report
-            //currentView.showAlert(message: DomainConst.CONTENT00197)
-            //currentView.pushToView(name: DomainConst.G06_F00_S04_VC)
-            currentView.pushToViewAndClearData(name: DomainConst.G06_F00_S04_VC)
-            break
-        case DomainConst.ORDER_LIST:                        // Order list
-            //currentView.pushToView(name: DomainConst.G04_F00_S01_VIEW_CTRL)
-            currentView.pushToViewAndClearData(name: DomainConst.G04_F00_S01_VIEW_CTRL)
-            break
-        case DomainConst.ORDER_VIP_LIST:                    // VIP order list
-            //currentView.pushToView(name: DomainConst.G05_F00_S01_VIEW_CTRL)
-            //++ BUG0060-SPJ (NguyenPT 20170421) Add new constant for G05F00S03VC
-            //currentView.pushToViewAndClearData(name: DomainConst.G05_F00_S01_VIEW_CTRL)
-            if BaseModel.shared.isCustomerUser() {
-                currentView.pushToViewAndClearData(name: DomainConst.G05_F00_S01_VIEW_CTRL)
-            } else {
-                currentView.pushToViewAndClearData(name: DomainConst.G05_F00_S03_VIEW_CTRL)
+            // Close slide menu
+            BaseViewController.getRootController()?.closeLeft()
+            switch (sender as! UIButton).accessibilityIdentifier! {
+            case DomainConst.G00_CONFIGURATION_VIEW_CTRL:       // Config menu
+                //currentView.pushToView(name: DomainConst.G00_CONFIGURATION_VIEW_CTRL)
+                currentView.pushToViewAndClearData(name: DomainConst.G00_CONFIGURATION_VIEW_CTRL)
+                break
+            case DomainConst.G00_LOGIN_VIEW_CTRL:               // Login menu
+                currentView.pushToView(name: DomainConst.G00_LOGIN_VIEW_CTRL)
+                break
+            case DomainConst.NOTIFY_NAME_LOGOUT_ITEM:           // Logout menu
+                LogoutRequest.requestLogout(action: #selector(currentView.finishRequestLogout), view: currentView)
+                break
+            case DomainConst.G00_REGISTER_VIEW_CTRL:            // Register menu
+                currentView.pushToView(name: DomainConst.G00_REGISTER_VIEW_CTRL)
+                break
+            case DomainConst.HOME:                              // Home menu
+                currentView.clearData()
+                currentView.popToRootView()
+                break
+            case DomainConst.USER_PROFILE:                      // User profile
+                //currentView.pushToView(name: DomainConst.G00_ACCOUNT_VIEW_CTRL)
+                currentView.pushToViewAndClearData(name: DomainConst.G00_ACCOUNT_VIEW_CTRL)
+                break
+            case DomainConst.UPHOLD_LIST:                       // Uphold list
+                //currentView.pushToView(name: DomainConst.G01_F00_S01_VIEW_CTRL)
+                currentView.pushToViewAndClearData(name: DomainConst.G01_F00_S01_VIEW_CTRL)
+                break
+            case DomainConst.ISSUE_LIST:                        // Issue list
+                currentView.showAlert(message: DomainConst.CONTENT00362)
+                break
+            case DomainConst.MESSAGE:                           // Message
+                //currentView.showAlert(message: DomainConst.CONTENT00362)
+                currentView.pushToViewAndClearData(name: "G03F00S01VC")
+                break
+            case DomainConst.CUSTOMER_LIST:                     // Customer list
+                //currentView.showAlert(message: DomainConst.CONTENT00197)
+                //currentView.pushToView(name: DomainConst.G06_F00_S01_VC)
+                currentView.pushToViewAndClearData(name: DomainConst.G06_F00_S01_VC)
+                break
+            case DomainConst.WORKING_REPORT:                    // Working report
+                //currentView.showAlert(message: DomainConst.CONTENT00197)
+                //currentView.pushToView(name: DomainConst.G06_F00_S04_VC)
+                currentView.pushToViewAndClearData(name: DomainConst.G06_F00_S04_VC)
+                break
+            case DomainConst.ORDER_LIST:                        // Order list
+                //currentView.pushToView(name: DomainConst.G04_F00_S01_VIEW_CTRL)
+                currentView.pushToViewAndClearData(name: DomainConst.G04_F00_S01_VIEW_CTRL)
+                break
+            case DomainConst.ORDER_VIP_LIST:                    // VIP order list
+                //currentView.pushToView(name: DomainConst.G05_F00_S01_VIEW_CTRL)
+                //++ BUG0060-SPJ (NguyenPT 20170421) Add new constant for G05F00S03VC
+                //currentView.pushToViewAndClearData(name: DomainConst.G05_F00_S01_VIEW_CTRL)
+                if BaseModel.shared.isCustomerUser() {
+                    currentView.pushToViewAndClearData(name: DomainConst.G05_F00_S01_VIEW_CTRL)
+                } else {
+                    currentView.pushToViewAndClearData(name: DomainConst.G05_F00_S03_VIEW_CTRL)
+                }
+                //-- BUG0060-SPJ (NguyenPT 20170421) Add new constant for G05F00S03VC
+                break
+            case DomainConst.KEY_MENU_PROMOTION_LIST:           // Promotion list
+                //currentView.pushToView(name: DomainConst.G04_F02_S01_VIEW_CTRL)
+                currentView.pushToViewAndClearData(name: DomainConst.G04_F02_S01_VIEW_CTRL)
+                break
+            //++ BUG0054-SPJ (NguyenPT 20170407) Add new key for new function G07
+            case DomainConst.ORDER_TRANSACTION_LIST:
+                currentView.pushToViewAndClearData(name: DomainConst.G07_F00_S01_VC)
+                //-- BUG0054-SPJ (NguyenPT 20170407) Add new key for new function G07
+            //++ BUG0073-SPJ (NguyenPT 20170503) Add new function G08
+            case DomainConst.KEY_MENU_STORE_CARD_LIST:
+                currentView.pushToViewAndClearData(name: DomainConst.G08_F00_S01_VC)
+                break
+            case DomainConst.KEY_MENU_CASH_BOOK_LIST:
+                BaseModel.shared.sharedString = DomainConst.CASHBOOK_TYPE_LIST
+                currentView.pushToViewAndClearData(name: DomainConst.G09_F00_S01_VC)
+                break
+            case DomainConst.KEY_MENU_CASH_BOOK_SCHEDULE:
+                BaseModel.shared.sharedString = DomainConst.CASHBOOK_TYPE_SCHEDULE
+                currentView.pushToViewAndClearData(name: DomainConst.G09_F00_S03_VC)
+                break
+            case DomainConst.KEY_MENU_FAMILY_UPHOLD_LIST:
+                //currentView.showAlert(message: DomainConst.CONTENT00362)
+                currentView.pushToViewAndClearData(name: DomainConst.G01_F00_S04_VC)
+                break
+            case DomainConst.KEY_MENU_REPORT_LIST:
+                //currentView.showAlert(message: DomainConst.CONTENT00362)
+                currentView.pushToViewAndClearData(name: DomainConst.G10_F00_S01_VC)
+                break
+                //-- BUG0073-SPJ (NguyenPT 20170503) Add new function G08
+            //++ BUG0102-SPJ (NguyenPT 20170604) Update function G11
+            case DomainConst.KEY_MENU_TICKET_LIST:
+                currentView.pushToViewAndClearData(name: DomainConst.G11_F00_S01_VC)
+                break
+            case DomainConst.KEY_MENU_GOOGLE_MAP:
+                //currentView.showAlert(message: DomainConst.CONTENT00362)
+                currentView.pushToViewAndClearData(name: "G05F01S01VC")
+                break
+                //-- BUG0102-SPJ (NguyenPT 20170604) Update function G11
+            //++ BUG0111-SPJ (NguyenPT 20170617) Update function G06
+            case DomainConst.KEY_MENU_CCS_CODE_LIST:
+                currentView.pushToViewAndClearData(name: "G06F00S06VC")
+            //-- BUG0111-SPJ (NguyenPT 20170617) Update function G06
+            case DomainConst.KEY_MENU_GAS_REMAIN:
+                self.openGasRemainList()
+                break
+            default:
+                currentView.showAlert(message: DomainConst.CONTENT00362)
+                break
             }
-            //-- BUG0060-SPJ (NguyenPT 20170421) Add new constant for G05F00S03VC
-            break
-        case DomainConst.KEY_MENU_PROMOTION_LIST:           // Promotion list
-            //currentView.pushToView(name: DomainConst.G04_F02_S01_VIEW_CTRL)
-            currentView.pushToViewAndClearData(name: DomainConst.G04_F02_S01_VIEW_CTRL)
-            break
-        //++ BUG0054-SPJ (NguyenPT 20170407) Add new key for new function G07
-        case DomainConst.ORDER_TRANSACTION_LIST:
-            currentView.pushToViewAndClearData(name: DomainConst.G07_F00_S01_VC)
-        //-- BUG0054-SPJ (NguyenPT 20170407) Add new key for new function G07
-        //++ BUG0073-SPJ (NguyenPT 20170503) Add new function G08
-        case DomainConst.KEY_MENU_STORE_CARD_LIST:
-            currentView.pushToViewAndClearData(name: DomainConst.G08_F00_S01_VC)
-            break
-        case DomainConst.KEY_MENU_CASH_BOOK_LIST:
-            BaseModel.shared.sharedString = DomainConst.CASHBOOK_TYPE_LIST
-            currentView.pushToViewAndClearData(name: DomainConst.G09_F00_S01_VC)
-            break
-        case DomainConst.KEY_MENU_CASH_BOOK_SCHEDULE:
-            BaseModel.shared.sharedString = DomainConst.CASHBOOK_TYPE_SCHEDULE
-            currentView.pushToViewAndClearData(name: DomainConst.G09_F00_S03_VC)
-            break
-        case DomainConst.KEY_MENU_FAMILY_UPHOLD_LIST:
-            //currentView.showAlert(message: DomainConst.CONTENT00362)
-            currentView.pushToViewAndClearData(name: DomainConst.G01_F00_S04_VC)
-            break
-        case DomainConst.KEY_MENU_REPORT_LIST:
-            //currentView.showAlert(message: DomainConst.CONTENT00362)
-            currentView.pushToViewAndClearData(name: DomainConst.G10_F00_S01_VC)
-            break
-        //-- BUG0073-SPJ (NguyenPT 20170503) Add new function G08
-        //++ BUG0102-SPJ (NguyenPT 20170604) Update function G11
-        case DomainConst.KEY_MENU_TICKET_LIST:
-            currentView.pushToViewAndClearData(name: DomainConst.G11_F00_S01_VC)
-            break
-        case DomainConst.KEY_MENU_GOOGLE_MAP:
-            //currentView.showAlert(message: DomainConst.CONTENT00362)
-            currentView.pushToViewAndClearData(name: "G05F01S01VC")
-            break
-        //-- BUG0102-SPJ (NguyenPT 20170604) Update function G11
-        //++ BUG0111-SPJ (NguyenPT 20170617) Update function G06
-        case DomainConst.KEY_MENU_CCS_CODE_LIST:
-            currentView.pushToViewAndClearData(name: "G06F00S06VC")
-        //-- BUG0111-SPJ (NguyenPT 20170617) Update function G06
-        default:
-            currentView.showAlert(message: DomainConst.CONTENT00362)
-            break
-        }
         }
         //-- BUG0048-SPJ (NguyenPT 20170309) Remove popover menu
     }

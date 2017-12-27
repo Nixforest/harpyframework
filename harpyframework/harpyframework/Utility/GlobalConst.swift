@@ -128,6 +128,9 @@ public class GlobalConst {
     /** Time interval for animation in Step view controller */
     public static let STEP_MOVE_TIME_INTERVAL       = 0.1
     //-- BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
+    public static var STATUS_GAREMAIN_COLOR_WAIT        = ColorFromRGB().getColorFromRGB(0xf89c27)
+    public static var STATUS_GAREMAIN_COLOR_NOT_EXPORT  = ColorFromRGB().getColorFromRGB(0x999999)
+    public static var STATUS_GAREMAIN_COLOR_EXPORT      = ColorFromRGB().getColorFromRGB(0x33cc00)
     
     // ----- New constants -----
     /** Width of animating loading */

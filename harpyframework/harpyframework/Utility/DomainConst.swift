@@ -91,6 +91,8 @@ public class DomainConst {
     public static let PATH_SITE_CACHE_DATA              = "site/getDataCache"
     /** Request create support app log */
     public static let PATH_SUPPORT_APPLOG               = "support/appLog"
+    /** Request news content*/
+    public static let PATH_SUPPORT_NEWS                 = "support/viewPage"
     
     // MARK: -----List of keys-----
     /** Token */
@@ -782,6 +784,13 @@ public class DomainConst {
     
     public static let KEY_IS_INVITED                    = "is_invited"
     public static let KEY_INVITED_CODE                  = "invite_code"
+    public static let KEY_HAS_EXPORT                    = "has_export"
+    public static let KEY_AMOUNT_GAS                    = "amount_gas"
+    public static let KEY_WEIGHT_INFO                   = "weight_info"
+    public static let KEY_ALLOW_SWIPE                   = "allow_swipe"
+    public static let KEY_AMOUNT_EMPTY                  = "amount_empty"
+    public static let KEY_AMOUNT_HAS_GAS                = "amount_has_gas"
+    public static let KEY_GAS_REMAIN_TYPE               = "gas_remain_type"
     
     
     // MARK: -----Specified constant-----
@@ -1069,6 +1078,8 @@ public class DomainConst {
     public static let ACCOUNT_INFO_SAVE_ID              = "###99943"
     /** Account information id: Cancel */
     public static let ACCOUNT_INFO_CANCEL_ID            = "###99944"
+    /** Order information id: Order promotion */
+    public static let ORDER_INFO_PROMOTION              = "###99945"
     /** Order information id: Order Material */
     public static let ORDER_INFO_MATERIAL_ID            = "###999"
     
@@ -1156,6 +1167,16 @@ public class DomainConst {
     public static let KEY_SESSION_KEY                   = "session_key"
     /** Key gas24h_time_check_order */
     public static let KEY_GAS24H_TIME_INTERVAL          = "gas24h_time_check_order"
+    /** Key menu item: Promotion policy */
+    public static let KEY_MENU_PROMOTION_POLICY         = "id_page_promotion"
+    /** Key menu item: Promotion policy */
+    public static let KEY_MENU_APP_GUIDE                = "id_page_guide"
+    /** Key my_invite_code */
+    public static let KEY_MY_INVITE_CODE                = "my_invite_code"
+    /** Key my_invite_code */
+    public static let KEY_GAS24H_MENU_TEXT              = "gas24h_menu_text"
+    /** Key menu item: Gas remain list */
+    public static let KEY_MENU_GAS_REMAIN               = "gasremain_list"
     
     //++ BUG0050-SPJ (NguyenPT 20170325) Add new function G06
     /** Platform value: Android */
@@ -1297,10 +1318,19 @@ public class DomainConst {
     //-- BUG0093-SPJ (NguyenPT 20170518) Type of cash book
     //++ BUG0110-SPJ (NguyenPT 20170617) Type of notify list
     /** Notify list type: new */
-    public static let NOTIFY_LIST_TYPE_NEW               = DomainConst.NUMBER_ONE_VALUE
+    public static let NOTIFY_LIST_TYPE_NEW              = DomainConst.NUMBER_ONE_VALUE
     /** Notify list type: read */
-    public static let NOTIFY_LIST_TYPE_READ              = DomainConst.NUMBER_TWO_VALUE
+    public static let NOTIFY_LIST_TYPE_READ             = DomainConst.NUMBER_TWO_VALUE
     //-- BUG0110-SPJ (NguyenPT 20170617) Type of notify list
+    /** Constant Promotion policy */
+    public static let MENU_PROMOTION_POLICY_ID          = "3"
+    /** Constant App guide */
+    public static let MENU_APP_GUIDE_ID                 = "4"
+    
+    /** Status of gas remain */
+    public static let STATUS_NOT_EXPORT                 = DomainConst.NUMBER_ZERO_VALUE
+    public static let STATUS_EXPORT                     = DomainConst.NUMBER_ONE_VALUE
+    public static let STATUS_WAIT_EXPORT                = DomainConst.NUMBER_TWO_VALUE
 
     /** -----Log message----- */
     /** Log tag: error. */
@@ -1329,6 +1359,8 @@ public class DomainConst {
     public static let SERVER_URL_IMMORTAL               = "http://build.immortal.vn/api/"
     /** Hotline */
     public static let HOTLINE                           = "1900 1565"
+    /** Refer link */
+    public static let REFER_LINK                        = "http://spj.vn/app?code="
     
     // MARK -----Define id of fragment-----
     public static let LOGOUT                            = "logout"
@@ -1543,6 +1575,8 @@ public class DomainConst {
     public static let MENU_IMG_NAME                         = "menu.png"
     /** Back image name */
     public static let BACK_IMG_NAME                         = "back.png"
+    /** Back image name */
+    public static let BACK_2_IMG_NAME                       = "back_2.png"
     /** Back image name */
     public static let DELETE_IMG_NAME                       = "delete.png"
     /** Uncheck image name */
@@ -2387,13 +2421,32 @@ public class DomainConst {
     public static let CONTENT00523 = "Loại gas được chọn sẽ được mặc định trong đơn hàng nếu Quý khách không thay đổi"
     public static let CONTENT00524 = "Chọn loại gas"
     public static let CONTENT00525 = "Điểm thưởng hiện tại: 500 điểm\nĐặt 1 bình gas mới, điểm thưởng 300 điểm\nBạn có thể chọn quà đến 800 điểm"
-    public static let CONTENT00526 = "Chia sẻ mã giới thiệu của bạn: %@ hoặc truy cập địa chỉ: %@"
+//    public static let CONTENT00526 = "Chia sẻ mã giới thiệu của bạn: %@ hoặc truy cập địa chỉ: %@"
+    public static let CONTENT00526 = "Dùng mã giới thiệu %@ trong ứng dụng Gas24h để nhận ưu đãi. Truy cập địa chỉ: %@ để tải ứng dụng."
     public static let CONTENT00527 = "Lịch sử đơn hàng"
     public static let CONTENT00528 = "Thông tin tài khoản"
     public static let CONTENT00529 = "Bật dịch vụ định vị để ứng dụng tự động tìm thấy địa chỉ giao hàng"
     public static let CONTENT00530 = "Thông tin chưa được lưu lại, bạn chắc chắn muốn huỷ?"
     public static let CONTENT00531 = "Quà tặng"
-    public static let CONTENT00532 = "Đơn hàng HGD"
-    public static let CONTENT00533 = "Tạo trả thẻ"
-    public static let CONTENT00534 = "Bạn có muốn trả thẻ cho đơn hàng hộ gia đình?"
+    public static let CONTENT00532 = "Không lấy quà"
+    public static let CONTENT00533 = "Nội dung đang được cập nhật"
+    public static let CONTENT00534 = "Bạn đã giới thiệu %d người sử dụng"
+    public static let CONTENT00535 = "Bạn đang có %@ điểm thưởng"
+    public static let CONTENT00536 = "Chính sách khuyến mãi"
+    public static let CONTENT00537 = "Hướng dẫn sử dụng"
+    public static let CONTENT00538 = "Chia sẻ với bạn bè"
+    public static let CONTENT00539 = "---------- Hỗ trợ ----------"
+    public static let CONTENT00540 = "Chưa nhập mã pin"
+    public static let CONTENT00541 = "Đơn hàng HGD"
+    public static let CONTENT00542 = "Tạo trả thẻ"
+    public static let CONTENT00543 = "Bạn có muốn trả thẻ cho đơn hàng hộ gia đình?"
+    public static let CONTENT00544 = "Bạn có muốn trả thẻ cho đơn hàng hộ gia đình?"
+    public static let CONTENT00545 = "Còn tồn"
+    public static let CONTENT00546 = "Đã xuất"
+    public static let CONTENT00547 = "Gas dư"
+    public static let CONTENT00548 = "Tạo gas dư"
+    public static let CONTENT00549 = "Xin vui lòng chọn đối tượng để tạo gas dư"
+    public static let CONTENT00550 = "Bạn đang gửi thông tin gas dư như bên dưới. Xin hãy kiểm tra lại các thông tin cho thật chính xác và nhấn nút Gửi nếu bạn đồng ý."
+    public static let CONTENT00551 = "Xin vui lòng chọn chi nhánh"
+    public static let CONTENT00552 = "Chi nhánh"
 }

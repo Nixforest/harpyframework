@@ -113,6 +113,10 @@ public class OrderBean: NSObject {
     /** Flag show/hide Update agent button */
     public var show_button_change_agent:    Int    = 0
     //-- BUG0133-SPJ (NguyenPT 20170724) Family order: change agent delivery
+    //++ BUG0103-SPJ (NguyenPT 20171227) Update new flag
+    /** Flag show button complete or not */
+    public var show_button_cancel:          String = DomainConst.BLANK
+    //- BUG0103-SPJ (NguyenPT 20171227) Update new flag
     
     
     public override init() {
@@ -194,5 +198,8 @@ public class OrderBean: NSObject {
         //++ BUG0133-SPJ (NguyenPT 20170724) Family order: change agent delivery
         self.show_button_change_agent = getInt(json: jsonData, key: DomainConst.KEY_SHOW_BUTTON_CHANGE_AGENT)
         //-- BUG0133-SPJ (NguyenPT 20170724) Family order: change agent delivery
+        //++ BUG0103-SPJ (NguyenPT 20171227) Update new flag
+        self.show_button_cancel   = String(getInt(json: jsonData, key: DomainConst.KEY_SHOW_BUTTON_CANCEL))
+        //-- BUG0103-SPJ (NguyenPT 20171227) Update new flag
     }
 }

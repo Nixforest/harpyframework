@@ -1053,6 +1053,10 @@ open class BaseViewController : UIViewController {
     }
     //-- BUG0082-SPJ (NguyenPT 20170510) Change BaseRequest handle completion mechanism
     
+    open func openGasRemainList() {
+        // Not implement        
+    }
+    
     /**
      * Destructor
      */

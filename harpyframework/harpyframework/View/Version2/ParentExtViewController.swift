@@ -28,7 +28,7 @@ open class ParentExtViewController: ParentViewController {
 //        } else {
 //            button.setTitleColor(UIColor.white, for: .normal)
 //        }
-        button.setTitleColor(UIColor.white, for: .normal)
+        button.setTitleColor(GlobalConst.MAIN_COLOR, for: .normal)
         button.setTitle(title, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: GlobalConst.LARGE_FONT_SIZE)
         if title == DomainConst.HOTLINE {
@@ -39,7 +39,7 @@ open class ParentExtViewController: ParentViewController {
         }
         
         self.navigationItem.titleView = button
-        self.navigationController?.navigationBar.barTintColor = GlobalConst.MAIN_COLOR_GAS_24H
+//        self.navigationController?.navigationBar.barTintColor = GlobalConst.MAIN_COLOR_GAS_24H
     }
     
     /**
@@ -82,7 +82,7 @@ open class ParentExtViewController: ParentViewController {
         let notifyNavBar = UIBarButtonItem()
         notifyNavBar.customView = btnNotify
         notifyNavBar.isEnabled = BaseModel.shared.checkIsLogin()
-//        self.navigationItem.setRightBarButton(notifyNavBar, animated: true)
+        self.navigationItem.setRightBarButton(notifyNavBar, animated: true)
     }
     
     internal func clickOnTitle(_ sender: AnyObject) {

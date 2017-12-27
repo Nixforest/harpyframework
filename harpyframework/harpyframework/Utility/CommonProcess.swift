@@ -342,6 +342,24 @@ public class CommonProcess {
     //-- BUG0104-SPJ (NguyenPT 20170606) Fix bug when start input date
     
     /**
+     * Get date object by string
+     * - parameter str: String to convert
+     * - parameter format: Format of date string (default is dd-mm-yyyy)
+     */
+    public static func getDateByString(str: String) -> Date {
+        let calendar = NSCalendar(identifier: NSCalendar.Identifier.gregorian)
+        let DateArray = str.components(separatedBy: "-")
+        let components = NSDateComponents()
+        components.year = Int(DateArray[2])!
+        components.month = Int(DateArray[1])!
+        components.day = Int(DateArray[0])!
+        if let retVal = calendar?.date(from: components as DateComponents) {
+            return retVal
+        }
+        return Date()
+    }
+    
+    /**
      * Set left image for textfield
      * - parameter textField: Current textField
      * - parameter name: Image name
@@ -404,5 +422,36 @@ public class CommonProcess {
             break
         }
         return retVal
+    }
+    
+    /**
+     * Make label multi color
+     * - parameter lbl:         Label view
+     * - parameter lstString:   List of sub strings
+     * - parameter colors:      List of colors
+     */
+    public static func makeMultiColorLabel(lbl: UILabel, lstString: [String], colors: [UIColor]) {
+        // Make sure list strings and list colors
+        if lstString.count != colors.count {
+            return
+        }
+        if let text = lbl.text, let font = lbl.font {
+            let mutableStr = NSMutableAttributedString(
+                string: lbl.text!,
+                attributes: [NSFontAttributeName: font])
+            for i in 0..<lstString.count {
+                let str = lstString[i]
+                let color = colors[i]
+                // Get range of current color
+                if let range = text.range(of: str) {
+                    let startPos = text.distance(from: text.startIndex, to: range.lowerBound)
+                    let nsRange = NSRange(location: startPos, length: str.characters.count)
+                    mutableStr.addAttribute(NSForegroundColorAttributeName,
+                                            value: color,
+                                            range: nsRange)
+                }
+            }
+            lbl.attributedText = mutableStr
+        }
     }
 }
