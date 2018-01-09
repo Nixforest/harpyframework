@@ -36,5 +36,14 @@ public class OrderConfigBean: NSObject {
     public override init() {
         
     }
-
+    
+    //++ BUG0156-SPJ (NguyenPT 20170925) Re-design Gas24h
+    /**
+     * Check if object's content is exist
+     * - returns: True if agent list is not empty, False otherwise
+     */
+    public func isExist() -> Bool {
+        return !agent.isEmpty
+    }
+    //-- BUG0156-SPJ (NguyenPT 20170925) Re-design Gas24h
 }

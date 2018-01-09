@@ -784,13 +784,8 @@ public class DomainConst {
     
     public static let KEY_IS_INVITED                    = "is_invited"
     public static let KEY_INVITED_CODE                  = "invite_code"
-    public static let KEY_HAS_EXPORT                    = "has_export"
-    public static let KEY_AMOUNT_GAS                    = "amount_gas"
-    public static let KEY_WEIGHT_INFO                   = "weight_info"
-    public static let KEY_ALLOW_SWIPE                   = "allow_swipe"
-    public static let KEY_AMOUNT_EMPTY                  = "amount_empty"
-    public static let KEY_AMOUNT_HAS_GAS                = "amount_has_gas"
-    public static let KEY_GAS_REMAIN_TYPE               = "gas_remain_type"
+    public static let KEY_CURRENT_POINT                 = "current_point"
+    public static let KEY_INVITED_LIST                  = "invited_list"
     
     
     // MARK: -----Specified constant-----
@@ -1175,8 +1170,6 @@ public class DomainConst {
     public static let KEY_MY_INVITE_CODE                = "my_invite_code"
     /** Key my_invite_code */
     public static let KEY_GAS24H_MENU_TEXT              = "gas24h_menu_text"
-    /** Key menu item: Gas remain list */
-    public static let KEY_MENU_GAS_REMAIN               = "gasremain_list"
     
     //++ BUG0050-SPJ (NguyenPT 20170325) Add new function G06
     /** Platform value: Android */
@@ -1326,11 +1319,6 @@ public class DomainConst {
     public static let MENU_PROMOTION_POLICY_ID          = "3"
     /** Constant App guide */
     public static let MENU_APP_GUIDE_ID                 = "4"
-    
-    /** Status of gas remain */
-    public static let STATUS_NOT_EXPORT                 = DomainConst.NUMBER_ZERO_VALUE
-    public static let STATUS_EXPORT                     = DomainConst.NUMBER_ONE_VALUE
-    public static let STATUS_WAIT_EXPORT                = DomainConst.NUMBER_TWO_VALUE
 
     /** -----Log message----- */
     /** Log tag: error. */
@@ -1351,8 +1339,7 @@ public class DomainConst {
     /** Space string */
     public static let SPACE_STR                         = " "
     /** Server URL (Training mode) */
-//    public static let SERVER_URL_TRAINING               = "http://android.huongminhgroup.com/api/"
-    public static let SERVER_URL_TRAINING               = "http://dev.spj.vn/api/"
+    public static let SERVER_URL_TRAINING               = "http://android.huongminhgroup.com/api/"
     /** Server URL */
     public static let SERVER_URL                        = "http://spj.daukhimiennam.com/api/"
     /** Immortal Server URL */
@@ -1572,7 +1559,7 @@ public class DomainConst {
     /** Address image name */
     public static let ADDRESS_IMG_NAME                      = "icon34-user-iso.png"
     /** Menu image name */
-    public static let MENU_IMG_NAME                         = "menu.png"
+    public static let MENU_IMG_NAME                         = "menubtn.png"
     /** Back image name */
     public static let BACK_IMG_NAME                         = "back.png"
     /** Back image name */
@@ -1901,8 +1888,17 @@ public class DomainConst {
     public static let PHONE_ICON_NEW_IMG_NAME                   = "phone_icon.png"
     /** Address icon image */
     public static let ADDRESS_ICON_NEW_IMG_NAME                 = "address_icon.png"
-    /** Search image name */
-    public static let QUICK_ACTION_ICON_IMG_NAME                = "quickaction_icon_add.png"
+    //++ BUG0171-SPJ (NguyenPT 20171127	) Add new menu
+    /** Menu item Promotion Policy */
+    public static let MENU_ITEM_PROMOTION_POLICY                = "ic_page_promotion.png"
+    /** Menu item App guide */
+    public static let MENU_ITEM_APP_GUIDE                       = "ic_page_guide.png"
+    /** Background of share content */
+    public static let SHARE_BACKGROUND_IMG_NAME                 = "background_share.jpg"
+    /** Background of share content */
+    public static let SHARE_ICON_IMG_NAME                       = "icon_share.png"
+    /** Image qr code */
+    public static let QR_CODE_ICON_IMG_NAME                     = "icon_qr.png"
     
     /** HTTP Post request method */
     public static let HTTP_POST_REQUEST                     = "POST"
@@ -2437,16 +2433,4 @@ public class DomainConst {
     public static let CONTENT00538 = "Chia sẻ với bạn bè"
     public static let CONTENT00539 = "---------- Hỗ trợ ----------"
     public static let CONTENT00540 = "Chưa nhập mã pin"
-    public static let CONTENT00541 = "Đơn hàng HGD"
-    public static let CONTENT00542 = "Tạo trả thẻ"
-    public static let CONTENT00543 = "Bạn có muốn trả thẻ cho đơn hàng hộ gia đình?"
-    public static let CONTENT00544 = "Bạn có muốn trả thẻ cho đơn hàng hộ gia đình?"
-    public static let CONTENT00545 = "Còn tồn"
-    public static let CONTENT00546 = "Đã xuất"
-    public static let CONTENT00547 = "Gas dư"
-    public static let CONTENT00548 = "Tạo gas dư"
-    public static let CONTENT00549 = "Xin vui lòng chọn đối tượng để tạo gas dư"
-    public static let CONTENT00550 = "Bạn đang gửi thông tin gas dư như bên dưới. Xin hãy kiểm tra lại các thông tin cho thật chính xác và nhấn nút Gửi nếu bạn đồng ý."
-    public static let CONTENT00551 = "Xin vui lòng chọn chi nhánh"
-    public static let CONTENT00552 = "Chi nhánh"
 }

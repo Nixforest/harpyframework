@@ -10,7 +10,7 @@ import UIKit
 
 //++ BUG0048-SPJ (NguyenPT 20170313) Create slide menu view controller
 //open class MaterialSelectViewController: BaseViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-open class MaterialSelectViewController: ChildViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,
+open class MaterialSelectViewController: ChildExtViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,
     UISearchBarDelegate {
 //-- BUG0048-SPJ (NguyenPT 20170313) Create slide menu view controller
     // MARK: Properties

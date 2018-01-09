@@ -84,6 +84,7 @@ public class OrderDetailBean: MaterialBean {
         self.material_id        = data.material_id
         self.materials_type_id  = data.materials_type_id
         self.material_name      = data.material_name
+        self.materials_name_short      = data.materials_name_short
         self.material_price     = data.material_price
         self.price              = data.price
         self.material_image     = data.material_image

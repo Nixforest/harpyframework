@@ -31,10 +31,10 @@ public class DistrictsListRequest: BaseRequest {
                                view: BaseViewController,
                                provinceId: String) {
         //++ BUG0059-SPJ (NguyenPT 20170420) Check list district is existed
-        if BaseModel.shared.getListDistricts(provinceId: provinceId) != nil
-            && BaseModel.shared.getListDistricts(provinceId: provinceId)?.count != 0 {
-            return
-        }
+//        if BaseModel.shared.getListDistricts(provinceId: provinceId) != nil
+//            && BaseModel.shared.getListDistricts(provinceId: provinceId)?.count != 0 {
+//            return
+//        }
         //-- BUG0059-SPJ (NguyenPT 20170420) Check list district is existed
         // Show overlay
         //LoadingView.shared.showOverlay(view: view.view)

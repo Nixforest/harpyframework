@@ -64,10 +64,6 @@ public class UpholdBean: NSObject {
     public var schedule_type: String = ""
     /** Reply items */
     public var reply_item: [UpholdReplyBean] = [UpholdReplyBean]()
-    //++ BUG0184-SPJ (NguyenPT 20171225) Show customer chain store
-    /** Store */
-    public var customer_name_chain:         String  = DomainConst.BLANK
-    //-- BUG0184-SPJ (NguyenPT 20171225) Show customer chain store
     
     /**
      * Initializer
@@ -109,9 +105,6 @@ public class UpholdBean: NSObject {
         self.schedule_type      = getString(json: jsonData, key: DomainConst.KEY_SCHEDULE_TYPE)
         self.rating_type.append(contentsOf: getListConfig(json: jsonData, key: DomainConst.KEY_RATING_TYPE))
         self.reply_item.append(contentsOf: getListUpholdReply(json: jsonData, key: DomainConst.KEY_REPLY_ITEM))
-        //++ BUG0184-SPJ (NguyenPT 20171225) Show customer chain store
-        self.customer_name_chain    = getString(json: jsonData, key: DomainConst.KEY_CUSTOMER_NAME_CHAIN)
-        //-- BUG0184-SPJ (NguyenPT 20171225) Show customer chain store
     }
     override init() {
         

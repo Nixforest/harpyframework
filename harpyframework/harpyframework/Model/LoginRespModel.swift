@@ -68,7 +68,11 @@ public class LoginRespModel : BaseRespModel {
     //++ BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
     var customer_chain_store:               [ConfigBean]        = [ConfigBean]()
     //-- BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
-    
+    var gas24h_time_check_order:            Int                 = 5
+    /** Invite code */
+    var my_invite_code:                     String              = DomainConst.BLANK
+    /** gas24h_menu_text */
+    var gas24h_menu_text:                   String              = DomainConst.BLANK    
     
     /**
      * Initializer
@@ -173,6 +177,10 @@ public class LoginRespModel : BaseRespModel {
                 //++ BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
                 self.customer_chain_store = getListConfig(json: json, key: DomainConst.KEY_CUSTOMER_CHAIN_STORE)
                 //-- BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
+                
+                self.gas24h_time_check_order = getInt(json: json, key: DomainConst.KEY_GAS24H_TIME_INTERVAL)
+                self.my_invite_code = getString(json: json, key: DomainConst.KEY_MY_INVITE_CODE)
+                self.gas24h_menu_text = getString(json: json, key: DomainConst.KEY_GAS24H_MENU_TEXT)
             } catch let error as NSError {
                 print(DomainConst.JSON_ERR_FAILED_LOAD + "\(error.localizedDescription)")
             }

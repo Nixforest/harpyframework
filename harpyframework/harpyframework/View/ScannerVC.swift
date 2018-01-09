@@ -9,17 +9,30 @@
 import UIKit
 import AVFoundation
 
-class ScannerVC: ChildExtViewController, AVCaptureMetadataOutputObjectsDelegate {
+public class ScannerVC: ChildExtViewController {
+    // MARK: Properties
+    /** Value label */
+    @IBOutlet var messageLabel:     UILabel!
+    /** Session capture */
+    var captureSession:             AVCaptureSession?
+    /** Preview layer */
+    var videoPreviewLayer:          AVCaptureVideoPreviewLayer?
+    /** QR code frame view */
+    var qrCodeFrameView:            UIView?
     
-    @IBOutlet var messageLabel:UILabel!
+    // MARK: Static variable
+    /** Notification name */
+    public static var _notificationName:    String = DomainConst.BLANK
     
-    var captureSession:AVCaptureSession?
-    var videoPreviewLayer:AVCaptureVideoPreviewLayer?
-    var qrCodeFrameView:UIView?
-    override func viewDidLoad() {
+    // MARK: Constant
+    
+    // MARK: Override methods
+    /**
+     * Called after the controller's view is loaded into memory.
+     */
+    override public func viewDidLoad() {
         super.viewDidLoad()
-//        self.setNavigationBarTitle(title: "Quét mã")
-        self.createNavigationBar(title: "Quét mã")
+        self.createNavigationBar(title: "Quét mã QR")
         // Do any additional setup after loading the view.
         // Get an instance of the AVCaptureDevice class to initialize a device object and provide the video as the media type parameter.
         let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
@@ -46,8 +59,8 @@ class ScannerVC: ChildExtViewController, AVCaptureMetadataOutputObjectsDelegate 
             videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
             videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
             videoPreviewLayer?.frame = CGRect(x: 0, y: self.getTopHeight(),
-                                              width: view.layer.bounds.width,
-                                              height: view.layer.bounds.height - self.getTopHeight())
+                                              width: UIScreen.main.bounds.width,
+                                              height: UIScreen.main.bounds.height - self.getTopHeight())
             view.layer.addSublayer(videoPreviewLayer!)
             
             // Start video capture.
@@ -73,8 +86,96 @@ class ScannerVC: ChildExtViewController, AVCaptureMetadataOutputObjectsDelegate 
         self.view.makeComponentsColor()
     }
     
-    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
-        
+    /**
+     * Handle update constants
+     */
+    override public func updateConst() {
+        super.updateConst()
+    }
+    
+    /**
+     * Create children views
+     */
+    override public func createChildrenViews() {
+        super.createChildrenViews()
+        // Get current device type
+        switch UIDevice.current.userInterfaceIdiom {
+        case .phone:        // iPhone
+            break
+        case .pad:          // iPad
+            switch UIApplication.shared.statusBarOrientation {
+            case .portrait, .portraitUpsideDown:        // Portrait
+                break
+            case .landscapeLeft, .landscapeRight:       // Landscape
+                break
+            default:
+                break
+            }
+            
+            break
+        default:
+            break
+        }
+    }
+    
+    /**
+     * Update children views
+     */
+    override public func updateChildrenViews() {
+        super.updateChildrenViews()
+        updateLayout()
+        // Get current device type
+        switch UIDevice.current.userInterfaceIdiom {
+        case .phone:        // iPhone
+            break
+        case .pad:          // iPad
+            switch UIApplication.shared.statusBarOrientation {
+            case .portrait, .portraitUpsideDown:        // Portrait
+                break
+            case .landscapeLeft, .landscapeRight:       // Landscape
+                break
+            default:
+                break
+            }
+            
+            break
+        default:
+            break
+        }
+    }
+    
+    // MARK: Event handler
+    /**
+     * Finish scan QR code
+     */
+    internal func finishScanQR(value: String) {
+        DispatchQueue.main.async {
+            NotificationCenter.default.post(
+                name: Notification.Name(rawValue: ScannerVC._notificationName),
+                object: value)
+            // Remove observer
+            NotificationCenter.default.removeObserver(
+                self.view,
+                name: Notification.Name(
+                    rawValue: ScannerVC._notificationName),
+                object: nil)
+        }
+    }
+    
+    // MARK - Layout
+    private func updateLayout() {
+        videoPreviewLayer?.frame = CGRect(x: 0, y: self.getTopHeight(),
+                                          width: UIScreen.main.bounds.width,
+                                          height: UIScreen.main.bounds.height - self.getTopHeight())
+    }
+}
+
+// MARK: Protocol - AVCaptureMetadataOutputObjectsDelegate
+extension ScannerVC: AVCaptureMetadataOutputObjectsDelegate {
+    /**
+     * Informs the delegate that the capture output object emitted new metadata objects.
+     */
+    public func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
         // Check if the metadataObjects array is not nil and it contains at least one object.
         if metadataObjects == nil || metadataObjects.count == 0 {
             qrCodeFrameView?.frame = CGRect.zero
@@ -88,38 +189,27 @@ class ScannerVC: ChildExtViewController, AVCaptureMetadataOutputObjectsDelegate 
         if metadataObj.type == AVMetadataObjectTypeQRCode {
             // If the found metadata is equal to the QR code metadata then update the status label's text and set the bounds
             let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
-            qrCodeFrameView?.frame = barCodeObject!.bounds
+            //            qrCodeFrameView?.frame = barCodeObject!.bounds
+            qrCodeFrameView?.frame = CGRect(
+                x: barCodeObject!.bounds.minX,
+                y: barCodeObject!.bounds.minY + getTopHeight(),
+                width: barCodeObject!.bounds.width,
+                height: barCodeObject!.bounds.height)
             
             if metadataObj.stringValue != nil {
                 messageLabel.text = metadataObj.stringValue
+                //                showAlert(message: "Quét mã thành công:\n\(metadataObj.stringValue)",
+                //                    okTitle: DomainConst.CONTENT00008,
+                //                    cancelTitle: "Quét lại",
+                //                    okHandler: {
+                //                        alert in
+                //                },
+                //                    cancelHandler: {
+                //                        alert in
+                //                })
+                self.finishScanQR(value: metadataObj.stringValue)
+                _ = self.navigationController?.popViewController(animated: true)
             }
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-//    public override func setNavigationBarTitle(title: String) {
-//        // Set title
-//        self.navigationItem.title = title
-//        // Set color text
-//        if BaseModel.shared.isTrainningMode {
-//            self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: GlobalConst.TRAINING_COLOR]
-//        } else {
-//            self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: GlobalConst.BUTTON_COLOR_RED]
-//        }
-//    }
 }

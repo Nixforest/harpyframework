@@ -342,24 +342,6 @@ public class CommonProcess {
     //-- BUG0104-SPJ (NguyenPT 20170606) Fix bug when start input date
     
     /**
-     * Get date object by string
-     * - parameter str: String to convert
-     * - parameter format: Format of date string (default is dd-mm-yyyy)
-     */
-    public static func getDateByString(str: String) -> Date {
-        let calendar = NSCalendar(identifier: NSCalendar.Identifier.gregorian)
-        let DateArray = str.components(separatedBy: "-")
-        let components = NSDateComponents()
-        components.year = Int(DateArray[2])!
-        components.month = Int(DateArray[1])!
-        components.day = Int(DateArray[0])!
-        if let retVal = calendar?.date(from: components as DateComponents) {
-            return retVal
-        }
-        return Date()
-    }
-    
-    /**
      * Set left image for textfield
      * - parameter textField: Current textField
      * - parameter name: Image name
@@ -396,32 +378,6 @@ public class CommonProcess {
      */
     public static func updateViewPos(view: UIView, x: CGFloat, y: CGFloat, w: CGFloat, h: CGFloat) {
         view.frame = CGRect(x: x, y: y, width: w, height: h)
-    }
-    
-    /**
-     * Get status string from status number
-     * - parameter status: Value of status number
-     * - returns: Value of status string
-     */
-    public static func getOrderVIPStatusString(status: String) -> String {
-        var retVal = DomainConst.BLANK
-        switch status {
-        case DomainConst.ORDER_STATUS_NEW:
-            retVal = DomainConst.CONTENT00329
-            break
-        case DomainConst.ORDER_STATUS_PROCESSING:
-            retVal = DomainConst.CONTENT00328
-            break
-        case DomainConst.ORDER_STATUS_COMPLETE:
-            retVal = DomainConst.CONTENT00330
-            break
-        case DomainConst.ORDER_STATUS_CANCEL:
-            retVal = DomainConst.CONTENT00331
-            break
-        default:
-            break
-        }
-        return retVal
     }
     
     /**

@@ -18,7 +18,16 @@ internal extension CIImage {
     ///
     /// - returns: an non-interpolated UIImage
     internal func nonInterpolatedImage(withScale scale: Scale = Scale(dx: 1, dy: 1)) -> UIImage? {
-        guard let cgImage = CIContext(options: nil).createCGImage(self, from: self.extent) else { return nil }
+        //++ BUG0172-SPJ (NguyenPT 20171130) Fix bug generate QR code on iPhone 5 was failed
+//        guard let cgImage = CIContext(options: nil).createCGImage(self, from: self.extent) else { return nil }
+        let eaglContext = EAGLContext(api: .openGLES2)
+        let ciContext = CIContext(eaglContext: eaglContext!)
+        guard let cgImage = ciContext.createCGImage(
+            self, from: self.extent)
+            else {
+                return nil
+        }
+        //-- BUG0172-SPJ (NguyenPT 20171130) Fix bug generate QR code on iPhone 5 was failed
         let size = CGSize(width: self.extent.size.width * scale.dx, height: self.extent.size.height * scale.dy)
         
         UIGraphicsBeginImageContextWithOptions(size, true, 0)

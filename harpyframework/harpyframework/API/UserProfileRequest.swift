@@ -57,10 +57,13 @@ public class UserProfileRequest: BaseRequest {
     
     /**
      * Set data content
-     * - parameter token: User token
      */
-    func setData(token: String) {
-        self.data = "q=" + String.init(format: "{\"token\":\"%@\"}", token)
+    func setData() {
+        self.data = "q=" + String.init(
+            format: "{\"%@\":\"%@\",\"%@\":%d}",
+            DomainConst.KEY_TOKEN,      BaseModel.shared.getUserToken(),
+            DomainConst.KEY_PLATFORM,   DomainConst.PLATFORM_IOS
+        )
     }
     
     //++ BUG0046-SPJ (NguyenPT 20170301) Use action for Request server completion
@@ -72,8 +75,9 @@ public class UserProfileRequest: BaseRequest {
     public static func requestUserProfile(action: Selector, view: BaseViewController) {
 //        LoadingView.shared.showOverlay(view: view.view)
         let request = UserProfileRequest(url: DomainConst.PATH_USER_PROFILE,
-                                                reqMethod: DomainConst.HTTP_POST_REQUEST, view: view)
-        request.setData(token: BaseModel.shared.getUserToken())
+                                         reqMethod: DomainConst.HTTP_POST_REQUEST,
+                                         view: view)
+        request.setData()
         NotificationCenter.default.addObserver(view, selector: action, name: NSNotification.Name(rawValue: request.theClassName), object: nil)
         request.execute()
     }

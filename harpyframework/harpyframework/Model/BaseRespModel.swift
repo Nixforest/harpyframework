@@ -63,9 +63,37 @@ open class BaseRespModel: NSObject {
         if self.status == DomainConst.RESPONSE_STATUS_SUCCESS {
             return true
         }
-        if self.code == "1987" {
-            BaseModel.shared.logoutSuccess()
+        //++ BUG0175-SPJ (NguyenPT 20171206) Handle response code
+//        if self.code == "1987" {
+//            BaseModel.shared.logoutSuccess()
+//        }
+        switch self.code {
+        case BaseRequest.ERROR_CODE_LOG_OUT:
+            if let currentVC = BaseViewController.getCurrentViewController() {
+                currentVC.showAlert(message: self.message,
+                                    okHandler: { alert in
+                                        BaseModel.shared.logoutSuccess()
+                                        currentVC.popToRootView()
+                                        currentVC.openLogin()
+                    })
+                
+            }
+        case BaseRequest.ERROR_CODE_UNKNOWN:
+            break
+        case BaseRequest.ERROR_CODE_LOST_CONNECTION:
+            break
+        case BaseRequest.ERROR_CODE_WRONG_VERSION:
+            if let currentVC = BaseViewController.getCurrentViewController() {
+                currentVC.showAlert(message: self.message,
+                                    okHandler: { alert in
+                                        currentVC.updateVersionAppStore()
+                })
+            }
+            break
+        default:
+            break
         }
+        //-- BUG0175-SPJ (NguyenPT 20171206) Handle response code
         //return self.status == DomainConst.RESPONSE_STATUS_SUCCESS
         return false
         //-- BUG0047-SPJ (NguyenPT 20170724) Refactor BaseRequest class
@@ -92,19 +120,17 @@ open class BaseRespModel: NSObject {
         BaseModel.shared.setErrorDetail(detail: jsonString)
     }
     
-    //++ BUG0158-SPJ (NguyenPT 20171113) Refactor BaseRequest class
     /**
      * Create failed json
      * - parameter msg: Message content
      * - returns: Format {"status":0,"code":0,"message":"Message content"}
      */
     public static func createFailedJson(msg: String) -> String {
-        let retVal = String.init(
+        var retVal = String.init(
             format: "{\"%@\":%d,\"%@\":%d,\"%@\":\"%@\"}",
             DomainConst.KEY_STATUS, 0,
             DomainConst.KEY_CODE, 0,
             DomainConst.KEY_MESSAGE, msg)
         return retVal
     }
-    //-- BUG0158-SPJ (NguyenPT 20171113) Refactor BaseRequest class
 }

@@ -65,16 +65,21 @@ public class LoginRequest: BaseRequest {
      * - parameter username: Username
      * - parameter password: Password
      */
-    func setData(username: String, password: String) {
+    func setData(username: String, password: String, token: String) {
         self.data = "q=" + String.init(
-            format: "{\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\"}",
+            format: "{\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":%@,\"%@\":\"%@\",\"%@\":%d}",
             DomainConst.KEY_USERNAME, username,
             DomainConst.KEY_PASSWORD, password,
             DomainConst.KEY_GCM_DEVICE_TOKEN, DomainConst.BLANK,
             DomainConst.KEY_APNS_DEVICE_TOKEN,
                     BaseModel.shared.checkDeviceTokenExist() ? BaseModel.shared.getDeviceToken() : "A7CA1E1F8434EE8D5E62264B22D29D64B7A3AC04E03899E6926503643FD07EC6",
             DomainConst.KEY_TYPE, "3",
-            DomainConst.KEY_FLAG_GAS_24H, BaseModel.shared.getAppType()
+            //++ BUG0156-SPJ (NguyenPT 20171005) Re-design Gas 24h
+            DomainConst.KEY_OTP_CODE, password,
+            //-- BUG0156-SPJ (NguyenPT 20171005) Re-design Gas 24h
+            DomainConst.KEY_FLAG_GAS_24H, BaseModel.shared.getAppType(),
+            DomainConst.KEY_TOKEN, token,
+            DomainConst.KEY_PLATFORM,   DomainConst.PLATFORM_IOS
         )
     }
     
@@ -86,13 +91,15 @@ public class LoginRequest: BaseRequest {
      * - parameter username:    Username
      * - parameter password:    Password
      */
-    public static func requestLogin(action: Selector, view: BaseViewController, username: String, password: String) {
+    public static func requestLogin(action: Selector, view: BaseViewController,
+                                    username: String, password: String,
+                                    token: String = DomainConst.BLANK) {
 //        // Show overlay
 //        LoadingView.shared.showOverlay(view: view.view)
         let request = LoginRequest(url: DomainConst.PATH_SITE_LOGIN,
                                    reqMethod: DomainConst.HTTP_POST_REQUEST,
                                    view: view)
-        request.setData(username: username, password: password)
+        request.setData(username: username, password: password, token: token)
         NotificationCenter.default.addObserver(view, selector: action, name: NSNotification.Name(rawValue: request.theClassName), object: nil)
         request.execute()
     }

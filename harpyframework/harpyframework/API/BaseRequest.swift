@@ -24,7 +24,22 @@ open class BaseRequest: NSObject {
     /** Completion block code */
     public var completionBlock: ((Any?) -> Void)? = nil
     //-- BUG0082-SPJ (NguyenPT 20170510) Change BaseRequest handle completion mechanism
+    //++ BUG0156-SPJ (NguyenPT 20170930) Re-design Gas24h
+    /** Flag show error */
+    private var isShowError:    Bool        = true
+    //-- BUG0156-SPJ (NguyenPT 20170930) Re-design Gas24h
     
+    //++ BUG0175-SPJ (NguyenPT 20171206) Handle response code
+    // MARK - Constant
+    /** Error code response when Log out */
+    public static let ERROR_CODE_LOG_OUT                    =   "1987"
+    /** Error code response when Lost connection */
+    public static let ERROR_CODE_LOST_CONNECTION            =   "1988"
+    /** Error code response when Unknown reason */
+    public static let ERROR_CODE_UNKNOWN                    =   "1989"
+    /** Error code response when Wrong version application */
+    public static let ERROR_CODE_WRONG_VERSION              =   "1990"
+    //-- BUG0175-SPJ (NguyenPT 20171206) Handle response code
     
     /**
      * Initializer
@@ -63,6 +78,7 @@ open class BaseRequest: NSObject {
         let serverUrl: URL = URL(string: BaseModel.shared.getServerURL() + self.url)!
         let request = NSMutableURLRequest(url: serverUrl)
         request.httpMethod = self.reqMethod
+        request.timeoutInterval = TimeInterval(30)
         request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringLocalCacheData
         request.setValue("Keep-Alive", forHTTPHeaderField: "Connection")
         //++ BUG0115-SPJ (NguyenPT 20170624) Handle add version code when request server
@@ -256,6 +272,9 @@ open class BaseRequest: NSObject {
 //                BaseModel.shared.setErrorDetail(detail: (error?.localizedDescription)!)
 //                self.handleErrorTask()
                 self.handleErrorTask(error: (error?.localizedDescription)!)
+//                if let err = error {
+//                    self.handleErrorTask(error: (error as! NSError).localizedDescription + (error as! NSError).localizedFailureReason!)
+//                }
                 //-- BUG0099-SPJ (NguyenPT 20170601) Handle when error happen
                 return
             }
@@ -340,7 +359,7 @@ open class BaseRequest: NSObject {
         LoadingView.shared.hideOverlayView(className: self.theClassName)
         //self.view.showAlert(message: DomainConst.CONTENT00196)
         
-        //++ BUG0158-SPJ (NguyenPT 20171113) Refactor BaseRequest class
+        //++ BUG0156-SPJ (NguyenPT 20170930) Re-design Gas24h
 //        self.view.showAlert(
 //            message: DomainConst.CONTENT00196,
 //            okHandler: {
@@ -351,12 +370,28 @@ open class BaseRequest: NSObject {
 //                alert in
 //        
 //        })
-        //-- BUG0158-SPJ (NguyenPT 20171113) Refactor BaseRequest class
+//        if isShowError {
+//            self.view.showAlert(
+//                message: DomainConst.CONTENT00196,
+//                okHandler: {
+//                    alert in
+//                    // Reload data
+//                    // Update setting
+//                    // Re-execute
+//                    self.execute()
+//            },
+//                cancelHandler: {
+//                    alert in
+//                    
+//            })
+//        } else {
+//            self.execute(isShowLoadingView: false)
+//        }
+        //-- BUG0156-SPJ (NguyenPT 20170930) Re-design Gas24h
+        
         DispatchQueue.main.async {
-            //++ BUG0158-SPJ (NguyenPT 20171113) Refactor BaseRequest class
             let model = BaseRespModel.createFailedJson(msg: error)
             NotificationCenter.default.post(name: Notification.Name(rawValue: self.theClassName), object: model)
-            //-- BUG0158-SPJ (NguyenPT 20171113) Refactor BaseRequest class
             // Remove observer
             NotificationCenter.default.removeObserver(self.view, name: Notification.Name(rawValue: self.theClassName), object: nil)
         }
@@ -366,4 +401,22 @@ open class BaseRequest: NSObject {
     internal func finishCreateErrorLog(_ notification: Notification) {
         
     }
+    
+    //++ BUG0156-SPJ (NguyenPT 20170930) Re-design Gas24h
+    /**
+     * Set value of flag show error
+     * - parameter value: Value of flag
+     */
+    public func setFlagShowError(value: Bool) {
+        self.isShowError = value
+    }
+    //-- BUG0156-SPJ (NguyenPT 20170930) Re-design Gas24h
+    
+    public static func cancel() {
+        URLSession.shared.invalidateAndCancel()
+    }
+}
+
+extension BaseRequest: URLSessionDelegate {
+    
 }

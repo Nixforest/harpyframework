@@ -10,7 +10,7 @@ import UIKit
 
 //++ BUG0048-SPJ (NguyenPT 20170309) Remove popover menu
 //open class StepVC: BaseViewController, UIScrollViewDelegate, ScrollButtonListDelegate {
-open class StepVC: ChildExtViewController, UIScrollViewDelegate, ScrollButtonListDelegate {
+open class StepVC: ChildViewController, UIScrollViewDelegate, ScrollButtonListDelegate {
 //-- BUG0048-SPJ (NguyenPT 20170309) Remove popover menu
     // MARK: Properties
     /** Step number */

@@ -50,8 +50,11 @@ public class BaseModel: NSObject {
     public var listRatingType: [ConfigBean] = [ConfigBean]()
     /** Id of role */
     var role_id: String = ""
+    // NguyenPT - Will remove in next version
     /** List user info */
     public var user_info: UserInfoBean? = nil
+    // NguyenPT
+    private var _userInfo:                      UserInfoBean    = UserInfoBean()
     /** User information get from login */
     public var user_info_login: [ConfigBean] = [ConfigBean]()
     /** List check menu */
@@ -141,6 +144,14 @@ public class BaseModel: NSObject {
     /** Agent id */
     private var _agentId:                   String              = DomainConst.BLANK
     //-- BUG0151-SPJ (NguyenPT 20170819) Save agent id to user default setting
+    private var _gas24hTimeCheckOrder:      Int                 = 5
+    /** My invite code */
+    private var _inviteCode:                String              = DomainConst.BLANK
+    /** Gas24h menu text */
+    private var _gas24hMenuText:            String              = DomainConst.BLANK
+    
+    /** Flag check first order */
+    private var _isFirstOrder:              Bool                = true
     
     // MARK - Methods
     override init() {
@@ -241,6 +252,11 @@ public class BaseModel: NSObject {
             self._agentId = defaults.object(forKey: DomainConst.KEY_SETTING_AGENT_ID) as! String
         }
         //-- BUG0151-SPJ (NguyenPT 20170819) Save agent id to user default setting
+        // Get isFirstOrder flag value
+        self._isFirstOrder = false
+        if defaults.object(forKey: DomainConst.KEY_SETTING_IS_FIRST_ORDER) != nil {
+            self._isFirstOrder = defaults.object(forKey: DomainConst.KEY_SETTING_IS_FIRST_ORDER) as! Bool
+        }
     }
     
     /**
@@ -529,7 +545,8 @@ public class BaseModel: NSObject {
         isLogin = false
         userToken = ""
         self._transaction = TransactionBean.init()
-        self.user_info = nil
+        //self.user_info = nil
+        self._userInfo = UserInfoBean()
         self.notifyCountText = ""
         self.setTempToken(token: "")
         //++ BUG0049-SPJ (NguyenPT 20170622) Handle save user info in setting
@@ -605,7 +622,8 @@ public class BaseModel: NSObject {
      * - parameter roleId: Id of role
      */
     public func setUserInfo(userInfo: UserInfoBean) {
-        self.user_info = userInfo
+        //self.user_info = userInfo
+        self._userInfo = userInfo
     }
     
     /**
@@ -703,9 +721,9 @@ public class BaseModel: NSObject {
         // List street
         //++ BUG0109-SPJ (NguyenPT 20170617) Handle save unsigned value of street name
         for item in loginModel.list_street {
-            let itemAdd = item
-            itemAdd.data.append(ConfigBean(id: DomainConst.BLANK, name: item.name.removeSign().lowercased()))
-            self.list_street.append(itemAdd)
+            //let itemAdd = item
+            item.data.append(ConfigBean(id: DomainConst.BLANK, name: item.name.removeSign().lowercased()))
+            //self.list_street.append(itemAdd)
         }
         //-- BUG0109-SPJ (NguyenPT 20170617) Handle save unsigned value of street name
         self.list_street = loginModel.list_street
@@ -743,6 +761,9 @@ public class BaseModel: NSObject {
         //++ BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
         self._listVipCustomerStores = loginModel.customer_chain_store
         //-- BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
+        self._gas24hTimeCheckOrder  = loginModel.gas24h_time_check_order
+        self._inviteCode            = loginModel.my_invite_code
+        self._gas24hMenuText        = loginModel.gas24h_menu_text
     }
     
     /**
@@ -995,7 +1016,24 @@ public class BaseModel: NSObject {
      * - parameter config: Order config data
      */
     public func saveOrderConfig(config: OrderConfigBean) {
-        self._orderConfig = config
+//        self._orderConfig = config
+        // If server response only 1 agent
+        if config.agent.count == 1 {
+            // Loop through all current data
+            for i in 0..<self._orderConfig.agent.count {
+                // Get current item
+                var item = self._orderConfig.agent[i]
+                // Current item have id equal response agent id
+                if item.info_agent.agent_id == config.agent[0].info_agent.agent_id {
+                    // Overwrite current item
+                    item = config.agent[0]
+                    break
+                }
+            }
+        } else {
+            // Save all data
+            self._orderConfig = config
+        }
         //++ BUG0151-SPJ (NguyenPT 20170819) Handle favourite when select material
         FavouriteDataModel.shared.updateListMaterialGas(agentInfo: self._orderConfig.agent)
         //-- BUG0151-SPJ (NguyenPT 20170819) Handle favourite when select material
@@ -1008,6 +1046,32 @@ public class BaseModel: NSObject {
     public func getOrderConfig() -> OrderConfigBean {
         return self._orderConfig
     }
+    
+    //++ BUG0156-SPJ (NguyenPT 20170925) Re-design Gas24h
+    /**
+     * Get list agent from order config data
+     * - returns: List agent from order config data
+     */
+    public func getAgentListFromOrderConfig() -> [AgentInfoBean] {
+        return self._orderConfig.agent
+    }
+    
+    /**
+     * Get max range distant from Order config
+     * - returns: Return [distance_1] value
+     */
+    public func getMaxRangeDistantFromOrderConfig() -> Double {
+        return self._orderConfig.distance_1
+    }
+    
+    /**
+     * Check if order does exist
+     * - returns: True if order config exist, False otherwise
+     */
+    public func checkOrderConfigExist() -> Bool {
+        return self._orderConfig.isExist()
+    }
+    //-- BUG0156-SPJ (NguyenPT 20170925) Re-design Gas24h
     
     //++ BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Get new data
     /**
@@ -1129,8 +1193,12 @@ public class BaseModel: NSObject {
      * - parameter districtId: Id of district
      * - returns: List of wards
      */
-    public func getListWards(districtId: String) -> [ConfigBean]? {
-        return self._listWards[districtId]
+    public func getListWards(districtId: String) -> [ConfigBean] {
+        if let retVal = self._listWards[districtId] {
+            return retVal
+        }
+//        return self._listWards[districtId]
+        return [ConfigBean]()
     }
     
     /**
@@ -1146,8 +1214,12 @@ public class BaseModel: NSObject {
      * - parameter provinceId: Id of province
      * - returns: List of districts
      */
-    public func getListDistricts(provinceId: String) -> [ConfigBean]? {
-        return self._listDistricts[provinceId]
+    public func getListDistricts(provinceId: String) -> [ConfigBean] {
+        if let retVal = self._listDistricts[provinceId] {
+            return retVal
+        }
+        return [ConfigBean]()
+        //return self._listDistricts[provinceId]
     }
     
     /**
@@ -1178,6 +1250,40 @@ public class BaseModel: NSObject {
      */
     public func getListFamilyInvestments() -> [ConfigBean] {
         return self.list_hgd_invest
+    }
+    
+    /**
+     * Check if provinces list is empty
+     * - returns: True if list provinces is empty, False otherwise
+     */
+    public func checkProvincesListEmpty() -> Bool {
+        return self._listProvinces.isEmpty
+    }
+    
+    /**
+     * Check if districts of a province is empty
+     * - parameter provinceId: If of province
+     * - returns: True if list of districts of province is empty, False otherwise
+     */
+    public func checkDistrictListEmpty(provinceId: String) -> Bool {
+        if let val = self._listDistricts[provinceId] {
+            return val.isEmpty
+        } else {
+            return true
+        }
+    }
+    
+    /**
+     * Check if wards of a district is empty
+     * - parameter districtId: Id of district
+     * - returns: True if list of wards of district is empty, False otherwise
+     */
+    public func checkWardListEmpty(districtId: String) -> Bool {
+        if let val = self._listWards[districtId] {
+            return val.isEmpty
+        } else {
+            return true
+        }
     }
     //-- BUG0050-SPJ (NguyenPT 20170403) Handle Address information
     //++ BUG0054-SPJ (NguyenPT 20170414) Add new function G07
@@ -1479,4 +1585,70 @@ public class BaseModel: NSObject {
         return self._agentId
     }
     //-- BUG0151-SPJ (NguyenPT 20170819) Handle favourite when select material
+    
+    /**
+     * Check is first order
+     * - returns: Value of _isFirstOrder flag
+     */
+    public func isFirstOrder() -> Bool {
+        return self._isFirstOrder
+    }
+    
+    /**
+     * Get user information
+     * - returns: User information
+     */
+    public func getUserInfo() -> UserInfoBean {
+        return self._userInfo
+    }
+    
+    /**
+     * Get name of province in User info
+     * - returns: Name of province
+     */
+    public func getUserInfoProvinceName() -> String {
+        return self.getProvinceNameById(id: self._userInfo.getProvinceId())
+    }
+    
+    /**
+     * Get name of district in User info
+     * - returns: Name of district
+     */
+    public func getUserInfoDistrictName() -> String {
+        return self.getDistrictNameById(id: self._userInfo.getDistrictId(),
+                                        provinceId: self._userInfo.getProvinceId())
+    }
+    
+    /**
+     * Get name of ward in User info
+     * - returns: Name of ward
+     */
+    public func getUserInfoWardName() -> String {
+        return self.getWardNameById(id: self._userInfo.getWardId(),
+                                    districtId: self._userInfo.getDistrictId())
+    }
+    
+    /**
+     * Get gas24h time check order
+     * - returns: Int
+     */
+    public func getGas24hTimeCheckOrder() -> Int {
+        return _gas24hTimeCheckOrder
+    }
+    
+    /**
+     * Get invite code
+     * - returns: String
+     */
+    public func getInviteCode() -> String {
+        return _inviteCode
+    }
+    
+    /**
+     * Get Gas24h Menu text
+     * - returns: String
+     */
+    public func getGas24hMenuText() -> String {
+        return _gas24hMenuText
+    }
 }

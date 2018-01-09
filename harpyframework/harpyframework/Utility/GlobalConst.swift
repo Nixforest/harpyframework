@@ -128,9 +128,6 @@ public class GlobalConst {
     /** Time interval for animation in Step view controller */
     public static let STEP_MOVE_TIME_INTERVAL       = 0.1
     //-- BUG0050-SPJ (NguyenPT 20170330) Update Step VC: Use animation for move view
-    public static var STATUS_GAREMAIN_COLOR_WAIT        = ColorFromRGB().getColorFromRGB(0xf89c27)
-    public static var STATUS_GAREMAIN_COLOR_NOT_EXPORT  = ColorFromRGB().getColorFromRGB(0x999999)
-    public static var STATUS_GAREMAIN_COLOR_EXPORT      = ColorFromRGB().getColorFromRGB(0x33cc00)
     
     // ----- New constants -----
     /** Width of animating loading */
@@ -156,7 +153,8 @@ public class GlobalConst {
     /** Height of Login textfield */
     public static let LOGIN_TEXTFIELD_HEIGHT:       CGFloat = 135
     /** Size of Login next button */
-    public static let LOGIN_NEXT_BUTTON_SIZE:       CGFloat = 100
+//    public static let LOGIN_NEXT_BUTTON_SIZE:       CGFloat = 100
+    public static let LOGIN_NEXT_BUTTON_SIZE:       CGFloat = 135
     /** Butotn corner radius */
     public static let BUTTON_CORNER_RADIUS_NEW:     CGFloat = 5.0
     /** Time interval for animation in Step view controller */

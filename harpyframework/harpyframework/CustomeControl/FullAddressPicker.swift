@@ -126,7 +126,7 @@ public class FullAddressPicker: UIView, AddressPickerViewDelegate {
             if BaseModel.shared.getListDistricts(provinceId: _pkrProvince.getSelectedID()) != nil {
                 // Set data
                 _pkrDistrict.setData(data: BaseModel.shared.getListDistricts(
-                    provinceId: _pkrProvince.getSelectedID())!)
+                    provinceId: _pkrProvince.getSelectedID()))
             } else {
                 // Request data from server
                 DistrictsListRequest.requestDistricts(
@@ -147,7 +147,7 @@ public class FullAddressPicker: UIView, AddressPickerViewDelegate {
             if BaseModel.shared.getListWards(districtId: _pkrDistrict.getSelectedID()) != nil {
                 // Set data
                 _pkrWard.setData(data: BaseModel.shared.getListWards(
-                    districtId: _pkrDistrict.getSelectedID())!)
+                    districtId: _pkrDistrict.getSelectedID()))
             } else {
                 // Request data from server
                 WardsListRequest.requestWards(

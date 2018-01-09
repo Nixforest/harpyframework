@@ -252,6 +252,7 @@ extension UIImageView {
         request.httpMethod  = DomainConst.HTTP_POST_REQUEST
         //request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringLocalCacheData
         request.cachePolicy = NSURLRequest.CachePolicy.returnCacheDataElseLoad
+        
         // Execute task
         URLSession.shared.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
             let phImage = UIImage(named: DomainConst.DEFAULT_IMG_NAME)
@@ -557,25 +558,38 @@ extension UIButton {
         let btnSize: CGFloat = self.frame.width
         // Resize image and put at specific location
         self.imageEdgeInsets = UIEdgeInsets(top: 0.0,
-                                            left: btnSize / 4,
-                                            bottom: btnSize / 2,
-                                            right: btnSize / 4)
+//                                            left: btnSize / 4,
+                                            left: (btnSize - (imgSize?.width)!) / 2,
+                                            bottom: btnSize  / 3,
+                                            right: (btnSize - (imgSize?.width)!) / 2)
+//                                            right: btnSize / 4)
         // Get natural width of title label
         let width       = self.titleLabel?.text?.widthOfString(usingFont: (self.titleLabel?.font)!)
+        let height      = self.titleLabel?.text?.heightOfString(usingFont: (self.titleLabel?.font)!)
         // Calculate left distance want to move
-        var deltaLeft   = (btnSize - width! - (lblSize?.width)!) / 2
+//        var deltaLeft   = (btnSize - width! + (lblSize?.width)!) - (btnSize - width!)
+        var deltaLeft   = (lblSize?.width)!
         // Calculate right distance want to move
         var deltaRight: CGFloat = 0.0
         if width! > btnSize {
             deltaLeft   = (width! - btnSize + (lblSize?.width)!)
             deltaRight  = (btnSize - width!)
         }
+        let deltaTop = btnSize - self.imageEdgeInsets.bottom + GlobalConst.MARGIN_CELL_X
+        var deltaBottom = 0.0
+        if deltaTop + height! > btnSize {
+            deltaBottom = Double((deltaTop + height!) - btnSize)
+        }
         
         // Resize title and put at specific location
-        self.titleEdgeInsets = UIEdgeInsets(top: btnSize / 2,
+        self.titleEdgeInsets = UIEdgeInsets(top: deltaTop,
                                             left: -(imgSize!.width) - deltaLeft,
-                                            bottom: 0.0,
+                                            bottom: -CGFloat(deltaBottom),
                                             right: deltaRight)
+//        self.titleEdgeInsets = UIEdgeInsets(top: btnSize - self.imageEdgeInsets.bottom,
+//                                            left: 0,
+//                                            bottom: 0,
+//                                            right: 0)
     }
     
     /**
@@ -584,30 +598,79 @@ extension UIButton {
     public func centerVerticallyRect() {
         // Get original image size and title size
         let imgSize = self.imageView?.frame
-        let lblSize = self.titleLabel?.frame.size
-        let btnSize: CGFloat = self.frame.width
+        let titleOriginSize = self.titleLabel?.frame.size
+        let btnWidth: CGFloat = self.frame.width
         let btnHeight: CGFloat = self.frame.height
         // Resize image and put at specific location
         self.imageEdgeInsets = UIEdgeInsets(top: 0.0,
-                                            left: (btnSize - btnHeight / 2) / 2,
+//                                            left: (btnWidth - btnHeight / 2) / 2,
+                                            left: (btnWidth - (imgSize?.width)!) / 2,
                                             bottom: btnHeight / 2,
-                                            right: (btnSize - btnHeight / 2) / 2)
+                                            right: (btnWidth - (imgSize?.width)!) / 2)
+//                                            right: (btnWidth - btnHeight / 2) / 2)
         // Get natural width of title label
-        let width       = self.titleLabel?.text?.widthOfString(usingFont: (self.titleLabel?.font)!)
+        let titleRealWidth       = self.titleLabel?.text?.widthOfString(usingFont: (self.titleLabel?.font)!)
         // Calculate left distance want to move
-        var deltaLeft   = (btnSize - width! - (lblSize?.width)!) / 2
+//        var deltaLeft   = (btnWidth - titleRealWidth! - (titleOriginSize?.width)!) / 2
+        var deltaLeft: CGFloat    = 0.0
         // Calculate right distance want to move
         var deltaRight: CGFloat = 0.0
-        if width! > btnSize {
-            deltaLeft   = (width! - btnSize + (lblSize?.width)!)
-            deltaRight  = (btnSize - width!)
+        if titleRealWidth! >= btnWidth {
+            if UIDevice.current.userInterfaceIdiom == .phone {
+                deltaLeft   = (titleRealWidth! - btnWidth + (titleOriginSize?.width)!)
+            } else {
+                deltaLeft   = (titleRealWidth! - btnWidth)
+            }
+//            deltaRight  = (btnWidth - titleRealWidth!)
+            deltaRight  = (btnWidth - titleRealWidth!)
         }
         
         // Resize title and put at specific location
         self.titleEdgeInsets = UIEdgeInsets(top: btnHeight / 2,
-                                            left: deltaLeft - (imgSize?.maxX)!,
+//                                            left: deltaLeft - (imgSize?.maxX)!,
+                                            left: -(imgSize?.maxX)! - deltaLeft,
                                             bottom: 0.0,
                                             right: deltaRight)
+//                                            right: deltaLeft)
+        self.titleLabel?.sizeToFit()
+    }
+    
+    public func centerVerticallyRectTextUpper() {
+        // Get original image size and title size
+        let imgSize = self.imageView?.frame
+        let titleOriginSize = self.titleLabel?.frame.size
+        let btnWidth: CGFloat = self.frame.width
+        let btnHeight: CGFloat = self.frame.height
+        // Get natural width of title label
+        let titleRealWidth  = self.titleLabel?.text?.widthOfString(usingFont: (self.titleLabel?.font)!)
+        // Calculate left distance want to move
+        var deltaLeft: CGFloat    = 0.0
+        // Calculate right distance want to move
+        var deltaRight: CGFloat = 0.0
+        if titleRealWidth! >= btnWidth {
+            if UIDevice.current.userInterfaceIdiom == .phone {
+                deltaLeft   = (titleRealWidth! - btnWidth + (titleOriginSize?.width)!)
+            } else {
+                deltaLeft   = (titleRealWidth! - btnWidth)
+            }
+            //            deltaRight  = (btnWidth - titleRealWidth!)
+            deltaRight  = (btnWidth - titleRealWidth!)
+        } else {
+            deltaLeft   = (btnWidth - titleRealWidth! - (titleOriginSize?.width)!) / 2
+        }
+        
+        // Resize title and put at specific location
+        self.titleEdgeInsets = UIEdgeInsets(top: -btnHeight / 2,
+                                            left: (btnWidth)/2,
+                                            bottom: (btnHeight / 2 - (titleOriginSize?.height)!),
+                                            right: 0.0)
+        // Resize image and put at specific location
+//        self.imageEdgeInsets = UIEdgeInsets(top: (self.titleLabel?.frame.maxY)! / 2,
+        self.imageEdgeInsets = UIEdgeInsets(top: (self.titleLabel?.frame.maxY)! / 2,
+                                            left: (btnWidth - (imgSize?.width)!) / 2,
+                                            bottom: 0.0,
+                                            right: (btnWidth - (imgSize?.width)!) / 2)
+        self.titleLabel?.sizeToFit()
     }
 }
 
@@ -728,7 +791,7 @@ extension String {
     
     /**
      * Remove sign
-     * - returns: Sttring after remove sign
+     * - returns: String after remove sign
      */
     public func removeSign() -> String {
         var retVal = self
@@ -910,6 +973,32 @@ extension String {
         return date!
     }
     //-- BUG0104-SPJ (NguyenPT 20170606) Fix bug when start input date
+    
+    
+    func index(of string: String, options: CompareOptions = .literal) -> Index? {
+        return range(of: string, options: options)?.lowerBound
+    }
+    func endIndex(of string: String, options: CompareOptions = .literal) -> Index? {
+        return range(of: string, options: options)?.upperBound
+    }
+    func indexes(of string: String, options: CompareOptions = .literal) -> [Index] {
+        var result: [Index] = []
+        var start = startIndex
+        while let range = range(of: string, options: options, range: start..<endIndex) {
+            result.append(range.lowerBound)
+            start = range.upperBound
+        }
+        return result
+    }
+    func ranges(of string: String, options: CompareOptions = .literal) -> [Range<Index>] {
+        var result: [Range<Index>] = []
+        var start = startIndex
+        while let range = range(of: string, options: options, range: start..<endIndex) {
+            result.append(range)
+            start = range.upperBound
+        }
+        return result
+    }
 }
 
 public extension NSObject {

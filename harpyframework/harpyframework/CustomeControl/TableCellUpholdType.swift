@@ -210,7 +210,6 @@ open class TableCellUpholdType: UITableViewCell {
         self._parentView.addSubview(self.centerView)
         self._parentView.addSubview(self.rightView)
         self._parentView.addSubview(self.bottomView)
-        self.bottomView.makeComponentsColor()
     }
     
     /**
@@ -244,24 +243,12 @@ open class TableCellUpholdType: UITableViewCell {
                 
                 self.customerNameLabel.text = model.schedule_month
             }
-            //++ BUG0184-SPJ (NguyenPT 20171225) Show customer chain store
-//            self.problemIcon.isHidden = true
-//            self.problemLabel.isHidden = true
-//            self.employeeIcon.frame = self.problemIcon.frame
-//            self.employeeLabel.frame = self.problemLabel.frame            
-            //-- BUG0184-SPJ (NguyenPT 20171225) Show customer chain store
+            self.problemIcon.isHidden = true
+            self.problemLabel.isHidden = true
+            self.employeeIcon.frame = self.problemIcon.frame
+            self.employeeLabel.frame = self.problemLabel.frame
             self.addressIcon.isHidden = true
             self.addressLabel.isHidden = true
-            //++ BUG0184-SPJ (NguyenPT 20171225) Show customer chain store
-            if model.customer_name_chain.isEmpty {
-                self.problemIcon.isHidden = true
-                self.problemLabel.isHidden = true
-            } else {
-                self.problemIcon.isHidden = false
-                self.problemLabel.isHidden = false
-                self.problemLabel.text = model.customer_name_chain
-            }
-            //-- BUG0184-SPJ (NguyenPT 20171225) Show customer chain store
         }
     }
 }

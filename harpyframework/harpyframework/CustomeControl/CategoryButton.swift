@@ -18,6 +18,10 @@ public class CategoryButton: UIButton {
     }
      */
     
+    public init() {
+        super.init(frame: CGRect.zero)
+    }
+    
     /**
      * Constructor
      * - parameter frame:       Frame of button
@@ -31,11 +35,25 @@ public class CategoryButton: UIButton {
         super.init(frame: UIScreen.main.bounds)
         self.frame                      = frame
         self.accessibilityIdentifier    = id
-        self.backgroundColor            = UIColor.white
+//        self.backgroundColor            = UIColor.white
+        self.backgroundColor            = UIColor(white: 0, alpha: 0.0)
+        //++ BUG0156-SPJ (NguyenPT 20171009) Re-design Gas24h
+        let titleFrame = self.titleLabel?.frame
+        self.titleLabel?.frame = CGRect(
+            x: (titleFrame?.minX)!,
+            y: (titleFrame?.minY)!,
+            width: frame.width,
+            height: GlobalConst.LABEL_H * 2)
+        //-- BUG0156-SPJ (NguyenPT 20171009) Re-design Gas24h
         self.titleLabel?.font           = UIFont.systemFont(ofSize: GlobalConst.SMALL_FONT_SIZE)
         self.setTitle(title, for: UIControlState())
-        self.setTitleColor(UIColor.darkText, for: UIControlState.normal)
-        self.setTitleColor(GlobalConst.BUTTON_COLOR_RED_TRUE, for: UIControlState.selected)
+        self.setTitleColor(UIColor.gray, for: UIControlState.normal)
+        self.setTitleColor(UIColor.black, for: UIControlState.selected)
+        //++ BUG0156-SPJ (NguyenPT 20171009) Re-design Gas24h
+        self.titleLabel?.lineBreakMode = .byWordWrapping
+        self.titleLabel?.numberOfLines = 0
+        self.titleLabel?.textAlignment = .center
+        //-- BUG0156-SPJ (NguyenPT 20171009) Re-design Gas24h
         //++ BUG0127-SPJ (NguyenPT 20170724) Uphold rating: merge to 1 step
 //        self.setImage(ImageManager.getImage(named: icon), for: UIControlState.normal)
 //        self.setImage(ImageManager.getImage(named: iconActive), for: UIControlState.selected)
@@ -56,11 +74,14 @@ public class CategoryButton: UIButton {
      * - parameter font:        Font of button
      */
     public init(frame: CGRect, icon: String, iconActive: String,
-                title: String, id: String, font: CGFloat) {
+                title: String, id: String, font: CGFloat, isUpperText: Bool = false) {
         super.init(frame: UIScreen.main.bounds)
         self.frame                      = frame
         self.accessibilityIdentifier    = id
-        self.backgroundColor            = UIColor.white
+        //++ BUG0156-SPJ (NguyenPT 20170921) Re-design Gas24h
+//        self.backgroundColor            = UIColor.white
+        self.backgroundColor            = UIColor(white: 0, alpha: 0.0)
+        //-- BUG0156-SPJ (NguyenPT 20170921) Re-design Gas24h
         self.titleLabel?.font           = UIFont.systemFont(ofSize: font)
         self.setTitle(title, for: UIControlState())
         self.setTitleColor(UIColor.darkText, for: UIControlState.normal)
@@ -71,7 +92,14 @@ public class CategoryButton: UIButton {
         handleImage(icon: icon, iconActive: iconActive)
         //-- BUG0127-SPJ (NguyenPT 20170724) Uphold rating: merge to 1 step
         self.imageView?.contentMode = .scaleAspectFit
-        self.centerVerticallyRect()
+        //++ BUG0156-SPJ (NguyenPT 20170921) Re-design Gas24h
+//        self.centerVerticallyRect()
+        if isUpperText {
+            self.centerVerticallyRectTextUpper()
+        } else {
+            self.centerVerticallyRect()
+        }
+        //-- BUG0156-SPJ (NguyenPT 20170921) Re-design Gas24h
         self.makeComponentsColor()
     }
     
@@ -85,7 +113,7 @@ public class CategoryButton: UIButton {
      * - parameter icon:        Icon of button
      * - parameter iconActive:  Active icon of button
      */
-    private func handleImage(icon: String, iconActive: String) {
+    public func handleImage(icon: String, iconActive: String) {
         self.setImage(ImageManager.getImage(named: icon), for: UIControlState.normal)
         if icon == iconActive {
             let active = ImageManager.getImage(named: iconActive)

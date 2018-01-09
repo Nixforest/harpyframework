@@ -20,7 +20,7 @@ open class ParentExtViewController: ParentViewController {
 //        self.navigationItem.title = title
         
         let button =  UIButton(type: .custom)
-        button.frame = CGRect(x: 0, y: 0, width: 100, height: 40)
+        button.frame = CGRect(x: 0, y: 0, width: GlobalConst.MENU_BUTTON_W, height: GlobalConst.MENU_BUTTON_H)
         // Set color text
 //        if BaseModel.shared.isTrainningMode {
 ////            self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: GlobalConst.TRAINING_COLOR]
@@ -28,7 +28,7 @@ open class ParentExtViewController: ParentViewController {
 //        } else {
 //            button.setTitleColor(UIColor.white, for: .normal)
 //        }
-        button.setTitleColor(GlobalConst.MAIN_COLOR, for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
         button.setTitle(title, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: GlobalConst.LARGE_FONT_SIZE)
         if title == DomainConst.HOTLINE {
@@ -39,7 +39,7 @@ open class ParentExtViewController: ParentViewController {
         }
         
         self.navigationItem.titleView = button
-//        self.navigationController?.navigationBar.barTintColor = GlobalConst.MAIN_COLOR_GAS_24H
+        self.navigationController?.navigationBar.barTintColor = GlobalConst.MAIN_COLOR_GAS_24H
     }
     
     /**
@@ -51,7 +51,7 @@ open class ParentExtViewController: ParentViewController {
         let tintedImg           = menu?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
         let btnMenu = UIButton()
         btnMenu.setImage(tintedImg, for: UIControlState())
-        btnMenu.tintColor    = GlobalConst.BUTTON_COLOR_RED
+        btnMenu.tintColor    = UIColor.white
         btnMenu.frame        = CGRect(x: 0, y: 0,
                                       width: GlobalConst.MENU_BUTTON_W,
                                       height: GlobalConst.MENU_BUTTON_H)
@@ -82,7 +82,7 @@ open class ParentExtViewController: ParentViewController {
         let notifyNavBar = UIBarButtonItem()
         notifyNavBar.customView = btnNotify
         notifyNavBar.isEnabled = BaseModel.shared.checkIsLogin()
-        self.navigationItem.setRightBarButton(notifyNavBar, animated: true)
+//        self.navigationItem.setRightBarButton(notifyNavBar, animated: true)
     }
     
     internal func clickOnTitle(_ sender: AnyObject) {
