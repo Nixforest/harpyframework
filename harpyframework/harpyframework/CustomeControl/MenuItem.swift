@@ -46,7 +46,7 @@ class MenuItem: UIView {
         button.titleLabel?.font = UIFont.systemFont(ofSize: GlobalConst.NORMAL_FONT_SIZE)
         button.accessibilityIdentifier = id
         button.addTarget(nil, action: action, for: .touchUpInside)
-        button.layer.addBorder(edge: .bottom, color: GlobalConst.BUTTON_COLOR_RED_TRUE,
+        button.layer.addBorder(edge: .bottom, color: UIColor.white,
                                thickness: 1.0)
         self.addSubview(button)
     }

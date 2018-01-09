@@ -26,9 +26,9 @@ public class DomainConst {
     /** Issue View */
     public static let PATH_SITE_ISSUE_VIEW              = "site/issueView"
     /** Login page */
-    public static let PATH_SITE_LOGIN                   = "site/login"
+    public static let PATH_SITE_LOGIN                   = "default/login"
     /** Logout page */
-    public static let PATH_SITE_LOGOUT                  = "site/logout"
+    public static let PATH_SITE_LOGOUT                  = "default/logout"
     /** News list */
     public static let PATH_SITE_NEWS_LIST               = "site/newsList"
     /** News view */
@@ -1339,9 +1339,9 @@ public class DomainConst {
     /** Space string */
     public static let SPACE_STR                         = " "
     /** Server URL (Training mode) */
-    public static let SERVER_URL_TRAINING               = "http://android.huongminhgroup.com/api/"
+    public static let SERVER_URL_TRAINING               = "http://vietmy.immortal.vn/index.php/api/"
     /** Server URL */
-    public static let SERVER_URL                        = "http://spj.daukhimiennam.com/api/"
+    public static let SERVER_URL                        = "http://vietmy.immortal.vn/index.php/api/"
     /** Immortal Server URL */
     public static let SERVER_URL_IMMORTAL               = "http://build.immortal.vn/api/"
     /** Hotline */
@@ -1546,8 +1546,8 @@ public class DomainConst {
     
     // MARK: -----Domain constants-----
     /** Logo image name */
-    public static let LOGO_GAS_SERVICE_IMG_NAME             = "gasservice_logo.png"
-    public static let LOGO_GAS_24H_IMG_NAME                 = "gas24h_logo.png"
+    public static let LOGO_GAS_SERVICE_IMG_NAME             = "logo_vietmy.jpg"
+    public static let LOGO_GAS_24H_IMG_NAME                 = "logo_vietmy.jpg"
     /** Contact image name */
     public static let CONTACT_IMG_NAME                      = "contact.png"
     /** Next icon image name */
@@ -1793,7 +1793,7 @@ public class DomainConst {
     /** Version image name */
     public static let VERSION_TYPE_ICON_IMG_NAME            = "version.png"
     /** Version image name */
-    public static let LOGO_LOGIN_ICON_IMG_NAME              = "logo_login.png"
+    public static let LOGO_LOGIN_ICON_IMG_NAME              = "logo_vietmy.jpg"
     /** Version image name */
     public static let NEXT_BUTTON_ICON_IMG_NAME             = "nextbutton.png"
     /** Version image name */

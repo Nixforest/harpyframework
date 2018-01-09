@@ -342,6 +342,7 @@
 		D7C30A401E30628800B3FDA6 /* icon76.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C30A3F1E30628800B3FDA6 /* icon76.png */; };
 		D7C30A421E306F7F00B3FDA6 /* ic_checkpoint.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C30A411E306F7F00B3FDA6 /* ic_checkpoint.png */; };
 		D7C30A441E307C1600B3FDA6 /* logo_agent.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C30A431E307C1600B3FDA6 /* logo_agent.png */; };
+		D7C73B01200517A1000B3CBC /* logo_vietmy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D7C73B00200517A1000B3CBC /* logo_vietmy.jpg */; };
 		D7C7A9FA1F56781B0037986D /* cross.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C7A9F81F56781B0037986D /* cross.png */; };
 		D7C7A9FB1F56781B0037986D /* focus.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C7A9F91F56781B0037986D /* focus.png */; };
 		D7C7A9FE1F567BDD0037986D /* ScanCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C7A9FC1F567BDD0037986D /* ScanCodeVC.swift */; };
@@ -764,6 +765,7 @@
 		D7C30A411E306F7F00B3FDA6 /* ic_checkpoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_checkpoint.png; path = images/ic_checkpoint.png; sourceTree = "<group>"; };
 		D7C30A431E307C1600B3FDA6 /* logo_agent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo_agent.png; path = images/logo_agent.png; sourceTree = "<group>"; };
 		D7C34A451E2B2BA60041B6CA /* libPods-project.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-project.a"; path = "../../../../Library/Developer/Xcode/DerivedData/project-bvtrqvfvowkogmgvpphakijhhgei/Build/Products/Debug-iphoneos/libPods-project.a"; sourceTree = "<group>"; };
+		D7C73B00200517A1000B3CBC /* logo_vietmy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = logo_vietmy.jpg; path = images/logo_vietmy.jpg; sourceTree = "<group>"; };
 		D7C7A9F81F56781B0037986D /* cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cross.png; path = images/cross.png; sourceTree = "<group>"; };
 		D7C7A9F91F56781B0037986D /* focus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = focus.png; path = images/focus.png; sourceTree = "<group>"; };
 		D7C7A9FC1F567BDD0037986D /* ScanCodeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScanCodeVC.swift; path = View/ScanCodeVC.swift; sourceTree = "<group>"; };
@@ -1215,6 +1217,7 @@
 		D7F3D8D21E1B8BCC0018744F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D7C73B00200517A1000B3CBC /* logo_vietmy.jpg */,
 				D7197ED21FD923D000D6F2E6 /* back_2.png */,
 				D71B966B1FCFFEC9000CF718 /* icon_qr.png */,
 				D71B96671FCFE60B000CF718 /* icon_share.png */,
@@ -1534,6 +1537,7 @@
 				D791F68D1E2367F3009CBBED /* message.png in Resources */,
 				D70B9F941E3F504400EB66F5 /* icon17.png in Resources */,
 				19D74A811EE4599B00B7DE47 /* traloi.png in Resources */,
+				D7C73B01200517A1000B3CBC /* logo_vietmy.jpg in Resources */,
 				D7AF28111E58B8D600AFF9D6 /* icon67.png in Resources */,
 				D75F65071E28B3A500A67B3C /* loginMenu.png in Resources */,
 				D75F652A1E28B3C600A67B3C /* ServiceRating.jpeg in Resources */,
