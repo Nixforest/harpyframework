@@ -1080,6 +1080,12 @@ public class DomainConst {
     public static let ACCOUNT_INFO_CANCEL_ID            = "###99944"
     /** Order information id: Order promotion */
     public static let ORDER_INFO_PROMOTION              = "###99945"
+    /** Order information id: Customer name */
+    public static let ORDER_INFO_CUSTOMER_NAME_ID       = "###99946"
+    /** Order information id: Customer name */
+    public static let ORDER_INFO_MATERIAL_SERI_ID       = "###99947"
+    /** Order information id: Customer name */
+    public static let ORDER_INFO_GAS_REMAIN_ID          = "###99948"
     /** Order information id: Order Material */
     public static let ORDER_INFO_MATERIAL_ID            = "###999"
     
@@ -1177,6 +1183,8 @@ public class DomainConst {
     public static let KEY_GAS24H_MENU_TEXT              = "gas24h_menu_text"
     /** Key menu item: Gas remain list */
     public static let KEY_MENU_GAS_REMAIN               = "gasremain_list"
+    /** Code complete */
+    public static let KEY_CODE_COMPLETE                 = "code_complete"
     
     //++ BUG0050-SPJ (NguyenPT 20170325) Add new function G06
     /** Platform value: Android */
@@ -1906,6 +1914,7 @@ public class DomainConst {
     
     /** HTTP Post request method */
     public static let HTTP_POST_REQUEST                     = "POST"
+    public static let HTTP_GET_REQUEST                     = "GET"
     /** HTTP Post request method */
     public static let GOOGLE_API_KEY                        = "AIzaSyCOXWFIXGsvZqkOziYt5CQj7Y-bB7Ej40U"
     /** HTTP Post request method */
@@ -2449,4 +2458,10 @@ public class DomainConst {
     public static let CONTENT00550 = "Bạn đang gửi thông tin gas dư như bên dưới. Xin hãy kiểm tra lại các thông tin cho thật chính xác và nhấn nút Gửi nếu bạn đồng ý."
     public static let CONTENT00551 = "Xin vui lòng chọn chi nhánh"
     public static let CONTENT00552 = "Chi nhánh"
+    public static let CONTENT00553 = "Xin nhập thông tin Mã bảo trì"
+    public static let CONTENT00554 = "Mã bảo trì"
+    public static let CONTENT00555 = "Chi tiết Gas dư"
+    public static let CONTENT00556 = "Tên vỏ"
+    public static let CONTENT00557 = "Khối lượng gas dư"
+    public static let CONTENT00558 = "Cập nhật gas dư"
 }

@@ -141,6 +141,7 @@ public class BaseModel: NSObject {
     /** Agent id */
     private var _agentId:                   String              = DomainConst.BLANK
     //-- BUG0151-SPJ (NguyenPT 20170819) Save agent id to user default setting
+    private var _gasRemainType:             Int                 = 0
     
     // MARK - Methods
     override init() {
@@ -743,6 +744,7 @@ public class BaseModel: NSObject {
         //++ BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
         self._listVipCustomerStores = loginModel.customer_chain_store
         //-- BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
+        self._gasRemainType         = loginModel.gas_remain_type
     }
     
     /**
@@ -1479,4 +1481,11 @@ public class BaseModel: NSObject {
         return self._agentId
     }
     //-- BUG0151-SPJ (NguyenPT 20170819) Handle favourite when select material
+    
+    /**
+     * Get gas remain type value
+     */
+    public func getGasRemainType() -> Int {
+        return self._gasRemainType
+    }
 }

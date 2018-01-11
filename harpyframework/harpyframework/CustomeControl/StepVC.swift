@@ -41,6 +41,11 @@ open class StepVC: ChildExtViewController, UIScrollViewDelegate, ScrollButtonLis
     // MARK: Methods
     override open func viewDidLoad() {
         super.viewDidLoad()
+        self.view.frame = CGRect(
+            x: self.view.frame.minX,
+            y: self.view.frame.minY,
+            width: GlobalConst.SCREEN_WIDTH,
+            height: GlobalConst.SCREEN_HEIGHT)
         // Set up button Back
         self.view.addSubview(_btnBack)
         _btnBack.addTarget(self, action: #selector(btnBackTapper), for: .touchUpInside)
