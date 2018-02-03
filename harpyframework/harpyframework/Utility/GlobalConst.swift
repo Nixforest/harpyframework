@@ -111,6 +111,8 @@ public class GlobalConst {
     public static let INFOR_TITLE_COLOR             = ColorFromRGB().getColorFromRGB(0x1899E5)
     public static let TEXT_COLOR                    = ColorFromRGB().getColorFromRGB(0x333333)
     public static let BORDER_TEXTFIELD_COLOR        = ColorFromRGB().getColorFromRGB(0xC7C7C7)
+    public static let BORDER_BUTTON_COLOR           = ColorFromRGB().getColorFromRGB(0xDCDCDC)
+    public static let URL_BUTTON_COLOR              = ColorFromRGB().getColorFromRGB(0x3C6B86)
     public static let SCROLLBUTTONLIST_BTN_BKG_COLOR_DISABLE    = BUTTON_COLOR_GRAY
     public static let SCROLLBUTTONLIST_BTN_BKG_COLOR_SELECTING  = COLOR_SELECTING_GREEN
     public static let SCROLLBUTTONLIST_BTN_BKG_COLOR_ENABLE     = BUTTON_COLOR_GRAY

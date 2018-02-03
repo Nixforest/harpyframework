@@ -1297,6 +1297,10 @@ open class BaseViewController : UIViewController {
         
     }
     
+    open func openPromotionActiveUsingCode(code: String) {
+        
+    }
+    
     /**
      * Handle open List order view
      */
@@ -1639,6 +1643,21 @@ open class BaseViewController : UIViewController {
         if !botMsgView.isCollapsed() {
             botMsgView.showHide()
         }
+    }
+    
+    /**
+     * Handle update bottom message view content
+     */
+    public func updateBottomMsgViewContent() {
+        var data = [(BottomMsgCellTypeEnum, AnyObject)]()
+        for item in BaseModel.shared.getListNews().getRecord() {
+            if let type = BottomMsgCellTypeEnum(rawValue: item.type) {
+                data.append((type, item))
+            }
+        }
+        data.append((BottomMsgCellTypeEnum.shareCode,
+                     (BaseModel.shared.getInviteCode(), "123") as AnyObject))
+        botMsgView.updateData(data: data)
     }
     //-- BUG0170-SPJ (NguyenPT 20172711) Update bottom message view
     

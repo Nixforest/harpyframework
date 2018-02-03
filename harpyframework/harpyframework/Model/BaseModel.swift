@@ -153,6 +153,12 @@ public class BaseModel: NSObject {
     /** Flag check first order */
     private var _isFirstOrder:              Bool                = true
     
+    //++ BUG0187-SPJ (NguyenPT 20180202) Gas24h  - Add data for Bottom message view, Add popup promotion
+    /** List news data */
+    private var _listNews:                  NewsListRespModel   = NewsListRespModel()
+    private var _popUpData:                 NewsListBean        = NewsListBean()
+    //-- BUG0187-SPJ (NguyenPT 20180202) Gas24h  - Add data for Bottom message view, Add popup promotion
+    
     // MARK - Methods
     override init() {
         super.init()
@@ -257,6 +263,11 @@ public class BaseModel: NSObject {
         if defaults.object(forKey: DomainConst.KEY_SETTING_IS_FIRST_ORDER) != nil {
             self._isFirstOrder = defaults.object(forKey: DomainConst.KEY_SETTING_IS_FIRST_ORDER) as! Bool
         }
+        //++ BUG0187-SPJ (NguyenPT 20180202) Gas24h  - Add data for Bottom message view, Add popup promotion
+        if let id = defaults.object(forKey: DomainConst.KEY_SETTING_POPUP_ID) {
+            self._popUpData.id = id as! String
+        }
+        //-- BUG0187-SPJ (NguyenPT 20180202) Gas24h  - Add data for Bottom message view, Add popup promotion
     }
     
     /**
@@ -1651,4 +1662,52 @@ public class BaseModel: NSObject {
     public func getGas24hMenuText() -> String {
         return _gas24hMenuText
     }
+    
+    //++ BUG0187-SPJ (NguyenPT 20180202) Gas24h  - Add data for Bottom message view, Add popup promotion
+    /**
+     * Set list news data
+     * - parameter data: NewsListRespModel object
+     */
+    public func setListNews(data: NewsListRespModel) {
+        self._listNews = data
+    }
+    
+    /**
+     * Get list news data
+     * - returns: NewsListRespModel object
+     */
+    public func getListNews() -> NewsListRespModel {
+        return _listNews
+    }
+    
+    /**
+     * Set Pop up data
+     * - parameter data: NewsListBean object
+     */
+    public func setPopupData(data: NewsListBean) {
+        self._popUpData = data
+        defaults.set(self._popUpData.id, forKey: DomainConst.KEY_SETTING_POPUP_ID)
+        defaults.synchronize()
+    }
+    
+    /**
+     * Get Pop up data
+     * - returns: NewsListBean object
+     */
+    public func getPopupData() -> NewsListBean {
+        return _popUpData
+    }
+    
+    /**
+     * Check if pop up data was changed
+     * - parameter data: Data to compare
+     * - returns: True if pop up data was changed, False otherwise
+     */
+    public func isPopupChanged(data: NewsListBean) -> Bool {
+        if data.id != self._popUpData.id {
+            return true
+        }
+        return false
+    }
+    //-- BUG0187-SPJ (NguyenPT 20180202) Gas24h  - Add data for Bottom message view, Add popup promotion
 }

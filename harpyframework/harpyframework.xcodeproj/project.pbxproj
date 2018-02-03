@@ -148,7 +148,11 @@
 		D74841D81F743CAC00AE79D0 /* promoteBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = D74841D71F743CAC00AE79D0 /* promoteBtn.png */; };
 		D74841DA1F743D3700AE79D0 /* gasbtn.png in Resources */ = {isa = PBXBuildFile; fileRef = D74841D91F743D3700AE79D0 /* gasbtn.png */; };
 		D74B3F801F797917001F22B9 /* menubtn.png in Resources */ = {isa = PBXBuildFile; fileRef = D74B3F7F1F797917001F22B9 /* menubtn.png */; };
+		D755F049202018250003D4B8 /* NewsListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D755F048202018250003D4B8 /* NewsListRequest.swift */; };
+		D755F04B20201EAE0003D4B8 /* NewsListBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D755F04A20201EAE0003D4B8 /* NewsListBean.swift */; };
+		D755F04D20202C5C0003D4B8 /* NewsListRespModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D755F04C20202C5C0003D4B8 /* NewsListRespModel.swift */; };
 		D75A73271F6F5CAF00EE14E6 /* logo_login.png in Resources */ = {isa = PBXBuildFile; fileRef = D75A73261F6F5CAF00EE14E6 /* logo_login.png */; };
+		D75DCCDC2021D49000EFAB97 /* NewsPopupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75DCCDB2021D49000EFAB97 /* NewsPopupRequest.swift */; };
 		D75F64AD1E28657900A67B3C /* icon52.png in Resources */ = {isa = PBXBuildFile; fileRef = D75F64AA1E28657900A67B3C /* icon52.png */; };
 		D75F64AE1E28657900A67B3C /* icon53.png in Resources */ = {isa = PBXBuildFile; fileRef = D75F64AB1E28657900A67B3C /* icon53.png */; };
 		D75F64AF1E28657900A67B3C /* icon54.png in Resources */ = {isa = PBXBuildFile; fileRef = D75F64AC1E28657900A67B3C /* icon54.png */; };
@@ -352,6 +356,7 @@
 		D7CDBE2D1E880A7800B73877 /* WorkingReportBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CDBE2C1E880A7800B73877 /* WorkingReportBean.swift */; };
 		D7CED6D11E98CB2E00C2B568 /* OrderEmployeeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CED6CF1E98CB2E00C2B568 /* OrderEmployeeTableViewCell.swift */; };
 		D7CED6D21E98CB2E00C2B568 /* OrderEmployeeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7CED6D01E98CB2E00C2B568 /* OrderEmployeeTableViewCell.xib */; };
+		D7CF24C12020865C009956C8 /* NewsPopUpRespModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CF24C02020865C009956C8 /* NewsPopUpRespModel.swift */; };
 		D7CFF1F81E44F23500A37C07 /* icon23.png in Resources */ = {isa = PBXBuildFile; fileRef = D7CFF1F71E44F23500A37C07 /* icon23.png */; };
 		D7D04E371E55544900B3F8CF /* icon77.png in Resources */ = {isa = PBXBuildFile; fileRef = D7D04E361E55544900B3F8CF /* icon77.png */; };
 		D7D04E431E557FBF00B3F8CF /* OrderVIPDetailBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D04E421E557FBF00B3F8CF /* OrderVIPDetailBean.swift */; };
@@ -566,7 +571,11 @@
 		D74841D71F743CAC00AE79D0 /* promoteBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = promoteBtn.png; path = images/promoteBtn.png; sourceTree = "<group>"; };
 		D74841D91F743D3700AE79D0 /* gasbtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gasbtn.png; path = images/gasbtn.png; sourceTree = "<group>"; };
 		D74B3F7F1F797917001F22B9 /* menubtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menubtn.png; path = images/menubtn.png; sourceTree = "<group>"; };
+		D755F048202018250003D4B8 /* NewsListRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsListRequest.swift; path = API/NewsListRequest.swift; sourceTree = "<group>"; };
+		D755F04A20201EAE0003D4B8 /* NewsListBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsListBean.swift; path = Model/NewsListBean.swift; sourceTree = "<group>"; };
+		D755F04C20202C5C0003D4B8 /* NewsListRespModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsListRespModel.swift; path = Model/NewsListRespModel.swift; sourceTree = "<group>"; };
 		D75A73261F6F5CAF00EE14E6 /* logo_login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo_login.png; path = images/logo_login.png; sourceTree = "<group>"; };
+		D75DCCDB2021D49000EFAB97 /* NewsPopupRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsPopupRequest.swift; path = API/NewsPopupRequest.swift; sourceTree = "<group>"; };
 		D75F64AA1E28657900A67B3C /* icon52.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon52.png; path = images/icon52.png; sourceTree = "<group>"; };
 		D75F64AB1E28657900A67B3C /* icon53.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon53.png; path = images/icon53.png; sourceTree = "<group>"; };
 		D75F64AC1E28657900A67B3C /* icon54.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon54.png; path = images/icon54.png; sourceTree = "<group>"; };
@@ -774,6 +783,7 @@
 		D7CDBE2C1E880A7800B73877 /* WorkingReportBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkingReportBean.swift; path = Model/WorkingReportBean.swift; sourceTree = "<group>"; };
 		D7CED6CF1E98CB2E00C2B568 /* OrderEmployeeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderEmployeeTableViewCell.swift; path = CustomeControl/OrderEmployeeTableViewCell.swift; sourceTree = "<group>"; };
 		D7CED6D01E98CB2E00C2B568 /* OrderEmployeeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OrderEmployeeTableViewCell.xib; path = CustomeControl/OrderEmployeeTableViewCell.xib; sourceTree = "<group>"; };
+		D7CF24C02020865C009956C8 /* NewsPopUpRespModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsPopUpRespModel.swift; path = Model/NewsPopUpRespModel.swift; sourceTree = "<group>"; };
 		D7CFF1F71E44F23500A37C07 /* icon23.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon23.png; path = images/icon23.png; sourceTree = "<group>"; };
 		D7D04E361E55544900B3F8CF /* icon77.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon77.png; path = images/icon77.png; sourceTree = "<group>"; };
 		D7D04E421E557FBF00B3F8CF /* OrderVIPDetailBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderVIPDetailBean.swift; path = Model/OrderVIPDetailBean.swift; sourceTree = "<group>"; };
@@ -1006,6 +1016,8 @@
 				D716C18F1E924F16007CC50C /* WardsListRequest.swift */,
 				D781E5B41F456AC9003A9CD4 /* CreateErrorLogRequest.swift */,
 				D79234191FCC691000458B7A /* NewsRequest.swift */,
+				D755F048202018250003D4B8 /* NewsListRequest.swift */,
+				D75DCCDB2021D49000EFAB97 /* NewsPopupRequest.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -1064,6 +1076,7 @@
 				D781E5B61F457E33003A9CD4 /* FavouriteDataModel.swift */,
 				D781E5B81F457F29003A9CD4 /* FavouriteModel.swift */,
 				D792341D1FCC6EB800458B7A /* NewsBean.swift */,
+				D755F04A20201EAE0003D4B8 /* NewsListBean.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1085,6 +1098,8 @@
 				D79C317B1E9B8C8B006F3683 /* OrderFamilyViewRespModel.swift */,
 				D715BB711EBE550A0097BDA8 /* CacheDataRespModel.swift */,
 				D792341B1FCC6E7000458B7A /* NewsRespModel.swift */,
+				D755F04C20202C5C0003D4B8 /* NewsListRespModel.swift */,
+				D7CF24C02020865C009956C8 /* NewsPopUpRespModel.swift */,
 			);
 			name = Response;
 			sourceTree = "<group>";
@@ -1767,6 +1782,7 @@
 				D77F05DB1E7172BD00797A6B /* BaseMenuViewController.swift in Sources */,
 				D77F05F41E71737200797A6B /* SearchCustomerRequest.swift in Sources */,
 				D77F05D31E7172AD00797A6B /* OrderBean.swift in Sources */,
+				D755F04D20202C5C0003D4B8 /* NewsListRespModel.swift in Sources */,
 				D77F05DC1E7172BD00797A6B /* BaseViewController.swift in Sources */,
 				D7424AAD1E3B463600E442DC /* MaterialTableViewCell.swift in Sources */,
 				D717779B1F5E9640009CF656 /* NVActivityIndicatorPresenter.swift in Sources */,
@@ -1805,6 +1821,7 @@
 				D77F05F01E71737200797A6B /* NotificationCountRequest.swift in Sources */,
 				D71777931F5E9626009CF656 /* NVActivityIndicatorAnimationOrbit.swift in Sources */,
 				D77D2B5A1E725A4D000D38DE /* ParentViewController.swift in Sources */,
+				D75DCCDC2021D49000EFAB97 /* NewsPopupRequest.swift in Sources */,
 				D77F06901E719B5300797A6B /* BaseSlideMenuViewController.swift in Sources */,
 				D71777911F5E9626009CF656 /* NVActivityIndicatorAnimationLineScalePulseOutRapid.swift in Sources */,
 				D77F05F31E71737200797A6B /* RequestAPI.swift in Sources */,
@@ -1870,6 +1887,7 @@
 				D717777A1F5E9626009CF656 /* NVActivityIndicatorAnimationBallClipRotate.swift in Sources */,
 				D716C1901E924F16007CC50C /* WardsListRequest.swift in Sources */,
 				D721C5241F5D3ED6003E823D /* DataTransform.swift in Sources */,
+				D755F049202018250003D4B8 /* NewsListRequest.swift in Sources */,
 				D717778D1F5E9626009CF656 /* NVActivityIndicatorAnimationCubeTransition.swift in Sources */,
 				D721C52B1F5D3ED6003E823D /* HexColorTransform.swift in Sources */,
 				D71777811F5E9626009CF656 /* NVActivityIndicatorAnimationBallPulseSync.swift in Sources */,
@@ -1902,6 +1920,7 @@
 				D7023EE51E2CAC0A00ED6394 /* MaterialSelector.swift in Sources */,
 				D7F958111E3DD36B00C76F2F /* ConfigurationTableViewCell.swift in Sources */,
 				D721C5311F5D3ED7003E823D /* Mapper.swift in Sources */,
+				D755F04B20201EAE0003D4B8 /* NewsListBean.swift in Sources */,
 				D71777841F5E9626009CF656 /* NVActivityIndicatorAnimationBallScale.swift in Sources */,
 				D7E40E491F57BE5D00AB1C33 /* CIColorExtension.swift in Sources */,
 				D716C1981E92A9E9007CC50C /* AddressPickerView.swift in Sources */,
@@ -1911,6 +1930,7 @@
 				D73561B61EF3C1A100085514 /* FullAddressBean.swift in Sources */,
 				D7AF28171E58C91300AFF9D6 /* OrderDetailTableViewCell.swift in Sources */,
 				D77F05C51E71729400797A6B /* UpholdListRespModel.swift in Sources */,
+				D7CF24C12020865C009956C8 /* NewsPopUpRespModel.swift in Sources */,
 				D77F05F21E71737200797A6B /* RegisterRequest.swift in Sources */,
 				D717778B1F5E9626009CF656 /* NVActivityIndicatorAnimationBallZigZagDeflect.swift in Sources */,
 				D77F05D51E7172AD00797A6B /* OrderListBean.swift in Sources */,

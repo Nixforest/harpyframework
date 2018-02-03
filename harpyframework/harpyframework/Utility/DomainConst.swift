@@ -93,6 +93,10 @@ public class DomainConst {
     public static let PATH_SUPPORT_APPLOG               = "support/appLog"
     /** Request news content*/
     public static let PATH_SUPPORT_NEWS                 = "support/viewPage"
+    /** Request news list*/
+    public static let PATH_LIST_NEWS                    = "gas24h/newsList"
+    /** Request news list*/
+    public static let PATH_NEWS_POPUP                   = "gas24h/newsPopup"
     
     // MARK: -----List of keys-----
     /** Token */
@@ -127,6 +131,14 @@ public class DomainConst {
     public static let KEY_CUSTOMER_CONTACT              = "customer_contact"
     /** Title */
     public static let KEY_TITLE                         = "title"
+    /** Title */
+    public static let KEY_URL_WEB                       = "link_web"
+    /** Title */
+    public static let KEY_URL_TEXT                      = "link_web_text"
+    /** Title */
+    public static let KEY_URL_BANNER_POPUP              = "url_banner_popup"
+    /** Title */
+    public static let KEY_URL_BANNER                    = "url_banner"
     /** Message */
     public static let KEY_MESSAGE                       = "message"
     /** Message */
@@ -205,6 +217,10 @@ public class DomainConst {
     public static let KEY_UPHOLD_TYPE_IDX               = "uphold_type"
     /** Content */
     public static let KEY_CONTENT                       = "content"
+    /** Content */
+    public static let KEY_NEWS_CONTENT                  = "news_content"
+    /** Content */
+    public static let KEY_NEWS_TYPE                     = "news_type"
     /** Contact person */
     public static let KEY_CONTACT_PERSON                = "contact_person"
     /** Contact telephone number */
@@ -392,6 +408,8 @@ public class DomainConst {
     public static let KEY_SETTING_FAVOURITE_GAS         = "gasservice.listFavouriteGas"
     /** Setting key: List favourite gas information */
     public static let KEY_SETTING_FAVOURITE_GAS_LOGIN   = "gasservice.listFavouriteGasLogin"
+    /** Setting key: List favourite gas information */
+    public static let KEY_SETTING_POPUP_ID              = "gasservice.popupId"
     
     /** Setting key: Material type id */
     public static let KEY_MATERIALS_TYPE_ID             = "materials_type_id"
@@ -492,6 +510,8 @@ public class DomainConst {
     public static let KEY_TOTAL_RECORD                  = "total_record"
     /** Code no */
     public static let KEY_CODE_NO                       = "code_no"
+    /** Code no */
+    public static let KEY_CODE_NO_TEXT                  = "code_no_text"
     /** Level type */
     public static let KEY_LEVEL_TYPE                    = "level_type"
     /** Created date */
@@ -1339,7 +1359,7 @@ public class DomainConst {
     /** Space string */
     public static let SPACE_STR                         = " "
     /** Server URL (Training mode) */
-    public static let SERVER_URL_TRAINING               = "http://android.huongminhgroup.com/api/"
+    public static let SERVER_URL_TRAINING               = "http://dev.spj.vn/api/"
     /** Server URL */
     public static let SERVER_URL                        = "http://spj.daukhimiennam.com/api/"
     /** Immortal Server URL */
@@ -2433,4 +2453,5 @@ public class DomainConst {
     public static let CONTENT00538 = "Chia sẻ với bạn bè"
     public static let CONTENT00539 = "---------- Hỗ trợ ----------"
     public static let CONTENT00540 = "Chưa nhập mã pin"
+    public static let CONTENT00541 = "Đóng"
 }
