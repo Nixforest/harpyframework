@@ -8,16 +8,14 @@
 
 import Foundation
 public class UserInfoBean: NSObject {
-    /** First name */
-    var first_name:         String      = DomainConst.BLANK
+    /** Name */
+    var name:               String      = DomainConst.BLANK
     /** Phone */
     var phone:              String      = DomainConst.BLANK
     /** Address */
     var address:            String      = DomainConst.BLANK
     /** Avatar image */
-    var image_avatar:       String      = DomainConst.BLANK
-    /** Addition information */
-    var customer_info:      [ConfigBean] = [ConfigBean]()
+    var image:              String      = DomainConst.BLANK
     /** Email */
     var email:              String      = DomainConst.BLANK
     /** Email */
@@ -50,22 +48,18 @@ public class UserInfoBean: NSObject {
      */
     init(jsonString: [String: AnyObject]) {
         super.init()
-        self.first_name     = getString(json: jsonString, key: DomainConst.KEY_FIRST_NAME)
+        self.name     = getString(json: jsonString, key: DomainConst.KEY_NAME)
         self.phone          = getString(json: jsonString, key: DomainConst.KEY_PHONE)
         self.address        = getString(json: jsonString, key: DomainConst.KEY_ADDRESS)
-        self.image_avatar   = getString(json: jsonString, key: DomainConst.KEY_IMG_AVATAR)
-        self.customer_info.append(contentsOf: getListConfig(json: jsonString, key: DomainConst.KEY_CUSTOMER_INFO))
-        
+        self.image   = getString(json: jsonString, key: DomainConst.KEY_IMAGE)        
         self.email          = getString(json: jsonString, key: DomainConst.KEY_EMAIL)
         self.province_id    = getString(json: jsonString, key: DomainConst.KEY_PROVINCE_ID)
         self.district_id    = getString(json: jsonString, key: DomainConst.KEY_DISTRICT_ID)
         self.ward_id        = getString(json: jsonString, key: DomainConst.KEY_WARD_ID)
         self.street_id      = getString(json: jsonString, key: DomainConst.KEY_STREET_ID)
         self.house_numbers  = getString(json: jsonString, key: DomainConst.KEY_HOUSE_NUMBER)
-        //++ BUG0008-SPJ (NguyenPT 20170616) Update G00Account
         self.agent_id       = getString(json: jsonString, key: DomainConst.KEY_AGENT_ID)
         self.agent_name     = getString(json: jsonString, key: DomainConst.KEY_AGENT_NAME)
-        //-- BUG0008-SPJ (NguyenPT 20170616) Update G00Account
     }
     
     /**
@@ -73,7 +67,7 @@ public class UserInfoBean: NSObject {
      * - returns: Name of user info bean
      */
     public func getName() -> String {
-        return self.first_name
+        return self.name
     }
     
     /**
@@ -81,7 +75,7 @@ public class UserInfoBean: NSObject {
      * - parameter name: Name value to set
      */
     public func setName(name: String) {
-        self.first_name = name
+        self.name = name
     }
     
     /**
@@ -169,7 +163,7 @@ public class UserInfoBean: NSObject {
      * - returns: Avatar image of user info bean
      */
     public func getAvatarImage() -> String {
-        return self.image_avatar
+        return self.image
     }
     
     /**
@@ -177,72 +171,9 @@ public class UserInfoBean: NSObject {
      * - parameter image_avatar: Avatar image value to set
      */
     public func setAvatarImage(image_avatar: String) {
-        self.image_avatar = image_avatar
+        self.image = image_avatar
     }
     
-    /**
-     * Get customer information from key value
-     * - parameter key: Key to get information
-     * - returns: Value
-     */
-    public func getCustomerInfo(key: String) -> String {
-        for item in self.customer_info {
-            if item.id == key {
-                return item.name
-            }
-        }
-        return DomainConst.BLANK
-    }
-    
-    /**
-     * Get boss name
-     * - returns: Boss name
-     */
-    public func getBossName() -> String {
-        return self.getCustomerInfo(key: DomainConst.KEY_BOSS_NAME)
-    }
-    
-    /**
-     * Get boss phone
-     * - returns: Boss phone
-     */
-    public func getBossPhone() -> String {
-        return self.getCustomerInfo(key: DomainConst.KEY_BOSS_PHONE)
-    }
-    
-    /**
-     * Get manager name
-     * - returns: manager name
-     */
-    public func getManagerName() -> String {
-        return self.getCustomerInfo(key: DomainConst.KEY_MANAGER_NAME)
-    }
-    
-    /**
-     * Get manager phone
-     * - returns: manager phone
-     */
-    public func getManagerPhone() -> String {
-        return self.getCustomerInfo(key: DomainConst.KEY_MANAGER_PHONE)
-    }
-    
-    /**
-     * Get technical name
-     * - returns: technical name
-     */
-    public func getTechnicalName() -> String {
-        return self.getCustomerInfo(key: DomainConst.KEY_TECHNICAL_NAME)
-    }
-    
-    /**
-     * Get technical phone
-     * - returns: technical phone
-     */
-    public func getTechnicalPhone() -> String {
-        return self.getCustomerInfo(key: DomainConst.KEY_TECHNICAL_PHONE)
-    }
-    
-    //++ BUG0008-SPJ (NguyenPT 20170616) Update G00Account
     /**
      * Get agent id
      * - returns: Agent id
@@ -258,14 +189,14 @@ public class UserInfoBean: NSObject {
     public func getAgentName() -> String {
         return self.agent_name
     }
-    //-- BUG0008-SPJ (NguyenPT 20170616) Update G00Account
+    
     
     /**
      * Check if user info is empty
      * - returns: True if phone and first_name are empty, False otherwise
      */
     public func isEmpty() -> Bool {
-        if self.phone.isEmpty && self.first_name.isEmpty {
+        if self.phone.isEmpty && self.name.isEmpty {
             return true
         }
         return false

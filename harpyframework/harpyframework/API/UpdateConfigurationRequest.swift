@@ -72,8 +72,9 @@ public class UpdateConfigurationRequest: BaseRequest {
      */
     func setData() {
         self.data = "q=" + String.init(
-            format: "{\"%@\":\"%@\"}",
-            DomainConst.KEY_TOKEN, BaseModel.shared.getUserToken()
+            format: "{\"%@\":\"%@\",\"%@\":%d}",
+            DomainConst.KEY_TOKEN, BaseModel.shared.getUserToken(),
+            DomainConst.KEY_PLATFORM,   DomainConst.PLATFORM_IOS
         )
     }
     

@@ -1090,9 +1090,8 @@ public extension NSObject {
      */
     public func getListConfig(json: [String: AnyObject], key: String) -> [ConfigBean] {
         var retVal = [ConfigBean]()
-        let list = json[key] as? [[String: AnyObject]]
-        if list != nil {
-            for item in list! {
+        if let list = json[key] as? [[String: AnyObject]] {
+            for item in list {
                 retVal.append(ConfigBean(jsonData: item))
             }
         }

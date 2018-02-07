@@ -39,6 +39,7 @@
 		D70B9F941E3F504400EB66F5 /* icon17.png in Resources */ = {isa = PBXBuildFile; fileRef = D70B9F901E3F504400EB66F5 /* icon17.png */; };
 		D70B9F951E3F504400EB66F5 /* icon18.png in Resources */ = {isa = PBXBuildFile; fileRef = D70B9F911E3F504400EB66F5 /* icon18.png */; };
 		D70B9F961E3F504400EB66F5 /* icon19.png in Resources */ = {isa = PBXBuildFile; fileRef = D70B9F921E3F504400EB66F5 /* icon19.png */; };
+		D70BCB4520164D2A00BCD90B /* logo_main.png in Resources */ = {isa = PBXBuildFile; fileRef = D70BCB4420164D2A00BCD90B /* logo_main.png */; };
 		D70BE4A11FCD15F800635B60 /* BotMsgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70BE4A01FCD15F800635B60 /* BotMsgView.swift */; };
 		D70BE4A41FCD4D0500635B60 /* ic_page_guide.png in Resources */ = {isa = PBXBuildFile; fileRef = D70BE4A21FCD4D0500635B60 /* ic_page_guide.png */; };
 		D70BE4A51FCD4D0500635B60 /* ic_page_promotion.png in Resources */ = {isa = PBXBuildFile; fileRef = D70BE4A31FCD4D0500635B60 /* ic_page_promotion.png */; };
@@ -342,7 +343,6 @@
 		D7C30A401E30628800B3FDA6 /* icon76.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C30A3F1E30628800B3FDA6 /* icon76.png */; };
 		D7C30A421E306F7F00B3FDA6 /* ic_checkpoint.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C30A411E306F7F00B3FDA6 /* ic_checkpoint.png */; };
 		D7C30A441E307C1600B3FDA6 /* logo_agent.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C30A431E307C1600B3FDA6 /* logo_agent.png */; };
-		D7C73B01200517A1000B3CBC /* logo_vietmy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D7C73B00200517A1000B3CBC /* logo_vietmy.jpg */; };
 		D7C7A9FA1F56781B0037986D /* cross.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C7A9F81F56781B0037986D /* cross.png */; };
 		D7C7A9FB1F56781B0037986D /* focus.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C7A9F91F56781B0037986D /* focus.png */; };
 		D7C7A9FE1F567BDD0037986D /* ScanCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C7A9FC1F567BDD0037986D /* ScanCodeVC.swift */; };
@@ -411,6 +411,7 @@
 		D7F958111E3DD36B00C76F2F /* ConfigurationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F958101E3DD36B00C76F2F /* ConfigurationTableViewCell.swift */; };
 		D7FB47401E974EB70082FA5E /* OrderFamilyListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FB473F1E974EB70082FA5E /* OrderFamilyListRequest.swift */; };
 		D7FB47421E9750B80082FA5E /* OrderFamilyListRespModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FB47411E9750B80082FA5E /* OrderFamilyListRespModel.swift */; };
+		D7FF1FC3202423A900C2DF28 /* ListBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FF1FC2202423A900C2DF28 /* ListBean.swift */; };
 		D7FFEEA91FCE53BE005ADF1C /* BottomMsgCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FFEEA71FCE53BE005ADF1C /* BottomMsgCell.swift */; };
 		D7FFEEAA1FCE53BE005ADF1C /* BottomMsgCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7FFEEA81FCE53BE005ADF1C /* BottomMsgCell.xib */; };
 /* End PBXBuildFile section */
@@ -458,6 +459,7 @@
 		D70B9F901E3F504400EB66F5 /* icon17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon17.png; path = images/icon17.png; sourceTree = "<group>"; };
 		D70B9F911E3F504400EB66F5 /* icon18.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon18.png; path = images/icon18.png; sourceTree = "<group>"; };
 		D70B9F921E3F504400EB66F5 /* icon19.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon19.png; path = images/icon19.png; sourceTree = "<group>"; };
+		D70BCB4420164D2A00BCD90B /* logo_main.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo_main.png; path = images/logo_main.png; sourceTree = "<group>"; };
 		D70BE4A01FCD15F800635B60 /* BotMsgView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BotMsgView.swift; path = CustomeControl/BotMsgView.swift; sourceTree = "<group>"; };
 		D70BE4A21FCD4D0500635B60 /* ic_page_guide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_page_guide.png; path = images/ic_page_guide.png; sourceTree = "<group>"; };
 		D70BE4A31FCD4D0500635B60 /* ic_page_promotion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_page_promotion.png; path = images/ic_page_promotion.png; sourceTree = "<group>"; };
@@ -765,7 +767,6 @@
 		D7C30A411E306F7F00B3FDA6 /* ic_checkpoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_checkpoint.png; path = images/ic_checkpoint.png; sourceTree = "<group>"; };
 		D7C30A431E307C1600B3FDA6 /* logo_agent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo_agent.png; path = images/logo_agent.png; sourceTree = "<group>"; };
 		D7C34A451E2B2BA60041B6CA /* libPods-project.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-project.a"; path = "../../../../Library/Developer/Xcode/DerivedData/project-bvtrqvfvowkogmgvpphakijhhgei/Build/Products/Debug-iphoneos/libPods-project.a"; sourceTree = "<group>"; };
-		D7C73B00200517A1000B3CBC /* logo_vietmy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = logo_vietmy.jpg; path = images/logo_vietmy.jpg; sourceTree = "<group>"; };
 		D7C7A9F81F56781B0037986D /* cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cross.png; path = images/cross.png; sourceTree = "<group>"; };
 		D7C7A9F91F56781B0037986D /* focus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = focus.png; path = images/focus.png; sourceTree = "<group>"; };
 		D7C7A9FC1F567BDD0037986D /* ScanCodeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScanCodeVC.swift; path = View/ScanCodeVC.swift; sourceTree = "<group>"; };
@@ -834,6 +835,7 @@
 		D7F958101E3DD36B00C76F2F /* ConfigurationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigurationTableViewCell.swift; path = CustomeControl/ConfigurationTableViewCell.swift; sourceTree = "<group>"; };
 		D7FB473F1E974EB70082FA5E /* OrderFamilyListRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderFamilyListRequest.swift; path = API/OrderFamilyListRequest.swift; sourceTree = "<group>"; };
 		D7FB47411E9750B80082FA5E /* OrderFamilyListRespModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderFamilyListRespModel.swift; path = Model/OrderFamilyListRespModel.swift; sourceTree = "<group>"; };
+		D7FF1FC2202423A900C2DF28 /* ListBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListBean.swift; path = Model/ListBean.swift; sourceTree = "<group>"; };
 		D7FFEEA71FCE53BE005ADF1C /* BottomMsgCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BottomMsgCell.swift; path = CustomeControl/BottomMsgCell.swift; sourceTree = "<group>"; };
 		D7FFEEA81FCE53BE005ADF1C /* BottomMsgCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BottomMsgCell.xib; path = CustomeControl/BottomMsgCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1066,6 +1068,7 @@
 				D781E5B61F457E33003A9CD4 /* FavouriteDataModel.swift */,
 				D781E5B81F457F29003A9CD4 /* FavouriteModel.swift */,
 				D792341D1FCC6EB800458B7A /* NewsBean.swift */,
+				D7FF1FC2202423A900C2DF28 /* ListBean.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1217,7 +1220,7 @@
 		D7F3D8D21E1B8BCC0018744F /* images */ = {
 			isa = PBXGroup;
 			children = (
-				D7C73B00200517A1000B3CBC /* logo_vietmy.jpg */,
+				D70BCB4420164D2A00BCD90B /* logo_main.png */,
 				D7197ED21FD923D000D6F2E6 /* back_2.png */,
 				D71B966B1FCFFEC9000CF718 /* icon_qr.png */,
 				D71B96671FCFE60B000CF718 /* icon_share.png */,
@@ -1537,7 +1540,6 @@
 				D791F68D1E2367F3009CBBED /* message.png in Resources */,
 				D70B9F941E3F504400EB66F5 /* icon17.png in Resources */,
 				19D74A811EE4599B00B7DE47 /* traloi.png in Resources */,
-				D7C73B01200517A1000B3CBC /* logo_vietmy.jpg in Resources */,
 				D7AF28111E58B8D600AFF9D6 /* icon67.png in Resources */,
 				D75F65071E28B3A500A67B3C /* loginMenu.png in Resources */,
 				D75F652A1E28B3C600A67B3C /* ServiceRating.jpeg in Resources */,
@@ -1673,6 +1675,7 @@
 				D7C30A421E306F7F00B3FDA6 /* ic_checkpoint.png in Resources */,
 				D791F6A01E23747C009CBBED /* icon48.png in Resources */,
 				D7C7A9FB1F56781B0037986D /* focus.png in Resources */,
+				D70BCB4520164D2A00BCD90B /* logo_main.png in Resources */,
 				D75F65191E28B3B100A67B3C /* issueMenu.png in Resources */,
 				D7C30A401E30628800B3FDA6 /* icon76.png in Resources */,
 				D7AF28101E58B8D600AFF9D6 /* icon66.png in Resources */,
@@ -1926,6 +1929,7 @@
 				D7AB90571E2402170048AC4F /* StepVC.swift in Sources */,
 				D70ECEC91EE2788500997F1A /* ErrorDetailVC.swift in Sources */,
 				D77F05EB1E71737200797A6B /* BaseRequest.swift in Sources */,
+				D7FF1FC3202423A900C2DF28 /* ListBean.swift in Sources */,
 				D717778C1F5E9626009CF656 /* NVActivityIndicatorAnimationBlank.swift in Sources */,
 				D71777901F5E9626009CF656 /* NVActivityIndicatorAnimationLineScalePulseOut.swift in Sources */,
 				D7C30A391E3058B600B3FDA6 /* AgentInfoBean.swift in Sources */,

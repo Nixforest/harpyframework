@@ -1304,6 +1304,14 @@ public class BaseModel: NSObject {
     }
     
     /**
+     * Set data for menu
+     * - parameter listMenu: Data to set
+     */
+    public func setListMenu(listMenu: [ConfigBean]) {
+        self.menu = listMenu
+    }
+    
+    /**
      * Get list of cylinders information
      * - returns: List of cylinders information
      */

@@ -9,7 +9,7 @@
 import Foundation
 
 public class UserProfileRespModel: BaseRespModel {
-    public var record: UserInfoBean = UserInfoBean()
+    public var data: UserInfoBean = UserInfoBean()
     /**
      * Initializer
      * - parameter jsonString: JSON data
@@ -23,8 +23,8 @@ public class UserProfileRespModel: BaseRespModel {
                 if self.status != DomainConst.RESPONSE_STATUS_SUCCESS {
                     return
                 }
-                let record = json[DomainConst.KEY_RECORD] as? [String: AnyObject]
-                self.record = UserInfoBean(jsonString: record!)
+                let record = json[DomainConst.KEY_DATA] as? [String: AnyObject]
+                self.data = UserInfoBean(jsonString: record!)
             } catch let error as NSError {
                 print(DomainConst.JSON_ERR_FAILED_LOAD + "\(error.localizedDescription)")
             }

@@ -52,7 +52,7 @@ public class DomainConst {
     /** Sign up get Ward */
     public static let PATH_SITE_SIGN_UP_GET_WARD        = "site/signupGetWard"
     /** Update config */
-    public static let PATH_SITE_UPDATE_CONFIG           = "site/updateConfig"
+    public static let PATH_SITE_UPDATE_CONFIG           = "default/updateConfig"
     /** Uphold create */
     public static let PATH_SITE_UPHOLD_CREATE           = "site/upholdCreate"
     /** Uphold list */
@@ -155,6 +155,10 @@ public class DomainConst {
     public static let KEY_DEVICE_PHONE                  = "device_phone"
     /** Id */
     public static let KEY_ID                            = "id"
+    /** Gender */
+    public static let KEY_GENDER                        = "gender"
+    /** Age */
+    public static let KEY_AGE                           = "age"
     /** Note Customer */
     public static let KEY_NOTE_CUSTOMER                 = "note_customer"
     /** qty_12 */
@@ -172,7 +176,7 @@ public class DomainConst {
     /** First name */
     public static let KEY_FIRST_NAME                    = "first_name"
     /** Province Id */
-    public static let KEY_PROVINCE_ID                   = "province_id"
+    public static let KEY_PROVINCE_ID                   = "city_id"
     /** District Id */
     public static let KEY_DISTRICT_ID                   = "district_id"
     /** Ward Id */
@@ -295,6 +299,8 @@ public class DomainConst {
     public static let KEY_GOOGLE_ADDRESS                = "google_address"
     /** Image avatar */
     public static let KEY_IMG_AVATAR                    = "image_avatar"
+    /** Image avatar */
+    public static let KEY_IMAGE                         = "image"
     /** Notify type */
     public static let KEY_NOTIFY_TYPE                   = "notify_type"
     /** Request type */
@@ -335,6 +341,14 @@ public class DomainConst {
     public static let KEY_NAME                          = "name"
     /** Data */
     public static let KEY_DATA                          = "data"
+    /** Start date */
+    public static let KEY_START_DATE                    = "start_date"
+    /** End date */
+    public static let KEY_END_DATE                      = "end_date"
+    /** Diagnosis */
+    public static let KEY_DIAGNOSIS                     = "diagnosis"
+    /** List */
+    public static let KEY_LIST                          = "list"
     /** Key transaction id */
     public static let KEY_TRANSACTION_ID                = "transaction_id"
     /** Key transaction key */
@@ -1175,7 +1189,7 @@ public class DomainConst {
     /** Platform value: Android */
     public static let PLATFORM_ANDROID                  = 1
     /** Platform value: iOS */
-    public static let PLATFORM_IOS                      = 2
+    public static let PLATFORM_IOS                      = 0
     /** Customer Family Buying value: All */
     public static let CUSTOMER_FAMILY_BUYING_ALL        = "0"
     /** Customer Family Buying value: Bought */
@@ -1356,7 +1370,7 @@ public class DomainConst {
     public static let ORDER_CREATE                      = "order_create"
     public static let UPHOLD_LIST                       = "uphold_list"
     public static let NEWS_LIST                         = "news_list"
-    public static let USER_PROFILE                      = "user_profile"
+    public static let USER_PROFILE                      = "account"
     public static let ISSUE_CREATE                      = "Tạo mới phản ánh"
     public static let HOME                              = "home"
     public static let ISSUE_LIST                        = "issue_list"
@@ -1546,8 +1560,8 @@ public class DomainConst {
     
     // MARK: -----Domain constants-----
     /** Logo image name */
-    public static let LOGO_GAS_SERVICE_IMG_NAME             = "logo_vietmy.jpg"
-    public static let LOGO_GAS_24H_IMG_NAME                 = "logo_vietmy.jpg"
+    public static let LOGO_GAS_SERVICE_IMG_NAME             = "logo_main.png"
+    public static let LOGO_GAS_24H_IMG_NAME                 = "logo_main.png"
     /** Contact image name */
     public static let CONTACT_IMG_NAME                      = "contact.png"
     /** Next icon image name */
@@ -1793,7 +1807,7 @@ public class DomainConst {
     /** Version image name */
     public static let VERSION_TYPE_ICON_IMG_NAME            = "version.png"
     /** Version image name */
-    public static let LOGO_LOGIN_ICON_IMG_NAME              = "logo_vietmy.jpg"
+    public static let LOGO_LOGIN_ICON_IMG_NAME              = "logo_main.png"
     /** Version image name */
     public static let NEXT_BUTTON_ICON_IMG_NAME             = "nextbutton.png"
     /** Version image name */
@@ -1845,11 +1859,11 @@ public class DomainConst {
     /** Menu backgroud top image name */
     public static let MENU_BKG_TOP_NEW_IMG_NAME             = "bg_sliding_menu_top_new.png"
     /** Login background image [iphone] */
-    public static let LOGIN_BKG_IPHONE_IMG_NAME             = "signup_bg_1080_1920.png"
+    public static let LOGIN_BKG_IPHONE_IMG_NAME             = ""
     /** Login background image [ipad] */
-    public static let LOGIN_BKG_IPAD_IMG_NAME               = "signup_bg_1536_2048.png"
+    public static let LOGIN_BKG_IPAD_IMG_NAME               = ""
     /** Login background image [ipad landscape]*/
-    public static let LOGIN_BKG_IPAD_LANDSCAPE_IMG_NAME     = "signup_bg_2048_1536.png"
+    public static let LOGIN_BKG_IPAD_LANDSCAPE_IMG_NAME     = ""
     /** Order status image: Create - Active */
     public static let ORDER_STATUS_CREATE_ACTIVE_IMG_NAME       = "orderStatus_Create_Active.png"
     /** Order status image: Create - Inactive */
@@ -2031,7 +2045,7 @@ public class DomainConst {
     public static let CONTENT00105 = "Ngày tạo: $1%s"
     public static let CONTENT00106 = "%1$sID: %2$s"
     public static let CONTENT00107 = "%1$s - %2$s"
-    public static let CONTENT00108 = "Gas Service"
+    public static let CONTENT00108 = "VietMy Dental"
     public static let CONTENT00109 = "Số serial bình"
     public static let CONTENT00110 = "Loại định kỳ:"
     public static let CONTENT00111 = "Loại khách hàng:"
@@ -2433,4 +2447,7 @@ public class DomainConst {
     public static let CONTENT00538 = "Chia sẻ với bạn bè"
     public static let CONTENT00539 = "---------- Hỗ trợ ----------"
     public static let CONTENT00540 = "Chưa nhập mã pin"
+    public static let CONTENT00541 = "Danh sách Bệnh nhân"
+    public static let CONTENT00542 = "Tên người dùng"
+    public static let CONTENT00543 = "Thông tin bệnh nhân"
 }

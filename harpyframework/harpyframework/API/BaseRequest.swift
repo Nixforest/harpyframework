@@ -32,7 +32,7 @@ open class BaseRequest: NSObject {
     //++ BUG0175-SPJ (NguyenPT 20171206) Handle response code
     // MARK - Constant
     /** Error code response when Log out */
-    public static let ERROR_CODE_LOG_OUT                    =   "1987"
+    public static let ERROR_CODE_LOG_OUT                    =   "401"
     /** Error code response when Lost connection */
     public static let ERROR_CODE_LOST_CONNECTION            =   "1988"
     /** Error code response when Unknown reason */

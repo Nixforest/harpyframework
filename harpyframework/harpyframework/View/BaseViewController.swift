@@ -126,6 +126,8 @@ open class BaseViewController : UIViewController {
             let background = UIImageView(frame: UIScreen.main.bounds)
             background.image = ImageManager.getImage(named: self.backgroundImg)
             self.view.insertSubview(background, at: 0)
+        } else {
+            self.view.backgroundColor = UIColor.white
         }
         self.setBackgroundImage()
         self.createChildrenViews()
@@ -1281,6 +1283,13 @@ open class BaseViewController : UIViewController {
      * Handle open login view
      */
     open func openLogin() {
+    }
+    
+    /**
+     * Handle open Customer list
+     */
+    open func openCustomerList() {
+        
     }
     
     /**

@@ -393,9 +393,7 @@ open class BaseMenuViewController : BaseViewController {
             currentView.pushToViewAndClearData(name: "G03F00S01VC")
             break
         case DomainConst.CUSTOMER_LIST:                     // Customer list
-            //currentView.showAlert(message: DomainConst.CONTENT00197)
-            //currentView.pushToView(name: DomainConst.G06_F00_S01_VC)
-            currentView.pushToViewAndClearData(name: DomainConst.G06_F00_S01_VC)
+            openCustomerList()
             break
         case DomainConst.WORKING_REPORT:                    // Working report
             //currentView.showAlert(message: DomainConst.CONTENT00197)
