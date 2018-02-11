@@ -354,8 +354,7 @@ open class BaseMenuViewController : BaseViewController {
         BaseViewController.getRootController()?.closeLeft()
         switch (sender as! UIButton).accessibilityIdentifier! {
         case DomainConst.G00_CONFIGURATION_VIEW_CTRL:       // Config menu
-            //currentView.pushToView(name: DomainConst.G00_CONFIGURATION_VIEW_CTRL)
-            currentView.pushToViewAndClearData(name: DomainConst.G00_CONFIGURATION_VIEW_CTRL)
+            openConfig()
             break
         case DomainConst.G00_LOGIN_VIEW_CTRL:               // Login menu
             //++ BUG0156-SPJ (NguyenPT 20170922) Re-design Gas24h

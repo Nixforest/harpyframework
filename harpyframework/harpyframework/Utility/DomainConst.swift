@@ -93,6 +93,8 @@ public class DomainConst {
     public static let PATH_SUPPORT_APPLOG               = "support/appLog"
     /** Request news content*/
     public static let PATH_SUPPORT_NEWS                 = "support/viewPage"
+    /** Request list streets*/
+    public static let PATH_LIST_STREETS                 = "default/listStreets"
     
     // MARK: -----List of keys-----
     /** Token */
@@ -800,6 +802,9 @@ public class DomainConst {
     public static let KEY_INVITED_CODE                  = "invite_code"
     public static let KEY_CURRENT_POINT                 = "current_point"
     public static let KEY_INVITED_LIST                  = "invited_list"
+    public static let KEY_PATHOLOGICAL                  = "pathological"
+    public static let KEY_STATUS_TREATMENT              = "status_treatment"
+    public static let KEY_ADDRESS_CONFIG                = "address_config"
     
     
     // MARK: -----Specified constant-----
@@ -1091,6 +1096,10 @@ public class DomainConst {
     public static let ORDER_INFO_PROMOTION              = "###99945"
     /** Order information id: Order Material */
     public static let ORDER_INFO_MATERIAL_ID            = "###999"
+    
+    /** Group id */
+    public static let GROUP_MEDICAL_RECORD              = "1"
+    public static let GROUP_TREATMENT                   = "2"
     
     // MARK: New
     /** Key menu item: Promotion list */

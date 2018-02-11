@@ -19,11 +19,11 @@ open class ChildExtViewController: ChildViewController {
     open override func setNavigationBarTitle(title: String) {
         self.navigationItem.title = title
         // Set color text
-        if BaseModel.shared.isTrainningMode {
-            self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: GlobalConst.TRAINING_COLOR]
-        } else {
+//        if BaseModel.shared.isTrainningMode {
+//            self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: GlobalConst.TRAINING_COLOR]
+//        } else {
             self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
-        }
+//'-        }
     }
     
     /**

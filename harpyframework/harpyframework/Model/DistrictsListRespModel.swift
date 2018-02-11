@@ -28,7 +28,11 @@ public class DistrictsListRespModel: BaseRespModel {
                     return
                 }
                 // Record
-                self.record.append(contentsOf: getListConfig(json: (json[DomainConst.KEY_RECORD] as? [String: AnyObject])!, key: DomainConst.KEY_DISTRICT_LIST))
+                if let data = json[DomainConst.KEY_DATA] as? [String: AnyObject] {
+                    self.record.append(contentsOf: getListConfig(json: data, key: DomainConst.KEY_LIST))
+                }
+                
+//                self.record.append(contentsOf: getListConfig(json: (json[DomainConst.KEY_RECORD] as? [String: AnyObject])!, key: DomainConst.KEY_DISTRICT_LIST))
                 
             } catch let error as NSError {
                 print(DomainConst.JSON_ERR_FAILED_LOAD + "\(error.localizedDescription)")

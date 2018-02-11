@@ -73,6 +73,8 @@ public class BaseModel: NSObject {
     private var _listProvinces:                 [ConfigBean]                    = [ConfigBean]()
     private var _listDistricts:                 [String: [ConfigBean]]          = [String: [ConfigBean]]()
     private var _listWards:                     [String: [ConfigBean]]          = [String: [ConfigBean]]()
+    /** List streets [Base on City id] */
+    private var _listStreets:                   [String: [ConfigBean]]          = [String: [ConfigBean]]()
     //-- BUG0050-SPJ (NguyenPT 20170403) Handle Address information
     /** List family type */
     private var list_hgd_type:                  [ConfigBean]                    = [ConfigBean]()
@@ -1209,6 +1211,7 @@ public class BaseModel: NSObject {
     public func setListWards(districtId: String, data: [ConfigBean]) {
         self._listWards.updateValue(data, forKey: districtId)
     }
+    
     /**
      * Get list of districts
      * - parameter provinceId: Id of province
@@ -1658,5 +1661,57 @@ public class BaseModel: NSObject {
      */
     public func getGas24hMenuText() -> String {
         return _gas24hMenuText
+    }
+    
+    /**
+     * Get list of streets
+     * - parameter cityId: Id of city
+     * - returns: List of streets
+     */
+    public func getListConfigStreets(cityId: String) -> [ConfigBean] {
+        if let retVal = self._listStreets[cityId] {
+            return retVal
+        }
+        return [ConfigBean]()
+    }
+    
+    /**
+     * Set list of streets
+     * - parameter cityId: Id of city
+     * - parameter data: List of streets to save
+     */
+    public func setListConfigStreets(cityId: String, data: [ConfigBean]) {
+        self._listStreets.updateValue(data, forKey: cityId)
+    }
+    
+    /**
+     * Check if streets of a city is empty
+     * - parameter cityId: Id of city
+     * - returns: True if list of streets of city is empty, False otherwise
+     */
+    public func checkListConfigStreetsEmpty(cityId: String) -> Bool {
+        if let val = self._listStreets[cityId] {
+            return val.isEmpty
+        } else {
+            return true
+        }
+    }
+    
+    /**
+     * Get street name by id
+     * - parameter id: Id of street
+     * - parameter cityId: Id of city
+     * - returns: Name of street
+     */
+    public func getConfigStreetNameById(id: String, cityId: String) -> String {
+        if let lst = self._listStreets[cityId] {
+            for item in lst {
+                if item.id == id {
+                    return item.name
+                }
+            }
+        }
+        
+        return DomainConst.BLANK
     }
 }

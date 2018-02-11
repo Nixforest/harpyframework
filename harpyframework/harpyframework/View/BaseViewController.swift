@@ -1335,6 +1335,10 @@ open class BaseViewController : UIViewController {
     }
     //-- BUG0171-SPJ (NguyenPT 20171127) Add new menu
     
+    open func openConfig() {
+        
+    }
+    
     //++ BUG0156-SPJ (NguyenPT 20170926) Re-design Gas24h
     /**
      * Create bottom message view
