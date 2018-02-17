@@ -2488,4 +2488,7 @@ public class DomainConst {
     public static let CONTENT00546 = "Bạn muốn xoá bệnh lý này?"
     public static let CONTENT00547 = "Xoá"
     public static let CONTENT00548 = "Thêm tiền sử bệnh"
+    public static let CONTENT00549 = "Số bệnh án"
+    public static let CONTENT00550 = "Xin vui lòng nhập số bệnh án"
+    public static let CONTENT00551 = "Thông tin không hợp lệ. Xin vui lòng nhập lại"
 }
