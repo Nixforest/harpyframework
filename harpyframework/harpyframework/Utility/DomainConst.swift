@@ -297,6 +297,14 @@ public class DomainConst {
     public static let KEY_MODEL_UPHOLD                  = "model_uphold"
     /** Address */
     public static let KEY_ADDRESS                       = "address"
+    /** Career */
+    public static let KEY_CAREER                        = "career"
+    /** Characteristics */
+    public static let KEY_CHARACTERISTICS               = "characteristics"
+    /** Record_number */
+    public static let KEY_RECORD_NUMBER                 = "record_number"
+    /** Medical_history */
+    public static let KEY_MEDICAL_HISTORY               = "medical_history"
     /** Address */
     public static let KEY_GOOGLE_ADDRESS                = "google_address"
     /** Image avatar */
@@ -1100,6 +1108,20 @@ public class DomainConst {
     /** Group id */
     public static let GROUP_MEDICAL_RECORD              = "1"
     public static let GROUP_TREATMENT                   = "2"
+    /** Item id */
+    public static let ITEM_UPDATE_DATA                  = "0"
+    public static let ITEM_NAME                         = "1"
+    public static let ITEM_BIRTHDAY                     = "2"
+    public static let ITEM_MEDICAL_HISTORY              = "3"
+    public static let ITEM_GENDER                       = "4"
+    public static let ITEM_AGE                          = "5"
+    public static let ITEM_PHONE                        = "6"
+    public static let ITEM_ADDRESS                      = "7"
+    public static let ITEM_EMAIL                        = "8"
+    public static let ITEM_AGENT                        = "9"
+    public static let ITEM_CAREER                       = "10"
+    public static let ITEM_CHARACTERISTICS              = "11"
+    public static let ITEM_RECORD_NUMBER                = "12"
     
     // MARK: New
     /** Key menu item: Promotion list */
@@ -1193,6 +1215,8 @@ public class DomainConst {
     public static let KEY_MY_INVITE_CODE                = "my_invite_code"
     /** Key my_invite_code */
     public static let KEY_GAS24H_MENU_TEXT              = "gas24h_menu_text"
+    /** Key birthday */
+    public static let KEY_BIRTHDAY                      = "birthday"
     
     //++ BUG0050-SPJ (NguyenPT 20170325) Add new function G06
     /** Platform value: Android */
@@ -2459,4 +2483,9 @@ public class DomainConst {
     public static let CONTENT00541 = "Danh sách Bệnh nhân"
     public static let CONTENT00542 = "Tên người dùng"
     public static let CONTENT00543 = "Thông tin bệnh nhân"
+    public static let CONTENT00544 = "Hồ sơ bệnh án"
+    public static let CONTENT00545 = "Tiền sử bệnh"
+    public static let CONTENT00546 = "Bạn muốn xoá bệnh lý này?"
+    public static let CONTENT00547 = "Xoá"
+    public static let CONTENT00548 = "Thêm tiền sử bệnh"
 }

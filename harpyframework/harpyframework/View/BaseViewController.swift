@@ -536,7 +536,8 @@ open class BaseViewController : UIViewController {
         let navItem = UIBarButtonItem()
         navItem.customView = btn
         navItem.isEnabled = true
-        self.navigationItem.rightBarButtonItems?.append(navItem)
+//        self.navigationItem.rightBarButtonItems?.append(navItem)
+        self.navigationItem.setRightBarButton(navItem, animated: true)
     }
     
     /**
@@ -553,14 +554,15 @@ open class BaseViewController : UIViewController {
         btn.frame = CGRect(x: 0, y: 0,
                            width: GlobalConst.MENU_BUTTON_W,
                            height: GlobalConst.MENU_BUTTON_W)
-        btn.backgroundColor = GlobalConst.BUTTON_COLOR_RED
+        btn.backgroundColor = UIColor.clear
         btn.layer.cornerRadius = 0.5 * btn.bounds.size.width
         btn.addTarget(target, action: action, for: UIControlEvents.touchUpInside)
         
         let navItem = UIBarButtonItem()
         navItem.customView = btn
         navItem.isEnabled = true
-        self.navigationItem.rightBarButtonItems?.append(navItem)
+//        self.navigationItem.rightBarButtonItems?.append(navItem)
+        self.navigationItem.setRightBarButton(navItem, animated: true)
     }
     //-- BUG0050-SPJ (NguyenPT 20170323) Add new key for new function G06
     
