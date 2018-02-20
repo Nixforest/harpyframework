@@ -71,15 +71,18 @@ public class UserProfileRequest: BaseRequest {
      * Request user information
      * - parameter action:  Handler when finish execute task
      * - parameter view:    View controller
+     * - parameter isShowLoading:   Flag show loading
      */
-    public static func requestUserProfile(action: Selector, view: BaseViewController) {
+    public static func requestUserProfile(action: Selector,
+                                          view: BaseViewController,
+                                          isShowLoading: Bool = true) {
 //        LoadingView.shared.showOverlay(view: view.view)
         let request = UserProfileRequest(url: DomainConst.PATH_USER_PROFILE,
                                          reqMethod: DomainConst.HTTP_POST_REQUEST,
                                          view: view)
         request.setData()
         NotificationCenter.default.addObserver(view, selector: action, name: NSNotification.Name(rawValue: request.theClassName), object: nil)
-        request.execute()
+        request.execute(isShowLoadingView: isShowLoading)
     }
     //-- BUG0046-SPJ (NguyenPT 20170301) Use action for Request server completion
 }

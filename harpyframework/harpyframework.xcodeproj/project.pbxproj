@@ -349,6 +349,8 @@
 		D7C7A9FF1F567BDD0037986D /* ScanCodeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7C7A9FD1F567BDD0037986D /* ScanCodeVC.xib */; };
 		D7C7AA061F56D1AD0037986D /* ScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C7AA041F56D1AD0037986D /* ScannerVC.swift */; };
 		D7C7AA071F56D1AD0037986D /* ScannerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7C7AA051F56D1AD0037986D /* ScannerVC.xib */; };
+		D7C92A38203981AD002EF00D /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C92A36203981AD002EF00D /* Date+Extension.swift */; };
+		D7C92A39203981AD002EF00D /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C92A37203981AD002EF00D /* DatePickerViewController.swift */; };
 		D7CDBE261E877F0F00B73877 /* CustomerFamilyBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CDBE251E877F0F00B73877 /* CustomerFamilyBean.swift */; };
 		D7CDBE2D1E880A7800B73877 /* WorkingReportBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CDBE2C1E880A7800B73877 /* WorkingReportBean.swift */; };
 		D7CED6D11E98CB2E00C2B568 /* OrderEmployeeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CED6CF1E98CB2E00C2B568 /* OrderEmployeeTableViewCell.swift */; };
@@ -774,6 +776,8 @@
 		D7C7A9FD1F567BDD0037986D /* ScanCodeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ScanCodeVC.xib; path = View/ScanCodeVC.xib; sourceTree = "<group>"; };
 		D7C7AA041F56D1AD0037986D /* ScannerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScannerVC.swift; path = View/ScannerVC.swift; sourceTree = "<group>"; };
 		D7C7AA051F56D1AD0037986D /* ScannerVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ScannerVC.xib; path = View/ScannerVC.xib; sourceTree = "<group>"; };
+		D7C92A36203981AD002EF00D /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Date+Extension.swift"; path = "CustomeControl/Date+Extension.swift"; sourceTree = "<group>"; };
+		D7C92A37203981AD002EF00D /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatePickerViewController.swift; path = CustomeControl/DatePickerViewController.swift; sourceTree = "<group>"; };
 		D7CDBE251E877F0F00B73877 /* CustomerFamilyBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomerFamilyBean.swift; path = Model/CustomerFamilyBean.swift; sourceTree = "<group>"; };
 		D7CDBE2C1E880A7800B73877 /* WorkingReportBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkingReportBean.swift; path = Model/WorkingReportBean.swift; sourceTree = "<group>"; };
 		D7CED6CF1E98CB2E00C2B568 /* OrderEmployeeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderEmployeeTableViewCell.swift; path = CustomeControl/OrderEmployeeTableViewCell.swift; sourceTree = "<group>"; };
@@ -1155,6 +1159,7 @@
 		D7BE04841E05875400D37740 /* CustomControl */ = {
 			isa = PBXGroup;
 			children = (
+				D7C92A352039819D002EF00D /* DatePicker */,
 				D71777501F5E95D3009CF656 /* NVActivityIndicatorView */,
 				D7E40E441F57BDEC00AB1C33 /* QRCode */,
 				D716C1971E92A9E9007CC50C /* AddressPickerView.swift */,
@@ -1207,6 +1212,15 @@
 				D7C34A451E2B2BA60041B6CA /* libPods-project.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D7C92A352039819D002EF00D /* DatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				D7C92A36203981AD002EF00D /* Date+Extension.swift */,
+				D7C92A37203981AD002EF00D /* DatePickerViewController.swift */,
+			);
+			name = DatePicker;
 			sourceTree = "<group>";
 		};
 		D7E40E441F57BDEC00AB1C33 /* QRCode */ = {
@@ -1877,6 +1891,7 @@
 				D721C5351F5D3ED7003E823D /* TransformOf.swift in Sources */,
 				D7AB904E1E23FBC20048AC4F /* SearchBarTableViewCell.swift in Sources */,
 				D7C7AA061F56D1AD0037986D /* ScannerVC.swift in Sources */,
+				D7C92A38203981AD002EF00D /* Date+Extension.swift in Sources */,
 				D717777A1F5E9626009CF656 /* NVActivityIndicatorAnimationBallClipRotate.swift in Sources */,
 				D716C1901E924F16007CC50C /* WardsListRequest.swift in Sources */,
 				D721C5241F5D3ED6003E823D /* DataTransform.swift in Sources */,
@@ -1936,6 +1951,7 @@
 				D7FF1FC3202423A900C2DF28 /* ListBean.swift in Sources */,
 				D717778C1F5E9626009CF656 /* NVActivityIndicatorAnimationBlank.swift in Sources */,
 				D71777901F5E9626009CF656 /* NVActivityIndicatorAnimationLineScalePulseOut.swift in Sources */,
+				D7C92A39203981AD002EF00D /* DatePickerViewController.swift in Sources */,
 				D7C30A391E3058B600B3FDA6 /* AgentInfoBean.swift in Sources */,
 				D721C5341F5D3ED7003E823D /* ToJSON.swift in Sources */,
 				D71777801F5E9626009CF656 /* NVActivityIndicatorAnimationBallPulseRise.swift in Sources */,

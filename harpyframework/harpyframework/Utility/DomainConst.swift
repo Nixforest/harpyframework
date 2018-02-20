@@ -357,6 +357,12 @@ public class DomainConst {
     public static let KEY_END_DATE                      = "end_date"
     /** Diagnosis */
     public static let KEY_DIAGNOSIS                     = "diagnosis"
+    /** Diagnosis id */
+    public static let KEY_DIAGNOSIS_ID                  = "diagnosis_id"
+    /** Teeth */
+    public static let KEY_TEETH                         = "teeth"
+    /** Teeth */
+    public static let KEY_TEETH_ID                      = "teeth_id"
     /** List */
     public static let KEY_LIST                          = "list"
     /** Key transaction id */
@@ -811,8 +817,14 @@ public class DomainConst {
     public static let KEY_CURRENT_POINT                 = "current_point"
     public static let KEY_INVITED_LIST                  = "invited_list"
     public static let KEY_PATHOLOGICAL                  = "pathological"
+    public static let KEY_PATHOLOGICAL_ID               = "pathological_id"
+    public static let KEY_HEALTHY                       = "healthy"
     public static let KEY_STATUS_TREATMENT              = "status_treatment"
     public static let KEY_ADDRESS_CONFIG                = "address_config"
+    public static let KEY_TREATMENT                     = "treatment"
+    public static let KEY_TIME                          = "time"
+    public static let KEY_DOCTOR_ID                     = "doctor_id"
+    public static let KEY_TREATMENT_TYPE_ID             = "treatment_type_id"
     
     
     // MARK: -----Specified constant-----
@@ -1122,6 +1134,36 @@ public class DomainConst {
     public static let ITEM_CAREER                       = "10"
     public static let ITEM_CHARACTERISTICS              = "11"
     public static let ITEM_RECORD_NUMBER                = "12"
+    public static let ITEM_START_DATE                   = "13"
+    public static let ITEM_END_DATE                     = "14"
+    public static let ITEM_DIAGNOSIS                    = "15"
+    public static let ITEM_PATHOLOGICAL                 = "16"
+    public static let ITEM_DOCTOR                       = "17"
+    public static let ITEM_HEALTHY                      = "18"
+    public static let ITEM_STATUS                       = "19"
+    public static let ITEM_DETAILS                      = "20"
+    public static let ITEM_TEETH                        = "21"
+    public static let ITEM_TREATMENT                    = "22"
+    public static let ITEM_NOTE                         = "23"
+    public static let ITEM_TYPE                         = "24"
+    public static let ITEM_CAN_UPDATE                   = "25"
+    public static let ITEM_ID                           = "26"
+    public static let ITEM_DIAGNOSIS_ID                 = "27"
+    public static let ITEM_PATHOLOGICAL_ID              = "28"
+    public static let ITEM_TEETH_ID                     = "29"
+    public static let ITEM_TREATMENT_TYPE_ID            = "30"
+    public static let ITEM_DESCRIPTION                  = "31"
+    // MARK: Status
+    public static let TREATMENT_SCHEDULE_INACTIVE           = "0"
+    public static let TREATMENT_SCHEDULE_ACTIVE             = "1"
+    public static let TREATMENT_SCHEDULE_SCHEDULE           = "2"
+    public static let TREATMENT_SCHEDULE_COMPLETED          = "3"
+    public static let TREATMENT_SCHEDULE_DETAIL_INACTIVE    = "0"
+    public static let TREATMENT_SCHEDULE_DETAIL_ACTIVE      = "1"
+    public static let TREATMENT_SCHEDULE_DETAIL_COMPLETED   = "2"
+    public static let TREATMENT_SCHEDULE_PROCESS_INACTIVE   = "0"
+    public static let TREATMENT_SCHEDULE_PROCESS_ACTIVE     = "1"
+    public static let TREATMENT_SCHEDULE_PROCESS_COMPLETED  = "2"
     
     // MARK: New
     /** Key menu item: Promotion list */
@@ -2491,4 +2533,8 @@ public class DomainConst {
     public static let CONTENT00549 = "Số bệnh án"
     public static let CONTENT00550 = "Xin vui lòng nhập số bệnh án"
     public static let CONTENT00551 = "Thông tin không hợp lệ. Xin vui lòng nhập lại"
+    public static let CONTENT00552 = "Thông tin đợt điều trị"
+    public static let CONTENT00553 = "Tạo mới đợt điều trị"
+    public static let CONTENT00554 = "Thông tin chi tiết đợt điều trị"
+    public static let CONTENT00555 = "Đang cập nhật"
 }
