@@ -293,6 +293,8 @@ public class DomainConst {
     public static let KEY_WARD_LIST                     = "ward_list"
     /** Detail id */
     public static let KEY_DETAIL_ID                     = "detail_id"
+    /** Schedule id */
+    public static let KEY_SCHEDULE_ID                   = "schedule_id"
     /** Model uphold */
     public static let KEY_MODEL_UPHOLD                  = "model_uphold"
     /** Address */
@@ -1163,6 +1165,7 @@ public class DomainConst {
     public static let TREATMENT_SCHEDULE_DETAIL_INACTIVE    = "0"
     public static let TREATMENT_SCHEDULE_DETAIL_ACTIVE      = "1"
     public static let TREATMENT_SCHEDULE_DETAIL_COMPLETED   = "2"
+    public static let TREATMENT_SCHEDULE_DETAIL_SCHEDULE    = "3"
     public static let TREATMENT_SCHEDULE_PROCESS_INACTIVE   = "0"
     public static let TREATMENT_SCHEDULE_PROCESS_ACTIVE     = "1"
     public static let TREATMENT_SCHEDULE_PROCESS_COMPLETED  = "2"
@@ -2542,4 +2545,5 @@ public class DomainConst {
     public static let CONTENT00556 = "Tiến trình mới"
     public static let CONTENT00557 = "Chi tiết điều trị mới"
     public static let CONTENT00558 = "✓"
+    public static let CONTENT00559 = "Chọn ngày giờ"
 }
