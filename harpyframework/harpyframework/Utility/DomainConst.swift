@@ -625,6 +625,8 @@ public class DomainConst {
     public static let KEY_DATE_FROM                     = "date_from"
     /** Key Date to */
     public static let KEY_DATE_TO                       = "date_to"
+    /** Key Date */
+    public static let KEY_DATE                          = "date"
     /** Key Customer Family Brand*/
     public static let KEY_CUSTOMER_FAMILY_BRAND         = "hgd_thuong_hieu"
     /** List Customer family type */
@@ -2537,4 +2539,7 @@ public class DomainConst {
     public static let CONTENT00553 = "Tạo mới đợt điều trị"
     public static let CONTENT00554 = "Thông tin chi tiết đợt điều trị"
     public static let CONTENT00555 = "Đang cập nhật"
+    public static let CONTENT00556 = "Tiến trình mới"
+    public static let CONTENT00557 = "Chi tiết điều trị mới"
+    public static let CONTENT00558 = "✓"
 }

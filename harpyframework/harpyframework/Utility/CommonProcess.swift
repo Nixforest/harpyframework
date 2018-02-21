@@ -256,6 +256,20 @@ public class CommonProcess {
     }
     
     /**
+     * Convert date to string with format
+     * - parameter date:    Date value
+     * - parameter format:  Format value
+     * - returns: Date value as string with format: dd-mm-yyyy
+     */
+    public static func getDateString(date: Date, format: String) -> String {
+        var retVal = DomainConst.BLANK
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        retVal = dateFormatter.string(from: date)
+        return retVal
+    }
+    
+    /**
      * Get date string
      * - parameter date: Date value
      * - returns: Date value as string with format: dd-mm-yyyy

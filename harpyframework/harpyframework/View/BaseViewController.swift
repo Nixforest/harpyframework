@@ -889,6 +889,16 @@ open class BaseViewController : UIViewController {
         pushToView(name: name)
     }
     
+    /**
+     * Handle push to view controller
+     */
+    public func push(_ viewController: UIViewController, animated: Bool) {
+        if let controller = BaseViewController.getCurrentViewController() {
+            controller.navigationController?.pushViewController(
+                viewController, animated: animated)
+        }
+    }
+    
     //++ BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Present a VC
     /**
      * Present a view controller with View controller name
