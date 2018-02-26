@@ -40,6 +40,7 @@ open class ParentExtViewController: ParentViewController {
         
         self.navigationItem.titleView = button
         self.navigationController?.navigationBar.barTintColor = GlobalConst.MAIN_COLOR_GAS_24H
+        self.navigationController?.navigationBar.isTranslucent = false
     }
     
     /**
@@ -52,11 +53,22 @@ open class ParentExtViewController: ParentViewController {
         let btnMenu = UIButton()
         btnMenu.setImage(tintedImg, for: UIControlState())
         btnMenu.tintColor    = UIColor.white
+        btnMenu.imageView?.contentMode = .scaleAspectFit
         btnMenu.frame        = CGRect(x: 0, y: 0,
                                       width: GlobalConst.MENU_BUTTON_W,
                                       height: GlobalConst.MENU_BUTTON_H)
         btnMenu.setTitle(DomainConst.BLANK, for: UIControlState())
         btnMenu.addTarget(self, action: #selector(btnMenuTapped(_:)), for: UIControlEvents.touchUpInside)
+        // iOS 10 support
+        if #available(iOS 10, *) {
+            btnMenu.widthAnchor.constraint(equalToConstant: 32.0).isActive = true
+            btnMenu.heightAnchor.constraint(equalToConstant: 32.0).isActive = true
+        } else if #available(iOS 9, *) {
+            btnMenu.widthAnchor.constraint(equalToConstant: 32.0).isActive = true
+            btnMenu.heightAnchor.constraint(equalToConstant: 32.0).isActive = true
+        } else if #available(iOS 8, *) {
+        } else {
+        }
         let menuNavBar          = UIBarButtonItem()
         menuNavBar.customView   = btnMenu
         menuNavBar.isEnabled    = true

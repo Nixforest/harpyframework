@@ -24,6 +24,7 @@ open class ChildExtViewController: ChildViewController {
 //        } else {
             self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
 //'-        }
+        self.navigationController?.navigationBar.isTranslucent = false
     }
     
     /**
@@ -40,7 +41,19 @@ open class ChildExtViewController: ChildViewController {
                                width: GlobalConst.MENU_BUTTON_W,
                                height: GlobalConst.MENU_BUTTON_W)
         btnBack.setTitle(DomainConst.BLANK, for: UIControlState())
+        btnBack.imageView?.contentMode = .scaleAspectFit
         btnBack.addTarget(self, action: #selector(backButtonTapped(_:)), for: UIControlEvents.touchUpInside)
+        // iOS 10 support
+        if #available(iOS 10, *) {
+            btnBack.widthAnchor.constraint(equalToConstant: 32.0).isActive = true
+            btnBack.heightAnchor.constraint(equalToConstant: 32.0).isActive = true
+        } else if #available(iOS 9, *) {
+            btnBack.widthAnchor.constraint(equalToConstant: 32.0).isActive = true
+            btnBack.heightAnchor.constraint(equalToConstant: 32.0).isActive = true
+        } else if #available(iOS 8, *) {
+        } else {
+        }
+        
         
         let backNavBar = UIBarButtonItem()
         backNavBar.customView = btnBack

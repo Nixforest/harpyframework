@@ -1994,6 +1994,66 @@ public class DomainConst {
     /** Image qr code */
     public static let QR_CODE_ICON_IMG_NAME                     = "icon_qr.png"
     
+    /** Image for vietmy dental */
+    public static let VMD_ADD_ICON_IMG_NAME                     = "add.png"
+    public static let VMD_ADD1_ICON_IMG_NAME                    = "add_1.png"
+    public static let VMD_ADDRESS_ICON_IMG_NAME                 = "address.png"
+    public static let VMD_AGE_ICON_IMG_NAME                     = "age.png"
+    public static let VMD_AGENT_ICON_IMG_NAME                   = "agent.png"
+    public static let VMD_BIRTHDAY_ICON_IMG_NAME                = "birthday.png"
+    public static let VMD_DESCRIBE_ICON_IMG_NAME                = "describe.png"
+    public static let VMD_DETAIL_ICON_IMG_NAME                  = "detail.png"
+    public static let VMD_DIAGNOSIS_ICON_IMG_NAME               = "diagnosis.png"
+    public static let VMD_GENDER_ICON_IMG_NAME                  = "vmd_gender.png"
+    public static let VMD_HEALTHY_ICON_IMG_NAME                 = "healthy.png"
+    public static let VMD_MEDICAL_HISTORY_ICON_IMG_NAME         = "medical_history.png"
+    public static let VMD_PATIENT_ICON_IMG_NAME                 = "patient.png"
+    public static let VMD_PHONE_ICON_IMG_NAME                   = "phone.png"
+    public static let VMD_RECORD_NUMBER_ICON_IMG_NAME           = "record_number.png"
+    public static let VMD_SCHEDULE_PROCESS_ICON_IMG_NAME        = "schedule_process.png"
+    public static let VMD_SCHEDULE_ICON_IMG_NAME                = "schedule.png"
+    public static let VMD_START_DATE_ICON_IMG_NAME              = "start_date.png"
+    public static let VMD_SYMPTON_ICON_IMG_NAME                 = "sympton.png"
+    public static let VMD_TEETH_ICON_IMG_NAME                   = "teeth.png"
+    public static let VMD_TREATMENT_ICON_IMG_NAME               = "treatment.png"
+    public static let VMD_TYPE_ICON_IMG_NAME                    = "type.png"
+    public static let VMD_UPDATE_ICON_IMG_NAME                  = "reload.png"
+    public static let VMD_WORK_DETAIL_ICON_IMG_NAME             = "work_detail.png"
+    public static let VMD_WORK_ICON_IMG_NAME                    = "work.png"
+    public static let VMD_STATUS_SCHEDULE_ICON_IMG_NAME         = "status_schedule.png"
+    public static let VMD_STATUS_TREATMENT_ICON_IMG_NAME        = "status_treatment.png"
+    
+    public static let VMD_IMG_LIST:[String: String] = 
+    [
+        ITEM_UPDATE_DATA:       VMD_UPDATE_ICON_IMG_NAME,
+        ITEM_NAME:              VMD_PATIENT_ICON_IMG_NAME,
+        ITEM_BIRTHDAY:          VMD_BIRTHDAY_ICON_IMG_NAME,
+        ITEM_MEDICAL_HISTORY:   VMD_MEDICAL_HISTORY_ICON_IMG_NAME,
+        ITEM_GENDER:            VMD_GENDER_ICON_IMG_NAME,
+        ITEM_AGE:               VMD_AGE_ICON_IMG_NAME,
+        ITEM_PHONE:             VMD_PHONE_ICON_IMG_NAME,
+        ITEM_ADDRESS:           VMD_ADDRESS_ICON_IMG_NAME,
+        ITEM_EMAIL:             VMD_UPDATE_ICON_IMG_NAME,
+        ITEM_AGENT:             VMD_AGENT_ICON_IMG_NAME,
+        ITEM_CAREER:            VMD_UPDATE_ICON_IMG_NAME,
+        ITEM_CHARACTERISTICS:   VMD_UPDATE_ICON_IMG_NAME,
+        ITEM_RECORD_NUMBER:     VMD_RECORD_NUMBER_ICON_IMG_NAME,
+        ITEM_START_DATE:        VMD_START_DATE_ICON_IMG_NAME,
+        ITEM_END_DATE:          VMD_START_DATE_ICON_IMG_NAME,
+        ITEM_DIAGNOSIS:         VMD_DIAGNOSIS_ICON_IMG_NAME,
+        ITEM_PATHOLOGICAL:      VMD_SYMPTON_ICON_IMG_NAME,
+        ITEM_DOCTOR:            VMD_UPDATE_ICON_IMG_NAME,
+        ITEM_HEALTHY:           VMD_HEALTHY_ICON_IMG_NAME,
+        ITEM_STATUS:            VMD_UPDATE_ICON_IMG_NAME,
+        ITEM_DETAILS:           VMD_UPDATE_ICON_IMG_NAME,
+        ITEM_TEETH:             VMD_TEETH_ICON_IMG_NAME,
+        ITEM_TREATMENT:         VMD_TREATMENT_ICON_IMG_NAME,
+        ITEM_NOTE:              VMD_DESCRIBE_ICON_IMG_NAME,
+        ITEM_TYPE:              VMD_TYPE_ICON_IMG_NAME,
+        ITEM_ID:                VMD_UPDATE_ICON_IMG_NAME,
+        ITEM_DESCRIPTION:       VMD_WORK_DETAIL_ICON_IMG_NAME
+    ]
+    
     /** HTTP Post request method */
     public static let HTTP_POST_REQUEST                     = "POST"
     /** HTTP Post request method */
@@ -2546,4 +2606,5 @@ public class DomainConst {
     public static let CONTENT00557 = "Chi tiết điều trị mới"
     public static let CONTENT00558 = "✓"
     public static let CONTENT00559 = "Chọn ngày giờ"
+    public static let CONTENT00560 = "Bổ sung số bệnh án"
 }

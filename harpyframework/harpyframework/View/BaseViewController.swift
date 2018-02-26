@@ -212,6 +212,22 @@ open class BaseViewController : UIViewController {
     }
     
     /**
+     * Handle show alert message
+     * - parameter message: Message content
+     * - parameter title:   Title
+     */
+    public func showAlert(message: String, title: String) {
+        let msg = message.replacingOccurrences(of: "<br>", with: DomainConst.LINE_FEED)
+        let alert = UIAlertController(
+            title: title,
+            message: msg,
+            preferredStyle: .alert)
+        let okAction = UIAlertAction(title: DomainConst.CONTENT00008, style: .default, handler: nil)
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    /**
      * Show toast message
      * - parameter message: Message content
      */

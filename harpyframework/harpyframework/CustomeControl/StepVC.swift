@@ -171,7 +171,7 @@ open class StepVC: ChildViewController, UIScrollViewDelegate, ScrollButtonListDe
             width: GlobalConst.BUTTON_H,
             height: GlobalConst.BUTTON_H)
         _btnNext.setImage(tintedBack, for: UIControlState())
-        _btnNext.transform          = CGAffineTransform(rotationAngle: (180.0 * CGFloat(M_PI)) / 180.0)
+        _btnNext.transform          = CGAffineTransform(rotationAngle: (180.0 * CGFloat(Double.pi)) / 180.0)
         _btnNext.backgroundColor    = GlobalConst.BUTTON_COLOR_RED
         _btnNext.tintColor          = UIColor.white
         _btnNext.layer.cornerRadius = GlobalConst.BUTTON_CORNER_RADIUS
