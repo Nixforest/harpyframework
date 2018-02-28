@@ -32,6 +32,12 @@ public class OrderVIPDetailBean: OrderDetailBean {
         self.seri       = getString(json: jsonData, key: DomainConst.KEY_SERI)
         self.kg_empty   = getString(json: jsonData, key: DomainConst.KEY_KG_EMPTY)
         self.kg_has_gas = getString(json: jsonData, key: DomainConst.KEY_KG_HAS_GAS)
+        if kg_empty.isEmpty {
+            self.kg_empty = String.init(stringInterpolationSegment: getFloat(json: jsonData, key: DomainConst.KEY_KG_EMPTY))
+        }
+        if kg_has_gas.isEmpty {
+            kg_has_gas = String.init(stringInterpolationSegment: getFloat(json: jsonData, key: DomainConst.KEY_KG_HAS_GAS))
+        }
         //++ BUG0073-SPJ (NguyenPT 20170504) Move to OrderDetailBean class
 //        self.unit       = getString(json: jsonData, key: DomainConst.KEY_UNIT)
         //-- BUG0073-SPJ (NguyenPT 20170504) Move to OrderDetailBean class
@@ -80,4 +86,16 @@ public class OrderVIPDetailBean: OrderDetailBean {
         return retVal
     }
     //-- BUG0060-SPJ (NguyenPT 20170426) Handle OrderVIPDetailBean initialize from OrderDetailBean
+    public override init() {
+        super.init()
+        
+    }
+    
+    /**
+     * Get cylinder data
+     * - returns: String data
+     */
+    public func getCylinderData() -> String {
+        return "\(self.seri) - \(self.kg_empty) - \(self.kg_has_gas)"
+    }
 }

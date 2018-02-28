@@ -64,7 +64,8 @@ public class OrderBean: NSObject {
     /** show_huy_giao_hang */
     public var status_cancel: String = ""
     /** show_huy_giao_hang */
-    public var order_detail: [OrderDetailBean] = [OrderDetailBean]()
+//    public var order_detail: [OrderDetailBean] = [OrderDetailBean]()
+    public var order_detail:     [OrderVIPDetailBean] = [OrderVIPDetailBean]()
     /** Total quantity */
     public var total_qty:        String = DomainConst.BLANK
     /** Promotion amount */
@@ -117,6 +118,7 @@ public class OrderBean: NSObject {
     /** Flag show button complete or not */
     public var show_button_cancel:          String = DomainConst.BLANK
     //- BUG0103-SPJ (NguyenPT 20171227) Update new flag
+    public var gas_remain_amount:           String = DomainConst.BLANK
     
     
     public override init() {
@@ -165,7 +167,8 @@ public class OrderBean: NSObject {
         self.status_cancel      = getString(json: jsonData, key: DomainConst.KEY_STATUS_CANCEL)
         if let dataArr = jsonData[DomainConst.KEY_ORDER_DETAIL] as? [[String: AnyObject]] {
             for item in dataArr {
-                self.order_detail.append(OrderDetailBean(jsonData: item))
+//                self.order_detail.append(OrderDetailBean(jsonData: item))
+                self.order_detail.append(OrderVIPDetailBean(jsonData: item))
             }
         }
         self.total_qty          = getString(json: jsonData, key: DomainConst.KEY_TOTAL_QTY)
@@ -201,5 +204,7 @@ public class OrderBean: NSObject {
         //++ BUG0103-SPJ (NguyenPT 20171227) Update new flag
         self.show_button_cancel   = String(getInt(json: jsonData, key: DomainConst.KEY_SHOW_BUTTON_CANCEL))
         //-- BUG0103-SPJ (NguyenPT 20171227) Update new flag
+        
+        self.gas_remain_amount = getString(json: jsonData, key: DomainConst.KEY_GAS_REMAIN_AMOUNT)
     }
 }

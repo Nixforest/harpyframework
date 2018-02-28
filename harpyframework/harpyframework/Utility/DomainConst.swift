@@ -791,6 +791,7 @@ public class DomainConst {
     public static let KEY_AMOUNT_EMPTY                  = "amount_empty"
     public static let KEY_AMOUNT_HAS_GAS                = "amount_has_gas"
     public static let KEY_GAS_REMAIN_TYPE               = "gas_remain_type"
+    public static let KEY_GAS_REMAIN_AMOUNT             = "gas_remain_amount"
     
     
     // MARK: -----Specified constant-----
@@ -1392,6 +1393,12 @@ public class DomainConst {
     public static let UPHOLD_REPLY                      = "Trả lời bảo trì"
     public static let USER_CHANGE_PASS                  = "Đổi mật khẩu"
     public static let UPHOLD_CREATE                     = "Tạo mới bảo trì"
+    
+    // MARK: Item id
+    public static let ITEM_QTY                          = "1"
+    public static let ITEM_CYLINDER_MASS                = "2"
+    public static let ITEM_CYLINDER_GAS_MASS            = "3"
+    public static let ITEM_SERIAL                       = "4"
     
     // MARK: -----Controller names-----
     /** Application name */
@@ -2464,4 +2471,6 @@ public class DomainConst {
     public static let CONTENT00556 = "Tên vỏ"
     public static let CONTENT00557 = "Khối lượng gas dư"
     public static let CONTENT00558 = "Cập nhật gas dư"
+    public static let CONTENT00559 = "Dữ liệu không hợp lệ, vui lòng kiểm tra lại"
+    public static let CONTENT00560 = "Không thể nhập quá 4 ký tự, vui lòng kiểm tra lại"
 }

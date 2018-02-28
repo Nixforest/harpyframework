@@ -80,8 +80,19 @@ public class ConfigurationModel: ConfigBean {
         }
         super.init(id: orderDetail.material_id, name: orderDetail.material_name)
         self._iconPath  = orderDetail.material_image
-        self._value     = value
+        self._value     = value        
+    }    
+    
+    /**
+     * Initialize from Order detail
+     * - parameter orderDetail: Order detail
+     */
+    public init(orderVIPDetail: OrderVIPDetailBean) {
+        let value = orderVIPDetail.getCylinderData()
         
+        super.init(id: orderVIPDetail.material_id, name: orderVIPDetail.material_name)
+        self._iconPath  = orderVIPDetail.material_image
+        self._value     = value
     }
     //-- BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Get new data
     //++ BUG0079-SPJ (NguyenPT 20170509) Add order type and support type in Family order

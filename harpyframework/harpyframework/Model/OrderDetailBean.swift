@@ -51,13 +51,15 @@ public class OrderDetailBean: MaterialBean {
      */
     public func createJsonDataForUpdateOrder() -> String {
         var retVal = DomainConst.BLANK
-        retVal = String.init(format: "{\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\"}",
-                             DomainConst.KEY_MATERIALS_ID,      self.material_id,
-                             DomainConst.KEY_MATERIALS_TYPE_ID, self.materials_type_id,
-                             DomainConst.KEY_QUANTITY,          self.qty,
-                             DomainConst.KEY_PRICE,             self.price,
-                             DomainConst.KEY_AMOUNT,            self.amount,
-                             DomainConst.KEY_SERI,              DomainConst.BLANK)
+        retVal = String.init(
+            format: "{\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\"}",
+            DomainConst.KEY_MATERIALS_ID,      self.material_id,
+            DomainConst.KEY_MATERIALS_TYPE_ID, self.materials_type_id,
+            DomainConst.KEY_QUANTITY,          self.qty,
+            DomainConst.KEY_PRICE,             self.price,
+            DomainConst.KEY_AMOUNT,            self.amount,
+            DomainConst.KEY_SERI,              DomainConst.BLANK/*,
+            DomainConst.KEY_KG_EMPTY,          */)
         return retVal
     }
     
