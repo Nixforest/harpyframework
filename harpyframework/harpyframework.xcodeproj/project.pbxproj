@@ -33,6 +33,10 @@
 		90248765204416CF006B49DE /* healthy.png in Resources */ = {isa = PBXBuildFile; fileRef = 9024874D204416CF006B49DE /* healthy.png */; };
 		90248766204416CF006B49DE /* agent.png in Resources */ = {isa = PBXBuildFile; fileRef = 9024874E204416CF006B49DE /* agent.png */; };
 		90248767204416CF006B49DE /* schedule_process.png in Resources */ = {isa = PBXBuildFile; fileRef = 9024874F204416CF006B49DE /* schedule_process.png */; };
+		908BA465205283A60084A91D /* medical_history_parent.png in Resources */ = {isa = PBXBuildFile; fileRef = 908BA464205283A60084A91D /* medical_history_parent.png */; };
+		908BA467205285260084A91D /* update_info.png in Resources */ = {isa = PBXBuildFile; fileRef = 908BA466205285260084A91D /* update_info.png */; };
+		908BA4692052868E0084A91D /* work_patient.png in Resources */ = {isa = PBXBuildFile; fileRef = 908BA4682052868E0084A91D /* work_patient.png */; };
+		908BA46B205287130084A91D /* add_medical_history.png in Resources */ = {isa = PBXBuildFile; fileRef = 908BA46A205287130084A91D /* add_medical_history.png */; };
 		90E8AE5B20443E2000C0A125 /* reload.png in Resources */ = {isa = PBXBuildFile; fileRef = 90E8AE5A20443E2000C0A125 /* reload.png */; };
 		90E8AE5D204440FE00C0A125 /* vmd_gender.png in Resources */ = {isa = PBXBuildFile; fileRef = 90E8AE5C204440FE00C0A125 /* vmd_gender.png */; };
 		90E8AE5F20444D5300C0A125 /* detail.png in Resources */ = {isa = PBXBuildFile; fileRef = 90E8AE5E20444D5200C0A125 /* detail.png */; };
@@ -483,6 +487,10 @@
 		9024874D204416CF006B49DE /* healthy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = healthy.png; path = images/icon/healthy.png; sourceTree = "<group>"; };
 		9024874E204416CF006B49DE /* agent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = agent.png; path = images/icon/agent.png; sourceTree = "<group>"; };
 		9024874F204416CF006B49DE /* schedule_process.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = schedule_process.png; path = images/icon/schedule_process.png; sourceTree = "<group>"; };
+		908BA464205283A60084A91D /* medical_history_parent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = medical_history_parent.png; path = images/icon/medical_history_parent.png; sourceTree = "<group>"; };
+		908BA466205285260084A91D /* update_info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = update_info.png; path = images/icon/update_info.png; sourceTree = "<group>"; };
+		908BA4682052868E0084A91D /* work_patient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = work_patient.png; path = images/icon/work_patient.png; sourceTree = "<group>"; };
+		908BA46A205287130084A91D /* add_medical_history.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = add_medical_history.png; path = images/icon/add_medical_history.png; sourceTree = "<group>"; };
 		90E8AE5A20443E2000C0A125 /* reload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reload.png; path = images/icon/reload.png; sourceTree = "<group>"; };
 		90E8AE5C204440FE00C0A125 /* vmd_gender.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = vmd_gender.png; path = images/icon/vmd_gender.png; sourceTree = "<group>"; };
 		90E8AE5E20444D5200C0A125 /* detail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = detail.png; path = images/icon/detail.png; sourceTree = "<group>"; };
@@ -1132,6 +1140,10 @@
 		90248738204416BA006B49DE /* icon */ = {
 			isa = PBXGroup;
 			children = (
+				908BA46A205287130084A91D /* add_medical_history.png */,
+				908BA4682052868E0084A91D /* work_patient.png */,
+				908BA466205285260084A91D /* update_info.png */,
+				908BA464205283A60084A91D /* medical_history_parent.png */,
 				9001B4B720447B2400BF03F3 /* add_1.png */,
 				9001B4B620447B2400BF03F3 /* status_schedule.png */,
 				9001B4B820447B2400BF03F3 /* status_treatment.png */,
@@ -1650,6 +1662,7 @@
 				D746DDFE1F85F2A000C014DA /* orderStatus_Waiting_Active.png in Resources */,
 				90248766204416CF006B49DE /* agent.png in Resources */,
 				D7F3D8D11E1B80D80018744F /* TableCellUpholdType.xib in Resources */,
+				908BA4692052868E0084A91D /* work_patient.png in Resources */,
 				D7EDF4931F97499500215A5E /* name_icon.png in Resources */,
 				D778D6411E5D790D009FD654 /* icon81.png in Resources */,
 				D75F65211E28B3BC00A67B3C /* ordergas.png in Resources */,
@@ -1663,6 +1676,7 @@
 				D75F652A1E28B3C600A67B3C /* ServiceRating.jpeg in Resources */,
 				D7E2990D1F75210A0078C46C /* sourceMarker.png in Resources */,
 				D75F64B61E28B2A900A67B3C /* icon25.png in Resources */,
+				908BA46B205287130084A91D /* add_medical_history.png in Resources */,
 				D791F6A81E2378C0009CBBED /* icon49.png in Resources */,
 				D7D28B781EB9B8DD006DDF83 /* ic_menu_cash_book.png in Resources */,
 				D78E326F1E571C980035C40D /* ic_number_back.png in Resources */,
@@ -1748,6 +1762,7 @@
 				D75F64F31E28B39100A67B3C /* icon35-user.png in Resources */,
 				D7EA53D11EE3F5C5004CFE1F /* map.png in Resources */,
 				90248762204416CF006B49DE /* diagnosis.png in Resources */,
+				908BA467205285260084A91D /* update_info.png in Resources */,
 				D75F64E01E28B39100A67B3C /* done.png in Resources */,
 				D7B96E211F7169C500815D7F /* logo_zalo.png in Resources */,
 				D75F65221E28B3BC00A67B3C /* phone-ios.png in Resources */,
@@ -1853,6 +1868,7 @@
 				D7D04E371E55544900B3F8CF /* icon77.png in Resources */,
 				D70B9F951E3F504400EB66F5 /* icon18.png in Resources */,
 				D75F64B31E28B10300A67B3C /* bg1.jpg in Resources */,
+				908BA465205283A60084A91D /* medical_history_parent.png in Resources */,
 				D7D28B761EB9B800006DDF83 /* ic_menu_support.png in Resources */,
 				D75F64E91E28B39100A67B3C /* icon20.png in Resources */,
 				D7029F951F3871B20081797B /* themvattu-2.png in Resources */,

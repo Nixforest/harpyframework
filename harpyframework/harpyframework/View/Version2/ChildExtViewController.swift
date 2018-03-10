@@ -43,16 +43,7 @@ open class ChildExtViewController: ChildViewController {
         btnBack.setTitle(DomainConst.BLANK, for: UIControlState())
         btnBack.imageView?.contentMode = .scaleAspectFit
         btnBack.addTarget(self, action: #selector(backButtonTapped(_:)), for: UIControlEvents.touchUpInside)
-        // iOS 10 support
-        if #available(iOS 10, *) {
-            btnBack.widthAnchor.constraint(equalToConstant: 32.0).isActive = true
-            btnBack.heightAnchor.constraint(equalToConstant: 32.0).isActive = true
-        } else if #available(iOS 9, *) {
-            btnBack.widthAnchor.constraint(equalToConstant: 32.0).isActive = true
-            btnBack.heightAnchor.constraint(equalToConstant: 32.0).isActive = true
-        } else if #available(iOS 8, *) {
-        } else {
-        }
+        CommonProcess.scaleNavBtn(btn: btnBack)
         
         
         let backNavBar = UIBarButtonItem()

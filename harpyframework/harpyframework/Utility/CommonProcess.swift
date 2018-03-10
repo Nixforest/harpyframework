@@ -424,4 +424,22 @@ public class CommonProcess {
             lbl.attributedText = mutableStr
         }
     }
+    
+    /**
+     * Handle scale navigation button
+     * - parameter btn: Button to scale
+     */
+    public static func scaleNavBtn(btn: UIButton) {
+        // iOS 10 support
+        if #available(iOS 10, *) {
+            btn.widthAnchor.constraint(equalToConstant: 32.0).isActive = true
+            btn.heightAnchor.constraint(equalToConstant: 32.0).isActive = true
+        } else if #available(iOS 9, *) {
+            btn.widthAnchor.constraint(equalToConstant: 32.0).isActive = true
+            btn.heightAnchor.constraint(equalToConstant: 32.0).isActive = true
+        } else if #available(iOS 8, *) {
+        } else {
+        }
+        btn.imageView?.contentMode = .scaleAspectFit
+    }
 }

@@ -829,6 +829,7 @@ public class DomainConst {
     public static let KEY_TIME                          = "time"
     public static let KEY_DOCTOR_ID                     = "doctor_id"
     public static let KEY_TREATMENT_TYPE_ID             = "treatment_type_id"
+    public static let KEY_TIMER                         = "timer"
     
     
     // MARK: -----Specified constant-----
@@ -1157,6 +1158,7 @@ public class DomainConst {
     public static let ITEM_TEETH_ID                     = "29"
     public static let ITEM_TREATMENT_TYPE_ID            = "30"
     public static let ITEM_DESCRIPTION                  = "31"
+    public static let ITEM_TIME_ID                      = "32"
     // MARK: Status
     public static let TREATMENT_SCHEDULE_INACTIVE           = "0"
     public static let TREATMENT_SCHEDULE_ACTIVE             = "1"
@@ -2007,6 +2009,7 @@ public class DomainConst {
     public static let VMD_GENDER_ICON_IMG_NAME                  = "vmd_gender.png"
     public static let VMD_HEALTHY_ICON_IMG_NAME                 = "healthy.png"
     public static let VMD_MEDICAL_HISTORY_ICON_IMG_NAME         = "medical_history.png"
+    public static let VMD_MEDICAL_HISTORY_PARENT_ICON_IMG_NAME  = "medical_history_parent.png"
     public static let VMD_PATIENT_ICON_IMG_NAME                 = "patient.png"
     public static let VMD_PHONE_ICON_IMG_NAME                   = "phone.png"
     public static let VMD_RECORD_NUMBER_ICON_IMG_NAME           = "record_number.png"
@@ -2017,18 +2020,20 @@ public class DomainConst {
     public static let VMD_TEETH_ICON_IMG_NAME                   = "teeth.png"
     public static let VMD_TREATMENT_ICON_IMG_NAME               = "treatment.png"
     public static let VMD_TYPE_ICON_IMG_NAME                    = "type.png"
-    public static let VMD_UPDATE_ICON_IMG_NAME                  = "reload.png"
+    public static let VMD_RELOAD_ICON_IMG_NAME                  = "reload.png"
+    public static let VMD_UPDATE_ICON_IMG_NAME                  = "update_info"
     public static let VMD_WORK_DETAIL_ICON_IMG_NAME             = "work_detail.png"
     public static let VMD_WORK_ICON_IMG_NAME                    = "work.png"
     public static let VMD_STATUS_SCHEDULE_ICON_IMG_NAME         = "status_schedule.png"
     public static let VMD_STATUS_TREATMENT_ICON_IMG_NAME        = "status_treatment.png"
+    public static let VMD_ADD_MEDICAL_HISTORY_ICON_IMG_NAME     = "add_medical_history.png"
     
     public static let VMD_IMG_LIST:[String: String] = 
     [
         ITEM_UPDATE_DATA:       VMD_UPDATE_ICON_IMG_NAME,
         ITEM_NAME:              VMD_PATIENT_ICON_IMG_NAME,
         ITEM_BIRTHDAY:          VMD_BIRTHDAY_ICON_IMG_NAME,
-        ITEM_MEDICAL_HISTORY:   VMD_MEDICAL_HISTORY_ICON_IMG_NAME,
+        ITEM_MEDICAL_HISTORY:   VMD_MEDICAL_HISTORY_PARENT_ICON_IMG_NAME,
         ITEM_GENDER:            VMD_GENDER_ICON_IMG_NAME,
         ITEM_AGE:               VMD_AGE_ICON_IMG_NAME,
         ITEM_PHONE:             VMD_PHONE_ICON_IMG_NAME,
@@ -2048,7 +2053,7 @@ public class DomainConst {
         ITEM_DETAILS:           VMD_UPDATE_ICON_IMG_NAME,
         ITEM_TEETH:             VMD_TEETH_ICON_IMG_NAME,
         ITEM_TREATMENT:         VMD_TREATMENT_ICON_IMG_NAME,
-        ITEM_NOTE:              VMD_DESCRIBE_ICON_IMG_NAME,
+        ITEM_NOTE:              VMD_WORK_ICON_IMG_NAME,
         ITEM_TYPE:              VMD_TYPE_ICON_IMG_NAME,
         ITEM_ID:                VMD_UPDATE_ICON_IMG_NAME,
         ITEM_DESCRIPTION:       VMD_WORK_DETAIL_ICON_IMG_NAME
@@ -2607,4 +2612,5 @@ public class DomainConst {
     public static let CONTENT00558 = "✓"
     public static let CONTENT00559 = "Chọn ngày giờ"
     public static let CONTENT00560 = "Bổ sung số bệnh án"
+    public static let CONTENT00561 = "Bạn có chắc chắn muốn hoàn thành Chi tiết đợt điều trị này không?"
 }
