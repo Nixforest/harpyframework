@@ -2018,6 +2018,7 @@ public class DomainConst {
     public static let VMD_START_DATE_ICON_IMG_NAME              = "start_date.png"
     public static let VMD_SYMPTON_ICON_IMG_NAME                 = "sympton.png"
     public static let VMD_TEETH_ICON_IMG_NAME                   = "teeth.png"
+    public static let VMD_TIME_ID_ICON_IMG_NAME                 = "time.png"
     public static let VMD_TREATMENT_ICON_IMG_NAME               = "treatment.png"
     public static let VMD_TYPE_ICON_IMG_NAME                    = "type.png"
     public static let VMD_RELOAD_ICON_IMG_NAME                  = "reload.png"
@@ -2056,7 +2057,8 @@ public class DomainConst {
         ITEM_NOTE:              VMD_WORK_ICON_IMG_NAME,
         ITEM_TYPE:              VMD_TYPE_ICON_IMG_NAME,
         ITEM_ID:                VMD_UPDATE_ICON_IMG_NAME,
-        ITEM_DESCRIPTION:       VMD_WORK_DETAIL_ICON_IMG_NAME
+        ITEM_DESCRIPTION:       VMD_WORK_DETAIL_ICON_IMG_NAME,
+        ITEM_TIME_ID:           VMD_TIME_ID_ICON_IMG_NAME
     ]
     
     /** HTTP Post request method */
@@ -2613,4 +2615,8 @@ public class DomainConst {
     public static let CONTENT00559 = "Chọn ngày giờ"
     public static let CONTENT00560 = "Bổ sung số bệnh án"
     public static let CONTENT00561 = "Bạn có chắc chắn muốn hoàn thành Chi tiết đợt điều trị này không?"
+    public static let CONTENT00562 = "Giờ hẹn"
+    public static let CONTENT00563 = "Ngày hẹn"
+    public static let CONTENT00564 = "Hình thức"
+    public static let CONTENT00565 = "Chi tiết công việc"
 }

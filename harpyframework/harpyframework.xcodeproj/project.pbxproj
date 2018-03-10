@@ -33,6 +33,7 @@
 		90248765204416CF006B49DE /* healthy.png in Resources */ = {isa = PBXBuildFile; fileRef = 9024874D204416CF006B49DE /* healthy.png */; };
 		90248766204416CF006B49DE /* agent.png in Resources */ = {isa = PBXBuildFile; fileRef = 9024874E204416CF006B49DE /* agent.png */; };
 		90248767204416CF006B49DE /* schedule_process.png in Resources */ = {isa = PBXBuildFile; fileRef = 9024874F204416CF006B49DE /* schedule_process.png */; };
+		903A9F9D2053D3FF000EE9AC /* time.png in Resources */ = {isa = PBXBuildFile; fileRef = 903A9F9C2053D3FF000EE9AC /* time.png */; };
 		908BA465205283A60084A91D /* medical_history_parent.png in Resources */ = {isa = PBXBuildFile; fileRef = 908BA464205283A60084A91D /* medical_history_parent.png */; };
 		908BA467205285260084A91D /* update_info.png in Resources */ = {isa = PBXBuildFile; fileRef = 908BA466205285260084A91D /* update_info.png */; };
 		908BA4692052868E0084A91D /* work_patient.png in Resources */ = {isa = PBXBuildFile; fileRef = 908BA4682052868E0084A91D /* work_patient.png */; };
@@ -487,6 +488,7 @@
 		9024874D204416CF006B49DE /* healthy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = healthy.png; path = images/icon/healthy.png; sourceTree = "<group>"; };
 		9024874E204416CF006B49DE /* agent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = agent.png; path = images/icon/agent.png; sourceTree = "<group>"; };
 		9024874F204416CF006B49DE /* schedule_process.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = schedule_process.png; path = images/icon/schedule_process.png; sourceTree = "<group>"; };
+		903A9F9C2053D3FF000EE9AC /* time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = time.png; path = images/icon/time.png; sourceTree = "<group>"; };
 		908BA464205283A60084A91D /* medical_history_parent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = medical_history_parent.png; path = images/icon/medical_history_parent.png; sourceTree = "<group>"; };
 		908BA466205285260084A91D /* update_info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = update_info.png; path = images/icon/update_info.png; sourceTree = "<group>"; };
 		908BA4682052868E0084A91D /* work_patient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = work_patient.png; path = images/icon/work_patient.png; sourceTree = "<group>"; };
@@ -1140,6 +1142,7 @@
 		90248738204416BA006B49DE /* icon */ = {
 			isa = PBXGroup;
 			children = (
+				903A9F9C2053D3FF000EE9AC /* time.png */,
 				908BA46A205287130084A91D /* add_medical_history.png */,
 				908BA4682052868E0084A91D /* work_patient.png */,
 				908BA466205285260084A91D /* update_info.png */,
@@ -1838,6 +1841,7 @@
 				9001B4BB20447B2400BF03F3 /* status_treatment.png in Resources */,
 				9001B4BA20447B2400BF03F3 /* add_1.png in Resources */,
 				D75F65251E28B3BC00A67B3C /* rating.png in Resources */,
+				903A9F9D2053D3FF000EE9AC /* time.png in Resources */,
 				D74B3F801F797917001F22B9 /* menubtn.png in Resources */,
 				D75F64AD1E28657900A67B3C /* icon52.png in Resources */,
 				D7EA53CF1EE3F40A004CFE1F /* ticket.png in Resources */,
