@@ -9,13 +9,15 @@
 import Foundation
 open class BaseRespModel: NSObject {
     /** Status */
-    public var status: String = DomainConst.RESPONSE_STATUS_FAILED
+    public var status:      String = DomainConst.RESPONSE_STATUS_FAILED
     /** Code */
-    public var code: String = ""
+    public var code:        String = DomainConst.BLANK
     /** Message */
-    public var message: String = ""
+    public var message:     String = DomainConst.BLANK
     /** User token */
-    public var token: String = ""
+    public var token:       String = DomainConst.BLANK
+    /** Record string value */
+    public var recordStr:   String = DomainConst.BLANK
     /**
      * Initializer
      */
@@ -43,6 +45,12 @@ open class BaseRespModel: NSObject {
                 
                 // Token
                 self.token = getString(json: json, key: DomainConst.KEY_TOKEN)
+                
+                // Record
+                self.recordStr = getString(json: json, key: DomainConst.KEY_RECORD)
+                if self.recordStr.isEmpty {
+                    self.recordStr = String(describing: getInt(json: json, key: DomainConst.KEY_RECORD))
+                }
             } catch let error as NSError {
                 //print(DomainConst.JSON_ERR_FAILED_LOAD + "\(error.localizedDescription)")
                 handleSerializationException(error: error, jsonString: jsonString)
