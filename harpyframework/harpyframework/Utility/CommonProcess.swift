@@ -9,6 +9,20 @@
 import Foundation
 public class CommonProcess {
     /**
+     * Get string body request send to Server
+     * - parameter dictionary: request parameter as Dictionary<String, AnyObject>
+     */
+    public static func getStringBody(parameter: Dictionary <String, AnyObject>) -> String {
+        var output = ""
+        for  (k,v) in  parameter {
+            output = output + "\"\(k)\": \"\(v)\","
+        }
+        output = "q={\(output) \"platform\":\"0\", \"token\": \"\(BaseModel.shared.getUserToken())\"}"
+        output = output.replacingOccurrences(of: "\"(", with: "[")
+        output = output.replacingOccurrences(of: ")\"", with: "]")
+        return output
+    }
+    /**
      * Set border for control.
      * - parameter view: Control to set border
      */

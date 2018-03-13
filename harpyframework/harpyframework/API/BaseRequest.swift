@@ -16,6 +16,7 @@ open class BaseRequest: NSObject {
     public var data: String = ""
     /** Data of request (upload file) */
     public var param: [String: String] = [String: String]()
+    
     /** Request method: GET/POST */
     public var reqMethod: String = ""
     /** Session */
@@ -44,10 +45,10 @@ open class BaseRequest: NSObject {
     //-- BUG0175-SPJ (NguyenPT 20171206) Handle response code
     
     
-    public init(api: String, method: String, parameter: String) {
-        self.url = api
+    public init(url: String, method: String, body: String) {
+        self.url = url
         self.reqMethod = method
-        self.data = parameter
+        self.data = body
     }
     /**
      * Initializer
