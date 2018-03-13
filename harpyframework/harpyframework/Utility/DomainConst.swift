@@ -1159,6 +1159,7 @@ public class DomainConst {
     public static let ITEM_TREATMENT_TYPE_ID            = "30"
     public static let ITEM_DESCRIPTION                  = "31"
     public static let ITEM_TIME_ID                      = "32"
+    public static let ITEM_TIME                         = "33"
     // MARK: Status
     public static let TREATMENT_SCHEDULE_INACTIVE           = "0"
     public static let TREATMENT_SCHEDULE_ACTIVE             = "1"
@@ -2018,6 +2019,7 @@ public class DomainConst {
     public static let VMD_START_DATE_ICON_IMG_NAME              = "start_date.png"
     public static let VMD_SYMPTON_ICON_IMG_NAME                 = "sympton.png"
     public static let VMD_TEETH_ICON_IMG_NAME                   = "teeth.png"
+    public static let VMD_TIME_ID_ICON_IMG_NAME                 = "time.png"
     public static let VMD_TREATMENT_ICON_IMG_NAME               = "treatment.png"
     public static let VMD_TYPE_ICON_IMG_NAME                    = "type.png"
     public static let VMD_RELOAD_ICON_IMG_NAME                  = "reload.png"
@@ -2056,11 +2058,17 @@ public class DomainConst {
         ITEM_NOTE:              VMD_WORK_ICON_IMG_NAME,
         ITEM_TYPE:              VMD_TYPE_ICON_IMG_NAME,
         ITEM_ID:                VMD_UPDATE_ICON_IMG_NAME,
-        ITEM_DESCRIPTION:       VMD_WORK_DETAIL_ICON_IMG_NAME
+        ITEM_DESCRIPTION:       VMD_WORK_DETAIL_ICON_IMG_NAME,
+        ITEM_TIME_ID:           VMD_TIME_ID_ICON_IMG_NAME,
+        ITEM_TIME:              VMD_TIME_ID_ICON_IMG_NAME
     ]
     
     /** HTTP Post request method */
     public static let HTTP_POST_REQUEST                     = "POST"
+    /** Date time format */
+    public static let DATE_TIME_FORMAT_1                    = "dd/MM/yyyy"
+    /** Date time format */
+    public static let DATE_TIME_FORMAT_2                    = "yyyy/MM/dd"
     /** HTTP Post request method */
     public static let GOOGLE_API_KEY                        = "AIzaSyCOXWFIXGsvZqkOziYt5CQj7Y-bB7Ej40U"
     /** HTTP Post request method */
@@ -2613,4 +2621,11 @@ public class DomainConst {
     public static let CONTENT00559 = "Chọn ngày giờ"
     public static let CONTENT00560 = "Bổ sung số bệnh án"
     public static let CONTENT00561 = "Bạn có chắc chắn muốn hoàn thành Chi tiết đợt điều trị này không?"
+    public static let CONTENT00562 = "Giờ hẹn"
+    public static let CONTENT00563 = "Ngày hẹn"
+    public static let CONTENT00564 = "Hình thức"
+    public static let CONTENT00565 = "Chi tiết công việc"
+    public static let CONTENT00566 = "Răng số"
+    public static let CONTENT00567 = "Chẩn đoán"
+    public static let CONTENT00568 = "Loại điều trị"
 }
