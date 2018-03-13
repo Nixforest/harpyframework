@@ -7,6 +7,57 @@
 //
 
 import Foundation
+
+open class ResponseModel: NSObject {
+    var status = 0
+    var message = "Lỗi"
+    var data : Any!
+    var code  = 0
+    var isDisconnected = false
+    var Error = true
+    
+    public init(dictionary : NSDictionary) {
+        super.init()
+        var allKey = self.propertyNames()
+        for  i in 0..<allKey.count {
+            let key = allKey[i]
+            if(dictionary[key] != nil) {
+                if let value = dictionary[key] {
+                    if(!(value  is NSNull)) {
+                        self.setValue(value , forKey: key )
+                    }
+                }
+            }
+        }
+    }
+    
+    public func dictionary() -> Dictionary<String, Any> {
+        var dict = Dictionary<String, Any>()
+        let allKey = propertyNames()
+        for  i in 0..<allKey.count {
+            dict[allKey[i]] = value(forKey: allKey[i])
+        }
+        return dict;
+    }
+    
+    public func dictionarySkipKey(skipKey: [String]) -> Dictionary<String, Any> {
+        var dict = Dictionary<String, Any>()
+        let allKey = propertyNames()
+        for  i in 0..<allKey.count {
+            if((skipKey.index{$0 == allKey[i]}) != nil) {
+                continue
+            }
+            dict[allKey[i]] = value(forKey: allKey[i])
+        }
+        return dict;
+    }
+    
+    public func propertyNames() -> [String] {
+        return Mirror(reflecting: self).children.flatMap { $0.label }
+    }
+}
+
+
 open class BaseRespModel: NSObject {
     /** Status */
     public var status: String = DomainConst.RESPONSE_STATUS_FAILED

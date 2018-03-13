@@ -108,6 +108,7 @@ open class BaseViewController : UIViewController {
      * View did appear
      */
     override open func viewDidAppear(_ animated: Bool) {
+        print("CurentController: \(String(describing: nibName))")
         //notification button enable/disable
         //self.updateNotificationStatus()
         if BaseModel.shared.checkIsLogin() {

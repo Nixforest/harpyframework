@@ -7,6 +7,8 @@
 //
 
 import Foundation
+
+
 open class BaseRequest: NSObject {
     /** URL */
     public var url: String = ""
@@ -19,7 +21,7 @@ open class BaseRequest: NSObject {
     /** Session */
     public var session = URLSession.shared
     /** Current view */
-    public var view: BaseViewController
+    public var view: BaseViewController = BaseViewController()
     //++ BUG0082-SPJ (NguyenPT 20170510) Change BaseRequest handle completion mechanism
     /** Completion block code */
     public var completionBlock: ((Any?) -> Void)? = nil
@@ -41,6 +43,12 @@ open class BaseRequest: NSObject {
     public static let ERROR_CODE_WRONG_VERSION              =   "1990"
     //-- BUG0175-SPJ (NguyenPT 20171206) Handle response code
     
+    
+    public init(api: String, method: String, parameter: String) {
+        self.url = api
+        self.reqMethod = method
+        self.data = parameter
+    }
     /**
      * Initializer
      * - parameter url: URL
@@ -416,6 +424,8 @@ open class BaseRequest: NSObject {
         URLSession.shared.invalidateAndCancel()
     }
 }
+
+
 
 extension BaseRequest: URLSessionDelegate {
     
