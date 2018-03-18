@@ -567,12 +567,12 @@ open class BaseViewController : UIViewController {
         let btn = UIButton()
         btn.setTitle(title, for: UIControlState())
         btn.setTitleColor(UIColor.white, for: UIControlState())
-        btn.titleLabel?.font = UIFont.systemFont(ofSize: 35.0)
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 25)
         btn.frame = CGRect(x: 0, y: 0,
-                           width: GlobalConst.MENU_BUTTON_W,
-                           height: GlobalConst.MENU_BUTTON_W)
+                           width: GlobalConst.NAVI_BUTTON_W,
+                           height: GlobalConst.NAVI_BUTTON_H)
         btn.backgroundColor = UIColor.clear
-        btn.layer.cornerRadius = 0.5 * btn.bounds.size.width
+//        btn.layer.cornerRadius = 0.5 * btn.bounds.size.width
         btn.addTarget(target, action: action, for: UIControlEvents.touchUpInside)
         
         let navItem = UIBarButtonItem()

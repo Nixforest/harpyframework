@@ -456,4 +456,15 @@ public class CommonProcess {
         }
         btn.imageView?.contentMode = .scaleAspectFit
     }
+    
+    
+    public static func convertStringDecimal(stringValue: String) -> String {
+        let formatter = NumberFormatter()
+        formatter.locale = NSLocale(localeIdentifier: "en_US") as Locale!
+        formatter.numberStyle = .decimal
+        let str = formatter.string(from: formatter.number(from: stringValue)!)
+        return str!
+    }
+    
+    
 }

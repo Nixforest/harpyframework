@@ -43,6 +43,8 @@ public class GlobalConst {
     public static let LOGIN_BUTTON_CORNER_RADIUS        : CGFloat = 20.0
     public static let MENU_BUTTON_W                     : CGFloat = 30.0
     public static let MENU_BUTTON_H                     : CGFloat = 25.0
+    public static let NAVI_BUTTON_W                     : CGFloat = 44.0
+    public static let NAVI_BUTTON_H                     : CGFloat = 44.0
     public static let NOTIFY_BUTTON_H                   : CGFloat = 30.0
     public static let LOGIN_LOGO_W                      : CGFloat = 250.0
     public static let LOGIN_LOGO_H                      : CGFloat = 140.0
