@@ -1160,6 +1160,14 @@ public class DomainConst {
     public static let ITEM_DESCRIPTION                  = "31"
     public static let ITEM_TIME_ID                      = "32"
     public static let ITEM_TIME                         = "33"
+    /** Item id: Receipt */
+    public static let ITEM_RECEIPT                      = "34";
+    /** Item id: Discount */
+    public static let ITEM_DISCOUNT                     = "35";
+    /** Item id: Need approve */
+    public static let ITEM_NEED_APPROVE                 = "36";
+    /** Item id: Customer confirmed */
+    public static let ITEM_CUSTOMER_CONFIRMED           = "37";
     // MARK: Status
     public static let TREATMENT_SCHEDULE_INACTIVE           = "0"
     public static let TREATMENT_SCHEDULE_ACTIVE             = "1"

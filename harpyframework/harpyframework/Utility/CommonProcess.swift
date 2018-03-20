@@ -7,6 +7,8 @@
 //
 
 import Foundation
+
+
 public class CommonProcess {
     /**
      * Get string body request send to Server
@@ -457,7 +459,9 @@ public class CommonProcess {
         btn.imageView?.contentMode = .scaleAspectFit
     }
     
-    
+    /**
+     *
+     */
     public static func convertStringDecimal(stringValue: String) -> String {
         let formatter = NumberFormatter()
         formatter.locale = NSLocale(localeIdentifier: "en_US") as Locale!
@@ -465,6 +469,49 @@ public class CommonProcess {
         let str = formatter.string(from: formatter.number(from: stringValue)!)
         return str!
     }
+    /*
+     * check if a response is success
+     * parameter: response status as Int
+     */
+    public static func isResponseSuccess(withResponseStatus status: Int) -> Bool {
+        if "\(status)" == DomainConst.RESPONSE_STATUS_SUCCESS {
+            return true
+        }
+        return false
+    }
+    
+    /**
+     *  convert dictionary to JSON string
+     *  parameter: NSDictionary
+     */
+    public static func getJSONString(fromDictionary dict: NSDictionary) -> String {
+        var output = ""
+//        if let data = try? JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted) {
+//            if let str = String(data: data, encoding: .ascii) {
+//                output = str
+//            }
+//        }
+        if let data = try? JSONSerialization.data(withJSONObject: dict, options: []) {
+            if let str = String(data: data, encoding: .ascii) {
+                output = str
+            }
+        }
+        return output
+    }
     
     
+    /**
+     *  convert JSON string to Dictionary
+     *  parameter: String
+     */
+    public static func getDictionary(fromString str: String) -> NSDictionary? {
+        if let data = str.data(using: .utf8) {
+            do {
+                return try JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        return nil
+    }
 }

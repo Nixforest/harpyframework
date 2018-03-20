@@ -1726,4 +1726,6 @@ open class BaseViewController : UIViewController {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
+    
+    
 }
