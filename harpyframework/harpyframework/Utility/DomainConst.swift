@@ -2473,4 +2473,6 @@ public class DomainConst {
     public static let CONTENT00558 = "Cập nhật gas dư"
     public static let CONTENT00559 = "Dữ liệu không hợp lệ, vui lòng kiểm tra lại"
     public static let CONTENT00560 = "Không thể nhập quá 4 ký tự, vui lòng kiểm tra lại"
+    public static let CONTENT00561 = "Địa chỉ"
+    public static let CONTENT00562 = "Đơn hàng HGĐ - %@ - %@ - %@\n"
 }

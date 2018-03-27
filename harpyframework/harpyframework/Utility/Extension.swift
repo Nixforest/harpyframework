@@ -39,9 +39,29 @@ public class ColorFromRGB: NSObject {
  * Image manager
  */
 public class ImageManager {
+    /**
+     * Get image from framework
+     * - parameter named:   Name of image
+     * - returns:           UIImage object
+     */
     public static func getImage(named: String) -> UIImage? {
         let frameworkBundle = Bundle(identifier: DomainConst.HARPY_FRAMEWORK_BUNDLE_NAME)
         return UIImage(named: named, in: frameworkBundle, compatibleWith: nil)
+    }
+    
+    /**
+     * Get image from framework
+     * - parameter named:   Name of image
+     * - parameter margin:  Margin value
+     * - returns:           UIImage object
+     */
+    public static func getImage(named: String, margin: CGFloat) -> UIImage? {
+        return ImageManager.getImage(named: named)?.imageWithInsets(
+            insets: UIEdgeInsets(
+                top: margin,
+                left: margin,
+                bottom: margin,
+                right: margin))
     }
 }
 
@@ -295,6 +315,23 @@ public extension UIImage {
         
         guard let cgImage = image?.cgImage else { return nil }
         self.init(cgImage: cgImage)
+    }
+    
+    /**
+     * Get image and change insets
+     * - parameter insets:      Insets object
+     * - returns:               UIImage object
+     */
+    public func imageWithInsets(insets: UIEdgeInsets) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(
+            CGSize(width: self.size.width + insets.left + insets.right,
+                   height: self.size.height + insets.top + insets.bottom), false, self.scale)
+        let _ = UIGraphicsGetCurrentContext()
+        let origin = CGPoint(x: insets.left, y: insets.top)
+        self.draw(at: origin)
+        let imageWithInsets = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return imageWithInsets
     }
 }
 //-- BUG0073-SPJ (NguyenPT 20170504) Init image by solid color
@@ -910,6 +947,17 @@ extension String {
         return date!
     }
     //-- BUG0104-SPJ (NguyenPT 20170606) Fix bug when start input date
+    
+    /**
+     * Check if string is URL format
+     * - returns: True if Application can open url, False otherwise
+     */
+    public func validateUrl() -> Bool {
+        if let url = URL(string: self) {
+            return UIApplication.shared.canOpenURL(url)
+        }
+        return false
+    }
 }
 
 public extension NSObject {

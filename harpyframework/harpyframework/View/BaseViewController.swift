@@ -133,6 +133,22 @@ open class BaseViewController : UIViewController {
     }
     
     /**
+     * Handle show alert message
+     * - parameter message: Message content
+     * - parameter title:   Title
+     */
+    public func showAlert(message: String, title: String) {
+        let msg = message.replacingOccurrences(of: "<br>", with: DomainConst.LINE_FEED)
+        let alert = UIAlertController(
+            title: title,
+            message: msg,
+            preferredStyle: .alert)
+        let okAction = UIAlertAction(title: DomainConst.CONTENT00008, style: .default, handler: nil)
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    /**
      * Show toast message
      * - parameter message: Message content
      */
@@ -346,11 +362,12 @@ open class BaseViewController : UIViewController {
                                       height: GlobalConst.MENU_BUTTON_H)
         btnMenu.setTitle(DomainConst.BLANK, for: UIControlState())
         btnMenu.addTarget(self, action: #selector(btnMenuTapped(_:)), for: UIControlEvents.touchUpInside)
+        btnMenu.imageView?.contentMode = .scaleAspectFit
         let menuNavBar          = UIBarButtonItem()
         menuNavBar.customView   = btnMenu
         menuNavBar.isEnabled    = true
         navigationBar.setLeftBarButton(menuNavBar, animated: false)
-        
+        CommonProcess.scaleNavBtn(btn: btnMenu)
         // Notify button
         //++ BUG0049-SPJ (NguyenPT 20170313) Handle notification received
 //        let btnNotify = UIButton()
@@ -363,6 +380,7 @@ open class BaseViewController : UIViewController {
         btnNotify.setTitleColor(UIColor.white, for: UIControlState())
         btnNotify.titleLabel?.font = UIFont.systemFont(ofSize: GlobalConst.NOTIFY_FONT_SIZE)
         btnNotify.addTarget(self, action: #selector(notificationButtonTapped(_:)), for: UIControlEvents.touchUpInside)
+        CommonProcess.scaleNavBtn(btn: btnNotify)
         
         // Set status of notify button
         if BaseModel.shared.checkIsLogin() {
@@ -402,7 +420,7 @@ open class BaseViewController : UIViewController {
                                height: GlobalConst.MENU_BUTTON_W)
         btnBack.setTitle(DomainConst.BLANK, for: UIControlState())
         btnBack.addTarget(self, action: #selector(backButtonTapped(_:)), for: UIControlEvents.touchUpInside)
-        
+        CommonProcess.scaleNavBtn(btn: btnBack)
         let backNavBar = UIBarButtonItem()
         backNavBar.customView = btnBack
         backNavBar.isEnabled = true
@@ -420,6 +438,7 @@ open class BaseViewController : UIViewController {
         btnNotify.setTitleColor(UIColor.white, for: UIControlState())
         btnNotify.titleLabel?.font = UIFont.systemFont(ofSize: GlobalConst.NOTIFY_FONT_SIZE)
         btnNotify.addTarget(self, action: #selector(notificationButtonTapped(_:)), for: UIControlEvents.touchUpInside)
+        CommonProcess.scaleNavBtn(btn: btnNotify)
         
         // Set status of notify button
         if BaseModel.shared.checkIsLogin() {
@@ -784,6 +803,16 @@ open class BaseViewController : UIViewController {
 //        return UIModalPresentationStyle.none
 //    }
     //-- BUG0048-SPJ (NguyenPT 20170309) Remove popover menu
+    
+    /**
+     * Handle push to view controller
+     */
+    public func push(_ viewController: UIViewController, animated: Bool) {
+        if let controller = BaseViewController.getCurrentViewController() {
+            controller.navigationController?.pushViewController(
+                viewController, animated: animated)
+        }
+    }
     
     /**
      * Push to a view controller with View controller name

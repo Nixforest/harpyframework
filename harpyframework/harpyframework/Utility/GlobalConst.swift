@@ -84,6 +84,7 @@ public class GlobalConst {
     public static let CONFIGURATION_ITEM_RIGHT_SIZE     : CGFloat = 15.0
     public static let BASE_FONT_SIZE                    : CGFloat = UIFont.systemFontSize
     public static let BASE_FONT                         : UIFont = UIFont.systemFont(ofSize: GlobalConst.BASE_FONT_SIZE)
+    public static let SMALL_FONT                         : UIFont = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize)
     public static let BASE_BOLD_FONT                    : UIFont = UIFont.boldSystemFont(ofSize: GlobalConst.BASE_FONT_SIZE)
     public static let PREVIEW_LABEL_FONT_SIZE           : CGFloat = 20.0
     

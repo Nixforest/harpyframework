@@ -61,7 +61,16 @@ open class ParentExtViewController: ParentViewController {
         menuNavBar.customView   = btnMenu
         menuNavBar.isEnabled    = true
         self.navigationItem.setLeftBarButton(menuNavBar, animated: false)
-        
+        // iOS 10 support
+        if #available(iOS 10, *) {
+            btnMenu.widthAnchor.constraint(equalToConstant: 32.0).isActive = true
+            btnMenu.heightAnchor.constraint(equalToConstant: 32.0).isActive = true
+        } else if #available(iOS 9, *) {
+            btnMenu.widthAnchor.constraint(equalToConstant: 32.0).isActive = true
+            btnMenu.heightAnchor.constraint(equalToConstant: 32.0).isActive = true
+        } else if #available(iOS 8, *) {
+        } else {
+        }
         // Notify button
         let btnNotify = UIButton()
         btnNotify.frame = CGRect(x: 0, y: 0,
