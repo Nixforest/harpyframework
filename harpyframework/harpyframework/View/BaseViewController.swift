@@ -473,7 +473,7 @@ open class BaseViewController : UIViewController {
         btn.backgroundColor = GlobalConst.BUTTON_COLOR_RED
         btn.layer.cornerRadius = 0.5 * btn.bounds.size.width
         btn.addTarget(target, action: action, for: UIControlEvents.touchUpInside)
-        
+        CommonProcess.scaleNavBtn(btn: btn)
         let navItem = UIBarButtonItem()
         navItem.customView = btn
         navItem.isEnabled = true
@@ -819,6 +819,7 @@ open class BaseViewController : UIViewController {
      * - parameter name: Name of view controller
      */
     public func pushToView(name: String) {
+        print(name)
         //++ BUG0050-SPJ (NguyenPT 20170403) Add new function G06
         //if self.theClassName == String.init(format: "project.\(name)") {
         if self.theClassName == name {
@@ -835,6 +836,7 @@ open class BaseViewController : UIViewController {
      * - parameter name: Name of view controller
      */
     public func pushToViewAndClearData(name: String) {
+        print(name)
         self.clearData()
         pushToView(name: name)
     }

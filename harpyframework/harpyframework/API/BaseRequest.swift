@@ -246,53 +246,73 @@ open class BaseRequest: NSObject {
      */
     open func completetionHandler(request: NSMutableURLRequest) -> URLSessionTask {
         let task = self.session.dataTask(with: request as URLRequest, completionHandler: {(data, response, error) in
-            // Check error
-            guard error == nil else {
-                //++ BUG0099-SPJ (NguyenPT 20170601) Handle when error happen
-//                //++ BUG0050-SPJ (NguyenPT 20170403) Handle Error
-//                LoadingView.shared.hideOverlayView()
-//                //-- BUG0050-SPJ (NguyenPT 20170403) Handle Error
-//                self.view.showAlert(message: DomainConst.CONTENT00196)
-//                BaseModel.shared.setErrorDetail(detail: (error?.localizedDescription)!)
-//                self.handleErrorTask()
-                self.handleErrorTask(error: (error?.localizedDescription)!)
-                //-- BUG0099-SPJ (NguyenPT 20170601) Handle when error happen
-                return
-            }
-            //++ BUG0050-SPJ (NguyenPT 20170323) Handle result string
-            //guard data == nil else {
-            guard let data = data else {
-                //++ BUG0099-SPJ (NguyenPT 20170601) Handle when error happen
-//                LoadingView.shared.hideOverlayView()
+//            // Check error
+//            guard error == nil else {
+//                //++ BUG0099-SPJ (NguyenPT 20170601) Handle when error happen
+////                //++ BUG0050-SPJ (NguyenPT 20170403) Handle Error
+////                LoadingView.shared.hideOverlayView()
+////                //-- BUG0050-SPJ (NguyenPT 20170403) Handle Error
+////                self.view.showAlert(message: DomainConst.CONTENT00196)
+////                BaseModel.shared.setErrorDetail(detail: (error?.localizedDescription)!)
+////                self.handleErrorTask()
+//                self.handleErrorTask(error: (error?.localizedDescription)!)
+//                //-- BUG0099-SPJ (NguyenPT 20170601) Handle when error happen
+//                return
+//            }
+//            //++ BUG0050-SPJ (NguyenPT 20170323) Handle result string
+//            //guard data == nil else {
+//            guard let data = data else {
+//                //++ BUG0099-SPJ (NguyenPT 20170601) Handle when error happen
+////                LoadingView.shared.hideOverlayView()
+////            //-- BUG0050-SPJ (NguyenPT 20170323) Handle result string
+////                self.view.showAlert(message: DomainConst.CONTENT00196)
+////                BaseModel.shared.setErrorDetail(detail: (error?.localizedDescription)!)
+////                self.handleErrorTask()
+//                if let err = error?.localizedDescription {
+//                    self.handleErrorTask(error: err)
+//                }
+//                
+//                //-- BUG0099-SPJ (NguyenPT 20170601) Handle when error happen
+//                return
+//            }
+//            //++ BUG0082-SPJ (NguyenPT 20170510) Change BaseRequest handle completion mechanism
+//            //++ BUG0050-SPJ (NguyenPT 20170323) Handle result string
+//            // Convert to string
+//            let dataString = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
+//            print(dataString ?? DomainConst.BLANK)
+//            //self.handleCompleteTask(model: dataString)
 //            //-- BUG0050-SPJ (NguyenPT 20170323) Handle result string
-//                self.view.showAlert(message: DomainConst.CONTENT00196)
-//                BaseModel.shared.setErrorDetail(detail: (error?.localizedDescription)!)
-//                self.handleErrorTask()
+//            if self.completionBlock != nil {
+//                // Hide overlay
+//                LoadingView.shared.hideOverlayView(className: self.theClassName)
+//                // Call complete handler
+//                DispatchQueue.main.async {
+//                    self.completionBlock!(dataString)
+//                }
+//            } else {
+//                self.handleCompleteTask(model: dataString)
+//            }
+//            //-- BUG0082-SPJ (NguyenPT 20170510) Change BaseRequest handle completion mechanism
+            if error != nil {
                 if let err = error?.localizedDescription {
                     self.handleErrorTask(error: err)
                 }
-                
-                //-- BUG0099-SPJ (NguyenPT 20170601) Handle when error happen
-                return
-            }
-            //++ BUG0082-SPJ (NguyenPT 20170510) Change BaseRequest handle completion mechanism
-            //++ BUG0050-SPJ (NguyenPT 20170323) Handle result string
-            // Convert to string
-            let dataString = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
-            print(dataString ?? DomainConst.BLANK)
-            //self.handleCompleteTask(model: dataString)
-            //-- BUG0050-SPJ (NguyenPT 20170323) Handle result string
-            if self.completionBlock != nil {
-                // Hide overlay
-                LoadingView.shared.hideOverlayView(className: self.theClassName)
-                // Call complete handler
-                DispatchQueue.main.async {
-                    self.completionBlock!(dataString)
-                }
             } else {
-                self.handleCompleteTask(model: dataString)
+                if let usableData = data {
+                    let dataString = NSString(data: usableData, encoding: String.Encoding.utf8.rawValue)
+                    print(dataString ?? DomainConst.BLANK)
+                    if self.completionBlock != nil {
+                        // Hide overlay
+                        LoadingView.shared.hideOverlayView(className: self.theClassName)
+                        // Call complete handler
+                        DispatchQueue.main.async {
+                            self.completionBlock!(dataString)
+                        }
+                    } else {
+                        self.handleCompleteTask(model: dataString)
+                    }
+                }
             }
-            //-- BUG0082-SPJ (NguyenPT 20170510) Change BaseRequest handle completion mechanism
         })
         return task
     }

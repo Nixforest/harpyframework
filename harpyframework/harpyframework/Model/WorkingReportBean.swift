@@ -17,6 +17,10 @@ public class WorkingReportBean: ConfigBean {
     private var created_date:   String = DomainConst.BLANK
     /** List images */
     public var images:          [UpholdImageInfoItem] = [UpholdImageInfoItem]()
+    //++ BUG0190-SPJ (NguyenPT 20180328) Add user report field
+    /** User report */
+    private var user_report:    String = DomainConst.BLANK
+    //-- BUG0190-SPJ (NguyenPT 20180328) Add user report field
     
     /**
      * Initializer
@@ -37,6 +41,9 @@ public class WorkingReportBean: ConfigBean {
         code_no      = getString(json: jsonData, key: DomainConst.KEY_CODE_NO)
         content      = getString(json: jsonData, key: DomainConst.KEY_CONTENT)
         created_date = getString(json: jsonData, key: DomainConst.KEY_CREATED_DATE)
+        //++ BUG0190-SPJ (NguyenPT 20180328) Add user report field
+        user_report  = getString(json: jsonData, key: DomainConst.KEY_USER_REPORT)
+        //-- BUG0190-SPJ (NguyenPT 20180328) Add user report field
         if let dataArr = jsonData[DomainConst.KEY_IMAGES] as? [[String: AnyObject]] {
             for listItem in dataArr {
                 self.images.append(UpholdImageInfoItem(jsonData: listItem))
@@ -72,4 +79,14 @@ public class WorkingReportBean: ConfigBean {
     public func getCode() -> String {
         return self.code_no
     }
+    
+    //++ BUG0190-SPJ (NguyenPT 20180328) Add user report field
+    /**
+     * Get user report
+     * - returns: User report
+     */
+    public func getUserReport() -> String {
+        return self.user_report
+    }
+    //-- BUG0190-SPJ (NguyenPT 20180328) Add user report field
 }
