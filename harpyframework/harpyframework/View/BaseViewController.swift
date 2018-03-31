@@ -567,7 +567,7 @@ open class BaseViewController : UIViewController {
         let btn = UIButton()
         btn.setTitle(title, for: UIControlState())
         btn.setTitleColor(UIColor.white, for: UIControlState())
-        btn.titleLabel?.font = UIFont.systemFont(ofSize: 25)
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 35)
         btn.frame = CGRect(x: 0, y: 0,
                            width: GlobalConst.NAVI_BUTTON_W,
                            height: GlobalConst.NAVI_BUTTON_H)

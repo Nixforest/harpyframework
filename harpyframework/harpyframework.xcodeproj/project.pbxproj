@@ -33,11 +33,15 @@
 		90248765204416CF006B49DE /* healthy.png in Resources */ = {isa = PBXBuildFile; fileRef = 9024874D204416CF006B49DE /* healthy.png */; };
 		90248766204416CF006B49DE /* agent.png in Resources */ = {isa = PBXBuildFile; fileRef = 9024874E204416CF006B49DE /* agent.png */; };
 		90248767204416CF006B49DE /* schedule_process.png in Resources */ = {isa = PBXBuildFile; fileRef = 9024874F204416CF006B49DE /* schedule_process.png */; };
+		903393552063E8FE00E6F5D0 /* patient_female.png in Resources */ = {isa = PBXBuildFile; fileRef = 903393542063E8FE00E6F5D0 /* patient_female.png */; };
+		903393572063EC1700E6F5D0 /* email.png in Resources */ = {isa = PBXBuildFile; fileRef = 903393562063EC1600E6F5D0 /* email.png */; };
 		903A9F9D2053D3FF000EE9AC /* time.png in Resources */ = {isa = PBXBuildFile; fileRef = 903A9F9C2053D3FF000EE9AC /* time.png */; };
 		908BA465205283A60084A91D /* medical_history_parent.png in Resources */ = {isa = PBXBuildFile; fileRef = 908BA464205283A60084A91D /* medical_history_parent.png */; };
 		908BA467205285260084A91D /* update_info.png in Resources */ = {isa = PBXBuildFile; fileRef = 908BA466205285260084A91D /* update_info.png */; };
 		908BA4692052868E0084A91D /* work_patient.png in Resources */ = {isa = PBXBuildFile; fileRef = 908BA4682052868E0084A91D /* work_patient.png */; };
 		908BA46B205287130084A91D /* add_medical_history.png in Resources */ = {isa = PBXBuildFile; fileRef = 908BA46A205287130084A91D /* add_medical_history.png */; };
+		90DDFECC206793340005710F /* sum.png in Resources */ = {isa = PBXBuildFile; fileRef = 90DDFECA206793330005710F /* sum.png */; };
+		90DDFECD206793340005710F /* discount.png in Resources */ = {isa = PBXBuildFile; fileRef = 90DDFECB206793340005710F /* discount.png */; };
 		90E8AE5B20443E2000C0A125 /* reload.png in Resources */ = {isa = PBXBuildFile; fileRef = 90E8AE5A20443E2000C0A125 /* reload.png */; };
 		90E8AE5D204440FE00C0A125 /* vmd_gender.png in Resources */ = {isa = PBXBuildFile; fileRef = 90E8AE5C204440FE00C0A125 /* vmd_gender.png */; };
 		90E8AE5F20444D5300C0A125 /* detail.png in Resources */ = {isa = PBXBuildFile; fileRef = 90E8AE5E20444D5200C0A125 /* detail.png */; };
@@ -488,11 +492,15 @@
 		9024874D204416CF006B49DE /* healthy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = healthy.png; path = images/icon/healthy.png; sourceTree = "<group>"; };
 		9024874E204416CF006B49DE /* agent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = agent.png; path = images/icon/agent.png; sourceTree = "<group>"; };
 		9024874F204416CF006B49DE /* schedule_process.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = schedule_process.png; path = images/icon/schedule_process.png; sourceTree = "<group>"; };
+		903393542063E8FE00E6F5D0 /* patient_female.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = patient_female.png; path = images/icon/patient_female.png; sourceTree = "<group>"; };
+		903393562063EC1600E6F5D0 /* email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = email.png; path = images/icon/email.png; sourceTree = "<group>"; };
 		903A9F9C2053D3FF000EE9AC /* time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = time.png; path = images/icon/time.png; sourceTree = "<group>"; };
 		908BA464205283A60084A91D /* medical_history_parent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = medical_history_parent.png; path = images/icon/medical_history_parent.png; sourceTree = "<group>"; };
 		908BA466205285260084A91D /* update_info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = update_info.png; path = images/icon/update_info.png; sourceTree = "<group>"; };
 		908BA4682052868E0084A91D /* work_patient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = work_patient.png; path = images/icon/work_patient.png; sourceTree = "<group>"; };
 		908BA46A205287130084A91D /* add_medical_history.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = add_medical_history.png; path = images/icon/add_medical_history.png; sourceTree = "<group>"; };
+		90DDFECA206793330005710F /* sum.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sum.png; path = images/icon/sum.png; sourceTree = "<group>"; };
+		90DDFECB206793340005710F /* discount.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = discount.png; path = images/icon/discount.png; sourceTree = "<group>"; };
 		90E8AE5A20443E2000C0A125 /* reload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reload.png; path = images/icon/reload.png; sourceTree = "<group>"; };
 		90E8AE5C204440FE00C0A125 /* vmd_gender.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = vmd_gender.png; path = images/icon/vmd_gender.png; sourceTree = "<group>"; };
 		90E8AE5E20444D5200C0A125 /* detail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = detail.png; path = images/icon/detail.png; sourceTree = "<group>"; };
@@ -1142,6 +1150,10 @@
 		90248738204416BA006B49DE /* icon */ = {
 			isa = PBXGroup;
 			children = (
+				90DDFECB206793340005710F /* discount.png */,
+				90DDFECA206793330005710F /* sum.png */,
+				903393562063EC1600E6F5D0 /* email.png */,
+				903393542063E8FE00E6F5D0 /* patient_female.png */,
 				903A9F9C2053D3FF000EE9AC /* time.png */,
 				908BA46A205287130084A91D /* add_medical_history.png */,
 				908BA4682052868E0084A91D /* work_patient.png */,
@@ -1666,6 +1678,7 @@
 				90248766204416CF006B49DE /* agent.png in Resources */,
 				D7F3D8D11E1B80D80018744F /* TableCellUpholdType.xib in Resources */,
 				908BA4692052868E0084A91D /* work_patient.png in Resources */,
+				903393572063EC1700E6F5D0 /* email.png in Resources */,
 				D7EDF4931F97499500215A5E /* name_icon.png in Resources */,
 				D778D6411E5D790D009FD654 /* icon81.png in Resources */,
 				D75F65211E28B3BC00A67B3C /* ordergas.png in Resources */,
@@ -1748,6 +1761,7 @@
 				D7029F911F3871B20081797B /* loaithekho.png in Resources */,
 				D746DE061F86212800C014DA /* orderStatus_Complete_Active.png in Resources */,
 				90248753204416CF006B49DE /* type.png in Resources */,
+				90DDFECD206793340005710F /* discount.png in Resources */,
 				D7FFEEAA1FCE53BE005ADF1C /* BottomMsgCell.xib in Resources */,
 				9024875C204416CF006B49DE /* address.png in Resources */,
 				D7029F921F3871B20081797B /* mapttt.png in Resources */,
@@ -1842,6 +1856,7 @@
 				9001B4BA20447B2400BF03F3 /* add_1.png in Resources */,
 				D75F65251E28B3BC00A67B3C /* rating.png in Resources */,
 				903A9F9D2053D3FF000EE9AC /* time.png in Resources */,
+				903393552063E8FE00E6F5D0 /* patient_female.png in Resources */,
 				D74B3F801F797917001F22B9 /* menubtn.png in Resources */,
 				D75F64AD1E28657900A67B3C /* icon52.png in Resources */,
 				D7EA53CF1EE3F40A004CFE1F /* ticket.png in Resources */,
@@ -1870,6 +1885,7 @@
 				D746DE071F86212800C014DA /* orderStatus_Complete_Inactive.png in Resources */,
 				D75F64E21E28B39100A67B3C /* gasservice.png in Resources */,
 				D7D04E371E55544900B3F8CF /* icon77.png in Resources */,
+				90DDFECC206793340005710F /* sum.png in Resources */,
 				D70B9F951E3F504400EB66F5 /* icon18.png in Resources */,
 				D75F64B31E28B10300A67B3C /* bg1.jpg in Resources */,
 				908BA465205283A60084A91D /* medical_history_parent.png in Resources */,

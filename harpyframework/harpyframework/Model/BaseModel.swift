@@ -169,7 +169,7 @@ public class BaseModel: NSObject {
             self.userToken = defaults.object(forKey: DomainConst.KEY_SETTING_USER_TOKEN) as! String
         }
         // Get training mode
-        self.isTrainningMode = true
+        self.isTrainningMode = false
         if defaults.object(forKey: DomainConst.KEY_SETTING_TRAINING_MODE) != nil {
             self.isTrainningMode = defaults.object(forKey: DomainConst.KEY_SETTING_TRAINING_MODE) as! Bool
         }

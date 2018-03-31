@@ -272,6 +272,20 @@ public class CommonProcess {
     }
     
     /**
+     * Convert date to string with format
+     * - parameter date:    Date value
+     * - parameter format:  Format value
+     * - returns: Date value as string with format: dd-mm-yyyy
+     */
+    public static func getDateString(date: Date, format: String) -> String {
+        var retVal = DomainConst.BLANK
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        retVal = dateFormatter.string(from: date)
+        return retVal
+    }
+    
+    /**
      * Get date from string
      * - parameter date: Date string value
      * - parameter format: Date format
@@ -284,20 +298,6 @@ public class CommonProcess {
             return d
         }
         return nil
-    }
-    
-    /**
-     * Convert date to string with format
-     * - parameter date:    Date value
-     * - parameter format:  Format value
-     * - returns: Date value as string with format: dd-mm-yyyy
-     */
-    public static func getDateString(date: Date, format: String) -> String {
-        var retVal = DomainConst.BLANK
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = format
-        retVal = dateFormatter.string(from: date)
-        return retVal
     }
     
     /**
@@ -507,7 +507,7 @@ public class CommonProcess {
 //            }
 //        }
         if let data = try? JSONSerialization.data(withJSONObject: dict, options: []) {
-            if let str = String(data: data, encoding: .ascii) {
+            if let str = String(data: data, encoding: .utf8) {
                 output = str
             }
         }
