@@ -272,6 +272,21 @@ public class CommonProcess {
     }
     
     /**
+     * Get date from string
+     * - parameter date: Date string value
+     * - parameter format: Date format
+     * - returns: Date value
+     */
+    public static func getDate(fromString strDate: String, withFormat format: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        if let d = dateFormatter.date(from: strDate) {
+            return d
+        }
+        return nil
+    }
+    
+    /**
      * Convert date to string with format
      * - parameter date:    Date value
      * - parameter format:  Format value
