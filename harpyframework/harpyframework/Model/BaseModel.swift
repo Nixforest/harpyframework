@@ -1162,15 +1162,7 @@ public class BaseModel: NSObject {
      *              Gas 24h     - [itms://appsto.re/us/BVpRgb.i]
      */
     public func getAppStoreLink() -> String {
-        switch BaseModel.shared.getAppType() {
-        case DomainConst.APP_TYPE_FLAG_GAS_24H:
-            return "itms://itunes.apple.com/vn/app/gas24h/id1189016286?mt=8"
-        case DomainConst.APP_TYPE_FLAG_GAS_SERVICE:
-            return "itms://appsto.re/us/BVpRgb.i"
-        default:
-            break
-        }
-        return DomainConst.BLANK
+        return "https://itunes.apple.com/app/id1358112406"
     }
     
     //++ BUG0050-SPJ (NguyenPT 20170403) Handle Address information

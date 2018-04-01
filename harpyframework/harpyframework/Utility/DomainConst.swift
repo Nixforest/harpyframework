@@ -1170,6 +1170,8 @@ public class DomainConst {
     public static let ITEM_CUSTOMER_CONFIRMED           = "37"
     /* Item id: Final */
     public static let ITEM_FINAL                        = "38"
+    /* Item id: Insurance */
+    public static let ITEM_INSURANCE                    = "39"
     // MARK: Status
     public static let TREATMENT_SCHEDULE_INACTIVE           = "0"
     public static let TREATMENT_SCHEDULE_ACTIVE             = "1"
@@ -1690,7 +1692,7 @@ public class DomainConst {
     /** Training mode image name */
     public static let TRAINING_MODE_IMG_NAME                = "trainingMode.png"
     /** Information image name */
-    public static let INFORMATION_IMG_NAME                  = "thongtin.png"
+    public static let INFORMATION_IMG_NAME                  = "infomation.png"
     /** Order gas image name */
     public static let ORDER_GAS_IMG_NAME                    = "ordergas.png"
     /** Logo of agent image name */
@@ -1898,7 +1900,7 @@ public class DomainConst {
     /** Sum image name */
     public static let SUM_ICON_IMG_NAME                     = "tongcong.png"
     /** Version image name */
-    public static let VERSION_TYPE_ICON_IMG_NAME            = "version.png"
+    public static let VERSION_TYPE_ICON_IMG_NAME            = "update_version.png"
     /** Version image name */
     public static let LOGO_LOGIN_ICON_IMG_NAME              = "logo_main.png"
     /** Version image name */
@@ -2043,6 +2045,8 @@ public class DomainConst {
     public static let VMD_STATUS_SCHEDULE_ICON_IMG_NAME         = "status_schedule.png"
     public static let VMD_STATUS_TREATMENT_ICON_IMG_NAME        = "status_treatment.png"
     public static let VMD_ADD_MEDICAL_HISTORY_ICON_IMG_NAME     = "add_medical_history.png"
+    public static let VMD_INSURANCE_ICON_IMG_NAME               = "insurance.png"
+    public static let VMD_FINAL_ICON_IMG_NAME                   = "actually_collected.png"
     
     public static let VMD_IMG_LIST:[String: String] = 
     [
@@ -2076,7 +2080,8 @@ public class DomainConst {
         ITEM_TIME_ID:           VMD_TIME_ID_ICON_IMG_NAME,
         ITEM_TIME:              VMD_TIME_ID_ICON_IMG_NAME,
         ITEM_DISCOUNT:          VMD_DISCOUNT_ICON_IMG_NAME,
-        ITEM_FINAL:             VMD_DISCOUNT_ICON_IMG_NAME,
+        ITEM_FINAL:             VMD_FINAL_ICON_IMG_NAME,
+        ITEM_INSURANCE:         VMD_INSURANCE_ICON_IMG_NAME,
     ]
     
     /** HTTP Post request method */
@@ -2647,4 +2652,6 @@ public class DomainConst {
     public static let CONTENT00569 = "Nam"
     public static let CONTENT00570 = "Tổng tiền"
     public static let CONTENT00571 = "Trang chủ"
+    public static let CONTENT00572 = "Giảm"
+    public static let CONTENT00573 = "Thực thu"
 }
