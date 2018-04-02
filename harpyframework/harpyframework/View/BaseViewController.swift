@@ -1000,7 +1000,7 @@ open class BaseViewController : UIViewController {
     public func handleNotification(notify: NotificationBean, isManual: Bool = false) {
         if isManual && BaseModel.shared.canHandleNotification() {
             // Create alert
-            let alert = UIAlertController(title: DomainConst.CONTENT00044,
+            let alert = UIAlertController(title: DomainConst.CONTENT00542,
                                           message: notify.getMessage(),
                                           preferredStyle: .alert)
             // OK handler

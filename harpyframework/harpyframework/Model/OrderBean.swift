@@ -140,7 +140,10 @@ public class OrderBean: NSObject {
     public var amount_bu_vo:            String = DomainConst.BLANK
     /** input_promotion_amount */
     public var input_promotion_amount:  String = DomainConst.BLANK
-    
+    //++ BUG0192-SPJ (NguyenPT 20180402) Add gas remain
+    /** Gas remain */
+    public var gas_remain_amount:       String = DomainConst.BLANK
+    //-- BUG0192-SPJ (NguyenPT 20180402) Add gas remain
     
     public override init() {
         super.init()
@@ -241,6 +244,9 @@ public class OrderBean: NSObject {
         self.order_type_amount  = getString(json: jsonData, key: DomainConst.KEY_ORDER_TYPE_AMOUNT)
         self.amount_bu_vo       = getString(json: jsonData, key: DomainConst.KEY_AMOUNT_BU_VO)
         self.input_promotion_amount = getString(json: jsonData, key: DomainConst.KEY_INPUT_PROMOTION_AMOUNT)
+        //++ BUG0192-SPJ (NguyenPT 20180402) Add gas remain
+        self.gas_remain_amount = getString(json: jsonData, key: DomainConst.KEY_GAS_REMAIN_AMOUNT)
+        //-- BUG0192-SPJ (NguyenPT 20180402) Add gas remain
     }
     
     //++ BUG0156-SPJ (NguyenPT 20170926) Re-design Gas24h

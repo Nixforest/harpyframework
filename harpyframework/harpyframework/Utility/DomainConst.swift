@@ -1190,6 +1190,8 @@ public class DomainConst {
     public static let KEY_MY_INVITE_CODE                = "my_invite_code"
     /** Key my_invite_code */
     public static let KEY_GAS24H_MENU_TEXT              = "gas24h_menu_text"
+    /** Key gas_remain_amount */
+    public static let KEY_GAS_REMAIN_AMOUNT             = "gas_remain_amount"
     
     //++ BUG0050-SPJ (NguyenPT 20170325) Add new function G06
     /** Platform value: Android */
@@ -2454,4 +2456,5 @@ public class DomainConst {
     public static let CONTENT00539 = "---------- Hỗ trợ ----------"
     public static let CONTENT00540 = "Chưa nhập mã pin"
     public static let CONTENT00541 = "Đóng"
+    public static let CONTENT00542 = "Tin nhắn từ Gas24h"
 }
