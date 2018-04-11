@@ -477,7 +477,8 @@ open class BaseViewController : UIViewController {
         let navItem = UIBarButtonItem()
         navItem.customView = btn
         navItem.isEnabled = true
-        self.navigationItem.rightBarButtonItems?.append(navItem)
+//        self.navigationItem.rightBarButtonItems?.append(navItem)
+        self.navigationItem.setRightBarButton(navItem, animated: true)
     }
     
     /**
@@ -489,20 +490,21 @@ open class BaseViewController : UIViewController {
     public func createRightNavigationItem(title: String, action: Selector, target: Any?, fontSize: CGFloat = 35.0) {
         let btn = UIButton()
         btn.setTitle(title, for: UIControlState())
-        btn.setTitleColor(UIColor.white, for: UIControlState())
+        btn.setTitleColor(GlobalConst.MAIN_COLOR, for: UIControlState())
 //        btn.titleLabel?.font = UIFont.systemFont(ofSize: 35.0)
         btn.titleLabel?.font = UIFont.systemFont(ofSize: fontSize)
         btn.frame = CGRect(x: 0, y: 0,
                            width: GlobalConst.MENU_BUTTON_W,
                            height: GlobalConst.MENU_BUTTON_W)
-        btn.backgroundColor = GlobalConst.BUTTON_COLOR_RED
-        btn.layer.cornerRadius = 0.5 * btn.bounds.size.width
+        btn.backgroundColor = UIColor.clear
+//        btn.layer.cornerRadius = 0.5 * btn.bounds.size.width
         btn.addTarget(target, action: action, for: UIControlEvents.touchUpInside)
         
         let navItem = UIBarButtonItem()
         navItem.customView = btn
         navItem.isEnabled = true
-        self.navigationItem.rightBarButtonItems?.append(navItem)
+//        self.navigationItem.rightBarButtonItems?.append(navItem)
+        self.navigationItem.setRightBarButton(navItem, animated: true)
     }
     //-- BUG0050-SPJ (NguyenPT 20170323) Add new key for new function G06
     
@@ -1085,8 +1087,14 @@ open class BaseViewController : UIViewController {
     //-- BUG0082-SPJ (NguyenPT 20170510) Change BaseRequest handle completion mechanism
     
     open func openGasRemainList() {
-        // Not implement        
+        // Not implement
     }
+    
+    //++ BUG0191-SPJ (NguyenPT 20180328) Create issue list
+    open func openIssueList() {
+        // Not implement
+    }
+    //-- BUG0191-SPJ (NguyenPT 20180328) Create issue list
     
     /**
      * Destructor

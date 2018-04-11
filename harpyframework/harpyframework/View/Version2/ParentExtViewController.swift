@@ -57,6 +57,7 @@ open class ParentExtViewController: ParentViewController {
                                       height: GlobalConst.MENU_BUTTON_H)
         btnMenu.setTitle(DomainConst.BLANK, for: UIControlState())
         btnMenu.addTarget(self, action: #selector(btnMenuTapped(_:)), for: UIControlEvents.touchUpInside)
+        CommonProcess.scaleNavBtn(btn: btnMenu)
         let menuNavBar          = UIBarButtonItem()
         menuNavBar.customView   = btnMenu
         menuNavBar.isEnabled    = true
@@ -81,6 +82,7 @@ open class ParentExtViewController: ParentViewController {
         btnNotify.setTitleColor(UIColor.white, for: UIControlState())
         btnNotify.titleLabel?.font = UIFont.systemFont(ofSize: GlobalConst.NOTIFY_FONT_SIZE)
         btnNotify.addTarget(self, action: #selector(notificationButtonTapped(_:)), for: UIControlEvents.touchUpInside)
+        CommonProcess.scaleNavBtn(btn: btnNotify)
         
         // Set status of notify button
         if BaseModel.shared.checkIsLogin() {
@@ -91,7 +93,7 @@ open class ParentExtViewController: ParentViewController {
         let notifyNavBar = UIBarButtonItem()
         notifyNavBar.customView = btnNotify
         notifyNavBar.isEnabled = BaseModel.shared.checkIsLogin()
-        self.navigationItem.setRightBarButton(notifyNavBar, animated: true)
+//        self.navigationItem.setRightBarButton(notifyNavBar, animated: true)
     }
     
     internal func clickOnTitle(_ sender: AnyObject) {

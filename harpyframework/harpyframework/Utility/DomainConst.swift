@@ -768,6 +768,8 @@ public class DomainConst {
     public static let KEY_TIME_REPLY                    = "time_reply"
     /** can_close */
     public static let KEY_CAN_CLOSE                     = "can_close"
+    /** can_reopen */
+    public static let KEY_CAN_REOPEN                    = "can_reopen"
     /** can_reply */
     public static let KEY_CAN_REPLY                     = "can_reply"
     /** list_reply */
@@ -1089,6 +1091,12 @@ public class DomainConst {
     public static let ORDER_INFO_MATERIAL_SERI_ID       = "###99947"
     /** Order information id: Customer name */
     public static let ORDER_INFO_GAS_REMAIN_ID          = "###99948"
+    /** Order information id: Problem */
+    public static let ORDER_INFO_PROBLEM_ID             = "###99949"
+    /** Order information id: Sale */
+    public static let ORDER_INFO_SALE_ID                = "###99950"
+    /** Order information id: Created by */
+    public static let ORDER_INFO_CREATED_BY_ID          = "###99951"
     /** Order information id: Order Material */
     public static let ORDER_INFO_MATERIAL_ID            = "###999"
     
@@ -1135,6 +1143,14 @@ public class DomainConst {
     public static let KEY_CUSTOMER_NAME_CHAIN           = "customer_name_chain"
     /** Key customer_chain_store_id */
     public static let KEY_APP_STATUS_TEXT               = "app_status_text"
+    /** Key status_text */
+    public static let KEY_STATUS_TEXT                   = "status_text"
+    /** Key problem_text */
+    public static let KEY_PROBLEM_TEXT                  = "problem_text"
+    /** Key problem_id */
+    public static let KEY_PROBLEM_ID                    = "problem_id"
+    /** Key required_message */
+    public static let KEY_REQUIRED_MESSAGE              = "required_message"
     //-- BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
     
     //++ BUG0119-SPJ (NguyenPT 20170630) Handle update customer in Order Family
@@ -2477,5 +2493,23 @@ public class DomainConst {
     public static let CONTENT00560 = "Không thể nhập quá 4 ký tự, vui lòng kiểm tra lại"
     public static let CONTENT00561 = "Địa chỉ"
     public static let CONTENT00562 = "Đơn hàng HGĐ - %@ - %@ - %@\n"
-    public static let CONTENT00563 = "Xin vui lòng chọn địa điểm"
+    public static let CONTENT00563 = "Xin vui lòng chọn Đại lý/Khách hàng"
+    public static let CONTENT00564 = "Đối tượng"
+    public static let CONTENT00565 = "Địa chỉ"
+    public static let CONTENT00566 = "Tiêu đề"
+    public static let CONTENT00567 = "Ngày tạo"
+    public static let CONTENT00568 = "Mã số"
+    public static let CONTENT00569 = "Trạng thái"
+    public static let CONTENT00570 = "Người liên hệ"
+    public static let CONTENT00571 = "NV kinh doanh"
+    public static let CONTENT00572 = "Người tạo"
+    public static let CONTENT00573 = "Chi tiết phản ánh"
+    public static let CONTENT00574 = "Nguyên nhân"
+    public static let CONTENT00575 = "Lịch sử trả lời"
+    public static let CONTENT00576 = "Nội dung"
+    public static let CONTENT00577 = "Trả lời phản ánh"
+    public static let CONTENT00578 = "Tạo trả lời"
+    public static let CONTENT00579 = "Hình ảnh"
+    public static let CONTENT00580 = "✓"
+    public static let CONTENT00581 = "Thêm hình ảnh"
 }

@@ -326,7 +326,10 @@ open class BaseMenuViewController : BaseViewController {
                 currentView.pushToViewAndClearData(name: DomainConst.G01_F00_S01_VIEW_CTRL)
                 break
             case DomainConst.ISSUE_LIST:                        // Issue list
-                currentView.showAlert(message: DomainConst.CONTENT00362)
+                //++ BUG0191-SPJ (NguyenPT 20180328) Create issue list
+//                currentView.showAlert(message: DomainConst.CONTENT00362)
+                self.openIssueList()
+                //-- BUG0191-SPJ (NguyenPT 20180328) Create issue list
                 break
             case DomainConst.MESSAGE:                           // Message
                 //currentView.showAlert(message: DomainConst.CONTENT00362)

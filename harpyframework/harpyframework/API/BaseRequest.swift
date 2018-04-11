@@ -354,7 +354,7 @@ open class BaseRequest: NSObject {
     public func handleErrorTask(error: String = DomainConst.BLANK) {
         BaseModel.shared.setErrorDetail(detail: error)
         if self.url != DomainConst.PATH_SUPPORT_APPLOG {
-            CreateErrorLogRequest.request(action: #selector(finishCreateErrorLog(_:)), view: self.view, msg: error)
+//            CreateErrorLogRequest.request(action: #selector(finishCreateErrorLog(_:)), view: self.view, msg: error)
         }
     //-- BUG0146-SPJ (NguyenPT 20170817) Handle error: request to server create log
         LoadingView.shared.hideOverlayView(className: self.theClassName)
