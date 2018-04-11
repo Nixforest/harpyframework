@@ -28,6 +28,8 @@ public class NewsListBean: ConfigBean {
     //++ BUG0195-SPJ (NguyenPT 20180411) Add function announce
     /** List title */
     public var list_title:         String = DomainConst.BLANK
+    /** Created date */
+    public var created_date:       String = DomainConst.BLANK
     //-- BUG0195-SPJ (NguyenPT 20180411) Add function announce
     
     /**
@@ -56,6 +58,7 @@ public class NewsListBean: ConfigBean {
         self.url_banner         = getString(json: jsonData, key: DomainConst.KEY_URL_BANNER)
         //++ BUG0195-SPJ (NguyenPT 20180411) Add function announce
         self.list_title         = getString(json: jsonData, key: DomainConst.KEY_LIST_TITLE)
+        self.created_date       = getString(json: jsonData, key: DomainConst.KEY_CREATED_DATE)
         //-- BUG0195-SPJ (NguyenPT 20180411) Add function announce
     }
     
