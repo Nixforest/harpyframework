@@ -392,7 +392,7 @@ class BottomMsgCell: UITableViewCell {
     }
     
     private func setupOpenWebButton(data: NewsListBean) {
-        var width = self.frame.width / 2
+        let width = self.frame.width / 2
         let sizeBtn = GlobalConst.BUTTON_H
         _btnAction2.frame = CGRect(
             x: self.frame.width / 2,

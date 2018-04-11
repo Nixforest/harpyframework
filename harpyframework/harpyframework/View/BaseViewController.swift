@@ -904,6 +904,16 @@ open class BaseViewController : UIViewController {
         _ = self.navigationController?.popToRootViewController(animated: true)
     }
     
+    /**
+     * Handle push to view controller
+     */
+    public func push(_ viewController: UIViewController, animated: Bool) {
+        if let controller = BaseViewController.getCurrentViewController() {
+            controller.navigationController?.pushViewController(
+                viewController, animated: animated)
+        }
+    }
+    
     //++ BUG0048-SPJ (NguyenPT 20170309) Remove popover menu
 //    //++ BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
 //    /**
@@ -1111,6 +1121,11 @@ open class BaseViewController : UIViewController {
                     self.pushToView(name: DomainConst.G06_F00_S02_VC)
                     break
                 //-- BUG0049-SPJ (NguyenPT 20170622) Handle notification for Order family, Ticket and SPJ code
+                //++ BUG0195-SPJ (NguyenPT 20180411) Add function announce
+                case DomainConst.GAS24h_ANNOUNCE_TYPE:
+                    let id = notify.getId()
+                    self.openAnnounceDetail(id: id)
+                //-- BUG0195-SPJ (NguyenPT 20180411) Add function announce
                 default: break
                 }
             } else {
@@ -1326,6 +1341,12 @@ open class BaseViewController : UIViewController {
         
     }
     open func openAppGuide() {
+        
+    }
+    open func openAnnounce() {
+        
+    }
+    open func openAnnounceDetail(id: String) {
         
     }
     //-- BUG0171-SPJ (NguyenPT 20171127) Add new menu

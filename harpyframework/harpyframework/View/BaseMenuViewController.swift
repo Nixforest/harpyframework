@@ -471,6 +471,10 @@ open class BaseMenuViewController : BaseViewController {
             openAppGuide()
             break
         //-- BUG0171-SPJ (NguyenPT 20171127	) Add new menu
+        //++ BUG0195-SPJ (NguyenPT 20180411) Add function announce
+        case DomainConst.KEY_ANNOUNCE_LIST:
+            openAnnounce()
+        //-- BUG0195-SPJ (NguyenPT 20180411) Add function announce
         default:
             currentView.showAlert(message: DomainConst.CONTENT00362)
             break
@@ -647,6 +651,10 @@ open class BaseMenuViewController : BaseViewController {
             iconPath = DomainConst.MENU_ITEM_APP_GUIDE
             break
         //-- BUG0171-SPJ (NguyenPT 20171127	) Add new menu
+        //++ BUG0195-SPJ (NguyenPT 20180411) Add function announce
+        case DomainConst.KEY_ANNOUNCE_LIST:
+            iconPath = DomainConst.MENU_NOTICE_ICON_IMG_NAME
+        //-- BUG0195-SPJ (NguyenPT 20180411) Add function announce
         default:
             break
         }

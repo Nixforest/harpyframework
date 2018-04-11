@@ -25,6 +25,11 @@ public class NewsListBean: ConfigBean {
     public var url_banner_popup:   String = DomainConst.BLANK
     /** Banner image */
     public var url_banner:         String = DomainConst.BLANK
+    //++ BUG0195-SPJ (NguyenPT 20180411) Add function announce
+    /** List title */
+    public var list_title:         String = DomainConst.BLANK
+    //-- BUG0195-SPJ (NguyenPT 20180411) Add function announce
+    
     /**
      * Initializer
      * - parameter jsonData: List of data
@@ -49,6 +54,9 @@ public class NewsListBean: ConfigBean {
         self.link_web_text      = getString(json: jsonData, key: DomainConst.KEY_URL_TEXT)
         self.url_banner_popup   = getString(json: jsonData, key: DomainConst.KEY_URL_BANNER_POPUP)
         self.url_banner         = getString(json: jsonData, key: DomainConst.KEY_URL_BANNER)
+        //++ BUG0195-SPJ (NguyenPT 20180411) Add function announce
+        self.list_title         = getString(json: jsonData, key: DomainConst.KEY_LIST_TITLE)
+        //-- BUG0195-SPJ (NguyenPT 20180411) Add function announce
     }
     
     public override init() {

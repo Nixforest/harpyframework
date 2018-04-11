@@ -43,6 +43,15 @@ public class ImageManager {
         let frameworkBundle = Bundle(identifier: DomainConst.HARPY_FRAMEWORK_BUNDLE_NAME)
         return UIImage(named: named, in: frameworkBundle, compatibleWith: nil)
     }
+    
+    public static func getImage(named: String, margin: CGFloat) -> UIImage? {
+        return ImageManager.getImage(named: named)?.imageWithInsets(
+            insets: UIEdgeInsets(
+                top: margin,
+                left: margin,
+                bottom: margin,
+                right: margin))
+    }
 }
 
 /**
@@ -296,6 +305,18 @@ public extension UIImage {
         
         guard let cgImage = image?.cgImage else { return nil }
         self.init(cgImage: cgImage)
+    }
+    
+    public func imageWithInsets(insets: UIEdgeInsets) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(
+            CGSize(width: self.size.width + insets.left + insets.right,
+                   height: self.size.height + insets.top + insets.bottom), false, self.scale)
+        let _ = UIGraphicsGetCurrentContext()
+        let origin = CGPoint(x: insets.left, y: insets.top)
+        self.draw(at: origin)
+        let imageWithInsets = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return imageWithInsets
     }
 }
 //-- BUG0073-SPJ (NguyenPT 20170504) Init image by solid color

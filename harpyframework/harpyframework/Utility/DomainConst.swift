@@ -91,12 +91,14 @@ public class DomainConst {
     public static let PATH_SITE_CACHE_DATA              = "site/getDataCache"
     /** Request create support app log */
     public static let PATH_SUPPORT_APPLOG               = "support/appLog"
-    /** Request news content*/
+    /** Request news content */
     public static let PATH_SUPPORT_NEWS                 = "support/viewPage"
-    /** Request news list*/
+    /** Request news list */
     public static let PATH_LIST_NEWS                    = "gas24h/newsList"
-    /** Request news list*/
+    /** Request news list */
     public static let PATH_NEWS_POPUP                   = "gas24h/newsPopup"
+    /** Request news view */
+    public static let PATH_NEWS_VIEW                    = "gas24h/newsView"
     
     // MARK: -----List of keys-----
     /** Token */
@@ -139,6 +141,8 @@ public class DomainConst {
     public static let KEY_URL_BANNER_POPUP              = "url_banner_popup"
     /** Title */
     public static let KEY_URL_BANNER                    = "url_banner"
+    /** list_title */
+    public static let KEY_LIST_TITLE                    = "list_title"
     /** Message */
     public static let KEY_MESSAGE                       = "message"
     /** Message */
@@ -806,6 +810,7 @@ public class DomainConst {
     public static let KEY_INVITED_CODE                  = "invite_code"
     public static let KEY_CURRENT_POINT                 = "current_point"
     public static let KEY_INVITED_LIST                  = "invited_list"
+    public static let KEY_MENU_LIST                     = "menu_list"
     
     
     // MARK: -----Specified constant-----
@@ -952,6 +957,8 @@ public class DomainConst {
     public static let NOTIFY_VIEW_TICKET                = "TYPE_TICKET_EVENT"
     /** Notify type: Spj code */
     public static let NOTIFY_VIEW_SPJ_CODE              = "TYPE_SPJ_CODE_GOBACK"
+    /** Notify type: Gas24h  */
+    public static let GAS24h_ANNOUNCE_TYPE              = "TYPE_GAS24H_ANNOUNCE"
     //-- BUG0049-SPJ (NguyenPT 20170622) Handle notification for Ticket and SPJ code
     
     /** Notify type: Uphold alert 10 */
@@ -1192,6 +1199,8 @@ public class DomainConst {
     public static let KEY_GAS24H_MENU_TEXT              = "gas24h_menu_text"
     /** Key gas_remain_amount */
     public static let KEY_GAS_REMAIN_AMOUNT             = "gas_remain_amount"
+    /** Key announce_list */
+    public static let KEY_ANNOUNCE_LIST                 = "announce_list"
     
     //++ BUG0050-SPJ (NguyenPT 20170325) Add new function G06
     /** Platform value: Android */
@@ -1841,6 +1850,8 @@ public class DomainConst {
     /** Version image name */
     public static let CONFIRMED_BUTTON_ICON_IMG_NAME        = "confirmedbtn.png"
     /** Version image name */
+    public static let EMAIL_ICON_IMG_NAME                   = "icon_email.png"
+    /** Version image name */
     public static let REFER_BUTTON_ICON_IMG_NAME            = "referBtn.png"
     /** Version image name */
     public static let CANCEL_ORDER_BUTTON_ICON_IMG_NAME     = "cancelOrderbtn.png"
@@ -1921,6 +1932,8 @@ public class DomainConst {
     public static let SHARE_ICON_IMG_NAME                       = "icon_share.png"
     /** Image qr code */
     public static let QR_CODE_ICON_IMG_NAME                     = "icon_qr.png"
+    /** Image qr code */
+    public static let MENU_NOTICE_ICON_IMG_NAME                 = "ico-menu-notice.png"
     
     /** HTTP Post request method */
     public static let HTTP_POST_REQUEST                     = "POST"
@@ -2457,4 +2470,6 @@ public class DomainConst {
     public static let CONTENT00540 = "Chưa nhập mã pin"
     public static let CONTENT00541 = "Đóng"
     public static let CONTENT00542 = "Tin nhắn từ Gas24h"
+    public static let CONTENT00543 = "Đặt gas ngay"
+    public static let CONTENT00544 = "Chi tiết khuyến mãi"
 }

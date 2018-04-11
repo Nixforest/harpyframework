@@ -80,5 +80,23 @@ public class NewsListRespModel: BaseRespModel {
     public func getTotalRecord() -> Int {
         return self.total_record
     }
-
+    
+    /**
+     * Remove all data
+     */
+    public func clearData() {
+        self.record.removeAll()
+        self.total_page     = 0
+        self.total_record   = 0
+    }
+    
+    /**
+     * Update data
+     * - parameter bean: TreatmentListBean
+     */
+    public func updateData(bean: NewsListRespModel) {
+        self.record.append(contentsOf: bean.getRecord())
+        self.total_page = bean.getTotalPage()
+        self.total_record = bean.getTotalRecord()
+    }
 }
