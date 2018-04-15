@@ -142,6 +142,8 @@ public class BaseModel: NSObject {
     private var _agentId:                   String              = DomainConst.BLANK
     //-- BUG0151-SPJ (NguyenPT 20170819) Save agent id to user default setting
     private var _gasRemainType:             Int                 = 0
+    /** My invite code */
+    private var _inviteCode:                String              = DomainConst.BLANK
     
     // MARK - Methods
     override init() {
@@ -376,6 +378,14 @@ public class BaseModel: NSObject {
         self._debug._isColorOn = isOn
         defaults.set(self._debug._isColorOn, forKey: DomainConst.KEY_SETTING_DEBUG_COLOR)
         defaults.synchronize()
+    }
+    
+    /**
+     * Get invite code
+     * - returns: String
+     */
+    public func getInviteCode() -> String {
+        return _inviteCode
     }
     
     /**
@@ -745,6 +755,8 @@ public class BaseModel: NSObject {
         self._listVipCustomerStores = loginModel.customer_chain_store
         //-- BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
         self._gasRemainType         = loginModel.gas_remain_type
+        //-- BUG0195-SPJ
+        self._inviteCode            = loginModel.my_invite_code
     }
     
     /**

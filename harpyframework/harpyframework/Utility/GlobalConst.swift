@@ -85,6 +85,7 @@ public class GlobalConst {
     public static let BASE_FONT_SIZE                    : CGFloat = UIFont.systemFontSize
     public static let BASE_FONT                         : UIFont = UIFont.systemFont(ofSize: GlobalConst.BASE_FONT_SIZE)
     public static let SMALL_FONT                         : UIFont = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize)
+    public static let BASE_ITALIC_FONT                  : UIFont = UIFont.italicSystemFont(ofSize: GlobalConst.BASE_FONT_SIZE)
     public static let BASE_BOLD_FONT                    : UIFont = UIFont.boldSystemFont(ofSize: GlobalConst.BASE_FONT_SIZE)
     public static let PREVIEW_LABEL_FONT_SIZE           : CGFloat = 20.0
     
@@ -112,6 +113,8 @@ public class GlobalConst {
     public static let INFOR_TITLE_COLOR             = ColorFromRGB().getColorFromRGB(0x1899E5)
     public static let TEXT_COLOR                    = ColorFromRGB().getColorFromRGB(0x333333)
     public static let BORDER_TEXTFIELD_COLOR        = ColorFromRGB().getColorFromRGB(0xC7C7C7)
+    public static let BORDER_BUTTON_COLOR           = ColorFromRGB().getColorFromRGB(0xDCDCDC)
+    public static let URL_BUTTON_COLOR              = ColorFromRGB().getColorFromRGB(0x3C6B86)
     public static let SCROLLBUTTONLIST_BTN_BKG_COLOR_DISABLE    = BUTTON_COLOR_GRAY
     public static let SCROLLBUTTONLIST_BTN_BKG_COLOR_SELECTING  = COLOR_SELECTING_GREEN
     public static let SCROLLBUTTONLIST_BTN_BKG_COLOR_ENABLE     = BUTTON_COLOR_GRAY

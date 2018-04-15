@@ -69,6 +69,8 @@ public class LoginRespModel : BaseRespModel {
     var customer_chain_store:               [ConfigBean]        = [ConfigBean]()
     //-- BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
     var gas_remain_type:                    Int                 = 0
+    /** Invite code */
+    var my_invite_code:                     String              = DomainConst.BLANK
     
     
     /**
@@ -176,6 +178,8 @@ public class LoginRespModel : BaseRespModel {
                 //-- BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
                 
                 self.gas_remain_type = getInt(json: json, key: DomainConst.KEY_GAS_REMAIN_TYPE)
+                
+                self.my_invite_code = getString(json: json, key: DomainConst.KEY_MY_INVITE_CODE)
             } catch let error as NSError {
                 print(DomainConst.JSON_ERR_FAILED_LOAD + "\(error.localizedDescription)")
             }

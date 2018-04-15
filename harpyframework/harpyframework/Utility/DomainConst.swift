@@ -94,6 +94,13 @@ public class DomainConst {
     /** Request news content*/
     public static let PATH_SUPPORT_NEWS                 = "support/viewPage"
     
+    /** Request news list */
+    public static let PATH_LIST_NEWS                    = "gas24h/newsList"
+    /** Request news list */
+    public static let PATH_NEWS_POPUP                   = "gas24h/newsPopup"
+    /** Request news view */
+    public static let PATH_NEWS_VIEW                    = "gas24h/newsView"
+    
     // MARK: -----List of keys-----
     /** Token */
     public static let KEY_TOKEN                         = "token"
@@ -127,6 +134,16 @@ public class DomainConst {
     public static let KEY_CUSTOMER_CONTACT              = "customer_contact"
     /** Title */
     public static let KEY_TITLE                         = "title"
+    /** Title */
+    public static let KEY_URL_WEB                       = "link_web"
+    /** Title */
+    public static let KEY_URL_TEXT                      = "link_web_text"
+    /** Title */
+    public static let KEY_URL_BANNER_POPUP              = "url_banner_popup"
+    /** Title */
+    public static let KEY_URL_BANNER                    = "url_banner"
+    /** list_title */
+    public static let KEY_LIST_TITLE                    = "list_title"
     /** Message */
     public static let KEY_MESSAGE                       = "message"
     /** Message */
@@ -205,6 +222,10 @@ public class DomainConst {
     public static let KEY_UPHOLD_TYPE_IDX               = "uphold_type"
     /** Content */
     public static let KEY_CONTENT                       = "content"
+    /** Content */
+    public static let KEY_NEWS_CONTENT                  = "news_content"
+    /** Content */
+    public static let KEY_NEWS_TYPE                     = "news_type"
     /** Contact person */
     public static let KEY_CONTACT_PERSON                = "contact_person"
     /** Contact telephone number */
@@ -494,6 +515,8 @@ public class DomainConst {
     public static let KEY_TOTAL_RECORD                  = "total_record"
     /** Code no */
     public static let KEY_CODE_NO                       = "code_no"
+    /** Code no */
+    public static let KEY_CODE_NO_TEXT                  = "code_no_text"
     /** Level type */
     public static let KEY_LEVEL_TYPE                    = "level_type"
     /** Created date */
@@ -797,6 +820,9 @@ public class DomainConst {
     public static let KEY_GAS_REMAIN_TYPE               = "gas_remain_type"
     public static let KEY_GAS_REMAIN_AMOUNT             = "gas_remain_amount"
     
+    public static let KEY_MENU_LIST                     = "menu_list"
+    public static let KEY_CURRENT_POINT                 = "current_point"
+    public static let KEY_INVITED_LIST                  = "invited_list"
     
     // MARK: -----Specified constant-----
     /** File parameter: file_name[ + ] */
@@ -942,6 +968,8 @@ public class DomainConst {
     public static let NOTIFY_VIEW_TICKET                = "TYPE_TICKET_EVENT"
     /** Notify type: Spj code */
     public static let NOTIFY_VIEW_SPJ_CODE              = "TYPE_SPJ_CODE_GOBACK"
+    /** Notify type: Gas24h  */
+    public static let GAS24h_ANNOUNCE_TYPE              = "TYPE_GAS24H_ANNOUNCE"
     //-- BUG0049-SPJ (NguyenPT 20170622) Handle notification for Ticket and SPJ code
     
     /** Notify type: Uphold alert 10 */
@@ -1204,6 +1232,8 @@ public class DomainConst {
     public static let KEY_MENU_GAS_REMAIN               = "gasremain_list"
     /** Code complete */
     public static let KEY_CODE_COMPLETE                 = "code_complete"
+    /** Key announce_list */
+    public static let KEY_ANNOUNCE_LIST                 = "announce_list"
     
     //++ BUG0050-SPJ (NguyenPT 20170325) Add new function G06
     /** Platform value: Android */
@@ -1865,6 +1895,8 @@ public class DomainConst {
     /** Version image name */
     public static let CONFIRMED_BUTTON_ICON_IMG_NAME        = "confirmedbtn.png"
     /** Version image name */
+    public static let EMAIL_ICON_IMG_NAME                   = "icon_email.png"
+    /** Version image name */
     public static let REFER_BUTTON_ICON_IMG_NAME            = "referBtn.png"
     /** Version image name */
     public static let CANCEL_ORDER_BUTTON_ICON_IMG_NAME     = "cancelOrderbtn.png"
@@ -1885,7 +1917,13 @@ public class DomainConst {
     /** Version image name */
     public static let DISCOUNT_PLUS_ICON_IMG_NAME           = "ic_discount_plus.png"
     /** Version image name */
-    public static let DISCOUNT_SHARE_ICON_IMG_NAME           = "ic_discount_share.png"
+    public static let DISCOUNT_SHARE_ICON_IMG_NAME          = "ic_discount_share.png"
+    /** Background of share content */
+    public static let SHARE_ICON_IMG_NAME                   = "icon_share.png"
+    /** Image qr code */
+    public static let QR_CODE_ICON_IMG_NAME                 = "icon_qr.png"
+    /** Image notice */
+    public static let MENU_NOTICE_ICON_IMG_NAME             = "ico-menu-notice.png"
     /** Menu backgroud body image name */
     public static let MENU_BKG_BODY_NEW_IMG_NAME            = "bg_sliding_menu_body_new.png"
     /** Menu backgroud top image name */
@@ -1936,6 +1974,8 @@ public class DomainConst {
     public static let ADDRESS_ICON_NEW_IMG_NAME                 = "address_icon.png"
     /** Search image name */
     public static let QUICK_ACTION_ICON_IMG_NAME                = "quickaction_icon_add.png"
+    /** Background of share content */
+    public static let SHARE_BACKGROUND_IMG_NAME                 = "background_share.jpg"
     
     /** HTTP Post request method */
     public static let HTTP_POST_REQUEST                     = "POST"

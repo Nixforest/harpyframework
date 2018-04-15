@@ -308,7 +308,9 @@ open class BaseMenuViewController : BaseViewController {
                 currentView.pushToView(name: DomainConst.G00_LOGIN_VIEW_CTRL)
                 break
             case DomainConst.NOTIFY_NAME_LOGOUT_ITEM:           // Logout menu
-                LogoutRequest.requestLogout(action: #selector(currentView.finishRequestLogout), view: currentView)
+//                LogoutRequest.requestLogout(action: #selector(currentView.finishRequestLogout), view: currentView)
+                //BUG0195test function Announce
+                self.openAnnounce()
                 break
             case DomainConst.G00_REGISTER_VIEW_CTRL:            // Register menu
                 currentView.pushToView(name: DomainConst.G00_REGISTER_VIEW_CTRL)
@@ -404,6 +406,9 @@ open class BaseMenuViewController : BaseViewController {
             //-- BUG0111-SPJ (NguyenPT 20170617) Update function G06
             case DomainConst.KEY_MENU_GAS_REMAIN:
                 self.openGasRemainList()
+                break
+            case DomainConst.KEY_ANNOUNCE_LIST:
+                self.openAnnounce()
                 break
             default:
                 currentView.showAlert(message: DomainConst.CONTENT00362)
@@ -572,6 +577,8 @@ open class BaseMenuViewController : BaseViewController {
             break
         case DomainConst.KEY_MENU_CCS_CODE_LIST:
             iconPath = DomainConst.MENU_ITEM_UPHOLD_LIST_IMG_NAME
+        case DomainConst.KEY_ANNOUNCE_LIST:
+            iconPath = DomainConst.MENU_NOTICE_ICON_IMG_NAME
         default:
             break
         }
