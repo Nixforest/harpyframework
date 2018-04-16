@@ -19,8 +19,10 @@ class BottomMsgCell: UITableViewCell {
     /** Background image */
     var _bkgImage:          UIImageView     = UIImageView()
     /** Action button */
+    /** Visible: Code no have data */
     var _btnAction:         UIButton        = UIButton()
     /** Action button 2 */
+    /** Visible: Link web have data */
     var _btnAction2:        UIButton        = UIButton()
     /** Type */
     var _type:              BottomMsgCellTypeEnum = .type_num
@@ -154,6 +156,8 @@ class BottomMsgCell: UITableViewCell {
         default:
             break
         }
+        self._btnAction.isHidden = self._data.code_no.isEmpty
+        self._btnAction2.isHidden = self._data.link_web.isEmpty
     }
     
     // MARK: Layout
@@ -450,11 +454,13 @@ class BottomMsgCell: UITableViewCell {
             }
         case .normal:
             if let url = (sender as! UIButton).accessibilityIdentifier {
-                UIApplication.shared.openURL(URL(string: url)!)
+//                UIApplication.shared.openURL(URL(string: url)!)
+                CommonProcess.openWeb(link: url)
             }
         case .openWeb:
             if let url = (sender as! UIButton).accessibilityIdentifier {
-                UIApplication.shared.openURL(URL(string: url)!)
+//                UIApplication.shared.openURL(URL(string: url)!)
+                CommonProcess.openWeb(link: url)
             }
         case .openWebUsingCode:
             if let curVC = BaseViewController.getCurrentViewController() {
@@ -468,7 +474,8 @@ class BottomMsgCell: UITableViewCell {
     
     internal func actionBtn2Tapped(_ sender: AnyObject) {
         if let url = (sender as! UIButton).accessibilityIdentifier {
-            UIApplication.shared.openURL(URL(string: url)!)
+//            UIApplication.shared.openURL(URL(string: url)!)
+            CommonProcess.openWeb(link: url)
         }
     }
 }

@@ -308,6 +308,22 @@ open class BaseViewController : UIViewController {
     }
     
     /**
+     * Open web
+     * - parameter link: Link web
+     */
+    public func openWeb(link: String) {
+        if let url = URL(string: link) {
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.openURL(url)
+            } else {
+                showAlert(message: "Không mở được đường dẫn: \(link)")
+            }
+        } else {
+            showAlert(message: "Địa chỉ web không hợp lệ")
+        }
+    }
+    
+    /**
      * Handle show alert message
      * - parameter message: Message content
      * - parameter okHandler: Handler when tap OK button

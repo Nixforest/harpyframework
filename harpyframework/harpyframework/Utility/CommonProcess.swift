@@ -410,4 +410,26 @@ public class CommonProcess {
             lbl.attributedText = mutableStr
         }
     }
+    
+    public static func showAlert(message: String) {
+        if let controller = BaseViewController.getCurrentViewController() {
+            controller.showAlert(message: message)
+        }
+    }
+    
+    /**
+     * Open web
+     * - parameter link: Link web
+     */
+    public static func openWeb(link: String) {
+        if let url = URL(string: link) {
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.openURL(url)
+            } else {
+                showAlert(message: "Không mở được đường dẫn: \(link)")
+            }
+        } else {
+            showAlert(message: "Địa chỉ web không hợp lệ")
+        }
+    }
 }
