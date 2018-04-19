@@ -41,7 +41,6 @@
 		908BA4692052868E0084A91D /* work_patient.png in Resources */ = {isa = PBXBuildFile; fileRef = 908BA4682052868E0084A91D /* work_patient.png */; };
 		908BA46B205287130084A91D /* add_medical_history.png in Resources */ = {isa = PBXBuildFile; fileRef = 908BA46A205287130084A91D /* add_medical_history.png */; };
 		90C0A4F82070CAC800EEE8B0 /* infomation.png in Resources */ = {isa = PBXBuildFile; fileRef = 90C0A4F42070CAC700EEE8B0 /* infomation.png */; };
-		90C0A4F92070CAC800EEE8B0 /* Insurance.png in Resources */ = {isa = PBXBuildFile; fileRef = 90C0A4F52070CAC800EEE8B0 /* Insurance.png */; };
 		90C0A4FA2070CAC800EEE8B0 /* actually_collected.png in Resources */ = {isa = PBXBuildFile; fileRef = 90C0A4F62070CAC800EEE8B0 /* actually_collected.png */; };
 		90C0A4FB2070CAC800EEE8B0 /* update_version.png in Resources */ = {isa = PBXBuildFile; fileRef = 90C0A4F72070CAC800EEE8B0 /* update_version.png */; };
 		90DDFECC206793340005710F /* sum.png in Resources */ = {isa = PBXBuildFile; fileRef = 90DDFECA206793330005710F /* sum.png */; };
@@ -49,6 +48,7 @@
 		90E8AE5B20443E2000C0A125 /* reload.png in Resources */ = {isa = PBXBuildFile; fileRef = 90E8AE5A20443E2000C0A125 /* reload.png */; };
 		90E8AE5D204440FE00C0A125 /* vmd_gender.png in Resources */ = {isa = PBXBuildFile; fileRef = 90E8AE5C204440FE00C0A125 /* vmd_gender.png */; };
 		90E8AE5F20444D5300C0A125 /* detail.png in Resources */ = {isa = PBXBuildFile; fileRef = 90E8AE5E20444D5200C0A125 /* detail.png */; };
+		90EA0F9C20747A1300ED0FD4 /* insurance.png in Resources */ = {isa = PBXBuildFile; fileRef = 90EA0F9B20747A1300ED0FD4 /* insurance.png */; };
 		D7023EE51E2CAC0A00ED6394 /* MaterialSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7023EE41E2CAC0A00ED6394 /* MaterialSelector.swift */; };
 		D7025E241E4B06C700045B5B /* PromotionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7025E231E4B06C700045B5B /* PromotionTableViewCell.swift */; };
 		D7025E261E4B21BA00045B5B /* icon13.png in Resources */ = {isa = PBXBuildFile; fileRef = D7025E251E4B21BA00045B5B /* icon13.png */; };
@@ -504,7 +504,6 @@
 		908BA4682052868E0084A91D /* work_patient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = work_patient.png; path = images/icon/work_patient.png; sourceTree = "<group>"; };
 		908BA46A205287130084A91D /* add_medical_history.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = add_medical_history.png; path = images/icon/add_medical_history.png; sourceTree = "<group>"; };
 		90C0A4F42070CAC700EEE8B0 /* infomation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = infomation.png; path = images/icon/infomation.png; sourceTree = "<group>"; };
-		90C0A4F52070CAC800EEE8B0 /* Insurance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Insurance.png; path = images/icon/Insurance.png; sourceTree = "<group>"; };
 		90C0A4F62070CAC800EEE8B0 /* actually_collected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = actually_collected.png; path = images/icon/actually_collected.png; sourceTree = "<group>"; };
 		90C0A4F72070CAC800EEE8B0 /* update_version.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = update_version.png; path = images/icon/update_version.png; sourceTree = "<group>"; };
 		90DDFECA206793330005710F /* sum.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sum.png; path = images/icon/sum.png; sourceTree = "<group>"; };
@@ -512,6 +511,7 @@
 		90E8AE5A20443E2000C0A125 /* reload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reload.png; path = images/icon/reload.png; sourceTree = "<group>"; };
 		90E8AE5C204440FE00C0A125 /* vmd_gender.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = vmd_gender.png; path = images/icon/vmd_gender.png; sourceTree = "<group>"; };
 		90E8AE5E20444D5200C0A125 /* detail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = detail.png; path = images/icon/detail.png; sourceTree = "<group>"; };
+		90EA0F9B20747A1300ED0FD4 /* insurance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = insurance.png; path = images/icon/insurance.png; sourceTree = "<group>"; };
 		D7023EE41E2CAC0A00ED6394 /* MaterialSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MaterialSelector.swift; path = CustomeControl/MaterialSelector.swift; sourceTree = "<group>"; };
 		D7025E231E4B06C700045B5B /* PromotionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PromotionTableViewCell.swift; path = CustomeControl/PromotionTableViewCell.swift; sourceTree = "<group>"; };
 		D7025E251E4B21BA00045B5B /* icon13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon13.png; path = images/icon13.png; sourceTree = "<group>"; };
@@ -1158,9 +1158,9 @@
 		90248738204416BA006B49DE /* icon */ = {
 			isa = PBXGroup;
 			children = (
+				90EA0F9B20747A1300ED0FD4 /* insurance.png */,
 				90C0A4F62070CAC800EEE8B0 /* actually_collected.png */,
 				90C0A4F42070CAC700EEE8B0 /* infomation.png */,
-				90C0A4F52070CAC800EEE8B0 /* Insurance.png */,
 				90C0A4F72070CAC800EEE8B0 /* update_version.png */,
 				90DDFECB206793340005710F /* discount.png */,
 				90DDFECA206793330005710F /* sum.png */,
@@ -1814,6 +1814,7 @@
 				D70EDFC71F96613100658F64 /* status_finish.png in Resources */,
 				D70B9F8E1E3F4F1F00EB66F5 /* icon69.png in Resources */,
 				D77F06041E71738100797A6B /* TableCellOrderType.xib in Resources */,
+				90EA0F9C20747A1300ED0FD4 /* insurance.png in Resources */,
 				9024875F204416CF006B49DE /* record_number.png in Resources */,
 				D791F6991E236BAA009CBBED /* checkbox-checked.png in Resources */,
 				D7029F941F3871B20081797B /* tacvukhac.png in Resources */,
@@ -1931,7 +1932,6 @@
 				D75F65201E28B3BC00A67B3C /* mobile.png in Resources */,
 				D7E2990C1F75210A0078C46C /* destinationMarker.png in Resources */,
 				D75F64EC1E28B39100A67B3C /* icon32-user-iso.png in Resources */,
-				90C0A4F92070CAC800EEE8B0 /* Insurance.png in Resources */,
 				D76AFDA91E26967900E73E1D /* icon45.png in Resources */,
 				D71544B81F6BBF6400480486 /* signup_bg_1536_2048.png in Resources */,
 			);
