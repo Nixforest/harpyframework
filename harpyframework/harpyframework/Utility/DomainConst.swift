@@ -99,6 +99,8 @@ public class DomainConst {
     public static let PATH_NEWS_POPUP                   = "gas24h/newsPopup"
     /** Request news view */
     public static let PATH_NEWS_VIEW                    = "gas24h/newsView"
+    /** Request news view */
+    public static let PATH_MAP_AGENT                    = "support/mapAgent"
     
     // MARK: -----List of keys-----
     /** Token */
@@ -483,6 +485,8 @@ public class DomainConst {
     public static let KEY_DISTANCE_2                    = "distance_2"
     /** Setting key: Allow update */
     public static let KEY_ALLOW_UPDATE                  = "allow_update"
+    /** Setting key: Allow update */
+    public static let KEY_ALLOW_SEARCH                  = "allow_search"
     /** Setting key: Order type */
     public static let KEY_ORDER_TYPE                    = "order_type"
     /** Setting key: Type amount */
@@ -1201,6 +1205,8 @@ public class DomainConst {
     public static let KEY_GAS_REMAIN_AMOUNT             = "gas_remain_amount"
     /** Key announce_list */
     public static let KEY_ANNOUNCE_LIST                 = "announce_list"
+    /** Key announce_list */
+    public static let KEY_MAP_AGENT                     = "map_agent"
     
     //++ BUG0050-SPJ (NguyenPT 20170325) Add new function G06
     /** Platform value: Android */
@@ -1577,6 +1583,8 @@ public class DomainConst {
     
     // MARK: -----Domain constants-----
     /** Logo image name */
+    public static let GAS24H_AGENT_ANNOTATION             = "gas24h_agent_annotation.png"
+    public static let GAS24H_USER_ANNOTAION             = "gas24h_user_annotation.png"
     public static let LOGO_GAS_SERVICE_IMG_NAME             = "gasservice_logo.png"
     public static let LOGO_GAS_24H_IMG_NAME                 = "gas24h_logo.png"
     /** Contact image name */

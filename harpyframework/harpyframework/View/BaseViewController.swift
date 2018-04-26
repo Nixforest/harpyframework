@@ -1365,6 +1365,9 @@ open class BaseViewController : UIViewController {
     open func openAnnounceDetail(id: String) {
         
     }
+    open func openMapAgent() {
+        
+    }
     //-- BUG0171-SPJ (NguyenPT 20171127) Add new menu
     
     //++ BUG0156-SPJ (NguyenPT 20170926) Re-design Gas24h
