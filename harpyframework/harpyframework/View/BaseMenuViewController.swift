@@ -658,7 +658,7 @@ open class BaseMenuViewController : BaseViewController {
             iconPath = DomainConst.MENU_NOTICE_ICON_IMG_NAME
         //-- BUG0195-SPJ (NguyenPT 20180411) Add function announce
         case DomainConst.KEY_MAP_AGENT:
-            iconPath = DomainConst.MENU_NOTICE_ICON_IMG_NAME
+            iconPath = DomainConst.MENU_MAP_ICON_IMG_NAME
         default:
             break
         }

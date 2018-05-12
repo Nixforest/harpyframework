@@ -1583,8 +1583,10 @@ public class DomainConst {
     
     // MARK: -----Domain constants-----
     /** Logo image name */
-    public static let GAS24H_AGENT_ANNOTATION             = "gas24h_agent_annotation.png"
-    public static let GAS24H_USER_ANNOTAION             = "gas24h_user_annotation.png"
+    public static let GAS24H_AGENT_ANNOTATION               = "gas24h_agent_annotation.png"
+    public static let GAS24H_USER_ANNOTAION                 = "gas24h_user_annotation.png"
+    public static let GAS24H_AGENT_48_ANNOTATION            = "icon_map_agent_48_48.png"
+    public static let GAS24H_USER_48_ANNOTATION             = "icon_map_user_48_48.png"
     public static let LOGO_GAS_SERVICE_IMG_NAME             = "gasservice_logo.png"
     public static let LOGO_GAS_24H_IMG_NAME                 = "gas24h_logo.png"
     /** Contact image name */
@@ -1942,6 +1944,7 @@ public class DomainConst {
     public static let QR_CODE_ICON_IMG_NAME                     = "icon_qr.png"
     /** Image qr code */
     public static let MENU_NOTICE_ICON_IMG_NAME                 = "ico-menu-notice.png"
+    public static let MENU_MAP_ICON_IMG_NAME                    = "ico-menu-map.png"
     
     /** HTTP Post request method */
     public static let HTTP_POST_REQUEST                     = "POST"
@@ -2480,4 +2483,6 @@ public class DomainConst {
     public static let CONTENT00542 = "Tin nhắn từ Gas24h"
     public static let CONTENT00543 = "Đặt gas ngay"
     public static let CONTENT00544 = "Chi tiết khuyến mãi"
+    public static let CONTENT00545 = "Hệ thống Đại lý"
+    public static let CONTENT00546 = "Vị trí hiện tại"
 }
