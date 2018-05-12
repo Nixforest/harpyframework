@@ -308,9 +308,7 @@ open class BaseMenuViewController : BaseViewController {
                 currentView.pushToView(name: DomainConst.G00_LOGIN_VIEW_CTRL)
                 break
             case DomainConst.NOTIFY_NAME_LOGOUT_ITEM:           // Logout menu
-//                LogoutRequest.requestLogout(action: #selector(currentView.finishRequestLogout), view: currentView)
-                //BUG0195test function Announce
-                self.openAnnounce()
+                LogoutRequest.requestLogout(action: #selector(currentView.finishRequestLogout), view: currentView)
                 break
             case DomainConst.G00_REGISTER_VIEW_CTRL:            // Register menu
                 currentView.pushToView(name: DomainConst.G00_REGISTER_VIEW_CTRL)

@@ -66,3 +66,15 @@ public class NewsListBean: ConfigBean {
         super.init()
     }
 }
+
+/**
+ * Type of bottom message cell enum
+ */
+public enum BottomMsgCellTypeEnum : Int {
+    case shareCode          // Share refer code
+    case normal             // Normal               // NEWS_NORMAL = 1
+    case usingCode          // Using refer code     // NEWS_INPUT_PROMOTION = 2
+    case openWeb            // Click go to web      // NEWS_OPEN_WEB = 3
+    case openWebUsingCode   // Click go to web      // NEWS_INPUT_PROMOTION_AND_WEB = 4
+    case type_num           // Number of items
+}

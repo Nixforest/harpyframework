@@ -2552,4 +2552,5 @@ public class DomainConst {
     public static let CONTENT00579 = "Hình ảnh"
     public static let CONTENT00580 = "✓"
     public static let CONTENT00581 = "Thêm hình ảnh"
+    public static let CONTENT00582 = "Chi tiết khuyến mãi"
 }
