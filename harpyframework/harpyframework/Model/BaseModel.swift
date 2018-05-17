@@ -104,6 +104,8 @@ public class BaseModel: NSObject {
     public var searchCustomerResult:        SearchCustomerRespModel = SearchCustomerRespModel()
     /** Shared string */
     public var sharedString:                String              = DomainConst.BLANK
+    /** Shared array Config */
+    public var sharedArrayConfig:           [ConfigBean]        = [ConfigBean]()
     /** Shared 2 string */
     public var sharedDoubleStr:             (String, String)    = (DomainConst.BLANK, DomainConst.BLANK)
     /** Shared int */

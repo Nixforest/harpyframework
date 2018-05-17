@@ -361,10 +361,16 @@ public class DomainConst {
     public static let KEY_DIAGNOSIS                     = "diagnosis"
     /** Diagnosis id */
     public static let KEY_DIAGNOSIS_ID                  = "diagnosis_id"
+    /** Diagnosis other id */
+    public static let KEY_DIAGNOSIS_OTHER_ID            = "diagnosis_other_id"
+    /** Description */
+    public static let KEY_DESCRIPTION                   = "description"
     /** Teeth */
     public static let KEY_TEETH                         = "teeth"
     /** Teeth */
     public static let KEY_TEETH_ID                      = "teeth_id"
+    /** Teeth */
+    public static let KEY_TEETH_INFO                    = "teeth_info"
     /** List */
     public static let KEY_LIST                          = "list"
     /** Key transaction id */
@@ -1172,6 +1178,12 @@ public class DomainConst {
     public static let ITEM_FINAL                        = "38"
     /* Item id: Insurance */
     public static let ITEM_INSURANCE                    = "39"
+    /* Item id: Teeth information */
+    public static let ITEM_TEETH_INFO                   = "40"
+    /* Item id: Customer debt */
+    public static let ITEM_CUSTOMER_DEBT                = "41"
+    /* Item id: Image */
+    public static let ITEM_IMAGE                        = "42"
     // MARK: Status
     public static let TREATMENT_SCHEDULE_INACTIVE           = "0"
     public static let TREATMENT_SCHEDULE_ACTIVE             = "1"
@@ -2047,6 +2059,8 @@ public class DomainConst {
     public static let VMD_ADD_MEDICAL_HISTORY_ICON_IMG_NAME     = "add_medical_history.png"
     public static let VMD_INSURANCE_ICON_IMG_NAME               = "insurance.png"
     public static let VMD_FINAL_ICON_IMG_NAME                   = "actually_collected.png"
+    public static let VMD_DEBT_ICON_IMG_NAME                    = "debt.png"
+    public static let VMD_IMAGE_XRAY_ICON_IMG_NAME              = "xray.png"
     
     public static let VMD_IMG_LIST:[String: String] = 
     [
@@ -2082,6 +2096,9 @@ public class DomainConst {
         ITEM_DISCOUNT:          VMD_DISCOUNT_ICON_IMG_NAME,
         ITEM_FINAL:             VMD_FINAL_ICON_IMG_NAME,
         ITEM_INSURANCE:         VMD_INSURANCE_ICON_IMG_NAME,
+        ITEM_TEETH_INFO:        VMD_TEETH_ICON_IMG_NAME,
+        ITEM_CUSTOMER_DEBT:     VMD_DEBT_ICON_IMG_NAME,
+        ITEM_IMAGE:             VMD_IMAGE_XRAY_ICON_IMG_NAME,
     ]
     
     /** HTTP Post request method */
@@ -2634,14 +2651,17 @@ public class DomainConst {
     public static let CONTENT00551 = "Thông tin không hợp lệ. Xin vui lòng nhập lại"
     public static let CONTENT00552 = "Thông tin đợt điều trị"
     public static let CONTENT00553 = "Tạo mới đợt điều trị"
-    public static let CONTENT00554 = "Thông tin chi tiết đợt điều trị"
+//    public static let CONTENT00554 = "Thông tin chi tiết đợt điều trị"
+    public static let CONTENT00554 = "Thông tin lần điều trị"
     public static let CONTENT00555 = "Đang cập nhật"
     public static let CONTENT00556 = "Tiến trình mới"
-    public static let CONTENT00557 = "Chi tiết điều trị mới"
+//    public static let CONTENT00557 = "Chi tiết điều trị mới"
+    public static let CONTENT00557 = "Lần điều trị mới"
     public static let CONTENT00558 = "✓"
     public static let CONTENT00559 = "Chọn ngày giờ"
     public static let CONTENT00560 = "Bổ sung số bệnh án"
-    public static let CONTENT00561 = "Bạn có chắc chắn muốn hoàn thành Chi tiết đợt điều trị này không?"
+//    public static let CONTENT00561 = "Bạn có chắc chắn muốn hoàn thành Chi tiết đợt điều trị này không?"
+    public static let CONTENT00561 = "Bạn có chắc chắn muốn hoàn thành Lần điều trị này không?"
     public static let CONTENT00562 = "Giờ hẹn"
     public static let CONTENT00563 = "Ngày hẹn"
     public static let CONTENT00564 = "Hình thức"
@@ -2654,4 +2674,8 @@ public class DomainConst {
     public static let CONTENT00571 = "Trang chủ"
     public static let CONTENT00572 = "Giảm"
     public static let CONTENT00573 = "Thực thu"
+    public static let CONTENT00574 = "Thanh toán"
+    public static let CONTENT00575 = "Thông tin răng"
+    public static let CONTENT00576 = "Dữ liệu chưa đầy đủ, bạn có muốn tiếp tục không?"
+    public static let CONTENT00577 = "Nợ cũ"
 }
