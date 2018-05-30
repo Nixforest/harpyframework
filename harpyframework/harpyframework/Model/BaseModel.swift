@@ -928,7 +928,7 @@ public class BaseModel: NSObject {
      * Check if device token is exist
      * - returns: True if device token is not empty, False otherwise
      */
-    func checkDeviceTokenExist() -> Bool {
+    public func checkDeviceTokenExist() -> Bool {
         return !(self.deviceToken.isEmpty)
     }
     
