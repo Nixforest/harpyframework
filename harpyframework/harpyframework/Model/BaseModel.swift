@@ -156,6 +156,8 @@ public class BaseModel: NSObject {
     
     /** Flag check first order */
     private var _isFirstOrder:              Bool                = true
+    /** Server url */
+    private var _serverUrl:                 String              = DomainConst.BLANK
     
     // MARK - Methods
     override init() {
@@ -600,15 +602,30 @@ public class BaseModel: NSObject {
     }
     
     /**
+     * Set value for server url
+     * - parameter url: Url to set
+     */
+    public func setServerUrl(url: String) {
+        self._serverUrl = url
+    }
+    
+    /**
      * Get server ULR
      * - returns: Server URL
      */
     public func getServerURL() -> String {
+        return self._serverUrl
+    }
+    
+    /**
+     * Set default server url
+     */
+    public func setDefaultServerUrl() {
         if !checkTrainningMode() {
-            return DomainConst.SERVER_URL
+            self._serverUrl = Info.SERVER_URL
+        } else {
+            self._serverUrl = Info.TRAINING_URL
         }
-        return DomainConst.SERVER_URL_TRAINING
-//        return getServerURLImmortal()
     }
     
     /**

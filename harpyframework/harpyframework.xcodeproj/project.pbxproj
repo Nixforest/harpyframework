@@ -36,6 +36,9 @@
 		903393552063E8FE00E6F5D0 /* patient_female.png in Resources */ = {isa = PBXBuildFile; fileRef = 903393542063E8FE00E6F5D0 /* patient_female.png */; };
 		903393572063EC1700E6F5D0 /* email.png in Resources */ = {isa = PBXBuildFile; fileRef = 903393562063EC1600E6F5D0 /* email.png */; };
 		903A9F9D2053D3FF000EE9AC /* time.png in Resources */ = {isa = PBXBuildFile; fileRef = 903A9F9C2053D3FF000EE9AC /* time.png */; };
+		906D2A6B20BEF99300B42DA2 /* DomainNameRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906D2A6A20BEF99300B42DA2 /* DomainNameRequest.swift */; };
+		906D2A6D20BEFA0200B42DA2 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906D2A6C20BEFA0200B42DA2 /* Info.swift */; };
+		906D2A6F20BF056E00B42DA2 /* DomainNameRespBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906D2A6E20BF056E00B42DA2 /* DomainNameRespBean.swift */; };
 		908BA465205283A60084A91D /* medical_history_parent.png in Resources */ = {isa = PBXBuildFile; fileRef = 908BA464205283A60084A91D /* medical_history_parent.png */; };
 		908BA467205285260084A91D /* update_info.png in Resources */ = {isa = PBXBuildFile; fileRef = 908BA466205285260084A91D /* update_info.png */; };
 		908BA4692052868E0084A91D /* work_patient.png in Resources */ = {isa = PBXBuildFile; fileRef = 908BA4682052868E0084A91D /* work_patient.png */; };
@@ -501,6 +504,9 @@
 		903393542063E8FE00E6F5D0 /* patient_female.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = patient_female.png; path = images/icon/patient_female.png; sourceTree = "<group>"; };
 		903393562063EC1600E6F5D0 /* email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = email.png; path = images/icon/email.png; sourceTree = "<group>"; };
 		903A9F9C2053D3FF000EE9AC /* time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = time.png; path = images/icon/time.png; sourceTree = "<group>"; };
+		906D2A6A20BEF99300B42DA2 /* DomainNameRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DomainNameRequest.swift; path = API/DomainNameRequest.swift; sourceTree = "<group>"; };
+		906D2A6C20BEFA0200B42DA2 /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Info.swift; path = Utility/Info.swift; sourceTree = "<group>"; };
+		906D2A6E20BF056E00B42DA2 /* DomainNameRespBean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DomainNameRespBean.swift; path = Model/DomainNameRespBean.swift; sourceTree = "<group>"; };
 		908BA464205283A60084A91D /* medical_history_parent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = medical_history_parent.png; path = images/icon/medical_history_parent.png; sourceTree = "<group>"; };
 		908BA466205285260084A91D /* update_info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = update_info.png; path = images/icon/update_info.png; sourceTree = "<group>"; };
 		908BA4682052868E0084A91D /* work_patient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = work_patient.png; path = images/icon/work_patient.png; sourceTree = "<group>"; };
@@ -1360,6 +1366,7 @@
 				D781E5B41F456AC9003A9CD4 /* CreateErrorLogRequest.swift */,
 				D79234191FCC691000458B7A /* NewsRequest.swift */,
 				D7F4B110202B003900EC7AB5 /* StreetsListRequest.swift */,
+				906D2A6A20BEF99300B42DA2 /* DomainNameRequest.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -1440,6 +1447,7 @@
 				D79C317B1E9B8C8B006F3683 /* OrderFamilyViewRespModel.swift */,
 				D715BB711EBE550A0097BDA8 /* CacheDataRespModel.swift */,
 				D792341B1FCC6E7000458B7A /* NewsRespModel.swift */,
+				906D2A6E20BF056E00B42DA2 /* DomainNameRespBean.swift */,
 			);
 			name = Response;
 			sourceTree = "<group>";
@@ -1452,6 +1460,7 @@
 				D77F05B51E71703E00797A6B /* GlobalConst.swift */,
 				D791F6AF1E238135009CBBED /* CommonProcess.swift */,
 				D70754A61F3969520098C48C /* Logger.swift */,
+				906D2A6C20BEFA0200B42DA2 /* Info.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -1988,6 +1997,7 @@
 				D7117B561F7AA32500B8C2FA /* ChildExtViewController.swift in Sources */,
 				D77F05C41E71729400797A6B /* UpholdDetailRespModel.swift in Sources */,
 				D721C52A1F5D3ED6003E823D /* FromJSON.swift in Sources */,
+				906D2A6F20BF056E00B42DA2 /* DomainNameRespBean.swift in Sources */,
 				D77F068E1E719B1D00797A6B /* SlideMenuController.swift in Sources */,
 				D7D04E431E557FBF00B3F8CF /* OrderVIPDetailBean.swift in Sources */,
 				D781E5B71F457E33003A9CD4 /* FavouriteDataModel.swift in Sources */,
@@ -2032,6 +2042,7 @@
 				D717779C1F5E9640009CF656 /* NVActivityIndicatorViewable.swift in Sources */,
 				D721C5251F5D3ED6003E823D /* DateFormatterTransform.swift in Sources */,
 				D71777941F5E9626009CF656 /* NVActivityIndicatorAnimationPacman.swift in Sources */,
+				906D2A6B20BEF99300B42DA2 /* DomainNameRequest.swift in Sources */,
 				D7E014AA1E347EA4001F26B6 /* MaterialSelectViewController.swift in Sources */,
 				D70B9F8C1E3F448300EB66F5 /* ConfigurationModel.swift in Sources */,
 				D77F05B81E71703E00797A6B /* GlobalConst.swift in Sources */,
@@ -2135,6 +2146,7 @@
 				D7FF1FC3202423A900C2DF28 /* ListBean.swift in Sources */,
 				D717778C1F5E9626009CF656 /* NVActivityIndicatorAnimationBlank.swift in Sources */,
 				D71777901F5E9626009CF656 /* NVActivityIndicatorAnimationLineScalePulseOut.swift in Sources */,
+				906D2A6D20BEFA0200B42DA2 /* Info.swift in Sources */,
 				D7C92A39203981AD002EF00D /* DatePickerViewController.swift in Sources */,
 				D7C30A391E3058B600B3FDA6 /* AgentInfoBean.swift in Sources */,
 				D721C5341F5D3ED7003E823D /* ToJSON.swift in Sources */,

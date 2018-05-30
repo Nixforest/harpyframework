@@ -231,6 +231,8 @@ public class DomainConst {
     public static let KEY_CONTACT_NOTE                  = "contact_note"
     /** Note */
     public static let KEY_NOTE                          = "note"
+    /** Bundle id */
+    public static let KEY_BUNDLE_ID                     = "bundle_id"
     /** Report wrong */
     public static let KEY_REPORT_WRONG                  = "report_wrong"
     /** Note internal */
@@ -1460,9 +1462,9 @@ public class DomainConst {
     /** Space string */
     public static let SPACE_STR                         = " "
     /** Server URL (Training mode) */
-    public static let SERVER_URL_TRAINING               = "http://vietmy.immortal.vn/index.php/api/"
+//    public static let SERVER_URL_TRAINING               = "http://vietmy.immortal.vn/index.php/api/"
     /** Server URL */
-    public static let SERVER_URL                        = "http://nkvietmy.com/index.php/api/"
+//    public static let SERVER_URL                        = "http://nkvietmy.com/index.php/api/"
     /** Immortal Server URL */
     public static let SERVER_URL_IMMORTAL               = "http://build.immortal.vn/api/"
     /** Hotline */
