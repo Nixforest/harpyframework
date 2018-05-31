@@ -823,6 +823,9 @@ public class DomainConst {
     public static let KEY_MENU_LIST                     = "menu_list"
     public static let KEY_CURRENT_POINT                 = "current_point"
     public static let KEY_INVITED_LIST                  = "invited_list"
+    public static let KEY_DEVICE_NAME                   = "device_name"
+    public static let KEY_DEVICE_IMEI                   = "device_imei"
+    public static let KEY_DEVICE_OS_VERSION             = "device_os_version"
     
     // MARK: -----Specified constant-----
     /** File parameter: file_name[ + ] */
