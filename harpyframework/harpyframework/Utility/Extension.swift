@@ -1283,4 +1283,7 @@ public extension Date {
     var previousMonth: Date {
         return Calendar.current.date(byAdding: .month, value: -1, to: self)!
     }
+    func addedBy(minutes:Int) -> Date {
+        return Calendar.current.date(byAdding: .minute, value: minutes, to: self)!
+    }
 }

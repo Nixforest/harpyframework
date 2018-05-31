@@ -71,9 +71,20 @@ public class UpdateConfigurationRequest: BaseRequest {
      * Set data content
      */
     func setData() {
+        //++ BUG0198-SPJ (NguyenPT 20180530) Get device information
+        var identifierForVendor = DomainConst.BLANK
+        if let identify = UIDevice.current.identifierForVendor {
+            identifierForVendor = identify.description
+        }
+        //-- BUG0198-SPJ (NguyenPT 20180530) Get device information
         self.data = "q=" + String.init(
-            format: "{\"%@\":\"%@\"}",
-            DomainConst.KEY_TOKEN, BaseModel.shared.getUserToken()
+            format: "{\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\"}",
+            DomainConst.KEY_TOKEN, BaseModel.shared.getUserToken(),
+            //++ BUG0198-SPJ (NguyenPT 20180530) Get device information
+            DomainConst.KEY_DEVICE_NAME, UIDevice.current.model,
+            DomainConst.KEY_DEVICE_IMEI, identifierForVendor,
+            DomainConst.KEY_DEVICE_OS_VERSION, "\(UIDevice.current.systemName) \(UIDevice.current.systemVersion)"
+            //-- BUG0198-SPJ (NguyenPT 20180530) Get device information
         )
     }
     

@@ -16,6 +16,7 @@
 		909C62CF20920A4900976816 /* icon_map_user_48_48.png in Resources */ = {isa = PBXBuildFile; fileRef = 909C62CC20920A4900976816 /* icon_map_user_48_48.png */; };
 		90EF51BD207C858600CE0F92 /* ico-menu-notice.png in Resources */ = {isa = PBXBuildFile; fileRef = 90EF51BC207C858600CE0F92 /* ico-menu-notice.png */; };
 		90F220E0207B10D9000DFDAB /* icon_email.png in Resources */ = {isa = PBXBuildFile; fileRef = 90F220DF207B10D8000DFDAB /* icon_email.png */; };
+		90FD97BC20BE4BF800EB0652 /* LocalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FD97BB20BE4BF800EB0652 /* LocalNotification.swift */; };
 		D7023EE51E2CAC0A00ED6394 /* MaterialSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7023EE41E2CAC0A00ED6394 /* MaterialSelector.swift */; };
 		D7025E241E4B06C700045B5B /* PromotionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7025E231E4B06C700045B5B /* PromotionTableViewCell.swift */; };
 		D7025E261E4B21BA00045B5B /* icon13.png in Resources */ = {isa = PBXBuildFile; fileRef = D7025E251E4B21BA00045B5B /* icon13.png */; };
@@ -446,6 +447,7 @@
 		909C62CC20920A4900976816 /* icon_map_user_48_48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_map_user_48_48.png; path = images/icon_map_user_48_48.png; sourceTree = "<group>"; };
 		90EF51BC207C858600CE0F92 /* ico-menu-notice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ico-menu-notice.png"; path = "images/ico-menu-notice.png"; sourceTree = "<group>"; };
 		90F220DF207B10D8000DFDAB /* icon_email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_email.png; path = images/icon_email.png; sourceTree = "<group>"; };
+		90FD97BB20BE4BF800EB0652 /* LocalNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocalNotification.swift; path = Utility/LocalNotification.swift; sourceTree = "<group>"; };
 		D7023EE41E2CAC0A00ED6394 /* MaterialSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MaterialSelector.swift; path = CustomeControl/MaterialSelector.swift; sourceTree = "<group>"; };
 		D7025E231E4B06C700045B5B /* PromotionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PromotionTableViewCell.swift; path = CustomeControl/PromotionTableViewCell.swift; sourceTree = "<group>"; };
 		D7025E251E4B21BA00045B5B /* icon13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon13.png; path = images/icon13.png; sourceTree = "<group>"; };
@@ -1126,6 +1128,7 @@
 				D77F05B51E71703E00797A6B /* GlobalConst.swift */,
 				D791F6AF1E238135009CBBED /* CommonProcess.swift */,
 				D70754A61F3969520098C48C /* Logger.swift */,
+				90FD97BB20BE4BF800EB0652 /* LocalNotification.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -1862,6 +1865,7 @@
 				D71777831F5E9626009CF656 /* NVActivityIndicatorAnimationBallRotateChase.swift in Sources */,
 				D78FB84E1E52EFA200993A32 /* ColorPicker.swift in Sources */,
 				D71777561F5E9602009CF656 /* NVActivityIndicatorView.swift in Sources */,
+				90FD97BC20BE4BF800EB0652 /* LocalNotification.swift in Sources */,
 				D7E014AD1E348039001F26B6 /* MaterialSelectionCell.swift in Sources */,
 				D7F6844A1E2F5F4F00D3D6F4 /* MaterialBean.swift in Sources */,
 				D77F05F81E71737200797A6B /* UserProfileRequest.swift in Sources */,

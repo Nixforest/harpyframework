@@ -952,6 +952,10 @@ public class BaseModel: NSObject {
         self.notify.message     = message
     }
     
+    public func getNotificationData() -> NotificationBean {
+        return self.notify
+    }
+    
     /**
      * Set other information
      * - parameter data: List of config bean item

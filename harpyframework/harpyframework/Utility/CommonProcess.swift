@@ -256,6 +256,19 @@ public class CommonProcess {
     }
     
     /**
+     * Get current time value
+     * - returns: Time value as string with format: hh:mm:ss
+     */
+    public static func getCurrentTime() -> String {
+        var retVal = DomainConst.BLANK
+        // Get current date and time
+        let current = Date()
+        retVal = getTimeString(date: current)
+        
+        return retVal
+    }
+    
+    /**
      * Get date string
      * - parameter date: Date value
      * - returns: Date value as string with format: dd-mm-yyyy
@@ -279,6 +292,34 @@ public class CommonProcess {
                              dateComp.day!,
                              dateComp.month!,
                              dateComp.year!)
+        
+        return retVal
+    }
+    
+    /**
+     * Get time string
+     * - parameter date: Date value
+     * - returns: Time value as string with format: hh:mm:ss
+     */
+    public static func getTimeString(date: Date) -> String {
+        var retVal = DomainConst.BLANK
+        // Get user calendar
+        let userCalendar = Calendar.current
+        // Choose which date and time component are needed
+        let requestedComponents: Set<Calendar.Component> = [
+            Calendar.Component.hour,
+            Calendar.Component.minute,
+            Calendar.Component.second
+        ]
+        
+        // Get the components
+        let dateComp = userCalendar.dateComponents(requestedComponents, from: date)
+        
+        retVal = String.init(format: "%02d:%02d:%02d",
+                             //retVal = String.init(format: "%02d/%02d/%04d",
+            dateComp.hour!,
+            dateComp.minute!,
+            dateComp.second!)
         
         return retVal
     }
