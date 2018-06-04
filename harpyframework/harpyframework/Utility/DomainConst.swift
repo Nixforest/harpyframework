@@ -433,6 +433,8 @@ public class DomainConst {
     public static let KEY_MATERIALS_PRICE               = "material_price"
     /** Setting key: Price */
     public static let KEY_PRICE                         = "price"
+    /** Setting key: Price original */
+    public static let KEY_PRICE_ORIGINAL                = "price_root"
     /** Setting key: Quantity */
     public static let KEY_QUANTITY                      = "qty"
     /** Setting key: Real quantity */

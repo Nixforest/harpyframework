@@ -87,6 +87,7 @@ public class GlobalConst {
     public static let BASE_ITALIC_FONT                  : UIFont = UIFont.italicSystemFont(ofSize: GlobalConst.BASE_FONT_SIZE)
     public static let BASE_BOLD_FONT                    : UIFont = UIFont.boldSystemFont(ofSize: GlobalConst.BASE_FONT_SIZE)
     public static let PREVIEW_LABEL_FONT_SIZE           : CGFloat = 20.0
+    public static let BASE_SMALL_FONT                   : UIFont = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize)
     
     
     // ----- Color defines -----

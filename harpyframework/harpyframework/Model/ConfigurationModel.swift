@@ -84,8 +84,14 @@ public class ConfigurationModel: ConfigBean {
         }
         super.init(id: orderDetail.material_id, name: name)
         self._iconPath  = orderDetail.material_image
-        self._value     = value
-        
+        //++ BUG0200-SPJ (NguyenPT 20180604) Gas24h - Price original
+        let originalPrice = orderDetail.price_original
+        if originalPrice.isEmpty || originalPrice == DomainConst.NUMBER_ZERO_VALUE {
+            self._value     = value
+        } else {
+            self._value     = value + DomainConst.LINE_FEED + "\(originalPrice)"
+        }
+        //-- BUG0200-SPJ (NguyenPT 20180604) Gas24h - Price original
     }
     //-- BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Get new data
     //++ BUG0079-SPJ (NguyenPT 20170509) Add order type and support type in Family order

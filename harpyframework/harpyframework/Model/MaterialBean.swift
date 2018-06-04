@@ -30,6 +30,10 @@ open class MaterialBean: NSObject, NSCoding {
     /** Material no */
     public var materials_no     :       String = DomainConst.BLANK
     //-- BUG0073-SPJ (NguyenPT 20170504) Add new property
+    //++ BUG0200-SPJ (NguyenPT 20180604) Gas24h - Price original
+    /** Price */
+    public var price_original:          String = DomainConst.BLANK
+    //-- BUG0200-SPJ (NguyenPT 20180604) Gas24h - Price original
     
     /**
      * Initializer
@@ -50,6 +54,12 @@ open class MaterialBean: NSObject, NSCoding {
         //++ BUG0073-SPJ (NguyenPT 20170504) Add new property
         self.materials_no     = getString(json: jsonData, key: DomainConst.KEY_MATERIALS_NO)
         //-- BUG0073-SPJ (NguyenPT 20170504) Add new property
+        //++ BUG0200-SPJ (NguyenPT 20180604) Gas24h - Price original
+        self.price_original     = getString(json: jsonData, key: DomainConst.KEY_PRICE_ORIGINAL)
+        if self.price_original.isEmpty {
+            self.price_original     = getStringFromInt(json: jsonData, key: DomainConst.KEY_PRICE_ORIGINAL)
+        }
+        //-- BUG0200-SPJ (NguyenPT 20180604) Gas24h - Price original
     }
     public override init() {
         
@@ -143,6 +153,9 @@ open class MaterialBean: NSObject, NSCoding {
         self.material_price = decoder.decodeObject(forKey: DomainConst.KEY_MATERIALS_PRICE) as? String ?? DomainConst.BLANK
         self.price = decoder.decodeObject(forKey: DomainConst.KEY_PRICE) as? String ?? DomainConst.BLANK
         self.material_image = decoder.decodeObject(forKey: DomainConst.KEY_MATERIAL_IMAGE) as? String ?? DomainConst.BLANK
+        //++ BUG0200-SPJ (NguyenPT 20180604) Gas24h - Price original
+        self.price_original = decoder.decodeObject(forKey: DomainConst.KEY_PRICE_ORIGINAL) as? String ?? DomainConst.BLANK
+        //-- BUG0200-SPJ (NguyenPT 20180604) Gas24h - Price original
     }
     
     /**
@@ -157,6 +170,9 @@ open class MaterialBean: NSObject, NSCoding {
         aCoder.encode(material_price,       forKey: DomainConst.KEY_MATERIALS_PRICE)
         aCoder.encode(price,                forKey: DomainConst.KEY_PRICE)
         aCoder.encode(material_image,       forKey: DomainConst.KEY_MATERIAL_IMAGE)
+        //++ BUG0200-SPJ (NguyenPT 20180604) Gas24h - Price original
+        aCoder.encode(price_original,       forKey: DomainConst.KEY_PRICE_ORIGINAL)
+        //-- BUG0200-SPJ (NguyenPT 20180604) Gas24h - Price original
     }
     //-- BUG0071-SPJ (NguyenPT 20170426) Handle save data to UserDefault
 }

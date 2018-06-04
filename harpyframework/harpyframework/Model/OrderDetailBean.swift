@@ -93,6 +93,9 @@ public class OrderDetailBean: MaterialBean {
         self.amount             = data.price
         //-- BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Get new data
         self.qty                = qty
+        //++ BUG0200-SPJ (NguyenPT 20180604) Gas24h - Price original
+        self.price_original     = data.price_original
+        //-- BUG0200-SPJ (NguyenPT 20180604) Gas24h - Price original
     }
     //++ BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Get new data
     public override init() {
