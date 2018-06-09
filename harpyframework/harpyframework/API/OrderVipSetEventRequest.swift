@@ -32,6 +32,20 @@ public class OrderVipSetEventRequest: BaseRequest {
             DomainConst.KEY_ORDER_DETAIL,           orderDetail,
             DomainConst.KEY_PLATFORM,               DomainConst.PLATFORM_IOS
         )
+        //++ BUG0201-SPJ (NguyenPT 20180609) Upload image
+        self.param = ["q": String.init(
+            format: "{\"%@\":\"%@\",\"%@\":%d,\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":[%@],\"%@\":%d}",
+            DomainConst.KEY_TOKEN, BaseModel.shared.getUserToken(),
+            DomainConst.KEY_ACTION_TYPE,            actionType,
+            DomainConst.KEY_LATITUDE,               lat,
+            DomainConst.KEY_LONGITUDE,              long,
+            DomainConst.KEY_APP_ORDER_ID,           id,
+            DomainConst.KEY_NOTE_EMPLOYEE,          note,
+            DomainConst.KEY_STATUS_CANCEL,          statusCancel,
+            DomainConst.KEY_ORDER_DETAIL,           orderDetail,
+            DomainConst.KEY_PLATFORM,               DomainConst.PLATFORM_IOS
+            )]
+        //-- BUG0201-SPJ (NguyenPT 20180609) Upload image
     }
     
     /**
@@ -48,7 +62,10 @@ public class OrderVipSetEventRequest: BaseRequest {
                                view: BaseViewController,
                                actionType: Int, lat: String, long: String,
                                id: String, note: String, statusCancel: String = DomainConst.NUMBER_ZERO_VALUE,
-                               orderDetail: String = DomainConst.BLANK) {
+                               orderDetail: String = DomainConst.BLANK,
+                               //++ BUG0201-SPJ (NguyenPT 20180609) Upload image
+                               images: [UIImage] = [UIImage]()) {
+                               //-- BUG0201-SPJ (NguyenPT 20180609) Upload image
 //        // Show overlay
 //        LoadingView.shared.showOverlay(view: view.view)
         let request = OrderVipSetEventRequest(url: DomainConst.PATH_ORDER_VIP_SET_EVENT,
@@ -58,6 +75,13 @@ public class OrderVipSetEventRequest: BaseRequest {
                         id: id, note: note, statusCancel: statusCancel,
                         orderDetail: orderDetail)
         NotificationCenter.default.addObserver(view, selector: action, name: NSNotification.Name(rawValue: request.theClassName), object: nil)
-        request.execute()
+        //++ BUG0201-SPJ (NguyenPT 20180609) Upload image
+//        request.execute()
+        if images.isEmpty {
+            request.execute()
+        } else {
+            request.executeUploadFile(listImages: images)
+        }
+        //-- BUG0201-SPJ (NguyenPT 20180609) Upload image
     }
 }
