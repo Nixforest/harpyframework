@@ -366,6 +366,8 @@ public class DomainConst {
     public static let KEY_TRANSACTION_TYPE              = "transaction_type"
     /** Grand total */
     public static let KEY_GRAND_TOTAL                   = "grand_total"
+    /** Sale id */
+    public static let KEY_SALE_ID                   = "sale_id"
     /** Setting key: is login */
     public static let KEY_SETTING_IS_LOGGING            = "gasservice.isLogin"
     /** Setting key: user token */
@@ -523,6 +525,12 @@ public class DomainConst {
     public static let KEY_CREATED_DATE                  = "created_date"
     /** Created byte */
     public static let KEY_CREATED_BY                    = "created_by"
+    /** Last update by */
+    public static let KEY_LAST_UPDATE_BY                = "last_update_by"
+    /** Last update time */
+    public static let KEY_LAST_UPDATE_TIME              = "last_update_time"
+    /** Json */
+    public static let KEY_JSON                          = "json"
     /** Sale name */
     public static let KEY_SALE_NAME                     = "sale_name"
     /** Sale phone */
@@ -547,6 +555,8 @@ public class DomainConst {
     public static let KEY_IMG_LARGE                     = "large"
     /** Image list */
     public static let KEY_IMAGES                        = "images"
+    /** Image  */
+    public static let KEY_IMAGE                        = "img"
     /** Latitude */
     public static let KEY_LATITUDE                      = "latitude"
     /** Version code */
@@ -632,6 +642,8 @@ public class DomainConst {
     public static let KEY_HGD_DOI_THU                   = "hgd_doi_thu"
     /** Key customer type */
     public static let KEY_CUSTOMER_TYPE                 = "customer_type"
+    /** Key type customer*/
+    public static let KEY_TYPE_CUSTOMER                 = "type_customer"
     /** Key latitude longitude */
     public static let KEY_LONG_LAT                      = "latitude_longitude"
     /** Key list_hgd_invest_text */
@@ -1237,6 +1249,9 @@ public class DomainConst {
     public static let KEY_CODE_COMPLETE                 = "code_complete"
     /** Key announce_list */
     public static let KEY_ANNOUNCE_LIST                 = "announce_list"
+    /** Key announce_list */
+    public static let KEY_CUSTOMER_REQUEST_LIST                 = "customer_request_list"
+    
     
     //++ BUG0050-SPJ (NguyenPT 20170325) Add new function G06
     /** Platform value: Android */
@@ -1419,6 +1434,7 @@ public class DomainConst {
     public static let SERVER_URL_IMMORTAL               = "http://build.immortal.vn/api/"
     /** Hotline */
     public static let HOTLINE                           = "1900 1565"
+    
     /** Refer link */
     public static let REFER_LINK                        = "http://spj.vn/app?code="
     
@@ -1711,6 +1727,12 @@ public class DomainConst {
     public static let ORDER_ICON_IMG_NAME                   = "ic_custom_order_top.png"
     /** Material selection logo image name */
     public static let MATERIAL_SELECTION_IMG_NAME           = "icon12.png"
+    /** Icon Delete */
+    public static let ICON_DELETE           = "tkdelete.png"
+    /** Icon Increase */
+    public static let ICON_INCREASE           = "increase.png"
+    /** Icon reduce */
+    public static let ICON_REDUCE          = "reduce.png"
     /** Promotion icon image name */
     public static let PROMOTION_ICON_IMG_NAME               = "icon13.png"
     /** Money icon image name */
@@ -1777,6 +1799,8 @@ public class DomainConst {
     public static let ORDER_STATUS_PROCESS_ICON_IMG_NAME    = "icon80.png"
     /** Order status Cancel image name */
     public static let ORDER_STATUS_CANCEL_ICON_IMG_NAME     = "icon81.png"
+    /** Order status Approve image name */
+    public static let ORDER_STATUS_APPROVE_ICON_IMG_NAME     = "icon_approve.png"
     /** Type 1 backgroud image name */
     public static let TYPE_1_BKG_IMG_NAME                   = "bg1.jpg"
     /** Menu backgroud body image name */
@@ -1976,7 +2000,7 @@ public class DomainConst {
     /** Address icon image */
     public static let ADDRESS_ICON_NEW_IMG_NAME                 = "address_icon.png"
     /** Search image name */
-    public static let QUICK_ACTION_ICON_IMG_NAME                = "quickaction_icon_add.png"
+    public static let QUICK_ACTION_ICON_IMG_NAME                = "add2.png"
     /** Background of share content */
     public static let SHARE_BACKGROUND_IMG_NAME                 = "background_share.jpg"
     
@@ -2556,4 +2580,7 @@ public class DomainConst {
     public static let CONTENT00580 = "✓"
     public static let CONTENT00581 = "Thêm hình ảnh"
     public static let CONTENT00582 = "Chi tiết khuyến mãi"
+    public static let CONTENT00583 = "Yêu cầu vật tư"
+    public static let CONTENT00584 = "Tạo yêu cầu vật tư"
+    public static let CONTENT00585 = "Chi tiết yêu cầu vật tư"
 }

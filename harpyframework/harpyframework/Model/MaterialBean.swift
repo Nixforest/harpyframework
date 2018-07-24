@@ -31,6 +31,8 @@ open class MaterialBean: NSObject, NSCoding {
     public var materials_no     :       String = DomainConst.BLANK
     //-- BUG0073-SPJ (NguyenPT 20170504) Add new property
     
+    
+    
     /**
      * Initializer
      * - parameter jsonData: List of data
@@ -50,6 +52,8 @@ open class MaterialBean: NSObject, NSCoding {
         //++ BUG0073-SPJ (NguyenPT 20170504) Add new property
         self.materials_no     = getString(json: jsonData, key: DomainConst.KEY_MATERIALS_NO)
         //-- BUG0073-SPJ (NguyenPT 20170504) Add new property
+        
+        
     }
     public override init() {
         

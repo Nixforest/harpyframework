@@ -1201,10 +1201,15 @@ open class BaseViewController : UIViewController {
     open func openAnnounce() {
         
     }
+    
+    //-- BUG0191-SPJ (NguyenPT 20180328) Create issue list
+    
     open func openAnnounceDetail(id: String) {
         
     }
+    
     //-- BUG0195 (NguyenPt 20180414) Add menu item
+    
     
     /**
      * Destructor

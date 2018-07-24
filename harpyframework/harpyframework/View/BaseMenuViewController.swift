@@ -408,6 +408,9 @@ open class BaseMenuViewController : BaseViewController {
             case DomainConst.KEY_ANNOUNCE_LIST:
                 self.openAnnounce()
                 break
+            case DomainConst.KEY_CUSTOMER_REQUEST_LIST:
+                currentView.pushToViewAndClearData(name: "G17F00S01VC")
+                break
             default:
                 currentView.showAlert(message: DomainConst.CONTENT00362)
                 break
