@@ -79,6 +79,11 @@ public class OrderDetailBean: MaterialBean {
      * Create json data from object
      * - returns: Json string from object data
      */
+    
+    /**
+     * Create json data from object for Customer Request
+     * - returns: Json string from object data
+     */
     public func createJsonDataForCustomerRequest() -> String {
         var retVal = DomainConst.BLANK
         retVal = String.init(format: "{\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\"}",
@@ -87,6 +92,11 @@ public class OrderDetailBean: MaterialBean {
                              DomainConst.KEY_QUANTITY,          self.qty)
         return retVal
     }
+    
+    /**
+     * Create json data from object for Customer Request
+     * - returns: Json string from object data
+     */
     
     /**
      * Constructor

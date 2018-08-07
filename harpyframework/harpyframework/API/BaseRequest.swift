@@ -24,8 +24,6 @@ open class BaseRequest: NSObject {
     /** Completion block code */
     public var completionBlock: ((Any?) -> Void)? = nil
     //-- BUG0082-SPJ (NguyenPT 20170510) Change BaseRequest handle completion mechanism
-        
-    
     /**
      * Initializer
      * - parameter url: URL

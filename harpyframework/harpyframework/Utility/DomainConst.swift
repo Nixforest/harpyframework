@@ -347,7 +347,17 @@ public class DomainConst {
     /** Role name */
     public static let KEY_ROLE_NAME                     = "role_name"
     /** List streets */
-    public static let KEY_LIST_STREET                   = "list_street"
+    public static let KEY_LIST_STREET
+        = "list_street"
+    /** List Gas Remain Car */
+    public static let KEY_GAS_REMAIN_CAR
+        = "gas_remain_car"
+    /** List Gas Remain Driver */
+    public static let KEY_GAS_REMAIN_DRIVER             = "gas_remain_driver"
+    /** List Gas Remain Car */
+    public static let KEY_CAR_ID                        = "car_id"
+    /** List Gas Remain Driver */
+    public static let KEY_DRIVER_ID                     = "driver_id"
     /** List agents */
     public static let KEY_LIST_AGENT                    = "list_agent"
     /** List hgd type */
@@ -367,7 +377,7 @@ public class DomainConst {
     /** Grand total */
     public static let KEY_GRAND_TOTAL                   = "grand_total"
     /** Sale id */
-    public static let KEY_SALE_ID                   = "sale_id"
+    public static let KEY_SALE_ID                       = "sale_id"
     /** Setting key: is login */
     public static let KEY_SETTING_IS_LOGGING            = "gasservice.isLogin"
     /** Setting key: user token */
@@ -440,6 +450,8 @@ public class DomainConst {
     public static let KEY_QUANTITY_REAL                 = "qty_real"
     /** Setting key: Serial */
     public static let KEY_SERI                          = "seri"
+    /** Setting key: Serial real */
+    public static let KEY_SERI_REAL                     = "seri_real"
     /** Setting key: Serial */
     public static let KEY_SERIAL                        = "serial"
     /** Setting key: KEY_KG_EMPTY */
@@ -531,6 +543,8 @@ public class DomainConst {
     public static let KEY_LAST_UPDATE_TIME              = "last_update_time"
     /** Json */
     public static let KEY_JSON                          = "json"
+    /** Stock */
+    public static let KEY_STOCK                          = "stock"
     /** Sale name */
     public static let KEY_SALE_NAME                     = "sale_name"
     /** Sale phone */
@@ -838,6 +852,8 @@ public class DomainConst {
     public static let KEY_DEVICE_NAME                   = "device_name"
     public static let KEY_DEVICE_IMEI                   = "device_imei"
     public static let KEY_DEVICE_OS_VERSION             = "device_os_version"
+    
+    public static let KEY_CACHE_REQUEST_MATERIALS             = "cache_request_materials"
     
     // MARK: -----Specified constant-----
     /** File parameter: file_name[ + ] */
@@ -1249,8 +1265,10 @@ public class DomainConst {
     public static let KEY_CODE_COMPLETE                 = "code_complete"
     /** Key announce_list */
     public static let KEY_ANNOUNCE_LIST                 = "announce_list"
-    /** Key announce_list */
-    public static let KEY_CUSTOMER_REQUEST_LIST                 = "customer_request_list"
+    /** Key customer_request_list */
+    public static let KEY_CUSTOMER_REQUEST_LIST         = "customer_request_list"
+    /** Key Stock_list */
+    public static let KEY_STOCK_LIST                    = "stt_list"
     
     
     //++ BUG0050-SPJ (NguyenPT 20170325) Add new function G06
@@ -2583,4 +2601,7 @@ public class DomainConst {
     public static let CONTENT00583 = "Yêu cầu vật tư"
     public static let CONTENT00584 = "Tạo yêu cầu vật tư"
     public static let CONTENT00585 = "Chi tiết yêu cầu vật tư"
+    public static let CONTENT00586 = "Giữ kho list"
+    public static let CONTENT00587 = "Xác nhận nhập xuất STT"
+    public static let CONTENT00588 = "Chi tiết nhập xuất STT"
 }

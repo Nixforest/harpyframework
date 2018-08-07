@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class OrderVIPListBean: ConfigBean {
+open class OrderVIPListBean: ConfigBean {
     /** Code number */
     public var code_no:             String = DomainConst.BLANK
     /** Delivery date */
@@ -67,5 +67,8 @@ public class OrderVIPListBean: ConfigBean {
         self.customer_name_chain    = getString(json: jsonData, key: DomainConst.KEY_CUSTOMER_NAME_CHAIN)
         self.app_status_text        = getString(json: jsonData, key: DomainConst.KEY_APP_STATUS_TEXT)
         //-- BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
+    }
+    override public init() {
+        super.init()
     }
 }

@@ -64,7 +64,13 @@ public class BaseModel: NSObject {
     var role_name: String = ""
     /** List streets */
     private var list_street: [ConfigBean] = [ConfigBean]()
+    //++ BUG0212-SPJ (KhoiVT 20170403) Thêm field gas_remain_car và gas remain_driver trong Api Update Config để nhận dữ liệu
+    /** List Gas Remain Driver */
+    public var gas_remain_driver: [ConfigBean] = [ConfigBean]()
+    /** List Gas Remain Car */
+    public var gas_remain_car: [ConfigBean] = [ConfigBean]()
     /** List agents */
+    //-- BUG0212-SPJ (KhoiVT 20170403) Thêm field gas_remain_car và gas remain_driver trong Api Update Config để nhận dữ liệu
     var list_agent: [ConfigBean] = [ConfigBean]()
     //++ BUG0050-SPJ (NguyenPT 20170403) Handle Address information
     private var _listProvinces:                 [ConfigBean]                    = [ConfigBean]()
@@ -746,6 +752,10 @@ public class BaseModel: NSObject {
         //-- BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
         self._gasRemainType         = loginModel.gas_remain_type
         //-- BUG0195-SPJ
+        //++ BUG0212-SPJ (KhoiVT 20170403) Thêm field gas_remain_car và gas remain_driver trong Api Update Config để nhận dữ liệu
+        self.gas_remain_driver      = loginModel.gas_remain_driver
+        self.gas_remain_car         = loginModel.gas_remain_car
+        //-- BUG0212-SPJ (KhoiVT 20170403) Thêm field gas_remain_car và gas remain_driver trong Api Update Config để nhận dữ liệu
     }
     
     /**

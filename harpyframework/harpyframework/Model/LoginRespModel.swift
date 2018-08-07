@@ -39,6 +39,11 @@ public class LoginRespModel : BaseRespModel {
     var list_hgd_type:                      [ConfigBean]        = [ConfigBean]()
     /** List family type */
     var list_hgd_invest:                    [ConfigBean]        = [ConfigBean]()
+    /** Gas remain driver */
+    var gas_remain_driver:                      [ConfigBean]        = [ConfigBean]()
+    /** Gas remain car */
+    var gas_remain_car:                    
+        [ConfigBean]        = [ConfigBean]()
     /** Call center uphold */
     var call_center_uphold:                 String              = DomainConst.BLANK
     /** Hotline */
@@ -121,6 +126,12 @@ public class LoginRespModel : BaseRespModel {
                 
                 // List streets
                 self.list_street.append(contentsOf: getListConfig(json: json, key: DomainConst.KEY_LIST_STREET))
+                
+                // List Gas remain driver
+                self.gas_remain_driver.append(contentsOf: getListConfig(json: json, key: DomainConst.KEY_GAS_REMAIN_DRIVER))
+                
+                // List Gas remain driver
+                self.gas_remain_car.append(contentsOf: getListConfig(json: json, key: DomainConst.KEY_GAS_REMAIN_CAR))
                 
                 // List agents
                 self.list_agent.append(contentsOf: getListConfig(json: json, key: DomainConst.KEY_LIST_AGENT))

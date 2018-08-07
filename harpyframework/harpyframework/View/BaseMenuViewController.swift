@@ -408,9 +408,16 @@ open class BaseMenuViewController : BaseViewController {
             case DomainConst.KEY_ANNOUNCE_LIST:
                 self.openAnnounce()
                 break
+            //++ BUG0206-SPJ (KhoiVT 2018711) Customer request list function
             case DomainConst.KEY_CUSTOMER_REQUEST_LIST:
                 currentView.pushToViewAndClearData(name: "G17F00S01VC")
                 break
+            //-- BUG0206-SPJ (KhoiVT 2018711) Customer request list function
+            //++ BUG0210-SPJ (KhoiVT 2018725) Gasservice - Stock List function
+            case DomainConst.KEY_STOCK_LIST:
+                currentView.pushToViewAndClearData(name: "G18F00S01VC")
+                break
+            //-- BUG0210-SPJ (KhoiVT 2018725) Gasservice - Stock List function
             default:
                 currentView.showAlert(message: DomainConst.CONTENT00362)
                 break

@@ -214,6 +214,7 @@ open class BaseViewController : UIViewController {
      */
     open func setData(_ notification: Notification) {
         // Not implement
+        
     }
     
     /**
