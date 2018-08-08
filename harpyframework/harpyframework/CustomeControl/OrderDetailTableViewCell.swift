@@ -146,4 +146,30 @@ public class OrderDetailTableViewCell: UITableViewCell {
         self.addSubview(_name)
     }
     //-- BUG0060-SPJ (NguyenPT 20170426) Add configuration model to cell
+    
+    public func setup(text : String) {
+        //++ BUG0078-SPJ (NguyenPT 20170508) Fix bug reload table view make data overlapping
+        for view in self.subviews {
+            view.removeFromSuperview()
+        }
+        //-- BUG0078-SPJ (NguyenPT 20170508) Fix bug reload table view make data overlapping
+        /** Name of config item */
+        let _name: UILabel           = UILabel()
+        // Initialization code
+        let contentHeight: CGFloat = self.frame.height - 2 * GlobalConst.MARGIN_CELL_X
+        let parentWidth: CGFloat = ConfigurationTableViewCell.PARENT_WIDTH
+       
+        // Name label
+        _name.translatesAutoresizingMaskIntoConstraints = true
+        _name.frame = CGRect(x:  GlobalConst.MARGIN,
+                             y: GlobalConst.MARGIN_CELL_X,
+                             width: parentWidth,
+                             height: contentHeight)
+        _name.textAlignment = .left
+        _name.text          = text 
+        _name.font          = UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)
+        _name.textColor     = UIColor.black
+      
+        self.addSubview(_name)
+    }
 }
