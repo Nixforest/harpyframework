@@ -13,16 +13,38 @@ public class OrderFamilyListRequest: BaseRequest {
      * Set data content
      * - parameter page:        Page index
      * - parameter status:      Status of request
+     * - parameter from:        From date
+     * - parameter to:          To date
+     */
+    func setData(page: String, status: String,from: String, to: String) {
+        self.data = "q=" + String.init(
+            format: "{\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%d\"}",
+            DomainConst.KEY_TOKEN,    BaseModel.shared.getUserToken(),
+            DomainConst.KEY_PAGE,     page,
+            DomainConst.KEY_STATUS,   status,
+            DomainConst.KEY_DATE_FROM,from,
+            DomainConst.KEY_DATE_TO,  to,
+            DomainConst.KEY_PLATFORM, DomainConst.PLATFORM_IOS
+        )
+    }
+    
+    /**
+     * Set data content
+     * - parameter page:        Page index
+     * - parameter status:      Status of request
+     * - parameter from:        From date
+     * - parameter to:          To date
      */
     func setData(page: String, status: String) {
         self.data = "q=" + String.init(
             format: "{\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%d\"}",
-            DomainConst.KEY_TOKEN, BaseModel.shared.getUserToken(),
-            DomainConst.KEY_PAGE, page,
-            DomainConst.KEY_STATUS, status,
+            DomainConst.KEY_TOKEN,    BaseModel.shared.getUserToken(),
+            DomainConst.KEY_PAGE,     page,
+            DomainConst.KEY_STATUS,   status,
             DomainConst.KEY_PLATFORM, DomainConst.PLATFORM_IOS
         )
     }
+    
     
     /**
      * Request order list function
@@ -51,13 +73,14 @@ public class OrderFamilyListRequest: BaseRequest {
      * - parameter status:              Status of request
      * - parameter completionHandler:   Action execute when finish this task
      */
-    public static func request(view: BaseViewController, page: String, status: String, completionHandler: ((Any?) -> Void)?) {
+    public static func request(view: BaseViewController, page: String, status: String,from: String, to: String, completionHandler: ((Any?) -> Void)?) {
 //        // Show overlay
 //        LoadingView.shared.showOverlay(view: view.view)
         let request = OrderFamilyListRequest(url: DomainConst.PATH_ORDER_TRANSACTION_LIST,
                                              reqMethod: DomainConst.HTTP_POST_REQUEST,
                                              view: view)
-        request.setData(page: page, status: status)
+        request.setData(page: page, status: status, from: from, to: to)
+        //request.setData(page: page, status: status)
         request.completionBlock = completionHandler
         request.execute()
     }
