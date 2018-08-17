@@ -148,7 +148,7 @@ public class OrderDetailTableViewCell: UITableViewCell {
     //-- BUG0060-SPJ (NguyenPT 20170426) Add configuration model to cell
     
     public func setup(text : String) {
-        //++ BUG0078-SPJ (NguyenPT 20170508) Fix bug reload table view make data overlapping
+        //++ BUG0078-SPJ (NguyenPT 20170508) Fix bug  
         for view in self.subviews {
             view.removeFromSuperview()
         }

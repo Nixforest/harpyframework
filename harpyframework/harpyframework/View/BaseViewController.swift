@@ -225,6 +225,7 @@ open class BaseViewController : UIViewController {
         let alert = UIAlertController(title: DomainConst.CONTENT00162, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: DomainConst.CONTENT00008, style: .default, handler: nil)
         alert.addAction(okAction)
+        alert.popoverPresentationController?.sourceView = self.view
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -241,6 +242,7 @@ open class BaseViewController : UIViewController {
             preferredStyle: .alert)
         let okAction = UIAlertAction(title: DomainConst.CONTENT00008, style: .default, handler: nil)
         alert.addAction(okAction)
+        alert.popoverPresentationController?.sourceView = self.view
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -351,6 +353,7 @@ open class BaseViewController : UIViewController {
         let alert = UIAlertController(title: DomainConst.CONTENT00162, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: DomainConst.CONTENT00008, style: .cancel, handler: okHandler)
         alert.addAction(okAction)
+        alert.popoverPresentationController?.sourceView = self.view
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -383,6 +386,7 @@ open class BaseViewController : UIViewController {
         
         alert.addAction(registerAction)
         alert.addAction(cancelAction)
+        alert.popoverPresentationController?.sourceView = self.view
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -424,6 +428,7 @@ open class BaseViewController : UIViewController {
         alert.addAction(okAction)
         let cancelAction = UIAlertAction(title: cancelTitle, style: .cancel, handler: cancelHandler)
         alert.addAction(cancelAction)
+        alert.popoverPresentationController?.sourceView = self.view
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -1098,6 +1103,7 @@ open class BaseViewController : UIViewController {
                 BaseModel.shared.clearNotificationData()
             })
             alert.addAction(cancelAction)
+            alert.popoverPresentationController?.sourceView = self.view
             self.present(alert, animated: true, completion: nil)
         //++ BUG0057-SPJ (NguyenPT 20170414) Handle notification VIP customer order
 //        } else {

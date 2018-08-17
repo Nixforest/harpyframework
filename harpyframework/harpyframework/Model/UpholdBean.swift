@@ -73,7 +73,7 @@ public class UpholdBean: NSObject {
      * Initializer
      * - parameter jsonData: List of data
      */
-    init(jsonData: [String: AnyObject]) {
+    public init(jsonData: [String: AnyObject]) {
         super.init()
         // Id
         if let idStr = jsonData[DomainConst.KEY_ID] as? String {
@@ -113,7 +113,7 @@ public class UpholdBean: NSObject {
         self.customer_name_chain    = getString(json: jsonData, key: DomainConst.KEY_CUSTOMER_NAME_CHAIN)
         //-- BUG0184-SPJ (NguyenPT 20171225) Show customer chain store
     }
-    override init() {
+    public override init() {
         
     }
 }

@@ -336,6 +336,9 @@ class InternalViewController: ChildViewController, UITableViewDelegate, UITableV
         
         alert.addAction(cancel)
         alert.addAction(ok)
+        if let presenter = alert.popoverPresentationController {
+            presenter.sourceView = self.view
+        }
         self.present(alert, animated: true, completion: { () -> Void in
             self.view.layoutIfNeeded()
         })

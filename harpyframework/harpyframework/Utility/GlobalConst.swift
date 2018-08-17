@@ -52,6 +52,7 @@ public class GlobalConst {
     public static let MARGIN_CELL_X                     : CGFloat = 3.0
     public static let ACCOUNT_AVATAR_W                  : CGFloat = 140.0
     public static let ACCOUNT_AVATAR_H                  : CGFloat = 140.0
+    public static let CELL_MENU_WIDTH                   : CGFloat = 340.0
     public static let ACCOUNT_ICON_SIZE                 : CGFloat = 35.0
     public static let SCROLL_BUTTON_LIST_HEIGHT         : CGFloat = BUTTON_HEIGHT / 5.0
     public static let STEPPER_LAYOUT_HEIGHT             : CGFloat = 29.0

@@ -197,14 +197,27 @@ open class BaseMenuViewController : BaseViewController {
 //                default:
 //                    break
 //                }
+                //DomainConst.ORDER_LIST
                 let iconPath = BaseMenuViewController.getMenuIcon(id: item.id)
                 //-- BUG0121-SPJ (NguyenPT 20170712) Add menu to Home
-                setItemContent(title: item.name, iconPath: iconPath,
-                               //++ BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
-                               //action: #selector(issueItemTapped),
-                               action: #selector(menuItemTapped),
-                               //-- BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
-                               offset: offset, id: item.id)
+                //++ BUG0217-SPJ (KhoiVT 20170808) Gasservice - Cho title Đơn hàng HGĐ và Đơn hàng bò mối lớn hơn các title còn lại trên menu
+                if(item.id == DomainConst.ORDER_TRANSACTION_LIST || item.id == DomainConst.ORDER_VIP_LIST){
+                    setBigItemContent(title: item.name, iconPath: iconPath,
+                                   //++ BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
+                        //action: #selector(issueItemTapped),
+                        action: #selector(menuItemTapped),
+                        //-- BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
+                        offset: offset, id: item.id)
+                }
+                else{
+                    setItemContent(title: item.name, iconPath: iconPath,
+                                   //++ BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
+                        //action: #selector(issueItemTapped),
+                        action: #selector(menuItemTapped),
+                        //-- BUG0043-SPJ (NguyenPT 20170301) Change how to menu work
+                        offset: offset, id: item.id)
+                }
+                //-- BUG0217-SPJ (KhoiVT 20170808) Gasservice - Cho title Đơn hàng HGĐ và Đơn hàng bò mối lớn hơn các title còn lại trên menu
                 offset += GlobalConst.BUTTON_HEIGHT
             }
         }
@@ -284,6 +297,26 @@ open class BaseMenuViewController : BaseViewController {
                             height: GlobalConst.BUTTON_HEIGHT)
         _scrollView.addSubview(item)
     }
+    
+    //++ BUG0217-SPJ (KhoiVT 20170808) Gasservice - Cho title Đơn hàng HGĐ và Đơn hàng bò mối lớn hơn các title còn lại trên menu
+    /**
+     * Set menu items content
+     * - parameter title: Title of item
+     * - parameter iconPath: Path of icon image
+     * - parameter action: Action when tab on item
+     * - parameter button: Button object
+     * - parameter icon: Icon image
+     * - parameter offset: Y offset
+     */
+    func setBigItemContent(title: String, iconPath: String, action: Selector,
+                        offset: CGFloat, id: String = "") {
+        let item: MenuItem = MenuItem(title: title, id: id, iconPath: iconPath, action: action)
+        item.frame = CGRect(x: 0, y: offset, width: GlobalConst.POPOVER_WIDTH,
+                            height: GlobalConst.BUTTON_HEIGHT)
+        item.setBiggerTitleSize()
+        _scrollView.addSubview(item)
+    }
+    //-- BUG0217-SPJ (KhoiVT 20170808) Gasservice - Cho title Đơn hàng HGĐ và Đơn hàng bò mối lớn hơn các title còn lại trên menu
     
     // MARK: Actions
     //++ BUG0043-SPJ (NguyenPT 20170301) Change how to menu work

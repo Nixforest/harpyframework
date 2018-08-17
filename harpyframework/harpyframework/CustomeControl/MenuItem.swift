@@ -50,7 +50,11 @@ class MenuItem: UIView {
                                thickness: 1.0)
         self.addSubview(button)
     }
-    
+    //++ BUG0217-SPJ (KhoiVT 20170808) Gasservice - Cho title Đơn hàng HGĐ và Đơn hàng bò mối lớn hơn các title còn lại trên menu
+    public func setBiggerTitleSize(){
+        button.titleLabel?.font = UIFont.systemFont(ofSize: GlobalConst.LARGE_FONT_SIZE)
+    }
+    //-- BUG0217-SPJ (KhoiVT 20170808) Gasservice - Cho title Đơn hàng HGĐ và Đơn hàng bò mối lớn hơn các title còn lại trên menu
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
     }

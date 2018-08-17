@@ -111,6 +111,8 @@ public class BaseModel: NSObject {
     public var sharedInt:                   Int                 = -1
     /** Current uphold detail */
     public var currentUpholdDetail:         UpholdBean          = UpholdBean()
+    /** Prev uphold detail */
+    public var PrevUpholdDetail:         UpholdBean          = UpholdBean()
     /** Notification count text */
     var notifyCountText:                    String              = DomainConst.BLANK
     /** Id of user */
