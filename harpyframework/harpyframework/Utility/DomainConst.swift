@@ -2604,4 +2604,5 @@ public class DomainConst {
     public static let CONTENT00586 = "Giữ kho list"
     public static let CONTENT00587 = "Xác nhận nhập xuất STT"
     public static let CONTENT00588 = "Chi tiết nhập xuất STT"
+    public static let CONTENT00589 = "Tạo yêu cầu hỗ trợ"
 }

@@ -1437,6 +1437,14 @@ public class BaseModel: NSObject {
     }
     //-- BUG0049-SPJ (NguyenPT 20170622) Handle save user info in setting
     
+    /**
+     * Set value for Role id
+     * - parameter id: Id of role
+     */
+    public func getRoleId() -> String {
+        return self.role_id
+    }
+    
     //++ BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
     /**
      * Get list of vip customer stores
