@@ -40,7 +40,7 @@ public class UserInfoBean: NSObject {
     /**
      * Initializer
      */
-    override init() {
+    public override init() {
         // Not implement
     }
     
@@ -48,7 +48,7 @@ public class UserInfoBean: NSObject {
      * Initializer
      * - parameter jsonString: List of object
      */
-    init(jsonString: [String: AnyObject]) {
+    public init(jsonString: [String: AnyObject]) {
         super.init()
         self.first_name     = getString(json: jsonString, key: DomainConst.KEY_FIRST_NAME)
         self.phone          = getString(json: jsonString, key: DomainConst.KEY_PHONE)

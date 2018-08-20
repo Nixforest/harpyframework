@@ -51,7 +51,10 @@ public class BaseModel: NSObject {
     /** Id of role */
     var role_id: String = ""
     /** List user info */
-    public var user_info: UserInfoBean? = nil
+    //++ BUG0159-SPJ (KhoiVT 20171113) Change [Basemodel._userInfo] from optional to normal variable
+    //public var user_info: UserInfoBean? = nil
+    public var user_info: UserInfoBean = UserInfoBean()
+    //-- BUG0159-SPJ (KhoiVT 20171113) Change [Basemodel._userInfo] from optional to normal variable
     /** User information get from login */
     public var user_info_login: [ConfigBean] = [ConfigBean]()
     /** List check menu */
@@ -538,7 +541,10 @@ public class BaseModel: NSObject {
         isLogin = false
         userToken = ""
         self._transaction = TransactionBean.init()
-        self.user_info = nil
+        //++ BUG0159-SPJ (KhoiVT 20171113) Change [Basemodel._userInfo] from optional to normal variable
+        //self.user_info = nil
+        self.user_info = UserInfoBean()
+        //-- BUG0159-SPJ (KhoiVT 20171113) Change [Basemodel._userInfo] from optional to normal variable
         self.notifyCountText = ""
         self.setTempToken(token: "")
         //++ BUG0049-SPJ (NguyenPT 20170622) Handle save user info in setting
