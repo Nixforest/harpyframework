@@ -119,8 +119,10 @@ public class OrderBean: NSObject {
     public var show_button_cancel:          String = DomainConst.BLANK
     //- BUG0103-SPJ (NguyenPT 20171227) Update new flag
     public var gas_remain_amount:           String = DomainConst.BLANK
-    
-    
+    //++ BUG0141-SPJ (KhoiVT 20170805) Đơn hàng hộ GĐ thêm phần up hình + chụp hình giống các form cũ + redesign
+    /** List images */
+    public var images:                  [UpholdImageInfoItem] = [UpholdImageInfoItem]()
+    //-- BUG0141-SPJ (KhoiVT 20170805) Đơn hàng hộ GĐ thêm phần up hình + chụp hình giống các form cũ + redesign
     public override init() {
         super.init()
     }
@@ -206,5 +208,12 @@ public class OrderBean: NSObject {
         //-- BUG0103-SPJ (NguyenPT 20171227) Update new flag
         
         self.gas_remain_amount = getString(json: jsonData, key: DomainConst.KEY_GAS_REMAIN_AMOUNT)
+        //++ BUG0141-SPJ (KhoiVT 20170805) Đơn hàng hộ GĐ thêm phần up hình + chụp hình giống các form cũ + redesign
+        if let dataArr = jsonData[DomainConst.KEY_LIST_IMAGE] as? [[String: AnyObject]] {
+            for listItem in dataArr {
+                self.images.append(UpholdImageInfoItem(jsonData: listItem))
+            }
+        }
+        //-- BUG0141-SPJ (KhoiVT 20170805) Đơn hàng hộ GĐ thêm phần up hình + chụp hình giống các form cũ + redesign
     }
 }

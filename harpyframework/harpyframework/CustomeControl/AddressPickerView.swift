@@ -38,7 +38,12 @@ public class AddressPickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSo
     //-- BUG0109-SPJ (NguyenPT 20170617) Handle search address
     /** Action */
     public var delegate: AddressPickerViewDelegate?
-    
+    //++ BUG0205-SPJ (KhoiVT 20180827) Gasservice - Change param page = 0 when request CCS Code and Add Button Done for Address Picker View
+    /** Flag check keyboard is show or hide */
+    public var isKeyboardShow : Bool = false
+    /** Height of keyboard */
+    public var keyboardTopY : CGFloat = 0.0
+    //-- BUG0205-SPJ (KhoiVT 20180827) Gasservice - Change param page = 0 when request CCS Code and Add Button Done for Address Picker View
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
@@ -128,6 +133,7 @@ public class AddressPickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSo
                 _tblSearch.dataSource = self
                 // Add table search to top most windows
                 UIApplication.shared.keyWindow!.addSubview(_tblSearch)
+                //self.addSubview(_tblSearch)
                 // Add handler when change value of text
                 _tbx.addTarget(self, action: #selector(textFieldDidChange(_:)),
                                for: .editingChanged)
@@ -139,7 +145,16 @@ public class AddressPickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSo
         self.setData(data: data)
         self.makeComponentsColor()
     }
-    
+    //++ BUG0205-SPJ (KhoiVT 20180827) Gasservice - Change param page = 0 when request CCS Code and Add Button Done for Address Picker View
+    /**
+     * Get height of keyboard
+     */
+    open func keyboardWillShow(_ notification: Notification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            self.keyboardTopY = GlobalConst.SCREEN_HEIGHT - keyboardSize.height
+        }
+    }
+    //-- BUG0205-SPJ (KhoiVT 20180827) Gasservice - Change param page = 0 when request CCS Code and Add Button Done for Address Picker View
     /**
      * Called by the picker view when it needs the number of components.
      */
@@ -210,7 +225,63 @@ public class AddressPickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSo
         _dataSearch.append(contentsOf: self._data)
         showHideTableView(isShow: _searchActive)
         _tblSearch.reloadData()
+        //++ BUG0205-SPJ (KhoiVT 20180827) Gasservice - Change param page = 0 when request CCS Code and Add Button Done for Address Picker View
+        isKeyboardShow = true
+        addDoneButtonOnKeyboardTextField()
+        //-- BUG0205-SPJ (KhoiVT 20180827) Gasservice - Change param page = 0 when request CCS Code and Add Button Done for Address Picker View
     }
+    
+    //++ BUG0205-SPJ (KhoiVT 20180827) Gasservice - Change param page = 0 when request CCS Code and Add Button Done for Address Picker View
+    /**
+     * Add a done button when keyboard show
+     */
+    func addDoneButtonOnKeyboardTextField() {
+        // Create toolbar
+        let doneToolbar = createDoneToolbar()
+        // Add toolbar to keyboard
+        _tbx.inputAccessoryView = doneToolbar
+        self.keyboardTopY -= doneToolbar.frame.height
+    }
+    
+    /**
+     * Create done toolbar
+     * - returns: Done toolbar
+     */
+    private func createDoneToolbar() -> UIToolbar {
+        // Create toolbar
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
+        doneToolbar.barStyle       = UIBarStyle.default
+        let flexSpace              = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem  = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(hideKeyboard(_:)))
+        
+        var items = [UIBarButtonItem]()
+        items.append(flexSpace)
+        items.append(done)
+        
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        return doneToolbar
+    }
+    
+    /**
+     * Hide keyboard
+     * - parameter sender: Gesture
+     */
+    func hideKeyboard(_ sender:UITapGestureRecognizer){
+        hideKeyboard()
+    }
+    
+    /**
+     * Hide keyboard
+     */
+    func hideKeyboard() {
+        self.endEditing(true)
+        /*UIView.animate(withDuration: 0.3, animations: {
+            self.frame = CGRect(x: self.frame.origin.x, y: 0, width: self.frame.size.width, height: self.frame.size.height)
+        })*/
+        isKeyboardShow = false
+    }
+    //-- BUG0205-SPJ (KhoiVT 20180827) Gasservice - Change param page = 0 when request CCS Code and Add Button Done for Address Picker View
     
     /**
      * Handle finish edit textfield
@@ -239,7 +310,7 @@ public class AddressPickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSo
      */
     public func textFieldDidChange(_ textField: UITextField) {
         let filteredStr = _tbx.text!
-        if filteredStr.characters.count > (DomainConst.SEARCH_TARGET_MIN_LENGTH - 1) {
+        if filteredStr.count > (DomainConst.SEARCH_TARGET_MIN_LENGTH - 1) {
             _beginSearch = false
             _searchActive = true
             // Start count
@@ -282,6 +353,11 @@ public class AddressPickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSo
             }
         }
         //_tblSearch.isHidden = !_searchActive
+        //++ BUG0205-SPJ (KhoiVT 20180827) Gasservice - Change param page = 0 when request CCS Code and Add Button Done for Address Picker View
+        if _dataSearch.count <= 0{
+            _tblSearch.isHidden = true
+        }
+        //-- BUG0205-SPJ (KhoiVT 20180827) Gasservice - Change param page = 0 when request CCS Code and Add Button Done for Address Picker View
         _tblSearch.reloadData()
         _tblSearch.layer.zPosition = CGFloat(MAXFLOAT)
     }

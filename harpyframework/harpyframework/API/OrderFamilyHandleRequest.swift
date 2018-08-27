@@ -151,7 +151,50 @@ public class OrderFamilyHandleRequest: TransactionSetEventRequest {
                                            ccsCode: ccsCode)
                                            //-- BUG0111-SPJ (NguyenPT 20170617) Update function G06
     }
-    
+    //++ BUG0141-SPJ (KhoiVT 20170805) Đơn hàng hộ GĐ thêm phần up hình + chụp hình giống các form cũ + redesign
+    /**
+     * Request complete [P040_OrderTransactionComplete_API]
+     * - parameter action:          Action execute when finish this task
+     * - parameter view:            Current view
+     * - parameter lat:             Latitude
+     * - parameter long:            Longitude
+     * - parameter id:              Id of order
+     * - parameter orderType:       Type of order
+     * - parameter discountType:    Type of discount
+     * - parameter orderDetail:     Detail of order
+     * - parameter ccsCode:         CCS code
+     * - parameter images:          List Images
+     */
+    public static func requestComplete2(action: Selector,
+                                       view: BaseViewController,
+                                       lat: String, long: String,
+                                       id: String,
+                                       statusCancel: String,
+                                       orderType: String,
+                                       discountType: String,
+                                       amountDiscount: String,
+                                       typeAmount: String,
+                                       support_id: String,
+                                       orderDetail: String,
+                                       //++ BUG0111-SPJ (NguyenPT 20170617) Update function G06
+        ccsCode: String, images: [UIImage]) {
+        //-- BUG0111-SPJ (NguyenPT 20170617) Update function G06
+        TransactionSetEventRequest.requestComplete(action: action, view: view,
+                                                   actionType: ActionTypeEnum.EMPLOYEE_COMPLETE.rawValue,
+                                                   lat: lat, long: long,
+                                                   changeType: "0",
+                                                   statusCancel: statusCancel,
+                                                   id: id,
+                                                   orderType: orderType,
+                                                   discountType: discountType,
+                                                   amountDiscount: amountDiscount,
+                                                   typeAmount: typeAmount,
+                                                   support_id: support_id,
+                                                   orderDetail: orderDetail,
+                                                   //++ BUG0111-SPJ (NguyenPT 20170617) Update function G06
+            ccsCode: ccsCode, images: images)
+    }
+    //-- BUG0141-SPJ (KhoiVT 20170805) Đơn hàng hộ GĐ thêm phần up hình + chụp hình giống các form cũ + redesign
     /**
      * Request cancel [P041_OrderTransactionCancel_API]
      * - parameter action:          Action execute when finish this task
