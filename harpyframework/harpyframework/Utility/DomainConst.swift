@@ -246,6 +246,8 @@ public class DomainConst {
     public static let KEY_CONTACT_NOTE                  = "contact_note"
     /** Note */
     public static let KEY_NOTE                          = "note"
+    /** Acction Invest */
+    public static let KEY_ACTION_INVEST                 = "action_invest"
     /** Report wrong */
     public static let KEY_REPORT_WRONG                  = "report_wrong"
     /** Note internal */
@@ -427,7 +429,12 @@ public class DomainConst {
     public static let KEY_SETTING_FAVOURITE_GAS         = "gasservice.listFavouriteGas"
     /** Setting key: List favourite gas information */
     public static let KEY_SETTING_FAVOURITE_GAS_LOGIN   = "gasservice.listFavouriteGasLogin"
-    
+    /** Setting key: Module type id */
+    public static let KEY_MODULE_TYPE                   = "module_type"
+    /** Setting key: Module id */
+    public static let KEY_MODULE_ID                     = "module_id"
+    /** Setting key: Module name */
+    public static let KEY_MODULE_NAME                   = "module_name"
     /** Setting key: Material type id */
     public static let KEY_MATERIALS_TYPE_ID             = "materials_type_id"
     /** Setting key: Material id */
@@ -735,6 +742,8 @@ public class DomainConst {
     public static let KEY_PAY_DIRECT                    = "pay_direct"
     /** Key setting */
     public static let KEY_SHOW_BUTTON_CANCEL            = "show_button_cancel"
+    /** Key text summary */
+    public static let KEY_TEXT_SUMMARY                  = "text_summary"
     //-- BUG0104-SPJ (NguyenPT 20170607) Update new flag
     
     //++ BUG0107-SPJ (NguyenPT 20170609) Handle image in store card
@@ -853,7 +862,8 @@ public class DomainConst {
     public static let KEY_DEVICE_IMEI                   = "device_imei"
     public static let KEY_DEVICE_OS_VERSION             = "device_os_version"
     
-    public static let KEY_CACHE_REQUEST_MATERIALS             = "cache_request_materials"
+    public static let KEY_CACHE_REQUEST_MATERIALS       = "cache_request_materials"
+    public static let KEY_CACHE_MODULE                  = "cache_module"
     
     // MARK: -----Specified constant-----
     /** File parameter: file_name[ + ] */

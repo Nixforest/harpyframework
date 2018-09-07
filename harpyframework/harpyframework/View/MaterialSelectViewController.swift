@@ -240,7 +240,7 @@ open class MaterialSelectViewController: ChildViewController, UICollectionViewDa
      */
     public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         let filteredStr = searchText
-        if filteredStr.characters.count > (DomainConst.SEARCH_MATERIAL_MIN_LENGTH - 1) {
+        if filteredStr.count > (DomainConst.SEARCH_MATERIAL_MIN_LENGTH - 1) {
             _beginSearch = false
             _searchActive = true
             // Start count

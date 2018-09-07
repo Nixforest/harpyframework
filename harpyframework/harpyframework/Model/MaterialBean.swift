@@ -127,6 +127,7 @@ open class MaterialBean: NSObject, NSCoding {
     public func isEmpty() -> Bool {
         return self.material_id.isEmpty
     }
+    
     //-- BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Get new data
     
     //++ BUG0071-SPJ (NguyenPT 20170426) Handle save data to UserDefault

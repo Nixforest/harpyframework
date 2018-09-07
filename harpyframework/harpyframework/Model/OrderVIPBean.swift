@@ -83,6 +83,8 @@ public class OrderVIPBean: ConfigBean {
     /** discount */
     public var discount:                String = DomainConst.BLANK
     //-- BUG0139-SPJ (NguyenPT 20170805) Show discount field
+    /** summary */
+    public var text_summary:                String = DomainConst.BLANK
     
     /**
      * Initializer
@@ -146,6 +148,7 @@ public class OrderVIPBean: ConfigBean {
         self.show_discount      = getInt(json: jsonData, key: DomainConst.KEY_SHOW_DISCOUNT)
         self.discount           = getStringFromInt(json: jsonData, key: DomainConst.KEY_DISCOUNT)
         //-- BUG0139-SPJ (NguyenPT 20170805) Show discount field
+        self.text_summary       = getString(json: jsonData, key: DomainConst.KEY_TEXT_SUMMARY)
     }
     
     /**
