@@ -48,7 +48,7 @@ open class ParentExtViewController: ParentViewController {
      */
     public override func setupNavigationBarParentItems() {
         // Create menu button
-        let menu                = ImageManager.getImage(named: DomainConst.MENU_IMG_NAME)
+        let menu                = ImageManager.getImage(named: DomainConst.MENU_RESIZE_IMG_NAME)
         let tintedImg           = menu?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
         let btnMenu = UIButton()
         btnMenu.setImage(tintedImg, for: UIControlState())

@@ -17,11 +17,13 @@ public class CommonProcess {
     public static func getStringBody(parameter: Dictionary <String, AnyObject>) -> String {
         var output = ""
         for  (k,v) in  parameter {
-            output = output + "\"\(k)\": \"\(v)\","
+            output = output + "\"\(k)\":\"\(v)\","
         }
-        output = "q={\(output) \"platform\":\"0\", \"token\": \"\(BaseModel.shared.getUserToken())\"}"
+        output = "q={\(output)\"platform\":\"0\",\"token\":\"\(BaseModel.shared.getUserToken())\"}"
         output = output.replacingOccurrences(of: "\"(", with: "[")
         output = output.replacingOccurrences(of: ")\"", with: "]")
+        output = output.replacingOccurrences(of: "\"[", with: "[")
+        output = output.replacingOccurrences(of: "]\"", with: "]")
         return output
     }
     /**

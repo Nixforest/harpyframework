@@ -54,6 +54,7 @@
 		90E8AE5D204440FE00C0A125 /* vmd_gender.png in Resources */ = {isa = PBXBuildFile; fileRef = 90E8AE5C204440FE00C0A125 /* vmd_gender.png */; };
 		90E8AE5F20444D5300C0A125 /* detail.png in Resources */ = {isa = PBXBuildFile; fileRef = 90E8AE5E20444D5200C0A125 /* detail.png */; };
 		90EA0F9C20747A1300ED0FD4 /* insurance.png in Resources */ = {isa = PBXBuildFile; fileRef = 90EA0F9B20747A1300ED0FD4 /* insurance.png */; };
+		CF4F94D9211C22DC0014C092 /* HarpyAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF4F94D8211C22DC0014C092 /* HarpyAssets.xcassets */; };
 		D7023EE51E2CAC0A00ED6394 /* MaterialSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7023EE41E2CAC0A00ED6394 /* MaterialSelector.swift */; };
 		D7025E241E4B06C700045B5B /* PromotionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7025E231E4B06C700045B5B /* PromotionTableViewCell.swift */; };
 		D7025E261E4B21BA00045B5B /* icon13.png in Resources */ = {isa = PBXBuildFile; fileRef = D7025E251E4B21BA00045B5B /* icon13.png */; };
@@ -522,6 +523,7 @@
 		90E8AE5C204440FE00C0A125 /* vmd_gender.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = vmd_gender.png; path = images/icon/vmd_gender.png; sourceTree = "<group>"; };
 		90E8AE5E20444D5200C0A125 /* detail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = detail.png; path = images/icon/detail.png; sourceTree = "<group>"; };
 		90EA0F9B20747A1300ED0FD4 /* insurance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = insurance.png; path = images/icon/insurance.png; sourceTree = "<group>"; };
+		CF4F94D8211C22DC0014C092 /* HarpyAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = HarpyAssets.xcassets; sourceTree = "<group>"; };
 		D7023EE41E2CAC0A00ED6394 /* MaterialSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MaterialSelector.swift; path = CustomeControl/MaterialSelector.swift; sourceTree = "<group>"; };
 		D7025E231E4B06C700045B5B /* PromotionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PromotionTableViewCell.swift; path = CustomeControl/PromotionTableViewCell.swift; sourceTree = "<group>"; };
 		D7025E251E4B21BA00045B5B /* icon13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon13.png; path = images/icon13.png; sourceTree = "<group>"; };
@@ -1495,6 +1497,7 @@
 				D7BE04841E05875400D37740 /* CustomControl */,
 				D7BE04501E0584D900D37740 /* harpyframework.h */,
 				D7BE04511E0584D900D37740 /* Info.plist */,
+				CF4F94D8211C22DC0014C092 /* HarpyAssets.xcassets */,
 			);
 			path = harpyframework;
 			sourceTree = "<group>";
@@ -1951,6 +1954,7 @@
 				D75F64EC1E28B39100A67B3C /* icon32-user-iso.png in Resources */,
 				D76AFDA91E26967900E73E1D /* icon45.png in Resources */,
 				D71544B81F6BBF6400480486 /* signup_bg_1536_2048.png in Resources */,
+				CF4F94D9211C22DC0014C092 /* HarpyAssets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

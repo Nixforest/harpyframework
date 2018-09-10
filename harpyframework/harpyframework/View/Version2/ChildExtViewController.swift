@@ -32,7 +32,7 @@ open class ChildExtViewController: ChildViewController {
      */
     public override func setupNavigationBarChildItems() {
         // Create back button
-        let back = ImageManager.getImage(named: DomainConst.BACK_IMG_NAME)
+        let back = ImageManager.getImage(named: DomainConst.BACK_RESIZED_IMG_NAME)
         let tintedBack = back?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
         let btnBack = UIButton()
         btnBack.setImage(tintedBack, for: UIControlState())

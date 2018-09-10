@@ -178,8 +178,9 @@ public class UserInfoBean: NSObject {
      * Get agent id
      * - returns: Agent id
      */
-    public func getAgentId() -> String {
-        return self.agent_id
+    public func getAgentId() -> [String] {
+        return self.agent_id.components(separatedBy: ",")
+//        return self.agent_id
     }
     
     /**

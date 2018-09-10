@@ -347,6 +347,8 @@ public class DomainConst {
     public static let KEY_LIST_STREET                   = "list_street"
     /** List agents */
     public static let KEY_LIST_AGENT                    = "list_agent"
+    /** Status receipt */
+    public static let KEY_STATUS_RECEIPT                = "status_receipt"
     /** List hgd type */
     public static let KEY_LIST_HGD_TYPE                 = "list_hgd_type"
     /** List hgd_invest */
@@ -1186,6 +1188,22 @@ public class DomainConst {
     public static let ITEM_CUSTOMER_DEBT                = "41"
     /* Item id: Image */
     public static let ITEM_IMAGE                        = "42"
+    /** Item id: Agent id */
+    public static let ITEM_RECEIPT_AGENT_ID                 = "44"
+    /** Item id: Price */
+    public static let ITEM_RECEIPT_PRICE                    = "45"
+    /** Item id: Quantity */
+    public static let ITEM_RECEIPT_QUANTITY                 = "46"
+    /** Item id: Total */
+    public static let ITEM_RECEIPT_TOTAL                    = "47"
+    /** Item id: Debt */
+    public static let ITEM_RECEIPT_DEBT                     = "48"
+    /** Item id: Receptionist */
+    public static let ITEM_RECEIPTIONIST_NAME               = "49"
+    /* Item id: receipt status collected */
+    public static let RECEIPT_STATUS_COLLECTED              = "3"
+    /* Item id: receipt status not collected */
+    public static let RECEIPT_STATUS_NOT_COLLECTED          = "2"
     // MARK: Status
     public static let TREATMENT_SCHEDULE_INACTIVE           = "0"
     public static let TREATMENT_SCHEDULE_ACTIVE             = "1"
@@ -1293,6 +1311,8 @@ public class DomainConst {
     public static let KEY_GAS24H_MENU_TEXT              = "gas24h_menu_text"
     /** Key birthday */
     public static let KEY_BIRTHDAY                      = "birthday"
+    /** Key birthday */
+    public static let KEY_APP_API_LIST_PAGE_SIZE            = "APP_API_LIST_PAGE_SIZE"
     
     //++ BUG0050-SPJ (NguyenPT 20170325) Add new function G06
     /** Platform value: Android */
@@ -1363,13 +1383,13 @@ public class DomainConst {
     public static let ADDRESS_SPLITER_WITH_SPACE        = ", "
     /** Phone spliter */
     public static let PHONE_SPLITER                     = SPLITER_TYPE1
-    /** Phone spliter */
+    /** Phone spliter - */
     public static let SPLITER_TYPE1                     = "-"
-    /** Phone spliter */
+    /** Phone spliter , */
     public static let SPLITER_TYPE2                     = ","
-    /** Phone spliter */
+    /** Phone spliter / */
     public static let SPLITER_TYPE3                     = "/"
-    /** Number spliter */
+    /** Number spliter . */
     public static let SPLITER_TYPE4                     = "."
     /** Separator string */
     public static let SEPARATOR_STR                     = "-------------------------------------------------------------------------------------------------"
@@ -1683,8 +1703,12 @@ public class DomainConst {
     public static let ADDRESS_IMG_NAME                      = "icon34-user-iso.png"
     /** Menu image name */
     public static let MENU_IMG_NAME                         = "menubtn.png"
+    /** Menu image name */
+    public static let MENU_RESIZE_IMG_NAME                  = "ic_menu_resized"
     /** Back image name */
     public static let BACK_IMG_NAME                         = "back.png"
+    /** Back image resized name */
+    public static let BACK_RESIZED_IMG_NAME                 = "ic_back_resized"
     /** Back image name */
     public static let BACK_2_IMG_NAME                       = "back_2.png"
     /** Back image name */
@@ -2105,9 +2129,9 @@ public class DomainConst {
     
     /** HTTP Post request method */
     public static let HTTP_POST_REQUEST                     = "POST"
-    /** Date time format */
+    /** Date time format dd/MM/yyyy */
     public static let DATE_TIME_FORMAT_1                    = "dd/MM/yyyy"
-    /** Date time format */
+    /** Date time format yyyy/MM/dd */
     public static let DATE_TIME_FORMAT_2                    = "yyyy/MM/dd"
     /** HTTP Post request method */
     public static let GOOGLE_API_KEY                        = "AIzaSyCOXWFIXGsvZqkOziYt5CQj7Y-bB7Ej40U"
