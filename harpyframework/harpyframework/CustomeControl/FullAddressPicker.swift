@@ -19,9 +19,9 @@ public class FullAddressPicker: UIView, AddressPickerViewDelegate {
     /** Street Picker */
     private var _pkrStreet:             AddressPickerView = AddressPickerView()
     /** House number */
-    private var _pkrHouseNum:           AddressPickerView = AddressPickerView()
+    public var _pkrHouseNum:           AddressPickerView = AddressPickerView()
     /** Address model */
-    private var _model:                 FullAddressBean   = FullAddressBean()
+    public var _model:                 FullAddressBean   = FullAddressBean()
 
     /*
     // Only override draw() if you perform custom drawing.

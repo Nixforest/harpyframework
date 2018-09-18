@@ -153,6 +153,9 @@ public class BaseModel: NSObject {
     private var _agentId:                   String              = DomainConst.BLANK
     //-- BUG0151-SPJ (NguyenPT 20170819) Save agent id to user default setting
     private var _gasRemainType:             Int                 = 0
+    //++ BUG0220-SPJ (KhoiVT 20180918) GasService - Add Function Create Issue
+    public var list_Issue:          [ConfigBean]        = [ConfigBean]()
+    //-- BUG0220-SPJ (KhoiVT 20180918) GasService - Add Function Create Issue
     
     // MARK - Methods
     override init() {
@@ -764,6 +767,9 @@ public class BaseModel: NSObject {
         self.gas_remain_driver      = loginModel.gas_remain_driver
         self.gas_remain_car         = loginModel.gas_remain_car
         //-- BUG0212-SPJ (KhoiVT 20170403) Thêm field gas_remain_car và gas remain_driver trong Api Update Config để nhận dữ liệu
+        //++ BUG0220-SPJ (KhoiVT 20180918) GasService - Add Function Create Issue
+        self.list_Issue             = loginModel.listIssue
+        //-- BUG0220-SPJ (KhoiVT 20180918) GasService - Add Function Create Issue
     }
     
     /**
@@ -1515,4 +1521,14 @@ public class BaseModel: NSObject {
     public func getGasRemainType() -> Int {
         return self._gasRemainType
     }
+    
+    /**
+     * Get list of Issue
+     * - returns: List of Issue
+     */
+    //++ BUG0220-SPJ (KhoiVT 20180918) GasService - Add Function Create Issue
+    public func getLisIssue() -> [ConfigBean] {
+        return self.list_Issue
+    }
+    //-- BUG0220-SPJ (KhoiVT 20180918) GasService - Add Function Create Issue
 }

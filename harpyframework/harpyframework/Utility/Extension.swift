@@ -1234,9 +1234,27 @@ public extension UITextField {
         self.borderStyle = .none
         self.layer.backgroundColor = UIColor.white.cgColor
         self.layer.masksToBounds = false
-        self.layer.shadowColor = UIColor.gray.cgColor
-        self.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
-        self.layer.shadowOpacity = 1.0
+        self.layer.shadowColor = UIColor.darkGray.cgColor
+        self.layer.shadowOffset = CGSize(width: 0.0, height: 1)
+        self.layer.shadowOpacity = 1
         self.layer.shadowRadius = 0.0
+    }
+}
+
+public extension UISearchBar {
+    func removeBackgroundImageView(){
+        if let view:UIView = self.subviews.first {
+            for curr in view.subviews {
+                guard let searchBarBackgroundClass = NSClassFromString("UISearchBarBackground") else {
+                    return
+                }
+                if curr.isKind(of:searchBarBackgroundClass){
+                    if let imageView = curr as? UIImageView{
+                        imageView.removeFromSuperview()
+                        break
+                    }
+                }
+            }
+        }
     }
 }

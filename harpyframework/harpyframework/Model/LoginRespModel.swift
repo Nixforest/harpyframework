@@ -74,7 +74,9 @@ public class LoginRespModel : BaseRespModel {
     var customer_chain_store:               [ConfigBean]        = [ConfigBean]()
     //-- BUG0116-SPJ (NguyenPT 20170628) Handle VIP customer order: select sub-agent
     var gas_remain_type:                    Int                 = 0
-    
+    //++ BUG0220-SPJ (KhoiVT 20180918) GasService - Add Function Create Issue
+    var listIssue:               [ConfigBean]        = [ConfigBean]()
+    //-- BUG0220-SPJ (KhoiVT 20180918) GasService - Add Function Create Issue
     
     /**
      * Initializer
@@ -102,6 +104,15 @@ public class LoginRespModel : BaseRespModel {
                 
                 // Data issue
                 self.data_issue.append(contentsOf: getListConfig(json: json, key: DomainConst.KEY_DATA_ISSUE))
+                //++ BUG0220-SPJ (KhoiVT 20180918) GasService - Add Function Create Issue
+                if self.data_issue.count > 0{
+                    self.data_issue.forEach { (issue) in
+                        if issue.id == DomainConst.KEY_PROBLEM{
+                            self.listIssue = issue.data
+                        }
+                    }
+                }
+                //-- BUG0220-SPJ (KhoiVT 20180918) GasService - Add Function Create Issue
                 
                 // Role id
                 self.role_id = getString(json: json, key: DomainConst.KEY_ROLE_ID)
@@ -167,6 +178,7 @@ public class LoginRespModel : BaseRespModel {
                 // List Cancel order reasons (VIP customer)
                 self.list_cancelVIPOrderReasons.append(contentsOf: getListConfig(json: json, key: DomainConst.KEY_STORECARD_STATUS_CANCEL))
                 //-- BUG0054-SPJ (NguyenPT 20170411) Add new function G07 - Get new data
+                
                 //++ BUG0060-SPJ (NguyenPT 20170426) Handle save list gas information to local
                 // List material gas
                 if let data = json[DomainConst.KEY_MATERIAL_GAS] as? [[String: AnyObject]] {

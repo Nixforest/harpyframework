@@ -864,7 +864,7 @@ public class DomainConst {
     
     public static let KEY_CACHE_REQUEST_MATERIALS       = "cache_request_materials"
     public static let KEY_CACHE_MODULE                  = "cache_module"
-    
+
     // MARK: -----Specified constant-----
     /** File parameter: file_name[ + ] */
     public static let FILE_PARAM_FILE_NAME              = "file_name["
@@ -2615,4 +2615,9 @@ public class DomainConst {
     public static let CONTENT00587 = "Xác nhận nhập xuất STT"
     public static let CONTENT00588 = "Chi tiết nhập xuất STT"
     public static let CONTENT00589 = "Tạo yêu cầu hỗ trợ"
+    //++ BUG0220-SPJ (KhoiVT 20180918) GasService - Add Function Create Issue
+    public static let CONTENT00590 = "Tạo phản ánh"
+    public static let CONTENT00591 = "Tạo nguyên nhân phản ánh"
+    public static let CONTENT00592 = "Chọn nguyên nhân phản ánh"
+    //-- BUG0220-SPJ (KhoiVT 20180918) GasService - Add Function Create Issue
 }

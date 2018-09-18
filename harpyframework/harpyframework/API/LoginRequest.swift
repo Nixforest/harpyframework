@@ -73,7 +73,7 @@ public class LoginRequest: BaseRequest {
         }
         //-- BUG0198-SPJ (NguyenPT 20180530) Get device information
         self.data = "q=" + String.init(
-            format: "{\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\"}",
+            format: "{\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":\"%@\",\"%@\":%d}",
             DomainConst.KEY_USERNAME, username,
             DomainConst.KEY_PASSWORD, password,
             DomainConst.KEY_GCM_DEVICE_TOKEN, DomainConst.BLANK,
@@ -85,7 +85,8 @@ public class LoginRequest: BaseRequest {
             DomainConst.KEY_DEVICE_IMEI, identifierForVendor,
             DomainConst.KEY_DEVICE_OS_VERSION, "\(UIDevice.current.systemName) \(UIDevice.current.systemVersion)",
             //-- BUG0198-SPJ (NguyenPT 20180530) Get device information
-            DomainConst.KEY_FLAG_GAS_24H, BaseModel.shared.getAppType()
+            DomainConst.KEY_FLAG_GAS_24H, BaseModel.shared.getAppType(),
+            DomainConst.KEY_PLATFORM,               DomainConst.PLATFORM_IOS
         )
     }
     

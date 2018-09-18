@@ -21,7 +21,7 @@ public class AddressPickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSo
     /** Label */
     private var _lbl:           UILabel         = UILabel()
     /** Value */
-    private var _tbx:           UITextField     = UITextField()
+    public var _tbx:           UITextField     = UITextField()
     /** Input view is picker view */
     private var _bIsPicker:     Bool            = true
     //++ BUG0109-SPJ (NguyenPT 20170617) Handle search address
