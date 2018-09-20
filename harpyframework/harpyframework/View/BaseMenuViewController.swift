@@ -121,7 +121,19 @@ open class BaseMenuViewController : BaseViewController {
             y: GlobalConst.LOGIN_LOGO_H * 3 / 2,
             width: GlobalConst.POPOVER_WIDTH,
             height: self.preferredContentSize.height - GlobalConst.LOGIN_LOGO_H * 3 / 2)
+        //++
+        var k = false
+        BaseModel.shared.menu.forEach { (configBean) in
+            if(configBean.id == "cms"){
+                k = true
+                return
+            }
+        }
         
+        if k == false{
+            BaseModel.shared.menu.append(ConfigBean(id: "cms", name: "Tin tức"))
+        }
+        //--
         // Dynamic menu
         if listMenu[MenuItemEnum.DYNAMIC_MENU_LIST.hashValue] {
             for item in BaseModel.shared.menu {
@@ -451,6 +463,11 @@ open class BaseMenuViewController : BaseViewController {
                 currentView.pushToViewAndClearData(name: "G18F00S01VC")
                 break
             //-- BUG0210-SPJ (KhoiVT 2018725) Gasservice - Stock List function
+            //++
+            case "cms":
+                currentView.pushToViewAndClearData(name: "G19F00S01VC")
+                break
+            //--
             default:
                 currentView.showAlert(message: DomainConst.CONTENT00362)
                 break

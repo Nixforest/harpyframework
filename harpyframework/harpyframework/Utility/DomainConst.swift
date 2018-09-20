@@ -864,7 +864,9 @@ public class DomainConst {
     
     public static let KEY_CACHE_REQUEST_MATERIALS       = "cache_request_materials"
     public static let KEY_CACHE_MODULE                  = "cache_module"
-
+    //++
+    public static let KEY_CATEGORY_ID                   = "category_id"
+    //--
     // MARK: -----Specified constant-----
     /** File parameter: file_name[ + ] */
     public static let FILE_PARAM_FILE_NAME              = "file_name["
@@ -1279,6 +1281,19 @@ public class DomainConst {
     public static let KEY_CUSTOMER_REQUEST_LIST         = "customer_request_list"
     /** Key Stock_list */
     public static let KEY_STOCK_LIST                    = "stt_list"
+    //++
+    /** Key Stock_list */
+    public static let KEY_CATEGORY_TYPE                    = "category_type"
+    /** Key Link web */
+    public static let KEY_LINK_WEB                    = "link_web"
+    /** Key Link web text*/
+    public static let KEY_LINK_WEB_TEXT                    = "link_web_text"
+    /** Key Short content*/
+    public static let KEY_SHORT_CONTENT                    = "short_content"
+    /** Key Short content*/
+    public static let KEY_CMS_CONTENT                    = "cms_content"
+    
+    //--
     
     
     //++ BUG0050-SPJ (NguyenPT 20170325) Add new function G06
@@ -2620,4 +2635,10 @@ public class DomainConst {
     public static let CONTENT00591 = "Tạo nguyên nhân phản ánh"
     public static let CONTENT00592 = "Chọn nguyên nhân phản ánh"
     //-- BUG0220-SPJ (KhoiVT 20180918) GasService - Add Function Create Issue
+    //++
+    public static let CONTENT00593 = "Tin tức"
+    public static let CONTENT00594 = "Loại tin tức"
+    public static let CONTENT00595 = "Chọn loại tin tức"
+    public static let CONTENT00596 = "Chi tiết tin tức"
+    //--
 }
